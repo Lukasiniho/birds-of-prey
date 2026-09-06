@@ -21,10 +21,10 @@ export const catalogAdditions: AdditionalBird[] = [
     intro:
       'Ein ungewöhnlich geselliger Greifvogel: Wüstenbussarde jagen gemeinsam und unterstützen sich bei der Jungenaufzucht.',
     habitat:
-      'Halboffene Landschaften mit Dorngebüsch, Kakteen und einzelnen Bäumen, außerdem Savannen. Erhöhte Ansitze und erreichbare Wasserstellen sind besonders in heißen Gebieten wichtig.',
+      'Halboffene trockene Landschaften mit Dorngebüsch, Mesquite-Bäumen und Kakteen. Im Südwesten Nordamerikas besiedelt er besonders Wüstenbuschland; weiter südlich auch andere offene und locker bewaldete Lebensräume. Einzelne Bäume und große Kakteen bieten Ansitze und Nistplätze.',
     range: 'Südwestliches Nordamerika bis Südamerika',
     regions: ['Nordamerika', 'Südamerika'],
-    habitatGroup: 'Savannen & Buschland',
+    habitatGroup: 'Wüsten & Dornbuschland',
     colors: [
       ['Schokoladenbraun', '#3B2B22'],
       ['Kastanienbraun', '#9A502E'],

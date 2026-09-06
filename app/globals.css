@@ -50,7 +50,7 @@
   --muted-foreground: #9aafbc;
   --border: #26323b;
   --ring: #a2c1d2;
-  --stage: #11191f;
+  --stage: #070a0d;
   --topbar: #090e12;
   --selected: #1c2c35;
   --hover: #142029;
@@ -1078,12 +1078,6 @@ h2 {
   line-height: 1.2;
   letter-spacing: -0.25px;
 }
-.species-intro {
-  font-size: 14px;
-  line-height: 1.75;
-  margin: 0 0 28px;
-  color: var(--foreground);
-}
 .measurements {
   margin: 0;
   display: flex;
@@ -1281,9 +1275,6 @@ h2 {
   }
   .info-tab-list button[data-slot] {
     font-size: 13px;
-  }
-  .species-intro {
-    font-size: 15px;
   }
   .measurements {
     gap: 20px;
@@ -2042,13 +2033,13 @@ h2 {
   letter-spacing: 0;
 }
 .specimen-heading p {
-  font-size: 25px;
+  font-size: 30px;
   margin-top: 6px;
   line-height: 1.3;
 }
 @media (max-width: 640px) {
   .specimen-heading p {
-    font-size: 23px;
+    font-size: 26px;
     margin-top: 5px;
   }
 }
@@ -2168,9 +2159,6 @@ h2 {
 /* Compact reading rhythm in the information rail. */
 .info-tab-list[data-slot] {
   margin-bottom: 24px;
-}
-.species-intro {
-  margin-bottom: 22px;
 }
 .measurements {
   gap: 18px;
@@ -2624,24 +2612,9 @@ h2 {
   line-height: 1.65;
   overflow-wrap: break-word;
 }
-.profile-sources {
-  display: flex;
-  flex-wrap: wrap;
-  gap: 8px 14px;
-  margin-top: var(--rail-section-gap);
-  padding-top: var(--rail-content-gap);
-  border-top: 1px solid var(--border);
-  color: var(--muted-foreground);
-  font-size: 14px;
-  line-height: 1.5;
-}
-.profile-sources > span {
-  flex-basis: 100%;
-}
-.profile-sources a {
-  text-decoration: underline;
-  text-underline-offset: 3px;
-}
-.profile-sources a:hover {
-  color: var(--foreground);
+
+.info-panel .profile-section:first-child {
+  margin-top: 0;
+  padding-top: 0;
+  border-top: 0;
 }

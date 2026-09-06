@@ -38,6 +38,11 @@ export const landscapes: Record<
     label: 'Städte',
     description: 'Hohe Türme und Dächer in einer europäischen Stadt',
   },
+  dornbuschland: {
+    label: 'Wüsten- & Dornbuschland',
+    description:
+      'Halboffenes Wüstenbuschland mit Mesquite-Bäumen und Saguaro-Kakteen im Südwesten Nordamerikas',
+  },
   savanne: {
     label: 'Savannen',
     description: 'Offenes Grasland mit einzelnen Akazien',
@@ -56,7 +61,7 @@ export const landscapes: Record<
   },
 };
 export const speciesLandscapes: Record<string, string[]> = {
-  wuestenbussard: ['savanne'],
+  wuestenbussard: ['dornbuschland'],
   kronenadler: ['regenwald', 'wald'],
   rotschwanzbussard: ['feldflur', 'wald'],
   habicht: ['wald', 'park'],
