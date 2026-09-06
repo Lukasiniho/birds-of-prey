@@ -318,7 +318,7 @@ export const birdMorphs: Record<MorphSpeciesId, BirdMorphConfig> = {
         images: {
           male: '/birds/morph-rotschwanzbussard-rostbraun-male.png?v=de383baa409c',
           juvenile:
-            '/birds/morph-rotschwanzbussard-rostbraun-juvenile.png?v=04d438e5a65f',
+            '/birds/morph-rotschwanzbussard-rostbraun-juvenile.png?v=7a9a0f1399df',
         },
       },
       {
@@ -343,7 +343,7 @@ export const birdMorphs: Record<MorphSpeciesId, BirdMorphConfig> = {
         images: {
           male: '/birds/morph-rotschwanzbussard-dunkel-male.png?v=8f28a7e54190',
           juvenile:
-            '/birds/morph-rotschwanzbussard-dunkel-juvenile.png?v=82ef82e6888c',
+            '/birds/morph-rotschwanzbussard-dunkel-juvenile.png?v=f902be4f6724',
         },
       },
     ],
