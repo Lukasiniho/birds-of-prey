@@ -162,8 +162,10 @@ h2 {
   background: var(--border);
 }
 .theme-toggle {
-  height: 37px !important;
-  width: 37px !important;
+  height: 38px !important;
+  width: 38px !important;
+  min-width: 38px;
+  padding: 0 !important;
 }
 .theme-toggle svg {
   width: 18px !important;
@@ -822,9 +824,6 @@ h2 {
   .collection-button svg {
     width: 16px !important;
     height: 16px !important;
-  }
-  .theme-toggle {
-    width: 30px !important;
   }
   .header-divider {
     display: none;
