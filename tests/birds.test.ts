@@ -2,17 +2,10 @@ import { test } from 'node:test';
 import assert from 'node:assert/strict';
 import { birds, filterBirds, groupBirds, plumagesFor } from '../lib/birds.ts';
 void test('German and scientific searches return the right species', () => {
-  assert.equal(filterBirds('mäuse', false, [])[0]?.id, 'maeusebussard');
-  assert.equal(filterBirds('FALCO', false, []).length, 6);
-  assert.equal(filterBirds('   ', false, []).length, 29);
-  assert.equal(filterBirds('unbekannt', false, []).length, 0);
-});
-void test('collection and text search compose', () => {
-  assert.equal(filterBirds('', true, []).length, 0);
-  assert.deepEqual(
-    filterBirds('adler', true, ['habicht', 'seeadler']).map((b) => b.id),
-    ['seeadler'],
-  );
+  assert.equal(filterBirds('mäuse')[0]?.id, 'maeusebussard');
+  assert.equal(filterBirds('FALCO').length, 6);
+  assert.equal(filterBirds('   ').length, 29);
+  assert.equal(filterBirds('unbekannt').length, 0);
 });
 void test('genus grouping preserves every bird exactly once', () => {
   const groups = groupBirds(birds, 'genus');
@@ -24,7 +17,7 @@ void test('genus grouping preserves every bird exactly once', () => {
 });
 void test('all grouping modes retain every matching species and no extras', () => {
   for (const mode of ['genus', 'region', 'range', 'habitat'] as const) {
-    const filtered = filterBirds('adler', false, []);
+    const filtered = filterBirds('adler');
     const ids = new Set(
       groupBirds(filtered, mode).flatMap((g) => g.birds.map((b) => b.id)),
     );
@@ -63,7 +56,7 @@ void test('new German species names, synonyms and umlaut-free IDs are searchable
     ['Crowned Eagle', 'kronenadler'],
     ['Stephanoaetus', 'kronenadler'],
   ])
-    assert(filterBirds(query, false, []).some((b) => b.id === id));
+    assert(filterBirds(query).some((b) => b.id === id));
 });
 void test('all images exist and eye and leg colours follow the chosen age', async () => {
   const { existsSync } = await import('node:fs');

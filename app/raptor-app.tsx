@@ -1,7 +1,7 @@
 'use client';
 import { useEffect, useState } from 'react';
 import Image from 'next/image';
-import { Bookmark, Search, Feather, X, Moon, Sun } from 'lucide-react';
+import { Search, Feather, X, Moon, Sun } from 'lucide-react';
 import { Button } from '@/components/ui/button';
 import { Input } from '@/components/ui/input';
 import {
@@ -282,15 +282,12 @@ export default function RaptorApp() {
   const [chosenMorphs, setMorphs] = useState<Record<string, string>>({});
   const [query, setQuery] = useState('');
   const [grouping, setGrouping] = useState<GroupMode>('genus');
-  const [saved, setSaved] = useState<string[]>([]);
-  const [collection, setCollection] = useState(false);
   const [dark, setDark] = useState(false);
   const bird = birds.find((b) => b.id === selected)!;
   const availablePlumages = plumagesFor(bird.id);
   const plumage = availablePlumages.some((p) => p.value === chosenPlumage)
     ? chosenPlumage
     : 'male';
-  const isSaved = saved.includes(selected);
   const bodyColors = bodyColorsFor(bird.id, plumage);
   const morphConfig = getBirdMorphConfig(bird.id);
   const morph = getBirdMorphChoice(bird.id, chosenMorphs[bird.id]);
@@ -302,16 +299,6 @@ export default function RaptorApp() {
   useEffect(() => {
     const timer = window.setTimeout(() => {
       try {
-        const ids: unknown = JSON.parse(
-          localStorage.getItem('raptor:saved') || '[]',
-        );
-        if (Array.isArray(ids))
-          setSaved(
-            ids.filter(
-              (id): id is string =>
-                typeof id === 'string' && birds.some((b) => b.id === id),
-            ),
-          );
         const theme = localStorage.getItem('raptor:theme');
         setDark(theme === 'dark');
       } catch {}
@@ -321,15 +308,6 @@ export default function RaptorApp() {
   useEffect(() => {
     document.documentElement.dataset.theme = dark ? 'dark' : 'light';
   }, [dark]);
-  function save() {
-    const next = isSaved
-      ? saved.filter((id) => id !== selected)
-      : [...saved, selected];
-    setSaved(next);
-    try {
-      localStorage.setItem('raptor:saved', JSON.stringify(next));
-    } catch {}
-  }
   function theme() {
     setDark(!dark);
     try {
@@ -356,7 +334,7 @@ export default function RaptorApp() {
       imageSource(variant?.image ?? birdImage(id, ageForBird)),
     ).catch(() => {});
   }
-  const filtered = filterBirds(query, collection, saved);
+  const filtered = filterBirds(query);
   const groups = groupBirds(filtered, grouping);
   return (
     <TooltipProvider delay={180}>
@@ -382,23 +360,6 @@ export default function RaptorApp() {
             )}
           </div>
           <div className="header-actions">
-            <Button
-              variant="ghost"
-              className={`collection-button ${collection ? 'chosen' : ''}`}
-              onClick={() => setCollection(!collection)}
-              aria-pressed={collection}
-              aria-label={`Meine Sammlung, ${saved.length} gespeicherte Arten`}
-            >
-              <Bookmark
-                strokeWidth={1.4}
-                fill={collection ? 'currentColor' : 'none'}
-              />
-              <span>Meine Sammlung</span>
-              {saved.length > 0 && (
-                <span className="count">{saved.length}</span>
-              )}
-            </Button>
-            <span className="header-divider" />
             <Tooltip>
               <TooltipTrigger
                 render={
@@ -491,23 +452,9 @@ export default function RaptorApp() {
             {filtered.length === 0 && (
               <div className="empty-library">
                 <Feather />
-                <p>
-                  {collection && saved.length === 0
-                    ? 'Noch keine Vögel gemerkt.'
-                    : 'Keine Art gefunden.'}
-                </p>
-                <span>
-                  {collection && saved.length === 0
-                    ? 'Mit dem Lesezeichen neben dem Namen speicherst du deine Favoriten.'
-                    : 'Versuche einen anderen Suchbegriff.'}
-                </span>
-                <Button
-                  variant="link"
-                  onClick={() => {
-                    setQuery('');
-                    setCollection(false);
-                  }}
-                >
+                <p>Keine Art gefunden.</p>
+                <span>Versuche einen anderen Suchbegriff.</span>
+                <Button variant="link" onClick={() => setQuery('')}>
                   Alle Arten anzeigen
                 </Button>
               </div>
@@ -519,31 +466,6 @@ export default function RaptorApp() {
                 <h1>{bird.name}</h1>
                 <p>{bird.latin}</p>
               </div>
-              <Tooltip>
-                <TooltipTrigger
-                  render={
-                    <Button
-                      variant="ghost"
-                      className="save-button"
-                      onClick={save}
-                      aria-label={
-                        isSaved
-                          ? 'Aus Sammlung entfernen'
-                          : 'In Sammlung speichern'
-                      }
-                      aria-pressed={isSaved}
-                    />
-                  }
-                >
-                  <Bookmark
-                    strokeWidth={1.4}
-                    fill={isSaved ? 'currentColor' : 'none'}
-                  />
-                </TooltipTrigger>
-                <TooltipContent>
-                  {isSaved ? 'In deiner Sammlung' : 'Art merken'}
-                </TooltipContent>
-              </Tooltip>
             </div>
             <Tabs
               value={plumage}
@@ -551,44 +473,56 @@ export default function RaptorApp() {
               className="plumage-tabs"
             >
               <div className="specimen-controls">
-                <TabsList
-                  variant="line"
-                  className="plumage-list"
-                  aria-label="Geschlecht und Alter"
-                >
-                  {availablePlumages.map((p) => (
-                    <TabsTrigger
-                      key={p.value}
-                      value={p.value}
-                      onPointerEnter={() => warmBird(bird.id, p.value)}
-                      onFocus={() => warmBird(bird.id, p.value)}
-                    >
-                      {p.label}
-                    </TabsTrigger>
-                  ))}
-                </TabsList>
-                {morphConfig && morph && (
-                  <fieldset className="morph-control" aria-label="Farbform">
-                    {morphConfig.choices.map((choice) => (
-                      <button
-                        type="button"
-                        key={choice.id}
-                        className="morph-choice"
-                        aria-pressed={morph.id === choice.id}
-                        onPointerEnter={() =>
-                          warmBird(bird.id, plumage, choice.id)
-                        }
-                        onFocus={() => warmBird(bird.id, plumage, choice.id)}
-                        onClick={() =>
-                          setMorphs((previous) => ({
-                            ...previous,
-                            [bird.id]: choice.id,
-                          }))
-                        }
+                <div className="control-group">
+                  <span className="control-label" aria-hidden="true">
+                    {availablePlumages.length > 2 ? 'Kleid' : 'Alter'}
+                  </span>
+                  <TabsList
+                    className="plumage-list segmented"
+                    aria-label="Geschlecht und Alter"
+                  >
+                    {availablePlumages.map((p) => (
+                      <TabsTrigger
+                        key={p.value}
+                        value={p.value}
+                        onPointerEnter={() => warmBird(bird.id, p.value)}
+                        onFocus={() => warmBird(bird.id, p.value)}
                       >
-                        {choice.label}
-                      </button>
+                        {p.label}
+                      </TabsTrigger>
                     ))}
+                  </TabsList>
+                </div>
+                {morphConfig && morph && (
+                  <fieldset
+                    className="morph-control control-group"
+                    aria-label={morphConfig.label}
+                  >
+                    <span className="control-label" aria-hidden="true">
+                      {morphConfig.label}
+                    </span>
+                    <div className="segmented">
+                      {morphConfig.choices.map((choice) => (
+                        <button
+                          type="button"
+                          key={choice.id}
+                          className="morph-choice"
+                          aria-pressed={morph.id === choice.id}
+                          onPointerEnter={() =>
+                            warmBird(bird.id, plumage, choice.id)
+                          }
+                          onFocus={() => warmBird(bird.id, plumage, choice.id)}
+                          onClick={() =>
+                            setMorphs((previous) => ({
+                              ...previous,
+                              [bird.id]: choice.id,
+                            }))
+                          }
+                        >
+                          {choice.label}
+                        </button>
+                      ))}
+                    </div>
                   </fieldset>
                 )}
               </div>
@@ -649,27 +583,31 @@ export default function RaptorApp() {
                       label="Gefieder"
                       colors={appearance?.colors ?? colorsFor(bird, plumage)}
                     />
-                    <div className="body-color-pair">
-                      <ColorRow label="Augen" colors={bodyColors.eyes} />
-                      <ColorRow
-                        label="Beine & Füße"
-                        colors={bodyColors.legs}
-                        note={bodyColors.note}
-                      />
-                    </div>
+                    <ColorRow label="Augen" colors={bodyColors.eyes} />
+                    <ColorRow
+                      label="Beine & Füße"
+                      colors={bodyColors.legs}
+                      note={bodyColors.note}
+                    />
                   </div>
-                </section>
-                <section className="plumage-note">
-                  <h2>
-                    {
-                      plumagesFor(bird.id).find((p) => p.value === plumage)!
-                        .label
-                    }
-                  </h2>
-                  <p>{appearance?.note ?? plumageNoteFor(bird.id, plumage)}</p>
-                  {morphConfig && (
-                    <p className="morph-context">{morphConfig.note}</p>
-                  )}
+                  <div className="plumage-note">
+                    <h3>
+                      {
+                        plumagesFor(bird.id).find((p) => p.value === plumage)!
+                          .label
+                      }
+                      {morph && ` · ${morph.label}`}
+                    </h3>
+                    <p>
+                      {appearance?.note ?? plumageNoteFor(bird.id, plumage)}
+                    </p>
+                    {morphConfig && (
+                      <details className="morph-context">
+                        <summary>Hinweis zu den Farbformen</summary>
+                        <p>{morphConfig.note}</p>
+                      </details>
+                    )}
+                  </div>
                 </section>
                 <section className="profile-section">
                   <h2>Lebensweise</h2>
@@ -729,7 +667,6 @@ export default function RaptorApp() {
         </SidebarProvider>
         <output className="sr-only" aria-live="polite">
           {bird.name}
-          {isSaved ? ', in deiner Sammlung' : ''}
         </output>
       </div>
     </TooltipProvider>

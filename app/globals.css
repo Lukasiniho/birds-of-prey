@@ -143,24 +143,6 @@ h2 {
   align-items: center;
   gap: 14px;
 }
-.collection-button {
-  gap: 8px !important;
-  height: 38px !important;
-  font-size: 13px !important;
-  font-weight: 400 !important;
-}
-.collection-button svg {
-  width: 18px !important;
-  height: 18px !important;
-}
-.chosen {
-  background: var(--muted);
-}
-.header-divider {
-  height: 20px;
-  width: 1px;
-  background: var(--border);
-}
 .theme-toggle {
   height: 38px !important;
   width: 38px !important;
@@ -171,19 +153,6 @@ h2 {
   width: 18px !important;
   height: 18px !important;
   stroke-width: 1.5;
-}
-.count {
-  display: inline-flex;
-  flex-shrink: 0;
-  align-items: center;
-  justify-content: center;
-  border-radius: 999px;
-  min-width: 19px;
-  padding-inline: 4px;
-  height: 19px;
-  background: var(--primary);
-  color: var(--primary-foreground);
-  font-size: 10px;
 }
 .app-columns[data-slot] {
   display: grid;
@@ -423,17 +392,6 @@ h2 {
   font-style: italic;
   color: var(--muted-foreground);
   margin-top: 9px;
-}
-.save-button {
-  height: 38px !important;
-  width: 34px !important;
-  min-width: 34px;
-  padding: 0 !important;
-  margin-top: 25px;
-}
-.save-button svg {
-  width: 22px !important;
-  height: 22px !important;
 }
 .image-stage {
   position: relative;
@@ -816,18 +774,6 @@ h2 {
   .header-actions {
     gap: 8px;
   }
-  .collection-button {
-    font-size: 11px !important;
-    padding: 0 4px !important;
-    gap: 5px !important;
-  }
-  .collection-button svg {
-    width: 16px !important;
-    height: 16px !important;
-  }
-  .header-divider {
-    display: none;
-  }
   .app-columns[data-slot] {
     display: flex;
     flex-direction: column;
@@ -913,11 +859,6 @@ h2 {
   .species-family {
     font-size: 11px;
     margin-bottom: 9px;
-  }
-  .save-button {
-    margin-top: 17px;
-    width: 28px !important;
-    min-width: 28px;
   }
   .image-stage {
     min-height: 320px;
@@ -1252,9 +1193,6 @@ h2 {
   .header-actions {
     gap: 5px;
   }
-  .collection-button span:not(.count) {
-    display: none;
-  }
   .info-panel {
     padding: 26px 23px;
   }
@@ -1324,20 +1262,6 @@ h2 {
   margin-top: 12px;
   color: var(--muted-foreground);
 }
-.save-button {
-  position: absolute;
-  right: 22px;
-  top: 18px;
-  margin: 0;
-  border: 0 !important;
-  background: transparent !important;
-  box-shadow: none !important;
-  opacity: 0.75;
-}
-.save-button:hover,
-.save-button[aria-pressed='true'] {
-  opacity: 1;
-}
 @media (min-width: 1600px) {
   .specimen-heading {
     padding: 54px 50px 0;
@@ -1378,10 +1302,6 @@ h2 {
   .specimen-heading p {
     font-size: 21px;
     margin-top: 10px;
-  }
-  .save-button {
-    right: 14px;
-    top: 10px;
   }
 }
 .image-credit {
@@ -1949,14 +1869,6 @@ h2 {
     grid-template-columns: 1fr minmax(175px, 220px) auto;
     gap: 14px;
   }
-  .collection-button span:not(.count) {
-    display: none;
-  }
-  .collection-button {
-    width: auto !important;
-    min-width: 36px;
-    padding: 0 8px !important;
-  }
 }
 @media (max-width: 640px) {
   .topbar {
@@ -2378,19 +2290,6 @@ h2 {
   display: block;
 }
 /* Polished header, a consistent editorial rhythm, and stable image changes. */
-.topbar-search input,
-.collection-button[data-slot] {
-  border-color: color-mix(in srgb, var(--border) 55%, transparent);
-  background: color-mix(in srgb, var(--muted) 22%, var(--topbar));
-  box-shadow: none;
-  transition:
-    border-color 160ms ease,
-    background-color 160ms ease;
-}
-.topbar-search input:hover,
-.collection-button[data-slot]:hover {
-  border-color: var(--border);
-}
 .topbar-search input:focus-visible {
   border-color: var(--muted-foreground);
 }
@@ -2775,5 +2674,234 @@ h2 {
   }
   .range-map-dialog [data-slot='dialog-title'] {
     font-size: 26px;
+  }
+}
+
+/* ------------------------------------------------------------------
+   Composed specimen stage: labelled segmented controls and an
+   illustration that uses the room. */
+/* Age and colour form read as two labelled segmented controls. */
+.specimen-controls {
+  gap: 10px 30px;
+  margin: 18px 20px 0;
+}
+.control-group,
+.specimen-controls fieldset.morph-control,
+.specimen-controls .morph-control {
+  display: flex;
+  align-items: center;
+  gap: 10px;
+  margin: 0;
+  padding: 0;
+  border: 0;
+}
+.control-label {
+  font:
+    500 11px/1 var(--font-body),
+    Inter,
+    sans-serif;
+  letter-spacing: 0.7px;
+  text-transform: uppercase;
+  color: var(--muted-foreground);
+}
+.segmented,
+.specimen-controls .plumage-list[data-slot] {
+  display: inline-flex;
+  align-items: center;
+  gap: 2px;
+  height: 34px;
+  padding: 3px;
+  margin: 0;
+  border-radius: 999px;
+  border: 1px solid color-mix(in srgb, var(--foreground) 9%, transparent);
+  background: color-mix(in srgb, var(--foreground) 6%, transparent);
+}
+.segmented > .morph-choice,
+.plumage-list button[data-slot] {
+  position: relative;
+  flex: 0 0 auto;
+  height: 26px;
+  padding: 0 13px;
+  margin: 0;
+  border: 0;
+  border-radius: 999px;
+  background: transparent;
+  box-shadow: none;
+  color: color-mix(in srgb, var(--foreground) 72%, var(--muted-foreground));
+  font:
+    500 13px/1 var(--font-body),
+    Inter,
+    sans-serif;
+  cursor: pointer;
+  transition:
+    background-color 140ms ease,
+    color 140ms ease;
+}
+.segmented > .morph-choice:hover,
+.plumage-list button[data-slot]:hover {
+  color: var(--foreground);
+}
+.segmented > .morph-choice[aria-pressed='true'],
+.plumage-list button[data-active] {
+  background: var(--background);
+  color: var(--foreground);
+  font-weight: 500;
+  box-shadow:
+    0 1px 2px rgb(0 0 0 / 0.1),
+    0 0 0 1px color-mix(in srgb, var(--foreground) 10%, transparent);
+}
+.segmented > .morph-choice::after,
+.plumage-list button[data-slot]::after {
+  display: none;
+  content: none;
+}
+.segmented > .morph-choice:focus-visible,
+.plumage-list button[data-slot]:focus-visible {
+  outline: 2px solid var(--ring);
+  outline-offset: 2px;
+  box-shadow: none;
+}
+
+/* On desktop the illustration takes the room the stage has to give. */
+@media (min-width: 981px) {
+  .specimen-controls {
+    margin-top: 14px;
+  }
+  .plumage-panel[data-slot],
+  .plumage-panel .image-stage {
+    overflow: visible;
+  }
+  .hero-art > .bird-art > img {
+    padding: 0;
+  }
+  .hero-art {
+    transform: scale(1.06);
+  }
+  .specimen-measurements.measurements {
+    margin: 6px 28px 22px;
+    padding: 14px 12px 15px;
+  }
+  .specimen-measurements.measurements > div > span {
+    margin-bottom: 5px;
+  }
+  .specimen-panel .image-credit {
+    position: absolute;
+    right: 22px;
+    bottom: 5px;
+    margin: 0;
+    z-index: 2;
+  }
+}
+
+/* Colour rows share one label/swatch grid; the plumage note nests under Farben. */
+.info-panel .color-section .body-colors {
+  display: grid;
+  grid-template-columns: max-content minmax(0, 1fr);
+  align-items: center;
+  column-gap: 20px;
+  row-gap: 14px;
+  margin-top: 18px;
+}
+.info-panel .body-color-row {
+  display: contents;
+}
+.info-panel .body-color-row > span {
+  font-size: 13px;
+  color: var(--muted-foreground);
+}
+.info-panel .body-color-row .swatch-row {
+  gap: 12px;
+  padding: 2px;
+}
+.info-panel .color-section .plumage-note {
+  margin-top: 24px;
+  padding-top: 0;
+  border-top: 0;
+}
+.info-panel .plumage-note h3 {
+  font-family: var(--font-display), 'Cormorant Garamond', Georgia, serif;
+  font-size: 19px;
+  font-weight: 600;
+  line-height: 1.25;
+  letter-spacing: -0.1px;
+  color: var(--foreground);
+}
+.info-panel .plumage-note p {
+  margin-top: 8px;
+}
+.info-panel details.morph-context {
+  margin-top: 12px;
+  font-size: 12px;
+  line-height: 1.6;
+  color: var(--muted-foreground);
+}
+.info-panel details.morph-context summary {
+  display: flex;
+  align-items: center;
+  gap: 8px;
+  min-height: 20px;
+  line-height: 20px;
+  list-style: none;
+  cursor: pointer;
+  font-weight: 500;
+  user-select: none;
+}
+.info-panel details.morph-context summary::-webkit-details-marker {
+  display: none;
+}
+.info-panel details.morph-context summary::before {
+  content: '';
+  flex: 0 0 auto;
+  width: 6px;
+  height: 6px;
+  margin: 0 2px 0 1px;
+  border-right: 1.5px solid currentColor;
+  border-bottom: 1.5px solid currentColor;
+  transform: translateY(-1px) rotate(-45deg);
+  transition: transform 140ms ease;
+}
+.info-panel details.morph-context[open] summary::before {
+  transform: translateY(-2px) rotate(45deg);
+}
+.info-panel details.morph-context summary:hover {
+  color: var(--foreground);
+}
+.info-panel details.morph-context summary:focus-visible {
+  outline: 2px solid var(--ring);
+  outline-offset: 3px;
+  border-radius: 3px;
+}
+.info-panel details.morph-context > p {
+  margin-top: 8px;
+  font-size: 12px;
+}
+
+/* Information tabs sit left, in the display face, with room between them. */
+.info-panel .info-tab-list[data-slot] {
+  justify-content: flex-start;
+  gap: 28px;
+  height: auto;
+}
+.info-panel .info-tab-list button[data-slot] {
+  flex: 0 0 auto;
+  height: auto;
+  padding: 2px 0 11px;
+  font-family: var(--font-display), 'Cormorant Garamond', Georgia, serif;
+  font-size: 20px;
+  font-weight: 500;
+  line-height: 1.1;
+  letter-spacing: -0.1px;
+  color: var(--muted-foreground);
+}
+.info-panel .info-tab-list button[data-active] {
+  color: var(--foreground);
+  font-weight: 600;
+}
+@media (max-width: 1190px) {
+  .info-panel .info-tab-list[data-slot] {
+    gap: 22px;
+  }
+  .info-panel .info-tab-list button[data-slot] {
+    font-size: 18px;
   }
 }

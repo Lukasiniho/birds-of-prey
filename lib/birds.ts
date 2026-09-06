@@ -239,18 +239,12 @@ export const birds: BirdSpecies[] = [
   },
   ...additionalBirds,
 ];
-export function filterBirds(
-  query: string,
-  savedOnly: boolean,
-  saved: string[],
-) {
+export function filterBirds(query: string) {
   const term = query.trim().toLocaleLowerCase('de');
-  return birds.filter(
-    (b) =>
-      (!savedOnly || saved.includes(b.id)) &&
-      `${b.name} ${b.latin} ${b.group} ${b.id} ${(b.aliases || []).join(' ')}`
-        .toLocaleLowerCase('de')
-        .includes(term),
+  return birds.filter((b) =>
+    `${b.name} ${b.latin} ${b.group} ${b.id} ${(b.aliases || []).join(' ')}`
+      .toLocaleLowerCase('de')
+      .includes(term),
   );
 }
 export type GroupMode = 'genus' | 'region' | 'range' | 'habitat';
