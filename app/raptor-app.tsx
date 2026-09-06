@@ -1,5 +1,5 @@
 'use client';
-import { useEffect, useState } from 'react';
+import { useEffect, useLayoutEffect, useRef, useState } from 'react';
 import Image from 'next/image';
 import { Search, Feather, X, Moon, Sun } from 'lucide-react';
 import { Button } from '@/components/ui/button';
@@ -57,23 +57,115 @@ import {
   getBirdMorphAppearance,
 } from '@/lib/morphs';
 function Measurement({ value, unit }: { value: string; unit: string }) {
+  // transitions.dev number pop-in: every character is a .t-digit, the last two
+  // ride in behind the rest. Keying the group by value replays it on change.
+  const parts = value.split(/(ca\.|bis|–)/g).filter(Boolean);
+  type Piece = { qualifier: string } | { ch: string };
+  const pieces: Piece[] = parts.flatMap((part): Piece[] =>
+    /^(ca\.|bis)$/.test(part)
+      ? [{ qualifier: part }]
+      : part.split('').map((ch) => ({ ch: ch === ' ' ? '\u00A0' : ch })),
+  );
+  const digitIndexes = pieces
+    .map((p, i) => ('ch' in p ? i : -1))
+    .filter((i) => i >= 0);
+  const stagger1 = digitIndexes[digitIndexes.length - 2];
+  const stagger2 = digitIndexes[digitIndexes.length - 1];
   return (
     <p>
-      {value.split(/(ca\.|bis|–)/g).map((part, i) =>
-        /^(ca\.|bis|–)$/.test(part) ? (
-          <span
-            className={`measurement-secondary ${part === '–' ? '' : 'measurement-qualifier'}`}
-            key={i}
-          >
-            {part}
-          </span>
-        ) : (
-          part
-        ),
-      )}
+      <span className="t-digit-group is-animating" key={value}>
+        {pieces.map((p, i) =>
+          'qualifier' in p ? (
+            <span
+              className="measurement-secondary measurement-qualifier"
+              key={i}
+            >
+              {p.qualifier}
+            </span>
+          ) : (
+            <span
+              className={`t-digit${p.ch === '–' ? ' measurement-secondary' : ''}`}
+              data-stagger={
+                i === stagger1 ? '1' : i === stagger2 ? '2' : undefined
+              }
+              key={i}
+            >
+              {p.ch}
+            </span>
+          ),
+        )}
+      </span>
       <small>{unit}</small>
     </p>
   );
+}
+/* transitions.dev text states swap: the old text exits up with blur, the new
+   text enters from below. React renders the text once; the swap edits the DOM. */
+function SwapText({ text }: { text: string }) {
+  const ref = useRef<HTMLSpanElement>(null);
+  const [initial] = useState(text);
+  useEffect(() => {
+    const el = ref.current;
+    if (!el || el.textContent === text) return;
+    const dur =
+      parseFloat(
+        getComputedStyle(document.documentElement).getPropertyValue(
+          '--text-swap-dur',
+        ),
+      ) || 150;
+    el.classList.add('is-exit');
+    const timer = setTimeout(() => {
+      el.textContent = text;
+      el.classList.remove('is-exit');
+      el.classList.add('is-enter-start');
+      void el.offsetHeight; // force reflow so the next change transitions
+      el.classList.remove('is-enter-start');
+    }, dur);
+    return () => clearTimeout(timer);
+  }, [text]);
+  return (
+    <span className="t-text-swap" ref={ref}>
+      {initial}
+    </span>
+  );
+}
+/* transitions.dev tabs sliding: JS writes the active tab's offset and width
+   onto the pill, CSS tweens it. A new group (another species) snaps instead. */
+function useSlidingPill(group: string, active: string) {
+  const barRef = useRef<HTMLDivElement>(null);
+  const pillRef = useRef<HTMLSpanElement>(null);
+  const lastGroup = useRef<string | null>(null);
+  useLayoutEffect(() => {
+    const bar = barRef.current;
+    const pill = pillRef.current;
+    if (!bar || !pill) return;
+    function moveTo(animate: boolean) {
+      const tab = bar!.querySelector<HTMLElement>(
+        '.t-tab[aria-selected="true"], .t-tab[aria-pressed="true"]',
+      );
+      if (!tab) return;
+      if (!animate) {
+        const prev = pill!.style.transition;
+        pill!.style.transition = 'none';
+        pill!.style.transform = `translateX(${tab.offsetLeft}px)`;
+        pill!.style.width = `${tab.offsetWidth}px`;
+        void pill!.offsetWidth;
+        pill!.style.transition = prev;
+      } else {
+        pill!.style.transform = `translateX(${tab.offsetLeft}px)`;
+        pill!.style.width = `${tab.offsetWidth}px`;
+      }
+    }
+    const firstPaint = lastGroup.current === null;
+    moveTo(!firstPaint && lastGroup.current === group);
+    lastGroup.current = group;
+    const snap = () => moveTo(false);
+    window.addEventListener('resize', snap);
+    // Web fonts can land after the first measurement; re-snap once they do.
+    if (firstPaint) document.fonts?.ready.then(snap).catch(() => {});
+    return () => window.removeEventListener('resize', snap);
+  }, [group, active]);
+  return { barRef, pillRef };
 }
 function BirdArt({
   bird,
@@ -283,6 +375,8 @@ export default function RaptorApp() {
   const [query, setQuery] = useState('');
   const [grouping, setGrouping] = useState<GroupMode>('genus');
   const [dark, setDark] = useState(false);
+  const [hintOpen, setHintOpen] = useState(false);
+  const [infoTab, setInfoTab] = useState('profil');
   const bird = birds.find((b) => b.id === selected)!;
   const availablePlumages = plumagesFor(bird.id);
   const plumage = availablePlumages.some((p) => p.value === chosenPlumage)
@@ -308,6 +402,18 @@ export default function RaptorApp() {
   useEffect(() => {
     document.documentElement.dataset.theme = dark ? 'dark' : 'light';
   }, [dark]);
+  const { barRef: plumageBarRef, pillRef: plumagePillRef } = useSlidingPill(
+    bird.id,
+    plumage,
+  );
+  const { barRef: morphBarRef, pillRef: morphPillRef } = useSlidingPill(
+    bird.id,
+    morph?.id ?? '',
+  );
+  const { barRef: infoBarRef, pillRef: infoPillRef } = useSlidingPill(
+    'info',
+    infoTab,
+  );
   function theme() {
     setDark(!dark);
     try {
@@ -374,7 +480,14 @@ export default function RaptorApp() {
                   />
                 }
               >
-                {dark ? <Sun /> : <Moon />}
+                <span className="t-icon-swap" data-state={dark ? 'b' : 'a'}>
+                  <span className="t-icon" data-icon="a">
+                    <Moon />
+                  </span>
+                  <span className="t-icon" data-icon="b">
+                    <Sun />
+                  </span>
+                </span>
               </TooltipTrigger>
               <TooltipContent>
                 {dark ? 'Hellmodus' : 'Dunkelmodus'}
@@ -400,7 +513,13 @@ export default function RaptorApp() {
                   >
                     <SelectValue />
                   </SelectTrigger>
-                  <SelectContent className="grouping-options">
+                  <SelectContent
+                    className="grouping-options t-dropdown"
+                    align="start"
+                    sideOffset={6}
+                    alignItemWithTrigger={false}
+                    data-origin="top-left"
+                  >
                     {groupingOptions.map((o) => (
                       <SelectItem value={o.value} key={o.value}>
                         {o.label}
@@ -463,8 +582,12 @@ export default function RaptorApp() {
           <main id="main-content" className="specimen-panel">
             <div className="specimen-heading">
               <div>
-                <h1>{bird.name}</h1>
-                <p>{bird.latin}</p>
+                <h1>
+                  <SwapText text={bird.name} />
+                </h1>
+                <p>
+                  <SwapText text={bird.latin} />
+                </p>
               </div>
             </div>
             <Tabs
@@ -478,11 +601,18 @@ export default function RaptorApp() {
                     {availablePlumages.length > 2 ? 'Kleid' : 'Alter'}
                   </span>
                   <TabsList
-                    className="plumage-list segmented"
+                    className="plumage-list t-tabs"
                     aria-label="Geschlecht und Alter"
+                    ref={plumageBarRef}
                   >
+                    <span
+                      className="t-tabs-pill"
+                      aria-hidden="true"
+                      ref={plumagePillRef}
+                    />
                     {availablePlumages.map((p) => (
                       <TabsTrigger
+                        className="t-tab"
                         key={p.value}
                         value={p.value}
                         onPointerEnter={() => warmBird(bird.id, p.value)}
@@ -501,12 +631,17 @@ export default function RaptorApp() {
                     <span className="control-label" aria-hidden="true">
                       {morphConfig.label}
                     </span>
-                    <div className="segmented">
+                    <div className="t-tabs" ref={morphBarRef}>
+                      <span
+                        className="t-tabs-pill"
+                        aria-hidden="true"
+                        ref={morphPillRef}
+                      />
                       {morphConfig.choices.map((choice) => (
                         <button
                           type="button"
                           key={choice.id}
-                          className="morph-choice"
+                          className="morph-choice t-tab"
                           aria-pressed={morph.id === choice.id}
                           onPointerEnter={() =>
                             warmBird(bird.id, plumage, choice.id)
@@ -561,15 +696,31 @@ export default function RaptorApp() {
             className="info-panel"
             aria-label={`Informationen zum ${bird.name}`}
           >
-            <Tabs defaultValue="profil" className="info-tabs">
+            <Tabs
+              value={infoTab}
+              onValueChange={(v) => setInfoTab(String(v))}
+              className="info-tabs"
+            >
               <TabsList
                 variant="line"
-                className="info-tab-list"
+                className="info-tab-list t-tabs"
                 aria-label="Informationen"
+                ref={infoBarRef}
               >
-                <TabsTrigger value="profil">Steckbrief</TabsTrigger>
-                <TabsTrigger value="nahrung">Nahrung</TabsTrigger>
-                <TabsTrigger value="lebensraum">Lebensraum</TabsTrigger>
+                <span
+                  className="t-tabs-pill"
+                  aria-hidden="true"
+                  ref={infoPillRef}
+                />
+                <TabsTrigger className="t-tab" value="profil">
+                  Steckbrief
+                </TabsTrigger>
+                <TabsTrigger className="t-tab" value="nahrung">
+                  Nahrung
+                </TabsTrigger>
+                <TabsTrigger className="t-tab" value="lebensraum">
+                  Lebensraum
+                </TabsTrigger>
               </TabsList>
               <TabsContent value="profil" className="info-tab-content">
                 <section className="profile-section">
@@ -602,10 +753,29 @@ export default function RaptorApp() {
                       {appearance?.note ?? plumageNoteFor(bird.id, plumage)}
                     </p>
                     {morphConfig && (
-                      <details className="morph-context">
-                        <summary>Hinweis zu den Farbformen</summary>
-                        <p>{morphConfig.note}</p>
-                      </details>
+                      <div
+                        className="morph-context t-acc"
+                        data-open={hintOpen ? 'true' : 'false'}
+                      >
+                        <button
+                          type="button"
+                          className="t-acc-head"
+                          aria-expanded={hintOpen}
+                          onClick={() => setHintOpen(!hintOpen)}
+                        >
+                          <span className="t-acc-chevron" aria-hidden="true">
+                            <svg viewBox="0 0 16 16">
+                              <path d="M4 6.5L8 10.5L12 6.5" />
+                            </svg>
+                          </span>
+                          Hinweis zu den Farbformen
+                        </button>
+                        <div className="t-acc-panel">
+                          <div className="t-acc-panel-inner">
+                            <p>{morphConfig.note}</p>
+                          </div>
+                        </div>
+                      </div>
                     )}
                   </div>
                 </section>
