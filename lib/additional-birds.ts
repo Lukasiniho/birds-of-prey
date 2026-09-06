@@ -1,3 +1,4 @@
+import { catalogAdditions } from './catalog-additions.ts';
 import type { BirdSpecies, Plumage, BodyColors, ColorSwatch } from './birds.ts';
 export type AdditionalBird = BirdSpecies & {
   regions: string[];
@@ -10,6 +11,7 @@ export type AdditionalBird = BirdSpecies & {
   hunt: { title: string; text: string };
 };
 export const additionalBirds: AdditionalBird[] = [
+  ...catalogAdditions,
   {
     id: 'weisskopfseeadler',
     name: 'Weißkopfseeadler',

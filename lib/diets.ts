@@ -138,6 +138,26 @@ export const preyCatalog: Record<
   },
 };
 export const diets: Record<string, Diet> = {
+  wuestenbussard: {
+    summary:
+      'Kaninchen, Hasen, Ziesel und weitere Nagetiere bilden den Schwerpunkt. Größere Beutetiere lassen sich durch gemeinsames Jagen überwältigen; Vögel und Reptilien ergänzen die Nahrung.',
+    primary: ['Kaninchen', 'Hasen', 'Nagetiere'],
+    occasional: ['Vögel', 'Reptilien'],
+    carrion: false,
+    sources: ['https://www.allaboutbirds.org/guide/Harriss_Hawk/lifehistory'],
+    examples: [{ key: 'kaninchen' }, { key: 'hase' }, { key: 'ziesel' }],
+    occasionalExamples: [{ key: 'taube' }, { key: 'echse' }],
+  },
+  kronenadler: {
+    summary:
+      'Säugetiere aus dem Wald, besonders Affen und kleine Antilopen, machen den Großteil der Nahrung aus. Welche Beute überwiegt, hängt vom Gebiet ab. Große Beute wird am Boden zerlegt und portionsweise zum Horst getragen.',
+    primary: ['Affen', 'Kleine Antilopen'],
+    occasional: ['Mangusten', 'Warane', 'Schlangen'],
+    carrion: false,
+    sources: ['https://animals.sandiegozoo.org/animals/crowned-eagle'],
+    examples: [{ key: 'affe' }],
+    occasionalExamples: [{ key: 'schlange' }],
+  },
   weisskopfseeadler: {
     summary:
       'Fische bilden meist den Schwerpunkt seiner Nahrung. Je nach Ort und Jahreszeit ergänzt er sie durch Wasservögel, kleinere Säugetiere und Aas.',

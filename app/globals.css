@@ -42,20 +42,20 @@
 }
 :root[data-theme='dark'] {
   color-scheme: dark;
-  --background: #172128;
-  --foreground: #dde6eb;
+  --background: #0b1014;
+  --foreground: #e1e8ed;
   --primary: #c2d4df;
-  --primary-foreground: #18242c;
-  --muted: #25353f;
-  --muted-foreground: #98afbd;
-  --border: #30414c;
+  --primary-foreground: #0b1014;
+  --muted: #18232b;
+  --muted-foreground: #9aafbc;
+  --border: #26323b;
   --ring: #a2c1d2;
-  --stage: #202e37;
-  --topbar: #172128;
-  --selected: #2a3b46;
-  --hover: #22323d;
-  --toolbar: #1a2832ed;
-  --shadow: #050e1726;
+  --stage: #11191f;
+  --topbar: #090e12;
+  --selected: #1c2c35;
+  --hover: #142029;
+  --toolbar: #0b1014f2;
+  --shadow: #00000040;
   --swatch-border: #ffffff25;
 }
 * {
@@ -2610,4 +2610,38 @@ h2 {
     padding-top: 24px;
     margin-top: 0;
   }
+}
+
+/* Species profiles share the compact rhythm of the other information tabs. */
+.info-panel .profile-section {
+  margin-top: var(--rail-section-gap);
+  padding-top: var(--rail-section-gap);
+  border-top: 1px solid var(--border);
+}
+.info-panel .profile-section p {
+  margin-top: var(--rail-caption-gap);
+  font-size: 16px;
+  line-height: 1.65;
+  overflow-wrap: break-word;
+}
+.profile-sources {
+  display: flex;
+  flex-wrap: wrap;
+  gap: 8px 14px;
+  margin-top: var(--rail-section-gap);
+  padding-top: var(--rail-content-gap);
+  border-top: 1px solid var(--border);
+  color: var(--muted-foreground);
+  font-size: 14px;
+  line-height: 1.5;
+}
+.profile-sources > span {
+  flex-basis: 100%;
+}
+.profile-sources a {
+  text-decoration: underline;
+  text-underline-offset: 3px;
+}
+.profile-sources a:hover {
+  color: var(--foreground);
 }

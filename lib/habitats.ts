@@ -56,6 +56,8 @@ export const landscapes: Record<
   },
 };
 export const speciesLandscapes: Record<string, string[]> = {
+  wuestenbussard: ['savanne'],
+  kronenadler: ['regenwald', 'wald'],
   rotschwanzbussard: ['feldflur', 'wald'],
   habicht: ['wald', 'park'],
   maeusebussard: ['feldflur', 'wald'],

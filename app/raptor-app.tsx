@@ -49,6 +49,7 @@ import { diets, preyCatalog, type PreyExample } from '@/lib/diets';
 import { preyFraming } from '@/lib/prey-framing';
 import { imageSource } from '@/lib/optimized-images.ts';
 import { loadImage } from '@/lib/image-loader';
+import { speciesProfiles } from '@/lib/species-profiles';
 import {
   getBirdMorphConfig,
   getBirdMorphChoice,
@@ -636,6 +637,10 @@ export default function RaptorApp() {
               </TabsList>
               <TabsContent value="profil" className="info-tab-content">
                 <p className="species-intro">{bird.intro}</p>
+                <section className="profile-section">
+                  <h2>Erkennungsmerkmale</h2>
+                  <p>{speciesProfiles[bird.id].identification}</p>
+                </section>
                 <section className="color-section">
                   <h2>Farben</h2>
                   <div className="body-colors">
@@ -665,6 +670,27 @@ export default function RaptorApp() {
                     <p className="morph-context">{morphConfig.note}</p>
                   )}
                 </section>
+                <section className="profile-section">
+                  <h2>Lebensweise</h2>
+                  <p>{speciesProfiles[bird.id].behaviour}</p>
+                </section>
+                <section className="profile-section">
+                  <h2>Brut & Aufzucht</h2>
+                  <p>{speciesProfiles[bird.id].breeding}</p>
+                </section>
+                <div className="profile-sources">
+                  <span>Weiterlesen</span>
+                  {speciesProfiles[bird.id].sources.map((source) => (
+                    <a
+                      key={source.url}
+                      href={source.url}
+                      target="_blank"
+                      rel="noreferrer"
+                    >
+                      {source.name} <span aria-hidden="true">↗</span>
+                    </a>
+                  ))}
+                </div>
               </TabsContent>
               <TabsContent value="nahrung" className="info-tab-content">
                 <section className="diet-section">

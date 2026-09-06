@@ -4,7 +4,7 @@ import { birds, filterBirds, groupBirds, plumagesFor } from '../lib/birds.ts';
 void test('German and scientific searches return the right species', () => {
   assert.equal(filterBirds('mäuse', false, [])[0]?.id, 'maeusebussard');
   assert.equal(filterBirds('FALCO', false, []).length, 6);
-  assert.equal(filterBirds('   ', false, []).length, 27);
+  assert.equal(filterBirds('   ', false, []).length, 29);
   assert.equal(filterBirds('unbekannt', false, []).length, 0);
 });
 void test('collection and text search compose', () => {
@@ -16,10 +16,10 @@ void test('collection and text search compose', () => {
 });
 void test('genus grouping preserves every bird exactly once', () => {
   const groups = groupBirds(birds, 'genus');
-  assert.equal(groups.length, 16);
+  assert.equal(groups.length, 18);
   const all = groups.flatMap((g) => g.birds.map((b) => b.id));
-  assert.equal(all.length, 27);
-  assert.equal(new Set(all).size, 27);
+  assert.equal(all.length, 29);
+  assert.equal(new Set(all).size, 29);
   assert.equal(groups.find((g) => g.id === 'Falco')?.birds.length, 6);
 });
 void test('all grouping modes retain every matching species and no extras', () => {
@@ -57,6 +57,11 @@ void test('new German species names, synonyms and umlaut-free IDs are searchable
     ['Uhu', 'uhu'],
     ['Schwarzmilan', 'schwarzmilan'],
     ['Rotmilan', 'rotmilan'],
+    ['Harris Hawk', 'wuestenbussard'],
+    ['Wüstenbussard', 'wuestenbussard'],
+    ['Wuestenbussard', 'wuestenbussard'],
+    ['Crowned Eagle', 'kronenadler'],
+    ['Stephanoaetus', 'kronenadler'],
   ])
     assert(filterBirds(query, false, []).some((b) => b.id === id));
 });
@@ -102,6 +107,7 @@ void test('all species have reviewed diets, valid prey and illustrated habitats'
   const { landscapes, speciesLandscapes } = await import('../lib/habitats.ts');
   const { habitatImages } = await import('../lib/habitat-images.ts');
   const { huntingImages } = await import('../lib/hunting-images.ts');
+  const { speciesProfiles } = await import('../lib/species-profiles.ts');
   const { portraitImages } = await import('../lib/portrait-images.ts');
   for (const bird of birds) {
     assert(
@@ -110,6 +116,10 @@ void test('all species have reviewed diets, valid prey and illustrated habitats'
       ),
       `${bird.id} portrait missing`,
     );
+    const profile = speciesProfiles[bird.id];
+    assert(profile, `${bird.id} profile missing`);
+    assert(profile.identification && profile.behaviour && profile.breeding);
+    assert(profile.sources.length);
     const diet = diets[bird.id];
     assert(diet.summary);
     assert(diet.sources.length);

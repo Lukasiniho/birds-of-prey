@@ -25,5 +25,7 @@ export const huntingImages: Record<string, string> = {
   "sakerfalke": "/birds/hunting-sakerfalke.png?v=95c92bfaebae",
   "gaukler": "/birds/hunting-gaukler.png?v=aea6dd89874a",
   "riesenseeadler": "/birds/hunting-riesenseeadler.png?v=8440cd0e74a7",
-  "weissstorch": "/birds/hunting-weissstorch.png?v=9358a6e7e1af"
+  "weissstorch": "/birds/hunting-weissstorch.png?v=9358a6e7e1af",
+  "wuestenbussard": "/birds/hunting-wuestenbussard.png?v=f5bb0ca4a954",
+  "kronenadler": "/birds/hunting-kronenadler.png?v=03e5f757a190"
 };
