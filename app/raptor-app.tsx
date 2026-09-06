@@ -403,6 +403,7 @@ export default function RaptorApp() {
                         >
                           <span
                             className="portrait head-portrait own-portrait"
+                            data-species={b.id}
                             style={{
                               backgroundImage: `url(${portraitImages[b.id]})`,
                             }}
