@@ -386,6 +386,7 @@ export default function RaptorApp() {
               className={`collection-button ${collection ? 'chosen' : ''}`}
               onClick={() => setCollection(!collection)}
               aria-pressed={collection}
+              aria-label={`Meine Sammlung, ${saved.length} gespeicherte Arten`}
             >
               <Bookmark
                 strokeWidth={1.4}
