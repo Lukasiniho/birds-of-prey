@@ -2457,6 +2457,9 @@ h2 {
 .crossfade-art > .bird-incoming {
   position: absolute;
   inset: 0;
+  opacity: 0;
+}
+.crossfade-art.is-crossfading > .bird-incoming {
   animation: bird-dissolve 180ms ease-out both;
 }
 @keyframes bird-dissolve {
@@ -2468,9 +2471,19 @@ h2 {
   }
 }
 @media (prefers-reduced-motion: reduce) {
-  .crossfade-art > .bird-incoming {
+  .crossfade-art.is-crossfading > .bird-incoming {
     animation: none;
+    opacity: 1;
   }
+}
+.image-retry {
+  position: absolute;
+  bottom: 20px;
+  padding: 8px 12px;
+  border: 1px solid var(--border);
+  border-radius: 6px;
+  background: var(--background);
+  pointer-events: auto;
 }
 @media (min-width: 981px) {
   .specimen-heading {
@@ -2504,6 +2517,51 @@ h2 {
   }
 }
 /* A modest common portrait frame, with rows tall enough for every feather. */
+.specimen-measurements.measurements {
+  display: grid;
+  grid-template-columns: minmax(0, 1fr) minmax(0, 1fr);
+  gap: 0;
+  flex-shrink: 0;
+  align-self: center;
+  width: calc(100% - 56px);
+  max-width: 640px;
+  margin: 8px 28px 20px;
+  padding: 19px 12px 21px;
+  border: 1px solid color-mix(in srgb, var(--foreground) 12%, transparent);
+  border-radius: 18px;
+  background: color-mix(in srgb, var(--background) 60%, transparent);
+}
+.specimen-measurements.measurements > div {
+  min-width: 0;
+  margin: 0;
+  padding: 0 16px;
+  text-align: center;
+}
+.specimen-measurements.measurements > div + div {
+  border-left: 1px solid var(--border);
+}
+.specimen-measurements.measurements > div > span {
+  font-size: 13px;
+  margin-bottom: 7px;
+}
+.specimen-measurements.measurements > div > p {
+  font-size: 32px;
+  line-height: 1.1;
+}
+@media (max-width: 520px) {
+  .specimen-measurements.measurements {
+    grid-template-columns: 1fr;
+    width: calc(100% - 40px);
+    margin-inline: 20px;
+    padding: 16px 24px;
+  }
+  .specimen-measurements.measurements > div + div {
+    border-left: 0;
+    border-top: 1px solid var(--border);
+    margin-top: 14px;
+    padding-top: 14px;
+  }
+}
 .own-portrait.head-portrait {
   width: 70px;
   height: 70px;

@@ -47,6 +47,8 @@ import { portraitImages } from '@/lib/portrait-images';
 import { huntingImages } from '@/lib/hunting-images';
 import { diets, preyCatalog, type PreyExample } from '@/lib/diets';
 import { preyFraming } from '@/lib/prey-framing';
+import { imageSource } from '@/lib/optimized-images.ts';
+import { loadImage } from '@/lib/image-loader';
 import {
   getBirdMorphConfig,
   getBirdMorphChoice,
@@ -86,38 +88,58 @@ function BirdArt({
     morphId,
     plumage === 'juvenile' ? 'juvenile' : 'male',
   );
-  const nextSource = appearance?.image ?? birdImage(bird.id, plumage);
+  const nextSource = imageSource(
+    appearance?.image ?? birdImage(bird.id, plumage),
+  );
   const nextAlt = `${bird.name} – ${plumagesFor(bird.id).find((p) => p.value === plumage)!.label}${morph ? `, Farbform ${morph.label}` : ''}`;
   const [displayed, setDisplayed] = useState({ src: nextSource, alt: nextAlt });
   const [incoming, setIncoming] = useState<{ src: string; alt: string } | null>(
     null,
   );
+  const [decodedSource, setDecodedSource] = useState<string | null>(null);
+  const [failedSource, setFailedSource] = useState<string | null>(null);
+  const [retry, setRetry] = useState(0);
   useEffect(() => {
     if (nextSource === displayed.src) return;
     let cancelled = false;
-    let timer: ReturnType<typeof setTimeout> | undefined;
-    const preload = new window.Image();
-    preload.onload = () => {
-      if (cancelled) return;
-      const next = { src: nextSource, alt: nextAlt };
-      setIncoming(next);
-      timer = setTimeout(() => {
-        setDisplayed(next);
-        setIncoming(null);
-      }, 180);
-    };
-    preload.src = nextSource;
+    loadImage(nextSource)
+      .then(() => {
+        if (!cancelled) {
+          setFailedSource(null);
+          setDecodedSource(null);
+          setIncoming({ src: nextSource, alt: nextAlt });
+        }
+      })
+      .catch(() => {
+        if (!cancelled) setFailedSource(nextSource);
+      });
     return () => {
       cancelled = true;
-      if (timer) clearTimeout(timer);
     };
-  }, [nextSource, nextAlt, displayed.src]);
+  }, [nextSource, nextAlt, displayed.src, retry]);
+  useEffect(() => {
+    if (
+      !incoming ||
+      incoming.src !== nextSource ||
+      decodedSource !== nextSource
+    )
+      return;
+    const timer = setTimeout(() => {
+      setDisplayed(incoming);
+      setIncoming(null);
+      setDecodedSource(null);
+    }, 200);
+    return () => clearTimeout(timer);
+  }, [incoming, decodedSource, nextSource]);
   const overlay = incoming?.src === nextSource ? incoming : null;
+  const fading = overlay?.src === decodedSource;
   return (
     <div
-      className={`bird-art crossfade-art${overlay ? ' is-crossfading' : ''}`}
+      className={`bird-art crossfade-art${fading ? ' is-crossfading' : ''}`}
+      aria-busy={nextSource !== displayed.src}
     >
       <Image
+        key={displayed.src}
         src={displayed.src}
         alt={overlay ? '' : displayed.alt}
         width={1536}
@@ -129,6 +151,15 @@ function BirdArt({
         <Image
           key={overlay.src}
           className="bird-incoming"
+          onLoad={async (event) => {
+            const image = event.currentTarget;
+            try {
+              await image.decode();
+              setDecodedSource(overlay.src);
+            } catch {
+              setFailedSource(overlay.src);
+            }
+          }}
           src={overlay.src}
           alt={overlay.alt}
           width={1536}
@@ -136,6 +167,17 @@ function BirdArt({
           unoptimized
           priority
         />
+      )}
+      {failedSource === nextSource && (
+        <button
+          className="image-retry"
+          onClick={() => {
+            setFailedSource(null);
+            setRetry((n) => n + 1);
+          }}
+        >
+          Bild erneut laden
+        </button>
       )}
     </div>
   );
@@ -176,7 +218,9 @@ function HuntingArt({ bird }: { bird: BirdSpecies }) {
   return (
     <Image
       className="hunting-standalone"
-      src={huntingImages[bird.id] ?? hunt.image ?? `/hunting-${bird.id}.png`}
+      src={imageSource(
+        huntingImages[bird.id] ?? hunt.image ?? `/hunting-${bird.id}.png`,
+      )}
       width={1536}
       height={1536}
       alt={`${bird.name}: ${hunt.title}`}
@@ -197,7 +241,7 @@ function PreyArt({ preyKey }: { preyKey: string }) {
         }}
       >
         <Image
-          src={frame.src}
+          src={imageSource(frame.src)}
           alt=""
           width={frame.imageWidth}
           height={frame.imageHeight}
@@ -292,6 +336,23 @@ export default function RaptorApp() {
   }
   function select(id: string) {
     setSelected(id);
+  }
+  function warmBird(
+    id: string,
+    age = chosenPlumage,
+    morphId = chosenMorphs[id],
+  ) {
+    const ageForBird = plumagesFor(id).some((p) => p.value === age)
+      ? age
+      : 'male';
+    const variant = getBirdMorphAppearance(
+      id,
+      morphId,
+      ageForBird === 'juvenile' ? 'juvenile' : 'male',
+    );
+    void loadImage(
+      imageSource(variant?.image ?? birdImage(id, ageForBird)),
+    ).catch(() => {});
   }
   const filtered = filterBirds(query, collection, saved);
   const groups = groupBirds(filtered, grouping);
@@ -400,12 +461,14 @@ export default function RaptorApp() {
                           isActive={selected === b.id}
                           aria-current={selected === b.id ? 'true' : undefined}
                           onClick={() => select(b.id)}
+                          onPointerEnter={() => warmBird(b.id)}
+                          onFocus={() => warmBird(b.id)}
                         >
                           <span
                             className="portrait head-portrait own-portrait"
                             data-species={b.id}
                             style={{
-                              backgroundImage: `url(${portraitImages[b.id]})`,
+                              backgroundImage: `url(${imageSource(portraitImages[b.id])})`,
                             }}
                             aria-hidden="true"
                           />
@@ -491,7 +554,12 @@ export default function RaptorApp() {
                   aria-label="Geschlecht und Alter"
                 >
                   {availablePlumages.map((p) => (
-                    <TabsTrigger key={p.value} value={p.value}>
+                    <TabsTrigger
+                      key={p.value}
+                      value={p.value}
+                      onPointerEnter={() => warmBird(bird.id, p.value)}
+                      onFocus={() => warmBird(bird.id, p.value)}
+                    >
                       {p.label}
                     </TabsTrigger>
                   ))}
@@ -504,6 +572,10 @@ export default function RaptorApp() {
                         key={choice.id}
                         className="morph-choice"
                         aria-pressed={morph.id === choice.id}
+                        onPointerEnter={() =>
+                          warmBird(bird.id, plumage, choice.id)
+                        }
+                        onFocus={() => warmBird(bird.id, plumage, choice.id)}
                         onClick={() =>
                           setMorphs((previous) => ({
                             ...previous,
@@ -517,7 +589,11 @@ export default function RaptorApp() {
                   </fieldset>
                 )}
               </div>
-              <TabsContent value={plumage} className="plumage-panel">
+              <TabsContent
+                value={plumage}
+                keepMounted
+                className="plumage-panel"
+              >
                 <div className="image-stage">
                   <div className="hero-art">
                     <BirdArt
@@ -529,6 +605,19 @@ export default function RaptorApp() {
                 </div>
               </TabsContent>
             </Tabs>
+            <section
+              className="measurements specimen-measurements"
+              aria-label="Größe und Gewicht"
+            >
+              <div>
+                <span>Spannweite</span>
+                <Measurement value={bird.span} unit="cm" />
+              </div>
+              <div>
+                <span>Gewicht</span>
+                <Measurement value={bird.weight} unit={bird.unit} />
+              </div>
+            </section>
             <div className="image-credit">KI-generierte Illustration</div>
           </main>
           <aside
@@ -547,19 +636,6 @@ export default function RaptorApp() {
               </TabsList>
               <TabsContent value="profil" className="info-tab-content">
                 <p className="species-intro">{bird.intro}</p>
-                <section
-                  className="measurements"
-                  aria-label="Größe und Gewicht"
-                >
-                  <div>
-                    <span>Spannweite</span>
-                    <Measurement value={bird.span} unit="cm" />
-                  </div>
-                  <div>
-                    <span>Gewicht</span>
-                    <Measurement value={bird.weight} unit={bird.unit} />
-                  </div>
-                </section>
                 <section className="color-section">
                   <h2>Farben</h2>
                   <div className="body-colors">
@@ -615,7 +691,7 @@ export default function RaptorApp() {
                     {speciesLandscapes[bird.id].map((id) => (
                       <figure key={id}>
                         <Image
-                          src={habitatImages[id]}
+                          src={imageSource(habitatImages[id])}
                           alt={landscapes[id].description}
                           width={1536}
                           height={1024}

@@ -21,5 +21,10 @@ Jeder Push auf `main` löst bei einer verbundenen Netlify-Site einen neuen Deplo
 Der Netlify-Build exportiert statisches HTML und Assets ohne Server-Funktionen.
 Lokal lässt sich dieser Build mit `NETLIFY=true npm run build` prüfen.
 
+Vor jedem Build optimiert Sharp die Originalbilder automatisch zu WebP:
+280 px für Porträts, maximal 1400 px für größere Abbildungen, ohne Beschnitt.
+Transparenz bleibt erhalten. Inhaltsversionierte Dateinamen ermöglichen dauerhaftes
+Browser-Caching; ersetzte Bilder erhalten automatisch eine neue URL.
+
 Die Domain bleibt bei Strato. Zuerst die Domain in Netlify hinzufügen, danach
 die von Netlify angegebenen DNS-Einträge bei Strato setzen.
