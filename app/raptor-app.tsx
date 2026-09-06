@@ -50,6 +50,7 @@ import { preyFraming } from '@/lib/prey-framing';
 import { imageSource } from '@/lib/optimized-images.ts';
 import { loadImage } from '@/lib/image-loader';
 import { speciesProfiles } from '@/lib/species-profiles';
+import { RangeMap } from '@/components/range-map';
 import {
   getBirdMorphConfig,
   getBirdMorphChoice,
@@ -719,6 +720,7 @@ export default function RaptorApp() {
                   <div className="range-block">
                     <h2>Verbreitung</h2>
                     <p>{bird.range}</p>
+                    <RangeMap key={bird.id} birdId={bird.id} name={bird.name} />
                   </div>
                 </section>
               </TabsContent>

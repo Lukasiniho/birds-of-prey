@@ -1,0 +1,17 @@
+[
+  {
+    "id": "rotschwanzbussard",
+    "name": "Buteo jamaicensis",
+    "taxonId": 5212,
+    "url": "https://inaturalist-open-data.s3.us-east-1.amazonaws.com/geomodel/geojsons/latest/5212.geojson",
+    "properties": {
+      "taxon_id": 5212,
+      "parent_taxon_id": 5179,
+      "name": "Buteo jamaicensis",
+      "rank": "species",
+      "iconic_taxon_id": 3,
+      "iconic_taxon_name": "Aves",
+      "geomodel_version": "2.33"
+    }
+  }
+]

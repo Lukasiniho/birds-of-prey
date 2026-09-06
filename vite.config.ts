@@ -34,12 +34,15 @@ const localBindingConfig = {
     : [],
 };
 
-export default defineConfig(async () => {
+export default defineConfig(async ({ command }) => {
   // Netlify serves the exported HTML and assets without a Worker runtime.
-  if (process.env.NETLIFY) {
+  if (process.env.NETLIFY || command === 'serve') {
     return {
       css: { postcss: { plugins: [tailwindcss()] } },
       plugins: [vinext()],
+      server: isCodexSeatbeltSandbox
+        ? { watch: { useFsEvents: false, usePolling: true } }
+        : undefined,
     };
   }
   // Keep Wrangler and Miniflare state project-local. These are non-secret tool
