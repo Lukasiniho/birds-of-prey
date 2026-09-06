@@ -153,8 +153,8 @@ export const birdMorphs: Record<MorphSpeciesId, BirdMorphConfig> = {
           ['Blaugraue Füße', '#849199'],
         ],
         images: {
-          male: '/birds/morph-gerfalke-weiss-male.png?v=29bff0b54cac',
-          juvenile: '/birds/morph-gerfalke-weiss-juvenile.png?v=11e44e2f1812',
+          male: '/birds/morph-gerfalke-weiss-male.png?v=6d0dc31fd0f5',
+          juvenile: '/birds/morph-gerfalke-weiss-juvenile.png?v=78d0a89a4d06',
         },
       },
       {
@@ -193,8 +193,8 @@ export const birdMorphs: Record<MorphSpeciesId, BirdMorphConfig> = {
           ['Graubraune Schwingen', '#777168'],
         ],
         images: {
-          male: '/birds/morph-gerfalke-dunkel-male.png?v=9dcdf3993cf6',
-          juvenile: '/birds/morph-gerfalke-dunkel-juvenile.png?v=077850984969',
+          male: '/birds/morph-gerfalke-dunkel-male.png?v=7685df3aefc5',
+          juvenile: '/birds/morph-gerfalke-dunkel-juvenile.png?v=ec3dc9ac897b',
         },
       },
     ],
