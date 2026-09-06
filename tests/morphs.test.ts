@@ -56,3 +56,18 @@ void test('age selection changes images, notes and red-tail juvenile palettes', 
     if (adult.image) assert.notEqual(adult.image, young.image);
   }
 });
+
+void test('prey framing uses valid visible bounds within the original image', async () => {
+  const { preyFraming } = await import('../lib/prey-framing.ts');
+  const { preyCatalog } = await import('../lib/diets.ts');
+  assert.deepEqual(
+    Object.keys(preyFraming).sort(),
+    Object.keys(preyCatalog).sort(),
+  );
+  for (const frame of Object.values(preyFraming)) {
+    assert.ok(frame.width > 0 && frame.height > 0);
+    assert.ok(frame.x >= 0 && frame.y >= 0);
+    assert.ok(frame.x + frame.width <= frame.imageWidth);
+    assert.ok(frame.y + frame.height <= frame.imageHeight);
+  }
+});

@@ -153,8 +153,8 @@ export const birdMorphs: Record<MorphSpeciesId, BirdMorphConfig> = {
           ['Blaugraue Füße', '#849199'],
         ],
         images: {
-          male: '/birds/morph-gerfalke-weiss-male.png?v=f2eed1702f94',
-          juvenile: '/birds/morph-gerfalke-weiss-juvenile.png?v=05d45be80583',
+          male: '/birds/morph-gerfalke-weiss-male.png?v=29bff0b54cac',
+          juvenile: '/birds/morph-gerfalke-weiss-juvenile.png?v=11e44e2f1812',
         },
       },
       {
@@ -193,8 +193,8 @@ export const birdMorphs: Record<MorphSpeciesId, BirdMorphConfig> = {
           ['Graubraune Schwingen', '#777168'],
         ],
         images: {
-          male: '/birds/morph-gerfalke-dunkel-male.png?v=ca4071e4bb0d',
-          juvenile: '/birds/morph-gerfalke-dunkel-juvenile.png?v=8c93c57fb3c7',
+          male: '/birds/morph-gerfalke-dunkel-male.png?v=9dcdf3993cf6',
+          juvenile: '/birds/morph-gerfalke-dunkel-juvenile.png?v=077850984969',
         },
       },
     ],
@@ -318,7 +318,7 @@ export const birdMorphs: Record<MorphSpeciesId, BirdMorphConfig> = {
         images: {
           male: '/birds/morph-rotschwanzbussard-rostbraun-male.png?v=de383baa409c',
           juvenile:
-            '/birds/morph-rotschwanzbussard-rostbraun-juvenile.png?v=9d6f9f3cacec',
+            '/birds/morph-rotschwanzbussard-rostbraun-juvenile.png?v=04d438e5a65f',
         },
       },
       {
@@ -343,7 +343,7 @@ export const birdMorphs: Record<MorphSpeciesId, BirdMorphConfig> = {
         images: {
           male: '/birds/morph-rotschwanzbussard-dunkel-male.png?v=8f28a7e54190',
           juvenile:
-            '/birds/morph-rotschwanzbussard-dunkel-juvenile.png?v=424b1cb39fd6',
+            '/birds/morph-rotschwanzbussard-dunkel-juvenile.png?v=82ef82e6888c',
         },
       },
     ],

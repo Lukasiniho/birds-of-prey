@@ -2335,3 +2335,163 @@ h2 {
   border-right: 0;
   border-bottom: 0;
 }
+/* Both rails scroll vertically only; their contents fit the rail width. */
+.species-panel[data-slot],
+.info-panel {
+  overflow-x: hidden;
+  min-width: 0;
+}
+.grouped-navigation,
+.species-group,
+.bird-list[data-slot],
+.bird-entry[data-slot],
+.info-tabs[data-slot],
+.info-tab-content[data-slot] {
+  min-width: 0;
+  max-width: 100%;
+}
+.bird-label {
+  min-width: 0;
+}
+.bird-label strong,
+.bird-label em {
+  white-space: normal;
+  overflow-wrap: anywhere;
+}
+.info-tab-list[data-slot] {
+  width: 100%;
+  min-width: 0;
+}
+.info-tab-list button[data-slot] {
+  min-width: 0;
+  padding-left: 0;
+  padding-right: 0;
+}
+.info-panel p {
+  overflow-wrap: break-word;
+}
+.prey-list {
+  margin-left: 0;
+  margin-right: 0;
+  grid-template-columns: repeat(2, minmax(0, 1fr));
+}
+.prey-image.framed-prey {
+  position: relative;
+  display: flex;
+  justify-content: center;
+  align-items: flex-end;
+  width: 105px;
+  height: 105px;
+  max-width: 100%;
+  background: none;
+  margin: 0 auto 14px;
+}
+.prey-crop {
+  position: relative;
+  display: block;
+  overflow: hidden;
+  flex: none;
+}
+.prey-crop img {
+  position: absolute;
+  display: block;
+}
+/* Polished header, a consistent editorial rhythm, and stable image changes. */
+.topbar-search input,
+.collection-button[data-slot] {
+  border-color: color-mix(in srgb, var(--border) 55%, transparent);
+  background: color-mix(in srgb, var(--muted) 22%, var(--topbar));
+  box-shadow: none;
+  transition:
+    border-color 160ms ease,
+    background-color 160ms ease;
+}
+.topbar-search input:hover,
+.collection-button[data-slot]:hover {
+  border-color: var(--border);
+}
+.topbar-search input:focus-visible {
+  border-color: var(--muted-foreground);
+}
+.info-panel {
+  --rail-section-gap: 24px;
+  --rail-content-gap: 16px;
+  --rail-caption-gap: 12px;
+}
+.info-panel .info-tab-list[data-slot] {
+  margin-bottom: var(--rail-section-gap);
+}
+.info-panel .prey-list {
+  margin-top: var(--rail-content-gap);
+  margin-bottom: var(--rail-section-gap);
+  row-gap: var(--rail-content-gap);
+}
+.info-panel .framed-prey {
+  margin-bottom: var(--rail-caption-gap);
+}
+.info-panel .hunting-section,
+.info-panel .range-block,
+.info-panel .color-section,
+.info-panel .plumage-note {
+  margin-top: var(--rail-section-gap);
+  padding-top: var(--rail-section-gap);
+}
+.info-panel .hunting-standalone {
+  margin-top: var(--rail-content-gap);
+  margin-bottom: var(--rail-content-gap);
+}
+.info-panel .hunting-text,
+.info-panel .plumage-note p {
+  margin-top: var(--rail-caption-gap);
+}
+.info-panel .habitat-gallery {
+  gap: var(--rail-section-gap);
+  margin-bottom: var(--rail-section-gap);
+}
+.info-panel .habitat-gallery figcaption {
+  margin-top: var(--rail-caption-gap);
+}
+.crossfade-art {
+  position: relative;
+}
+.crossfade-art > .bird-incoming {
+  position: absolute;
+  inset: 0;
+  animation: bird-dissolve 180ms ease-out both;
+}
+@keyframes bird-dissolve {
+  from {
+    opacity: 0;
+  }
+  to {
+    opacity: 1;
+  }
+}
+@media (prefers-reduced-motion: reduce) {
+  .crossfade-art > .bird-incoming {
+    animation: none;
+  }
+}
+@media (min-width: 981px) {
+  .specimen-heading > div,
+  .specimen-controls {
+    transform: translateY(-50px);
+  }
+}
+.crossfade-art.is-crossfading > img:first-child {
+  animation: bird-fade-out 180ms ease-out both;
+}
+@keyframes bird-fade-out {
+  from {
+    opacity: 1;
+  }
+  to {
+    opacity: 0;
+  }
+}
+@media (prefers-reduced-motion: reduce) {
+  .crossfade-art.is-crossfading > img:first-child {
+    animation: none;
+    opacity: 0;
+  }
+}

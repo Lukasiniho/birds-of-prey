@@ -46,6 +46,7 @@ import { habitatImages } from '@/lib/habitat-images';
 import { portraitImages } from '@/lib/portrait-images';
 import { huntingImages } from '@/lib/hunting-images';
 import { diets, preyCatalog, type PreyExample } from '@/lib/diets';
+import { preyFraming } from '@/lib/prey-framing';
 import {
   getBirdMorphConfig,
   getBirdMorphChoice,
@@ -85,20 +86,61 @@ function BirdArt({
     morphId,
     plumage === 'juvenile' ? 'juvenile' : 'male',
   );
+  const nextSource = appearance?.image ?? birdImage(bird.id, plumage);
+  const nextAlt = `${bird.name} – ${plumagesFor(bird.id).find((p) => p.value === plumage)!.label}${morph ? `, Farbform ${morph.label}` : ''}`;
+  const [displayed, setDisplayed] = useState({ src: nextSource, alt: nextAlt });
+  const [incoming, setIncoming] = useState<{ src: string; alt: string } | null>(
+    null,
+  );
+  useEffect(() => {
+    if (nextSource === displayed.src) return;
+    let cancelled = false;
+    let timer: ReturnType<typeof setTimeout> | undefined;
+    const preload = new window.Image();
+    preload.onload = () => {
+      if (cancelled) return;
+      const next = { src: nextSource, alt: nextAlt };
+      setIncoming(next);
+      timer = setTimeout(() => {
+        setDisplayed(next);
+        setIncoming(null);
+      }, 180);
+    };
+    preload.src = nextSource;
+    return () => {
+      cancelled = true;
+      if (timer) clearTimeout(timer);
+    };
+  }, [nextSource, nextAlt, displayed.src]);
+  const overlay = incoming?.src === nextSource ? incoming : null;
   return (
-    <div className="bird-art">
+    <div
+      className={`bird-art crossfade-art${overlay ? ' is-crossfading' : ''}`}
+    >
       <Image
-        key={`${bird.id}-${plumage}`}
-        src={appearance?.image ?? birdImage(bird.id, plumage)}
-        alt={`${bird.name} – ${plumagesFor(bird.id).find((p) => p.value === plumage)!.label}${morph ? `, Farbform ${morph.label}` : ''}`}
+        src={displayed.src}
+        alt={overlay ? '' : displayed.alt}
         width={1536}
         height={1536}
         unoptimized
         priority
       />
+      {overlay && (
+        <Image
+          key={overlay.src}
+          className="bird-incoming"
+          src={overlay.src}
+          alt={overlay.alt}
+          width={1536}
+          height={1536}
+          unoptimized
+          priority
+        />
+      )}
     </div>
   );
 }
+
 function ColorRow({
   label,
   colors,
@@ -142,55 +184,30 @@ function HuntingArt({ bird }: { bird: BirdSpecies }) {
     />
   );
 }
-const preyRects = [
-  [0, 0, 430, 418],
-  [430, 0, 410, 418],
-  [840, 0, 414, 418],
-  [0, 418, 480, 325],
-  [480, 418, 380, 380],
-  [840, 418, 414, 370],
-  [0, 744, 446, 498],
-  [450, 796, 395, 440],
-  [855, 800, 399, 445],
-];
-function PreyArt({ index }: { index: number }) {
-  if (index === 6)
-    return (
-      <span className="prey-image individual-prey">
-        <Image
-          src="/eichhoernchen.png"
-          alt=""
-          width={1254}
-          height={1254}
-          unoptimized
-        />
-      </span>
-    );
-  const [x, y, w, h] = preyRects[index];
-  const d = Math.max(w, h);
+function PreyArt({ preyKey }: { preyKey: string }) {
+  const frame = preyFraming[preyKey];
+  const size = Math.max(frame.width, frame.height);
   return (
-    <span className="prey-image">
+    <span className="prey-image framed-prey">
       <span
-        className="sprite-window"
+        className="prey-crop"
         style={{
-          width: `${(w / d) * 100}%`,
-          height: `${(h / d) * 100}%`,
-          left: `${(1 - w / d) * 50}%`,
-          top: `${(1 - h / d) * 50}%`,
+          width: `${(frame.width / size) * 100}%`,
+          height: `${(frame.height / size) * 100}%`,
         }}
       >
         <Image
-          src="/prey-atlas.png"
+          src={frame.src}
           alt=""
-          width={1254}
-          height={1254}
+          width={frame.imageWidth}
+          height={frame.imageHeight}
           unoptimized
           style={{
-            width: `${(1254 / w) * 100}%`,
+            width: `${(frame.imageWidth / frame.width) * 100}%`,
             maxWidth: 'none',
             height: 'auto',
-            left: `${(-x / w) * 100}%`,
-            top: `${(-y / h) * 100}%`,
+            left: `${(-frame.x / frame.width) * 100}%`,
+            top: `${(-frame.y / frame.height) * 100}%`,
           }}
         />
       </span>
@@ -204,19 +221,7 @@ function PreyGallery({ items }: { items: PreyExample[] }) {
         const prey = preyCatalog[key];
         return (
           <div className="prey" key={key}>
-            {prey.image ? (
-              <span className="prey-image individual-prey">
-                <Image
-                  src={prey.image}
-                  alt=""
-                  width={1254}
-                  height={1254}
-                  unoptimized
-                />
-              </span>
-            ) : (
-              <PreyArt index={prey.tile!} />
-            )}
+            <PreyArt preyKey={key} />
             <span>{prey.name}</span>
             {note && <small>{note}</small>}
           </div>
@@ -511,23 +516,17 @@ export default function RaptorApp() {
                   </fieldset>
                 )}
               </div>
-              {availablePlumages.map((p) => (
-                <TabsContent
-                  key={p.value}
-                  value={p.value}
-                  className="plumage-panel"
-                >
-                  <div className="image-stage">
-                    <div className="hero-art">
-                      <BirdArt
-                        bird={bird}
-                        plumage={p.value}
-                        morphId={morph?.id}
-                      />
-                    </div>
+              <TabsContent value={plumage} className="plumage-panel">
+                <div className="image-stage">
+                  <div className="hero-art">
+                    <BirdArt
+                      bird={bird}
+                      plumage={plumage}
+                      morphId={morph?.id}
+                    />
                   </div>
-                </TabsContent>
-              ))}
+                </div>
+              </TabsContent>
             </Tabs>
             <div className="image-credit">KI-generierte Illustration</div>
           </main>
