@@ -1,5 +1,5 @@
 export const birdImages: Record<string, string> = {
-  "juvenile-wanderfalke": "/birds/juvenile-wanderfalke.png?v=e5406b651d16",
+  "juvenile-wanderfalke": "/birds/juvenile-wanderfalke.png?v=f0c0ef3d0904",
   "juvenile-lannerfalke": "/birds/juvenile-lannerfalke.png?v=73be3defe84e",
   "rotschwanzbussard": "/birds/rotschwanzbussard.png?v=bb1f1776b323",
   "juvenile-schopfkarakara": "/birds/juvenile-schopfkarakara.png?v=d13412255811",
@@ -31,7 +31,7 @@ export const birdImages: Record<string, string> = {
   "female-gaukler": "/birds/female-gaukler.png?v=b5a1bbdc6ba2",
   "seeadler": "/birds/seeadler.png?v=c376f5783c87",
   "juvenile-koenigsbussard": "/birds/juvenile-koenigsbussard.png?v=7e19db718ccc",
-  "wanderfalke": "/birds/wanderfalke.png?v=3acfd65943b5",
+  "wanderfalke": "/birds/wanderfalke.png?v=451172f0efee",
   "lannerfalke": "/birds/lannerfalke.png?v=f8a06dd09a0d",
   "juvenile-sakerfalke": "/birds/juvenile-sakerfalke.png?v=569e713354f9",
   "maeusebussard": "/birds/maeusebussard.png?v=a8213ad8d1f0",
