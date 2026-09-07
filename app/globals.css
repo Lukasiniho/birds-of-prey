@@ -558,10 +558,12 @@ h2 {
   margin-top: 17px;
   padding: 1px;
 }
-.color-dot {
+.color-dot,
+button.color-dot:not(:disabled) {
   width: 28px;
   height: 28px;
   border-radius: 50%;
+  cursor: default;
   border: 1px solid var(--swatch-border);
   box-shadow:
     0 0 0 3px var(--background),
