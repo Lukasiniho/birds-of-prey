@@ -64,7 +64,8 @@ export const birdImages: Record<string, string> = {
     '/birds/juvenile-weisskopfseeadler.png?v=2688f1b94912',
   habicht: '/birds/habicht.png?v=1978c3d38ab7',
   turmfalke: '/birds/turmfalke.png?v=b2899d1f5212',
-  'juvenile-kronenadler': '/birds/juvenile-kronenadler.png?v=95bd2bf66b52',
+  'juvenile-kronenadler':
+    '/birds/juvenile-kronenadler-adult-based-20260907.png',
   'juvenile-kampfadler': '/birds/juvenile-kampfadler.png?v=cf9040fd9748',
   'juvenile-schwarzmilan': '/birds/juvenile-schwarzmilan.png?v=e05dd339cff1',
   kaiseradler: '/birds/kaiseradler.png?v=6b9eefe91567',
