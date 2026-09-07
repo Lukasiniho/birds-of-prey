@@ -338,7 +338,7 @@ export const plumages = [
   { value: 'juvenile', label: 'Jungvogel' },
 ] as const;
 export function plumagesFor(id: string): { value: Plumage; label: string }[] {
-  return ['turmfalke', 'gaukler', 'sperber'].includes(id)
+  return ['turmfalke', 'gaukler', 'sperber', 'andenkondor'].includes(id)
     ? [...plumages]
     : [
         { value: 'male', label: 'Altvogel' },
