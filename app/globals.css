@@ -2438,6 +2438,9 @@ button.color-dot:not(:disabled) {
 .own-portrait[data-species='gerfalke'] {
   background-size: 114% auto;
 }
+.own-portrait[data-species='steppenadler'] {
+  background-size: 90% auto;
+}
 .bird-entry[data-slot] {
   height: auto;
   min-height: 84px;

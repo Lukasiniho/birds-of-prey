@@ -338,6 +338,70 @@ export const speciesProfiles: Record<string, SpeciesProfile> = {
       'Das Brutpaar errichtet einen Asthorst, etwa in einem Baum oder auf einem großen Kaktus. Weitere Gruppenmitglieder können Nahrung bringen. Bei günstiger Versorgung sind mehrere Bruten im Jahr möglich.',
     sources: cornell('Harriss_Hawk'),
   },
+  kaiseradler: {
+    identification:
+      'Ein großer, dunkler Adler mit langen, geraden Flügeln, die er im Segelflug flach hält. Der goldgelbe Nacken und die weißen Schulterflecken des Altvogels sind auf Distanz sichtbar. Jungvögel sind hell sandfarben mit dunkel gestreifter Unterseite.',
+    behaviour:
+      'Kaiseradler leben in festen Paaren und verteidigen weiträumige Reviere. Nordöstliche Populationen ziehen im Winter bis in den Nahen Osten, nach Afrika und Südasien; die Paare in Mitteleuropa bleiben meist ganzjährig im Brutgebiet.',
+    breeding:
+      'Der große Horst steht frei auf hohen Bäumen, in Steppen auch auf Strommasten. Meist werden zwei Eier gelegt; die Jungen werden nach etwa zwei Monaten flügge und bleiben noch Wochen in der Nähe der Eltern.',
+    sources: fund('eastern-imperial-eagle'),
+  },
+  steppenadler: {
+    identification:
+      'Ein kräftiger, einfarbig brauner Adler mit langen Flügeln und tief gefingerten Handschwingen. Der gelbe Mundwinkel reicht bis hinter das Auge, ein sicheres Merkmal. Jungvögel zeigen ein breites weißes Band auf den Unterflügeln.',
+    behaviour:
+      'Außerhalb der Brutzeit ist er ein Langstreckenzieher, der sich an Zugkonzentrationen wie Eilat oder Batumi zu Tausenden sammelt. Im Winterquartier schließen sich viele Vögel an Termitenschwärmen und Aasplätzen zusammen.',
+    breeding:
+      'Der flache Horst liegt oft direkt am Boden, auf niedrigen Büschen, Felsen oder Masten. Ein bis drei Eier werden rund sechs Wochen bebrütet; die Jungen fliegen nach etwa zwei Monaten aus.',
+    sources: fund('steppe-eagle'),
+  },
+  sekretaer: {
+    identification:
+      'Unverwechselbar: ein grauer Greifvogel mit langen Storchenbeinen, schwarzen Federhosen, roter Gesichtshaut und einem Schopf aus langen Federn. Im Flug ragen die Beine weit über den Schwanz hinaus, dessen zwei mittlere Federn verlängert sind.',
+    behaviour:
+      'Sekretäre laufen am Tag bis zu 30 Kilometer durch das Gras und fliegen nur, um Ruhebäume oder den Horst zu erreichen. Paare bleiben zusammen und zeigen bei der Balz wellenförmige Schauflüge mit lauten Rufen.',
+    breeding:
+      'Der breite, flache Horst aus Zweigen liegt auf der Krone einer Schirmakazie. Meist werden zwei bis drei Eier gelegt; die Jungen werden rund sechs Wochen bebrütet und verlassen den Horst nach etwa drei Monaten.',
+    sources: [
+      {
+        name: 'San Diego Zoo',
+        url: 'https://animals.sandiegozoo.org/animals/secretary-bird',
+      },
+    ],
+  },
+  andenkondor: {
+    identification:
+      'Ein riesiger schwarzer Segler mit brettartig flachen Flügeln, tief gefingerten Handschwingen und einer weißen Halskrause. Männchen tragen einen fleischigen Kamm auf dem nackten Kopf; junge Vögel sind einfarbig graubraun.',
+    behaviour:
+      'Andenkondore starten am Morgen an sonnenbeschienenen Hängen und nutzen Thermik und Hangaufwinde, um mit minimalem Kraftaufwand hunderte Kilometer zu segeln. An Kadavern und Schlafplätzen gelten feste Rangordnungen.',
+    breeding:
+      'Gebrütet wird in Felsnischen in großer Höhe, ohne eigentliches Nest. Ein einziges Ei wird knapp zwei Monate bebrütet, und der Jungvogel bleibt bis zu einem Jahr bei den Eltern, sodass Paare oft nur alle zwei Jahre brüten.',
+    sources: [
+      {
+        name: 'San Diego Zoo',
+        url: 'https://animals.sandiegozoo.org/animals/andean-condor',
+      },
+    ],
+  },
+  wespenbussard: {
+    identification:
+      'Dem Mäusebussard ähnlich, aber mit kleinem, weit vorgestrecktem Kopf, längerem Schwanz und flach gehaltenen Flügeln im Segelflug. Die Schwanzbinden, der graue Kopf des Männchens und die gelbe Iris helfen bei der Bestimmung.',
+    behaviour:
+      'Wespenbussarde treffen erst im Mai bei uns ein und ziehen im September wieder ab. Auf dem Zug meiden sie das offene Meer und sammeln sich an Engstellen wie Gibraltar und dem Bosporus zu Tausenden.',
+    breeding:
+      'Der Horst wird in hohen Bäumen gebaut und mit frischen belaubten Zweigen ausgekleidet. Zwei Eier werden gut fünf Wochen bebrütet; die Jungen werden mit Wespenwaben gefüttert und fliegen nach etwa 40 Tagen aus.',
+    sources: nabu('wespenbussard'),
+  },
+  bartgeier: {
+    identification:
+      'Ein sehr großer, schlanker Geier mit langen, spitzen Flügeln und einem langen Keilschwanz, an dem er sich schon von Weitem erkennen lässt. Der Kopf ist befiedert; Altvögel zeigen einen orangefarbenen Kopf mit schwarzem Augenstreif und Federbart.',
+    behaviour:
+      'Bartgeier segeln dicht an Felswänden entlang und suchen dort nach Knochen. Nach ihrer Ausrottung wurden sie seit 1986 in den Alpen wieder angesiedelt; heute brüten dort wieder über 300 Paare. Jungvögel wandern weit umher, bevor sie ein Revier gründen.',
+    breeding:
+      'Das Nest liegt in einer geschützten Felsnische und wird mit Wolle und Haaren ausgepolstert. Das Weibchen legt im Winter ein bis zwei Eier; meist wird nur ein Junges großgezogen, das nach rund vier Monaten ausfliegt.',
+    sources: lbv('bartgeier'),
+  },
   kronenadler: {
     identification:
       'Eine aufrichtbare Haube und kräftige Fänge prägen den Waldadler. Seine kurzen breiten Flügel und der lange Schwanz ermöglichen enge Wendungen zwischen Bäumen. Junge Kronenadler sind deutlich heller als ausgewachsene Tiere.',

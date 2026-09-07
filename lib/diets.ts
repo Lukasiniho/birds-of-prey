@@ -148,6 +148,78 @@ export const diets: Record<string, Diet> = {
     examples: [{ key: 'kaninchen' }, { key: 'hase' }, { key: 'ziesel' }],
     occasionalExamples: [{ key: 'taube' }, { key: 'echse' }],
   },
+  kaiseradler: {
+    summary:
+      'Kleine bis mittelgroße Säugetiere der offenen Landschaft bilden die Hauptnahrung, vor allem Ziesel, Hamster, Hasen und Igel. Dazu kommen Vögel bis Fasanengröße; Aas wird besonders im Winter angenommen.',
+    primary: ['Ziesel', 'Hamster', 'Hasen', 'Igel'],
+    occasional: ['Fasane', 'Krähen', 'Tauben', 'Reptilien'],
+    carrion: true,
+    sources: [
+      'https://peregrinefund.org/explore-raptors-species/eagles/eastern-imperial-eagle',
+    ],
+    examples: [{ key: 'ziesel' }, { key: 'hase' }],
+    occasionalExamples: [{ key: 'taube' }],
+  },
+  steppenadler: {
+    summary:
+      'In den Brutgebieten lebt er vor allem von Zieseln, Rennmäusen und Pfeifhasen. Auf dem Zug und im Winterquartier nimmt er in großer Zahl Heuschrecken und Termiten sowie Aas; gelegentlich schlägt er Vögel.',
+    primary: ['Ziesel', 'Rennmäuse', 'Pfeifhasen'],
+    occasional: ['Heuschrecken', 'Termiten', 'Vögel', 'Reptilien'],
+    carrion: true,
+    sources: [
+      'https://peregrinefund.org/explore-raptors-species/eagles/steppe-eagle',
+    ],
+    examples: [{ key: 'ziesel' }, { key: 'maus' }],
+    occasionalExamples: [{ key: 'heuschrecke' }],
+  },
+  sekretaer: {
+    summary:
+      'Der Sekretär frisst, was er beim Durchstreifen der Savanne aufscheucht: vor allem Heuschrecken und andere Großinsekten, Mäuse und Eidechsen. Schlangen sind spektakulär, machen aber nur einen kleinen Teil der Nahrung aus. Bodenbrüter und ihre Eier nimmt er ebenfalls.',
+    primary: ['Heuschrecken', 'Mäuse', 'Eidechsen', 'Schlangen'],
+    occasional: ['Käfer', 'Jungvögel', 'Eier', 'Junghasen'],
+    carrion: false,
+    sources: ['https://animals.sandiegozoo.org/animals/secretary-bird'],
+    examples: [{ key: 'schlange' }, { key: 'heuschrecke' }, { key: 'maus' }],
+    occasionalExamples: [{ key: 'echse' }, { key: 'ei' }],
+  },
+  andenkondor: {
+    summary:
+      'Der Andenkondor ist ein reiner Aasfresser. In den Anden nutzt er Kadaver von Guanakos, Lamas, Rindern und Schafen, an der Pazifikküste auch tote Seelöwen und Wale. Er tötet keine Beute, plündert aber gelegentlich Kolonien von Seevögeln.',
+    primary: [
+      'Aas von Guanakos und Lamas',
+      'Aas von Rindern und Schafen',
+      'Angespülte Meeressäuger',
+    ],
+    occasional: ['Seevogeleier', 'Seevogelküken'],
+    carrion: true,
+    sources: ['https://animals.sandiegozoo.org/animals/andean-condor'],
+    examples: [{ key: 'gamskitz', note: 'als Aas' }],
+    occasionalExamples: [{ key: 'ei' }],
+  },
+  wespenbussard: {
+    summary:
+      'Die Brut von Wespen und Hummeln ist seine Hauptnahrung: Er gräbt die Nester aus und verzehrt Larven und Puppen aus den Waben. Bei schlechtem Wetter weicht er auf Frösche, Nestlinge, Kleinsäuger und Käfer aus.',
+    primary: ['Wespenlarven und -puppen', 'Hummelbrut'],
+    occasional: ['Frösche', 'Nestlinge', 'Kleinsäuger', 'Käfer'],
+    carrion: false,
+    sources: [
+      'https://www.nabu.de/tiere-und-pflanzen/voegel/portraets/wespenbussard/',
+    ],
+    examples: [{ key: 'kaefer', note: 'vor allem Wespenbrut' }],
+    occasionalExamples: [{ key: 'frosch' }, { key: 'maus' }],
+  },
+  bartgeier: {
+    summary:
+      'Knochen machen den größten Teil seiner Nahrung aus: Von Kadavern verendeter Gämsen, Steinböcke und Schafe nimmt er die Knochen samt Mark und schluckt sie bis handlang ganz hinunter. Fleischreste und Schildkröten ergänzen den Speiseplan.',
+    primary: ['Knochen von Gämsen und Steinböcken', 'Knochen von Schafen'],
+    occasional: ['Aas', 'Schildkröten'],
+    carrion: true,
+    sources: [
+      'https://www.lbv.de/ratgeber/naturwissen/artenportraits/detail/bartgeier/',
+    ],
+    examples: [{ key: 'gamskitz', note: 'Knochen von Aas' }],
+    occasionalExamples: [],
+  },
   kronenadler: {
     summary:
       'Säugetiere aus dem Wald, besonders Affen und kleine Antilopen, machen den Großteil der Nahrung aus. Welche Beute überwiegt, hängt vom Gebiet ab. Große Beute wird am Boden zerlegt und portionsweise zum Horst getragen.',

@@ -62,6 +62,378 @@ export const catalogAdditions: AdditionalBird[] = [
     },
   },
   {
+    id: 'kaiseradler',
+    name: 'Kaiseradler',
+    latin: 'Aquila heliaca',
+    aliases: ['Eastern Imperial Eagle', 'Östlicher Kaiseradler'],
+    group: 'Adler',
+    genusLabel: 'Echte Adler',
+    tile: null,
+    span: 'ca. 180–215',
+    weight: 'ca. 2.450–4.500',
+    unit: 'g',
+    intro:
+      'Ein großer, dunkler Adler der Steppen und Auwälder, dessen goldgelber Nacken und weiße Schulterflecken ihn im Alterskleid unverwechselbar machen.',
+    habitat:
+      'Offene Steppen, Agrarland mit Feldgehölzen sowie lichte Au- und Niederungswälder. Zum Brüten braucht er hohe, frei stehende Bäume mit weitem Blick über die Jagdgebiete.',
+    range: 'Südosteuropa bis Zentralasien',
+    regions: ['Europa', 'Asien'],
+    habitatGroup: 'Steppen & Grasland',
+    colors: [
+      ['Schwarzbraun', '#2B2521'],
+      ['Dunkelbraun', '#4A3B2E'],
+      ['Goldbeige', '#C9A86A'],
+      ['Weiß', '#E8E4D8'],
+    ],
+    prey: [],
+    diet: 'Ziesel, Hamster, Hasen und Igel; daneben Vögel bis Fasanengröße und Aas.',
+    source:
+      'https://peregrinefund.org/explore-raptors-species/eagles/eastern-imperial-eagle',
+    sourceName: 'The Peregrine Fund',
+    plumageNotes: {
+      male: 'Sehr dunkles, fast schwarzbraunes Gefieder mit goldgelbem Scheitel und Nacken. Auf den Schultern leuchten weiße Flecken; der Schwanz ist an der Basis grau und trägt eine breite dunkle Endbinde.',
+      female:
+        'Das Gefieder entspricht dem des Männchens. Weibchen sind größer und schwerer, was im Flug nur im direkten Vergleich auffällt.',
+      juvenile:
+        'Junge Kaiseradler sind hell sandfarben bis gelblich mit dunklen Längsstreifen auf Brust und Bauch. Die Schwungfedern sind dunkel mit einem helleren Fenster an den inneren Handschwingen; das dunkle Alterskleid entsteht erst über mehrere Jahre.',
+    },
+    juvenileColors: [
+      ['Sandbeige', '#D5C29A'],
+      ['Hellbraun', '#A98F68'],
+      ['Dunkelbraun', '#5A4A3A'],
+    ],
+    bodyColors: {
+      male: {
+        eyes: [['Bernsteingelb', '#C99A3A']],
+        legs: [['Gelbe Zehen', '#D8B23C']],
+        note: 'Die Läufe sind bis zu den Zehen befiedert.',
+      },
+      female: {
+        eyes: [['Bernsteingelb', '#C99A3A']],
+        legs: [['Gelbe Zehen', '#D8B23C']],
+        note: 'Die Läufe sind bis zu den Zehen befiedert.',
+      },
+      juvenile: {
+        eyes: [['Dunkelbraun', '#4E3A2A']],
+        legs: [['Gelbe Zehen', '#D8B23C']],
+        note: 'Die Läufe sind bis zu den Zehen befiedert.',
+      },
+    },
+    hunt: {
+      title: 'Ansitz und niedriger Suchflug',
+      text: 'Der Kaiseradler beobachtet Zieselkolonien und Feldränder von einer hohen Warte aus oder gleitet niedrig über die Steppe. Am Boden entdeckte Beute greift er in einem kurzen, flachen Angriff mit ausgestreckten Fängen.',
+    },
+  },
+  {
+    id: 'steppenadler',
+    name: 'Steppenadler',
+    latin: 'Aquila nipalensis',
+    aliases: ['Steppe Eagle'],
+    group: 'Adler',
+    genusLabel: 'Echte Adler',
+    tile: null,
+    span: 'ca. 165–215',
+    weight: 'ca. 2.000–4.900',
+    unit: 'g',
+    intro:
+      'Ein einfarbig brauner Adler der eurasischen Steppen, der im Winter in riesigen Zügen bis nach Afrika und Indien wandert.',
+    habitat:
+      'Weite Steppen, Halbwüsten und Grasland mit Zieselkolonien; im Winterquartier auch Savannen und Kulturland. Er brütet häufig am Boden oder auf niedrigen Büschen, Felsen und Masten.',
+    range: 'Zentralasien; im Winter Afrika & Südasien',
+    regions: ['Asien', 'Afrika'],
+    habitatGroup: 'Steppen & Grasland',
+    colors: [
+      ['Dunkelbraun', '#4B3C2F'],
+      ['Braun', '#6E5A45'],
+      ['Graubraun', '#8C7B66'],
+    ],
+    prey: [],
+    diet: 'Ziesel, Rennmäuse und Pfeifhasen; im Winter auch Heuschrecken, Termiten und Aas.',
+    source:
+      'https://peregrinefund.org/explore-raptors-species/eagles/steppe-eagle',
+    sourceName: 'The Peregrine Fund',
+    plumageNotes: {
+      male: 'Einfarbig dunkelbraunes Gefieder, mitunter mit einem rostfarbenen Nackenfleck. Der lange gelbe Mundwinkel reicht bis hinter das Auge; die Unterflügel zeigen fein gebänderte Schwungfedern mit dunklem Hinterrand.',
+      female:
+        'Das Gefieder entspricht dem des Männchens. Weibchen sind im Mittel deutlich größer und schwerer.',
+      juvenile:
+        'Junge Steppenadler sind heller graubraun und tragen ein breites weißes Band entlang der Unterflügel sowie weiße Hinterränder an Flügeln und Schwanz. Diese Zeichnung verblasst über mehrere Jahre.',
+    },
+    juvenileColors: [
+      ['Hellbraun', '#A08A6C'],
+      ['Beige', '#C8B79A'],
+      ['Weiß', '#E9E5DA'],
+      ['Dunkelbraun', '#57473A'],
+    ],
+    bodyColors: {
+      male: {
+        eyes: [['Braun', '#6A4A2E']],
+        legs: [['Gelbe Zehen', '#D5B04A']],
+        note: 'Die Läufe sind bis zu den Zehen befiedert.',
+      },
+      female: {
+        eyes: [['Braun', '#6A4A2E']],
+        legs: [['Gelbe Zehen', '#D5B04A']],
+        note: 'Die Läufe sind bis zu den Zehen befiedert.',
+      },
+      juvenile: {
+        eyes: [['Dunkelbraun', '#4A3627']],
+        legs: [['Gelbe Zehen', '#D5B04A']],
+        note: 'Die Läufe sind bis zu den Zehen befiedert.',
+      },
+    },
+    hunt: {
+      title: 'Jagd am Zieselbau',
+      text: 'Der Steppenadler wartet oft geduldig am Boden oder auf einer niedrigen Warte neben einem Zieselbau und packt das Tier beim Auftauchen. Daneben sucht er im Gleitflug die Steppe ab und nutzt Heuschreckenschwärme und Aas.',
+    },
+  },
+  {
+    id: 'sekretaer',
+    name: 'Sekretär',
+    latin: 'Sagittarius serpentarius',
+    aliases: ['Secretarybird', 'Secretary Bird', 'Sekretaer', 'Sekretärvogel'],
+    group: 'Sekretäre',
+    genusLabel: 'Sekretäre',
+    tile: null,
+    span: 'ca. 190–215',
+    weight: 'ca. 2.300–4.300',
+    unit: 'g',
+    intro:
+      'Ein Greifvogel auf Stelzen: Der Sekretär durchstreift Afrikas Savannen zu Fuß und erlegt Schlangen mit gezielten Tritten.',
+    habitat:
+      'Offene Savannen, Grasland und leicht bebuschte Ebenen mit einzelnen Schirmakazien, auf denen er nachts ruht und seinen Horst baut. Dichte Wälder und Wüsten meidet er.',
+    range: 'Afrika südlich der Sahara',
+    regions: ['Afrika'],
+    habitatGroup: 'Savanne & Grasland',
+    colors: [
+      ['Hellgrau', '#C7C6BF'],
+      ['Schwarz', '#232323'],
+      ['Weiß', '#EBE9E2'],
+      ['Orangerot', '#D8633A'],
+    ],
+    prey: [],
+    diet: 'Heuschrecken und andere Großinsekten, Mäuse, Eidechsen, Schlangen und Bodenbrüter samt Eiern.',
+    source: 'https://animals.sandiegozoo.org/animals/secretary-bird',
+    sourceName: 'San Diego Zoo',
+    plumageNotes: {
+      male: 'Hellgrauer Körper mit schwarzen Schwungfedern und schwarzen Federhosen, lange rosagraue Beine und eine nackte orangerote Gesichtshaut. Am Hinterkopf ragt ein Schopf aus langen, schwarz gespitzten Federn.',
+      female:
+        'Das Gefieder entspricht dem des Männchens. Weibchen sind geringfügig kleiner und haben einen etwas kürzeren Schopf.',
+      juvenile:
+        'Junge Sekretäre wirken bräunlicher grau, die Gesichtshaut ist gelblich statt rot, Schopf und Schwanzfedern sind kürzer. Die Iris ist graubraun und wird erst später dunkelbraun.',
+    },
+    juvenileColors: [
+      ['Graubraun', '#A8A196'],
+      ['Schwarzbraun', '#33302C'],
+      ['Gelblich', '#D9B36A'],
+    ],
+    bodyColors: {
+      male: {
+        eyes: [['Braun', '#5A3E2C']],
+        legs: [['Rosagrau', '#C9A8A0']],
+        note: 'Die Oberschenkel sind schwarz befiedert.',
+      },
+      female: {
+        eyes: [['Braun', '#5A3E2C']],
+        legs: [['Rosagrau', '#C9A8A0']],
+        note: 'Die Oberschenkel sind schwarz befiedert.',
+      },
+      juvenile: {
+        eyes: [['Graubraun', '#8A7A6A']],
+        legs: [['Rosagrau', '#C9A8A0']],
+        note: 'Die Oberschenkel sind schwarz befiedert.',
+      },
+    },
+    hunt: {
+      title: 'Jagd zu Fuß mit Tritten',
+      text: 'Der Sekretär legt am Tag viele Kilometer zu Fuß zurück und scheucht Beute aus dem Gras. Schlangen und andere Tiere tötet er mit blitzschnellen, kräftigen Tritten und weicht dabei mit erhobenen Flügeln Bissen aus.',
+    },
+  },
+  {
+    id: 'andenkondor',
+    name: 'Andenkondor',
+    latin: 'Vultur gryphus',
+    aliases: ['Andean Condor', 'Kondor'],
+    group: 'Geier',
+    genusLabel: 'Neuweltgeier',
+    tile: null,
+    span: 'ca. 270–320',
+    weight: 'ca. 8.000–15.000',
+    unit: 'g',
+    intro:
+      'Der größte flugfähige Greifvogel der Welt: Mit über drei Metern Spannweite segelt der Andenkondor stundenlang ohne Flügelschlag.',
+    habitat:
+      'Hochgebirge der Anden mit Felswänden und offenen Grasfluren, dazu Küstenwüsten und Steilküsten am Pazifik, wo er nach angespülten Kadavern sucht.',
+    range: 'Anden & Pazifikküste Südamerikas',
+    regions: ['Südamerika'],
+    habitatGroup: 'Gebirge',
+    colors: [
+      ['Schwarz', '#1F1D1C'],
+      ['Weiß', '#ECEAE3'],
+      ['Rosarot', '#C97A78'],
+    ],
+    prey: [],
+    diet: 'Fast ausschließlich Aas, vor allem Guanakos, Lamas, Rinder und angespülte Meeressäuger; daneben Eier von Seevögeln.',
+    source: 'https://animals.sandiegozoo.org/animals/andean-condor',
+    sourceName: 'San Diego Zoo',
+    plumageNotes: {
+      male: 'Schwarzes Gefieder mit einer weißen Halskrause aus Daunen und großen weißen Flächen auf den Oberflügeln. Kopf und Hals sind nackt und rötlich; das Männchen trägt einen fleischigen Kamm auf dem Scheitel.',
+      female:
+        'Ebenfalls schwarz mit weißer Halskrause, aber kleiner, ohne Kamm und mit roter Iris. Die weißen Flügelfelder sind weniger ausgedehnt.',
+      juvenile:
+        'Junge Kondore sind einfarbig graubraun mit brauner Halskrause und dunkelgrauem, nacktem Kopf. Das schwarz-weiße Alterskleid entsteht erst nach etwa sechs Jahren.',
+    },
+    juvenileColors: [
+      ['Graubraun', '#6E655B'],
+      ['Braun', '#8C8073'],
+      ['Dunkelgrau', '#3C3A38'],
+    ],
+    bodyColors: {
+      male: {
+        eyes: [['Braun', '#6B4A32']],
+        legs: [['Grau', '#8E8C88']],
+        note: 'Kopf und Hals sind unbefiedert.',
+      },
+      female: {
+        eyes: [['Rot', '#B8382F']],
+        legs: [['Grau', '#8E8C88']],
+        note: 'Kopf und Hals sind unbefiedert.',
+      },
+      juvenile: {
+        eyes: [['Braun', '#6B4A32']],
+        legs: [['Grau', '#8E8C88']],
+        note: 'Kopf und Hals sind unbefiedert.',
+      },
+    },
+    hunt: {
+      title: 'Segelflug auf Aassuche',
+      text: 'Der Andenkondor nutzt Aufwinde an Berghängen und segelt in großer Höhe über weite Gebiete. Kadaver findet er mit den Augen und beobachtet dabei auch andere Aasfresser. Am Fund verdrängt er mit seiner Größe kleinere Geier.',
+    },
+  },
+  {
+    id: 'wespenbussard',
+    name: 'Wespenbussard',
+    latin: 'Pernis apivorus',
+    aliases: ['European Honey Buzzard', 'Honey Buzzard'],
+    group: 'Bussarde',
+    genusLabel: 'Wespenbussarde',
+    tile: null,
+    span: 'ca. 115–135',
+    weight: 'ca. 600–1.100',
+    unit: 'g',
+    intro:
+      'Ein Sommergast unserer Wälder, der mit dem Mäusebussard leicht zu verwechseln ist und sich auf die Brut von Wespen spezialisiert hat.',
+    habitat:
+      'Laub- und Mischwälder mit Lichtungen, Waldwiesen und Waldrändern, in denen er Wespennester aufspürt. Von Mai bis September in Europa, den Winter verbringt er im tropischen Afrika.',
+    range: 'Europa; im Winter Afrika',
+    regions: ['Europa', 'Afrika'],
+    habitatGroup: 'Wälder & Waldränder',
+    colors: [
+      ['Grau', '#8F8F8A'],
+      ['Braun', '#6F5A45'],
+      ['Cremeweiß', '#E6E0D2'],
+      ['Dunkelbraun', '#4A3B2F'],
+    ],
+    prey: [],
+    diet: 'Larven und Puppen von Wespen und Hummeln; außerdem Frösche, Nestlinge, Kleinsäuger und Käfer.',
+    source:
+      'https://www.nabu.de/tiere-und-pflanzen/voegel/portraets/wespenbussard/',
+    sourceName: 'NABU',
+    plumageNotes: {
+      male: 'Kleiner, taubenartiger Kopf mit grauem Gesicht und gelber Iris, braune Oberseite und hell gebänderte Unterseite. Der lange Schwanz trägt eine breite dunkle Endbinde und zwei schmale Binden nahe der Basis.',
+      female:
+        'Ähnlich dem Männchen, aber mit braunem statt grauem Kopf und stärker gefleckter Unterseite. Weibchen sind etwas größer.',
+      juvenile:
+        'Junge Wespenbussarde haben eine dunkle Iris, eine leuchtend gelbe Wachshaut und eine gleichmäßiger gebänderte Schwanzzeichnung. Die Unterseite ist oft kräftig gestreift, die Färbung insgesamt sehr variabel.',
+    },
+    juvenileColors: [
+      ['Braun', '#7A6250'],
+      ['Beige', '#D3C3A6'],
+      ['Dunkelbraun', '#4A3B2F'],
+    ],
+    bodyColors: {
+      male: {
+        eyes: [['Gelb', '#D9C24A']],
+        legs: [['Gelb', '#D6B33D']],
+      },
+      female: {
+        eyes: [['Gelb', '#D9C24A']],
+        legs: [['Gelb', '#D6B33D']],
+      },
+      juvenile: {
+        eyes: [['Dunkelbraun', '#4E3A2A']],
+        legs: [['Gelb', '#D6B33D']],
+      },
+    },
+    hunt: {
+      title: 'Wespennester ausgraben',
+      text: 'Der Wespenbussard folgt heimfliegenden Wespen bis zu ihrem Nest, gräbt es mit den Füßen aus und trägt die Waben mit Larven zum Horst. Dichte Gesichtsfedern und schlitzförmige Nasenlöcher schützen ihn vor Stichen.',
+    },
+  },
+  {
+    id: 'bartgeier',
+    name: 'Bartgeier',
+    latin: 'Gypaetus barbatus',
+    aliases: ['Bearded Vulture', 'Lämmergeier', 'Laemmergeier'],
+    group: 'Geier',
+    genusLabel: 'Bartgeier',
+    tile: null,
+    span: 'ca. 235–285',
+    weight: 'ca. 4.500–7.000',
+    unit: 'g',
+    intro:
+      'Der Knochenbrecher der Alpen: Der Bartgeier lebt fast ausschließlich von Knochen und wurde nach seiner Ausrottung erfolgreich wieder angesiedelt.',
+    habitat:
+      'Hochgebirge mit steilen Felswänden, Schluchten und offenen Hängen oberhalb der Baumgrenze. Er brütet in Felsnischen und nutzt Aufwinde an den Graten für seine Suchflüge.',
+    range: 'Alpen, Pyrenäen, Kaukasus bis Himalaya; Ostafrika',
+    regions: ['Europa', 'Asien', 'Afrika'],
+    habitatGroup: 'Gebirge',
+    colors: [
+      ['Rostorange', '#D0955A'],
+      ['Cremeweiß', '#EAE1CF'],
+      ['Schiefergrau', '#4A4A4C'],
+      ['Schwarz', '#232323'],
+    ],
+    prey: [],
+    diet: 'Überwiegend Knochen und Knochenmark von verendeten Huftieren; daneben Aas und Schildkröten.',
+    source:
+      'https://www.lbv.de/ratgeber/naturwissen/artenportraits/detail/bartgeier/',
+    sourceName: 'LBV',
+    plumageNotes: {
+      male: 'Cremefarbener bis rostoranger Kopf und Unterseite, ein schwarzer Augenstreif und der namensgebende Federbart unter dem Schnabel. Flügel und der lange, keilförmige Schwanz sind schiefergrau bis schwarz. Um die hellgelbe Iris leuchtet ein roter Skleralring.',
+      female:
+        'Das Gefieder entspricht dem des Männchens; die Orangefärbung stammt bei beiden vom Baden in eisenhaltigem Schlamm. Weibchen sind geringfügig größer.',
+      juvenile:
+        'Junge Bartgeier sind an Kopf und Hals schwarzbraun und am Körper dunkel gescheckt. Die Iris ist braun; das helle Alterskleid entwickelt sich erst über fünf bis sieben Jahre.',
+    },
+    juvenileColors: [
+      ['Schwarzbraun', '#2E2825'],
+      ['Dunkelbraun', '#54463B'],
+      ['Graubraun', '#8A7E70'],
+    ],
+    bodyColors: {
+      male: {
+        eyes: [['Hellgelb mit rotem Ring', '#E5D27A']],
+        legs: [['Graue Zehen', '#8F8D89']],
+        note: 'Die Läufe sind bis zu den Zehen befiedert.',
+      },
+      female: {
+        eyes: [['Hellgelb mit rotem Ring', '#E5D27A']],
+        legs: [['Graue Zehen', '#8F8D89']],
+        note: 'Die Läufe sind bis zu den Zehen befiedert.',
+      },
+      juvenile: {
+        eyes: [['Braun', '#5E4634']],
+        legs: [['Graue Zehen', '#8F8D89']],
+        note: 'Die Läufe sind bis zu den Zehen befiedert.',
+      },
+    },
+    hunt: {
+      title: 'Knochen aus der Luft zerschmettern',
+      text: 'Der Bartgeier trägt große Knochen in die Höhe und lässt sie aus 50 bis 80 Metern auf Felsplatten fallen, bis sie zerbrechen. Die Splitter und das Mark verschluckt er ganz; seine Magensäure löst den Knochen auf.',
+    },
+  },
+  {
     id: 'kronenadler',
     name: 'Kronenadler',
     latin: 'Stephanoaetus coronatus',
