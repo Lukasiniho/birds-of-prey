@@ -135,11 +135,12 @@ void test('all species have reviewed diets, valid prey and illustrated habitats'
         existsSync(new URL('../public' + habitatImages[id], import.meta.url)),
       );
     }
-    assert(
-      existsSync(
-        new URL('../public' + huntingImages[bird.id], import.meta.url),
-      ),
-    );
+    if (huntingImages[bird.id])
+      assert(
+        existsSync(
+          new URL('../public' + huntingImages[bird.id], import.meta.url),
+        ),
+      );
     for (const n of bird.span.match(/\d+/g) ?? [])
       assert.equal(Number(n) % 5, 0);
   }

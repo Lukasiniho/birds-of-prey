@@ -172,6 +172,12 @@ function useSlidingPill(group: string, active: string) {
   }, [group, active]);
   return { barRef, pillRef };
 }
+type ArtLayer = { src: string; alt: string };
+type ArtSlots = { a: ArtLayer; b: ArtLayer | null; active: 'a' | 'b' };
+/* transitions.dev icon swap: both illustrations sit in one grid cell and
+   data-state picks the visible one. A new image is decoded first, parked in
+   the hidden slot, then the state flips on the next frame so it fades in
+   while the old one fades out with blur and a slight scale. */
 function BirdArt({
   bird,
   plumage,
@@ -191,82 +197,62 @@ function BirdArt({
     appearance?.image ?? birdImage(bird.id, plumage),
   );
   const nextAlt = `${bird.name} – ${plumagesFor(bird.id).find((p) => p.value === plumage)!.label}${morph ? `, Farbform ${morph.label}` : ''}`;
-  const [displayed, setDisplayed] = useState({ src: nextSource, alt: nextAlt });
-  const [incoming, setIncoming] = useState<{ src: string; alt: string } | null>(
-    null,
-  );
-  const [decodedSource, setDecodedSource] = useState<string | null>(null);
+  const [slots, setSlots] = useState<ArtSlots>({
+    a: { src: nextSource, alt: nextAlt },
+    b: null,
+    active: 'a',
+  });
   const [failedSource, setFailedSource] = useState<string | null>(null);
   const [retry, setRetry] = useState(0);
+  const shown = slots[slots.active]!;
   useEffect(() => {
-    if (nextSource === displayed.src) return;
+    if (nextSource === shown.src) return;
     let cancelled = false;
+    let frame = 0;
     loadImage(nextSource)
       .then(() => {
-        if (!cancelled) {
-          setFailedSource(null);
-          setDecodedSource(null);
-          setIncoming({ src: nextSource, alt: nextAlt });
-        }
+        if (cancelled) return;
+        setFailedSource(null);
+        const next = slots.active === 'a' ? 'b' : 'a';
+        setSlots((s) => ({ ...s, [next]: { src: nextSource, alt: nextAlt } }));
+        frame = requestAnimationFrame(() => {
+          frame = requestAnimationFrame(() => {
+            if (!cancelled) setSlots((s) => ({ ...s, active: next }));
+          });
+        });
       })
       .catch(() => {
         if (!cancelled) setFailedSource(nextSource);
       });
     return () => {
       cancelled = true;
+      cancelAnimationFrame(frame);
     };
-  }, [nextSource, nextAlt, displayed.src, retry]);
-  useEffect(() => {
-    if (
-      !incoming ||
-      incoming.src !== nextSource ||
-      decodedSource !== nextSource
-    )
-      return;
-    const timer = setTimeout(() => {
-      setDisplayed(incoming);
-      setIncoming(null);
-      setDecodedSource(null);
-    }, 200);
-    return () => clearTimeout(timer);
-  }, [incoming, decodedSource, nextSource]);
-  const overlay = incoming?.src === nextSource ? incoming : null;
-  const fading = overlay?.src === decodedSource;
+  }, [nextSource, nextAlt, shown.src, slots.active, retry]);
   return (
     <div
-      className={`bird-art crossfade-art${fading ? ' is-crossfading' : ''}`}
-      aria-busy={nextSource !== displayed.src}
+      className="bird-art t-icon-swap"
+      data-state={slots.active}
+      aria-busy={nextSource !== shown.src}
     >
-      <Image
-        key={displayed.src}
-        src={displayed.src}
-        alt={overlay ? '' : displayed.alt}
-        width={1536}
-        height={1536}
-        unoptimized
-        priority
-      />
-      {overlay && (
-        <Image
-          key={overlay.src}
-          className="bird-incoming"
-          onLoad={async (event) => {
-            const image = event.currentTarget;
-            try {
-              await image.decode();
-              setDecodedSource(overlay.src);
-            } catch {
-              setFailedSource(overlay.src);
-            }
-          }}
-          src={overlay.src}
-          alt={overlay.alt}
-          width={1536}
-          height={1536}
-          unoptimized
-          priority
-        />
-      )}
+      {(['a', 'b'] as const).map((slot) => {
+        const layer = slots[slot];
+        return (
+          layer && (
+            <span className="t-icon" data-icon={slot} key={slot}>
+              <Image
+                key={layer.src}
+                src={layer.src}
+                alt={slots.active === slot ? layer.alt : ''}
+                width={1536}
+                height={1536}
+                unoptimized
+                priority
+              />
+            </span>
+          )
+        );
+      })}
       {failedSource === nextSource && (
         <button
           className="image-retry"
@@ -314,12 +300,12 @@ function ColorRow({
 }
 function HuntingArt({ bird }: { bird: BirdSpecies }) {
   const hunt = hunts[bird.id];
+  const source = huntingImages[bird.id] ?? hunt.image;
+  if (!source) return null;
   return (
     <Image
       className="hunting-standalone"
-      src={imageSource(
-        huntingImages[bird.id] ?? hunt.image ?? `/hunting-${bird.id}.png`,
-      )}
+      src={imageSource(source)}
       width={1536}
       height={1536}
       alt={`${bird.name}: ${hunt.title}`}
@@ -555,9 +541,13 @@ export default function RaptorApp() {
                           <span
                             className="portrait head-portrait own-portrait"
                             data-species={b.id}
-                            style={{
-                              backgroundImage: `url(${imageSource(portraitImages[b.id])})`,
-                            }}
+                            style={
+                              portraitImages[b.id]
+                                ? {
+                                    backgroundImage: `url(${imageSource(portraitImages[b.id])})`,
+                                  }
+                                : { backgroundImage: 'none' }
+                            }
                             aria-hidden="true"
                           />
                           <span
@@ -807,6 +797,13 @@ export default function RaptorApp() {
               </TabsContent>
               <TabsContent value="lebensraum" className="info-tab-content">
                 <section className="habitat">
+                  <div className="range-block">
+                    <h2>Verbreitung</h2>
+                    <p>{bird.range}</p>
+                    <RangeMap birdId={bird.id} name={bird.name} />
+                  </div>
+                  <h2>Lebensraum</h2>
+                  <p>{bird.habitat}</p>
                   <div className="habitat-gallery">
                     {speciesLandscapes[bird.id].map((id) => (
                       <figure key={id}>
@@ -820,13 +817,6 @@ export default function RaptorApp() {
                         <figcaption>{landscapes[id].label}</figcaption>
                       </figure>
                     ))}
-                  </div>
-                  <h2>Lebensraum</h2>
-                  <p>{bird.habitat}</p>
-                  <div className="range-block">
-                    <h2>Verbreitung</h2>
-                    <p>{bird.range}</p>
-                    <RangeMap key={bird.id} birdId={bird.id} name={bird.name} />
                   </div>
                 </section>
               </TabsContent>

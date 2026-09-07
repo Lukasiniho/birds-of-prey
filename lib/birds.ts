@@ -1,4 +1,5 @@
 import { birdImages } from './bird-images.ts';
+import { huntingImages } from './hunting-images.ts';
 import { additionalBirds } from './additional-birds.ts';
 export type BirdSpecies = {
   id: string;
@@ -450,7 +451,7 @@ export const hunts: Record<
   ...Object.fromEntries(
     additionalBirds.map((b) => [
       b.id,
-      { ...b.hunt, tile: 0, image: `/birds/hunting-${b.id}.png` },
+      { ...b.hunt, tile: 0, image: huntingImages[b.id] },
     ]),
   ),
   rotschwanzbussard: {
