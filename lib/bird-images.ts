@@ -77,5 +77,5 @@ export const birdImages: Record<string, string> = {
   'juvenile-andenkondor': '/birds/andenkondor-juvenile-20260907-v3.png',
   wespenbussard: '/birds/wespenbussard-20260907.png',
   bartgeier: '/birds/bartgeier-20260907.png',
-  'juvenile-sekretaer': '/birds/juvenile-sekretaer.png?v=85869a30b595',
+  'juvenile-sekretaer': '/birds/juvenile-sekretaer-20260907.png',
 };
