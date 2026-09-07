@@ -99,34 +99,39 @@ function Measurement({ value, unit }: { value: string; unit: string }) {
     </p>
   );
 }
-/* transitions.dev text states swap: the old text exits up with blur, the new
-   text enters from below. React renders the text once; the swap edits the DOM. */
-function SwapText({ text }: { text: string }) {
-  const ref = useRef<HTMLSpanElement>(null);
-  const [initial] = useState(text);
+/* transitions.dev texts reveal: the name and Latin name rise in with a
+   staggered blur. On a species change the block fades out quietly (200ms),
+   then the new text is written into the DOM and the reveal replays. */
+function RevealHeading({ name, latin }: { name: string; latin: string }) {
+  const ref = useRef<HTMLDivElement>(null);
+  const [initial] = useState({ name, latin });
   useEffect(() => {
-    const el = ref.current;
-    if (!el || el.textContent === text) return;
-    const dur =
-      parseFloat(
-        getComputedStyle(document.documentElement).getPropertyValue(
-          '--text-swap-dur',
-        ),
-      ) || 150;
-    el.classList.add('is-exit');
+    const block = ref.current;
+    if (!block) return;
+    const lines = [...block.querySelectorAll<HTMLElement>('.t-stagger-line')];
+    const [line1, line2] = lines;
+    if (line1.textContent === name && line2.textContent === latin) return;
+    block.classList.add('is-hiding');
+    block.classList.remove('is-shown');
     const timer = setTimeout(() => {
-      el.textContent = text;
-      el.classList.remove('is-exit');
-      el.classList.add('is-enter-start');
-      void el.offsetHeight; // force reflow so the next change transitions
-      el.classList.remove('is-enter-start');
-    }, dur);
+      line1.textContent = name;
+      line2.textContent = latin;
+      // Snap to the hidden start state without a transition, otherwise the
+      // lines would tween 0 -> 12px and the reveal would reverse that instead.
+      for (const line of lines) line.style.transition = 'none';
+      block.classList.remove('is-hiding');
+      block.classList.remove('is-shown');
+      void block.offsetHeight; // force reflow so the reveal replays
+      for (const line of lines) line.style.transition = '';
+      block.classList.add('is-shown');
+    }, 200);
     return () => clearTimeout(timer);
-  }, [text]);
+  }, [name, latin]);
   return (
-    <span className="t-text-swap" ref={ref}>
-      {initial}
-    </span>
+    <div className="t-stagger is-shown" ref={ref}>
+      <h1 className="t-stagger-line t-stagger-line--1">{initial.name}</h1>
+      <p className="t-stagger-line t-stagger-line--2">{initial.latin}</p>
+    </div>
   );
 }
 /* transitions.dev tabs sliding: JS writes the active tab's offset and width
@@ -581,14 +586,7 @@ export default function RaptorApp() {
           </Sidebar>
           <main id="main-content" className="specimen-panel">
             <div className="specimen-heading">
-              <div>
-                <h1>
-                  <SwapText text={bird.name} />
-                </h1>
-                <p>
-                  <SwapText text={bird.latin} />
-                </p>
-              </div>
+              <RevealHeading name={bird.name} latin={bird.latin} />
             </div>
             <Tabs
               value={plumage}
