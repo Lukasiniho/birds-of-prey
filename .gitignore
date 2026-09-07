@@ -40,3 +40,8 @@ next-env.d.ts
 /lib/optimized-images.ts
 
 *.tsbuildinfo
+
+# locally installed agent skills
+/.agents/skills/
+/.claude/skills/
+/skills-lock.json
