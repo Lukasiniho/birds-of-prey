@@ -9,7 +9,7 @@ export const birdImages: Record<string, string> = {
   falklandkarakara: '/birds/falklandkarakara.png?v=2b670af57f78',
   'juvenile-rotmilan': '/birds/juvenile-rotmilan.png?v=10d852e88d3b',
   'juvenile-wuestenbussard':
-    '/birds/juvenile-wuestenbussard.png?v=5da0347bbf5f',
+    '/birds/juvenile-wuestenbussard-pair-20260907.png',
   aguja: '/birds/aguja.png?v=619fff7f72c6',
   'juvenile-gaukler': '/birds/juvenile-gaukler.png?v=c0546f30dca7',
   'juvenile-aguja': '/birds/juvenile-aguja.png?v=85b3b27e6d8f',
@@ -51,7 +51,7 @@ export const birdImages: Record<string, string> = {
   sakerfalke: '/birds/sakerfalke.png?v=3a0bdf54ae09',
   'juvenile-weissstorch': '/birds/juvenile-weissstorch.png?v=494dd5f0cde6',
   'juvenile-fischadler': '/birds/juvenile-fischadler.png?v=99a289aa3fff',
-  wuestenbussard: '/birds/wuestenbussard.png?v=cfacdbd6f3a3',
+  wuestenbussard: '/birds/wuestenbussard-pair-20260907.png',
   virginiauhu: '/birds/virginiauhu-20260907.png',
   harpyie: '/birds/harpyie.png?v=9cf1cc7c4221',
   gerfalke: '/birds/gerfalke.png?v=aecd6530281f',
