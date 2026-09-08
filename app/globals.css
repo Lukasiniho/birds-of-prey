@@ -3347,15 +3347,25 @@ button.color-dot:not(:disabled) {
 }
 .knowledge-subnav a:hover { color: var(--foreground); }
 .technique-explorer {
-  grid-template-columns: 240px minmax(0, 1fr) 208px;
+  grid-template-columns: 240px minmax(0, 1fr);
   gap: 22px;
   align-items: start;
 }
 .technique-feature { min-width: 0; padding: 26px; }
 .technique-feature h2 { margin: 0 0 12px; font-size: 32px; }
 .technique-feature p { font-size: 14px; line-height: 1.65; }
-.technique-feature img { height: clamp(280px, 38vh, 440px); }
-.technique-birds { padding: 8px 0; }
+.technique-feature figure > img { height: clamp(280px, 38vh, 440px); }
+.technique-birds { min-width: 0; margin-top: 24px; }
+.technique-birds .knowledge-portrait-grid {
+  display: flex;
+  flex-wrap: nowrap;
+  gap: 16px;
+  overflow-x: auto;
+  padding: 5px 3px 12px;
+  scrollbar-width: thin;
+}
+.technique-birds .technique-bird { flex: 0 0 88px; }
+.technique-birds .technique-bird img { mix-blend-mode: normal; }
 .technique-portrait-grid {
   display: grid;
   grid-template-columns: repeat(2, minmax(0, 1fr));
@@ -3393,17 +3403,17 @@ button.color-dot:not(:disabled) {
 .hunting-bird-tooltip strong { display: block; font-size: 13px; margin-bottom: 6px; }
 .hunting-bird-tooltip p { font-size: 12px; line-height: 1.65; }
 @media (max-width: 1100px) {
-  .technique-explorer { grid-template-columns: 200px minmax(0, 1fr) 148px; gap: 14px; }
+  .technique-explorer { grid-template-columns: 200px minmax(0, 1fr); gap: 14px; }
   .technique-feature { padding: 20px; }
   .technique-feature h2 { font-size: 28px; }
   .technique-portrait-grid { gap: 16px 8px; }
 }
 @media (max-width: 760px) {
-  .technique-explorer { grid-template-columns: minmax(0, 1fr) 104px; gap: 12px; }
+  .technique-explorer { grid-template-columns: minmax(0, 1fr); gap: 12px; }
   .technique-options { grid-column: 1 / -1; grid-template-columns: repeat(2, minmax(0, 1fr)); }
   .technique-feature { padding: 16px; }
   .technique-feature h2 { font-size: 25px; }
-  .technique-feature img { height: 240px; }
+  .technique-feature figure > img { height: 240px; }
   .technique-portrait-grid { grid-template-columns: 1fr; }
   .technique-bird img { width: 50px; height: 50px; }
   .knowledge-subnav { margin: 18px 0 22px; }
@@ -3413,21 +3423,20 @@ button.color-dot:not(:disabled) {
 .knowledge-portrait-grid { display: grid; grid-template-columns: repeat(2, minmax(0, 1fr)); gap: 22px 14px; }
 .simple-prey-explorer { display: grid; grid-template-columns: 235px minmax(0, 1fr); gap: 42px; align-items: start; }
 .prey-sidebar { display: grid; gap: 3px; max-height: calc(100dvh - 175px); overflow-y: auto; padding-right: 10px; scrollbar-width: thin; }
-.prey-sidebar button { display: flex; align-items: center; gap: 12px; min-height: 53px; padding: 6px 12px; border-radius: 7px; text-align: left; font-size: 13px; }
+.prey-sidebar button { display: grid; grid-template-columns: 40px minmax(0, 1fr); align-items: center; gap: 12px; min-height: 53px; padding: 6px 12px; border-radius: 7px; text-align: left; font-size: 13px; }
 .prey-sidebar button:hover { background: var(--hover); }
 .prey-sidebar button[aria-pressed=true] { background: var(--selected); }
-.prey-sidebar .prey-image, .prey-sidebar .prey-symbol { width: 40px; height: 38px; min-height: 0; flex: 0 0 40px; }
+.prey-sidebar .prey-image, .prey-sidebar .prey-symbol { width: 40px; height: 38px; min-height: 0; margin: 0; align-items: center; justify-content: center; }
 .prey-sidebar .prey-symbol svg { width: 28px; height: 28px; }
 .prey-predators { padding: 12px 0; }
 .prey-predators .knowledge-portrait-grid { grid-template-columns: repeat(auto-fill, minmax(100px, 1fr)); gap: 32px 20px; }
 .prey-predators .technique-bird img { width: 72px; height: 72px; }
 .prey-predators .technique-bird span { font-size: 12px; }
 @media(max-width:760px) {
- .technique-birds .knowledge-portrait-grid { grid-template-columns: 1fr; }
  .simple-prey-explorer { grid-template-columns: 155px minmax(0, 1fr); gap: 16px; }
  .prey-sidebar { padding-right: 5px; }
- .prey-sidebar button { padding: 6px; gap: 7px; font-size: 12px; }
- .prey-sidebar .prey-image, .prey-sidebar .prey-symbol { width: 32px; flex-basis: 32px; }
+ .prey-sidebar button { grid-template-columns: 32px minmax(0, 1fr); padding: 6px; gap: 7px; font-size: 12px; }
+ .prey-sidebar .prey-image, .prey-sidebar .prey-symbol { width: 32px; }
  .prey-predators .knowledge-portrait-grid { grid-template-columns: repeat(auto-fill,minmax(72px,1fr)); gap: 24px 10px; }
  .prey-predators .technique-bird img { width: 56px; height: 56px; }
  .technique-feature h1 { font-size: 25px; }

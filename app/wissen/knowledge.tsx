@@ -81,7 +81,7 @@ function BirdPortraits({
               {portrait}
             </TooltipTrigger>
             <TooltipContent
-              side="left"
+              side="top"
               sideOffset={12}
               className="hunting-bird-tooltip"
             >
@@ -224,13 +224,13 @@ export default function Knowledge({
                     <figcaption>{representative.name}</figcaption>
                   </figure>
                 )}
+                <div
+                  className="technique-birds"
+                  aria-label="Vögel mit dieser Jagdtechnik"
+                >
+                  <BirdPortraits birds={result} tooltips />
+                </div>
               </section>
-              <aside
-                className="technique-birds"
-                aria-label="Vögel mit dieser Jagdtechnik"
-              >
-                <BirdPortraits birds={result} tooltips />
-              </aside>
             </div>
           ) : (
             <div className="simple-prey-explorer">
