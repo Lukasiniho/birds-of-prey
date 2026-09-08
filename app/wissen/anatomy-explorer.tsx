@@ -2,6 +2,7 @@
 
 import { useState } from 'react';
 import Image from 'next/image';
+import { useSlidingPill } from '@/hooks/use-sliding-pill';
 import { SiteHeader } from '@/components/site-header';
 import {
   Tooltip,
@@ -143,6 +144,7 @@ export default function AnatomyExplorer({
   const [open, setOpen] = useState<string | null>(null);
   const [pinned, setPinned] = useState<string | null>(null);
   const name = species === 0 ? 'Wanderfalke' : 'Mäusebussard';
+  const { barRef, pillRef } = useSlidingPill('anatomy-species', String(species));
 
   return (
     <div className="app-shell section-shell knowledge-shell">
@@ -182,15 +184,17 @@ export default function AnatomyExplorer({
                 </i>
               </div>
               <div
-                className="anatomy-species"
+                className="anatomy-species t-tabs"
+                ref={barRef}
                 role="group"
                 aria-label="Beispielvogel wählen"
               >
+                <span className="t-tabs-pill" aria-hidden="true" ref={pillRef} />
                 {(['Wanderfalke', 'Mäusebussard'] as const).map(
                   (label, index) => (
                     <button
                       key={label}
-                      className="species-common-name"
+                      className="t-tab"
                       type="button"
                       aria-pressed={species === index}
                       onClick={() => {
