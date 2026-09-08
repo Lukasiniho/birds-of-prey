@@ -1,0 +1,324 @@
+.knowledge-main {
+  max-width: 1440px;
+  margin: 0 auto;
+  padding: 42px 40px 24px;
+}
+.knowledge-heading {
+  display: flex;
+  justify-content: space-between;
+  align-items: center;
+  gap: 28px;
+  margin-bottom: 30px;
+}
+.knowledge-heading h1 {
+  font-family: var(--font-display), Georgia, serif;
+  font-size: clamp(36px, 3.5vw, 52px);
+  font-weight: 600;
+  line-height: 1.1;
+}
+.knowledge-heading p {
+  margin-top: 12px;
+  max-width: 60ch;
+  font-size: 16px;
+  line-height: 1.6;
+  color: var(--muted-foreground);
+}
+.anatomy-species {
+  display: flex;
+  flex-shrink: 0;
+  padding: 5px;
+  gap: 3px;
+  border: 1px solid var(--border);
+  border-radius: 12px;
+  background: var(--muted);
+}
+.anatomy-species button {
+  min-height: 42px;
+  padding: 9px 15px;
+  font-family: var(--font-display), Georgia, serif;
+  font-size: 21px;
+  font-weight: 600;
+  border-radius: 8px;
+  color: var(--muted-foreground);
+}
+.anatomy-species button[aria-pressed='true'] {
+  background: var(--background);
+  color: var(--foreground);
+  box-shadow: 0 2px 6px var(--shadow);
+}
+.anatomy-layout {
+  display: grid;
+  grid-template-columns: minmax(0, 1fr) 330px;
+  border: 1px solid var(--border);
+  border-radius: 18px;
+  overflow: hidden;
+}
+.anatomy-stage {
+  position: relative;
+  display: flex;
+  flex-direction: column;
+  justify-content: flex-start;
+  padding: 24px 22px 44px;
+  background: var(--stage);
+  min-width: 0;
+}
+.anatomy-stage-heading {
+  display: flex;
+  align-items: center;
+  justify-content: space-between;
+  flex-wrap: wrap;
+  gap: 18px;
+  padding: 0 6px;
+  margin-bottom: 12px;
+}
+.anatomy-stage-caption {
+  display: flex;
+  flex-direction: column;
+  gap: 5px;
+}
+.anatomy-stage-caption span {
+  font-family: var(--font-display), Georgia, serif;
+  font-size: 28px;
+  font-weight: 600;
+  line-height: 1.1;
+}
+.anatomy-stage-caption i {
+  font-size: 13px;
+  color: var(--muted-foreground);
+}
+.anatomy-canvas {
+  position: relative;
+  width: 100%;
+  max-width: 730px;
+  aspect-ratio: 1;
+  margin: 0 auto;
+}
+.anatomy-bird {
+  display: block;
+  width: 100%;
+  height: 100%;
+  object-fit: contain;
+  user-select: none;
+}
+.anatomy-point {
+  position: absolute;
+  z-index: 1;
+  width: 44px;
+  height: 44px;
+  display: grid;
+  place-items: center;
+  transform: translate(-50%, -50%);
+  border-radius: 50%;
+  padding: 0;
+  background: transparent;
+}
+.anatomy-point-core {
+  position: relative;
+  display: grid;
+  place-items: center;
+  width: 19px;
+  height: 19px;
+  border: 3px solid #fff;
+  border-radius: 50%;
+  background: #284956;
+  box-shadow:
+    0 0 0 3px #28495625,
+    0 2px 5px #14232d40;
+}
+.anatomy-point-core::after {
+  content: '';
+  width: 5px;
+  height: 5px;
+  border-radius: 50%;
+  background: #a1c8d5;
+}
+.anatomy-point[aria-pressed='true'] .anatomy-point-core,
+.anatomy-point:hover .anatomy-point-core,
+.anatomy-point:focus-visible .anatomy-point-core {
+  background: #173744;
+  border-color: #fff;
+  box-shadow:
+    0 0 0 3px #28495640,
+    0 0 0 4px #7da7b9,
+    0 2px 6px #14232d45;
+}
+.anatomy-point:focus-visible {
+  outline: 2px solid var(--foreground);
+  outline-offset: 2px;
+}
+.anatomy-hint {
+  display: flex;
+  align-items: center;
+  justify-content: center;
+  gap: 8px;
+  position: absolute;
+  bottom: 22px;
+  left: 12px;
+  right: 12px;
+  color: var(--muted-foreground);
+  font-size: 14px;
+}
+.anatomy-notes {
+  padding: 30px 26px;
+  border-left: 1px solid var(--border);
+  background: var(--background);
+}
+.anatomy-notes-heading {
+  display: flex;
+  align-items: center;
+  gap: 10px;
+}
+.anatomy-notes-heading h2 {
+  font-size: 29px;
+}
+.anatomy-notes-intro {
+  margin-top: 10px;
+  font-size: 14px;
+  color: var(--muted-foreground);
+}
+.anatomy-part-list {
+  display: grid;
+  grid-template-columns: minmax(0, 1fr);
+  gap: 6px;
+  margin: 24px 0 0;
+}
+.anatomy-part-list button {
+  display: flex;
+  align-items: center;
+  gap: 9px;
+  min-height: 38px;
+  padding: 8px 10px;
+  border: 1px solid transparent;
+  border-radius: 7px;
+  font-size: 14px;
+  text-align: left;
+}
+.anatomy-part-list button:hover {
+  background: var(--hover);
+}
+.anatomy-part-list button[aria-pressed='true'] {
+  background: var(--selected);
+  border-color: var(--border);
+}
+.anatomy-list-dot {
+  width: 5px;
+  height: 5px;
+  flex-shrink: 0;
+  border-radius: 50%;
+  background: var(--muted-foreground);
+}
+.anatomy-part-list button[aria-pressed='true'] .anatomy-list-dot {
+  background: var(--foreground);
+}
+.anatomy-species-note {
+  margin-top: 23px;
+  padding-left: 14px;
+  border-left: 2px solid var(--ring);
+}
+.anatomy-species-note strong {
+  font-weight: 500;
+  font-size: 14px;
+}
+.anatomy-species-note p {
+  margin-top: 6px;
+  font-size: 14px;
+  line-height: 1.7;
+  color: var(--muted-foreground);
+}
+
+/* Use the existing tooltip primitive for focus, hover, dismissal and collision handling. */
+.anatomy-tooltip[data-slot] {
+  display: block;
+  width: 290px;
+  max-width: calc(100vw - 28px);
+  white-space: normal;
+  padding: 17px 19px;
+  border-radius: 12px;
+  background: var(--background);
+  color: var(--foreground);
+  border: 1px solid var(--border);
+  box-shadow: 0 6px 28px #14232d26;
+  animation: none;
+  transition:
+    opacity var(--tt-out-dur) var(--tt-out-ease),
+    transform var(--tt-out-dur) var(--tt-out-ease);
+}
+.anatomy-tooltip[data-slot] strong {
+  display: block;
+  margin-bottom: 6px;
+  font-size: 16px;
+  font-weight: 600;
+}
+.anatomy-tooltip[data-slot] span span {
+  display: block;
+  font-size: 14px;
+  line-height: 1.65;
+}
+.anatomy-tooltip[data-open] {
+  transition-duration: var(--tt-in-dur);
+  transition-timing-function: var(--tt-in-ease);
+}
+.anatomy-tooltip[data-starting-style],
+.anatomy-tooltip[data-ending-style] {
+  opacity: 0;
+  transform: scale(var(--tt-scale));
+}
+.anatomy-tooltip > [aria-hidden='true'][data-side] {
+  display: none;
+}
+@media (max-width: 1050px) {
+  .knowledge-main {
+    padding: 28px 22px 20px;
+  }
+  .knowledge-heading {
+    align-items: flex-start;
+    flex-direction: column;
+    gap: 20px;
+  }
+  .anatomy-layout {
+    grid-template-columns: minmax(0, 1fr) 300px;
+  }
+  .anatomy-notes {
+    padding: 24px 20px;
+  }
+  .anatomy-stage {
+    padding-inline: 6px;
+  }
+}
+@media (max-width: 760px) {
+  .knowledge-main {
+    padding: 26px 16px 20px;
+  }
+  .anatomy-layout {
+    grid-template-columns: minmax(0, 1fr);
+  }
+  .anatomy-stage {
+    padding: 22px 12px 44px;
+  }
+  .anatomy-notes {
+    border-left: 0;
+    border-top: 1px solid var(--border);
+  }
+  .anatomy-point {
+    width: 28px;
+    height: 28px;
+  }
+  .anatomy-point-core {
+    width: 17px;
+    height: 17px;
+  }
+  .anatomy-species {
+    width: 100%;
+  }
+  .anatomy-species button {
+    flex: 1;
+  }
+  .anatomy-hint {
+    font-size: 13px;
+  }
+}
+@media (prefers-reduced-motion: reduce) {
+  .anatomy-tooltip[data-slot] {
+    transition: none !important;
+  }
+}

@@ -3,9 +3,9 @@ import { useEffect, useLayoutEffect, useRef, useState } from 'react';
 import Image from 'next/image';
 import { BirdAudio } from '@/components/bird-audio';
 import { birdHref, birdForPath } from '@/lib/bird-routes';
-import { Search, Feather, X, Moon, Sun } from 'lucide-react';
+import { Feather } from 'lucide-react';
+import { SiteHeader } from '@/components/site-header';
 import { Button } from '@/components/ui/button';
-import { Input } from '@/components/ui/input';
 import {
   Select,
   SelectTrigger,
@@ -346,7 +346,6 @@ export default function RaptorApp({
   const [chosenMorphs, setMorphs] = useState<Record<string, string>>({});
   const [query, setQuery] = useState('');
   const [grouping, setGrouping] = useState<GroupMode>('genus');
-  const [dark, setDark] = useState(false);
   const [hintOpen, setHintOpen] = useState(false);
   const [infoTab, setInfoTab] = useState('profil');
   const bird = speciesById[selected];
@@ -387,18 +386,6 @@ export default function RaptorApp({
     morph?.id,
     plumage === 'juvenile' ? 'juvenile' : 'male',
   );
-  useEffect(() => {
-    const timer = window.setTimeout(() => {
-      try {
-        const theme = localStorage.getItem('raptor:theme');
-        setDark(theme === 'dark');
-      } catch {}
-    }, 0);
-    return () => clearTimeout(timer);
-  }, []);
-  useEffect(() => {
-    document.documentElement.dataset.theme = dark ? 'dark' : 'light';
-  }, [dark]);
   const { barRef: plumageBarRef, pillRef: plumagePillRef } = useSlidingPill(
     bird.id,
     plumage,
@@ -411,12 +398,6 @@ export default function RaptorApp({
     'info',
     infoTab,
   );
-  function theme() {
-    setDark(!dark);
-    try {
-      localStorage.setItem('raptor:theme', !dark ? 'dark' : 'light');
-    } catch {}
-  }
   function select(id: string) {
     setSelected(id);
     const href = birdHref(speciesById[id]);
@@ -445,56 +426,7 @@ export default function RaptorApp({
   return (
     <TooltipProvider delay={180}>
       <div className="app-shell">
-        <header className="topbar">
-          <div className="site-title">Die Welt der Greifvögel</div>
-          <div className="search-wrap topbar-search">
-            <Search size={17} />
-            <Input
-              aria-label="Vogelart suchen"
-              placeholder="Vogelart suchen"
-              value={query}
-              onChange={(e) => setQuery(e.target.value)}
-            />
-            {query && (
-              <button
-                className="clear-search"
-                aria-label="Suche leeren"
-                onClick={() => setQuery('')}
-              >
-                <X size={14} />
-              </button>
-            )}
-          </div>
-          <div className="header-actions">
-            <Tooltip>
-              <TooltipTrigger
-                render={
-                  <Button
-                    variant="ghost"
-                    size="icon"
-                    className="theme-toggle"
-                    onClick={theme}
-                    aria-label={
-                      dark ? 'Hellmodus aktivieren' : 'Dunkelmodus aktivieren'
-                    }
-                  />
-                }
-              >
-                <span className="t-icon-swap" data-state={dark ? 'b' : 'a'}>
-                  <span className="t-icon" data-icon="a">
-                    <Moon />
-                  </span>
-                  <span className="t-icon" data-icon="b">
-                    <Sun />
-                  </span>
-                </span>
-              </TooltipTrigger>
-              <TooltipContent>
-                {dark ? 'Hellmodus' : 'Dunkelmodus'}
-              </TooltipContent>
-            </Tooltip>
-          </div>
-        </header>
+        <SiteHeader activeSection="birds" query={query} onQueryChange={setQuery} />
         <SidebarProvider className="app-columns">
           <Sidebar collapsible="none" className="species-panel">
             <div className="library-top">
