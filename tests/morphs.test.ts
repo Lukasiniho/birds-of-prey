@@ -62,7 +62,9 @@ void test('prey framing uses valid visible bounds within the original image', as
   const { preyCatalog } = await import('../lib/diets.ts');
   assert.deepEqual(
     Object.keys(preyFraming).sort(),
-    Object.keys(preyCatalog).sort(),
+    Object.keys(preyCatalog)
+      .filter((id) => !preyCatalog[id].icon)
+      .sort(),
   );
   for (const frame of Object.values(preyFraming)) {
     assert.ok(frame.width > 0 && frame.height > 0);

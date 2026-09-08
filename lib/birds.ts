@@ -1,3 +1,4 @@
+import { landscapes, speciesLandscapes } from './habitats.ts';
 import { birdImages } from './bird-images.ts';
 import { huntingImages } from './hunting-images.ts';
 import { additionalBirds } from './additional-birds.ts';
@@ -15,22 +16,9 @@ export type BirdSpecies = {
   habitat: string;
   range: string;
   colors: [string, string][];
-  prey: number[];
-  diet: string;
   source: string;
   sourceName: string;
 };
-export const preyAnimals = [
-  { name: 'Wühlmäuse', tile: 0 },
-  { name: 'Kaninchen', tile: 1 },
-  { name: 'Tauben', tile: 2 },
-  { name: 'Fische', tile: 3 },
-  { name: 'Enten', tile: 4 },
-  { name: 'Heuschrecken', tile: 5 },
-  { name: 'Eichhörnchen', tile: 6 },
-  { name: 'Murmeltiere', tile: 7 },
-  { name: 'Drosseln', tile: 8 },
-];
 export const birds: BirdSpecies[] = [
   {
     id: 'rotschwanzbussard',
@@ -53,8 +41,6 @@ export const birds: BirdSpecies[] = [
       ['Cremeweiß', '#E8DFCD'],
       ['Anthrazit', '#353636'],
     ],
-    prey: [0, 1, 6],
-    diet: 'Vor allem kleine Säugetiere; je nach Angebot auch Vögel und Reptilien.',
     source: 'https://www.allaboutbirds.org/guide/Red-tailed_Hawk/lifehistory',
     sourceName: 'Cornell Lab',
   },
@@ -78,8 +64,6 @@ export const birds: BirdSpecies[] = [
       ['Weiß', '#E2E0D7'],
       ['Dunkelgrau', '#3C4143'],
     ],
-    prey: [2, 1, 6],
-    diet: 'Jagt vor allem Vögel und kleine Säugetiere.',
     source:
       'https://www.lbv.de/ratgeber/naturwissen/artenportraits/detail/habicht/',
     sourceName: 'LBV',
@@ -104,8 +88,6 @@ export const birds: BirdSpecies[] = [
       ['Beige', '#BFA88C'],
       ['Cremeweiß', '#E4DECE'],
     ],
-    prey: [0, 1, 5],
-    diet: 'Meist Wühlmäuse, gelegentlich junge Kaninchen und größere Insekten.',
     source: 'https://www.voliere.ch/portfolio-items/maeusebussard/',
     sourceName: 'Voliere Zürich',
   },
@@ -129,8 +111,6 @@ export const birds: BirdSpecies[] = [
       ['Cremeweiß', '#E6E0D2'],
       ['Graubraun', '#95887A'],
     ],
-    prey: [2, 8],
-    diet: 'Erbeutet überwiegend kleine bis mittelgroße Vögel im Flug.',
     source:
       'https://www.jagdverband.de/zahlen-fakten/tiersteckbriefe/wanderfalke-falco-peregrinus',
     sourceName: 'Deutscher Jagdverband',
@@ -155,8 +135,6 @@ export const birds: BirdSpecies[] = [
       ['Beige', '#D6BC92'],
       ['Dunkelbraun', '#483A2F'],
     ],
-    prey: [0, 5],
-    diet: 'Vor allem Wühlmäuse; dazu größere Insekten und gelegentlich kleine Vögel.',
     source:
       'https://www.hgon.de/de/unsere-arbeit/voegel/artenliste/art/turmfalke/',
     sourceName: 'HGON',
@@ -181,8 +159,6 @@ export const birds: BirdSpecies[] = [
       ['Erdbraun', '#705139'],
       ['Schwarzbraun', '#2E2925'],
     ],
-    prey: [7, 1],
-    diet: 'Säugetiere wie Murmeltiere und Hasenartige, außerdem Vögel und Aas.',
     source: 'https://www.steinadlerschutz.de/steinadler-im-portr%C3%A4t/',
     sourceName: 'LBV Steinadlerschutz',
   },
@@ -206,8 +182,6 @@ export const birds: BirdSpecies[] = [
       ['Weiß', '#E8E6DC'],
       ['Dunkelbraun', '#45392F'],
     ],
-    prey: [3, 4],
-    diet: 'Vor allem Fische und Wasservögel; nimmt auch Aas auf.',
     source:
       'https://www.wildtierportal.bayern.de/wildtiere_bayern/251679/index.php',
     sourceName: 'Wildtierportal Bayern',
@@ -232,8 +206,6 @@ export const birds: BirdSpecies[] = [
       ['Graubraun', '#948776'],
       ['Schwarzbraun', '#2F2D29'],
     ],
-    prey: [3],
-    diet: 'Fast ausschließlich Fische, die er dicht unter der Wasseroberfläche fängt.',
     source:
       'https://www.hgon.de/de/unsere-arbeit/voegel/artenliste/art/fischadler/',
     sourceName: 'HGON',
@@ -291,17 +263,6 @@ const regions: Record<string, string[]> = {
   ],
   ...Object.fromEntries(additionalBirds.map((b) => [b.id, b.regions])),
 };
-const habitatGroups: Record<string, string> = {
-  rotschwanzbussard: 'Offene Landschaften',
-  habicht: 'Wälder & Parks',
-  maeusebussard: 'Offene Landschaften',
-  wanderfalke: 'Felsen & Städte',
-  turmfalke: 'Offene Landschaften',
-  steinadler: 'Gebirge',
-  seeadler: 'Seen & Küsten',
-  fischadler: 'Seen & Küsten',
-  ...Object.fromEntries(additionalBirds.map((b) => [b.id, b.habitatGroup])),
-};
 export function groupBirds(list: BirdSpecies[], mode: GroupMode) {
   const groups = new Map<
     string,
@@ -312,13 +273,15 @@ export function groupBirds(list: BirdSpecies[], mode: GroupMode) {
     const keys =
       mode === 'region'
         ? regions[bird.id]
-        : [
-            mode === 'genus'
-              ? genus
-              : mode === 'range'
-                ? bird.range
-                : habitatGroups[bird.id],
-          ];
+        : mode === 'habitat'
+          ? speciesLandscapes[bird.id].map((id) => landscapes[id].label)
+          : [
+              mode === 'genus'
+                ? genus
+                : mode === 'range'
+                  ? bird.range
+                  : bird.range,
+            ];
     for (const key of keys) {
       if (!groups.has(key))
         groups.set(key, {

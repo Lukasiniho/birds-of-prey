@@ -31,8 +31,6 @@ export const catalogAdditions: AdditionalBird[] = [
       ['Weiß', '#EEEAE0'],
       ['Schwarzbraun', '#25231F'],
     ],
-    prey: [1, 2],
-    diet: 'Überwiegend Kaninchen, Hasen und Nagetiere, daneben Vögel und Reptilien.',
     source: 'https://www.allaboutbirds.org/guide/Harriss_Hawk/id',
     sourceName: 'Cornell Lab',
     plumageNotes: {
@@ -85,8 +83,6 @@ export const catalogAdditions: AdditionalBird[] = [
       ['Goldbeige', '#C9A86A'],
       ['Weiß', '#E8E4D8'],
     ],
-    prey: [],
-    diet: 'Ziesel, Hamster, Hasen und Igel; daneben Vögel bis Fasanengröße und Aas.',
     source:
       'https://peregrinefund.org/explore-raptors-species/eagles/eastern-imperial-eagle',
     sourceName: 'The Peregrine Fund',
@@ -147,8 +143,6 @@ export const catalogAdditions: AdditionalBird[] = [
       ['Braun', '#6E5A45'],
       ['Graubraun', '#8C7B66'],
     ],
-    prey: [],
-    diet: 'Ziesel, Rennmäuse und Pfeifhasen; im Winter auch Heuschrecken, Termiten und Aas.',
     source:
       'https://peregrinefund.org/explore-raptors-species/eagles/steppe-eagle',
     sourceName: 'The Peregrine Fund',
@@ -211,8 +205,6 @@ export const catalogAdditions: AdditionalBird[] = [
       ['Weiß', '#EBE9E2'],
       ['Orangerot', '#D8633A'],
     ],
-    prey: [],
-    diet: 'Heuschrecken und andere Großinsekten, Mäuse, Eidechsen, Schlangen und Bodenbrüter samt Eiern.',
     source: 'https://animals.sandiegozoo.org/animals/secretary-bird',
     sourceName: 'San Diego Zoo',
     plumageNotes: {
@@ -272,8 +264,6 @@ export const catalogAdditions: AdditionalBird[] = [
       ['Weiß', '#ECEAE3'],
       ['Rosarot', '#C97A78'],
     ],
-    prey: [],
-    diet: 'Fast ausschließlich Aas, vor allem Guanakos, Lamas, Rinder und angespülte Meeressäuger; daneben Eier von Seevögeln.',
     source: 'https://animals.sandiegozoo.org/animals/andean-condor',
     sourceName: 'San Diego Zoo',
     plumageNotes: {
@@ -334,8 +324,6 @@ export const catalogAdditions: AdditionalBird[] = [
       ['Cremeweiß', '#E6E0D2'],
       ['Dunkelbraun', '#4A3B2F'],
     ],
-    prey: [],
-    diet: 'Larven und Puppen von Wespen und Hummeln; außerdem Frösche, Nestlinge, Kleinsäuger und Käfer.',
     source:
       'https://www.nabu.de/tiere-und-pflanzen/voegel/portraets/wespenbussard/',
     sourceName: 'NABU',
@@ -394,8 +382,6 @@ export const catalogAdditions: AdditionalBird[] = [
       ['Schiefergrau', '#4A4A4C'],
       ['Schwarz', '#232323'],
     ],
-    prey: [],
-    diet: 'Überwiegend Knochen und Knochenmark von verendeten Huftieren; daneben Aas und Schildkröten.',
     source:
       'https://www.lbv.de/ratgeber/naturwissen/artenportraits/detail/bartgeier/',
     sourceName: 'LBV',
@@ -461,8 +447,6 @@ export const catalogAdditions: AdditionalBird[] = [
       ['Cremeweiß', '#DBD1BA'],
       ['Schwarzbraun', '#292622'],
     ],
-    prey: [],
-    diet: 'Vor allem Säugetiere, darunter Affen und kleine Antilopen; gelegentlich Reptilien.',
     source: 'https://animals.sandiegozoo.org/animals/crowned-eagle',
     sourceName: 'San Diego Zoo',
     plumageNotes: {

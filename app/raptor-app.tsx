@@ -1,6 +1,7 @@
 'use client';
 import { useEffect, useLayoutEffect, useRef, useState } from 'react';
 import Image from 'next/image';
+import { birdHref, birdForPath } from '@/lib/bird-routes';
 import { Search, Feather, X, Moon, Sun } from 'lucide-react';
 import { Button } from '@/components/ui/button';
 import { Input } from '@/components/ui/input';
@@ -32,7 +33,6 @@ import {
   groupingOptions,
   plumagesFor,
   plumageNoteFor,
-  hunts,
   birdImage,
   colorsFor,
   bodyColorsFor,
@@ -41,12 +41,18 @@ import {
   type GroupMode,
   type BirdSpecies,
 } from '@/lib/birds';
-import { landscapes, speciesLandscapes } from '@/lib/habitats';
+import { landscapes } from '@/lib/habitats';
+import {
+  speciesById,
+  preyCategories,
+  huntingTypes,
+  statusLabels,
+} from '@/lib/ecology';
 import { habitatImages } from '@/lib/habitat-images';
 import { portraitImages } from '@/lib/portrait-images';
 import { huntingImages } from '@/lib/hunting-images';
-import { diets, preyCatalog, type PreyExample } from '@/lib/diets';
-import { preyFraming } from '@/lib/prey-framing';
+import { preyCatalog, type PreyExample } from '@/lib/diets';
+import { PreyArt } from '@/components/prey-art';
 import { imageSource } from '@/lib/optimized-images.ts';
 import { loadImage } from '@/lib/image-loader';
 import { speciesProfiles } from '@/lib/species-profiles';
@@ -299,7 +305,7 @@ function ColorRow({
   );
 }
 function HuntingArt({ bird }: { bird: BirdSpecies }) {
-  const hunt = hunts[bird.id];
+  const hunt = speciesById[bird.id].ecology.hunting;
   const source = huntingImages[bird.id] ?? hunt.image;
   if (!source) return null;
   return (
@@ -311,36 +317,6 @@ function HuntingArt({ bird }: { bird: BirdSpecies }) {
       alt={`${bird.name}: ${hunt.title}`}
       unoptimized
     />
-  );
-}
-function PreyArt({ preyKey }: { preyKey: string }) {
-  const frame = preyFraming[preyKey];
-  const size = Math.max(frame.width, frame.height);
-  return (
-    <span className="prey-image framed-prey">
-      <span
-        className="prey-crop"
-        style={{
-          width: `${(frame.width / size) * 100}%`,
-          height: `${(frame.height / size) * 100}%`,
-        }}
-      >
-        <Image
-          src={imageSource(frame.src)}
-          alt=""
-          width={frame.imageWidth}
-          height={frame.imageHeight}
-          unoptimized
-          style={{
-            width: `${(frame.imageWidth / frame.width) * 100}%`,
-            maxWidth: 'none',
-            height: 'auto',
-            left: `${(-frame.x / frame.width) * 100}%`,
-            top: `${(-frame.y / frame.height) * 100}%`,
-          }}
-        />
-      </span>
-    </span>
   );
 }
 function PreyGallery({ items }: { items: PreyExample[] }) {
@@ -359,8 +335,12 @@ function PreyGallery({ items }: { items: PreyExample[] }) {
     </div>
   );
 }
-export default function RaptorApp() {
-  const [selected, setSelected] = useState('rotschwanzbussard');
+export default function RaptorApp({
+  initialBirdId = 'rotschwanzbussard',
+}: {
+  initialBirdId?: string;
+}) {
+  const [selected, setSelected] = useState(initialBirdId);
   const [chosenPlumage, setPlumage] = useState<Plumage>('male');
   const [chosenMorphs, setMorphs] = useState<Record<string, string>>({});
   const [query, setQuery] = useState('');
@@ -368,7 +348,32 @@ export default function RaptorApp() {
   const [dark, setDark] = useState(false);
   const [hintOpen, setHintOpen] = useState(false);
   const [infoTab, setInfoTab] = useState('profil');
-  const bird = birds.find((b) => b.id === selected)!;
+  const bird = speciesById[selected];
+  useEffect(() => {
+    function syncFromUrl() {
+      const legacyId = new URLSearchParams(window.location.search).get('art');
+      const current =
+        birdForPath(window.location.pathname) ??
+        speciesById[legacyId ?? ''] ??
+        speciesById[initialBirdId];
+      setSelected(current.id);
+      if (legacyId || window.location.pathname === '/')
+        window.history.replaceState(
+          window.history.state,
+          '',
+          birdHref(current),
+        );
+    }
+    syncFromUrl();
+    window.addEventListener('popstate', syncFromUrl);
+    return () => window.removeEventListener('popstate', syncFromUrl);
+  }, [initialBirdId]);
+  useEffect(() => {
+    document.title = `${bird.name} · Greifvogelkompass`;
+    document
+      .querySelector('link[rel="canonical"]')
+      ?.setAttribute('href', birdHref(bird));
+  }, [bird]);
   const availablePlumages = plumagesFor(bird.id);
   const plumage = availablePlumages.some((p) => p.value === chosenPlumage)
     ? chosenPlumage
@@ -413,6 +418,9 @@ export default function RaptorApp() {
   }
   function select(id: string) {
     setSelected(id);
+    const href = birdHref(speciesById[id]);
+    if (window.location.pathname !== href)
+      window.history.pushState(window.history.state, '', href);
   }
   function warmBird(
     id: string,
@@ -533,8 +541,19 @@ export default function RaptorApp() {
                         <SidebarMenuButton
                           className="bird-entry"
                           isActive={selected === b.id}
-                          aria-current={selected === b.id ? 'true' : undefined}
-                          onClick={() => select(b.id)}
+                          aria-current={selected === b.id ? 'page' : undefined}
+                          render={<a href={birdHref(b)} />}
+                          onClick={(event) => {
+                            if (
+                              event.metaKey ||
+                              event.ctrlKey ||
+                              event.shiftKey ||
+                              event.altKey
+                            )
+                              return;
+                            event.preventDefault();
+                            select(b.id);
+                          }}
                           onPointerEnter={() => warmBird(b.id)}
                           onFocus={() => warmBird(b.id)}
                         >
@@ -779,20 +798,33 @@ export default function RaptorApp() {
               <TabsContent value="nahrung" className="info-tab-content">
                 <section className="diet-section">
                   <h2>Beutetiere</h2>
-                  <PreyGallery items={diets[bird.id].examples} />
-                  <p>{diets[bird.id].summary}</p>
-                  {diets[bird.id].occasionalExamples.length > 0 && (
+                  <div className="ecology-tags">
+                    {bird.ecology.categoryTags.map((id) => (
+                      <span key={id}>{preyCategories[id].label}</span>
+                    ))}
+                  </div>
+                  <PreyGallery items={bird.ecology.diet.examples} />
+                  <p>{bird.ecology.diet.summary}</p>
+                  {bird.ecology.diet.occasionalExamples.length > 0 && (
                     <div className="occasional-prey">
                       <h3>Gelegentlich</h3>
-                      <PreyGallery items={diets[bird.id].occasionalExamples} />
+                      <PreyGallery
+                        items={bird.ecology.diet.occasionalExamples}
+                      />
                     </div>
                   )}
                 </section>
                 <section className="hunting-section">
                   <h2>Jagdweise</h2>
+                  <div className="ecology-tags">
+                    {bird.ecology.huntingTags.map((id) => (
+                      <span key={id}>
+                        {huntingTypes[id].label}
+                      </span>
+                    ))}
+                  </div>
                   <HuntingArt bird={bird} />
-                  <h3>{hunts[bird.id].title}</h3>
-                  <p className="hunting-text">{hunts[bird.id].text}</p>
+                  <p className="hunting-text">{bird.ecology.hunting.text}</p>
                 </section>
               </TabsContent>
               <TabsContent value="lebensraum" className="info-tab-content">
@@ -800,12 +832,28 @@ export default function RaptorApp() {
                   <div className="range-block">
                     <h2>Verbreitung</h2>
                     <p>{bird.range}</p>
+                    <div className="ecology-status">
+                      <h3>Status in Deutschland</h3>
+                      <div className="ecology-tags">
+                        {bird.ecology.status.tags.map((id) => (
+                          <span key={id}>{statusLabels[id]}</span>
+                        ))}
+                      </div>
+                      <a
+                        className="ecology-source"
+                        href={bird.ecology.status.sources[0]}
+                        target="_blank"
+                        rel="noreferrer"
+                      >
+                        Quelle zum Vorkommen ↗
+                      </a>
+                    </div>
                     <RangeMap birdId={bird.id} name={bird.name} />
                   </div>
                   <h2>Lebensraum</h2>
                   <p>{bird.habitat}</p>
                   <div className="habitat-gallery">
-                    {speciesLandscapes[bird.id].map((id) => (
+                    {bird.ecology.habitatTags.map((id) => (
                       <figure key={id}>
                         <Image
                           src={imageSource(habitatImages[id])}
