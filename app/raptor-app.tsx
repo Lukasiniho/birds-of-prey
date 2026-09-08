@@ -45,7 +45,6 @@ import {
 import { landscapes } from '@/lib/habitats';
 import {
   speciesById,
-  preyCategories,
   huntingTypes,
   statusLabels,
 } from '@/lib/ecology';
@@ -754,12 +753,7 @@ export default function RaptorApp({
               </TabsContent>
               <TabsContent value="nahrung" className="info-tab-content">
                 <section className="diet-section">
-                  <h2>Beutetiere</h2>
-                  <div className="ecology-tags">
-                    {bird.ecology.categoryTags.map((id) => (
-                      <span key={id}>{preyCategories[id].label}</span>
-                    ))}
-                  </div>
+                  <h2>Nahrungsbeispiele</h2>
                   <PreyGallery items={bird.ecology.diet.examples} />
                   <p>{bird.ecology.diet.summary}</p>
                   {bird.ecology.diet.occasionalExamples.length > 0 && (
