@@ -36,6 +36,21 @@ export function validateRangeSources(sources) {
     )
       throw new Error('Invalid or duplicate range id');
     ids.add(s.id);
+    if (s.focusBounds !== undefined) {
+      const b = s.focusBounds;
+      if (
+        !Array.isArray(b) ||
+        b.length !== 4 ||
+        !b.every(Number.isFinite) ||
+        b[0] < -180 ||
+        b[2] > 180 ||
+        b[1] < -90 ||
+        b[3] > 90 ||
+        b[0] >= b[2] ||
+        b[1] >= b[3]
+      )
+        throw new Error(`Invalid focus bounds: ${s.id}`);
+    }
     if (
       typeof s.name !== 'string' ||
       !s.name.trim() ||

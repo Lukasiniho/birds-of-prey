@@ -172,6 +172,21 @@ void test('invalid polygon coordinates fail even if the checksum is updated', ()
   );
 });
 
+void test('camera bounds cannot wrap or extend beyond geographic coordinates', () => {
+  const [source] = JSON.parse(readFileSync('data/ranges/sources.json', 'utf8'));
+  validateRangeSources([{ ...source, focusBounds: [-130, 15, -60, 75] }]);
+  for (const focusBounds of [
+    [170, 10, -170, 60],
+    [-181, 0, 30, 80],
+    [-20, 90, 30, 95],
+    [0, 5, 0, 20],
+  ])
+    assert.throws(
+      () => validateRangeSources([{ ...source, focusBounds }]),
+      /Invalid focus bounds/,
+    );
+});
+
 void test('map loader shares successful requests and retries failed or malformed responses', async (t) => {
   const overlay = { path: 'M0,0L1,0L0,1Z', viewBox: [0, 0, 260, 140] };
   const responses = [

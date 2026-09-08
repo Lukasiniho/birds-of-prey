@@ -1,0 +1,593 @@
+{
+  "habicht": {
+    "author": "Alexander Kürthy",
+    "sourceUrl": "https://commons.wikimedia.org/wiki/File:AccipiterGentilis.png",
+    "license": "CC BY-SA 3.0",
+    "licenseUrl": "https://creativecommons.org/licenses/by-sa/3.0",
+    "legend": [
+      {
+        "color": "#008000",
+        "label": "Ganzjährig"
+      },
+      {
+        "color": "#007FFF",
+        "label": "Winter / außerhalb der Brutzeit"
+      }
+    ]
+  },
+  "maeusebussard": {
+    "author": "Alexander Kürthy",
+    "sourceUrl": "https://commons.wikimedia.org/wiki/File:ButeoButeoIUCN2019_1.png",
+    "license": "CC BY-SA 3.0",
+    "licenseUrl": "https://creativecommons.org/licenses/by-sa/3.0",
+    "legend": [
+      {
+        "color": "#0DFF00",
+        "label": "Brutgebiet"
+      },
+      {
+        "color": "#047200",
+        "label": "Ganzjährig"
+      },
+      {
+        "color": "#0062FF",
+        "label": "Wintergebiet"
+      }
+    ]
+  },
+  "wanderfalke": {
+    "author": "MPF  (latest version)",
+    "sourceUrl": "https://commons.wikimedia.org/wiki/File:PeregrineRangeMap.png",
+    "license": "CC BY-SA 3.0",
+    "licenseUrl": "http://creativecommons.org/licenses/by-sa/3.0/",
+    "legend": [
+      {
+        "color": "#FFFF00",
+        "label": "Brutgebiet im Sommer"
+      },
+      {
+        "color": "#008000",
+        "label": "Ganzjähriges Brutgebiet"
+      },
+      {
+        "color": "#0080FF",
+        "label": "Wintergebiet"
+      },
+      {
+        "color": "#80FFFF",
+        "label": "Durchzug"
+      }
+    ]
+  },
+  "turmfalke": {
+    "author": "Alexander Kürthy",
+    "sourceUrl": "https://commons.wikimedia.org/wiki/File:FalcoTinnunculusIUCNver2019-2.png",
+    "license": "CC BY-SA 3.0",
+    "licenseUrl": "https://creativecommons.org/licenses/by-sa/3.0",
+    "legend": [
+      {
+        "color": "#00FF00",
+        "label": "Sommergebiet"
+      },
+      {
+        "color": "#008000",
+        "label": "Ganzjährig"
+      },
+      {
+        "color": "#00FFFF",
+        "label": "Durchzug"
+      },
+      {
+        "color": "#007FFF",
+        "label": "Wintergebiet"
+      }
+    ]
+  },
+  "steinadler": {
+    "author": "Alexander Kürthy",
+    "sourceUrl": "https://commons.wikimedia.org/wiki/File:AquilaChrysaetosIUCNver2018_2.png",
+    "license": "CC BY-SA 3.0",
+    "licenseUrl": "https://creativecommons.org/licenses/by-sa/3.0",
+    "legend": [
+      {
+        "color": "#00FF00",
+        "label": "Brutgebiet im Sommer"
+      },
+      {
+        "color": "#008000",
+        "label": "Ganzjähriges Brutgebiet"
+      },
+      {
+        "color": "#007FFF",
+        "label": "Außerhalb der Brutzeit"
+      }
+    ]
+  },
+  "seeadler": {
+    "author": "Alexander Kürthy",
+    "sourceUrl": "https://commons.wikimedia.org/wiki/File:HaliaeetusAlbicillaIUCN.svg",
+    "license": "CC BY-SA 3.0",
+    "licenseUrl": "https://creativecommons.org/licenses/by-sa/3.0",
+    "legend": [
+      {
+        "color": "#00FF00",
+        "label": "Brutgebiet"
+      },
+      {
+        "color": "#008000",
+        "label": "Ganzjährig"
+      },
+      {
+        "color": "#00FFFF",
+        "label": "Durchzug"
+      },
+      {
+        "color": "#007FFF",
+        "label": "Winter / außerhalb der Brutzeit"
+      },
+      {
+        "color": "#FFFF00",
+        "label": "Wiederangesiedelt"
+      },
+      {
+        "color": "#a76f3b",
+        "label": "Wiederangesiedelt (Durchzug)"
+      }
+    ]
+  },
+  "fischadler": {
+    "author": "Zoologist und chris",
+    "sourceUrl": "https://commons.wikimedia.org/wiki/File:Pandion_global_range.svg",
+    "license": "CC BY-SA 3.0",
+    "licenseUrl": "http://creativecommons.org/licenses/by-sa/3.0/",
+    "legend": [
+      {
+        "color": "#0097cc",
+        "label": "Vorkommen"
+      }
+    ]
+  },
+  "kaiseradler": {
+    "author": "Alexander Kürthy",
+    "sourceUrl": "https://commons.wikimedia.org/wiki/File:AquilaHeliacaIUCNver2019_1.png",
+    "license": "CC BY-SA 3.0",
+    "licenseUrl": "https://creativecommons.org/licenses/by-sa/3.0",
+    "legend": [
+      {
+        "color": "#00FF00",
+        "label": "Brutgebiet"
+      },
+      {
+        "color": "#008000",
+        "label": "Ganzjährig"
+      },
+      {
+        "color": "#00FFFF",
+        "label": "Durchzug"
+      },
+      {
+        "color": "#007FFF",
+        "label": "Winter / außerhalb der Brutzeit"
+      }
+    ]
+  },
+  "wespenbussard": {
+    "author": "Alexander Kürthy",
+    "sourceUrl": "https://commons.wikimedia.org/wiki/File:PernisApivorusIUCN2018_2.png",
+    "license": "CC BY-SA 3.0",
+    "licenseUrl": "https://creativecommons.org/licenses/by-sa/3.0",
+    "legend": [
+      {
+        "color": "#00FF00",
+        "label": "Brutgebiet"
+      },
+      {
+        "color": "#007FFF",
+        "label": "Winter / außerhalb der Brutzeit"
+      },
+      {
+        "color": "#00FFFF",
+        "label": "Durchzug"
+      }
+    ]
+  },
+  "bartgeier": {
+    "author": "Alexander Kürthy",
+    "sourceUrl": "https://commons.wikimedia.org/wiki/File:GypaetusBarbatusIUCNver2018_2.png",
+    "license": "CC BY-SA 3.0",
+    "licenseUrl": "https://creativecommons.org/licenses/by-sa/3.0",
+    "legend": [
+      {
+        "color": "#008000",
+        "label": "Ganzjährig"
+      },
+      {
+        "color": "#007FFF",
+        "label": "Winter / außerhalb der Brutzeit"
+      },
+      {
+        "color": "#FF8080",
+        "label": "Wahrscheinlich erloschen"
+      },
+      {
+        "color": "#FF0000",
+        "label": "Erloschen"
+      },
+      {
+        "color": "#AAFFAA",
+        "label": "Möglicherweise ganzjährig"
+      },
+      {
+        "color": "#FFFF00",
+        "label": "Wiederangesiedelt"
+      }
+    ]
+  },
+  "uhu": {
+    "author": "Alexander Kürthy",
+    "sourceUrl": "https://commons.wikimedia.org/wiki/File:BuboBuboIUCN.svg",
+    "license": "CC BY-SA 3.0",
+    "licenseUrl": "https://creativecommons.org/licenses/by-sa/3.0",
+    "legend": [
+      {
+        "color": "#008000",
+        "label": "Ganzjährig"
+      }
+    ]
+  },
+  "schwarzmilan": {
+    "author": "Alexander Kürthy",
+    "sourceUrl": "https://commons.wikimedia.org/wiki/File:MilvusMigransIUCNver2018_2.png",
+    "license": "CC BY-SA 3.0",
+    "licenseUrl": "https://creativecommons.org/licenses/by-sa/3.0",
+    "legend": [
+      {
+        "color": "#00FF00",
+        "label": "Brutgebiet"
+      },
+      {
+        "color": "#008000",
+        "label": "Ganzjährig"
+      },
+      {
+        "color": "#007FFF",
+        "label": "Winter / außerhalb der Brutzeit"
+      },
+      {
+        "color": "#00FFFF",
+        "label": "Durchzug"
+      }
+    ],
+    "note": "Die Originalkarte umfasst auch den Gelbschnabelmilan."
+  },
+  "rotmilan": {
+    "author": "Ulrich prokop",
+    "sourceUrl": "https://commons.wikimedia.org/wiki/File:Milvus_milvus_distr02.png",
+    "license": "CC BY-SA 3.0",
+    "licenseUrl": "https://creativecommons.org/licenses/by-sa/3.0",
+    "legend": [
+      {
+        "color": "#00FFFF",
+        "label": "Ganzjährig"
+      },
+      {
+        "color": "#00FF00",
+        "label": "Brutgebiet im Sommer"
+      }
+    ]
+  },
+  "gerfalke": {
+    "author": "Scops (Zuordnung laut Dateiseite)",
+    "sourceUrl": "https://commons.wikimedia.org/wiki/File:Falco_rusticolus_distr.png",
+    "license": "CC BY-SA 3.0",
+    "licenseUrl": "http://creativecommons.org/licenses/by-sa/3.0/",
+    "legend": [
+      {
+        "color": "#FF8000",
+        "label": "Brutgebiet im Sommer"
+      },
+      {
+        "color": "#006600",
+        "label": "Ganzjähriges Brutgebiet"
+      },
+      {
+        "color": "#0080FF",
+        "label": "Wintergebiet"
+      }
+    ],
+    "note": "Blaue gestrichelte Linie: ungefähre Südgrenze unregelmäßiger Wintergäste."
+  },
+  "sakerfalke": {
+    "author": "Alexander Kürthy",
+    "sourceUrl": "https://commons.wikimedia.org/wiki/File:FalcoCherrugIUCN2019_2.png",
+    "license": "CC BY-SA 3.0",
+    "licenseUrl": "https://creativecommons.org/licenses/by-sa/3.0",
+    "legend": [
+      {
+        "color": "#00FF00",
+        "label": "Brutgebiet"
+      },
+      {
+        "color": "#008000",
+        "label": "Ganzjährig"
+      },
+      {
+        "color": "#00FFFF",
+        "label": "Durchzug"
+      },
+      {
+        "color": "#007FFF",
+        "label": "Winter / außerhalb der Brutzeit"
+      }
+    ]
+  },
+  "lannerfalke": {
+    "author": "Alexander Kürthy",
+    "sourceUrl": "https://commons.wikimedia.org/wiki/File:FalcoBiarmicusIUCN2019-3.png",
+    "license": "CC BY-SA 3.0",
+    "licenseUrl": "https://creativecommons.org/licenses/by-sa/3.0",
+    "legend": [
+      {
+        "color": "#008000",
+        "label": "Ganzjährig"
+      },
+      {
+        "color": "#007FFF",
+        "label": "Winter / außerhalb der Brutzeit"
+      },
+      {
+        "color": "#AAFFAA",
+        "label": "Möglicherweise ganzjährig"
+      }
+    ]
+  },
+  "baumfalke": {
+    "author": "Alexander Kürthy",
+    "sourceUrl": "https://commons.wikimedia.org/wiki/File:FalcoSubbuteoIUCNver2019_2.png",
+    "license": "CC BY-SA 3.0",
+    "licenseUrl": "https://creativecommons.org/licenses/by-sa/3.0",
+    "legend": [
+      {
+        "color": "#00FF00",
+        "label": "Brutgebiet"
+      },
+      {
+        "color": "#008000",
+        "label": "Ganzjährig"
+      },
+      {
+        "color": "#00FFFF",
+        "label": "Durchzug"
+      },
+      {
+        "color": "#007FFF",
+        "label": "Winter / außerhalb der Brutzeit"
+      }
+    ]
+  },
+  "weissstorch": {
+    "author": "Shyamal",
+    "sourceUrl": "https://commons.wikimedia.org/wiki/File:WhiteStorkMap.svg",
+    "license": "CC0",
+    "licenseUrl": "http://creativecommons.org/publicdomain/zero/1.0/deed.en",
+    "legend": [
+      {
+        "color": "#35AC35",
+        "label": "Brutgebiet"
+      },
+      {
+        "color": "#5087C3",
+        "label": "Wintergebiet"
+      },
+      {
+        "color": "#ff0000",
+        "label": "Zugrouten",
+        "line": true
+      }
+    ]
+  },
+  "sperber": {
+    "author": "Alexander Kürthy",
+    "sourceUrl": "https://commons.wikimedia.org/wiki/File:AccipiterNisusIUCNver2018_2.png",
+    "license": "CC BY-SA 3.0",
+    "licenseUrl": "https://creativecommons.org/licenses/by-sa/3.0",
+    "legend": [
+      {
+        "color": "#00FF00",
+        "label": "Brutgebiet"
+      },
+      {
+        "color": "#008000",
+        "label": "Ganzjährig"
+      },
+      {
+        "color": "#007FFF",
+        "label": "Winter / außerhalb der Brutzeit"
+      },
+      {
+        "color": "#00FFFF",
+        "label": "Durchzug"
+      }
+    ]
+  },
+  "wuestenbussard": {
+    "author": "Izvora",
+    "sourceUrl": "https://commons.wikimedia.org/wiki/File:Parabuteo_unicinctus_range_map.png",
+    "license": "Public domain",
+    "licenseUrl": "https://commons.wikimedia.org/wiki/Commons:Public_domain",
+    "legend": [
+      {
+        "color": "#008000",
+        "label": "Aktuelles Vorkommen (saisonale/Unterarten-Flächen zusammengefasst)"
+      }
+    ]
+  },
+  "steppenadler": {
+    "author": "Alexander Kürthy",
+    "sourceUrl": "https://commons.wikimedia.org/wiki/File:AquilaNipalensis.png",
+    "license": "CC BY-SA 3.0",
+    "licenseUrl": "https://creativecommons.org/licenses/by-sa/3.0",
+    "legend": [
+      {
+        "color": "#00ff00",
+        "label": "Aktuelles Vorkommen (saisonale/Unterarten-Flächen zusammengefasst)"
+      },
+      {
+        "color": "#00ffff",
+        "label": "Aktuelles Vorkommen (saisonale/Unterarten-Flächen zusammengefasst)"
+      },
+      {
+        "color": "#007fff",
+        "label": "Aktuelles Vorkommen (saisonale/Unterarten-Flächen zusammengefasst)"
+      }
+    ]
+  },
+  "sekretaer": {
+    "author": "Aa77zz",
+    "sourceUrl": "https://commons.wikimedia.org/wiki/File:Secretarybird_distribution_map.svg",
+    "license": "CC0",
+    "licenseUrl": "https://creativecommons.org/publicdomain/zero/1.0/deed.en",
+    "legend": [
+      {
+        "color": "#b5d900",
+        "label": "Aktuelles Vorkommen (saisonale/Unterarten-Flächen zusammengefasst)"
+      }
+    ]
+  },
+  "andenkondor": {
+    "author": "Hey jude, don't let me down",
+    "sourceUrl": "https://commons.wikimedia.org/wiki/File:AndeanMap.png",
+    "license": "Public domain",
+    "licenseUrl": "https://commons.wikimedia.org/wiki/Commons:Public_domain",
+    "legend": [
+      {
+        "color": "#fcd752",
+        "label": "Aktuelles Vorkommen (saisonale/Unterarten-Flächen zusammengefasst)"
+      }
+    ]
+  },
+  "kronenadler": {
+    "author": "Jonathan Hornung",
+    "sourceUrl": "https://commons.wikimedia.org/wiki/File:Stephanoaetus_coronatus_distribution_map_big.png",
+    "license": "Public domain",
+    "licenseUrl": "https://commons.wikimedia.org/wiki/Commons:Public_domain",
+    "legend": [
+      {
+        "color": "#00c400",
+        "label": "Aktuelles Vorkommen (saisonale/Unterarten-Flächen zusammengefasst)"
+      }
+    ]
+  },
+  "riesenseeadler": {
+    "author": "Ulrich Prokop (Scops)",
+    "sourceUrl": "https://commons.wikimedia.org/wiki/File:Haliaeetus_pelagicus_distr.png",
+    "license": "CC BY-SA 2.5",
+    "licenseUrl": "https://creativecommons.org/licenses/by-sa/2.5",
+    "legend": [
+      {
+        "color": "#ff8000",
+        "label": "Aktuelles Vorkommen (saisonale/Unterarten-Flächen zusammengefasst)"
+      },
+      {
+        "color": "#008000",
+        "label": "Aktuelles Vorkommen (saisonale/Unterarten-Flächen zusammengefasst)"
+      },
+      {
+        "color": "#0000ff",
+        "label": "Aktuelles Vorkommen (saisonale/Unterarten-Flächen zusammengefasst)"
+      }
+    ]
+  },
+  "gaukler": {
+    "author": "Jonathan Hornung",
+    "sourceUrl": "https://commons.wikimedia.org/wiki/File:Gaukler_Terathopius_ecaudatus_world.png",
+    "license": "Public domain",
+    "licenseUrl": "https://commons.wikimedia.org/wiki/Commons:Public_domain",
+    "legend": [
+      {
+        "color": "#00c400",
+        "label": "Aktuelles Vorkommen (saisonale/Unterarten-Flächen zusammengefasst)"
+      }
+    ]
+  },
+  "aguja": {
+    "author": "Izvora",
+    "sourceUrl": "https://commons.wikimedia.org/wiki/File:Geranoaetus_melanoleucus_range_map.PNG",
+    "license": "Public domain",
+    "licenseUrl": "https://commons.wikimedia.org/wiki/Commons:Public_domain",
+    "legend": [
+      {
+        "color": "#008000",
+        "label": "Aktuelles Vorkommen (saisonale/Unterarten-Flächen zusammengefasst)"
+      }
+    ]
+  },
+  "falklandkarakara": {
+    "author": "Cephas",
+    "sourceUrl": "https://commons.wikimedia.org/wiki/File:Phalcoboenus_australis_map.svg",
+    "license": "CC BY-SA 4.0",
+    "licenseUrl": "https://creativecommons.org/licenses/by-sa/4.0",
+    "legend": [
+      {
+        "color": "#008000",
+        "label": "Aktuelles Vorkommen (saisonale/Unterarten-Flächen zusammengefasst)"
+      }
+    ]
+  },
+  "schopfkarakara": {
+    "author": "MPF",
+    "sourceUrl": "https://commons.wikimedia.org/wiki/File:Caracara_map.png",
+    "license": "CC BY-SA 3.0",
+    "licenseUrl": "https://creativecommons.org/licenses/by-sa/3.0",
+    "legend": [
+      {
+        "color": "#800000",
+        "label": "Aktuelles Vorkommen (saisonale/Unterarten-Flächen zusammengefasst)"
+      },
+      {
+        "color": "#008080",
+        "label": "Aktuelles Vorkommen (saisonale/Unterarten-Flächen zusammengefasst)"
+      },
+      {
+        "color": "#8000ff",
+        "label": "Aktuelles Vorkommen (saisonale/Unterarten-Flächen zusammengefasst)"
+      }
+    ]
+  },
+  "harpyie": {
+    "author": "Ninjatacoshell; Cocoloi (Vorlage)",
+    "sourceUrl": "https://commons.wikimedia.org/wiki/File:Harpy_Eagle_Range.svg",
+    "license": "CC BY-SA 3.0",
+    "licenseUrl": "https://creativecommons.org/licenses/by-sa/3.0/",
+    "legend": [
+      {
+        "color": "#4a4ae3",
+        "label": "Aktuelles Vorkommen (saisonale/Unterarten-Flächen zusammengefasst)"
+      }
+    ]
+  },
+  "kampfadler": {
+    "author": "Helmy oved",
+    "sourceUrl": "https://commons.wikimedia.org/wiki/File:Polemaetus_bellicosus_distribution_map.svg",
+    "license": "CC0",
+    "licenseUrl": "https://creativecommons.org/publicdomain/zero/1.0/deed.en",
+    "legend": [
+      {
+        "color": "#008000",
+        "label": "Aktuelles Vorkommen (saisonale/Unterarten-Flächen zusammengefasst)"
+      }
+    ]
+  },
+  "virginiauhu": {
+    "author": "Manedwolf; Achim Raschka (Vorlage)",
+    "sourceUrl": "https://commons.wikimedia.org/wiki/File:Bubo_virginianus_dis.png",
+    "license": "CC BY-SA 3.0",
+    "licenseUrl": "https://creativecommons.org/licenses/by-sa/3.0/",
+    "legend": [
+      {
+        "color": "#fed55b",
+        "label": "Aktuelles Vorkommen (saisonale/Unterarten-Flächen zusammengefasst)"
+      }
+    ]
+  }
+}

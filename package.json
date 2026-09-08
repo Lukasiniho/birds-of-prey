@@ -13,7 +13,7 @@
     "start": "wrangler dev --config dist/server/wrangler.json",
     "lint": "oxlint",
     "format": "oxfmt",
-    "maps:build": "node scripts/build-range-maps.mjs"
+    "maps:build": "node scripts/build-range-maps.mjs && node scripts/build-reference-range-maps.mjs"
   },
   "dependencies": {
     "@base-ui/react": "1.7.0",

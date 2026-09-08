@@ -2,7 +2,7 @@ import { readFile, writeFile, mkdir } from 'node:fs/promises';
 import { createHash } from 'node:crypto';
 import { fileURLToPath } from 'node:url';
 import path from 'node:path';
-import { geoNaturalEarth1, geoPath } from 'd3-geo';
+import { mapDrawing as draw, projectRange } from './map-projection.mjs';
 import { sphericalGeometry } from './range-geometry.mjs';
 import { validateRangeSources, validateRangeFeature } from './range-review.mjs';
 
@@ -24,14 +24,6 @@ const reviewed = await Promise.all(
   })),
 );
 
-const projection = geoNaturalEarth1().fitExtent(
-  [
-    [14, 14],
-    [986, 526],
-  ],
-  { type: 'Sphere' },
-);
-const draw = geoPath(projection).digits(2);
 const world = await read('world.geojson');
 const land = world.features.map((f) => ({
   type: 'Feature',
@@ -53,21 +45,7 @@ async function save(name, data) {
 const basemapUrl = await save('world', basemap);
 const manifest = {};
 for (const { source, geometry } of reviewed) {
-  const rangePath = draw(geometry);
-  const [[left, top], [right, bottom]] = draw.bounds(geometry);
-  if (!rangePath || ![left, top, right, bottom].every(Number.isFinite))
-    throw new Error(`Invalid geometry: ${source.id}`);
-  const width = Math.min(
-    1000,
-    Math.max(260, (right - left) * 1.18, (bottom - top) * 1.18 * 1.85),
-  );
-  const height = Math.min(540, width / 1.85);
-  const x = Math.max(0, Math.min(1000 - width, (left + right - width) / 2));
-  const y = Math.max(0, Math.min(540 - height, (top + bottom - height) / 2));
-  const data = {
-    path: rangePath,
-    viewBox: [x, y, width, height].map((n) => +n.toFixed(2)),
-  };
+  const data = projectRange(geometry, source.focusBounds);
   manifest[source.id] = {
     url: await save(source.id, data),
     taxonId: source.taxonId,

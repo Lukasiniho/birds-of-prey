@@ -1,8 +1,13 @@
 'use client';
 
 import { useEffect, useId, useState } from 'react';
-import { Expand, X } from 'lucide-react';
+import { Expand, Info, X } from 'lucide-react';
 import { Button } from '@/components/ui/button';
+import {
+  Popover,
+  PopoverTrigger,
+  PopoverContent,
+} from '@/components/ui/popover';
 import {
   Dialog,
   DialogTrigger,
@@ -10,11 +15,9 @@ import {
   DialogTitle,
   DialogClose,
 } from '@/components/ui/dialog';
-import {
-  rangeBasemapUrl,
-  rangeMaps,
-  type RangeMapEntry,
-} from '@/lib/range-maps';
+import { rangeBasemapUrl } from '@/lib/range-maps';
+import { displayRangeMaps } from '@/lib/range-map-catalog';
+import type { DisplayRangeMapEntry as RangeMapEntry } from '@/lib/range-map-entry';
 import {
   createMapLoader,
   parseBasemap,
@@ -25,10 +28,10 @@ import {
 const loadBasemap = createMapLoader(parseBasemap);
 const loadOverlay = createMapLoader(parseOverlay);
 
-function MapLegend() {
+function MapLegend({ label }: { label: string }) {
   return (
     <div className="range-map-legend">
-      <span aria-hidden="true" /> Geschätztes Vorkommen
+      <span aria-hidden="true" /> {label}
     </div>
   );
 }
@@ -36,10 +39,12 @@ function MapLegend() {
 function MapDrawing({
   data,
   name,
+  label,
   world = false,
 }: {
   data: MapData;
   name: string;
+  label: string;
   world?: boolean;
 }) {
   const clip = `land-${useId()}`;
@@ -51,7 +56,7 @@ function MapDrawing({
         // SVG needs an explicit image role to expose its accessible name.
         // oxlint-disable-next-line jsx-a11y/prefer-tag-over-role
         role="img"
-        aria-label={`Geschätztes Vorkommen: ${name}`}
+        aria-label={`${label}: ${name}`}
       >
         <defs>
           <clipPath id={clip}>
@@ -77,63 +82,62 @@ function MapDrawing({
           ))}
         </g>
       </svg>
-      <MapLegend />
+      <MapLegend label={label} />
     </div>
   );
 }
 
-function MapCredits({
-  entry,
-  detailed = false,
-}: {
-  entry: RangeMapEntry;
-  detailed?: boolean;
-}) {
+function MapCredits({ entry }: { entry: RangeMapEntry }) {
   return (
     <div className="range-map-credits">
-      <a href={entry.datasetUrl} target="_blank" rel="noreferrer">
-        {detailed
-          ? `iNaturalist Geomodell ${entry.modelVersion}`
-          : 'iNaturalist'}
-      </a>
-      <span>·</span>
-      <a href={entry.licenseUrl} target="_blank" rel="noreferrer">
-        CC BY
-      </a>
-      <span>·</span>
-      <a
-        href="https://www.naturalearthdata.com/about/terms-of-use/"
-        target="_blank"
-        rel="noreferrer"
-      >
-        Natural Earth
-      </a>
-      {detailed && (
-        <>
-          <span>·</span>
-          <span>Stand {entry.downloadedOn.split('-').reverse().join('.')}</span>
-          <span>·</span>
-          <a href={entry.sourceUrl} target="_blank" rel="noreferrer">
-            Datenquelle
-          </a>
-          <span>·</span>
-          <a href={entry.referenceUrl} target="_blank" rel="noreferrer">
-            Vergleichskarte
-          </a>
-        </>
-      )}
+      <div>
+        <a href={entry.sourceUrl} target="_blank" rel="noreferrer">
+          {entry.sourceName}
+        </a>
+        <span aria-hidden="true"> · </span>
+        <a href={entry.licenseUrl} target="_blank" rel="noreferrer">
+          {entry.license}
+        </a>
+      </div>
+      <small>
+        Basiskarte:{' '}
+        <a
+          href="https://www.naturalearthdata.com/about/terms-of-use/"
+          target="_blank"
+          rel="noreferrer"
+        >
+          Natural Earth
+        </a>
+      </small>
+      {entry.note && <small>{entry.note}</small>}
     </div>
+  );
+}
+
+function MapSourceInfo({ entry }: { entry: RangeMapEntry }) {
+  return (
+    <Popover>
+      <PopoverTrigger
+        className="range-map-source"
+        aria-label="Kartenquellen und Lizenz"
+        title="Kartenquellen und Lizenz"
+      >
+        <Info size={14} aria-hidden="true" />
+      </PopoverTrigger>
+      <PopoverContent
+        side="top"
+        align="start"
+        className="range-map-source-details"
+      >
+        <MapCredits entry={entry} />
+      </PopoverContent>
+    </Popover>
   );
 }
 
 export function RangeMap({ birdId, name }: { birdId: string; name: string }) {
-  const entry = rangeMaps[birdId];
-  if (!entry)
-    return (
-      <p className="range-map-unavailable">
-        Noch keine Verbreitungskarte verfügbar.
-      </p>
-    );
+  const entry = displayRangeMaps[birdId];
+  if (!entry) return null;
   // Own the reset here so every caller gets safe species switches, including
   // while an earlier request is still pending or the expanded map is open.
   return (
@@ -153,8 +157,6 @@ function ReviewedRangeMap({
   name: string;
 }) {
   const [data, setData] = useState<MapData | null>(null);
-  const [error, setError] = useState(false);
-  const [attempt, setAttempt] = useState(0);
   const [world, setWorld] = useState(false);
   useEffect(() => {
     let active = true;
@@ -163,83 +165,72 @@ function ReviewedRangeMap({
         if (active) setData({ base, range });
       })
       .catch(() => {
-        if (active) setError(true);
+        // A missing or unavailable map leaves this optional section hidden.
       });
     return () => {
       active = false;
     };
-  }, [entry, attempt]);
+  }, [entry]);
+  if (!data) return null;
   return (
     <div className="range-map">
-      {data ? (
-        <Dialog>
+      <Dialog>
+        <div className="range-map-surface">
           <DialogTrigger
             className="range-map-preview"
             aria-label={`Verbreitungskarte für ${name} vergrößern`}
           >
-            <MapDrawing data={data} name={name} />
+            <MapDrawing data={data} name={name} label={entry.label} />
             <span className="range-map-expand">
               <Expand size={15} aria-hidden="true" /> Vergrößern
             </span>
           </DialogTrigger>
-          <DialogContent className="range-map-dialog" showCloseButton={false}>
-            <DialogTitle>Verbreitung · {name}</DialogTitle>
-            <DialogClose
-              render={
-                <Button
-                  variant="ghost"
-                  size="icon"
-                  className="range-map-close"
-                  aria-label="Karte schließen"
-                />
-              }
+          <MapSourceInfo entry={entry} />
+        </div>
+        <DialogContent className="range-map-dialog" showCloseButton={false}>
+          <DialogTitle>Verbreitung · {name}</DialogTitle>
+          <DialogClose
+            render={
+              <Button
+                variant="ghost"
+                size="icon"
+                className="range-map-close"
+                aria-label="Karte schließen"
+              />
+            }
+          >
+            <X />
+          </DialogClose>
+          <fieldset
+            className="range-map-view-controls"
+            aria-label="Kartenausschnitt"
+          >
+            <Button
+              variant="ghost"
+              aria-pressed={!world}
+              onClick={() => setWorld(false)}
             >
-              <X />
-            </DialogClose>
-            <fieldset
-              className="range-map-view-controls"
-              aria-label="Kartenausschnitt"
+              Verbreitung
+            </Button>
+            <Button
+              variant="ghost"
+              aria-pressed={world}
+              onClick={() => setWorld(true)}
             >
-              <Button
-                variant="ghost"
-                aria-pressed={!world}
-                onClick={() => setWorld(false)}
-              >
-                Verbreitung
-              </Button>
-              <Button
-                variant="ghost"
-                aria-pressed={world}
-                onClick={() => setWorld(true)}
-              >
-                Welt
-              </Button>
-            </fieldset>
-            <MapDrawing data={data} name={name} world={world} />
-            <MapCredits entry={entry} detailed />
-          </DialogContent>
-        </Dialog>
-      ) : (
-        <output className="range-map-placeholder">
-          {error ? (
-            <>
-              <span>Karte konnte nicht geladen werden.</span>
-              <Button
-                variant="ghost"
-                onClick={() => {
-                  setError(false);
-                  setAttempt((n) => n + 1);
-                }}
-              >
-                Erneut versuchen
-              </Button>
-            </>
-          ) : (
-            'Karte wird geladen …'
-          )}
-        </output>
-      )}
-      <MapCredits entry={entry} />
+              Welt
+            </Button>
+          </fieldset>
+          <div className="range-map-surface">
+            <MapDrawing
+              data={data}
+              name={name}
+              label={entry.label}
+              world={world}
+            />
+            <MapSourceInfo entry={entry} />
+          </div>
+        </DialogContent>
+      </Dialog>
     </div>
   );
 }

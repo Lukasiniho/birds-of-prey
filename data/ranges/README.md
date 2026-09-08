@@ -1,88 +1,72 @@
-# Distribution map pilot
+# Distribution maps
 
-Published overlays: **Buteo jamaicensis / Rotschwanzbussard** (pilot, 2026-09-06),
-**Haliaeetus leucocephalus / Weißkopfseeadler** and **Buteo regalis / Königsbussard**
-(both reviewed and released 2026-09-07).
-The UI labels the layer “Geschätztes Vorkommen”: it is a modeled estimate,
-not an expert-drawn boundary, a census, or a seasonal breeding map.
+The app renders **all 35 catalog species** with one shared Natural Earth SVG basemap:
+32 species from licensed, georeferenced reference illustrations,
+and the three original reviewed American iNaturalist model overlays.
+There is one renderer and one geographic-to-SVG projection, regardless of source.
+No raster map is used by the UI. Missing or unavailable maps remain hidden.
 
-## Sources and attribution
+## Architecture
 
-- Ranges: iNaturalist Open Range Map Dataset, geomodel 2.33, CC BY. Taxon 5212
-  downloaded 2026-09-06; taxa 5305 and 5181 downloaded 2026-09-07. URLs,
-  checksums and review records are in `sources.json`.
-  Dataset and methods: https://www.inaturalist.org/pages/range_maps
-- Basemap: Natural Earth 1:110m Admin 0 Countries, public domain.
-  Download: https://raw.githubusercontent.com/nvkelso/natural-earth-vector/master/geojson/ne_110m_admin_0_countries.geojson
-  Terms: https://www.naturalearthdata.com/about/terms-of-use/
-- Broad range cross-check: https://www.allaboutbirds.org/guide/Red-tailed_Hawk/maps-range
+- `world.geojson`: Natural Earth 1:50m country polygons, public domain.
+- `scripts/map-projection.mjs`: common Natural Earth projection and viewport fit.
+- `scripts/build-range-maps.mjs`: the three modeled American overlays.
+- `scripts/build-reference-range-maps.mjs`: licensed reference-derived overlays.
+- `lib/range-map-catalog.ts`: source metadata adapters for the common renderer.
+- `components/range-map.tsx`: cached basemap plus per-species SVG paths, land clip,
+  regional/world views and a compact attribution control inside the map.
 
-Retain attribution and the modeled-data label. Raw coordinates are stored here
-for reproducibility. The build helper normalizes polygon winding, applies the
-same Natural Earth projection to both datasets, and rounds SVG coordinates to
-two decimals. Display clips overlays to the basemap's land outlines; coastal
-boundaries are therefore generalized to the basemap resolution. Original
-range polygons are not hand-drawn or edited.
+`npm run maps:build` is completely offline and validates each allowlist before
+writing its hash-named JSON paths. Deployment needs no map service, API or credentials.
+The web bundle receives SVG geometry, not the original authoring illustrations.
 
-Run `npm run maps:build` after deliberately reviewing a data update. Generated
-JSON paths and the manifest are checked in so deployment needs no remote API,
-credentials, or mapping service. Sources are not downloaded during the build.
+## Sources
+
+Natural Earth download:
+https://raw.githubusercontent.com/nvkelso/natural-earth-vector/master/geojson/ne_50m_admin_0_countries.geojson
+Terms: https://www.naturalearthdata.com/about/terms-of-use/
+
+The finer 1:50m coastline keeps island and coastal species readable.
+`basemap-sources.json` pins both this display source and the retained 1:110m
+registration reference (`world-registration-110m.geojson`). The projection stays
+identical; existing species overlays do not need new geographic coordinates.
+Falklandkarakara has an explicitly bounded, closer camera view.
+
+The American model inputs are pinned in `sources.json`: Rotschwanzbussard,
+Weißkopfseeadler and Königsbussard. Dataset/methods and CC BY declaration:
+https://www.inaturalist.org/pages/range_maps
+Their label remains “Geschätztes Vorkommen”. They are modeled occurrence estimates,
+not seasonal expert boundaries. The original geographic reviews and inside/outside
+regression points remain in the allowlist. Winding conversion preserves source
+coordinates and polygon holes; the display clips all overlays to shared land.
+
+Reference source images, attribution and download checksums are recorded in
+`reference-sources.json`; originals are authoring inputs under `reference-originals/`.
+The derived GeoJSON, registration, adaptation notes, licenses and review records
+are in `reference-vectors/`. See [conversion details](reference-vectors/README.md).
+The label “Verbreitung” combines the current seasonal colors in each reference.
+These are derived cartographic illustrations, not original expert GIS data or
+live observations. Source age, taxonomy and generalized boundaries remain relevant.
 
 ## Review boundary
 
-Other catalog species are intentionally not enabled yet. Available open-model
-geometry alone is not sufficient validation: e.g. the Harris's hawk model
-includes European areas outside its natural range. Keep those unpublished
-until appropriate range data has been sourced and reviewed. No seasonal
-categories are fabricated. `sources.json` is the explicit release allowlist.
+All 13 previously missing species were added on 2026-09-08: Wüstenbussard,
+Steppenadler, Sekretär, Andenkondor, Kronenadler, Riesenseeadler, Gaukler, Aguja,
+Falklandkarakara, Schopfkarakara, Harpyie, Kampfadler and Virginia-Uhu.
+The catalog coverage test fails if a bird loses its map or an orphan map remains.
 
-## Repeatable release checks
+Both model and reference builds require explicit reviewed entries, pinned raw-byte
+checksums, correct provenance, valid coordinates and passing geographic fixtures.
+Reference conversion additionally records measured registration residuals and whole-map
+comparisons. Automated tests do not establish biological currency or replace review.
 
-The release allowlist now records a download date, the SHA-256 of the **raw
-file bytes**, dataset/license links, and an approved review with a date,
-independent reference, notes, and longitude/latitude points expected inside
-and outside the range. The pilot's approval/date are carried forward from the
-original review above; the point checks are its existing regression fixtures,
-not a new expert biological assessment. The dataset page states CC BY without
-specifying a version, so the license link points to that declaration.
+The attempted European iNaturalist files were largely unsuitable: complete ranges
+were compared against independent references, with major missing areas or overestimates
+recorded in [the review queue](REVIEW-QUEUE.md). They were not trimmed by hand.
 
-`npm run maps:build` validates all source reviews and raw inputs before writing
-assets. It rejects missing approval, duplicate IDs, changed bytes, mismatched
-taxonomy/model versions, invalid polygon coordinates and failed review points.
-The build remains entirely offline. Adding a GeoJSON file by itself never
-enables a map. Do not update a checksum merely to make the build pass: a changed
-source requires a fresh review. Automated checks cannot establish biological
-accuracy and do not replace visual comparison of the whole geometry.
+Run:
 
-The generated manifest supplies each map's data date and attribution links.
-The compact preview retains “Geschätztes Vorkommen”; the expanded view links to
-the dataset, license declaration, original download and independent comparison
-map. Dates mean **download dates**, not field observation dates. Original and
-comparison links are external references; the displayed geometry is always the
-checked-in, checksum-pinned copy. Species without approved data retain their
-textual distribution and show a brief unavailable-map message.
-
-## Next species (not released)
-
-See [REVIEW-QUEUE.md](REVIEW-QUEUE.md) for candidate sources and remaining work.
-On 2026-09-07 the Weißkopfseeadler and Königsbussard candidates were downloaded,
-reviewed against the Cornell range maps and released; their accepted model
-deviations are recorded in the review notes in `sources.json`.
-
-For each candidate:
-
-1. Download the original GeoJSON outside the release allowlist. Record the URL,
-   download date, source taxonomy, model version, license and raw-byte checksum.
-2. Compare the **entire** range at regional and world scale with an independent
-   ornithological source. Check remote islands, introduced/captive outliers,
-   holes, missing core areas and antimeridian behavior; compare taxonomy too.
-3. Document the review outcome and limitations. Reject material discrepancies;
-   do not trim bad model polygons by hand or invent seasonal categories.
-4. Only after approval, add the raw file and complete review record to
-   `sources.json`. Include representative inside/outside regression points.
-5. Run `npm run maps:build` and
-   `node --experimental-strip-types --test tests/range-maps.test.ts`. Review the
-   generated regional/world views and attribution before releasing the change.
-
-The habitat tab now places distribution first, then habitat text and a compact
-two-column gallery (one column below 250px of available panel width).
+```sh
+npm run maps:build
+node --experimental-strip-types --test tests/range-maps.test.ts tests/reference-range-maps.test.ts
+```

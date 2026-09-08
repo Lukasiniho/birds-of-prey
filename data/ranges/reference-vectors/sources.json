@@ -1,0 +1,1328 @@
+[
+  {
+    "id": "habicht",
+    "author": "Alexander Kürthy",
+    "sourceUrl": "https://commons.wikimedia.org/wiki/File:AccipiterGentilis.png",
+    "license": "CC BY-SA 3.0",
+    "licenseUrl": "https://creativecommons.org/licenses/by-sa/3.0",
+    "sha256": "80a1c741a9f2300cbb79d2792379e6d666d77ee83f6a53f3255e0c6694568799",
+    "downloadedOn": "2026-09-08",
+    "adaptedOn": "2026-09-08",
+    "review": {
+      "status": "approved",
+      "reviewedOn": "2026-09-08",
+      "registrationErrorPx1000": 3.3865773677825928,
+      "notes": "Globally georeferenced licensed illustration, independently compared with the original source. Seasonal present range colors combined, not seasonal GIS or live occurrence. Coastline/holdout registration residuals and exact transformation are embedded in the GeoJSON; no local geographic warp or hand-drawn biological boundary. World-scale and individual enlarged extraction comparisons passed. Fine printed border/arrow gaps can remain; these are cartographic artifacts, not habitat exclusions.",
+      "inside": [
+        [
+          13.4,
+          52.5
+        ],
+        [
+          90,
+          55
+        ]
+      ],
+      "outside": [
+        [
+          85,
+          40
+        ],
+        [
+          0,
+          -85
+        ]
+      ]
+    }
+  },
+  {
+    "id": "maeusebussard",
+    "author": "Alexander Kürthy",
+    "sourceUrl": "https://commons.wikimedia.org/wiki/File:ButeoButeoIUCN2019_1.png",
+    "license": "CC BY-SA 3.0",
+    "licenseUrl": "https://creativecommons.org/licenses/by-sa/3.0",
+    "sha256": "bcec1e56ea84e377aa24940eab166f1babb49c96c1018c4e05da3995fa71f0d7",
+    "downloadedOn": "2026-09-08",
+    "adaptedOn": "2026-09-08",
+    "review": {
+      "status": "approved",
+      "reviewedOn": "2026-09-08",
+      "registrationErrorPx1000": 2.616560220718384,
+      "notes": "Globally georeferenced licensed illustration, independently compared with the original source. Seasonal present range colors combined, not seasonal GIS or live occurrence. Coastline/holdout registration residuals and exact transformation are embedded in the GeoJSON; no local geographic warp or hand-drawn biological boundary. World-scale and individual enlarged extraction comparisons passed. Fine printed border/arrow gaps can remain; these are cartographic artifacts, not habitat exclusions.",
+      "inside": [
+        [
+          13.4,
+          52.5
+        ],
+        [
+          30,
+          -25
+        ]
+      ],
+      "outside": [
+        [
+          60,
+          35
+        ],
+        [
+          0,
+          -85
+        ]
+      ]
+    }
+  },
+  {
+    "id": "wanderfalke",
+    "author": "MPF",
+    "sourceUrl": "https://commons.wikimedia.org/wiki/File:PeregrineRangeMap.png",
+    "license": "CC BY-SA 3.0",
+    "licenseUrl": "https://creativecommons.org/licenses/by-sa/3.0/",
+    "sha256": "6d8b216576d640128d9b8c06fe9f43fa21f31148ce49d217b873383bd7a0569f",
+    "downloadedOn": "2026-09-08",
+    "adaptedOn": "2026-09-08",
+    "review": {
+      "status": "approved",
+      "reviewedOn": "2026-09-08",
+      "registrationErrorPx1000": 3.36101,
+      "notes": "Globally georeferenced licensed illustration, independently compared with the original source. Seasonal present range colors combined, not seasonal GIS or live occurrence. Coastline/holdout registration residuals and exact transformation are embedded in the GeoJSON; no local geographic warp or hand-drawn biological boundary. World-scale and individual enlarged extraction comparisons passed. Fine printed border/arrow gaps can remain; these are cartographic artifacts, not habitat exclusions.",
+      "inside": [
+        [
+          -81.5,
+          29
+        ],
+        [
+          10,
+          50
+        ]
+      ],
+      "outside": [
+        [
+          15,
+          24
+        ],
+        [
+          -60,
+          -5
+        ],
+        [
+          0,
+          -85
+        ]
+      ]
+    }
+  },
+  {
+    "id": "turmfalke",
+    "author": "Alexander Kürthy",
+    "sourceUrl": "https://commons.wikimedia.org/wiki/File:FalcoTinnunculusIUCNver2019-2.png",
+    "license": "CC BY-SA 3.0",
+    "licenseUrl": "https://creativecommons.org/licenses/by-sa/3.0",
+    "sha256": "ded5d5b3df4b892cea05cd1d4171dd1ac0a5cde7ceeb96194bd9a5d509af5ef7",
+    "downloadedOn": "2026-09-08",
+    "adaptedOn": "2026-09-08",
+    "review": {
+      "status": "approved",
+      "reviewedOn": "2026-09-08",
+      "registrationErrorPx1000": 4.451091289520264,
+      "notes": "Globally georeferenced licensed illustration, independently compared with the original source. Seasonal present range colors combined, not seasonal GIS or live occurrence. Coastline/holdout registration residuals and exact transformation are embedded in the GeoJSON; no local geographic warp or hand-drawn biological boundary. World-scale and individual enlarged extraction comparisons passed. Fine printed border/arrow gaps can remain; these are cartographic artifacts, not habitat exclusions.",
+      "inside": [
+        [
+          13.4,
+          52.5
+        ],
+        [
+          80,
+          25
+        ]
+      ],
+      "outside": [
+        [
+          15,
+          24
+        ],
+        [
+          0,
+          -85
+        ]
+      ]
+    }
+  },
+  {
+    "id": "steinadler",
+    "author": "Alexander Kürthy",
+    "sourceUrl": "https://commons.wikimedia.org/wiki/File:AquilaChrysaetosIUCNver2018_2.png",
+    "license": "CC BY-SA 3.0",
+    "licenseUrl": "https://creativecommons.org/licenses/by-sa/3.0",
+    "sha256": "1b2d16ca5bfef63a8f88bc1fc4de94efb0c3763c3080b723c1f173d61181b119",
+    "downloadedOn": "2026-09-08",
+    "adaptedOn": "2026-09-08",
+    "review": {
+      "status": "approved",
+      "reviewedOn": "2026-09-08",
+      "registrationErrorPx1000": 3.252244472503662,
+      "notes": "Globally georeferenced licensed illustration, independently compared with the original source. Seasonal present range colors combined, not seasonal GIS or live occurrence. Coastline/holdout registration residuals and exact transformation are embedded in the GeoJSON; no local geographic warp or hand-drawn biological boundary. World-scale and individual enlarged extraction comparisons passed. Fine printed border/arrow gaps can remain; these are cartographic artifacts, not habitat exclusions.",
+      "inside": [
+        [
+          -110,
+          45
+        ],
+        [
+          85,
+          65
+        ]
+      ],
+      "outside": [
+        [
+          15,
+          0
+        ],
+        [
+          0,
+          -85
+        ]
+      ]
+    }
+  },
+  {
+    "id": "seeadler",
+    "author": "Alexander Kürthy",
+    "sourceUrl": "https://commons.wikimedia.org/wiki/File:HaliaeetusAlbicillaIUCN.svg",
+    "license": "CC BY-SA 3.0",
+    "licenseUrl": "https://creativecommons.org/licenses/by-sa/3.0",
+    "sha256": "66fa6fd178727942c505a8514e276a097969dc10052b8e58672692ffa3611647",
+    "downloadedOn": "2026-09-08",
+    "adaptedOn": "2026-09-08",
+    "review": {
+      "status": "approved",
+      "reviewedOn": "2026-09-08",
+      "registrationErrorPx1000": 2.584789991378784,
+      "notes": "Globally georeferenced licensed illustration, independently compared with the original source. Seasonal present range colors combined, not seasonal GIS or live occurrence. Coastline/holdout registration residuals and exact transformation are embedded in the GeoJSON; no local geographic warp or hand-drawn biological boundary. World-scale and individual enlarged extraction comparisons passed. Fine printed border/arrow gaps can remain; these are cartographic artifacts, not habitat exclusions.",
+      "inside": [
+        [
+          13.4,
+          54
+        ],
+        [
+          120,
+          60
+        ]
+      ],
+      "outside": [
+        [
+          15,
+          0
+        ],
+        [
+          0,
+          -85
+        ]
+      ]
+    }
+  },
+  {
+    "id": "fischadler",
+    "author": "Zoologist und chris",
+    "sourceUrl": "https://commons.wikimedia.org/wiki/File:Pandion_global_range.svg",
+    "license": "CC BY-SA 3.0",
+    "licenseUrl": "https://creativecommons.org/licenses/by-sa/3.0/",
+    "sha256": "0ba161b5c92aca8f0ecca4569e62433eef9b3037632c798f13a741f38840cd22",
+    "downloadedOn": "2026-09-08",
+    "adaptedOn": "2026-09-08",
+    "note": "Vorlage umfasst Westlichen und Östlichen Fischadler.",
+    "review": {
+      "status": "approved",
+      "reviewedOn": "2026-09-08",
+      "registrationErrorPx1000": 3.613454583333333,
+      "notes": "Globally georeferenced licensed illustration, independently compared with the original source. Seasonal present range colors combined, not seasonal GIS or live occurrence. Coastline/holdout registration residuals and exact transformation are embedded in the GeoJSON; no local geographic warp or hand-drawn biological boundary. World-scale and individual enlarged extraction comparisons passed. Fine printed border/arrow gaps can remain; these are cartographic artifacts, not habitat exclusions.",
+      "inside": [
+        [
+          -81.5,
+          29
+        ],
+        [
+          20,
+          -10
+        ]
+      ],
+      "outside": [
+        [
+          10,
+          25
+        ],
+        [
+          135,
+          -25
+        ],
+        [
+          0,
+          -85
+        ]
+      ]
+    }
+  },
+  {
+    "id": "kaiseradler",
+    "author": "Alexander Kürthy",
+    "sourceUrl": "https://commons.wikimedia.org/wiki/File:AquilaHeliacaIUCNver2019_1.png",
+    "license": "CC BY-SA 3.0",
+    "licenseUrl": "https://creativecommons.org/licenses/by-sa/3.0",
+    "sha256": "37d545660b63de6f36c00e4bb197542363b2ee6478e1f53dc651158050704cad",
+    "downloadedOn": "2026-09-08",
+    "adaptedOn": "2026-09-08",
+    "review": {
+      "status": "approved",
+      "reviewedOn": "2026-09-08",
+      "registrationErrorPx1000": 2.916630983352661,
+      "notes": "Globally georeferenced licensed illustration, independently compared with the original source. Seasonal present range colors combined, not seasonal GIS or live occurrence. Coastline/holdout registration residuals and exact transformation are embedded in the GeoJSON; no local geographic warp or hand-drawn biological boundary. World-scale and individual enlarged extraction comparisons passed. Fine printed border/arrow gaps can remain; these are cartographic artifacts, not habitat exclusions.",
+      "inside": [
+        [
+          70,
+          50
+        ],
+        [
+          120,
+          32
+        ]
+      ],
+      "outside": [
+        [
+          15,
+          0
+        ],
+        [
+          0,
+          -85
+        ]
+      ]
+    }
+  },
+  {
+    "id": "wespenbussard",
+    "author": "Alexander Kürthy",
+    "sourceUrl": "https://commons.wikimedia.org/wiki/File:PernisApivorusIUCN2018_2.png",
+    "license": "CC BY-SA 3.0",
+    "licenseUrl": "https://creativecommons.org/licenses/by-sa/3.0",
+    "sha256": "20b2245b69c32a0732e09633d88025fe4b005e77c979c076eb73f21a6c4b671c",
+    "downloadedOn": "2026-09-08",
+    "adaptedOn": "2026-09-08",
+    "review": {
+      "status": "approved",
+      "reviewedOn": "2026-09-08",
+      "registrationErrorPx1000": 1.913982629776001,
+      "notes": "Globally georeferenced licensed illustration, independently compared with the original source. Seasonal present range colors combined, not seasonal GIS or live occurrence. Coastline/holdout registration residuals and exact transformation are embedded in the GeoJSON; no local geographic warp or hand-drawn biological boundary. World-scale and individual enlarged extraction comparisons passed. Fine printed border/arrow gaps can remain; these are cartographic artifacts, not habitat exclusions.",
+      "inside": [
+        [
+          13.4,
+          52.5
+        ],
+        [
+          20,
+          -5
+        ]
+      ],
+      "outside": [
+        [
+          0,
+          24
+        ],
+        [
+          0,
+          -85
+        ]
+      ]
+    }
+  },
+  {
+    "id": "bartgeier",
+    "author": "Alexander Kürthy",
+    "sourceUrl": "https://commons.wikimedia.org/wiki/File:GypaetusBarbatusIUCNver2018_2.png",
+    "license": "CC BY-SA 3.0",
+    "licenseUrl": "https://creativecommons.org/licenses/by-sa/3.0",
+    "sha256": "74fe6ce47cb6a3a193b93d5e4e49469e15daa9c86457738e9657735d0b07cb04",
+    "downloadedOn": "2026-09-08",
+    "adaptedOn": "2026-09-08",
+    "review": {
+      "status": "approved",
+      "reviewedOn": "2026-09-08",
+      "registrationErrorPx1000": 1.1909234523773193,
+      "notes": "Globally georeferenced licensed illustration, independently compared with the original source. Seasonal present range colors combined, not seasonal GIS or live occurrence. Coastline/holdout registration residuals and exact transformation are embedded in the GeoJSON; no local geographic warp or hand-drawn biological boundary. World-scale and individual enlarged extraction comparisons passed. Fine printed border/arrow gaps can remain; these are cartographic artifacts, not habitat exclusions.",
+      "inside": [
+        [
+          10,
+          46
+        ],
+        [
+          85,
+          30
+        ]
+      ],
+      "outside": [
+        [
+          15,
+          0
+        ],
+        [
+          0,
+          -85
+        ]
+      ]
+    }
+  },
+  {
+    "id": "uhu",
+    "author": "Alexander Kürthy",
+    "sourceUrl": "https://commons.wikimedia.org/wiki/File:BuboBuboIUCN.svg",
+    "license": "CC BY-SA 3.0",
+    "licenseUrl": "https://creativecommons.org/licenses/by-sa/3.0",
+    "sha256": "eced131d9f305f2504cc749d4e9fa6a347406c9f592950979e1176326f5b5c9d",
+    "downloadedOn": "2026-09-08",
+    "adaptedOn": "2026-09-08",
+    "review": {
+      "status": "approved",
+      "reviewedOn": "2026-09-08",
+      "registrationErrorPx1000": 4.00406551361084,
+      "notes": "Globally georeferenced licensed illustration, independently compared with the original source. Seasonal present range colors combined, not seasonal GIS or live occurrence. Coastline/holdout registration residuals and exact transformation are embedded in the GeoJSON; no local geographic warp or hand-drawn biological boundary. World-scale and individual enlarged extraction comparisons passed. Fine printed border/arrow gaps can remain; these are cartographic artifacts, not habitat exclusions.",
+      "inside": [
+        [
+          90,
+          45
+        ]
+      ],
+      "outside": [
+        [
+          15,
+          0
+        ],
+        [
+          0,
+          -85
+        ]
+      ]
+    }
+  },
+  {
+    "id": "schwarzmilan",
+    "author": "Alexander Kürthy",
+    "sourceUrl": "https://commons.wikimedia.org/wiki/File:MilvusMigransIUCNver2018_2.png",
+    "license": "CC BY-SA 3.0",
+    "licenseUrl": "https://creativecommons.org/licenses/by-sa/3.0",
+    "sha256": "011dd2ff12001c742c4d1dc48dc90aac91fb32338d1276f349becdfe8135e824",
+    "downloadedOn": "2026-09-08",
+    "adaptedOn": "2026-09-08",
+    "note": "Vorlage umfasst auch den Gelbschnabelmilan.",
+    "review": {
+      "status": "approved",
+      "reviewedOn": "2026-09-08",
+      "registrationErrorPx1000": 2.8147261142730713,
+      "notes": "Globally georeferenced licensed illustration, independently compared with the original source. Seasonal present range colors combined, not seasonal GIS or live occurrence. Coastline/holdout registration residuals and exact transformation are embedded in the GeoJSON; no local geographic warp or hand-drawn biological boundary. World-scale and individual enlarged extraction comparisons passed. Fine printed border/arrow gaps can remain; these are cartographic artifacts, not habitat exclusions.",
+      "inside": [
+        [
+          13.4,
+          52.5
+        ],
+        [
+          135,
+          -25
+        ]
+      ],
+      "outside": [
+        [
+          15,
+          24
+        ],
+        [
+          0,
+          -85
+        ]
+      ]
+    }
+  },
+  {
+    "id": "rotmilan",
+    "author": "Ulrich prokop",
+    "sourceUrl": "https://commons.wikimedia.org/wiki/File:Milvus_milvus_distr02.png",
+    "license": "CC BY-SA 3.0",
+    "licenseUrl": "https://creativecommons.org/licenses/by-sa/3.0",
+    "sha256": "5ed738ca63a7a89eeafb01a78cda604d3083e103f78466966efb5dd093eb2ffd",
+    "downloadedOn": "2026-09-08",
+    "adaptedOn": "2026-09-08",
+    "review": {
+      "status": "approved",
+      "reviewedOn": "2026-09-08",
+      "registrationErrorPx1000": 2.660182237625122,
+      "notes": "Globally georeferenced licensed illustration, independently compared with the original source. Seasonal present range colors combined, not seasonal GIS or live occurrence. Coastline/holdout registration residuals and exact transformation are embedded in the GeoJSON; no local geographic warp or hand-drawn biological boundary. World-scale and individual enlarged extraction comparisons passed. Fine printed border/arrow gaps can remain; these are cartographic artifacts, not habitat exclusions.",
+      "inside": [
+        [
+          10,
+          50
+        ],
+        [
+          -4,
+          40
+        ]
+      ],
+      "outside": [
+        [
+          10,
+          36.7
+        ],
+        [
+          0,
+          -85
+        ]
+      ]
+    }
+  },
+  {
+    "id": "gerfalke",
+    "author": "Scops",
+    "sourceUrl": "https://commons.wikimedia.org/wiki/File:Falco_rusticolus_distr.png",
+    "license": "CC BY-SA 3.0",
+    "licenseUrl": "https://creativecommons.org/licenses/by-sa/3.0/",
+    "sha256": "e37a157195b1937a7898a3e76436b21f129d8693228e687b70ba6eccaf131774",
+    "downloadedOn": "2026-09-08",
+    "adaptedOn": "2026-09-08",
+    "review": {
+      "status": "approved",
+      "reviewedOn": "2026-09-08",
+      "registrationErrorPx1000": 4.955607891082764,
+      "notes": "Globally georeferenced licensed illustration, independently compared with the original source. Seasonal present range colors combined, not seasonal GIS or live occurrence. Coastline/holdout registration residuals and exact transformation are embedded in the GeoJSON; no local geographic warp or hand-drawn biological boundary. World-scale and individual enlarged extraction comparisons passed. Fine printed border/arrow gaps can remain; these are cartographic artifacts, not habitat exclusions. Separately reviewed thin blue annotation-component removal retains all three substantial winter bands.",
+      "inside": [
+        [
+          -100,
+          65
+        ],
+        [
+          25,
+          69
+        ]
+      ],
+      "outside": [
+        [
+          13.4,
+          52.5
+        ],
+        [
+          0,
+          -85
+        ]
+      ]
+    }
+  },
+  {
+    "id": "sakerfalke",
+    "author": "Alexander Kürthy",
+    "sourceUrl": "https://commons.wikimedia.org/wiki/File:FalcoCherrugIUCN2019_2.png",
+    "license": "CC BY-SA 3.0",
+    "licenseUrl": "https://creativecommons.org/licenses/by-sa/3.0",
+    "sha256": "7cde37cefdc577ca28d57989903899ca4f186485e6b35e4411a94e4934751d7f",
+    "downloadedOn": "2026-09-08",
+    "adaptedOn": "2026-09-08",
+    "review": {
+      "status": "approved",
+      "reviewedOn": "2026-09-08",
+      "registrationErrorPx1000": 5.254939079284668,
+      "notes": "Globally georeferenced licensed illustration, independently compared with the original source. Seasonal present range colors combined, not seasonal GIS or live occurrence. Coastline/holdout registration residuals and exact transformation are embedded in the GeoJSON; no local geographic warp or hand-drawn biological boundary. World-scale and individual enlarged extraction comparisons passed. Fine printed border/arrow gaps can remain; these are cartographic artifacts, not habitat exclusions.",
+      "inside": [
+        [
+          70,
+          45
+        ],
+        [
+          45,
+          25
+        ]
+      ],
+      "outside": [
+        [
+          15,
+          -20
+        ],
+        [
+          0,
+          -85
+        ]
+      ]
+    }
+  },
+  {
+    "id": "lannerfalke",
+    "author": "Alexander Kürthy",
+    "sourceUrl": "https://commons.wikimedia.org/wiki/File:FalcoBiarmicusIUCN2019-3.png",
+    "license": "CC BY-SA 3.0",
+    "licenseUrl": "https://creativecommons.org/licenses/by-sa/3.0",
+    "sha256": "55200deb3addb4edf8721514d2afa492073f9bc7f5911926fce3de9495344f18",
+    "downloadedOn": "2026-09-08",
+    "adaptedOn": "2026-09-08",
+    "review": {
+      "status": "approved",
+      "reviewedOn": "2026-09-08",
+      "registrationErrorPx1000": 1.8661779165267944,
+      "notes": "Globally georeferenced licensed illustration, independently compared with the original source. Seasonal present range colors combined, not seasonal GIS or live occurrence. Coastline/holdout registration residuals and exact transformation are embedded in the GeoJSON; no local geographic warp or hand-drawn biological boundary. World-scale and individual enlarged extraction comparisons passed. Fine printed border/arrow gaps can remain; these are cartographic artifacts, not habitat exclusions.",
+      "inside": [
+        [
+          25,
+          -25
+        ],
+        [
+          35,
+          8
+        ]
+      ],
+      "outside": [
+        [
+          15,
+          24
+        ],
+        [
+          20,
+          0
+        ],
+        [
+          0,
+          -85
+        ]
+      ]
+    }
+  },
+  {
+    "id": "baumfalke",
+    "author": "Alexander Kürthy",
+    "sourceUrl": "https://commons.wikimedia.org/wiki/File:FalcoSubbuteoIUCNver2019_2.png",
+    "license": "CC BY-SA 3.0",
+    "licenseUrl": "https://creativecommons.org/licenses/by-sa/3.0",
+    "sha256": "49f1523ba05682ae5be4f23878211a437e4424ee5e63a613a14c2754829eda6d",
+    "downloadedOn": "2026-09-08",
+    "adaptedOn": "2026-09-08",
+    "review": {
+      "status": "approved",
+      "reviewedOn": "2026-09-08",
+      "registrationErrorPx1000": 1.9390232563018799,
+      "notes": "Globally georeferenced licensed illustration, independently compared with the original source. Seasonal present range colors combined, not seasonal GIS or live occurrence. Coastline/holdout registration residuals and exact transformation are embedded in the GeoJSON; no local geographic warp or hand-drawn biological boundary. World-scale and individual enlarged extraction comparisons passed. Fine printed border/arrow gaps can remain; these are cartographic artifacts, not habitat exclusions.",
+      "inside": [
+        [
+          13.4,
+          52.5
+        ],
+        [
+          30,
+          -20
+        ]
+      ],
+      "outside": [
+        [
+          85,
+          35
+        ],
+        [
+          0,
+          -85
+        ]
+      ]
+    }
+  },
+  {
+    "id": "weissstorch",
+    "author": "Shyamal",
+    "sourceUrl": "https://commons.wikimedia.org/wiki/File:WhiteStorkMap.svg",
+    "license": "CC0",
+    "licenseUrl": "https://creativecommons.org/publicdomain/zero/1.0/deed.en",
+    "sha256": "77b32033b595c758c93c290b16493f4d1b352e2f39038111138fca479aa435ea",
+    "downloadedOn": "2026-09-08",
+    "adaptedOn": "2026-09-08",
+    "review": {
+      "status": "approved",
+      "reviewedOn": "2026-09-08",
+      "registrationErrorPx1000": 1.5116721391677856,
+      "notes": "Globally georeferenced licensed illustration, independently compared with the original source. Seasonal present range colors combined, not seasonal GIS or live occurrence. Coastline/holdout registration residuals and exact transformation are embedded in the GeoJSON; no local geographic warp or hand-drawn biological boundary. World-scale and individual enlarged extraction comparisons passed. Fine printed border/arrow gaps can remain; these are cartographic artifacts, not habitat exclusions.",
+      "inside": [
+        [
+          20,
+          52
+        ],
+        [
+          30,
+          -20
+        ]
+      ],
+      "outside": [
+        [
+          15,
+          24
+        ],
+        [
+          0,
+          -85
+        ]
+      ]
+    }
+  },
+  {
+    "id": "sperber",
+    "author": "Alexander Kürthy",
+    "sourceUrl": "https://commons.wikimedia.org/wiki/File:AccipiterNisusIUCNver2018_2.png",
+    "license": "CC BY-SA 3.0",
+    "licenseUrl": "https://creativecommons.org/licenses/by-sa/3.0",
+    "sha256": "dabadcd0aacdfbb3917450872ee14c76713c0c2d60074cecfbb837a26f07f2b5",
+    "downloadedOn": "2026-09-08",
+    "adaptedOn": "2026-09-08",
+    "review": {
+      "status": "approved",
+      "reviewedOn": "2026-09-08",
+      "registrationErrorPx1000": 1.8962955474853516,
+      "notes": "Globally georeferenced licensed illustration, independently compared with the original source. Seasonal present range colors combined, not seasonal GIS or live occurrence. Coastline/holdout registration residuals and exact transformation are embedded in the GeoJSON; no local geographic warp or hand-drawn biological boundary. World-scale and individual enlarged extraction comparisons passed. Fine printed border/arrow gaps can remain; these are cartographic artifacts, not habitat exclusions.",
+      "inside": [
+        [
+          13.4,
+          52.5
+        ],
+        [
+          90,
+          52
+        ]
+      ],
+      "outside": [
+        [
+          85,
+          35
+        ],
+        [
+          0,
+          -85
+        ]
+      ]
+    }
+  },
+  {
+    "id": "wuestenbussard",
+    "author": "Izvora",
+    "sourceUrl": "https://commons.wikimedia.org/wiki/File:Parabuteo_unicinctus_range_map.png",
+    "license": "Public domain",
+    "licenseUrl": "https://commons.wikimedia.org/wiki/Commons:Public_domain",
+    "sha256": "93877f9a177ae751a869e75f1c9b01b673538cd16b186246aec9d42b54f738e9",
+    "downloadedOn": "2026-09-08",
+    "adaptedOn": "2026-09-08",
+    "review": {
+      "status": "approved",
+      "reviewedOn": "2026-09-08",
+      "registrationErrorPx1000": 3.6925084590911865,
+      "notes": "Licensed illustration georeferenced by one global inverse projection and axis scale/translation. Whole-map source/overlay comparisons reviewed. P90 coastal residual measured at normalized 1000px source width on interleaved withheld samples; closely neighboring samples are correlated. These are cartographic conversion checks, not independent biological observations. Seasonal/subspecies range colors combined; source generalization and age remain. Interior/exterior fixtures preserve geography and documented exclusions. Residuals evaluated within the range-bearing geographic bounds recorded in the registration; excluded irrelevant high-Arctic coastline or, for Falklandkarakara, northern continental coastline.",
+      "inside": [
+        [
+          -110.9,
+          32.2
+        ],
+        [
+          -100,
+          25
+        ],
+        [
+          -43,
+          -15
+        ],
+        [
+          -64,
+          -30
+        ]
+      ],
+      "outside": [
+        [
+          -60,
+          -5
+        ],
+        [
+          -75,
+          40
+        ],
+        [
+          13,
+          52
+        ]
+      ]
+    }
+  },
+  {
+    "id": "steppenadler",
+    "author": "Alexander Kürthy",
+    "sourceUrl": "https://commons.wikimedia.org/wiki/File:AquilaNipalensis.png",
+    "license": "CC BY-SA 3.0",
+    "licenseUrl": "https://creativecommons.org/licenses/by-sa/3.0",
+    "sha256": "d5f98208e81e8cf8f23bd46e52c4f34af64b1ddb038fb1eb1a3fb9e9ecf7abd6",
+    "downloadedOn": "2026-09-08",
+    "adaptedOn": "2026-09-08",
+    "review": {
+      "status": "approved",
+      "reviewedOn": "2026-09-08",
+      "registrationErrorPx1000": 2.041921377182007,
+      "notes": "Licensed illustration georeferenced by one global inverse projection and axis scale/translation. Whole-map source/overlay comparisons reviewed. P90 coastal residual measured at normalized 1000px source width on interleaved withheld samples; closely neighboring samples are correlated. These are cartographic conversion checks, not independent biological observations. Seasonal/subspecies range colors combined; source generalization and age remain. Interior/exterior fixtures preserve geography and documented exclusions.",
+      "inside": [
+        [
+          70,
+          48
+        ],
+        [
+          105,
+          47
+        ],
+        [
+          75,
+          23
+        ],
+        [
+          38,
+          8
+        ],
+        [
+          27,
+          -22
+        ]
+      ],
+      "outside": [
+        [
+          15,
+          52
+        ],
+        [
+          -100,
+          40
+        ],
+        [
+          20,
+          0
+        ],
+        [
+          88,
+          32
+        ]
+      ]
+    }
+  },
+  {
+    "id": "sekretaer",
+    "author": "Aa77zz",
+    "sourceUrl": "https://commons.wikimedia.org/wiki/File:Secretarybird_distribution_map.svg",
+    "license": "CC0",
+    "licenseUrl": "https://creativecommons.org/publicdomain/zero/1.0/deed.en",
+    "sha256": "8a0096f3fc58b06c460bab3e1a03471398894ffc1bdef6c7c8de9e169f0e9988",
+    "downloadedOn": "2026-09-08",
+    "adaptedOn": "2026-09-08",
+    "review": {
+      "status": "approved",
+      "reviewedOn": "2026-09-08",
+      "registrationErrorPx1000": 1.53623628616333,
+      "notes": "Licensed illustration georeferenced by one global inverse projection and axis scale/translation. Whole-map source/overlay comparisons reviewed. P90 coastal residual measured at normalized 1000px source width on interleaved withheld samples; closely neighboring samples are correlated. These are cartographic conversion checks, not independent biological observations. Seasonal/subspecies range colors combined; source generalization and age remain. Interior/exterior fixtures preserve geography and documented exclusions.",
+      "inside": [
+        [
+          35,
+          -2
+        ],
+        [
+          25,
+          -25
+        ],
+        [
+          15,
+          14
+        ]
+      ],
+      "outside": [
+        [
+          22,
+          0
+        ],
+        [
+          10,
+          0
+        ],
+        [
+          15,
+          28
+        ],
+        [
+          47,
+          -19
+        ]
+      ]
+    }
+  },
+  {
+    "id": "andenkondor",
+    "author": "Hey jude, don't let me down",
+    "sourceUrl": "https://commons.wikimedia.org/wiki/File:AndeanMap.png",
+    "license": "Public domain",
+    "licenseUrl": "https://commons.wikimedia.org/wiki/Commons:Public_domain",
+    "sha256": "225447fa56639c867fa41d44be35c991291ac06639d4b2a5de27a276df51b97f",
+    "downloadedOn": "2026-09-08",
+    "adaptedOn": "2026-09-08",
+    "review": {
+      "status": "approved",
+      "reviewedOn": "2026-09-08",
+      "registrationErrorPx1000": 2.997798204421997,
+      "notes": "Licensed illustration georeferenced by one global inverse projection and axis scale/translation. Whole-map source/overlay comparisons reviewed. P90 coastal residual measured at normalized 1000px source width on interleaved withheld samples; closely neighboring samples are correlated. These are cartographic conversion checks, not independent biological observations. Seasonal/subspecies range colors combined; source generalization and age remain. Interior/exterior fixtures preserve geography and documented exclusions.",
+      "inside": [
+        [
+          -70,
+          -33
+        ],
+        [
+          -71,
+          -45
+        ],
+        [
+          -72,
+          -51
+        ]
+      ],
+      "outside": [
+        [
+          -55,
+          -10
+        ],
+        [
+          -60,
+          -35
+        ],
+        [
+          13,
+          52
+        ]
+      ]
+    }
+  },
+  {
+    "id": "kronenadler",
+    "author": "Jonathan Hornung",
+    "sourceUrl": "https://commons.wikimedia.org/wiki/File:Stephanoaetus_coronatus_distribution_map_big.png",
+    "license": "Public domain",
+    "licenseUrl": "https://commons.wikimedia.org/wiki/Commons:Public_domain",
+    "sha256": "dcba56a3460101164d7601809c6d50cf934ac588b2740a5d507b54668cf0fdc9",
+    "downloadedOn": "2026-09-08",
+    "adaptedOn": "2026-09-08",
+    "review": {
+      "status": "approved",
+      "reviewedOn": "2026-09-08",
+      "registrationErrorPx1000": 2.5705909729003906,
+      "notes": "Licensed illustration georeferenced by one global inverse projection and axis scale/translation. Whole-map source/overlay comparisons reviewed. P90 coastal residual measured at normalized 1000px source width on interleaved withheld samples; closely neighboring samples are correlated. These are cartographic conversion checks, not independent biological observations. Seasonal/subspecies range colors combined; source generalization and age remain. Interior/exterior fixtures preserve geography and documented exclusions.",
+      "inside": [
+        [
+          27,
+          0
+        ],
+        [
+          -7,
+          7
+        ],
+        [
+          32,
+          -28
+        ]
+      ],
+      "outside": [
+        [
+          22,
+          -23
+        ],
+        [
+          10,
+          25
+        ],
+        [
+          47,
+          -19
+        ]
+      ]
+    }
+  },
+  {
+    "id": "riesenseeadler",
+    "author": "Ulrich Prokop (Scops)",
+    "sourceUrl": "https://commons.wikimedia.org/wiki/File:Haliaeetus_pelagicus_distr.png",
+    "license": "CC BY-SA 2.5",
+    "licenseUrl": "https://creativecommons.org/licenses/by-sa/2.5",
+    "sha256": "d3e5d1a8970c060b47bbfda4f895ca48c298f54e70177bb34d51b4d3a26f6fc8",
+    "downloadedOn": "2026-09-08",
+    "adaptedOn": "2026-09-08",
+    "review": {
+      "status": "approved",
+      "reviewedOn": "2026-09-08",
+      "registrationErrorPx1000": 4.896650314331055,
+      "notes": "Licensed illustration georeferenced by one global inverse projection and axis scale/translation. Whole-map source/overlay comparisons reviewed. P90 coastal residual measured at normalized 1000px source width on interleaved withheld samples; closely neighboring samples are correlated. These are cartographic conversion checks, not independent biological observations. Seasonal/subspecies range colors combined; source generalization and age remain. Interior/exterior fixtures preserve geography and documented exclusions. Interior fixtures sample mapped land immediately near Magadan, southern Sakhalin and Petropavlovsk; an illustrative coastal band cannot resolve exact city locations. Vagrant lavender fill and two ocean arrows excluded.",
+      "inside": [
+        [
+          150.811,
+          59.66645
+        ],
+        [
+          142.63217,
+          46.86014
+        ],
+        [
+          158.56428,
+          53.1
+        ]
+      ],
+      "outside": [
+        [
+          139.7,
+          35.7
+        ],
+        [
+          13,
+          52
+        ],
+        [
+          -70,
+          45
+        ],
+        [
+          130,
+          60
+        ]
+      ]
+    },
+    "note": "Küstengebiete; Brut- und Wintervorkommen zusammengefasst."
+  },
+  {
+    "id": "gaukler",
+    "author": "Jonathan Hornung",
+    "sourceUrl": "https://commons.wikimedia.org/wiki/File:Gaukler_Terathopius_ecaudatus_world.png",
+    "license": "Public domain",
+    "licenseUrl": "https://commons.wikimedia.org/wiki/Commons:Public_domain",
+    "sha256": "553c439a23e5cfa95c3f604b1d89f04931e7d1593989c1d259ed4d8134d93cf8",
+    "downloadedOn": "2026-09-08",
+    "adaptedOn": "2026-09-08",
+    "review": {
+      "status": "approved",
+      "reviewedOn": "2026-09-08",
+      "registrationErrorPx1000": 2.3408560752868652,
+      "notes": "Licensed illustration georeferenced by one global inverse projection and axis scale/translation. Whole-map source/overlay comparisons reviewed. P90 coastal residual measured at normalized 1000px source width on interleaved withheld samples; closely neighboring samples are correlated. These are cartographic conversion checks, not independent biological observations. Seasonal/subspecies range colors combined; source generalization and age remain. Interior/exterior fixtures preserve geography and documented exclusions.",
+      "inside": [
+        [
+          32,
+          -24
+        ],
+        [
+          36,
+          -3
+        ],
+        [
+          20,
+          12
+        ]
+      ],
+      "outside": [
+        [
+          22,
+          -3
+        ],
+        [
+          20,
+          28
+        ],
+        [
+          47,
+          -19
+        ]
+      ]
+    }
+  },
+  {
+    "id": "aguja",
+    "author": "Izvora",
+    "sourceUrl": "https://commons.wikimedia.org/wiki/File:Geranoaetus_melanoleucus_range_map.PNG",
+    "license": "Public domain",
+    "licenseUrl": "https://commons.wikimedia.org/wiki/Commons:Public_domain",
+    "sha256": "920c721ecf269037dde3f099dec2c2cc6a32a78b0f634dae6aa9701bab8cfaea",
+    "downloadedOn": "2026-09-08",
+    "adaptedOn": "2026-09-08",
+    "review": {
+      "status": "approved",
+      "reviewedOn": "2026-09-08",
+      "registrationErrorPx1000": 6.827355861663818,
+      "notes": "Licensed illustration georeferenced by one global inverse projection and axis scale/translation. Whole-map source/overlay comparisons reviewed. P90 coastal residual measured at normalized 1000px source width on interleaved withheld samples; closely neighboring samples are correlated. These are cartographic conversion checks, not independent biological observations. Seasonal/subspecies range colors combined; source generalization and age remain. Interior/exterior fixtures preserve geography and documented exclusions. Residuals evaluated within the range-bearing geographic bounds recorded in the registration; excluded irrelevant high-Arctic coastline or, for Falklandkarakara, northern continental coastline. The 212px original is pixelated: P90 is 1.45 native pixels, within the explicit two-native-pixel legacy-source allowance.",
+      "inside": [
+        [
+          -70,
+          -33
+        ],
+        [
+          -64,
+          -40
+        ],
+        [
+          -46,
+          -20
+        ],
+        [
+          -76,
+          -10
+        ]
+      ],
+      "outside": [
+        [
+          -60,
+          -5
+        ],
+        [
+          -100,
+          30
+        ],
+        [
+          -70,
+          -65
+        ],
+        [
+          -47,
+          0
+        ]
+      ],
+      "registrationNativeWidth": 212
+    },
+    "note": "Generalisierte Kartenvorlage."
+  },
+  {
+    "id": "falklandkarakara",
+    "author": "Cephas",
+    "sourceUrl": "https://commons.wikimedia.org/wiki/File:Phalcoboenus_australis_map.svg",
+    "license": "CC BY-SA 4.0",
+    "licenseUrl": "https://creativecommons.org/licenses/by-sa/4.0",
+    "sha256": "c3d4b7fec2326db1662ca3a60ee69cce429860ecc8c531a4e531cc33ba5c1a83",
+    "downloadedOn": "2026-09-08",
+    "adaptedOn": "2026-09-08",
+    "review": {
+      "status": "approved",
+      "reviewedOn": "2026-09-08",
+      "registrationErrorPx1000": 4.501243591308594,
+      "notes": "Licensed illustration georeferenced by one global inverse projection and axis scale/translation. Whole-map source/overlay comparisons reviewed. P90 coastal residual measured at normalized 1000px source width on interleaved withheld samples; closely neighboring samples are correlated. These are cartographic conversion checks, not independent biological observations. Seasonal/subspecies range colors combined; source generalization and age remain. Interior/exterior fixtures preserve geography and documented exclusions. Residuals evaluated within the range-bearing geographic bounds recorded in the registration; excluded irrelevant high-Arctic coastline or, for Falklandkarakara, northern continental coastline. Plate Carree verified against straight constant-latitude provincial borders; irregular shoreline differences reflect the schematic coastline reference. Falkland and Tierra del Fuego island ranges retained.",
+      "inside": [
+        [
+          -59,
+          -51.8
+        ],
+        [
+          -67.2,
+          -54.9
+        ]
+      ],
+      "outside": [
+        [
+          -68,
+          -53
+        ],
+        [
+          -64,
+          -45
+        ],
+        [
+          -61,
+          -54
+        ]
+      ]
+    },
+    "focusBounds": [
+      -77,
+      -57.5,
+      -54,
+      -49.5
+    ]
+  },
+  {
+    "id": "schopfkarakara",
+    "author": "MPF",
+    "sourceUrl": "https://commons.wikimedia.org/wiki/File:Caracara_map.png",
+    "license": "CC BY-SA 3.0",
+    "licenseUrl": "https://creativecommons.org/licenses/by-sa/3.0",
+    "sha256": "1e8a935bb1080a5f287695ef30dc5460d2a9e449ad814cbe5521c3c23843ee17",
+    "downloadedOn": "2026-09-08",
+    "adaptedOn": "2026-09-08",
+    "review": {
+      "status": "approved",
+      "reviewedOn": "2026-09-08",
+      "registrationErrorPx1000": 1.8515026569366455,
+      "notes": "Licensed illustration georeferenced by one global inverse projection and axis scale/translation. Whole-map source/overlay comparisons reviewed. P90 coastal residual measured at normalized 1000px source width on interleaved withheld samples; closely neighboring samples are correlated. These are cartographic conversion checks, not independent biological observations. Seasonal/subspecies range colors combined; source generalization and age remain. Interior/exterior fixtures preserve geography and documented exclusions.",
+      "inside": [
+        [
+          -99,
+          23
+        ],
+        [
+          -55,
+          -20
+        ],
+        [
+          -64,
+          -37
+        ],
+        [
+          -81.4,
+          27.2
+        ]
+      ],
+      "outside": [
+        [
+          -100,
+          45
+        ],
+        [
+          -70,
+          20
+        ],
+        [
+          -118.3,
+          28.9
+        ]
+      ]
+    },
+    "note": "Beide Unterarten; ohne den ausgestorbenen Guadalupekarakara."
+  },
+  {
+    "id": "harpyie",
+    "author": "Ninjatacoshell; Cocoloi (Vorlage)",
+    "sourceUrl": "https://commons.wikimedia.org/wiki/File:Harpy_Eagle_Range.svg",
+    "license": "CC BY-SA 3.0",
+    "licenseUrl": "https://creativecommons.org/licenses/by-sa/3.0/",
+    "sha256": "c8003f4afe6536ba525636154b962e83b567e9c59d86798cbac46c8e56033d4b",
+    "downloadedOn": "2026-09-08",
+    "adaptedOn": "2026-09-08",
+    "review": {
+      "status": "approved",
+      "reviewedOn": "2026-09-08",
+      "registrationErrorPx1000": 1.2796545028686523,
+      "notes": "Licensed illustration georeferenced by one global inverse projection and axis scale/translation. Whole-map source/overlay comparisons reviewed. P90 coastal residual measured at normalized 1000px source width on interleaved withheld samples; closely neighboring samples are correlated. These are cartographic conversion checks, not independent biological observations. Seasonal/subspecies range colors combined; source generalization and age remain. Interior/exterior fixtures preserve geography and documented exclusions. Source-caption erratum: Trinidad and Tobago is explicitly subtracted using the shared Natural Earth 1:50m land geometry. ABC islands are already absent after extraction.",
+      "inside": [
+        [
+          -60,
+          -3
+        ],
+        [
+          -55,
+          -10
+        ],
+        [
+          -78,
+          8
+        ],
+        [
+          -52,
+          -15
+        ]
+      ],
+      "outside": [
+        [
+          -60,
+          45
+        ],
+        [
+          -70,
+          -35
+        ],
+        [
+          -61.3,
+          10.5
+        ],
+        [
+          -69.98,
+          12.52
+        ],
+        [
+          -68.97,
+          12.16
+        ]
+      ]
+    },
+    "note": "Fehlerhafte Trinidad-Angabe der Vorlage korrigiert."
+  },
+  {
+    "id": "kampfadler",
+    "author": "Helmy oved",
+    "sourceUrl": "https://commons.wikimedia.org/wiki/File:Polemaetus_bellicosus_distribution_map.svg",
+    "license": "CC0",
+    "licenseUrl": "https://creativecommons.org/publicdomain/zero/1.0/deed.en",
+    "sha256": "79a7488dcade28a8e498ad9cc66f28feab645f4a9b6cc57443bbd94b93ea7e6a",
+    "downloadedOn": "2026-09-08",
+    "adaptedOn": "2026-09-08",
+    "review": {
+      "status": "approved",
+      "reviewedOn": "2026-09-08",
+      "registrationErrorPx1000": 2.8439390659332275,
+      "notes": "Licensed illustration georeferenced by one global inverse projection and axis scale/translation. Whole-map source/overlay comparisons reviewed. P90 coastal residual measured at normalized 1000px source width on interleaved withheld samples; closely neighboring samples are correlated. These are cartographic conversion checks, not independent biological observations. Seasonal/subspecies range colors combined; source generalization and age remain. Interior/exterior fixtures preserve geography and documented exclusions.",
+      "inside": [
+        [
+          34,
+          -3
+        ],
+        [
+          25,
+          -25
+        ],
+        [
+          15,
+          12
+        ]
+      ],
+      "outside": [
+        [
+          22,
+          -3
+        ],
+        [
+          18,
+          28
+        ],
+        [
+          47,
+          -19
+        ]
+      ]
+    }
+  },
+  {
+    "id": "virginiauhu",
+    "author": "Manedwolf; Achim Raschka (Vorlage)",
+    "sourceUrl": "https://commons.wikimedia.org/wiki/File:Bubo_virginianus_dis.png",
+    "license": "CC BY-SA 3.0",
+    "licenseUrl": "https://creativecommons.org/licenses/by-sa/3.0/",
+    "sha256": "65985815f29f84fd83ca8ecdeae348c6a21d3286105695a19dfc6c27689541c2",
+    "downloadedOn": "2026-09-08",
+    "adaptedOn": "2026-09-08",
+    "review": {
+      "status": "approved",
+      "reviewedOn": "2026-09-08",
+      "registrationErrorPx1000": 5.327976226806641,
+      "notes": "Licensed illustration georeferenced by one global inverse projection and axis scale/translation. Whole-map source/overlay comparisons reviewed. P90 coastal residual measured at normalized 1000px source width on interleaved withheld samples; closely neighboring samples are correlated. These are cartographic conversion checks, not independent biological observations. Seasonal/subspecies range colors combined; source generalization and age remain. Interior/exterior fixtures preserve geography and documented exclusions. Residuals evaluated within the range-bearing geographic bounds recorded in the registration; excluded irrelevant high-Arctic coastline or, for Falklandkarakara, northern continental coastline.",
+      "inside": [
+        [
+          -100,
+          40
+        ],
+        [
+          -120,
+          52
+        ],
+        [
+          -60,
+          -27
+        ],
+        [
+          -65,
+          8
+        ]
+      ],
+      "outside": [
+        [
+          -60,
+          -5
+        ],
+        [
+          -70,
+          -45
+        ],
+        [
+          -40,
+          65
+        ]
+      ]
+    },
+    "note": "Ohne den als eigene Art geführten Magellanuhu."
+  }
+]
