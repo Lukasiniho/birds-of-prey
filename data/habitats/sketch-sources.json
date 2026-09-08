@@ -1,0 +1,117 @@
+{
+  "images": [
+    {
+      "id": "dornbuschland",
+      "reference": "/habitats/dornbuschland-c631305a18.png",
+      "image": "/habitats/dornbuschland-sketch-bdecf1a884.png",
+      "sha256": "bdecf1a8844c068573fb2716a59779338621c5b70409dc056f0260934e04df90",
+      "mode": "built-in imagegen edit",
+      "createdOn": "2026-09-08"
+    },
+    {
+      "id": "feldflur",
+      "reference": "/habitats/feldflur-b9e2d49d5f.png",
+      "image": "/habitats/feldflur-sketch-2b0eed3096.png",
+      "sha256": "2b0eed309616f1e3d4020b463f41ff311c27a81f34b1a8b9527ca0347c2b6def",
+      "mode": "built-in imagegen edit",
+      "createdOn": "2026-09-08"
+    },
+    {
+      "id": "felsen",
+      "reference": "/habitats/felsen-bed1a324e0.png",
+      "image": "/habitats/felsen-sketch-c676ae688d.png",
+      "sha256": "c676ae688d834261b1139e8eb8f1ee320a6047974245ee60accd1cd5daa0702c",
+      "mode": "built-in imagegen edit",
+      "createdOn": "2026-09-08"
+    },
+    {
+      "id": "gebirge",
+      "reference": "/habitats/gebirge-8ea02294aa.png",
+      "image": "/habitats/gebirge-sketch-0a1f45d782.png",
+      "sha256": "0a1f45d78283e5d80159bcd91387295a157bd93e48aa57f5bc10f4aededc79dd",
+      "mode": "built-in imagegen edit",
+      "createdOn": "2026-09-08"
+    },
+    {
+      "id": "gewaesser",
+      "reference": "/habitats/gewaesser-77b5942bd1.png",
+      "image": "/habitats/gewaesser-sketch-4722e52c6d.png",
+      "sha256": "4722e52c6d9a0b19297ce0394fd29154bf8915cb03b2cec570f03000d22ce470",
+      "mode": "built-in imagegen edit",
+      "createdOn": "2026-09-08"
+    },
+    {
+      "id": "inseln",
+      "reference": "/habitats/inseln-f1dc3f2255.png",
+      "image": "/habitats/inseln-sketch-783d1fd789.png",
+      "sha256": "783d1fd78946c64fd54669304677d27d6da9c1339790b0082a9c02bf543cbe14",
+      "mode": "built-in imagegen edit",
+      "createdOn": "2026-09-08"
+    },
+    {
+      "id": "kueste",
+      "reference": "/habitats/kueste-66aaf18275.png",
+      "image": "/habitats/kueste-sketch-d81cb77f3b.png",
+      "sha256": "d81cb77f3beff167f04255ab3ff13ce63b1e4274fccb5de2c6961cbba4e37b3b",
+      "mode": "built-in imagegen edit",
+      "createdOn": "2026-09-08"
+    },
+    {
+      "id": "park",
+      "reference": "/habitats/park-a95992a4f4.png",
+      "image": "/habitats/park-sketch-83d5fa65c2.png",
+      "sha256": "83d5fa65c23c11d1a597bc38f2c81fe20c0daf3461d87f0a67791ed217f075a4",
+      "mode": "built-in imagegen edit",
+      "createdOn": "2026-09-08"
+    },
+    {
+      "id": "regenwald",
+      "reference": "/habitats/regenwald-3695bd37dc.png",
+      "image": "/habitats/regenwald-sketch-ca2eff2de2.png",
+      "sha256": "ca2eff2de2da632a60ba9ea2bcae57f7ddf44d5f49b2449d7aae8caddbc01f5e",
+      "mode": "built-in imagegen edit",
+      "createdOn": "2026-09-08"
+    },
+    {
+      "id": "savanne",
+      "reference": "/habitats/savanne-e639b0e1b3.png",
+      "image": "/habitats/savanne-sketch-ca87ec9dc5.png",
+      "sha256": "ca87ec9dc54474afcc5cb247e8fbe65e781dff6977604670c9bb763cc66fc6d1",
+      "mode": "built-in imagegen edit",
+      "createdOn": "2026-09-08"
+    },
+    {
+      "id": "stadt",
+      "reference": "/habitats/stadt-1fb3d6764b.png",
+      "image": "/habitats/stadt-sketch-f4c8a4cf56.png",
+      "sha256": "f4c8a4cf569c7590e304e45650f5781226cacf73d0252aa0dd320c33427bed5e",
+      "mode": "built-in imagegen edit",
+      "createdOn": "2026-09-08"
+    },
+    {
+      "id": "steppe",
+      "reference": "/habitats/steppe-38a679f6a3.png",
+      "image": "/habitats/steppe-sketch-6475834e4e.png",
+      "sha256": "6475834e4eea00bf5bb4fd4f1b113f1a9eadd88e7d2b84e608ed34e5c57de519",
+      "mode": "built-in imagegen edit",
+      "createdOn": "2026-09-08"
+    },
+    {
+      "id": "tundra",
+      "reference": "/habitats/tundra-06e14ec4b2.png",
+      "image": "/habitats/tundra-sketch-cb5d41dda6.png",
+      "sha256": "cb5d41dda6d3845201e1a1ef3d205c8bc3ef817853e8b20ab3de7381121b93b0",
+      "mode": "built-in imagegen edit",
+      "createdOn": "2026-09-08"
+    },
+    {
+      "id": "wald",
+      "reference": "/habitats/wald-a73818cb81.png",
+      "image": "/habitats/wald-sketch-fb5fb7b2f7.png",
+      "sha256": "fb5fb7b2f7c7a2c393475dbd69912da48d9d6d1e20bf88c453cce02dbf8315c9",
+      "mode": "built-in imagegen edit",
+      "createdOn": "2026-09-08"
+    }
+  ],
+  "sharedStyleBrief": "Loose graphite and colored-pencil outlines, broad translucent watercolor blocks on light paper; 70–80% less fine detail; 3–5 dominant forms, ample negative space, distinctive silhouettes readable at 150×100px. Muted green, ochre, slate blue and restrained terracotta. No text, borders, people or animals. Preserve each habitat identity."
+}

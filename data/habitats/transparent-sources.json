@@ -1,0 +1,173 @@
+{
+  "method": "Border-connected paper extraction with soft alpha and paper-matte removal; original composition and opaque pixels preserved.",
+  "images": [
+    {
+      "id": "dornbuschland",
+      "reference": "/habitats/dornbuschland-sketch-bdecf1a884.png",
+      "image": "/habitats/dornbuschland-sketch-transparent-6963fcccb9.png",
+      "sha256": "6963fcccb9fc5b3c46bca2781034cb9c6fa6f58d4bf780283bddcdea1f26290f",
+      "paper": [
+        252,
+        250,
+        248
+      ],
+      "transparentPixels": 362970
+    },
+    {
+      "id": "feldflur",
+      "reference": "/habitats/feldflur-sketch-2b0eed3096.png",
+      "image": "/habitats/feldflur-sketch-transparent-c623e98eaf.png",
+      "sha256": "c623e98eaf2923d31401ed5de15e28c05bf9632ed7010199f80e611490d229c6",
+      "paper": [
+        251,
+        249,
+        245
+      ],
+      "transparentPixels": 471714
+    },
+    {
+      "id": "felsen",
+      "reference": "/habitats/felsen-sketch-c676ae688d.png",
+      "image": "/habitats/felsen-sketch-transparent-2b9808dcbd.png",
+      "sha256": "2b9808dcbdc9bc912f949742904ebadc2a14800cef1ee2db8841eec566757efc",
+      "paper": [
+        253,
+        252,
+        248
+      ],
+      "transparentPixels": 532578
+    },
+    {
+      "id": "gebirge",
+      "reference": "/habitats/gebirge-sketch-0a1f45d782.png",
+      "image": "/habitats/gebirge-sketch-transparent-d9b1fecb8a.png",
+      "sha256": "d9b1fecb8a0ec838e9de4566074ad6b05e8eac5a311fc107fd898d03e9d42f65",
+      "paper": [
+        251,
+        250,
+        245
+      ],
+      "transparentPixels": 319865
+    },
+    {
+      "id": "gewaesser",
+      "reference": "/habitats/gewaesser-sketch-4722e52c6d.png",
+      "image": "/habitats/gewaesser-sketch-transparent-e246ca063f.png",
+      "sha256": "e246ca063ffd9381578accf49fe0d02782c9693311074ce5bae5f8dd006420a2",
+      "paper": [
+        249,
+        245,
+        236
+      ],
+      "transparentPixels": 431500
+    },
+    {
+      "id": "inseln",
+      "reference": "/habitats/inseln-sketch-783d1fd789.png",
+      "image": "/habitats/inseln-sketch-transparent-5079639c76.png",
+      "sha256": "5079639c762c196a68cbbabc39000c7857b03b1544804caeaf6eee15ffc90244",
+      "paper": [
+        247,
+        244,
+        237
+      ],
+      "transparentPixels": 354438
+    },
+    {
+      "id": "kueste",
+      "reference": "/habitats/kueste-sketch-d81cb77f3b.png",
+      "image": "/habitats/kueste-sketch-transparent-dbfee0aba2.png",
+      "sha256": "dbfee0aba239bb40e0fe4bee48e8970257dc6377a0639835873764baddf12f09",
+      "paper": [
+        251,
+        244,
+        233
+      ],
+      "transparentPixels": 404185
+    },
+    {
+      "id": "park",
+      "reference": "/habitats/park-sketch-83d5fa65c2.png",
+      "image": "/habitats/park-sketch-transparent-79299a16dd.png",
+      "sha256": "79299a16ddb7e7c3bf2a98c6f7554ffa2c9236f0ab3e0bf69a9e52fcbb817358",
+      "paper": [
+        253,
+        253,
+        251
+      ],
+      "transparentPixels": 293840
+    },
+    {
+      "id": "regenwald",
+      "reference": "/habitats/regenwald-sketch-ca2eff2de2.png",
+      "image": "/habitats/regenwald-sketch-transparent-c03a86f433.png",
+      "sha256": "c03a86f43365c54b1a7fae83a661e0ff69b3300e6a118ba428c060856a375873",
+      "paper": [
+        249,
+        247,
+        243
+      ],
+      "transparentPixels": 238480
+    },
+    {
+      "id": "savanne",
+      "reference": "/habitats/savanne-sketch-ca87ec9dc5.png",
+      "image": "/habitats/savanne-sketch-transparent-02e45cf385.png",
+      "sha256": "02e45cf385e0ba37c09dd0be8146484683a1e07a8a845017e1331f11e26d5fb7",
+      "paper": [
+        253,
+        251,
+        249
+      ],
+      "transparentPixels": 477010
+    },
+    {
+      "id": "stadt",
+      "reference": "/habitats/stadt-sketch-f4c8a4cf56.png",
+      "image": "/habitats/stadt-sketch-transparent-95cd7b14c8.png",
+      "sha256": "95cd7b14c809f243ab7012c16b73b9de077d89fe6f90aa56c8ba35c14a14edcb",
+      "paper": [
+        251,
+        249,
+        245
+      ],
+      "transparentPixels": 527887
+    },
+    {
+      "id": "steppe",
+      "reference": "/habitats/steppe-sketch-6475834e4e.png",
+      "image": "/habitats/steppe-sketch-transparent-3c20ffa083.png",
+      "sha256": "3c20ffa083607bdd74a22986aa5ab133be96181905afd58e26ac9a0d034ad9aa",
+      "paper": [
+        250,
+        248,
+        245
+      ],
+      "transparentPixels": 330449
+    },
+    {
+      "id": "tundra",
+      "reference": "/habitats/tundra-sketch-cb5d41dda6.png",
+      "image": "/habitats/tundra-sketch-transparent-e64676fa8e.png",
+      "sha256": "e64676fa8e8cb868b2e5a9fe1b422f3a80015d925206aa388707f580e7d80d37",
+      "paper": [
+        249,
+        246,
+        241
+      ],
+      "transparentPixels": 651240
+    },
+    {
+      "id": "wald",
+      "reference": "/habitats/wald-sketch-fb5fb7b2f7.png",
+      "image": "/habitats/wald-sketch-transparent-cb120a1ded.png",
+      "sha256": "cb120a1ded4b9e426bf5c6c1ca960d1769eb8c418a5b5009bd8307607df0a5a3",
+      "paper": [
+        252,
+        249,
+        242
+      ],
+      "transparentPixels": 296636
+    }
+  ]
+}
