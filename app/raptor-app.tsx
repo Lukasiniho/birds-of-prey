@@ -1,6 +1,7 @@
 'use client';
 import { useEffect, useLayoutEffect, useRef, useState } from 'react';
 import Image from 'next/image';
+import { BirdAudio } from '@/components/bird-audio';
 import { birdHref, birdForPath } from '@/lib/bird-routes';
 import { Search, Feather, X, Moon, Sun } from 'lucide-react';
 import { Button } from '@/components/ui/button';
@@ -692,6 +693,7 @@ export default function RaptorApp({
                 <span>Spannweite</span>
                 <Measurement value={bird.span} unit="cm" />
               </div>
+              <BirdAudio key={bird.id} birdId={bird.id} name={bird.name} />
               <div>
                 <span>Gewicht</span>
                 <Measurement value={bird.weight} unit={bird.unit} />

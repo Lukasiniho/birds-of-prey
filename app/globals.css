@@ -3272,3 +3272,26 @@ button.color-dot:not(:disabled) {
 }
 .info-panel .ecology-status .ecology-tags { margin-bottom: 7px; }
 .info-panel .hunting-section .hunting-text { margin-top: 14px; }
+
+/* Species voice alongside the specimen's measurements. */
+.specimen-measurements.measurements:has(.bird-audio) { grid-template-columns: minmax(0, 1fr) auto minmax(0, 1fr); align-items: center; }
+.specimen-measurements.measurements > .bird-audio { display: flex; flex-direction: column; align-items: center; gap: 5px; min-width: 110px; }
+.bird-audio .bird-audio-play { display: inline-flex; gap: 7px; padding: 6px 10px; min-height: 38px; height: auto; border-radius: 999px; background: var(--selected); color: var(--foreground); font: 500 13px var(--font-body), Inter, sans-serif; }
+.bird-audio .bird-audio-play svg { width: 16px; height: 16px; }
+.bird-audio .bird-audio-credit { font-size: 11px; color: var(--muted-foreground); text-decoration: underline; text-underline-offset: 3px; }
+.bird-audio > small { max-width: 150px; font-size: 11px; }
+.bird-audio-attribution p { font-size: 13px; line-height: 1.5; }
+.bird-audio-attribution a { text-decoration: underline; text-underline-offset: 3px; }
+.bird-audio-attribution small { color: var(--muted-foreground); font-size: 12px; }
+
+@media (max-width: 760px) {
+  .specimen-measurements.measurements:has(.bird-audio) { padding-inline: 5px; }
+  .specimen-measurements.measurements:has(.bird-audio) > div { padding-inline: 7px; }
+  .bird-audio .bird-audio-play { font-size: 12px; padding-inline: 7px; }
+}
+@media (max-width: 520px) {
+  .specimen-measurements.measurements:has(.bird-audio) { grid-template-columns: minmax(0, 1fr) minmax(0, 1fr); }
+  .specimen-measurements.measurements:has(.bird-audio) > div { padding-block: 5px; }
+  .specimen-measurements.measurements > .bird-audio { border: 0; margin-top: 0; }
+  .specimen-measurements.measurements:has(.bird-audio) > div:last-child { grid-column: 1 / -1; }
+}
