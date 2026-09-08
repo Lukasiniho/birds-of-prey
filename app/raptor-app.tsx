@@ -773,14 +773,6 @@ export default function RaptorApp({
                           <span key={id}>{statusLabels[id]}</span>
                         ))}
                       </div>
-                      <a
-                        className="ecology-source"
-                        href={bird.ecology.status.sources[0]}
-                        target="_blank"
-                        rel="noreferrer"
-                      >
-                        Quelle zum Vorkommen ↗
-                      </a>
                     </div>
                     <RangeMap birdId={bird.id} name={bird.name} />
                   </div>

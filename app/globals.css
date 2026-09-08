@@ -3427,3 +3427,23 @@ button.color-dot:not(:disabled) {
     padding-inline: 20px;
   }
 }
+
+/* Keep map attribution accessible inside the map, without a separate text row. */
+.range-map-surface { position: relative; }
+.range-map-source {
+  position: absolute;
+  left: 8px;
+  bottom: 8px;
+  display: grid;
+  place-items: center;
+  width: 26px;
+  height: 26px;
+  border-radius: 50%;
+  background: var(--background);
+  color: var(--muted-foreground);
+}
+.range-map-source:hover,
+.range-map-source:focus-visible { color: var(--foreground); }
+.range-map-source-details[data-slot] { width: max-content; max-width: 260px; padding: 12px 14px; }
+.range-map-source-details .range-map-credits { display: grid; gap: 5px; margin: 0; font-size: 12px; }
+.range-map-source-details .range-map-credits small { font-size: 11px; color: var(--muted-foreground); }
