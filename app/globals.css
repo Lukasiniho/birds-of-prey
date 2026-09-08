@@ -3277,3 +3277,158 @@ button.color-dot:not(:disabled) {
 @media(max-width:1000px){.knowledge-main{padding:0 24px 50px}.predator-grid{grid-template-columns:repeat(2,minmax(0,1fr))}.prey-category-grid{grid-template-columns:repeat(3,minmax(0,1fr))}.technique-explorer{grid-template-columns:230px 1fr}.technique-feature{padding:24px}}
 @media(max-width:600px){.topbar .site-navigation{min-width:125px;gap:20px;font-size:14px}.knowledge-main{padding:0 16px 40px}.knowledge-intro h1{font-size:40px}.knowledge-intro{padding-top:25px}.knowledge-topbar{height:60px}.prey-category-grid{gap:8px}.prey-category-card{padding:10px}.category-art{height:64px}.category-art .prey-image{width:65px;height:58px}.prey-category-card strong{font-size:13px}.prey-explorer{padding:16px}.explorer-heading{align-items:stretch;flex-direction:column;gap:16px}.size-select{min-width:0}.prey-choice{width:calc((100% - 18px)/3)}.predator-grid{grid-template-columns:1fr}.results-heading h2{font-size:25px}.technique-explorer{grid-template-columns:1fr}.technique-options{grid-template-columns:repeat(2,minmax(0,1fr))}.technique-options button{font-size:12px;padding:10px;flex-direction:column;align-items:start}.technique-feature img{height:220px}.knowledge-subnav{gap:24px}.topbar:has(.site-navigation){grid-template-columns:auto minmax(0,1fr) auto}.knowledge-topbar:has(.site-navigation){display:flex}}
 .knowledge-topbar{display:flex}
+
+/* Compact reading rail and shared, quiet tag treatment. */
+.info-panel .info-tab-content p,
+.info-panel .profile-section p,
+.info-panel .diet-section p,
+.info-panel .hunting-text,
+.info-panel .habitat > p,
+.info-panel .range-block > p,
+.info-panel .plumage-note p,
+.info-panel .t-acc-panel-inner > p {
+  font-size: 13px;
+  line-height: 1.65;
+}
+.info-panel .ecology-tags {
+  gap: 6px;
+  margin: 10px 0 16px;
+}
+.ecology-tags > a,
+.ecology-tags > span {
+  display: inline-flex;
+  align-items: center;
+  min-height: 25px;
+  padding: 4px 11px;
+  border: 0;
+  border-radius: 999px;
+  background: color-mix(in srgb, var(--ring) 12%, var(--background));
+  color: var(--foreground);
+  font-size: 11px;
+  font-weight: 500;
+  line-height: 1.5;
+  letter-spacing: .005em;
+  text-decoration: none;
+}
+.ecology-tags > a {
+  transition: background .16s ease, box-shadow .16s ease;
+}
+.ecology-tags > a:hover {
+  background: color-mix(in srgb, var(--ring) 23%, var(--background));
+  box-shadow: 0 0 0 1px color-mix(in srgb, var(--ring) 22%, transparent);
+}
+.info-panel .ecology-status .ecology-tags { margin-bottom: 7px; }
+.info-panel .hunting-section .hunting-text { margin-top: 14px; }
+
+/* The knowledge header contains only the two segmented page tabs. */
+.knowledge-subnav {
+  display: inline-flex;
+  width: fit-content;
+  gap: 3px;
+  margin: 24px 0 26px;
+  padding: 4px;
+  border: 0;
+  border-radius: 9px;
+  background: var(--muted);
+}
+.knowledge-subnav a {
+  padding: 8px 18px;
+  border: 0;
+  border-radius: 6px;
+  font-size: 13px;
+  font-weight: 500;
+  line-height: 1.4;
+  transition: color .16s ease, background .16s ease;
+}
+.knowledge-subnav a[aria-current='page'] {
+  background: var(--background);
+  color: var(--foreground);
+  box-shadow: 0 1px 3px var(--shadow);
+}
+.knowledge-subnav a:hover { color: var(--foreground); }
+.technique-explorer {
+  grid-template-columns: 240px minmax(0, 1fr) 208px;
+  gap: 22px;
+  align-items: start;
+}
+.technique-feature { min-width: 0; padding: 26px; }
+.technique-feature h2 { margin: 0 0 12px; font-size: 32px; }
+.technique-feature p { font-size: 14px; line-height: 1.65; }
+.technique-feature img { height: clamp(280px, 38vh, 440px); }
+.technique-birds { padding: 8px 0; }
+.technique-portrait-grid {
+  display: grid;
+  grid-template-columns: repeat(2, minmax(0, 1fr));
+  gap: 20px 12px;
+}
+.technique-bird {
+  display: flex;
+  flex-direction: column;
+  align-items: center;
+  gap: 7px;
+  text-align: center;
+  min-width: 0;
+  border-radius: 8px;
+}
+.technique-bird img {
+  width: 58px;
+  height: 58px;
+  border-radius: 50%;
+  object-fit: cover;
+  background: var(--stage);
+  transition: box-shadow .16s ease, transform .16s ease;
+}
+.technique-bird:hover img,
+.technique-bird:focus-visible img {
+  box-shadow: 0 0 0 3px var(--selected);
+  transform: translateY(-2px);
+}
+.technique-bird span { font-size: 11px; line-height: 1.35; overflow-wrap: anywhere; }
+.hunting-bird-tooltip[data-slot] {
+  display: block;
+  max-width: 310px;
+  padding: 14px 16px;
+  border-radius: 10px;
+}
+.hunting-bird-tooltip strong { display: block; font-size: 13px; margin-bottom: 6px; }
+.hunting-bird-tooltip p { font-size: 12px; line-height: 1.65; }
+@media (max-width: 1100px) {
+  .technique-explorer { grid-template-columns: 200px minmax(0, 1fr) 148px; gap: 14px; }
+  .technique-feature { padding: 20px; }
+  .technique-feature h2 { font-size: 28px; }
+  .technique-portrait-grid { gap: 16px 8px; }
+}
+@media (max-width: 760px) {
+  .technique-explorer { grid-template-columns: minmax(0, 1fr) 104px; gap: 12px; }
+  .technique-options { grid-column: 1 / -1; grid-template-columns: repeat(2, minmax(0, 1fr)); }
+  .technique-feature { padding: 16px; }
+  .technique-feature h2 { font-size: 25px; }
+  .technique-feature img { height: 240px; }
+  .technique-portrait-grid { grid-template-columns: 1fr; }
+  .technique-bird img { width: 50px; height: 50px; }
+  .knowledge-subnav { margin: 18px 0 22px; }
+}
+/* One choice on the left, matching birds on the right. */
+.technique-feature h1 { margin: 0 0 12px; font-family: var(--font-display), Georgia, serif; font-size: 32px; font-weight: 500; line-height: 1.2; }
+.knowledge-portrait-grid { display: grid; grid-template-columns: repeat(2, minmax(0, 1fr)); gap: 22px 14px; }
+.simple-prey-explorer { display: grid; grid-template-columns: 235px minmax(0, 1fr); gap: 42px; align-items: start; }
+.prey-sidebar { display: grid; gap: 3px; max-height: calc(100dvh - 175px); overflow-y: auto; padding-right: 10px; scrollbar-width: thin; }
+.prey-sidebar button { display: flex; align-items: center; gap: 12px; min-height: 53px; padding: 6px 12px; border-radius: 7px; text-align: left; font-size: 13px; }
+.prey-sidebar button:hover { background: var(--hover); }
+.prey-sidebar button[aria-pressed=true] { background: var(--selected); }
+.prey-sidebar .prey-image, .prey-sidebar .prey-symbol { width: 40px; height: 38px; min-height: 0; flex: 0 0 40px; }
+.prey-sidebar .prey-symbol svg { width: 28px; height: 28px; }
+.prey-predators { padding: 12px 0; }
+.prey-predators .knowledge-portrait-grid { grid-template-columns: repeat(auto-fill, minmax(100px, 1fr)); gap: 32px 20px; }
+.prey-predators .technique-bird img { width: 72px; height: 72px; }
+.prey-predators .technique-bird span { font-size: 12px; }
+@media(max-width:760px) {
+ .technique-birds .knowledge-portrait-grid { grid-template-columns: 1fr; }
+ .simple-prey-explorer { grid-template-columns: 155px minmax(0, 1fr); gap: 16px; }
+ .prey-sidebar { padding-right: 5px; }
+ .prey-sidebar button { padding: 6px; gap: 7px; font-size: 12px; }
+ .prey-sidebar .prey-image, .prey-sidebar .prey-symbol { width: 32px; flex-basis: 32px; }
+ .prey-predators .knowledge-portrait-grid { grid-template-columns: repeat(auto-fill,minmax(72px,1fr)); gap: 24px 10px; }
+ .prey-predators .technique-bird img { width: 56px; height: 56px; }
+ .technique-feature h1 { font-size: 25px; }
+}

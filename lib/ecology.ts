@@ -52,7 +52,7 @@ export const huntingTypes = {
   },
   suchflug: {
     label: 'Suchflug',
-    text: 'Im Gleit- oder Segelflug wird ein großes Gebiet nach Nahrung abgesucht.',
+    text: 'Im Flug wird die Landschaft nach Nahrung abgesucht – je nach Art gleitend, segelnd oder mit Flügelschlägen.',
   },
   luftjagd: {
     label: 'Verfolgungsjagd',
@@ -86,6 +86,14 @@ export const huntingTypes = {
     label: 'Nester ausgraben',
     text: 'Der Wespenbussard öffnet Erdnester, um an die Larven und Puppen in den Waben zu gelangen.',
   },
+  lautlos: {
+    label: 'Leiser Jagdflug',
+    text: 'Mit leisen Flügelschlägen nähert sich die Eule ihrer Beute, die sie zuvor mit Augen und Gehör geortet hat.',
+  },
+  beuteraub: {
+    label: 'Beuteraub',
+    text: 'Anderen Vögeln wird bereits erbeutete Nahrung abgenommen.',
+  },
   aas: {
     label: 'Aassuche',
     text: 'Kadaver liefern Nahrung ohne Jagd auf lebende Tiere. Auch einige aktive Jäger nutzen Aas.',
@@ -104,34 +112,34 @@ const techniques: Record<string, HuntingType[]> = {
   turmfalke: ['ruetteln'],
   steinadler: ['suchflug'],
   seeadler: ['wasser', 'ansitz', 'suchflug'],
-  fischadler: ['stosstauchen'],
-  wuestenbussard: ['kooperativ'],
+  fischadler: ['suchflug', 'wasser', 'stosstauchen'],
+  wuestenbussard: ['kooperativ', 'boden'],
   kaiseradler: ['ansitz', 'suchflug'],
-  steppenadler: ['ansitz', 'boden'],
+  steppenadler: ['ansitz', 'boden', 'suchflug'],
   sekretaer: ['boden'],
   andenkondor: ['aas', 'suchflug'],
   wespenbussard: ['ausgraben'],
   bartgeier: ['aas', 'knochen'],
-  kronenadler: ['deckung'],
-  weisskopfseeadler: ['wasser'],
-  riesenseeadler: ['wasser'],
+  kronenadler: ['deckung', 'ansitz', 'kooperativ'],
+  weisskopfseeadler: ['wasser', 'ansitz', 'suchflug', 'beuteraub'],
+  riesenseeadler: ['wasser', 'ansitz', 'suchflug'],
   gaukler: ['suchflug'],
   aguja: ['suchflug'],
-  uhu: ['ansitz'],
-  schwarzmilan: ['suchflug'],
+  uhu: ['ansitz', 'suchflug', 'lautlos'],
+  schwarzmilan: ['suchflug', 'wasser'],
   rotmilan: ['suchflug'],
-  gerfalke: ['luftjagd'],
-  sakerfalke: ['luftjagd'],
-  lannerfalke: ['luftjagd'],
+  gerfalke: ['luftjagd', 'deckung'],
+  sakerfalke: ['suchflug', 'luftjagd'],
+  lannerfalke: ['luftjagd', 'deckung', 'kooperativ'],
   baumfalke: ['luftjagd'],
   falklandkarakara: ['boden', 'aas'],
   schopfkarakara: ['boden', 'aas'],
-  koenigsbussard: ['ansitz'],
-  harpyie: ['deckung'],
-  kampfadler: ['sturzflug'],
-  virginiauhu: ['ansitz'],
+  koenigsbussard: ['ansitz', 'suchflug', 'boden'],
+  harpyie: ['deckung', 'ansitz'],
+  kampfadler: ['suchflug', 'sturzflug'],
+  virginiauhu: ['ansitz', 'lautlos'],
   weissstorch: ['boden'],
-  sperber: ['deckung'],
+  sperber: ['deckung', 'luftjagd'],
 };
 export const statusLabels = {
   brut: 'Brutvogel',
@@ -404,6 +412,12 @@ export const speciesRecords = birds.map((bird) => {
               : sizeBySpecies[bird.id]?.[p.key]) ?? ('variabel' as const)),
     };
   });
+  const huntingTags = [
+    ...new Set<HuntingType>([
+      ...techniques[bird.id],
+      ...(diet.carrion ? ['aas' as const] : []),
+    ]),
+  ];
   return {
     ...bird,
     ecology: {
@@ -412,8 +426,11 @@ export const speciesRecords = birds.map((bird) => {
       prey,
       diet,
       habitatTags: speciesLandscapes[bird.id],
-      huntingTags: techniques[bird.id],
-      hunting: hunts[bird.id],
+      huntingTags,
+      hunting: {
+        ...hunts[bird.id],
+        title: huntingTags.map((id) => huntingTypes[id].label).join(' · '),
+      },
       status: {
         region: 'DE' as const,
         tags: germany[bird.id] ?? (['ausserhalb'] as SeasonStatus[]),
