@@ -29,7 +29,7 @@ const roundFor = (seed: number, previous?: ReturnType<typeof quizHistory>) =>
     seed,
     previous,
   });
-const availableHabitats = ['gebirge', 'wald', 'kueste', 'feldflur'];
+const availableHabitats = Object.keys(habitatImages);
 
 void test('German ranges retain decimals and distinguish thousands separators', () => {
   assert.deepEqual(parseMeasurementRange('ca. 3.000–6.600'), [3000, 6600]);
@@ -216,6 +216,40 @@ void test('rounds contain eight answerable tasks across all seven kinds', () => 
     roundFor(0).map((q) => ('birdId' in q ? q.birdId : q.birdIds)),
     roundFor(1).map((q) => ('birdId' in q ? q.birdId : q.birdIds)),
   );
+});
+
+void test('habitat landscapes vary across rounds and cover every selected bird', () => {
+  const seen = new Set<string>();
+  let previous = quizHistory(roundFor(0));
+  for (let seed = 1; seed <= 150; seed++) {
+    const round = roundFor(seed, previous);
+    const question = round.find((task) => task.kind === 'habitat')!;
+    assert.notDeepEqual(
+      [...question.habitatIds].sort(),
+      [...previous.habitatIds!].sort(),
+    );
+    question.habitatIds.forEach((id) => seen.add(id));
+    for (const id of question.birdIds) {
+      const matching = question.habitatIds.find((habitat) =>
+        quizBirds[id].habitats.includes(habitat),
+      );
+      assert(matching, `No visible habitat for ${id}`);
+    }
+    const placements = Object.fromEntries(
+      question.birdIds.map((id) => [
+        id,
+        question.habitatIds.find((habitat) =>
+          quizBirds[id].habitats.includes(habitat),
+        )!,
+      ]),
+    );
+    assert.equal(scoreHabitats(question.birdIds, placements, quizBirds), 100);
+    previous = quizHistory(round);
+  }
+  const playable = availableHabitats.filter((id) =>
+    Object.values(quizBirds).some((bird) => bird.habitats.includes(id)),
+  );
+  assert.deepEqual([...seen].sort(), playable.sort());
 });
 
 void test('weight estimates use the entire natural range and proportional partial credit', () => {

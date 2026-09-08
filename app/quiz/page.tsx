@@ -28,11 +28,13 @@ export default function QuizPage() {
       },
     ]),
   );
-  const habitats = ['gebirge', 'wald', 'kueste', 'feldflur'].map((id) => ({
-    id,
-    ...landscapes[id],
-    image: imageSource(habitatImages[id]),
-  }));
+  const habitats = Object.keys(landscapes)
+    .filter((id) => habitatImages[id])
+    .map((id) => ({
+      id,
+      ...landscapes[id],
+      image: imageSource(habitatImages[id]),
+    }));
   return (
     <QuizExperience
       initialQuestions={createQuizRound(

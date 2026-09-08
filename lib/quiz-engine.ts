@@ -39,12 +39,16 @@ type QuizTask =
       options: string[];
     }
   | { kind: 'weight'; birdIds: string[] }
-  | { kind: 'habitat'; birdIds: string[] }
+  | { kind: 'habitat'; birdIds: string[]; habitatIds: string[] }
   | { kind: 'prey'; birdId: string; options: string[]; correct: string[] }
   | { kind: 'compare'; birdIds: [string, string]; correct: string };
 
 export type QuizQuestion = QuizTask & { id: string };
-export type QuizHistory = { questionKeys: string[]; birdIds: string[] };
+export type QuizHistory = {
+  questionKeys: string[];
+  birdIds: string[];
+  habitatIds?: string[];
+};
 
 export function parseMeasurementRange(value: string): [number, number] {
   const values = value
@@ -194,6 +198,13 @@ export function quizHistory(questions: QuizQuestion[]): QuizHistory {
   return {
     questionKeys: questions.map(quizQuestionKey),
     birdIds: [...new Set(questions.flatMap(taskBirds))],
+    habitatIds: [
+      ...new Set(
+        questions.flatMap((question) =>
+          question.kind === 'habitat' ? question.habitatIds : [],
+        ),
+      ),
+    ],
   };
 }
 
@@ -365,22 +376,50 @@ export function createQuizRound(
   const habitatBirds = eligible.filter((bird) =>
     bird.habitats.some((id) => habitatIds.includes(id)),
   );
+  const playableHabitats = [...new Set(habitatIds)].filter((id) =>
+    habitatBirds.some((bird) => bird.habitats.includes(id)),
+  );
   if (habitatBirds.length < 4)
     throw new Error('Not enough birds with a playable habitat.');
+  if (playableHabitats.length < 4)
+    throw new Error(
+      'Not enough illustrated habitats for a complete quiz round.',
+    );
   for (let i = 0; i < counts.habitat; i++) {
-    // Rank unused species first; collect several alternatives to avoid repeating
-    // a previous four-bird combination when the available pool is small.
+    // Include one valid home per bird before filling the four landscape slots.
     const candidates = Array.from(
       { length: 32 },
-      (): Extract<QuizTask, { kind: 'habitat' }> => ({
-        kind: 'habitat',
-        birdIds: shuffled(habitatBirds, random)
+      (): Extract<QuizTask, { kind: 'habitat' }> => {
+        const selectedBirds = shuffled(habitatBirds, random)
           .sort((a, b) => penalty([a.id]) - penalty([b.id]))
-          .slice(0, 4)
-          .map((bird) => bird.id),
-      }),
+          .slice(0, 4);
+        const selectedHabitats = new Set(
+          selectedBirds.map(
+            (bird) =>
+              shuffled(
+                bird.habitats.filter((id) => playableHabitats.includes(id)),
+                random,
+              )[0],
+          ),
+        );
+        for (const id of shuffled(playableHabitats, random)) {
+          if (selectedHabitats.size === 4) break;
+          selectedHabitats.add(id);
+        }
+        return {
+          kind: 'habitat',
+          birdIds: selectedBirds.map((bird) => bird.id),
+          habitatIds: shuffled([...selectedHabitats], random),
+        };
+      },
     );
-    add(choose(candidates));
+    const previousHabitats = Array.isArray(previous?.habitatIds)
+      ? previous.habitatIds
+      : [];
+    const differentLandscapes = candidates.filter((task) =>
+      task.habitatIds.some((id) => !previousHabitats.includes(id)),
+    );
+    add(choose(differentLandscapes.length ? differentLandscapes : candidates));
   }
   return shuffled(tasks, random).map((task, index) => ({
     ...task,

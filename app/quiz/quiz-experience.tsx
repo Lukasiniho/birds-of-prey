@@ -707,7 +707,7 @@ function HabitatQuestion({
   const boardRef = useRef<HTMLDivElement>(null);
 
   function place(id: string, habitatId: string) {
-    if (answered) return;
+    if (answered || !question.habitatIds.includes(habitatId)) return;
     onChange({
       ...draft,
       placements: { ...draft.placements, [id]: habitatId },
@@ -1358,7 +1358,9 @@ export default function QuizExperience({
                   <HabitatQuestion
                     question={question}
                     birds={birds}
-                    habitats={habitats}
+                    habitats={question.habitatIds.map((id) =>
+                      habitats.find((habitat) => habitat.id === id)!,
+                    )}
                     draft={draft}
                     answered={Boolean(answer)}
                     onChange={onChange}
