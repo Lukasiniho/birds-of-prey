@@ -41,12 +41,19 @@ import {
   type GroupMode,
   type BirdSpecies,
 } from '@/lib/birds';
-import { landscapes, speciesLandscapes } from '@/lib/habitats';
+import { landscapes } from '@/lib/habitats';
+import {
+  speciesById,
+  preyCategories,
+  huntingTypes,
+  statusLabels,
+} from '@/lib/ecology';
+import { SiteNavigation } from '@/components/site-navigation';
 import { habitatImages } from '@/lib/habitat-images';
 import { portraitImages } from '@/lib/portrait-images';
 import { huntingImages } from '@/lib/hunting-images';
-import { diets, preyCatalog, type PreyExample } from '@/lib/diets';
-import { preyFraming } from '@/lib/prey-framing';
+import { preyCatalog, type PreyExample } from '@/lib/diets';
+import { PreyArt } from '@/components/prey-art';
 import { imageSource } from '@/lib/optimized-images.ts';
 import { loadImage } from '@/lib/image-loader';
 import { speciesProfiles } from '@/lib/species-profiles';
@@ -313,36 +320,6 @@ function HuntingArt({ bird }: { bird: BirdSpecies }) {
     />
   );
 }
-function PreyArt({ preyKey }: { preyKey: string }) {
-  const frame = preyFraming[preyKey];
-  const size = Math.max(frame.width, frame.height);
-  return (
-    <span className="prey-image framed-prey">
-      <span
-        className="prey-crop"
-        style={{
-          width: `${(frame.width / size) * 100}%`,
-          height: `${(frame.height / size) * 100}%`,
-        }}
-      >
-        <Image
-          src={imageSource(frame.src)}
-          alt=""
-          width={frame.imageWidth}
-          height={frame.imageHeight}
-          unoptimized
-          style={{
-            width: `${(frame.imageWidth / frame.width) * 100}%`,
-            maxWidth: 'none',
-            height: 'auto',
-            left: `${(-frame.x / frame.width) * 100}%`,
-            top: `${(-frame.y / frame.height) * 100}%`,
-          }}
-        />
-      </span>
-    </span>
-  );
-}
 function PreyGallery({ items }: { items: PreyExample[] }) {
   return (
     <div className="prey-list">
@@ -368,7 +345,11 @@ export default function RaptorApp() {
   const [dark, setDark] = useState(false);
   const [hintOpen, setHintOpen] = useState(false);
   const [infoTab, setInfoTab] = useState('profil');
-  const bird = birds.find((b) => b.id === selected)!;
+  const bird = speciesById[selected];
+  useEffect(() => {
+    const id = new URLSearchParams(window.location.search).get('art');
+    if (id && speciesById[id]) setSelected(id);
+  }, []);
   const availablePlumages = plumagesFor(bird.id);
   const plumage = availablePlumages.some((p) => p.value === chosenPlumage)
     ? chosenPlumage
@@ -437,7 +418,7 @@ export default function RaptorApp() {
     <TooltipProvider delay={180}>
       <div className="app-shell">
         <header className="topbar">
-          <div className="site-title">Die Welt der Greifvögel</div>
+          <SiteNavigation active="birds" />
           <div className="search-wrap topbar-search">
             <Search size={17} />
             <Input
@@ -779,17 +760,33 @@ export default function RaptorApp() {
               <TabsContent value="nahrung" className="info-tab-content">
                 <section className="diet-section">
                   <h2>Beutetiere</h2>
-                  <PreyGallery items={diets[bird.id].examples} />
-                  <p>{diets[bird.id].summary}</p>
-                  {diets[bird.id].occasionalExamples.length > 0 && (
+                  <div className="ecology-tags">
+                    {bird.ecology.categoryTags.map((id) => (
+                      <a key={id} href={`/wissen/jagdtiere?kategorie=${id}`}>
+                        {preyCategories[id].label}
+                      </a>
+                    ))}
+                  </div>
+                  <PreyGallery items={bird.ecology.diet.examples} />
+                  <p>{bird.ecology.diet.summary}</p>
+                  {bird.ecology.diet.occasionalExamples.length > 0 && (
                     <div className="occasional-prey">
                       <h3>Gelegentlich</h3>
-                      <PreyGallery items={diets[bird.id].occasionalExamples} />
+                      <PreyGallery
+                        items={bird.ecology.diet.occasionalExamples}
+                      />
                     </div>
                   )}
                 </section>
                 <section className="hunting-section">
                   <h2>Jagdweise</h2>
+                  <div className="ecology-tags">
+                    {bird.ecology.huntingTags.map((id) => (
+                      <a key={id} href={`/wissen/jagdtechniken?technik=${id}`}>
+                        {huntingTypes[id].label}
+                      </a>
+                    ))}
+                  </div>
                   <HuntingArt bird={bird} />
                   <h3>{hunts[bird.id].title}</h3>
                   <p className="hunting-text">{hunts[bird.id].text}</p>
@@ -800,12 +797,33 @@ export default function RaptorApp() {
                   <div className="range-block">
                     <h2>Verbreitung</h2>
                     <p>{bird.range}</p>
+                    <div className="ecology-status">
+                      <h3>Status in Deutschland</h3>
+                      <div className="ecology-tags">
+                        {bird.ecology.status.tags.map((id) => (
+                          <span key={id}>{statusLabels[id]}</span>
+                        ))}
+                      </div>
+                      <a
+                        className="ecology-source"
+                        href={bird.ecology.status.sources[0]}
+                        target="_blank"
+                        rel="noreferrer"
+                      >
+                        Quelle zum Vorkommen ↗
+                      </a>
+                    </div>
                     <RangeMap birdId={bird.id} name={bird.name} />
                   </div>
                   <h2>Lebensraum</h2>
                   <p>{bird.habitat}</p>
+                  <div className="ecology-tags">
+                    {bird.ecology.habitatTags.map((id) => (
+                      <span key={id}>{landscapes[id].label}</span>
+                    ))}
+                  </div>
                   <div className="habitat-gallery">
-                    {speciesLandscapes[bird.id].map((id) => (
+                    {bird.ecology.habitatTags.map((id) => (
                       <figure key={id}>
                         <Image
                           src={imageSource(habitatImages[id])}
