@@ -70,6 +70,7 @@ await Promise.all(
 const sorted = Object.fromEntries(
   Object.entries(mapping).sort(([a], [b]) => a.localeCompare(b)),
 );
+await writeFile(path.join(output, 'manifest.json'), JSON.stringify(sorted));
 const current = new Set(
   Object.values(mapping).map((url) => path.basename(url)),
 );

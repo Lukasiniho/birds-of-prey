@@ -10,6 +10,7 @@
     "dev": "vinext dev",
     "prebuild": "node scripts/optimize-images.mjs",
     "build": "vinext build",
+    "postbuild": "node scripts/compact-deployment-images.mjs",
     "start": "wrangler dev --config dist/server/wrangler.json",
     "lint": "oxlint",
     "format": "oxfmt",

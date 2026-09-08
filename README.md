@@ -33,5 +33,10 @@ Vor jedem Build optimiert Sharp die Originalbilder automatisch zu WebP:
 Transparenz bleibt erhalten. Inhaltsversionierte Dateinamen ermöglichen dauerhaftes
 Browser-Caching; ersetzte Bilder erhalten automatisch eine neue URL.
 
+Bei Netlify entfernt der Postbuild-Schritt die großen PNG/JPEG-Originale aus
+`dist/client`, sobald ihre WebP-Versionen geprüft sind. Alte Bild-URLs werden
+auf diese Versionen weitergeleitet. Die Originale unter `public/` bleiben als
+Bearbeitungsgrundlage erhalten; sie werden nicht mehr doppelt ausgeliefert.
+
 Die Domain bleibt bei Strato. Zuerst die Domain in Netlify hinzufügen, danach
 die von Netlify angegebenen DNS-Einträge bei Strato setzen.
