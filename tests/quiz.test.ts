@@ -29,7 +29,7 @@ const roundFor = (seed: number, previous?: ReturnType<typeof quizHistory>) =>
     seed,
     previous,
   });
-const availableHabitats = ['gebirge', 'wald', 'kueste', 'feldflur'];
+const availableHabitats = Object.keys(habitatImages);
 
 void test('German ranges retain decimals and distinguish thousands separators', () => {
   assert.deepEqual(parseMeasurementRange('ca. 3.000–6.600'), [3000, 6600]);
@@ -120,12 +120,12 @@ void test('habitat grading accepts alternative valid destinations and gives part
   assert.equal(scoreHabitats(ids, {}, quizBirds), 0);
 });
 
-void test('rounds contain eight answerable tasks across all seven kinds', () => {
+void test('rounds contain nine answerable tasks across all nine kinds', () => {
   for (let seed = 0; seed < 300; seed++) {
     const round = roundFor(seed);
-    assert.equal(round.length, 8);
-    assert.equal(new Set(round.map((q) => q.id)).size, 8);
-    assert.equal(new Set(round.map(quizQuestionKey)).size, 8);
+    assert.equal(round.length, 9);
+    assert.equal(new Set(round.map((q) => q.id)).size, 9);
+    assert.equal(new Set(round.map(quizQuestionKey)).size, 9);
     for (const question of round)
       if ('birdIds' in question)
         assert.equal(
@@ -134,10 +134,62 @@ void test('rounds contain eight answerable tasks across all seven kinds', () => 
         );
     for (const kind of quizKinds) {
       const count = round.filter((q) => q.kind === kind).length;
-      assert(count === 1 || count === 2);
+      assert.equal(count, 1);
     }
     for (const question of round) {
       if ('birdId' in question) assert(quizBirds[question.birdId]);
+      if (question.kind === 'identify') {
+        assert.equal(question.options.length, 4);
+        assert.equal(new Set(question.options).size, 4);
+        assert.equal(
+          new Set(question.options.map((id) => quizBirds[id].name)).size,
+          4,
+        );
+        assert.equal(question.correct, question.birdId);
+        assert.equal(
+          question.options.filter((id) => id === question.correct).length,
+          1,
+        );
+        assert(quizBirds[question.birdId].identification);
+        for (const other of round.filter((item) => item !== question)) {
+          const namedBirds = 'birdId' in other ? [other.birdId] : other.birdIds;
+          assert(
+            !namedBirds.includes(question.birdId),
+            'Other questions must not reveal the mystery bird',
+          );
+        }
+      }
+      if (question.kind === 'call') {
+        assert.equal(question.options.length, 4);
+        assert.equal(new Set(question.options).size, 4);
+        assert.equal(
+          new Set(question.options.map((id) => quizBirds[id].name)).size,
+          4,
+        );
+        assert.equal(question.correct, question.birdId);
+        assert.equal(
+          question.options.filter((id) => id === question.correct).length,
+          1,
+        );
+        for (const id of question.options) {
+          const recording = quizBirds[id].recording;
+          assert(recording);
+          assert(existsSync(`public${recording.url}`));
+          assert(
+            recording.durationSeconds > 0 && recording.durationSeconds <= 10,
+          );
+          assert(
+            recording.author &&
+              recording.license &&
+              recording.licenseUrl &&
+              recording.sourceUrl,
+          );
+        }
+        for (const other of round.filter((item) => item !== question)) {
+          const namedBirds = 'birdId' in other ? [other.birdId] : other.birdIds;
+          assert(!namedBirds.includes(question.birdId));
+        }
+      }
       if (question.kind === 'weight-estimate') {
         const bird = quizBirds[question.birdId];
         const scale = weightEstimateScale(bird);
@@ -191,9 +243,13 @@ void test('rounds contain eight answerable tasks across all seven kinds', () => 
         assert.equal(question.correct, meanSpan(a) > meanSpan(b) ? a.id : b.id);
       }
       if (question.kind === 'habitat') {
+        assert.equal(question.habitatIds.length, 4);
+        assert.equal(new Set(question.habitatIds).size, 4);
+        for (const id of question.habitatIds)
+          assert(availableHabitats.includes(id));
         for (const id of question.birdIds)
           assert(
-            availableHabitats.some((habitat) =>
+            question.habitatIds.some((habitat) =>
               quizBirds[id].habitats.includes(habitat),
             ),
             id,
@@ -216,6 +272,40 @@ void test('rounds contain eight answerable tasks across all seven kinds', () => 
     roundFor(0).map((q) => ('birdId' in q ? q.birdId : q.birdIds)),
     roundFor(1).map((q) => ('birdId' in q ? q.birdId : q.birdIds)),
   );
+});
+
+void test('habitat landscapes vary across rounds and cover every selected bird', () => {
+  const seen = new Set<string>();
+  let previous = quizHistory(roundFor(0));
+  for (let seed = 1; seed <= 150; seed++) {
+    const round = roundFor(seed, previous);
+    const question = round.find((task) => task.kind === 'habitat')!;
+    assert.notDeepEqual(
+      [...question.habitatIds].sort(),
+      [...previous.habitatIds!].sort(),
+    );
+    question.habitatIds.forEach((id) => seen.add(id));
+    for (const id of question.birdIds) {
+      const matching = question.habitatIds.find((habitat) =>
+        quizBirds[id].habitats.includes(habitat),
+      );
+      assert(matching, `No visible habitat for ${id}`);
+    }
+    const placements = Object.fromEntries(
+      question.birdIds.map((id) => [
+        id,
+        question.habitatIds.find((habitat) =>
+          quizBirds[id].habitats.includes(habitat),
+        )!,
+      ]),
+    );
+    assert.equal(scoreHabitats(question.birdIds, placements, quizBirds), 100);
+    previous = quizHistory(round);
+  }
+  const playable = availableHabitats.filter((id) =>
+    Object.values(quizBirds).some((bird) => bird.habitats.includes(id)),
+  );
+  assert.deepEqual([...seen].sort(), playable.sort());
 });
 
 void test('weight estimates use the entire natural range and proportional partial credit', () => {
@@ -269,16 +359,24 @@ void test('seeded rounds are reproducible, varied, and leave source data unchang
   const sequences = new Set<string>();
   const species = new Set<string>();
   const correctPositions = new Set<number>();
+  const identificationPositions = new Set<number>();
+  const callPositions = new Set<number>();
   for (let seed = 0; seed < 100; seed++) {
     const round = roundFor(seed);
     sequences.add(round.map((q) => q.kind).join(','));
     for (const id of quizHistory(round).birdIds) species.add(id);
     for (const q of round)
       if (q.kind === 'hunt') correctPositions.add(q.options.indexOf(q.correct));
+      else if (q.kind === 'identify')
+        identificationPositions.add(q.options.indexOf(q.correct));
+      else if (q.kind === 'call')
+        callPositions.add(q.options.indexOf(q.correct));
   }
   assert(sequences.size > 30);
   assert.equal(species.size, Object.keys(quizBirds).length);
   assert.equal(correctPositions.size, 4);
+  assert.equal(identificationPositions.size, 4);
+  assert.equal(callPositions.size, 4);
   assert.equal(JSON.stringify(quizBirds), original);
 });
 

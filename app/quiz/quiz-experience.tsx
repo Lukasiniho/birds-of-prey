@@ -18,6 +18,8 @@ import {
   Check,
   ChevronRight,
   Crosshair,
+  Eye,
+  Ear,
   Grip,
   MapPin,
   Minus,
@@ -34,6 +36,7 @@ import { PreyQuestion } from '@/components/quiz/prey-question';
 import { WingComparison } from '@/components/quiz/wing-comparison';
 import { preyCatalog } from '@/lib/diets';
 import { QuizFeedback } from '@/components/quiz/answer-feedback';
+import { QuizCallInfo, QuizCallPlayer } from '@/components/quiz/call-player';
 import { closestWeightSlot } from '@/lib/quiz-drag';
 import { Button } from '@/components/ui/button';
 import { Slider } from '@/components/ui/slider';
@@ -67,6 +70,8 @@ type Draft = {
 };
 type Answer = Draft & { points: number };
 const modes = [
+  { id: 'identify', label: 'Art erkennen', verb: 'Erkennen', Icon: Eye },
+  { id: 'call', label: 'Ruf erkennen', verb: 'Erkennen', Icon: Ear },
   { id: 'span', label: 'Spannweite', verb: 'Schätzen', Icon: Ruler },
   { id: 'hunt', label: 'Jagdweise', verb: 'Erkennen', Icon: Crosshair },
   { id: 'weight', label: 'Gewicht sortieren', verb: 'Sortieren', Icon: Scale },
@@ -112,17 +117,19 @@ function BirdArt({
   className = '',
   priority = false,
   portrait = false,
+  alt = bird.name,
 }: {
   bird: QuizBird;
   className?: string;
   priority?: boolean;
   portrait?: boolean;
+  alt?: string;
 }) {
   return (
     <Image
       className={className}
       src={portrait ? bird.portrait : bird.image}
-      alt={bird.name}
+      alt={alt}
       width={1000}
       height={1000}
       unoptimized
@@ -321,43 +328,94 @@ function EstimateQuestion({
   );
 }
 
-function HuntQuestion({
+function MultipleChoiceQuestion({
   question,
   bird,
   draft,
   answered,
   onChange,
   huntingTypes,
+  birds,
 }: {
-  question: Extract<QuizQuestion, { kind: 'hunt' }>;
+  question: Extract<QuizQuestion, { kind: 'hunt' | 'identify' | 'call' }>;
   bird: QuizBird;
   draft: Draft;
   answered: boolean;
   onChange: (draft: Draft) => void;
   huntingTypes: HuntingTypes;
+  birds: BirdMap;
 }) {
+  const isIdentify = question.kind === 'identify';
+  const isCall = question.kind === 'call';
+  const showName = question.kind === 'hunt' || answered;
+  const Icon = isCall ? Ear : isIdentify ? Eye : Crosshair;
   return (
     <div className="q-split q-hunt-split">
-      <div className="q-specimen q-hunt-specimen">
+      <div className="q-specimen q-hunt-specimen" data-call={isCall}>
         <div className="q-specimen-label">
-          <span className="species-common-name">{bird.name}</span>
-          <i className="species-scientific-name">{bird.latin}</i>
+          <span className="species-common-name">
+            {showName ? bird.name : isCall ? 'Vogelruf' : 'Flugbild'}
+          </span>
+          {showName && <i className="species-scientific-name">{bird.latin}</i>}
         </div>
         <div className="q-bird-space">
-          <div className="q-orbit" aria-hidden="true" />
-          <BirdArt bird={bird} className="q-flying-bird" />
+          {(!isCall || answered) && (
+            <>
+              <div className="q-orbit" aria-hidden="true" />
+              <BirdArt
+                bird={bird}
+                className="q-flying-bird"
+                alt={
+                  showName ? bird.name : 'Greifvogel im Flug – bestimme die Art'
+                }
+              />
+            </>
+          )}
+          {isCall && bird.recording && (
+            <QuizCallPlayer recording={bird.recording} revealed={answered} />
+          )}
         </div>
+        {isCall && bird.recording && (
+          <QuizCallInfo recording={bird.recording} />
+        )}
       </div>
       <div className="q-question-controls">
         <span className="q-task-label">
-          <Crosshair size={17} /> Jagdweisen erkennen
+          <Icon size={17} />{' '}
+          {isCall
+            ? 'Ruf erkennen'
+            : isIdentify
+              ? 'Art erkennen'
+              : 'Jagdweisen erkennen'}
         </span>
         <h2 id="q-question-title" tabIndex={-1}>
-          Wie kommt dieser
-          <br />
-          Vogel an seine Beute?
+          {isCall ? (
+            <>
+              Welcher Greifvogel
+              <br />
+              ruft hier?
+            </>
+          ) : isIdentify ? (
+            <>
+              Welcher Greifvogel
+              <br />
+              ist das?
+            </>
+          ) : (
+            <>
+              Wie kommt dieser
+              <br />
+              Vogel an seine Beute?
+            </>
+          )}
         </h2>
-        <p>Wähle die typische Jagdweise der Art {bird.name}.</p>
+        <p>
+          {isCall
+            ? 'Höre dir die Aufnahme an und wähle die passende Art aus.'
+            : isIdentify
+              ? 'Wähle die passende Art aus.'
+              : `Wähle die typische Jagdweise der Art ${bird.name}.`}
+        </p>
         <RadioGroup
           className="q-options"
           value={draft.choice ?? ''}
@@ -365,9 +423,13 @@ function HuntQuestion({
             onChange({ ...draft, choice: String(value) })
           }
           disabled={answered}
-          aria-label={`Typische Jagdweise: ${bird.name}`}
+          aria-labelledby="q-question-title"
         >
           {question.options.map((option, index) => {
+            const optionLabel =
+              isIdentify || isCall
+                ? birds[option].name
+                : huntingTypes[option].label;
             const isCorrect = answered && question.correct === option;
             const isWrong = answered && draft.choice === option && !isCorrect;
             return (
@@ -382,12 +444,9 @@ function HuntQuestion({
                   {String.fromCharCode(65 + index)}
                 </span>
                 <span>
-                  <strong>{huntingTypes[option].label}</strong>
+                  <strong>{optionLabel}</strong>
                 </span>
-                <RadioGroupItem
-                  value={option}
-                  aria-label={huntingTypes[option].label}
-                />
+                <RadioGroupItem value={option} aria-label={optionLabel} />
                 {isCorrect && (
                   <Check
                     className="q-option-correct"
@@ -707,7 +766,7 @@ function HabitatQuestion({
   const boardRef = useRef<HTMLDivElement>(null);
 
   function place(id: string, habitatId: string) {
-    if (answered) return;
+    if (answered || !question.habitatIds.includes(habitatId)) return;
     onChange({
       ...draft,
       placements: { ...draft.placements, [id]: habitatId },
@@ -966,6 +1025,16 @@ function QuestionFeedback({
           Richtig: <b>{huntingTypes[question.correct].label}</b>.
         </p>
       )}
+      {question.kind === 'identify' && bird && (
+        <p>
+          Richtig: <b>{bird.name}</b>. {bird.identification}
+        </p>
+      )}
+      {question.kind === 'call' && bird && (
+        <p>
+          Das ist der Ruf von <b>{bird.name}</b>.
+        </p>
+      )}
       {question.kind === 'habitat' && (
         <p>{answer.points / 25} von 4 Vögeln passend zugeordnet.</p>
       )}
@@ -1199,7 +1268,10 @@ export default function QuizExperience({
     setShowResults(false);
   }
   const canSubmit =
-    question.kind === 'hunt' || question.kind === 'compare'
+    question.kind === 'hunt' ||
+    question.kind === 'compare' ||
+    question.kind === 'identify' ||
+    question.kind === 'call'
       ? Boolean(draft.choice)
       : question.kind === 'prey'
         ? draft.food.length > 0
@@ -1213,7 +1285,10 @@ export default function QuizExperience({
         ? scoreSpan(draft.span, birds[question.birdId].span)
         : question.kind === 'weight-estimate'
           ? scoreWeight(draft.weight, birds[question.birdId].weight)
-          : question.kind === 'hunt' || question.kind === 'compare'
+          : question.kind === 'hunt' ||
+              question.kind === 'compare' ||
+              question.kind === 'identify' ||
+              question.kind === 'call'
             ? draft.choice === question.correct
               ? 100
               : 0
@@ -1318,16 +1393,20 @@ export default function QuizExperience({
                       onChange={onChange}
                     />
                   )}
-                {question.kind === 'hunt' && bird && (
-                  <HuntQuestion
-                    question={question}
-                    bird={bird}
-                    draft={draft}
-                    answered={Boolean(answer)}
-                    onChange={onChange}
-                    huntingTypes={huntingTypes}
-                  />
-                )}
+                {(question.kind === 'hunt' ||
+                  question.kind === 'identify' ||
+                  question.kind === 'call') &&
+                  bird && (
+                    <MultipleChoiceQuestion
+                      question={question}
+                      bird={bird}
+                      draft={draft}
+                      answered={Boolean(answer)}
+                      onChange={onChange}
+                      huntingTypes={huntingTypes}
+                      birds={birds}
+                    />
+                  )}
                 {question.kind === 'weight' && (
                   <WeightQuestion
                     birds={birds}
@@ -1358,7 +1437,9 @@ export default function QuizExperience({
                   <HabitatQuestion
                     question={question}
                     birds={birds}
-                    habitats={habitats}
+                    habitats={question.habitatIds.map((id) =>
+                      habitats.find((habitat) => habitat.id === id)!,
+                    )}
                     draft={draft}
                     answered={Boolean(answer)}
                     onChange={onChange}

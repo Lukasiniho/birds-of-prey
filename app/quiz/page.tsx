@@ -13,7 +13,7 @@ import './quiz.css';
 export const metadata: Metadata = {
   title: 'Quiz · Greifvogelkompass',
   description:
-    'Spannweiten schätzen und vergleichen, Jagdweisen erkennen, Gewicht schätzen und sortieren, Lebensräume und Nahrung zuordnen. Das dynamische Greifvogel-Quiz.',
+    'Greifvogelarten und Rufe erkennen, Spannweiten schätzen und vergleichen, Jagdweisen erkennen, Gewicht schätzen und sortieren, Lebensräume und Nahrung zuordnen. Das dynamische Greifvogel-Quiz.',
 };
 
 export default function QuizPage() {
@@ -28,11 +28,13 @@ export default function QuizPage() {
       },
     ]),
   );
-  const habitats = ['gebirge', 'wald', 'kueste', 'feldflur'].map((id) => ({
-    id,
-    ...landscapes[id],
-    image: imageSource(habitatImages[id]),
-  }));
+  const habitats = Object.keys(landscapes)
+    .filter((id) => habitatImages[id])
+    .map((id) => ({
+      id,
+      ...landscapes[id],
+      image: imageSource(habitatImages[id]),
+    }));
   return (
     <QuizExperience
       initialQuestions={createQuizRound(

@@ -340,6 +340,82 @@
     border-color var(--duration-quick) var(--ease-smooth-out),
     background var(--duration-quick) var(--ease-smooth-out);
 }
+.q-specimen[data-call='true'] .q-bird-space {
+  display: flex;
+  flex-direction: column;
+  justify-content: center;
+  align-items: center;
+}
+.q-call-player {
+  --q-call-teal: #3d6565;
+  position: relative;
+  z-index: 1;
+  display: flex;
+  flex-direction: column;
+  align-items: center;
+  gap: 12px;
+  padding-block: 24px;
+  text-align: center;
+}
+.quiz-shell .q-call-play[data-slot] {
+  display: flex;
+  flex-direction: column;
+  height: auto;
+  gap: 16px;
+  padding: 16px 24px;
+  border: 0;
+  outline: none;
+  background: transparent;
+  box-shadow: none;
+  color: var(--selection-border);
+  font-size: var(--type-body);
+}
+.quiz-shell .q-call-play[data-slot]:hover {
+  color: var(--q-ink);
+}
+.q-call-play > svg {
+  box-sizing: content-box;
+  padding: 24px;
+  border: 0;
+  border-radius: 50%;
+  background: var(--q-call-teal);
+  color: #fff;
+}
+.quiz-shell .q-call-play[data-slot]:hover > svg {
+  background: color-mix(in srgb, var(--q-call-teal) 85%, #000);
+}
+.quiz-shell .q-call-play[data-slot]:focus-visible > svg {
+  box-shadow:
+    0 0 0 3px var(--q-stage),
+    0 0 0 5px var(--selection-border);
+}
+.q-call-credit:focus-visible {
+  outline: 2px solid var(--selection-border);
+  outline-offset: 4px;
+}
+.q-call-status,
+.q-call-credit {
+  color: var(--q-muted);
+  font-size: var(--type-caption);
+  line-height: var(--leading-relaxed);
+}
+.q-call-credit {
+  z-index: 2;
+  border: 0;
+  cursor: pointer;
+}
+.q-call-player[data-revealed='true'] {
+  padding-block: 0;
+  gap: 6px;
+}
+.quiz-shell .q-call-player[data-revealed='true'] .q-call-play[data-slot] {
+  flex-direction: row;
+  gap: 8px;
+  padding: 8px 12px;
+}
+.q-call-player[data-revealed='true'] .q-call-play > svg {
+  padding: 8px;
+}
 /* Shared card states: selection first, grading last so results always win. */
 .quiz-shell
   :is(

@@ -1,3 +1,5 @@
+import type { BirdRecording } from './bird-recordings.ts';
+
 export const quizKinds = [
   'span',
   'hunt',
@@ -6,6 +8,8 @@ export const quizKinds = [
   'habitat',
   'prey',
   'compare',
+  'identify',
+  'call',
 ] as const;
 export type QuizKind = (typeof quizKinds)[number];
 export type QuizHabitat = {
@@ -18,6 +22,9 @@ export type QuizBird = {
   id: string;
   name: string;
   latin: string;
+  group: string;
+  identification: string;
+  recording?: BirdRecording;
   image: string;
   portrait: string;
   span: [number, number];
@@ -32,6 +39,8 @@ export type QuizBird = {
 type QuizTask =
   | { kind: 'span'; birdId: string }
   | { kind: 'weight-estimate'; birdId: string }
+  | { kind: 'identify'; birdId: string; correct: string; options: string[] }
+  | { kind: 'call'; birdId: string; correct: string; options: string[] }
   | {
       kind: 'hunt';
       birdId: string;
@@ -39,12 +48,16 @@ type QuizTask =
       options: string[];
     }
   | { kind: 'weight'; birdIds: string[] }
-  | { kind: 'habitat'; birdIds: string[] }
+  | { kind: 'habitat'; birdIds: string[]; habitatIds: string[] }
   | { kind: 'prey'; birdId: string; options: string[]; correct: string[] }
   | { kind: 'compare'; birdIds: [string, string]; correct: string };
 
 export type QuizQuestion = QuizTask & { id: string };
-export type QuizHistory = { questionKeys: string[]; birdIds: string[] };
+export type QuizHistory = {
+  questionKeys: string[];
+  birdIds: string[];
+  habitatIds?: string[];
+};
 
 export function parseMeasurementRange(value: string): [number, number] {
   const values = value
@@ -194,6 +207,13 @@ export function quizHistory(questions: QuizQuestion[]): QuizHistory {
   return {
     questionKeys: questions.map(quizQuestionKey),
     birdIds: [...new Set(questions.flatMap(taskBirds))],
+    habitatIds: [
+      ...new Set(
+        questions.flatMap((question) =>
+          question.kind === 'habitat' ? question.habitatIds : [],
+        ),
+      ),
+    ],
   };
 }
 
@@ -247,7 +267,10 @@ export function createQuizRound(
   const counts = Object.fromEntries(
     quizKinds.map((kind) => [kind, 1]),
   ) as Record<QuizKind, number>;
-  for (const kind of shuffled(quizKinds, random).slice(0, 8 - quizKinds.length))
+  for (const kind of shuffled(quizKinds, random).slice(
+    0,
+    Math.max(0, 8 - quizKinds.length),
+  ))
     counts[kind]++;
   const eligible = Object.values(birds);
   // Enumerate compatible sets from the data: each next range must start above
@@ -365,23 +388,111 @@ export function createQuizRound(
   const habitatBirds = eligible.filter((bird) =>
     bird.habitats.some((id) => habitatIds.includes(id)),
   );
+  const playableHabitats = [...new Set(habitatIds)].filter((id) =>
+    habitatBirds.some((bird) => bird.habitats.includes(id)),
+  );
   if (habitatBirds.length < 4)
     throw new Error('Not enough birds with a playable habitat.');
+  if (playableHabitats.length < 4)
+    throw new Error(
+      'Not enough illustrated habitats for a complete quiz round.',
+    );
   for (let i = 0; i < counts.habitat; i++) {
-    // Rank unused species first; collect several alternatives to avoid repeating
-    // a previous four-bird combination when the available pool is small.
+    // Include one valid home per bird before filling the four landscape slots.
     const candidates = Array.from(
       { length: 32 },
-      (): Extract<QuizTask, { kind: 'habitat' }> => ({
-        kind: 'habitat',
-        birdIds: shuffled(habitatBirds, random)
+      (): Extract<QuizTask, { kind: 'habitat' }> => {
+        const selectedBirds = shuffled(habitatBirds, random)
           .sort((a, b) => penalty([a.id]) - penalty([b.id]))
-          .slice(0, 4)
-          .map((bird) => bird.id),
-      }),
+          .slice(0, 4);
+        const selectedHabitats = new Set(
+          selectedBirds.map(
+            (bird) =>
+              shuffled(
+                bird.habitats.filter((id) => playableHabitats.includes(id)),
+                random,
+              )[0],
+          ),
+        );
+        for (const id of shuffled(playableHabitats, random)) {
+          if (selectedHabitats.size === 4) break;
+          selectedHabitats.add(id);
+        }
+        return {
+          kind: 'habitat',
+          birdIds: selectedBirds.map((bird) => bird.id),
+          habitatIds: shuffled([...selectedHabitats], random),
+        };
+      },
     );
-    add(choose(candidates));
+    const previousHabitats = Array.isArray(previous?.habitatIds)
+      ? previous.habitatIds
+      : [];
+    const differentLandscapes = candidates.filter((task) =>
+      task.habitatIds.some((id) => !previousHabitats.includes(id)),
+    );
+    add(choose(differentLandscapes.length ? differentLandscapes : candidates));
   }
+  // Keep the mystery bird out of the named illustrations in the other tasks.
+  const identificationTasks = eligible
+    .filter((bird) => !used.has(bird.id) && bird.identification)
+    .flatMap((bird): Extract<QuizTask, { kind: 'identify' }>[] => {
+      const alternatives = shuffled(
+        eligible.filter(
+          (other) => other.id !== bird.id && other.name !== bird.name,
+        ),
+        random,
+      ).sort(
+        (a, b) =>
+          Number(b.group === bird.group) - Number(a.group === bird.group),
+      );
+      const wrong = [
+        ...new Map(
+          alternatives.map((other) => [other.name, other.id]),
+        ).values(),
+      ].slice(0, 3);
+      if (wrong.length !== 3) return [];
+      return [
+        {
+          kind: 'identify',
+          birdId: bird.id,
+          correct: bird.id,
+          options: shuffled([bird.id, ...wrong], random),
+        },
+      ];
+    });
+  for (let i = 0; i < counts.identify; i++) add(choose(identificationTasks));
+
+  const callTasks = eligible
+    .filter((bird) => bird.recording && !used.has(bird.id))
+    .flatMap((bird): Extract<QuizTask, { kind: 'call' }>[] => {
+      const alternatives = shuffled(
+        eligible.filter(
+          (other) =>
+            other.recording && other.id !== bird.id && other.name !== bird.name,
+        ),
+        random,
+      ).sort(
+        (a, b) =>
+          Number(b.group === bird.group) - Number(a.group === bird.group),
+      );
+      const wrong = [
+        ...new Map(
+          alternatives.map((other) => [other.name, other.id]),
+        ).values(),
+      ].slice(0, 3);
+      if (wrong.length !== 3) return [];
+      return [
+        {
+          kind: 'call',
+          birdId: bird.id,
+          correct: bird.id,
+          options: shuffled([bird.id, ...wrong], random),
+        },
+      ];
+    });
+  for (let i = 0; i < counts.call; i++) add(choose(callTasks));
+
   return shuffled(tasks, random).map((task, index) => ({
     ...task,
     id: `${seed}-${index}`,
