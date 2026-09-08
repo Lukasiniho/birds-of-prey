@@ -1,0 +1,117 @@
+/* Shared scale for Tailwind utilities and the site's semantic text roles.
+ * Sizes are rem-based: never lock the root font size to a pixel value.
+ * See docs/typography.md before introducing a new size or breakpoint override.
+ */
+@theme {
+  --text-xs: 0.75rem;
+  --text-xs--line-height: 1.5;
+  --text-sm: 0.875rem;
+  --text-sm--line-height: 1.5;
+  --text-base: 1rem;
+  --text-base--line-height: 1.6;
+  --text-lg: 1.125rem;
+  --text-lg--line-height: 1.6;
+  --text-xl: 1.25rem;
+  --text-xl--line-height: 1.25;
+  --text-2xl: 1.5rem;
+  --text-2xl--line-height: 1.2;
+  --text-3xl: 1.75rem;
+  --text-3xl--line-height: 1.2;
+  --text-4xl: 2rem;
+  --text-4xl--line-height: 1.2;
+  --text-5xl: 2.5rem;
+  --text-5xl--line-height: 1.1;
+  --text-6xl: 3rem;
+  --text-6xl--line-height: 1.1;
+  --text-7xl: 4rem;
+  --text-7xl--line-height: 1.1;
+  --text-8xl: 4.5rem;
+  --text-8xl--line-height: 1.1;
+  --text-9xl: 6rem;
+  --text-9xl--line-height: 1.1;
+
+  --leading-none: 1;
+  --leading-display: 1.1;
+  --leading-heading: 1.2;
+  --leading-compact: 1.4;
+  --leading-normal: 1.5;
+  --leading-relaxed: 1.7;
+}
+
+:root {
+  --type-caption: var(--text-xs);
+  /* Italic scientific names need a larger size than source metadata. */
+  --type-scientific: var(--text-base);
+  --species-scientific-scale: 0.75;
+  --type-ui: var(--text-sm);
+  --type-body: var(--text-base);
+  --type-lead: var(--text-lg);
+  --type-label-title: var(--text-xl);
+  --type-card-title: clamp(var(--text-xl), 1.125rem + 0.5vw, var(--text-2xl));
+  --type-heading: var(--text-3xl);
+  --type-section-title: clamp(var(--text-4xl), 1.75rem + 1vw, var(--text-5xl));
+  --type-page-title: clamp(2.25rem, 1.75rem + 2vw, var(--text-6xl));
+  --type-hero: clamp(var(--text-5xl), 1.875rem + 2.5vw, var(--text-7xl));
+  /* Long species names keep the same hierarchy within the narrow atlas stage. */
+  --type-hero-compact: clamp(var(--text-4xl), 1.5rem + 2vw, var(--text-6xl));
+  --type-brand: clamp(var(--text-2xl), 1.25rem + 1vw, var(--text-4xl));
+  --type-subtitle: var(--type-card-title);
+  --type-metric: var(--text-4xl);
+  /* Measurement cells are size containers; the rem term preserves text scaling. */
+  --type-metric-compact: clamp(
+    var(--text-lg),
+    0.875rem + 3cqi,
+    var(--text-4xl)
+  );
+  --type-score: var(--text-7xl);
+}
+
+/* Species labels share one typeface and weight across every page and breakpoint.
+ * Name pairs declare --species-common-size; the scientific name scales with it.
+ */
+:is(.app-shell, .q-drag-ghost) .species-common-name,
+:is(.app-shell, .q-drag-ghost) .species-scientific-name {
+  font-family: var(--font-display), 'Cormorant Garamond', Georgia, serif;
+  font-weight: 600;
+  color: var(--foreground);
+}
+:is(.app-shell, .q-drag-ghost) .species-common-name {
+  font-style: normal;
+}
+:is(.app-shell, .q-drag-ghost) .species-scientific-name {
+  font-weight: var(--species-scientific-weight, 600);
+  color: var(--muted-foreground);
+  font-size: max(
+    var(--type-scientific),
+    calc(
+      var(--species-common-size, var(--type-label-title)) *
+        var(--species-scientific-scale)
+    )
+  );
+  font-style: italic;
+  line-height: var(--leading-normal);
+  overflow-wrap: anywhere;
+}
+
+@theme inline {
+  --text-caption: var(--type-caption);
+  --text-caption--line-height: var(--leading-normal);
+  --text-scientific: var(--type-scientific);
+  --text-scientific--line-height: var(--leading-normal);
+  --text-ui: var(--type-ui);
+  --text-ui--line-height: var(--leading-normal);
+  --text-body: var(--type-body);
+  --text-body--line-height: var(--leading-relaxed);
+  --text-lead: var(--type-lead);
+  --text-lead--line-height: var(--leading-relaxed);
+  --text-card-title: var(--type-card-title);
+  --text-card-title--line-height: var(--leading-heading);
+  --text-heading: var(--type-heading);
+  --text-heading--line-height: var(--leading-heading);
+  --text-section-title: var(--type-section-title);
+  --text-section-title--line-height: var(--leading-display);
+  --text-page-title: var(--type-page-title);
+  --text-page-title--line-height: var(--leading-display);
+  --text-hero: var(--type-hero);
+  --text-hero--line-height: var(--leading-display);
+}

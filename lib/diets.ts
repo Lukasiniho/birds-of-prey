@@ -13,9 +13,12 @@ export const preyCatalog: Record<
   string,
   { name: string; tile?: number; image?: string; icon?: 'bone' | 'bug' }
 > = {
-  aas: { name: 'Aas', icon: 'bone' },
-  knochen: { name: 'Knochen', icon: 'bone' },
-  wespenbrut: { name: 'Wespen- & Hummelbrut', icon: 'bug' },
+  aas: { name: 'Aas', image: '/prey-aas.png' },
+  knochen: { name: 'Knochen', image: '/prey-knochen.png' },
+  wespenbrut: {
+    name: 'Wespen- & Hummelbrut',
+    image: '/prey-wespenbrut.png',
+  },
   wuehlmaus: {
     name: 'Wühlmäuse',
     tile: 0,

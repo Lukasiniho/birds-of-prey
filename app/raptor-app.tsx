@@ -1,7 +1,7 @@
 'use client';
 import { useEffect, useLayoutEffect, useRef, useState } from 'react';
 import Image from 'next/image';
-import { BirdAudio } from '@/components/bird-audio';
+import { BirdAudio, BirdAudioCredit } from '@/components/bird-audio';
 import { birdHref, birdForPath } from '@/lib/bird-routes';
 import { Feather } from 'lucide-react';
 import { SiteHeader } from '@/components/site-header';
@@ -136,8 +136,12 @@ function RevealHeading({ name, latin }: { name: string; latin: string }) {
   }, [name, latin]);
   return (
     <div className="t-stagger is-shown" ref={ref}>
-      <h1 className="t-stagger-line t-stagger-line--1">{initial.name}</h1>
-      <p className="t-stagger-line t-stagger-line--2">{initial.latin}</p>
+      <h1 className="species-common-name t-stagger-line t-stagger-line--1">
+        {initial.name}
+      </h1>
+      <p className="species-scientific-name t-stagger-line t-stagger-line--2">
+        {initial.latin}
+      </p>
     </div>
   );
 }
@@ -426,7 +430,11 @@ export default function RaptorApp({
   return (
     <TooltipProvider delay={180}>
       <div className="app-shell">
-        <SiteHeader activeSection="birds" query={query} onQueryChange={setQuery} />
+        <SiteHeader
+          activeSection="birds"
+          query={query}
+          onQueryChange={setQuery}
+        />
         <SidebarProvider className="app-columns">
           <Sidebar collapsible="none" className="species-panel">
             <div className="library-top">
@@ -466,7 +474,11 @@ export default function RaptorApp({
                 <section className="species-group" key={group.id}>
                   <h3 className="species-group-title">
                     <span>{group.title}</span>
-                    {group.subtitle && <small>{group.subtitle}</small>}
+                    {group.subtitle && (
+                      <small className="species-scientific-name">
+                        {group.subtitle}
+                      </small>
+                    )}
                   </h3>
                   <SidebarMenu className="bird-list">
                     {group.birds.map((b) => (
@@ -505,8 +517,12 @@ export default function RaptorApp({
                           <span
                             className={`bird-label ${b.name.length > 15 ? 'long-label' : ''}`}
                           >
-                            <strong>{b.name}</strong>
-                            <em>{b.latin}</em>
+                            <strong className="species-common-name">
+                              {b.name}
+                            </strong>
+                            <em className="species-scientific-name">
+                              {b.latin}
+                            </em>
                           </span>
                         </SidebarMenuButton>
                       </SidebarMenuItem>
@@ -625,13 +641,20 @@ export default function RaptorApp({
                 <span>Spannweite</span>
                 <Measurement value={bird.span} unit="cm" />
               </div>
-              <BirdAudio key={bird.id} birdId={bird.id} name={bird.name} />
               <div>
                 <span>Gewicht</span>
                 <Measurement value={bird.weight} unit={bird.unit} />
               </div>
+              <BirdAudio key={bird.id} birdId={bird.id} name={bird.name} />
             </section>
-            <div className="image-credit">KI-generierte Illustration</div>
+            <div className="image-credit">
+              <span>KI-generierte Illustration</span>
+              <BirdAudioCredit
+                key={bird.id}
+                birdId={bird.id}
+                name={bird.name}
+              />
+            </div>
           </main>
           <aside
             className="info-panel"
@@ -752,9 +775,7 @@ export default function RaptorApp({
                   <h2>Jagdweise</h2>
                   <div className="ecology-tags">
                     {bird.ecology.huntingTags.map((id) => (
-                      <span key={id}>
-                        {huntingTypes[id].label}
-                      </span>
+                      <span key={id}>{huntingTypes[id].label}</span>
                     ))}
                   </div>
                   <HuntingArt bird={bird} />

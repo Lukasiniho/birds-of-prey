@@ -1,0 +1,20 @@
+{
+  "tool": "Built-in imagegen",
+  "assets": [
+    {
+      "key": "knochen",
+      "prompt": "Use case: scientific-educational. Asset type: food illustration for a raptor educational app. Style/medium: detailed natural-history realistic painterly illustration with precise natural textures, soft natural light and neutral natural colors. Composition: square canvas, subject isolated centrally with entire subject visible and at least 8% transparent margin on every side. Background: genuinely transparent alpha PNG, no opaque or checkerboard background, no ground plane, no cast shadow. No text, labels, frame or watermark. Subject: exactly two natural weathered ungulate long-bone pieces, one intact long bone and one broken section showing porous interior, ivory beige color, subtle diagonal arrangement. Natural anatomically plausible animal bone shapes. No human bones, no cartoon dog bone.",
+      "path": "public/prey-knochen.png"
+    },
+    {
+      "key": "aas",
+      "prompt": "Use case: scientific-educational. Asset type: food illustration for a raptor educational app. Style/medium: detailed natural-history realistic painterly illustration with precise natural textures, soft natural light and neutral natural colors. Composition: square canvas, subject isolated centrally with entire subject visible and at least 8% transparent margin on every side. Background: genuinely transparent alpha PNG, no opaque or checkerboard background, no ground plane, no cast shadow. No text, labels, frame or watermark. Subject: a small deceased hare lying fully on its side, closed eyes, visibly limp natural posture, neutral educational non-graphic depiction, intact tawny brown fur, no blood or open wounds. Entire body, long ears and limbs visible; head rests sideways, limbs extended loosely. Clearly a lifeless hare, not a sleeping upright rabbit.",
+      "path": "public/prey-aas.png"
+    },
+    {
+      "key": "wespenbrut",
+      "prompt": "Use case: scientific-educational. Asset type: food illustration for a raptor educational app. Style/medium: detailed natural-history realistic painterly illustration with precise natural textures, soft natural light and neutral natural colors. Composition: square canvas, subject isolated centrally with entire subject visible and at least 8% transparent margin on every side. Background: genuinely transparent alpha PNG, no opaque or checkerboard background, no ground plane, no cast shadow. No text, labels, frame or watermark. Subject: a detached gray-brown paper wasp brood comb in three-quarter view, open hexagonal cells containing visible cream larvae alongside capped cells, and exactly one adult yellow-black wasp perched on the edge for identification. Accurate matte papery gray-brown cellular texture, natural organic irregular outline. No honey, no golden honeybee wax, no honeybees.",
+      "path": "public/prey-wespenbrut.png"
+    }
+  ]
+}

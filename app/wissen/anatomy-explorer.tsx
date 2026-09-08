@@ -176,8 +176,10 @@ export default function AnatomyExplorer({
           >
             <div className="anatomy-stage-heading">
               <div className="anatomy-stage-caption">
-                <span>{name}</span>
-                <i>{species === 0 ? 'Falco peregrinus' : 'Buteo buteo'}</i>
+                <span className="species-common-name">{name}</span>
+                <i className="species-scientific-name">
+                  {species === 0 ? 'Falco peregrinus' : 'Buteo buteo'}
+                </i>
               </div>
               <div
                 className="anatomy-species"
@@ -188,6 +190,7 @@ export default function AnatomyExplorer({
                   (label, index) => (
                     <button
                       key={label}
+                      className="species-common-name"
                       type="button"
                       aria-pressed={species === index}
                       onClick={() => {

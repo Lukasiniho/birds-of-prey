@@ -12,15 +12,15 @@
 }
 .knowledge-heading h1 {
   font-family: var(--font-display), Georgia, serif;
-  font-size: clamp(36px, 3.5vw, 52px);
+  font-size: var(--type-page-title);
   font-weight: 600;
-  line-height: 1.1;
+  line-height: var(--leading-display);
 }
 .knowledge-heading p {
   margin-top: 12px;
   max-width: 60ch;
-  font-size: 16px;
-  line-height: 1.6;
+  font-size: var(--type-body);
+  line-height: var(--leading-normal);
   color: var(--muted-foreground);
 }
 .anatomy-species {
@@ -35,9 +35,7 @@
 .anatomy-species button {
   min-height: 42px;
   padding: 9px 15px;
-  font-family: var(--font-display), Georgia, serif;
-  font-size: 21px;
-  font-weight: 600;
+  font-size: var(--type-card-title);
   border-radius: 8px;
   color: var(--muted-foreground);
 }
@@ -72,19 +70,14 @@
   margin-bottom: 12px;
 }
 .anatomy-stage-caption {
+  --species-common-size: var(--type-heading);
   display: flex;
   flex-direction: column;
   gap: 5px;
 }
 .anatomy-stage-caption span {
-  font-family: var(--font-display), Georgia, serif;
-  font-size: 28px;
-  font-weight: 600;
-  line-height: 1.1;
-}
-.anatomy-stage-caption i {
-  font-size: 13px;
-  color: var(--muted-foreground);
+  font-size: var(--species-common-size);
+  line-height: var(--leading-display);
 }
 .anatomy-canvas {
   position: relative;
@@ -156,7 +149,7 @@
   left: 12px;
   right: 12px;
   color: var(--muted-foreground);
-  font-size: 14px;
+  font-size: var(--type-ui);
 }
 .anatomy-notes {
   padding: 30px 26px;
@@ -169,11 +162,11 @@
   gap: 10px;
 }
 .anatomy-notes-heading h2 {
-  font-size: 29px;
+  font-size: var(--type-heading);
 }
 .anatomy-notes-intro {
   margin-top: 10px;
-  font-size: 14px;
+  font-size: var(--type-body);
   color: var(--muted-foreground);
 }
 .anatomy-part-list {
@@ -190,7 +183,7 @@
   padding: 8px 10px;
   border: 1px solid transparent;
   border-radius: 7px;
-  font-size: 14px;
+  font-size: var(--type-ui);
   text-align: left;
 }
 .anatomy-part-list button:hover {
@@ -217,12 +210,12 @@
 }
 .anatomy-species-note strong {
   font-weight: 500;
-  font-size: 14px;
+  font-size: var(--type-ui);
 }
 .anatomy-species-note p {
   margin-top: 6px;
-  font-size: 14px;
-  line-height: 1.7;
+  font-size: var(--type-body);
+  line-height: var(--leading-relaxed);
   color: var(--muted-foreground);
 }
 
@@ -246,13 +239,13 @@
 .anatomy-tooltip[data-slot] strong {
   display: block;
   margin-bottom: 6px;
-  font-size: 16px;
+  font-size: var(--type-body);
   font-weight: 600;
 }
 .anatomy-tooltip[data-slot] span span {
   display: block;
-  font-size: 14px;
-  line-height: 1.65;
+  font-size: var(--type-ui);
+  line-height: var(--leading-relaxed);
 }
 .anatomy-tooltip[data-open] {
   transition-duration: var(--tt-in-dur);
@@ -312,9 +305,6 @@
   }
   .anatomy-species button {
     flex: 1;
-  }
-  .anatomy-hint {
-    font-size: 13px;
   }
 }
 @media (prefers-reduced-motion: reduce) {

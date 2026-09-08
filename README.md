@@ -7,6 +7,13 @@ Interaktiver deutschsprachiger Greifvogelatlas für greifvogelkompass.de.
 
 Node.js 22 verwenden, dann `npm ci` und `npm run dev`.
 
+## Design und Typografie
+
+Tailwind CSS 4 und shadcn/Base UI bilden die Basis; das Seitendesign nutzt eigene
+CSS-Dateien. Schriftgrößen und Zeilenhöhen werden zentral in `app/typography.css`
+definiert. Für neue und bestehende Komponenten gelten die
+[Typografie-Regeln](docs/typography.md).
+
 ## Netlify
 
 Repository mit Netlify verbinden und `main` als Production Branch wählen.

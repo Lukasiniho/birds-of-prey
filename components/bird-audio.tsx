@@ -64,33 +64,7 @@ export function BirdAudio({ birdId, name }: { birdId: string; name: string }) {
         ) : (
           <Play />
         )}
-        {state === 'playing'
-          ? 'Pause'
-          : state === 'loading'
-            ? 'Lädt …'
-            : 'Ruf anhören'}
       </Button>
-      <Popover>
-        <PopoverTrigger className="bird-audio-credit">
-          Quelle & Lizenz
-        </PopoverTrigger>
-        <PopoverContent side="top" className="bird-audio-attribution">
-          <strong>
-            {name} · {recording.label}
-          </strong>
-          <p>Aufnahme: {recording.author}</p>
-          <p>
-            <a href={recording.sourceUrl} target="_blank" rel="noreferrer">
-              Originalaufnahme
-            </a>{' '}
-            ·{' '}
-            <a href={recording.licenseUrl} target="_blank" rel="noreferrer">
-              {recording.license}
-            </a>
-          </p>
-          <small>{recording.note ?? 'Unveränderte Aufnahme.'}</small>
-        </PopoverContent>
-      </Popover>
       <audio
         ref={audio}
         preload="none"
@@ -113,5 +87,39 @@ export function BirdAudio({ birdId, name }: { birdId: string; name: string }) {
         </small>
       )}
     </div>
+  );
+}
+
+export function BirdAudioCredit({
+  birdId,
+  name,
+}: {
+  birdId: string;
+  name: string;
+}) {
+  const recording = birdRecordings[birdId];
+  if (!recording) return null;
+  return (
+    <Popover>
+      <PopoverTrigger className="bird-audio-credit">
+        Quelle & Lizenz
+      </PopoverTrigger>
+      <PopoverContent side="top" className="bird-audio-attribution">
+        <strong>
+          {name} · {recording.label}
+        </strong>
+        <p>Aufnahme: {recording.author}</p>
+        <p>
+          <a href={recording.sourceUrl} target="_blank" rel="noreferrer">
+            Originalaufnahme
+          </a>{' '}
+          ·{' '}
+          <a href={recording.licenseUrl} target="_blank" rel="noreferrer">
+            {recording.license}
+          </a>
+        </p>
+        <small>{recording.note ?? 'Unveränderte Aufnahme.'}</small>
+      </PopoverContent>
+    </Popover>
   );
 }

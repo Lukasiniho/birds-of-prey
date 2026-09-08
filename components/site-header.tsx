@@ -10,10 +10,9 @@ const sections = [
   { id: 'birds', label: 'Vögel', href: '/' },
   { id: 'wissen', label: 'Wissen', href: '/wissen' },
   { id: 'quiz', label: 'Quiz', href: '/quiz' },
-  { id: 'falknerei', label: 'Falknerei', href: '/falknerei' },
 ] as const;
 
-export type SiteSection = (typeof sections)[number]['id'];
+export type SiteSection = (typeof sections)[number]['id'] | 'falknerei';
 
 export function SiteHeader({
   activeSection,

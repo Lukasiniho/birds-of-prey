@@ -1,0 +1,323 @@
+.q-prey-task,
+.q-comparison-task {
+  min-width: 0;
+  margin: 0;
+  border: 0;
+  padding: 32px 28px;
+  background: var(--q-stage);
+}
+.q-new-heading {
+  margin-bottom: 28px;
+}
+.q-new-heading .q-task-label {
+  margin-bottom: 12px;
+}
+.q-new-heading h2 {
+  font-family: var(--font-display), Georgia, serif;
+  font-size: var(--type-section-title);
+  line-height: var(--leading-display);
+  font-weight: 600;
+  color: var(--q-ink);
+}
+.q-new-heading p {
+  color: var(--q-muted);
+  font-size: var(--type-body);
+  line-height: var(--leading-normal);
+  margin-top: 12px;
+  max-width: 70ch;
+}
+.q-prey-layout {
+  display: grid;
+  grid-template-columns: 1.15fr 1fr;
+  gap: 24px;
+  align-items: stretch;
+}
+.q-prey-options {
+  display: grid;
+  grid-template-columns: repeat(3, minmax(0, 1fr));
+  gap: 12px;
+}
+.q-prey-option {
+  position: relative;
+  display: flex;
+  flex-direction: column;
+  align-items: center;
+  justify-content: center;
+  gap: 14px;
+  min-width: 0;
+  padding: 24px 12px 18px;
+  border: 2px solid var(--q-line);
+  border-radius: 14px;
+  background: var(--q-surface);
+  color: var(--q-ink);
+  cursor: grab;
+  touch-action: none;
+  user-select: none;
+}
+.q-prey-option:disabled {
+  cursor: default;
+}
+.q-prey-option strong {
+  font-size: var(--type-ui);
+  font-weight: 500;
+  line-height: var(--leading-compact);
+}
+.q-prey-option[data-dragging='true'] {
+  opacity: 0.45;
+}
+.q-prey-mark {
+  position: absolute;
+  top: 10px;
+  right: 10px;
+  color: var(--q-state-color, var(--q-muted));
+}
+.q-prey-art {
+  display: grid;
+  place-items: center;
+  width: 100px;
+  max-width: 100%;
+  height: 100px;
+  min-height: 100px;
+  overflow: hidden;
+  pointer-events: none;
+}
+.q-prey-art .prey-image,
+.q-prey-art .prey-symbol {
+  width: 100%;
+  height: 100%;
+  margin: 0;
+}
+.q-prey-target {
+  min-width: 0;
+  display: flex;
+  flex-direction: column;
+  align-items: center;
+  padding: 22px;
+  border: 2px dashed var(--selection-border);
+  border-radius: 16px;
+  background: var(--q-surface);
+}
+.q-prey-target[data-over='true'] {
+  border-style: solid;
+}
+.q-prey-target[data-answered='true'] {
+  border-style: solid;
+  border-color: var(--q-line);
+}
+.q-prey-target .q-specimen-label {
+  --species-common-size: var(--type-heading);
+  align-self: stretch;
+  padding: 0;
+}
+.q-prey-target .q-specimen-label > span {
+  font-size: var(--species-common-size);
+}
+.q-prey-bird {
+  width: 100%;
+  height: 190px;
+  object-fit: contain;
+  margin: 12px 0;
+  pointer-events: none;
+}
+.q-prey-plate {
+  display: flex;
+  flex-wrap: wrap;
+  align-items: center;
+  justify-content: center;
+  gap: 8px;
+  min-height: 48px;
+  margin-top: auto;
+}
+.q-prey-plate button {
+  display: flex;
+  align-items: center;
+  gap: 6px;
+  border: 1px solid var(--q-line);
+  border-radius: 8px;
+  padding: 6px 9px;
+  font-size: var(--type-ui);
+  background: var(--q-stage);
+  color: var(--q-ink);
+}
+.q-prey-plate .prey-image,
+.q-prey-plate .prey-symbol {
+  width: 28px;
+  height: 28px;
+  min-height: 0;
+  margin: 0;
+}
+.q-prey-plate .prey-symbol svg {
+  width: 24px;
+  height: 24px;
+}
+.q-prey-empty {
+  font-size: var(--type-ui);
+  color: var(--q-muted);
+}
+.q-prey-drag {
+  position: fixed;
+  z-index: 1000;
+  pointer-events: none;
+  width: 130px;
+  padding: 12px;
+  border: 1px solid var(--border);
+  border-radius: 12px;
+  background: var(--background);
+  color: var(--foreground);
+  box-shadow: 0 12px 30px #0003;
+  text-align: center;
+}
+.q-prey-drag .prey-image,
+.q-prey-drag .prey-symbol {
+  width: 80px;
+  height: 80px;
+  margin: 0;
+}
+.q-prey-drag strong {
+  display: block;
+  margin-top: 8px;
+  font-size: var(--type-ui);
+}
+.q-comparison-options {
+  min-width: 0;
+  margin: 0;
+  padding: 0;
+  border: 0;
+  display: grid;
+  grid-template-columns: repeat(2, minmax(0, 1fr));
+  gap: 20px;
+}
+.q-comparison-card {
+  --species-common-size: var(--type-card-title);
+  position: relative;
+  min-width: 0;
+  padding: 26px 18px;
+  border: 2px solid var(--q-line);
+  border-radius: 16px;
+  background: var(--q-surface);
+  color: var(--q-ink);
+  text-align: center;
+  cursor: pointer;
+}
+.q-comparison-card:disabled {
+  cursor: default;
+}
+.q-comparison-task[data-answered='true'] .q-comparison-card {
+  padding-top: 52px;
+}
+.q-comparison-card h3 {
+  font-size: var(--species-common-size);
+  line-height: var(--leading-display);
+}
+.q-comparison-card > i {
+  display: block;
+}
+.q-compare-radio {
+  position: absolute;
+  top: 16px;
+  right: 16px;
+  display: grid;
+  place-items: center;
+  width: 22px;
+  height: 22px;
+  border: 1px solid var(--q-line);
+  border-radius: 50%;
+}
+.q-comparison-card[data-selected='true'] .q-compare-radio {
+  border: 6px solid var(--q-state-color, var(--selection-border));
+  background: #fff;
+}
+.q-comparison-card:is([data-correct='true'], [data-wrong='true'])
+  .q-compare-radio {
+  border: 0;
+  background: var(--q-state-color);
+  color: var(--q-surface);
+}
+.q-comparison-art {
+  height: 245px;
+  width: 100%;
+  display: grid;
+  place-items: center;
+  position: relative;
+  margin-bottom: 20px;
+}
+.q-comparison-art > img {
+  position: absolute;
+  width: 88%;
+  height: 100%;
+  object-fit: contain;
+  pointer-events: none;
+}
+.q-comparison-range {
+  display: flex;
+  align-items: center;
+  justify-content: center;
+  gap: 12px;
+  flex-wrap: wrap;
+  margin-top: 18px;
+  font-size: var(--type-body);
+}
+@media (max-width: 900px) {
+  .q-prey-layout {
+    grid-template-columns: 1fr;
+  }
+  .q-prey-target {
+    display: grid;
+    grid-template-columns: 1fr 120px;
+    gap: 10px;
+  }
+  .q-prey-bird {
+    height: 115px;
+    margin: 0;
+    grid-column: 2;
+    grid-row: 1 / 3;
+  }
+  .q-prey-plate {
+    justify-content: flex-start;
+  }
+}
+@media (max-width: 600px) {
+  .q-prey-task,
+  .q-comparison-task {
+    padding: 24px 16px;
+  }
+  .q-prey-options {
+    gap: 8px;
+    grid-template-columns: repeat(2, minmax(0, 1fr));
+  }
+  .q-prey-art {
+    width: 75px;
+    height: 75px;
+    min-height: 75px;
+  }
+  .q-prey-option {
+    gap: 8px;
+    padding: 23px 8px 12px;
+  }
+  .q-prey-target {
+    padding: 15px;
+    grid-template-columns: 1fr 85px;
+  }
+  .q-comparison-options {
+    gap: 10px;
+  }
+  .q-comparison-card {
+    padding: 20px 8px;
+  }
+  .q-comparison-card h3 {
+    overflow-wrap: anywhere;
+  }
+  .q-comparison-card > i {
+    overflow-wrap: anywhere;
+  }
+  .q-comparison-art {
+    height: 155px;
+    margin-bottom: 12px;
+  }
+  .q-compare-radio {
+    top: 10px;
+    right: 10px;
+    width: 18px;
+    height: 18px;
+  }
+}

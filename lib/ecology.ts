@@ -273,7 +273,7 @@ const sizeBySpecies: Record<string, Partial<Record<string, RelativeSize>>> = {
   },
   sperber: { singvogel: 'kleiner', taube: 'groesser' },
 };
-const preyCategoryById: Record<string, PreyCategory> = {
+export const preyCategoryById: Record<string, PreyCategory> = {
   aas: 'aas',
   knochen: 'aas',
   wespenbrut: 'insekten',

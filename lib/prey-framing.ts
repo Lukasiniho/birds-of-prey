@@ -10,6 +10,33 @@ export const preyFraming: Record<
     imageHeight: number;
   }
 > = {
+  aas: {
+    src: '/prey-aas.png',
+    x: 15,
+    y: 372,
+    width: 1220,
+    height: 545,
+    imageWidth: 1254,
+    imageHeight: 1254,
+  },
+  knochen: {
+    src: '/prey-knochen.png',
+    x: 85,
+    y: 59,
+    width: 1085,
+    height: 1136,
+    imageWidth: 1254,
+    imageHeight: 1254,
+  },
+  wespenbrut: {
+    src: '/prey-wespenbrut.png',
+    x: 48,
+    y: 112,
+    width: 1167,
+    height: 1040,
+    imageWidth: 1254,
+    imageHeight: 1254,
+  },
   wuehlmaus: {
     src: '/prey-atlas.png',
     x: 66,
