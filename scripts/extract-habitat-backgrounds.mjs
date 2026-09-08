@@ -79,4 +79,5 @@ await writeFile(`${root}data/habitats/transparent-sources.json`, JSON.stringify(
   method: 'Border-connected paper extraction with soft alpha and paper-matte removal; original composition and opaque pixels preserved.',
   images,
 }, null, 2) + '\n');
-await writeFile(`${root}lib/habitat-images.ts`, `export const habitatImages: Record<string, string> = {\n${images.map(({ id, image }) => `  ${id}: '${image}',`).join('\n')}\n};\n`);
+// Export experimental cutouts only. The app keeps the original habitat skies;
+// generating variants must not replace its shared habitat image mapping.
