@@ -2,7 +2,6 @@
 
 import { useState } from 'react';
 import Image from 'next/image';
-import Link from 'next/link';
 import { ArrowUpRight } from 'lucide-react';
 import { SiteHeader } from '@/components/site-header';
 import { Tabs, TabsList, TabsTrigger, TabsContent } from '@/components/ui/tabs';
@@ -223,10 +222,10 @@ export default function FalconryExplorer({ species }: { species: Species[] }) {
                         auch Habichte und Bussarde zur Falknerei.
                       </p>
                     </div>
-                    <Link href={bird.href} className="falconry-profile-link">
+                    <a href={bird.href} className="falconry-profile-link">
                       Zum Artenporträt{' '}
                       <ArrowUpRight size={16} aria-hidden="true" />
-                    </Link>
+                    </a>
                   </>
                 )}
                 {chapter.id === 'verantwortung' && (

@@ -28,6 +28,10 @@ Jeder Push auf `main` löst bei einer verbundenen Netlify-Site einen neuen Deplo
 Der Netlify-Build exportiert statisches HTML und Assets ohne Server-Funktionen.
 Lokal lässt sich dieser Build mit `NETLIFY=true npm run build` prüfen.
 
+Seitenübergreifende Navigation verwendet normale HTML-Links. Damit laden Quiz,
+Wissen und Vogelprofile direkt aus dem statischen Export; sie benötigen keine
+clientseitige RSC-Navigation und keine SPA-Fallback-Regel auf `/index.html`.
+
 Vor jedem Build optimiert Sharp die Originalbilder automatisch zu WebP:
 280 px für Porträts, maximal 1400 px für größere Abbildungen, ohne Beschnitt.
 Transparenz bleibt erhalten. Inhaltsversionierte Dateinamen ermöglichen dauerhaftes

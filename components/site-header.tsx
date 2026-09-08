@@ -1,7 +1,8 @@
 'use client';
 
+/* oxlint-disable next/no-html-link-for-pages -- Use document navigation for the static Netlify export. */
+
 import { useEffect, useState } from 'react';
-import Link from 'next/link';
 import { Moon, Search, Sun, X } from 'lucide-react';
 import { Button } from '@/components/ui/button';
 import { Input } from '@/components/ui/input';
@@ -48,18 +49,18 @@ export function SiteHeader({
 
   return (
     <header className="topbar site-header">
-      <Link href="/" className="site-title">
+      <a href="/" className="site-title">
         Die Welt der Greifvögel
-      </Link>
+      </a>
       <nav className="site-navigation" aria-label="Hauptnavigation">
         {sections.map((section) => (
-          <Link
+          <a
             key={section.id}
             href={section.href}
             aria-current={activeSection === section.id ? 'page' : undefined}
           >
             {section.label}
-          </Link>
+          </a>
         ))}
       </nav>
       {onQueryChange && (

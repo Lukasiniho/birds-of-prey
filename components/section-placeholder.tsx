@@ -1,4 +1,5 @@
-import Link from 'next/link';
+/* oxlint-disable next/no-html-link-for-pages -- Use document navigation for the static Netlify export. */
+
 import { SiteHeader, type SiteSection } from '@/components/site-header';
 
 export function SectionPlaceholder({
@@ -16,9 +17,9 @@ export function SectionPlaceholder({
       <main className="section-placeholder">
         <h1>{title}</h1>
         <p>{description}</p>
-        <Link className="section-back-link" href="/">
+        <a className="section-back-link" href="/">
           Vögel entdecken
-        </Link>
+        </a>
       </main>
     </div>
   );
