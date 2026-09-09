@@ -51,6 +51,7 @@ import { preyCatalog, type PreyExample } from '@/lib/diets';
 import { PreyArt } from '@/components/prey-art';
 import { imageSource } from '@/lib/optimized-images.ts';
 import { loadImage } from '@/lib/image-loader';
+import { SpeciesFacts } from '@/components/species-facts';
 import { speciesProfiles } from '@/lib/species-profiles';
 import { RangeMap } from '@/components/range-map';
 import {
@@ -689,6 +690,7 @@ export default function RaptorApp({
               </TabsList>
               <div className="info-scroll detail-panel">
               <TabsContent value="profil" className="info-tab-content">
+                <SpeciesFacts speciesId={bird.id} />
                 <section className="profile-section">
                   <h2>Erkennungsmerkmale</h2>
                   <p>{speciesProfiles[bird.id].identification}</p>
