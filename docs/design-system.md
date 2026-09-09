@@ -292,3 +292,9 @@ verwenden dieselbe Kartenfarbe. Die bisherigen hellen Flächen bleiben erhalten.
 
 Die drei Informationstabs stehen außerhalb von `.info-scroll`. Nur die
 Tab-Inhalte scrollen; die Scrollbar beginnt unterhalb des festen Tab-Kopfs.
+
+Messwertbox: Spannweite und Gewicht verwenden je `minmax(0, 1fr)` und
+denselben Innenabstand. Keine breitere Gewichtsspalte, auch nicht mobil.
+
+Navigation: Der gemeinsame Markentitel lautet „Greifvogelkompass“. Das mobile
+Hamburger-Menü verwendet `modal={false}` ohne Scroll-Lock und dessen Layoutverschiebung.

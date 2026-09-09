@@ -52,7 +52,7 @@ export function SiteHeader({
     <header className="topbar site-header" data-section={activeSection}>
       <div className="header-brand">
       <a href="/" className="site-title">
-        Die Welt der Greifvögel
+        Greifvogelkompass
       </a>
       {onQueryChange && (
         <div className="search-wrap topbar-search">
@@ -87,7 +87,7 @@ export function SiteHeader({
         ))}
       </nav>
       <div className="mobile-navigation">
-        <DropdownMenu>
+        <DropdownMenu modal={false}>
           <DropdownMenuTrigger render={<Button variant="ghost" size="icon" aria-label="Navigation öffnen" />}>
             <Menu />
           </DropdownMenuTrigger>

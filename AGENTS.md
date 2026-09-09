@@ -45,3 +45,9 @@
 
 - Dropdown-Trigger und Menüs im Hellmodus weiß (`--select-background`), im
   Dunkelmodus an die Oberfläche angepasst. Fragenzahl rechts vom Quiz-Titel.
+
+- Spannweite und Gewicht teilen die Messwertbox in exakt gleich breite Bereiche
+  mit identischem Innenabstand; die Audio-Spalte ist separat. Auch mobil.
+
+- Gemeinsamer Seitentitel: „Greifvogelkompass“. Das mobile Navigationsmenü
+  bleibt nicht-modal, damit Scroll-Lock die Kopfzeile nicht verschiebt.

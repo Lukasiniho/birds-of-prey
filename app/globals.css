@@ -3061,7 +3061,7 @@ button.color-dot:not(:disabled) {
 
 /* Measurements and voice share the same label and value alignment. */
 .specimen-measurements.measurements:has(.bird-audio) {
-  grid-template-columns: minmax(0, 1fr) minmax(0, 1.2fr) 88px;
+  grid-template-columns: repeat(2, minmax(0, 1fr)) 88px;
   padding-inline: 0;
   align-items: stretch;
   container-type: inline-size;
@@ -3179,7 +3179,7 @@ button.color-dot:not(:disabled) {
     padding-top: 0;
   }
   .specimen-measurements.measurements:has(.bird-audio) {
-    grid-template-columns: minmax(0, 1fr) minmax(0, 1.2fr) 60px;
+    grid-template-columns: repeat(2, minmax(0, 1fr)) 60px;
   }
   .specimen-measurements.measurements:has(.bird-audio) small {
     font-size: var(--type-caption);
