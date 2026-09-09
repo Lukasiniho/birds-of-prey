@@ -7,20 +7,28 @@ import { Tabs, TabsContent, TabsList, TabsTrigger } from '@/components/ui/tabs';
 import AnatomyExplorer from './anatomy-explorer';
 import FalconryWorld from './falconry-world';
 import PreyExplorer from './prey-explorer';
-import type { KnowledgeBird, PreyEntry } from './knowledge-data';
+import TechniqueExplorer from './technique-explorer';
+import type {
+  KnowledgeBird,
+  PreyEntry,
+  TechniqueEntry,
+} from './knowledge-data';
 
 const sections = [
   { id: 'koerperbau', label: 'Körperbau' },
   { id: 'falknerei', label: 'Falknerei' },
   { id: 'jagdtiere', label: 'Jagdtiere' },
+  { id: 'jagdtechniken', label: 'Jagdtechniken' },
 ];
 
 export default function KnowledgeExplorer({
   birds,
   prey,
+  techniques,
 }: {
   birds: KnowledgeBird[];
   prey: PreyEntry[];
+  techniques: TechniqueEntry[];
 }) {
   const section = useSyncExternalStore(
     (notify) => {
@@ -76,6 +84,9 @@ export default function KnowledgeExplorer({
           </TabsContent>
           <TabsContent value="jagdtiere">
             <PreyExplorer prey={prey} />
+          </TabsContent>
+          <TabsContent value="jagdtechniken">
+            <TechniqueExplorer techniques={techniques} />
           </TabsContent>
         </Tabs>
       </main>

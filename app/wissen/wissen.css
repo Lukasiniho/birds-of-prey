@@ -302,7 +302,7 @@
   overflow: hidden;
 }
 .falconry-map-surface,
-.prey-surface {
+.knowledge-surface {
   background: var(--stage);
   min-width: 0;
 }
@@ -527,7 +527,7 @@
   .falconry-pin-portrait,
   .falconry-map-callout,
   .falconry-pin-label,
-  .prey-tile,
+  .knowledge-tile,
   .knowledge-bird,
   .knowledge-tabs button[data-slot] {
     transition: none;
@@ -543,15 +543,15 @@
   min-width: 0;
 }
 
-/* Prey explorer: illustrated prey tiles left, hunters right. Tile art is a
-   72px geometry exception to the 105px species-page prey frame. */
-.prey-grid {
+/* Tile explorers (prey, techniques): illustrated tiles left, species right.
+   Tile art is a 72px geometry exception to the 105px species-page prey frame. */
+.knowledge-grid {
   display: grid;
   grid-template-columns: repeat(auto-fill, minmax(124px, 1fr));
   gap: var(--space-8);
   padding: 0 var(--panel-padding) var(--panel-padding);
 }
-.prey-tile {
+.knowledge-tile {
   display: flex;
   flex-direction: column;
   align-items: center;
@@ -569,46 +569,63 @@
     border-color var(--duration-fast) var(--ease-smooth-out);
 }
 /* Hover tints the stage itself so the tile never turns into a white card. */
-.prey-tile:hover {
+.knowledge-tile:hover {
   background: color-mix(in srgb, var(--main-color) 9%, var(--stage));
 }
-.prey-tile[data-related='true'] {
+.knowledge-tile[data-related='true'] {
   border-color: color-mix(in srgb, var(--main-color) 45%, transparent);
 }
-.prey-tile[aria-pressed='true'] {
+.knowledge-tile[aria-pressed='true'] {
   border-color: var(--main-color);
   background: var(--selected);
 }
-.prey-tile:focus-visible {
+/* Technique labels are long; five columns keep them on one line. */
+.technique-explorer .knowledge-grid {
+  grid-template-columns: repeat(5, minmax(0, 1fr));
+}
+.knowledge-tile:focus-visible {
   outline: 2px solid var(--ring);
   outline-offset: 2px;
 }
-.prey-tile .prey-image.framed-prey,
-.prey-tile .prey-symbol {
+.knowledge-tile .prey-image.framed-prey,
+.knowledge-tile .prey-symbol,
+.knowledge-tile-art {
   width: 72px;
   height: 72px;
   min-height: 0;
   margin: 0 0 var(--space-8);
 }
-.prey-tile-name {
+.knowledge-tile-art {
+  display: grid;
+  place-items: center;
+}
+.knowledge-tile-art img {
+  width: 100%;
+  height: 100%;
+  object-fit: contain;
+}
+.knowledge-tile-name {
   font-weight: 500;
   line-height: var(--leading-compact);
 }
-.prey-tile-count {
+.knowledge-tile-count {
   font-size: var(--type-caption);
   color: var(--muted-foreground);
 }
-.prey-group h3 {
+.knowledge-group h3 {
   margin-top: var(--space-24);
   font-size: var(--type-ui);
   font-weight: 500;
   color: var(--muted-foreground);
 }
-.prey-group .knowledge-bird-list {
+.knowledge-group .knowledge-bird-list {
   margin-top: var(--space-8);
 }
 @media (max-width: 760px) {
-  .prey-grid {
+  .knowledge-grid {
     grid-template-columns: repeat(auto-fill, minmax(104px, 1fr));
+  }
+  .technique-explorer .knowledge-grid {
+    grid-template-columns: repeat(3, minmax(0, 1fr));
   }
 }

@@ -21,7 +21,7 @@ export default function PreyExplorer({ prey }: { prey: PreyEntry[] }) {
 
   return (
     <div className="knowledge-split prey-explorer">
-      <section className="prey-surface" aria-label="Beutetiere">
+      <section className="knowledge-surface" aria-label="Beutetiere">
         <header className="knowledge-surface-heading">
           <div>
             <span className="knowledge-eyebrow">Beute & Jäger</span>
@@ -29,12 +29,12 @@ export default function PreyExplorer({ prey }: { prey: PreyEntry[] }) {
           </div>
           <ForkKnife size={24} aria-hidden="true" />
         </header>
-        <fieldset className="prey-grid" aria-label="Beutetier wählen">
+        <fieldset className="knowledge-grid" aria-label="Beutetier wählen">
           {prey.map((item) => (
             <button
               type="button"
               key={item.key}
-              className="prey-tile"
+              className="knowledge-tile"
               aria-pressed={item.key === entry.key}
               data-related={
                 hoveredHunter
@@ -44,8 +44,8 @@ export default function PreyExplorer({ prey }: { prey: PreyEntry[] }) {
               onClick={() => setSelected(item.key)}
             >
               <PreyArt preyKey={item.key} />
-              <span className="prey-tile-name">{item.name}</span>
-              <span className="prey-tile-count">
+              <span className="knowledge-tile-name">{item.name}</span>
+              <span className="knowledge-tile-count">
                 {countLabel(item.hunters.length)}
               </span>
             </button>
@@ -92,7 +92,7 @@ function HunterGroup({
   onHover: (hunter: PreyHunter | null) => void;
 }) {
   return (
-    <div className="prey-group">
+    <div className="knowledge-group">
       <h3>{title}</h3>
       <div className="knowledge-bird-list">
         {hunters.map((hunter) => {

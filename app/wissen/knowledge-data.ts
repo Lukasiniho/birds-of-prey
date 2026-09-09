@@ -25,6 +25,27 @@ export type PreyEntry = {
   hunters: PreyHunter[];
 };
 
+export type TechniqueHunter = {
+  id: string;
+  name: string;
+  latin: string;
+  href: string;
+  portrait: string;
+  /** primary when this is the species' leading technique. */
+  importance: 'primary' | 'occasional';
+  /** Every technique this species uses, for the reverse highlight. */
+  techniques: string[];
+};
+
+export type TechniqueEntry = {
+  id: string;
+  label: string;
+  text: string;
+  /** Hunting scene of a representative species, or its portrait. */
+  image: string;
+  hunters: TechniqueHunter[];
+};
+
 export const falconryRegions = [
   {
     id: 'arabien',

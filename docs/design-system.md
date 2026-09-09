@@ -412,10 +412,10 @@ Schatten, ohne Versatz oder Sprung; Farbwechsel
 nutzen `--duration-quick`/`--duration-fast`. Reduced Motion schaltet alle
 Übergänge und Animationen der Seite ab.
 
-## Wissen: Jagdtiere
+## Wissen: Jagdtiere und Jagdtechniken
 
 Der dritte Wissen-Tab kehrt die Nahrungsangaben der Artenseiten um: links ein
-Grid aller illustrierten Beutetiere mit mindestens einem Jäger (`.prey-grid`,
+Grid aller illustrierten Beutetiere mit mindestens einem Jäger (`.knowledge-grid`,
 sortiert nach Anzahl der Arten), rechts das scrollende Panel mit den Jägern,
 getrennt nach Hauptbeute und Gelegenheitsbeute. Die Jägerzeilen teilen die
 Rolle `.knowledge-bird` mit den Beizvögeln der Falknerei-Karte; Anmerkungen zur
@@ -426,6 +426,14 @@ Kachel im Hellmodus nicht zur weißen Karte wird; `--hover` wäre dort unsichtba
 und im Dunkelmodus blaugrau statt Teal.
 Die Kachelillustrationen sind 72 px groß, eine Geometrie-Ausnahme zum 105-px-
 Rahmen der Artenseite; Daten kommen unverändert aus `lib/ecology.ts`.
+
+Der vierte Tab „Jagdtechniken“ verwendet denselben Bausatz (`.knowledge-tile`,
+`.knowledge-group`, `.knowledge-bird`), aber ein festes Raster mit fünf Spalten
+(drei unter 760 px), damit die längeren Techniknamen einzeilig bleiben: links die Techniken aus `huntingTypes`
+mit der Jagdszene einer Art, deren führende Technik es ist (sonst eine andere
+Szene, sonst Porträt), rechts Erklärtext und Arten, getrennt nach „Typische
+Technik“ (erste Jagdweise der Art) und „Ergänzend“. Hover auf eine Art markiert
+links ihre weiteren Techniken.
 
 ## Wissen: Falknerei-Weltkarte
 
