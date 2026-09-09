@@ -51,7 +51,7 @@ export default function FalconryExplorer({ species }: { species: Species[] }) {
       <SiteHeader activeSection="falknerei" />
       <main className="falconry-main page-content">
         <header className="falconry-heading">
-          <h1>Falknerei kennenlernen</h1>
+          <h1 className="page-title">Falknerei kennenlernen</h1>
           <p>Die Beizjagd, ihre Vögel und das Handwerk dahinter.</p>
         </header>
         <Tabs defaultValue="grundlagen" className="falconry-explorer">

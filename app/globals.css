@@ -3251,11 +3251,14 @@ html {
   margin: 0 auto;
   padding: clamp(48px, 10vw, 120px) 28px;
 }
-.section-placeholder h1 {
+/* Every section page shares one title so the text sits in the same spot
+ * when switching between Vögel, Wissen, Quiz and Falknerei. */
+.page-title {
   font-family: var(--font-display), Georgia, serif;
   font-size: var(--type-page-title);
   font-weight: 600;
   line-height: var(--leading-display);
+  letter-spacing: -0.02em;
 }
 .section-placeholder p {
   margin-top: var(--space-20);

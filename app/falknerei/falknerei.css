@@ -5,12 +5,6 @@
 .falconry-heading {
   margin-bottom: var(--section-gap);
 }
-.falconry-heading h1 {
-  font-family: var(--font-display), Georgia, serif;
-  font-size: var(--type-page-title);
-  font-weight: 600;
-  line-height: var(--leading-display);
-}
 .falconry-heading p {
   margin-top: var(--space-12);
   font-size: var(--type-body);
