@@ -87,6 +87,10 @@ button:not(:disabled),
 a {
   cursor: pointer;
 }
+/* Explanatory tooltip triggers read as help, not as actions. */
+button.cursor-help:not(:disabled) {
+  cursor: help;
+}
 button {
   --type-ui: var(--type-button);
   font-family: inherit;

@@ -1,5 +1,6 @@
 import { TooltipHint } from '@/components/ui/tooltip';
 import { ConservationTooltip } from '@/components/conservation-tooltip';
+import { MovementTooltip } from '@/components/movement-tooltip';
 import { conservationLabels, speciesFacts } from '@/lib/species-facts';
 
 import {
@@ -61,18 +62,14 @@ export function SpeciesFacts({ speciesId }: { speciesId: string }) {
                   key={speciesId}
                   code={facts.conservation.code}
                 />
+              ) : icon === 'compass' ? (
+                <MovementTooltip key={speciesId} fact={facts.movement} />
               ) : context ? (
                 <TooltipHint content={context}>
                   <button
                     type="button"
-                    className="cursor-help"
-                    style={{
-                      border: 0,
-                      padding: 0,
-                      background: 'transparent',
-                      font: 'inherit',
-                      color: 'inherit',
-                    }}
+                    className="cursor-help rounded-sm border-0 bg-transparent p-0 text-right font-inherit text-inherit underline decoration-dotted decoration-muted-foreground/50 underline-offset-4 focus-visible:outline-2 focus-visible:outline-offset-4 focus-visible:outline-ring"
+                    style={{ font: 'inherit', color: 'inherit' }}
                   >
                     {value}
                   </button>
