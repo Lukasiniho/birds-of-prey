@@ -780,27 +780,29 @@
   line-height: var(--leading-heading);
   overflow-wrap: anywhere;
 }
-.q-review-list button > span > small {
+.q-review-subtitle {
+  display: block;
   font-family: var(--font-display), 'Cormorant Garamond', Georgia, serif;
   font-size: var(--type-lead);
+  font-weight: 400;
   line-height: var(--leading-heading);
+  color: var(--q-muted);
   margin-top: var(--space-2);
 }
-.q-review-list small {
-  display: block;
-  color: var(--q-muted);
-  font-size: var(--type-caption);
-  font-weight: 400;
-  margin-top: var(--space-8);
-}
-.q-review-list b {
-  font-family: var(--font-display), 'Cormorant Garamond', Georgia, serif;
+.q-review-score {
+  flex-shrink: 0;
+  font-family: var(--font-body), Inter, Arial, sans-serif;
+  font-size: var(--type-lead);
+  font-weight: 600;
+  line-height: var(--leading-compact);
+  font-variant-numeric: tabular-nums;
   white-space: nowrap;
-  font-size: var(--type-body);
-  font-weight: 500;
 }
-.q-review-list b > small {
+.q-review-score > small {
   display: inline;
+  font: inherit;
+  font-weight: 400;
+  color: var(--q-muted);
 }
 .q-review-list svg {
   color: var(--q-muted);

@@ -1125,9 +1125,9 @@ function QuizResults({
                         : bird.name}
                   </strong>
                 )}
-                <small>{mode.label}</small>
+                <small className="q-review-subtitle">{mode.label}</small>
               </span>
-              <b>
+              <b className="q-review-score">
                 {answers[question.id].points}
                 <small> / 100</small>
               </b>
