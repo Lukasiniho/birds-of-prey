@@ -178,6 +178,7 @@ export default function AnatomyExplorer({
             <div className="anatomy-stage-heading">
               <div className="anatomy-stage-caption">
                 <SpeciesName
+                  variant="knowledge"
                   name={name}
                   latin={species === 0 ? 'Falco peregrinus' : 'Buteo buteo'}
                   commonAs="span"
@@ -201,7 +202,7 @@ export default function AnatomyExplorer({
                         setPinned(null);
                       }}
                     >
-                      <SpeciesCommonName>{label}</SpeciesCommonName>
+                      <SpeciesCommonName variant="knowledge">{label}</SpeciesCommonName>
                     </button>
                   ),
                 )}

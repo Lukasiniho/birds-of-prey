@@ -786,14 +786,16 @@ export default function RaptorApp({
                   <div className="range-block">
                     <h2>Verbreitung</h2>
                     <p>{bird.range}</p>
+                    {bird.ecology.status.tags.some((id) => id !== 'ausserhalb') && (
                     <div className="ecology-status">
                       <h3>Status in Deutschland</h3>
                       <div className="ecology-tags">
-                        {bird.ecology.status.tags.map((id) => (
+                        {bird.ecology.status.tags.filter((id) => id !== 'ausserhalb').map((id) => (
                           <span key={id}>{statusLabels[id]}</span>
                         ))}
                       </div>
                     </div>
+                    )}
                     <RangeMap birdId={bird.id} name={bird.name} />
                   </div>
                   <h2>Lebensraum</h2>

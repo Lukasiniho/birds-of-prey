@@ -47,11 +47,12 @@
   --type-tag: 0.8125rem;
   --type-label-heading: var(--text-lg);
   --weight-label-heading: 700;
-  --type-detail-heading: var(--type-label-heading);
+  --type-detail-heading: var(--text-xl);
   --type-feedback-title: var(--text-base);
   --type-quiz-question: var(--text-3xl);
   --type-species-common: var(--type-label-heading);
-  --type-species-quiz: var(--type-label-heading);
+  --type-species-quiz: var(--text-xl);
+  --type-species-knowledge: var(--text-xl);
   --type-lead: var(--text-lg);
   --type-label-title: var(--text-xl);
   --type-card-title: clamp(var(--text-xl), 1.125rem + 0.5vw, var(--text-2xl));
@@ -126,6 +127,10 @@
 :is(.app-shell, .q-drag-ghost) .species-common-name[data-name-variant='quiz'] {
   font-size: var(--type-species-quiz);
   font-weight: 700;
+}
+
+.app-shell .species-common-name[data-name-variant='knowledge'] {
+  font-size: var(--type-species-knowledge);
 }
 
 @theme inline {

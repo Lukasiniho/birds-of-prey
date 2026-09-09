@@ -43,7 +43,7 @@ Bevorzugt semantische Rollen verwenden:
 `.detail-panel` teilt das Padding zwischen Atlas, Anatomie und Falknerei.
 Die Atlas-Bühne bleibt ein flächiges Spaltenlayout; ihre Illustration erhält
 keinen zusätzlichen Seitenrand. Die Kopfleiste folgt auf Quiz-/Wissensseiten dem Seitenrand. Im Atlas
-richtet sie sich mit `--atlas-gutter` (8 px) an der
+richtet sie sich mit `--atlas-gutter` (12 px) an der
 linken Artenleiste aus. Gruppierungs- und Gruppenüberschriften bekommen keine
 zusätzliche horizontale Einrückung. Vogelkarten verwenden 4 px Innenabstand
 und 8 px zwischen Porträt und Name. Das Außenpadding der Artenleiste wird nur
@@ -179,3 +179,17 @@ Jede Art erscheint genau einmal, leere Klassen werden bei Suchfiltern ausgeblend
 Fehlen später beide Maße, bleibt die Art unter „Größe nicht bekannt“ auffindbar.
 Die fünf Klassen sind Navigationshilfen, keine biologische Klassifikation.
 Die Berechnung liegt in `lib/species-size.ts`.
+
+## Aktualisierte Abstimmung
+
+Die rechte Überschriftenrolle beträgt jetzt 20 px/700 und darf von der linken
+Artenliste (18 px/700) abweichen. Deutsche Namen in Quiz und Wissen verwenden
+die Varianten `quiz` und `knowledge`, beide 20 px/700. Wissenschaftliche Namen
+und die große Atlas-Titelvariante behalten ihre Größe und Gewichte. Dies ersetzt
+die oben beschriebene gemeinsame 18-px-Rolle für diese Bereiche.
+
+Der gemeinsame Atlas-Außenabstand steigt von 8 auf 12 px; Gruppierung,
+Gruppentitel und beide Seiten der Kopfleiste folgen diesem Token. Die drei
+Informationstabs bleiben mit deckendem Hintergrund beim Scrollen sichtbar.
+„Status in Deutschland“ erscheint nur mit Vorkommensangaben; der Wert
+`ausserhalb` wird mitsamt ansonsten leerem Abschnitt ausgeblendet.

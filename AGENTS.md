@@ -19,10 +19,10 @@
 - Rechte Detailüberschriften verwenden `--type-detail-heading`; spezifischere
   Selektoren und mobile Regeln dürfen nicht wieder größere Werte erzwingen.
 
-- Deutsche Artnamen im gesamten Quiz verwenden die `quiz`-Variante: 18 px und
-  Gewicht 700; wissenschaftliche Namen bleiben 16 px/600. Auch Ergebnisse,
-  Auswahlkarten und Drag-Vorschauen müssen diese Variante nutzen.
-
-- Kompakte deutsche Artnamen und rechte Abschnittstitel teilen ausnahmslos
-  `--type-label-heading` (18 px) und `--weight-label-heading` (700). Das gilt
-  auch im Quiz. Die große Atlas-Titelvariante behält ihre eigene Größe.
+- Deutsche Artnamen in Quiz und Wissen verwenden ihre expliziten Varianten
+  `quiz` bzw. `knowledge`: 20 px/700. Seitenleiste und Falknerei bleiben 18 px/700.
+  Wissenschaftliche Namen bleiben 16 px/600; die Atlas-Titelvariante bleibt groß.
+- Rechte Detailüberschriften verwenden 20 px/700, ausdrücklich unabhängig
+  von der Seitenleiste. Atlas-Außenabstände und Titelleiste verwenden 12 px.
+- Die drei Informationstabs bleiben beim Scrollen sichtbar. Deutschlandstatus
+  nur bei tatsächlichem Vorkommen anzeigen, niemals den Platzhalter „ausserhalb“.
