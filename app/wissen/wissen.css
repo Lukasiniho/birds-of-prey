@@ -295,20 +295,24 @@
   font-size: var(--type-ui);
   margin-bottom: var(--space-8);
 }
+/* The notes scroll inside the map's height instead of stretching the row. */
 .knowledge-notes {
+  position: relative;
   border-left: var(--border-structure) solid var(--border);
   min-width: 0;
+}
+.knowledge-notes-scroll {
+  position: absolute;
+  inset: 0;
+  overflow-y: auto;
+  scrollbar-width: thin;
+  scrollbar-color: var(--border) transparent;
 }
 .knowledge-notes p {
   font-size: var(--type-body);
   color: var(--muted-foreground);
   line-height: var(--leading-relaxed);
   margin-top: var(--space-12);
-}
-.falconry-region-choices button[aria-pressed='true'] {
-  color: var(--main-color);
-  background: var(--selected);
-  border-color: var(--main-color);
 }
 .falconry-map-pin:focus-visible {
   outline: 2px solid var(--ring);
@@ -397,15 +401,10 @@
 .falconry-map-pin:hover .falconry-pin-portrait {
   border-color: var(--main-color);
 }
+/* Region choices are the shared tag role; only the panel padding is local. */
 .falconry-region-choices {
-  display: flex;
-  flex-wrap: wrap;
-  gap: var(--space-8);
+  margin: 0;
   padding: 0 var(--panel-padding) var(--panel-padding);
-}
-.falconry-region-choices button {
-  border: var(--border-structure) solid var(--border);
-  border-radius: var(--radius-pill);
 }
 .falconry-world-birds {
   display: grid;
@@ -466,6 +465,10 @@
   .knowledge-notes {
     border-left: 0;
     border-top: var(--border-structure) solid var(--border);
+  }
+  .knowledge-notes-scroll {
+    position: static;
+    overflow: visible;
   }
   .knowledge-surface-heading {
     align-items: flex-start;

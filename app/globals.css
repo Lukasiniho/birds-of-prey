@@ -2941,6 +2941,7 @@ button.color-dot:not(:disabled) {
   margin: 10px 0 var(--space-16);
 }
 .ecology-tags > a,
+.ecology-tags > button,
 .ecology-tags > span {
   display: inline-flex;
   align-items: center;
@@ -2956,14 +2957,27 @@ button.color-dot:not(:disabled) {
   letter-spacing: 0.005em;
   text-decoration: none;
 }
-.ecology-tags > a {
+.ecology-tags > a,
+.ecology-tags > button {
+  cursor: pointer;
   transition:
     background 0.16s ease,
     box-shadow 0.16s ease;
 }
-.ecology-tags > a:hover {
+.ecology-tags > a:hover,
+.ecology-tags > button:hover {
   background: color-mix(in srgb, var(--ring) 23%, var(--background));
   box-shadow: 0 0 0 1px color-mix(in srgb, var(--ring) 22%, transparent);
+}
+.ecology-tags > button[aria-pressed='true'],
+.ecology-tags > button[aria-pressed='true']:hover {
+  background: var(--main-color);
+  color: var(--primary-foreground);
+  box-shadow: none;
+}
+.ecology-tags > button:focus-visible {
+  outline: 2px solid var(--ring);
+  outline-offset: 2px;
 }
 .info-panel .ecology-status .ecology-tags {
   margin-bottom: 7px;

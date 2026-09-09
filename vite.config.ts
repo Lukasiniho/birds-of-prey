@@ -40,13 +40,9 @@ export default defineConfig(async ({ command }) => {
     return {
       css: { postcss: { plugins: [tailwindcss()] } },
       plugins: [vinext()],
-      server: {
-        host: '0.0.0.0',
-        allowedHosts: ['terminal.local'],
-        ...(isCodexSeatbeltSandbox
-          ? { watch: { useFsEvents: false, usePolling: true } }
-          : {}),
-      },
+      server: isCodexSeatbeltSandbox
+        ? { watch: { useFsEvents: false, usePolling: true } }
+        : undefined,
     };
   }
   // Keep Wrangler and Miniflare state project-local. These are non-secret tool

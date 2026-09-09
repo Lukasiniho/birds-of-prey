@@ -22,7 +22,6 @@ import { falconryRegions, type KnowledgeBird } from './knowledge-data';
 const loadBasemap = createMapLoader(parseBasemap);
 // Projected through scripts/map-projection.mjs, exactly like the existing map.
 const locations: Record<string, [number, number]> = {
-  mongolei: [714.11, 116.95],
   arabien: [622.47, 192.66],
   europa: [524.44, 110.51],
   amerika: [215.89, 166.55],
@@ -41,13 +40,12 @@ const pinLocations: typeof locations = {
   europa: [515, 185],
   arabien: [610, 300],
   persien: [770, 280],
-  zentralasien: [610, 55],
-  mongolei: [780, 105],
+  zentralasien: [780, 105],
   japan: [920, 190],
 };
 
 export default function FalconryWorld({ birds }: { birds: KnowledgeBird[] }) {
-  const [selected, setSelected] = useState('mongolei');
+  const [selected, setSelected] = useState('zentralasien');
   const [base, setBase] = useState<Basemap | null>(null);
   const [failed, setFailed] = useState(false);
   const [attempt, setAttempt] = useState(0);
@@ -174,56 +172,54 @@ export default function FalconryWorld({ birds }: { birds: KnowledgeBird[] }) {
           <FalconryMapInfo region={region} />
         </div>
         <fieldset
-          className="falconry-region-choices"
+          className="ecology-tags falconry-region-choices"
           aria-label="Falknereiregion wählen"
         >
           {falconryRegions.map((item) => (
-            <Button
+            <button
+              type="button"
               key={item.id}
-              variant="ghost"
               aria-pressed={selected === item.id}
               onClick={() => setSelected(item.id)}
             >
               {item.name}
-            </Button>
+            </button>
           ))}
         </fieldset>
       </section>
-      <aside
-        className="knowledge-notes detail-panel"
-        aria-live="polite"
-        aria-atomic="true"
-      >
-        <span className="knowledge-eyebrow">{region.place}</span>
-        <h2>{region.title}</h2>
-        <div className="falconry-world-birds">
-          {region.birds.map((id) => {
-            const bird = birds.find((item) => item.id === id)!;
-            return (
-              <a href={bird.href} key={id} className="falconry-world-bird">
-                <Image
-                  src={bird.portrait}
-                  alt=""
-                  width={52}
-                  height={52}
-                  unoptimized
-                />
-                <span className="falconry-bird-name">
-                  <SpeciesName
-                    name={bird.name}
-                    latin={bird.latin}
-                    variant="sidebar"
-                    commonAs="span"
-                    scientificAs="i"
+      <aside className="knowledge-notes" aria-live="polite" aria-atomic="true">
+        <div className="knowledge-notes-scroll detail-panel">
+          <span className="knowledge-eyebrow">{region.place}</span>
+          <h2>{region.title}</h2>
+          <div className="falconry-world-birds">
+            {region.birds.map((id) => {
+              const bird = birds.find((item) => item.id === id)!;
+              return (
+                <a href={bird.href} key={id} className="falconry-world-bird">
+                  <Image
+                    src={bird.portrait}
+                    alt=""
+                    width={52}
+                    height={52}
+                    unoptimized
                   />
-                </span>
-                <ArrowUpRight size={16} aria-hidden="true" />
-              </a>
-            );
-          })}
+                  <span className="falconry-bird-name">
+                    <SpeciesName
+                      name={bird.name}
+                      latin={bird.latin}
+                      variant="sidebar"
+                      commonAs="span"
+                      scientificAs="i"
+                    />
+                  </span>
+                  <ArrowUpRight size={16} aria-hidden="true" />
+                </a>
+              );
+            })}
+          </div>
+          <p>{region.text}</p>
+          <p>{region.detail}</p>
         </div>
-        <p>{region.text}</p>
-        <p>{region.detail}</p>
       </aside>
     </div>
   );
@@ -251,22 +247,13 @@ function FalconryMapInfo({
         className="range-map-source-details"
       >
         <div className="range-map-credits">
-          <div>
-            <a href={region.source} target="_blank" rel="noreferrer">
-              {region.sourceName}
-            </a>
-          </div>
-          {'additionalSource' in region && (
-            <div>
-              <a
-                href={region.additionalSource}
-                target="_blank"
-                rel="noreferrer"
-              >
-                {region.additionalSourceName}
+          {region.sources.map((source) => (
+            <div key={source.url}>
+              <a href={source.url} target="_blank" rel="noreferrer">
+                {source.name}
               </a>
             </div>
-          )}
+          ))}
           <small>Ausgewählte Traditionen · keine Verbreitungskarte</small>
           <small>
             Basiskarte:{' '}

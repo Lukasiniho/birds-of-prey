@@ -418,8 +418,14 @@ wie die Verbreitungskarten. Markerkoordinaten entstehen mit
 Verbreitungsgebiete. Die Markergrößen (48/40/36 px) und Porträts (40/34/30 px) sind
 Geometrie-Ausnahmen für die Kartenfläche.
 
-Die Falknerei-Karte umfasst neun regionale Kapitel. Versetzte Porträts vermeiden
+Die Falknerei-Karte umfasst acht regionale Kapitel; die kasachische Adlerjagd
+in Kasachstan, Kirgisistan und der Westmongolei ist ein gemeinsames Kapitel. Versetzte Porträts vermeiden
 Überlagerungen; Verbindungslinien führen zu den geografischen Ankerpunkten.
+Das Regionsfeld rechts scrollt innerhalb der Kartenhöhe (absolut positionierter
+Inhalt), damit unter der Regionsauswahl keine Leerfläche entsteht; unter 760 px
+steht es wieder im normalen Fluss. Die Regionsauswahl unter der Karte verwendet die gemeinsame Tag-Rolle
+`.ecology-tags` als Buttons; der gewählte Eintrag ist invertiert: Hauptfarbe als
+Fläche, `--primary-foreground` als Schrift. Keine eigenen Rahmen oder Button-Varianten.
 Die Regionsnamen stehen dauerhaft in Caption-Größe unter den Porträts und
 wechseln bei Auswahl, Hover oder Tastaturfokus in die Hauptfarbe; die
 Auswahlliste darunter bleibt vollständig bedienbar.
