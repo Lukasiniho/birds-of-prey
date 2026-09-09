@@ -1,6 +1,8 @@
 .quiz-shell {
-  --q-accent: #356be5;
-  --q-accent-soft: #edf2ff;
+  --q-accent: var(--selection-border);
+  --q-accent-soft: color-mix(in srgb, var(--q-accent) 10%, var(--q-surface));
+  --selected: var(--q-accent-soft);
+  --ring: var(--q-accent);
   --q-ink: #263f50;
   --q-muted: #617888;
   --q-surface: #ffffff;
@@ -15,8 +17,6 @@
   color: var(--q-ink);
 }
 :root[data-theme='dark'] .quiz-shell {
-  --q-accent: #90b2ff;
-  --q-accent-soft: #1d2e4c;
   --q-ink: #f0f3f5;
   --q-muted: #b5c0c9;
   --q-surface: #25313b;
@@ -620,10 +620,10 @@
   box-shadow: var(--shadow-subtle);
 }
 :root[data-theme='dark'] .q-primary[data-slot] {
-  color: #14233c;
+  color: var(--background);
 }
 .q-primary[data-slot]:hover {
-  background: color-mix(in srgb, var(--q-accent), #173451 12%);
+  background: color-mix(in srgb, var(--q-accent), black 12%);
 }
 .q-primary[data-slot]:disabled {
   background: var(--q-stage);
