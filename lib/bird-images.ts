@@ -82,7 +82,7 @@ export const birdImages: Record<string, string> = {
   kaiseradler: '/birds/kaiseradler.png?v=6b9eefe91567',
   'juvenile-kaiseradler': '/birds/juvenile-kaiseradler.png?v=610fa7f70d16',
   steppenadler: '/birds/steppenadler.png?v=b8a3b719e163',
-  'juvenile-steppenadler': '/birds/juvenile-steppenadler.png?v=17c8178cc025',
+  'juvenile-steppenadler': '/birds/juvenile-steppenadler.png?v=38f355728e82',
   sekretaer: '/birds/sekretaer-20260907.png',
   andenkondor: '/birds/andenkondor-male-20260907-v3.png',
   'female-andenkondor': '/birds/andenkondor-female-20260907-v3.png',
