@@ -49,20 +49,7 @@ export function SiteHeader({
 
   return (
     <header className="topbar site-header" data-section={activeSection}>
-      <a href="/" className="site-title">
-        Die Welt der Greifvögel
-      </a>
-      <nav className="site-navigation" aria-label="Hauptnavigation">
-        {sections.map((section) => (
-          <a
-            key={section.id}
-            href={section.href}
-            aria-current={activeSection === section.id ? 'page' : undefined}
-          >
-            {section.label}
-          </a>
-        ))}
-      </nav>
+      <div className="header-brand">
       {onQueryChange && (
         <div className="search-wrap topbar-search">
           <Search size={17} />
@@ -83,6 +70,10 @@ export function SiteHeader({
           )}
         </div>
       )}
+      <a href="/" className="site-title">
+        Die Welt der Greifvögel
+      </a>
+      </div>
       <div className="header-actions">
         <Button
           variant="ghost"
@@ -102,6 +93,17 @@ export function SiteHeader({
           </span>
         </Button>
       </div>
+      <nav className="site-navigation" aria-label="Hauptnavigation">
+        {sections.map((section) => (
+          <a
+            key={section.id}
+            href={section.href}
+            aria-current={activeSection === section.id ? 'page' : undefined}
+          >
+            {section.label}
+          </a>
+        ))}
+      </nav>
     </header>
   );
 }

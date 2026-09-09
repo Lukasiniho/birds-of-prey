@@ -21,6 +21,9 @@
   --radius-card: 12px;
   --radius-surface: 20px;
   --radius-pill: 999px;
+  --radius-tab-pill: 48px;
+  --shadow-active-pill: 0 1px 2px rgb(0 0 0 / 10%),
+    0 0 0 1px color-mix(in srgb, var(--foreground) 10%, transparent);
   --border-structure: 1px;
   --border-selection: 2px;
 
@@ -50,6 +53,6 @@
 }
 
 /* The atlas header aligns with its species rail, not the editorial page gutter. */
-.site-header[data-section='birds'] {
+.site-header {
   --page-gutter: var(--atlas-gutter);
 }

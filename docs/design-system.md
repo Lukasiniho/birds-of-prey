@@ -84,11 +84,13 @@ Schatten sind zentral für hell/dunkel definiert. Keine neuen individuellen
 Kartenschatten ergänzen. Ringe zur Darstellung von Farbe, Fokus oder Markierung
 sind keine dekorative Elevation.
 
-Die aktive weiße Pille der Gefiedersteuerung (z. B. Altvogel/Jungvogel) erhält
-zusätzlich zum dezenten `--shadow-subtle` eine sichtbare 1-px-Kontur
-(24 % Vordergrundfarbe). Diese Kontur sichert den Kontrast zur hellen Schiene
-und darf bei einer Schattenbereinigung nicht entfallen. Die reinen
-Unterstrich-Tabs im Informationsbereich behalten ihre eigene Darstellung.
+Die Gefieder-Pills (Altvogel/Jungvogel, Farbmorphen) behalten den Produktionsstil:
+48 px Radius (`--radius-tab-pill`), 3 px Schienen-Innenabstand, 30 px Höhe und
+4/13 px Button-Padding. `--shadow-active-pill` kombiniert den ursprünglichen
+Schatten (0 1px 2px, Schwarz 10 %) mit einer äußeren 1-px-Kontur
+(Vordergrundfarbe 10 %). Kein zusätzlicher Border und kein generischer
+`--shadow-subtle` auf diesen Pills. Tags und reine Unterstrich-Tabs sind
+separate Rollen.
 
 ## Typografie und bewahrte Hierarchie
 
@@ -193,3 +195,8 @@ Gruppentitel und beide Seiten der Kopfleiste folgen diesem Token. Die drei
 Informationstabs bleiben mit deckendem Hintergrund beim Scrollen sichtbar.
 „Status in Deutschland“ erscheint nur mit Vorkommensangaben; der Wert
 `ausserhalb` wird mitsamt ansonsten leerem Abschnitt ausgeblendet.
+
+Die gemeinsame Kopfleiste platziert die Suche links neben dem Titel.
+Hell-Dunkel-Schalter und Navigation haben feste Grid-Spalten am rechten Rand,
+auch auf Seiten ohne Suche. Alle Seiten verwenden dafür 12 px Außenabstand
+und dieselben responsiven Zeilen und Höhen.
