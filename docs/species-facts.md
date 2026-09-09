@@ -50,10 +50,9 @@ Quellen und regionale Hinweise. `components/species-facts.tsx` stellt sie dar.
 
 ## Gestaltung und Prüfung
 
-Fünf semantische Definitionszeilen ohne eigene Karten. Lucide-Linienicons
-(16 px, Strichstärke 1,5), vorhandene Abstands- und Textrollen, Inter-Fließtext,
-Werte rechtsbündig mit Gewicht 600. Die Lebensdauer-Einordnung nutzt die
-vorhandene Caption-Rolle. Labels und Werte dürfen umbrechen. Die Tabs bleiben
+Fünf semantische Definitionszeilen ohne eigene Karten. Phosphor-Duotone-Icons
+(16 px, Original-SVG-Pfade, Teal mit 20 % Flächendeckkraft), vorhandene Abstands- und Textrollen, Inter-Fließtext,
+Werte rechtsbündig mit Gewicht 600. Die Lebensdauer-Einordnung bleibt im title-Attribut; sie erscheint nicht als Zusatzzeile. Labels und Werte dürfen umbrechen. Die Tabs bleiben
 außerhalb des Scrollbereichs fixiert. Wiederholte Eizahlen im Bruttext entfallen;
 Nestbau, Brutdauer und Aufzucht bleiben erhalten.
 
@@ -65,3 +64,7 @@ Quellen, zulässige Kategorien und die Trennung von Höchstalter/Tierhaltung.
 Nur auf `feat/species-facts` speichern. Kein Merge nach main und kein Deploy
 vor ausdrücklicher Freigabe. Der Branch-Commit trägt `[skip netlify]` und
 `[skip ci]`; es wird kein Pull Request mit automatischer Deploy Preview erstellt.
+
+Gefährdung: per Hover, Tastaturfokus oder Klick öffnet sich die IUCN-Skala
+LC–NT–VU–EN–CR–EW–EX. Die aktive Kategorie wird markiert und erklärt.
+DD und NE sind außerhalb der Skala erläutert. Escape oder Klick außerhalb schließt den Tooltip.
