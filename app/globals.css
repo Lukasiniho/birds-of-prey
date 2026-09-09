@@ -3214,8 +3214,8 @@ html {
   align-items: center;
   justify-content: center;
   height: var(--header-control-height);
-  /* Match horizontal inset to the space above and below the text line. */
-  padding: 0 max(0px, calc((var(--header-control-height) - var(--type-button) * var(--leading-normal)) / 2));
+  /* Optical inset: Inter's visible glyphs occupy less height than its line box. */
+  padding: 0 var(--space-12);
   border-radius: var(--radius-control);
   font-size: var(--type-button);
   line-height: var(--leading-normal);
