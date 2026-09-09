@@ -7,7 +7,6 @@ import { imageSource } from '@/lib/optimized-images';
 import { huntingTypes } from '@/lib/ecology';
 import { landscapes } from '@/lib/habitats';
 import { habitatImages } from '@/lib/habitat-images';
-import { createQuizRound } from '@/lib/quiz-engine';
 import './quiz.css';
 
 export const metadata: Metadata = {
@@ -37,14 +36,6 @@ export default function QuizPage() {
     }));
   return (
     <QuizExperience
-      initialQuestions={createQuizRound(
-        quizBirds,
-        Object.keys(huntingTypes),
-        habitats.map((habitat) => habitat.id),
-        {
-          seed: crypto.getRandomValues(new Uint32Array(1))[0],
-        },
-      )}
       birds={quizBirds}
       huntingTypes={huntingTypes}
       habitats={habitats}

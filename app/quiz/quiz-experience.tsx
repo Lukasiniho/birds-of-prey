@@ -5,6 +5,7 @@ import { QuizQuestionTitle } from '@/components/quiz/question-title';
 import { SpeciesName, SpeciesCommonName } from '@/components/species-name';
 import {
   useCallback,
+  useEffect,
   useLayoutEffect,
   useRef,
   useState,
@@ -1144,7 +1145,6 @@ function QuizResults({
 }
 
 export default function QuizExperience({
-  initialQuestions,
   birds,
   huntingTypes,
   habitats,
@@ -1152,9 +1152,9 @@ export default function QuizExperience({
   birds: BirdMap;
   huntingTypes: HuntingTypes;
   habitats: QuizHabitat[];
-  initialQuestions: QuizQuestion[];
 }) {
-  const [questions, setQuestions] = useState(initialQuestions);
+  const [questions, setQuestions] = useState<QuizQuestion[]>([]);
+  const ready = questions.length > 0;
   const [questionCount, setQuestionCount] = useState(8);
   const initialized = useRef(false);
   const historyKey = 'bird-quiz:last-round:v1';
@@ -1182,7 +1182,7 @@ export default function QuizExperience({
     },
     [birds, huntingTypes, habitats, questionCount],
   );
-  useLayoutEffect(() => {
+  useEffect(() => {
     if (initialized.current) return;
     initialized.current = true;
     let previous: QuizHistory | undefined;
@@ -1223,7 +1223,24 @@ export default function QuizExperience({
       observer.disconnect();
       main.style.removeProperty('--answer-bar-height');
     };
-  }, [showResults]);
+  }, [showResults, ready]);
+
+  // Static HTML and the first client render must agree. Never show a throwaway
+  // server round before selecting the browser's history-aware round.
+  if (!ready) {
+    return (
+      <div className="app-shell section-shell quiz-shell">
+        <SiteHeader activeSection="quiz" />
+        <main className="q-main page-content" ref={mainRef} aria-busy="true">
+          <div className="q-heading-row">
+            <h1>Das Greifvogel-Quiz</h1>
+          </div>
+          <p role="status">Deine Fragen werden vorbereitet …</p>
+        </main>
+      </div>
+    );
+  }
+
   const question = questions[current];
   const draft = drafts[question.id] ?? initialDraft(question, birds);
   const answer = answers[question.id];
@@ -1310,6 +1327,7 @@ export default function QuizExperience({
             onValueChange={(value) => {
               if (!value) return;
               const count = Number(value);
+              if (count === questionCount) return;
               setQuestionCount(count);
               if (!showResults) {
                 setQuestions(freshRound(quizHistory(questions), count));
