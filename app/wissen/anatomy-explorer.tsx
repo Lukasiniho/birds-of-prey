@@ -1,6 +1,6 @@
 'use client';
 
-import { SpeciesName, SpeciesCommonName } from '@/components/species-name';
+import { SpeciesName } from '@/components/species-name';
 import { useState } from 'react';
 import Image from 'next/image';
 import { SiteHeader } from '@/components/site-header';
@@ -174,7 +174,7 @@ export default function AnatomyExplorer({
             <div className="anatomy-stage-heading">
               <div className="anatomy-stage-caption">
                 <SpeciesName
-                  variant="knowledge"
+                  variant="quiz"
                   name={name}
                   latin={species === 0 ? 'Falco peregrinus' : 'Buteo buteo'}
                   commonAs="span"
@@ -182,7 +182,7 @@ export default function AnatomyExplorer({
                 />
               </div>
               <div
-                className="anatomy-species"
+                className="anatomy-species t-tabs"
                 role="group"
                 aria-label="Beispielvogel wählen"
               >
@@ -191,6 +191,7 @@ export default function AnatomyExplorer({
                     <button
                       key={label}
                       type="button"
+                      className="t-tab"
                       aria-pressed={species === index}
                       onClick={() => {
                         setSpecies(index as 0 | 1);
@@ -198,7 +199,7 @@ export default function AnatomyExplorer({
                         setPinned(null);
                       }}
                     >
-                      <SpeciesCommonName variant="knowledge">{label}</SpeciesCommonName>
+                      {label}
                     </button>
                   ),
                 )}

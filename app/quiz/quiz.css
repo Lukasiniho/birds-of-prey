@@ -1,5 +1,5 @@
 .quiz-shell {
-  --q-accent: var(--selection-border);
+  --q-accent: var(--main-color);
   --q-accent-soft: color-mix(in srgb, var(--q-accent) 10%, var(--q-surface));
   --selected: var(--q-accent-soft);
   --ring: var(--q-accent);

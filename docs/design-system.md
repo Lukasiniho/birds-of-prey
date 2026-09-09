@@ -326,3 +326,15 @@ Quiz-Start: keine Ladeanzeige und keine vorübergehende Beispielrunde. Die
 Zufallsrunde wird einmal vor dem ersten Client-Paint initialisiert. Die Auswahl
 bewertet Kandidaten linear; nur die ausgewählte Vergleichsaufgabe wird gemischt.
 Der Dokument-Scrollbereich bleibt routenübergreifend reserviert und sichtbar.
+
+
+## Gemeinsame Hauptfarbe
+
+`--main-color` ist die gemeinsame Teal-Hauptfarbe: `#487878` im Hellmodus,
+`#86aaa6` im Dunkelmodus. `--primary`, `--selection-border` und `--ring`
+sind semantische Aliase; Quiz-Akzente verwenden ebenfalls `--main-color`.
+Auswahlflächen mischen die Hauptfarbe mit der jeweiligen Oberfläche.
+
+Wissen verwendet für Artnamen und wissenschaftliche Namen `SpeciesName`
+mit `variant="quiz"`, einschließlich des direkten Textanschlusses. Die
+Artenumschaltung teilt die Sans-Serif-Pillenstile der Atlas-Steuerung.

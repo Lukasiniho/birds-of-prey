@@ -29,15 +29,17 @@
   color-scheme: light;
   --background: #fafcfd;
   --foreground: #273c4b;
-  --primary: #2c4555;
+  --main-color: #487878;
+  --primary: var(--main-color);
+  --selection-border: var(--main-color);
   --primary-foreground: #fff;
   --muted: #e7eef3;
   --muted-foreground: #708695;
   --border: #dce5eb;
-  --ring: #7292a5;
+  --ring: var(--main-color);
   --stage: #eaf1f5;
   --topbar: #fbfcfd;
-  --selected: #e4edf2;
+  --selected: color-mix(in srgb, var(--main-color) 10%, var(--background));
   --hover: #eef3f6;
   --toolbar: #fbfcfdeb;
   --shadow: #293e500d;
@@ -47,15 +49,13 @@
   color-scheme: dark;
   --background: #0b1014;
   --foreground: #e1e8ed;
-  --primary: #c2d4df;
+  --main-color: #86aaa6;
   --primary-foreground: #0b1014;
   --muted: #18232b;
   --muted-foreground: #9aafbc;
   --border: #26323b;
-  --ring: #a2c1d2;
   --stage: #070a0d;
   --topbar: #090e12;
-  --selected: #1c2c35;
   --hover: #142029;
   --toolbar: #0b1014f2;
   --shadow: #00000040;
@@ -1695,12 +1695,6 @@ button.color-dot:not(:disabled) {
 
 }
 
-:root {
-  --selection-border: #3d6565;
-}
-:root[data-theme='dark'] {
-  --selection-border: #86aaa6;
-}
 .bird-entry[data-slot] {
   border: var(--border-structure) solid transparent;
 }
@@ -2440,7 +2434,7 @@ button.color-dot:not(:disabled) {
   --tabs-bar-bg: color-mix(in srgb, var(--foreground) 6%, transparent);
   --tabs-pill-bg: var(--background);
 }
-.specimen-controls .t-tabs {
+:is(.specimen-controls .t-tabs, .anatomy-species.t-tabs) {
   height: auto;
   margin: 0;
   padding: 3px;
@@ -2450,7 +2444,7 @@ button.color-dot:not(:disabled) {
     color-mix(in srgb, var(--foreground) 9%, transparent);
   background: var(--tabs-bar-bg);
 }
-.specimen-controls .t-tabs .t-tab {
+:is(.specimen-controls .t-tabs, .anatomy-species.t-tabs) .t-tab {
   flex: 0 0 auto;
   height: 30px;
   margin: 0;
@@ -2464,14 +2458,14 @@ button.color-dot:not(:disabled) {
     Inter,
     sans-serif;
 }
-.specimen-controls .t-tabs .t-tab[aria-pressed='true'] {
+:is(.specimen-controls .t-tabs, .anatomy-species.t-tabs) .t-tab[aria-pressed='true'] {
   color: var(--tabs-text-active);
 }
-.specimen-controls .t-tabs .t-tab::after {
+:is(.specimen-controls .t-tabs, .anatomy-species.t-tabs) .t-tab::after {
   display: none;
   content: none;
 }
-.specimen-controls .t-tabs .t-tab:focus-visible {
+:is(.specimen-controls .t-tabs, .anatomy-species.t-tabs) .t-tab:focus-visible {
   outline: 2px solid var(--ring);
   outline-offset: 2px;
   box-shadow: none;
