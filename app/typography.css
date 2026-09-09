@@ -51,8 +51,8 @@
   --type-feedback-title: var(--text-base);
   --type-quiz-question: var(--text-4xl);
   --type-species-common: var(--type-label-heading);
-  --type-species-quiz: var(--text-xl);
-  --type-species-knowledge: var(--text-xl);
+  --type-species-quiz: var(--text-2xl);
+  --type-species-knowledge: var(--text-2xl);
   --type-lead: var(--text-lg);
   --type-label-title: var(--text-xl);
   --type-card-title: clamp(var(--text-xl), 1.125rem + 0.5vw, var(--text-2xl));

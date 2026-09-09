@@ -73,7 +73,7 @@ Alle Quiz-Fragentitel: `QuizQuestionTitle` und `--type-quiz-question`,
 
 Die rechte Überschriftenrolle beträgt jetzt 24 px/700 und darf von der linken
 Artenliste (18 px/700) abweichen. Deutsche Namen in Quiz und Wissen verwenden
-die Varianten `quiz` und `knowledge`, beide 20 px/700. Wissenschaftliche Namen
+die Varianten `quiz` und `knowledge`, beide 24 px/700. Wissenschaftliche Namen
 und die große Atlas-Titelvariante behalten ihre Größe und Gewichte. Dies ersetzt
 die oben beschriebene gemeinsame 18-px-Rolle für diese Bereiche.
 
@@ -85,3 +85,9 @@ Informationstabs bleiben mit deckendem Hintergrund beim Scrollen sichtbar.
 
 Die Kopfleiste endet immer mit dem Hell-Dunkel-Schalter ganz rechts; davor
 steht die Navigation. Links stehen Titel und direkt anschließend die Suche.
+
+Deutsche Artnamen in Quiz und Wissen: 24 px/700, über die gemeinsamen
+Varianten-Tokens. Die Artenliste bleibt 18 px/700. Messwertleiste: 20 px Radius
+(`--radius-surface`). Rechte Atlas-Infospalte auf Desktop: abgerundete Fläche
+mit gleichem Radius, 12 px Randabstand oben/rechts/unten auf durchgehendem
+Bühnenhintergrund. Scrollen und fixierte Tabs bleiben innerhalb dieser Fläche.

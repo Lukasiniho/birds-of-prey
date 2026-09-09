@@ -186,7 +186,7 @@ Die Berechnung liegt in `lib/species-size.ts`.
 
 Die rechte Überschriftenrolle beträgt jetzt 24 px/700 und darf von der linken
 Artenliste (18 px/700) abweichen. Deutsche Namen in Quiz und Wissen verwenden
-die Varianten `quiz` und `knowledge`, beide 20 px/700. Wissenschaftliche Namen
+die Varianten `quiz` und `knowledge`, beide 24 px/700. Wissenschaftliche Namen
 und die große Atlas-Titelvariante behalten ihre Größe und Gewichte. Dies ersetzt
 die oben beschriebene gemeinsame 18-px-Rolle für diese Bereiche.
 
@@ -214,3 +214,9 @@ Namensblock unter dem Bild. Auf schmalen Displays stehen die Karten untereinande
 Quiz-Fragenzahl: 5, 8 (Standard), 12 oder 16. Vor der ersten Antwort wählbar,
 in einer begonnenen Runde gesperrt; im Ergebnis für die nächste Runde wählbar.
 Ergebnisübersicht: 144-px-Punktekreis, kompakter Titel und kurze Zusammenfassung.
+
+Deutsche Artnamen in Quiz und Wissen: 24 px/700, über die gemeinsamen
+Varianten-Tokens. Die Artenliste bleibt 18 px/700. Messwertleiste: 20 px Radius
+(`--radius-surface`). Rechte Atlas-Infospalte auf Desktop: abgerundete Fläche
+mit gleichem Radius, 12 px Randabstand oben/rechts/unten auf durchgehendem
+Bühnenhintergrund. Scrollen und fixierte Tabs bleiben innerhalb dieser Fläche.

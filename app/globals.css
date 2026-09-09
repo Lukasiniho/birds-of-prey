@@ -1713,6 +1713,7 @@ button.color-dot:not(:disabled) {
   }
   .app-columns[data-slot] {
     height: calc(100dvh - 74px);
+    background: var(--stage);
     min-height: 0;
     overflow: hidden;
     align-items: stretch;
@@ -1738,7 +1739,11 @@ button.color-dot:not(:disabled) {
     aspect-ratio: auto;
   }
   .info-panel {
-    height: 100%;
+    height: calc(100% - 2 * var(--atlas-gutter));
+    margin: var(--atlas-gutter) var(--atlas-gutter) var(--atlas-gutter) 0;
+    border: var(--border-structure) solid var(--border);
+    border-radius: var(--radius-surface);
+    background: var(--background);
     min-height: 0;
     overflow-y: auto;
     overscroll-behavior: contain;
@@ -2132,7 +2137,7 @@ button.color-dot:not(:disabled) {
   padding: 19px var(--space-12) 21px;
   border: var(--border-structure) solid
     color-mix(in srgb, var(--foreground) 12%, transparent);
-  border-radius: var(--radius-card);
+  border-radius: var(--radius-surface);
   background: color-mix(in srgb, var(--background) 60%, transparent);
 }
 .specimen-measurements.measurements > div {
