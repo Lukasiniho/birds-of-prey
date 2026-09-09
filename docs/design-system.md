@@ -359,6 +359,16 @@ Farbfelder behalten beim Wechsel von Alter/Morphe ihre Position als React-Key.
 Ihre Hintergrundfarbe blendet über `--duration-medium` sanft über; neue Felder
 blenden ein. Reduced Motion deaktiviert diese Übergänge.
 
+## Artenfakten: erklärende Tooltips
+
+Gefährdung und Zugverhalten öffnen per Hover oder Klick ein `detail`-Tooltip
+mit Skala, aktueller Einstufung und Erklärung (`ConservationTooltip`,
+`MovementTooltip`). Das Zugverhalten ordnet die Datenwerte auf vier Stufen von
+Standvogel bis Langstreckenzieher ein und zeigt darunter die artspezifische
+Anmerkung. Auch die Lebenserwartung nutzt diesen Trigger für ihren Kontext-Hinweis. Alle
+erklärenden Trigger sind gepunktet unterstrichen und tragen `cursor-help`; die globale Pointer-Regel
+für Buttons ist dafür ausgenommen, damit der Fragezeichen-Cursor erscheint.
+
 ## Quiz: Art und Ruf erkennen
 
 Die zusätzlichen Erkennungsfragen verwenden dieselben `QuizQuestionTitle`-,
