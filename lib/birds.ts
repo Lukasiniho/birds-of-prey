@@ -1,3 +1,4 @@
+import { sizeBuckets, sizeBucketFor } from './species-size.ts';
 import { landscapes, speciesLandscapes } from './habitats.ts';
 import { birdImages } from './bird-images.ts';
 import { huntingImages } from './hunting-images.ts';
@@ -220,12 +221,12 @@ export function filterBirds(query: string) {
       .includes(term),
   );
 }
-export type GroupMode = 'genus' | 'region' | 'range' | 'habitat';
+export type GroupMode = 'genus' | 'range' | 'habitat' | 'size';
 export const groupingOptions = [
   { value: 'genus', label: 'Gattung' },
-  { value: 'region', label: 'Region' },
   { value: 'range', label: 'Verbreitung' },
   { value: 'habitat', label: 'Lebensraum' },
+  { value: 'size', label: 'Größe' },
 ];
 const genera: Record<string, string> = {
   Buteo: 'Bussarde',
@@ -238,32 +239,25 @@ const genera: Record<string, string> = {
     additionalBirds.map((b) => [b.latin.split(' ')[0], b.genusLabel]),
   ),
 };
-const regions: Record<string, string[]> = {
-  rotschwanzbussard: ['Nordamerika'],
-  habicht: ['Europa', 'Asien'],
-  maeusebussard: ['Europa', 'Asien'],
-  wanderfalke: [
-    'Europa',
-    'Asien',
-    'Afrika',
-    'Nordamerika',
-    'Südamerika',
-    'Australien',
-  ],
-  turmfalke: ['Europa', 'Asien', 'Afrika'],
-  steinadler: ['Europa', 'Asien', 'Nordamerika'],
-  seeadler: ['Europa', 'Asien'],
-  fischadler: [
-    'Europa',
-    'Asien',
-    'Afrika',
-    'Nordamerika',
-    'Südamerika',
-    'Australien',
-  ],
-  ...Object.fromEntries(additionalBirds.map((b) => [b.id, b.regions])),
-};
 export function groupBirds(list: BirdSpecies[], mode: GroupMode) {
+  if (mode === 'size') {
+    const bySize = new Map<string, BirdSpecies[]>();
+    for (const bird of list) {
+      const key = sizeBucketFor(bird)?.id ?? 'size-unknown';
+      bySize.set(key, [...(bySize.get(key) ?? []), bird]);
+    }
+    return [
+      ...sizeBuckets,
+      { id: 'size-unknown', title: 'Größe nicht bekannt' },
+    ]
+      .filter((bucket) => bySize.has(bucket.id))
+      .map((bucket) => ({
+        id: bucket.id,
+        title: bucket.title,
+        subtitle: undefined,
+        birds: bySize.get(bucket.id)!,
+      }));
+  }
   const groups = new Map<
     string,
     { title: string; subtitle?: string; birds: BirdSpecies[] }
@@ -271,17 +265,9 @@ export function groupBirds(list: BirdSpecies[], mode: GroupMode) {
   for (const bird of list) {
     const genus = bird.latin.split(' ')[0];
     const keys =
-      mode === 'region'
-        ? regions[bird.id]
-        : mode === 'habitat'
-          ? speciesLandscapes[bird.id].map((id) => landscapes[id].label)
-          : [
-              mode === 'genus'
-                ? genus
-                : mode === 'range'
-                  ? bird.range
-                  : bird.range,
-            ];
+      mode === 'habitat'
+        ? speciesLandscapes[bird.id].map((id) => landscapes[id].label)
+        : [mode === 'genus' ? genus : bird.range];
     for (const key of keys) {
       if (!groups.has(key))
         groups.set(key, {

@@ -466,6 +466,11 @@ export default function RaptorApp({
                   </SelectContent>
                 </Select>
               </div>
+              {grouping === 'size' && (
+                <p className="grouping-note">
+                  Nach Spannweite; ersatzweise Gewicht.
+                </p>
+              )}
             </div>
             <nav aria-label="Vogelarten" className="grouped-navigation">
               {groups.map((group) => (

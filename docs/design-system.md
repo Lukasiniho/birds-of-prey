@@ -84,6 +84,12 @@ Schatten sind zentral für hell/dunkel definiert. Keine neuen individuellen
 Kartenschatten ergänzen. Ringe zur Darstellung von Farbe, Fokus oder Markierung
 sind keine dekorative Elevation.
 
+Die aktive weiße Pille der Gefiedersteuerung (z. B. Altvogel/Jungvogel) erhält
+zusätzlich zum dezenten `--shadow-subtle` eine sichtbare 1-px-Kontur
+(24 % Vordergrundfarbe). Diese Kontur sichert den Kontrast zur hellen Schiene
+und darf bei einer Schattenbereinigung nicht entfallen. Die reinen
+Unterstrich-Tabs im Informationsbereich behalten ihre eigene Darstellung.
+
 ## Typografie und bewahrte Hierarchie
 
 Einheitlichkeit bedeutet gleiche Rolle, nicht gleiche Größe für alle Inhalte.
@@ -149,3 +155,27 @@ Aufgabenbereiche haben links, rechts und unten dasselbe `--panel-padding`
 am unteren Innenrand; zusätzliche Höhe wird vor der Gruppe aufgenommen, nicht
 als unterschiedlich großer Leerraum unter der letzten Antwort. Die Titelrolle
 und diese Abstände gelten vor und nach der Auswertung.
+
+## Gruppierung der Artenleiste
+
+Die Auswahl bietet Gattung, Verbreitung, Lebensraum und Größe. „Region“ entfällt
+als redundante geografische Ansicht. Verbreitung verwendet genau eine vorhandene
+Verbreitungsangabe pro Art; Lebensraum bleibt bewusst eine Mehrfachzuordnung.
+
+Größe nutzt fünf feste Navigationsklassen, aufsteigend sortiert. Grundlage ist
+der Mittelwert einer angegebenen Spannweiten-Spanne in cm oder ein expliziter
+Einzelwert. Eine bloße Obergrenze wie „bis 200“ wird nicht als Mittelwert
+interpretiert; dann wird das mittlere/angegebene Gewicht herangezogen (kg→g).
+
+| Klasse     | Spannweite      | Ersatzweise Gewicht |
+| ---------- | --------------- | ------------------- |
+| Sehr klein | <80 cm          | <300 g              |
+| Klein      | 80 bis <120 cm  | 300 bis <1.000 g    |
+| Mittelgroß | 120 bis <170 cm | 1.000 bis <2.500 g  |
+| Groß       | 170 bis <220 cm | 2.500 bis <5.000 g  |
+| Sehr groß  | ≥220 cm         | ≥5.000 g            |
+
+Jede Art erscheint genau einmal, leere Klassen werden bei Suchfiltern ausgeblendet.
+Fehlen später beide Maße, bleibt die Art unter „Größe nicht bekannt“ auffindbar.
+Die fünf Klassen sind Navigationshilfen, keine biologische Klassifikation.
+Die Berechnung liegt in `lib/species-size.ts`.

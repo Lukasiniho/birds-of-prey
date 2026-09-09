@@ -2533,6 +2533,8 @@ button.color-dot:not(:disabled) {
   box-shadow: none;
 }
 .specimen-controls .t-tabs-pill {
+  border: var(--border-structure) solid
+    color-mix(in srgb, var(--foreground) 24%, transparent);
   box-shadow: var(--shadow-subtle);
 }
 
@@ -3326,4 +3328,11 @@ button.color-dot:not(:disabled) {
   .section-placeholder {
     padding-inline: var(--space-20);
   }
+}
+
+.grouping-note {
+  font-size: var(--type-caption);
+  line-height: var(--leading-compact);
+  color: var(--muted-foreground);
+  margin: 0 0 var(--space-12);
 }
