@@ -40,6 +40,12 @@
   gap: var(--space-24);
   margin-bottom: var(--section-gap);
 }
+.q-title-controls {
+  display: flex;
+  flex-wrap: wrap;
+  align-items: center;
+  gap: var(--space-12) var(--space-24);
+}
 .q-heading-row h1,
 .q-results h1 {
   font-family: var(--font-display), Georgia, serif;
@@ -793,7 +799,7 @@
   .q-heading-row {
     gap: var(--space-12);
     flex-wrap: wrap;
-    align-items: flex-start;
+    align-items: center;
     margin-bottom: var(--section-gap);
   }
   .q-heading-row h1 {

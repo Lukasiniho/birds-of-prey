@@ -1340,10 +1340,12 @@ export default function QuizExperience({
         ) : (
           <>
             <div className="q-heading-row">
+              <div className="q-title-controls">
               <h1 ref={headingRef} tabIndex={-1}>
                 Das Greifvogel-Quiz
               </h1>
               {roundSettings}
+              </div>
               <div className="q-question-progress">
                 <p
                   className="q-progress-label"

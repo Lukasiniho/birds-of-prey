@@ -271,3 +271,7 @@ Messwertbox; die Spalte reicht bis zum inneren Boxrand. Der Button ist damit
 zwischen Trennlinie und Boxrand zentriert (Spalte Desktop 88 px).
 Unterer Fade: insgesamt 48 px, davon die letzten 20 px vollständig transparent;
 der eigentliche Übergang umfasst 28 px. Blur bleibt 2 px.
+
+Quiz-Kopf: Titel und Fragenzahl bilden eine gemeinsame Flex-Gruppe mit
+24 px Abstand und vertikaler Zentrierung; nur der Fortschritt steht am
+rechten Rand. Kein verteilender Leerraum zwischen Titel und Fragenzahl.
