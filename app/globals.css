@@ -1759,9 +1759,11 @@ button.color-dot:not(:disabled) {
     height: var(--rail-fade-height);
     z-index: 4;
     pointer-events: none;
-    background: linear-gradient(to bottom, transparent, var(--background));
-    backdrop-filter: blur(3px);
-    mask-image: linear-gradient(to bottom, transparent, black 70%);
+    background: linear-gradient(to bottom, transparent 0%,
+      color-mix(in srgb, var(--background) 15%, transparent) 45%,
+      color-mix(in srgb, var(--background) 55%, transparent) 100%);
+    backdrop-filter: blur(2px);
+    mask-image: linear-gradient(to bottom, transparent, black 100%);
   }
 
 }
@@ -2147,7 +2149,7 @@ button.color-dot:not(:disabled) {
   align-self: center;
   width: calc(100% - 56px);
   max-width: 640px;
-  margin: var(--space-8) 28px var(--space-20);
+  margin: var(--space-8) 28px 0;
   padding: var(--space-8) var(--space-12);
   border: var(--border-structure) solid
     color-mix(in srgb, var(--foreground) 12%, transparent);
@@ -2571,20 +2573,13 @@ button.color-dot:not(:disabled) {
     transform: scale(1.06);
   }
   .specimen-measurements.measurements {
-    margin: 6px 28px 22px;
+    margin: var(--space-8) 28px 0;
     padding: var(--space-8) var(--space-12);
   }
   .specimen-measurements.measurements > div > span {
     margin-bottom: 5px;
   }
-  .specimen-panel .image-credit {
-    position: absolute;
-    left: 22px;
-    right: 22px;
-    bottom: 5px;
-    margin: 0;
-    z-index: 2;
-  }
+
 }
 
 /* Colour rows share one label/swatch grid; the plumage note nests under Farben. */
@@ -3072,17 +3067,20 @@ button.color-dot:not(:disabled) {
 .specimen-measurements.measurements:has(.bird-audio) > div {
   display: grid;
   grid-template-columns: minmax(0, 1fr);
-  grid-template-rows: 20px 32px;
+  grid-template-rows: 20px minmax(32px, auto);
   align-content: start;
   align-items: center;
   justify-content: normal;
   justify-items: center;
-  row-gap: 7px;
+  row-gap: var(--space-2);
 }
 .specimen-measurements.measurements:has(.bird-audio) > div > span {
+  font-size: var(--type-ui);
+  line-height: 20px;
   margin: 0;
 }
 .specimen-measurements.measurements:has(.bird-audio) > div > p {
+  margin: 0;
   display: flex;
   align-items: baseline;
   justify-content: center;
@@ -3098,9 +3096,6 @@ button.color-dot:not(:disabled) {
 }
 .specimen-measurements.measurements > .bird-audio {
   padding-inline: var(--space-8);
-}
-.specimen-measurements.measurements > .bird-audio > span {
-  font-size: var(--type-caption);
 }
 
 .bird-audio .bird-audio-play {
@@ -3125,6 +3120,11 @@ button.color-dot:not(:disabled) {
   height: 16px;
 }
 .specimen-panel .image-credit {
+  position: static;
+  flex-shrink: 0;
+  align-self: stretch;
+  margin: 0;
+  padding: var(--space-8) var(--space-12);
   display: flex;
   flex-wrap: wrap;
   align-items: baseline;

@@ -232,7 +232,7 @@ horizontales Padding. Wissenschaftliche Quiz-Namen: 18 px, ohne oberen Abstand
 zum deutschen Namen (24 px). Andere wissenschaftliche Namensrollen bleiben bestehen.
 
 Die rechte Desktop-Infokarte hat unten einen 64-px-Verlauf zur Flächenfarbe
-mit sanft eingeblendeter 3-px-Unschärfe. Der Verlauf liegt außerhalb des
+mit sanft eingeblendeter 2-px-Unschärfe. Der Verlauf liegt außerhalb des
 Scrollinhalts, fängt keine Eingaben ab und respektiert Hell-/Dunkelmodus.
 Zusätzliches Endpadding hält den letzten Inhalt vollständig lesbar.
 
@@ -244,3 +244,12 @@ gefüllter Primärfarbe und kontrastreichem Symbol. Bild-/Audiohinweise mittig.
 
 Fragenzahl steht in derselben Titelzeile rechts vom Quiz-Titel. Dropdowns
 verwenden `--select-background`: Weiß im Hellmodus, Oberflächenfarbe im Dunkelmodus.
+
+Messwert-Rhythmus: alle drei Beschriftungen 14 px, gemeinsame 20-px-Zeile,
+2 px Abstand zur Werte-/Play-Zeile. Keine kleinere Sonderrolle für „Stimme“.
+Quellenzeile folgt der Box im normalen Layout mit identischem Padding oben
+und unten (8 px), ohne absolute Positionierung oder überlappende Außenabstände.
+
+Unterer Verlauf: transparent am Anfang, 15 % Flächenfarbe bei 45 % Höhe und
+maximal 55 % am unteren Rand. Blur 2 px, gleichmäßig über die volle Höhe
+eingeblendet. Kein deckender Abschluss.
