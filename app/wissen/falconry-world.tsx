@@ -3,8 +3,14 @@
 import { useEffect, useState } from 'react';
 import Image from 'next/image';
 import Link from 'next/link';
-import { ArrowUpRight, BookOpen, Globe2 } from 'lucide-react';
+import { ArrowUpRight, Globe, Info } from '@/components/icons';
 import { Button } from '@/components/ui/button';
+import {
+  Popover,
+  PopoverContent,
+  PopoverTrigger,
+} from '@/components/ui/popover';
+import { TooltipHint } from '@/components/ui/tooltip';
 import { SpeciesName } from '@/components/species-name';
 import { rangeBasemapUrl } from '@/lib/range-maps';
 import {
@@ -72,7 +78,7 @@ export default function FalconryWorld({ birds }: { birds: KnowledgeBird[] }) {
             <span className="knowledge-eyebrow">Mensch & Greifvogel</span>
             <h2>Eine Kunst, viele Traditionen</h2>
           </div>
-          <Globe2 size={24} aria-hidden="true" />
+          <Globe size={24} aria-hidden="true" />
         </header>
         <div className="falconry-map">
           {base ? (
@@ -166,6 +172,7 @@ export default function FalconryWorld({ birds }: { birds: KnowledgeBird[] }) {
               )}
             </output>
           )}
+          <FalconryMapInfo />
         </div>
         <fieldset
           className="falconry-region-choices"
@@ -182,31 +189,6 @@ export default function FalconryWorld({ birds }: { birds: KnowledgeBird[] }) {
             </Button>
           ))}
         </fieldset>
-        <div className="falconry-map-caption">
-          <span>Ausgewählte Traditionen · keine Verbreitungskarte</span>
-          <a
-            href="https://www.naturalearthdata.com/about/terms-of-use/"
-            target="_blank"
-            rel="noreferrer"
-          >
-            Karte: Natural Earth
-          </a>
-        </div>
-        <div className="falconry-heritage">
-          <BookOpen size={20} aria-hidden="true" />
-          <p>
-            Falknerei ist die Jagd mit einem abgetragenen, also ausgebildeten
-            Greifvogel. Sie wird von der UNESCO als immaterielles Kulturerbe
-            anerkannt.{' '}
-            <a
-              href="https://ich.unesco.org/en/RL/falconry-a-living-human-heritage-01708"
-              target="_blank"
-              rel="noreferrer"
-            >
-              Zum Kulturerbe
-            </a>
-          </p>
-        </div>
       </section>
       <aside
         className="knowledge-notes detail-panel"
@@ -269,5 +251,50 @@ export default function FalconryWorld({ birds }: { birds: KnowledgeBird[] }) {
         </Link>
       </aside>
     </div>
+  );
+}
+
+// Sources sit in the same info popover as on the distribution maps.
+function FalconryMapInfo() {
+  return (
+    <Popover>
+      <TooltipHint content="Karte, Quelle und Kulturerbe">
+        <PopoverTrigger
+          className="range-map-source"
+          aria-label="Karte, Quelle und Kulturerbe"
+        >
+          <Info size={14} aria-hidden="true" />
+        </PopoverTrigger>
+      </TooltipHint>
+      <PopoverContent
+        side="top"
+        align="start"
+        className="range-map-source-details"
+      >
+        <div className="range-map-credits">
+          <div>Ausgewählte Traditionen · keine Verbreitungskarte</div>
+          <small>
+            Basiskarte:{' '}
+            <a
+              href="https://www.naturalearthdata.com/about/terms-of-use/"
+              target="_blank"
+              rel="noreferrer"
+            >
+              Natural Earth
+            </a>
+          </small>
+          <small>
+            Falknerei ist von der UNESCO als immaterielles Kulturerbe anerkannt.{' '}
+            <a
+              href="https://ich.unesco.org/en/RL/falconry-a-living-human-heritage-01708"
+              target="_blank"
+              rel="noreferrer"
+            >
+              Zum Kulturerbe
+            </a>
+          </small>
+        </div>
+      </PopoverContent>
+    </Popover>
   );
 }

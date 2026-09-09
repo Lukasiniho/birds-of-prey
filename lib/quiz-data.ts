@@ -4,6 +4,8 @@ import { speciesById, preyCategoryById } from './ecology.ts';
 import { preyCatalog } from './diets.ts';
 import { preyFraming } from './prey-framing.ts';
 import { speciesLandscapes } from './habitats.ts';
+import { quizIdentification } from './quiz-identification.ts';
+import { birdRecordings } from './bird-recordings.ts';
 import { parseMeasurementRange, type QuizBird } from './quiz-engine.ts';
 
 /** Include species with actual ranges; do not invent bounds for “bis” or averages. */
@@ -35,6 +37,9 @@ export function buildQuizBirds(): Record<string, QuizBird> {
             id: bird.id,
             name: bird.name,
             latin: bird.latin,
+            group: bird.group,
+            identification: quizIdentification[bird.id] ?? '',
+            recording: birdRecordings[bird.id],
             image,
             portrait,
             span,

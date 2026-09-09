@@ -98,7 +98,7 @@ separate Rollen.
 ## Typografie und bewahrte Hierarchie
 
 Einheitlichkeit bedeutet gleiche Rolle, nicht gleiche Größe für alle Inhalte.
-Die große Atlas-Überschrift behält die vorherige Hierarchie: 40–64 px,
+Die große Atlas-Überschrift behält die vorherige Hierarchie: 32–48 px,
 Schriftgewicht 700; wissenschaftlicher Name halb so groß, mindestens 16 px,
 Gewicht 400.
 
@@ -154,7 +154,8 @@ Die vorhandenen Erfolgs-/Fehlerfarben berücksichtigen auch den Dunkelmodus.
 
 ## Quiz-Aufgaben
 
-Alle sieben Aufgabentypen nutzen `QuizQuestionTitle`: 32 px, Gewicht 700.
+Alle Aufgabentypen nutzen `QuizQuestionTitle`: 32 px, Gewicht 700,
+Zeilenhöhe `--leading-display` (1,1), auch bei mehrzeiligen Fragen und mobil.
 Aufgabenbereiche haben links, rechts und unten dasselbe `--panel-padding`
 (24 px Desktop, 16 px mobil). In zweispaltigen Aufgaben sitzt die Antwortgruppe
 am unteren Innenrand; zusätzliche Höhe wird vor der Gruppe aufgenommen, nicht
@@ -172,13 +173,13 @@ Gewichtsspanne oder Einzelwert), nicht nach relativen Häufigkeiten im Katalog.
 Spannweite sortiert ausschließlich innerhalb der Gewichtsklasse; lange Flügel
 stufen leichte Arten nicht hoch. Jede Art erscheint genau einmal.
 
-| Klasse | Typisches Gewicht |
-| --- | --- |
-| Sehr klein | <200 g |
-| Klein | 200 bis <600 g |
-| Mittelgroß | 600 bis <2.000 g |
-| Groß | 2.000 bis <5.000 g |
-| Sehr groß | ≥5.000 g |
+| Klasse     | Typisches Gewicht  |
+| ---------- | ------------------ |
+| Sehr klein | <200 g             |
+| Klein      | 200 bis <600 g     |
+| Mittelgroß | 600 bis <2.000 g   |
+| Groß       | 2.000 bis <5.000 g |
+| Sehr groß  | ≥5.000 g           |
 
 Habicht, Mäusebussard, Rot- und Schwarzmilan: mittelgroß. Steppenadler: groß.
 Fehlendes/unklares Gewicht: „Größe nicht bekannt“. Leere Gruppen sind unsichtbar.
@@ -327,7 +328,6 @@ Zufallsrunde wird einmal vor dem ersten Client-Paint initialisiert. Die Auswahl
 bewertet Kandidaten linear; nur die ausgewählte Vergleichsaufgabe wird gemischt.
 Der Dokument-Scrollbereich bleibt routenübergreifend reserviert und sichtbar.
 
-
 ## Gemeinsame Hauptfarbe
 
 `--main-color` ist die gemeinsame Teal-Hauptfarbe: `#487878` im Hellmodus,
@@ -339,11 +339,65 @@ Wissen verwendet für Artnamen und wissenschaftliche Namen `SpeciesName`
 mit `variant="quiz"`, einschließlich des direkten Textanschlusses. Die
 Artenumschaltung teilt die Sans-Serif-Pillenstile der Atlas-Steuerung.
 
-
 Schätzfragen: Regler und Eingabewert stehen unter dem Fragetext ohne automatischen
 oberen Flex-Abstand. Der natürliche Bereich bleibt vor der Auflösung unsichtbar
 im Layout und reserviert exakt seinen späteren Platz, auch bei Textumbruch.
 Schätzwerte: `text-5xl` (40 px)/700; aufgelöste Werte: `text-2xl` (24 px)/700.
+
+## Gemeinsame Tooltips
+
+`components/ui/tooltip.tsx` ist die zentrale, auf Nutzerwunsch angepasste
+Tooltip-Komponente für die gesamte Seite. `app/tooltips.css` gestaltet sie;
+keine eigenen Popup-Animationen oder Oberflächen in Seiten-CSS ergänzen.
+`compact` verwendet Caption-Text und automatische Breite; `detail` Body-Text
+und maximal 320 px. Beide verwenden dieselben Oberflächen- und Motion-Tokens.
+Die äußere Messfläche bleibt statisch. Nur die innere Oberfläche skaliert,
+während die separat positionierte Spitze mit dem gesamten Tooltip einblendet.
+`TooltipHint` ersetzt einfache native Titelhinweise. Der Provider liegt im Layout.
+
+Farbfelder behalten beim Wechsel von Alter/Morphe ihre Position als React-Key.
+Ihre Hintergrundfarbe blendet über `--duration-medium` sanft über; neue Felder
+blenden ein. Reduced Motion deaktiviert diese Übergänge.
+
+## Quiz: Art und Ruf erkennen
+
+Die zusätzlichen Erkennungsfragen verwenden dieselben `QuizQuestionTitle`-,
+`SpeciesName`- und Antwortgruppen-Rollen wie die Jagdfrage. Vor der Auflösung
+bleiben Name und beim Rufquiz auch Vogelbild verborgen. Der Audio-Player nutzt
+die gemeinsame Hauptfarbe, Button-Typografie und Abstandstokens; die Quellen
+bleiben in einem per Klick bedienbaren Popover mit zentralem `TooltipHint`.
+Die bestehende Fragenzahl-Auswahl, Ergebnis-Typografie und feste Fußleiste gelten
+auch für diese Aufgaben. Die übrigen Atlas- und Wissen-Styles bleiben auf main-Stand.
+
+## Einheitliche Icons
+
+Alle Icons verwenden die Familie Phosphor aus `components/icons.tsx` und dem
+Paket `@phosphor-icons/react`. Die zentrale Komponente wählt pro Motiv den Schnitt:
+
+- `regular` für Bedienelemente: Pfeile, Chevrons, Drag-Griffe, Plus/Minus,
+  Schließen, Menü, Vergrößern, Laden, Häkchen und allgemeine Statushinweise.
+- `duotone` ausdrücklich für Suche, Hell-Dunkel-Schalter, Play/Pause und den
+  Standort im Quiz. Inhaltliche Fakten- und Quizmotive behalten ebenfalls Duotone.
+
+Standardgröße 24 px; bestehende Größenklassen und CSS-Rollen bleiben wirksam.
+Einzelimporte der SSR-Varianten funktionieren auch in Server Components ohne
+Context-Provider. Nur verwendete Icons gelangen in den Produktionsbuild.
+
+Die Artenfakten behalten ihre fünf Motive, 16 px Größe und Teal-Hauptfarbe.
+Andere Icons erben die bestehende semantische Textfarbe, einschließlich
+Erfolg/Fehler und kontrastierender Icons auf gefüllten Buttons. Die zweite Fläche
+von Duotone verwendet Phosphors 20 % Deckkraft. Keine zweite Icon-Familie ergänzen.
+
+Select-, Combobox- und Dropdown-Menüs zeigen keine Auswahlhäkchen. Die frühere
+Häkchenspalte entfällt. Ausgewählte Einträge behalten ihre ARIA-Zustände und
+werden über die bestehende Auswahlfläche hervorgehoben; App-Select verwendet
+zusätzlich die Teal-Textfarbe. Tastaturfokus und Auswahl bleiben getrennte Zustände.
+Eigenständige Checkboxen und Quiz-Rückmeldungen behalten ihr Regular-Häkchen.
+
+Auf ausdrücklichen Nutzerwunsch gelten diese Anpassungen auch in `components/ui`;
+das übrige Verhalten der Vorlage bleibt erhalten. `components.json` verwendet
+`phosphor` für künftig ergänzte Primitiven, deren Icons ebenfalls über die zentrale
+Komponente einzubinden sind. Die Kartengrafik bleibt eine fachliche SVG-Visualisierung.
 
 ## Wissen: Flugkunst und Falknerei-Weltkarte
 
@@ -370,3 +424,6 @@ Die Falknerei-Karte umfasst neun regionale Kapitel. Versetzte Porträts vermeide
 Überlagerungen; Verbindungslinien führen zu den geografischen Ankerpunkten.
 Beschriftungen erscheinen bei Auswahl, Hover oder Tastaturfokus; auf schmalen
 Ansichten stehen die Regionsnamen in der vollständig bedienbaren Auswahlliste.
+Kartenquelle und UNESCO-Hinweis liegen wie bei den Verbreitungskarten im
+`range-map-source`-Info-Popover unten links in der Karte; es gibt keine eigene
+Fußzeile unter der Karte.

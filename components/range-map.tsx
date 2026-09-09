@@ -1,7 +1,7 @@
 'use client';
 
 import { useEffect, useId, useState } from 'react';
-import { Expand, Info, X } from 'lucide-react';
+import { CornersOut as Expand, Info, X } from '@/components/icons';
 import { Button } from '@/components/ui/button';
 import {
   Popover,
@@ -120,7 +120,6 @@ function MapSourceInfo({ entry }: { entry: RangeMapEntry }) {
       <PopoverTrigger
         className="range-map-source"
         aria-label="Kartenquellen und Lizenz"
-        title="Kartenquellen und Lizenz"
       >
         <Info size={14} aria-hidden="true" />
       </PopoverTrigger>

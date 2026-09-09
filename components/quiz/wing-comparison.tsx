@@ -3,7 +3,11 @@
 import { QuizQuestionTitle } from '@/components/quiz/question-title';
 import { SpeciesName } from '@/components/species-name';
 import Image from 'next/image';
-import { ArrowLeftRight, Check, X } from 'lucide-react';
+import {
+  ArrowsLeftRight as ArrowLeftRight,
+  Check,
+  X,
+} from '@/components/icons';
 import type { QuizBird, QuizQuestion } from '@/lib/quiz-engine';
 import './new-questions.css';
 

@@ -51,3 +51,19 @@
 
 - Gemeinsamer Seitentitel: „Greifvogelkompass“. Das mobile Navigationsmenü
   bleibt nicht-modal, damit Scroll-Lock die Kopfzeile nicht verschiebt.
+
+## Icons
+
+- Alle Icons kommen aus `components/icons.tsx`: ausschließlich Phosphor.
+- Bedienelemente (Pfeile, Chevrons, Drag-Griffe, Plus/Minus, Schließen, Menü,
+  Vergrößern, Laden und Häkchen) verwenden `regular`.
+- Suche, Hell-Dunkel-Schalter, Play/Pause und Quiz-Standort verwenden ausdrücklich
+  `duotone`. Inhaltliche Fakten- und Quizmotive behalten ihre Duotone-Akzente.
+- Select-, Combobox- und Dropdown-Menüs zeigen keine Auswahlhäkchen und reservieren
+  dafür keine Spalte. Der gewählte Eintrag bleibt über Farbe und ARIA erkennbar.
+- Neue Icons dort aus dem offiziellen `@phosphor-icons/react`-Paket ergänzen;
+  keine zweite Icon-Bibliothek oder kopierte SVG-Icon-Pfade einführen.
+- Dies gilt ausdrücklich auch für `components/ui`: Die Icon-Imports dürfen
+  angepasst werden; Verhalten, Layout und Typografie der Primitiven bleiben erhalten.
+- Größen und semantische Farben über vorhandene Rollen bewahren. Keine
+  Stroke-/Fill-Overrides für die gefüllten Phosphor-Pfade verwenden.

@@ -2,13 +2,13 @@
 
 import { useState, useSyncExternalStore } from 'react';
 import {
+  ArrowCounterClockwise,
+  ArrowRight,
   CircleDashed,
-  MoveRight,
   Pause,
   Play,
-  RotateCcw,
   Wind,
-} from 'lucide-react';
+} from '@/components/icons';
 import { Button } from '@/components/ui/button';
 import { SpeciesName } from '@/components/species-name';
 import {
@@ -74,7 +74,7 @@ export default function FlightExplorer({ birds }: { birds: KnowledgeBird[] }) {
             onClick={() => setRestart((value) => value + 1)}
             aria-label="Animation von vorn beginnen"
           >
-            <RotateCcw aria-hidden="true" />
+            <ArrowCounterClockwise aria-hidden="true" />
           </Button>
           <span>
             Schematische Bewegung · keine maßstabsgetreue Flugsimulation
@@ -88,7 +88,7 @@ export default function FlightExplorer({ birds }: { birds: KnowledgeBird[] }) {
           aria-label="Flugweise auswählen"
         >
           {flightModes.map((item, index) => {
-            const Icon = [CircleDashed, MoveRight, Wind, MoveRight][index];
+            const Icon = [CircleDashed, ArrowRight, Wind, ArrowRight][index];
             return (
               <button
                 key={item.id}

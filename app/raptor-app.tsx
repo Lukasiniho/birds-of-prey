@@ -5,7 +5,7 @@ import { useEffect, useLayoutEffect, useRef, useState } from 'react';
 import Image from 'next/image';
 import { BirdAudio, BirdAudioCredit } from '@/components/bird-audio';
 import { birdHref, birdForPath } from '@/lib/bird-routes';
-import { Feather } from 'lucide-react';
+import { Feather, CaretDown } from '@/components/icons';
 import { SiteHeader } from '@/components/site-header';
 import { Button } from '@/components/ui/button';
 import {
@@ -51,6 +51,7 @@ import { preyCatalog, type PreyExample } from '@/lib/diets';
 import { PreyArt } from '@/components/prey-art';
 import { imageSource } from '@/lib/optimized-images.ts';
 import { loadImage } from '@/lib/image-loader';
+import { SpeciesFacts } from '@/components/species-facts';
 import { speciesProfiles } from '@/lib/species-profiles';
 import { RangeMap } from '@/components/range-map';
 import {
@@ -292,8 +293,9 @@ function ColorRow({
     <div className="body-color-row">
       <span>{label}</span>
       <div className="swatch-row">
-        {colors.map(([name, color]) => (
-          <Tooltip key={name}>
+        {/* Stable slots let CSS blend colors instead of remounting each dot. */}
+        {colors.map(([name, color], index) => (
+          <Tooltip key={index}>
             <TooltipTrigger
               className="color-dot"
               aria-label={`${label}: ${name}${note ? '. ' + note : ''}`}
@@ -689,6 +691,7 @@ export default function RaptorApp({
               </TabsList>
               <div className="info-scroll detail-panel">
               <TabsContent value="profil" className="info-tab-content">
+                <SpeciesFacts speciesId={bird.id} />
                 <section className="profile-section">
                   <h2>Erkennungsmerkmale</h2>
                   <p>{speciesProfiles[bird.id].identification}</p>
@@ -730,9 +733,7 @@ export default function RaptorApp({
                           onClick={() => setHintOpen(!hintOpen)}
                         >
                           <span className="t-acc-chevron" aria-hidden="true">
-                            <svg viewBox="0 0 16 16">
-                              <path d="M4 6.5L8 10.5L12 6.5" />
-                            </svg>
+                            <CaretDown />
                           </span>
                           Hinweis zu den Farbformen
                         </button>

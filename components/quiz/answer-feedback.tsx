@@ -1,5 +1,5 @@
 import type { ReactNode } from 'react';
-import { Check, X } from 'lucide-react';
+import { Check, X } from '@/components/icons';
 import './answer-feedback.css';
 
 type QuizFeedbackProps = {
@@ -24,7 +24,7 @@ export function QuizFeedback({ points, children }: QuizFeedbackProps) {
       aria-atomic="true"
     >
       <span className="q-feedback-icon" aria-hidden="true">
-        <Icon size={24} strokeWidth={1.75} />
+        <Icon size={24} />
       </span>
       <div className="q-feedback-copy">
         <p className="q-feedback-title">{title}</p>

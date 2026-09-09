@@ -1,7 +1,7 @@
 'use client';
 
 import { useSyncExternalStore } from 'react';
-import { Bird, Globe2, Scan } from 'lucide-react';
+import { Bird, Globe, Scan } from '@/components/icons';
 import { SiteHeader } from '@/components/site-header';
 import { Tabs, TabsContent, TabsList, TabsTrigger } from '@/components/ui/tabs';
 import AnatomyExplorer from './anatomy-explorer';
@@ -12,7 +12,7 @@ import type { KnowledgeBird } from './knowledge-data';
 const sections = [
   { id: 'koerperbau', label: 'Körperbau', icon: Scan },
   { id: 'flugkunst', label: 'Flugkunst', icon: Bird },
-  { id: 'falknerei', label: 'Falknerei', icon: Globe2 },
+  { id: 'falknerei', label: 'Falknerei', icon: Globe },
 ];
 
 export default function KnowledgeExplorer({
