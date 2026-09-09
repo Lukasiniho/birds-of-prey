@@ -1754,7 +1754,7 @@ button.color-dot:not(:disabled) {
     scrollbar-color: var(--border) transparent;
     padding-bottom: calc(var(--panel-padding) + var(--rail-fade-height));
     mask-image: linear-gradient(to bottom, black calc(100% - var(--rail-fade-height)),
-      transparent calc(100% - var(--space-8)));
+      transparent calc(100% - var(--rail-fade-clear)));
   }
   .info-panel::after {
     content: '';
@@ -3062,7 +3062,8 @@ button.color-dot:not(:disabled) {
 
 /* Measurements and voice share the same label and value alignment. */
 .specimen-measurements.measurements:has(.bird-audio) {
-  grid-template-columns: minmax(0, 1fr) minmax(0, 1.2fr) 76px;
+  grid-template-columns: minmax(0, 1fr) minmax(0, 1.2fr) 88px;
+  padding-inline: 0;
   align-items: stretch;
   container-type: inline-size;
 }
@@ -3166,9 +3167,7 @@ button.color-dot:not(:disabled) {
 }
 
 @media (max-width: 760px) {
-  .specimen-measurements.measurements:has(.bird-audio) {
-    padding-inline: 5px;
-  }
+
   .specimen-measurements.measurements:has(.bird-audio) > div {
     padding-inline: 7px;
   }
