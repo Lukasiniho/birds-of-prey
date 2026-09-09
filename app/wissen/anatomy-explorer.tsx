@@ -3,7 +3,6 @@
 import { SpeciesName } from '@/components/species-name';
 import { useState } from 'react';
 import Image from 'next/image';
-import { SiteHeader } from '@/components/site-header';
 import {
   Tooltip,
   TooltipContent,
@@ -146,161 +145,143 @@ export default function AnatomyExplorer({
   const name = species === 0 ? 'Wanderfalke' : 'Mäusebussard';
 
   return (
-    <div className="app-shell section-shell knowledge-shell">
-      <SiteHeader activeSection="wissen" />
-      <main className="knowledge-main page-content">
-        <header className="knowledge-heading">
-          <div>
-            <h1>Greifvögel verstehen</h1>
+    <div className="anatomy-layout">
+      <section
+        className="anatomy-stage"
+        aria-label={`Körperbau des ${name === 'Wanderfalke' ? 'Wanderfalken' : 'Mäusebussards'}`}
+        onPointerDown={(event) => {
+          if (!(event.target as HTMLElement).closest('button')) {
+            setPinned(null);
+            setOpen(null);
+          }
+        }}
+        onKeyDown={(event) => {
+          if (event.key === 'Escape') {
+            setPinned(null);
+            setOpen(null);
+          }
+        }}
+      >
+        <div className="anatomy-stage-heading">
+          <div className="anatomy-stage-caption">
+            <SpeciesName
+              variant="quiz"
+              name={name}
+              latin={species === 0 ? 'Falco peregrinus' : 'Buteo buteo'}
+              commonAs="span"
+              scientificAs="i"
+            />
           </div>
-        </header>
-        <div className="anatomy-layout">
-          <section
-            className="anatomy-stage"
-            aria-label={`Körperbau des ${name === 'Wanderfalke' ? 'Wanderfalken' : 'Mäusebussards'}`}
-            onPointerDown={(event) => {
-              if (!(event.target as HTMLElement).closest('button')) {
-                setPinned(null);
-                setOpen(null);
-              }
-            }}
-            onKeyDown={(event) => {
-              if (event.key === 'Escape') {
-                setPinned(null);
-                setOpen(null);
-              }
-            }}
+          <div
+            className="anatomy-species t-tabs"
+            role="group"
+            aria-label="Beispielvogel wählen"
           >
-            <div className="anatomy-stage-heading">
-              <div className="anatomy-stage-caption">
-                <SpeciesName
-                  variant="quiz"
-                  name={name}
-                  latin={species === 0 ? 'Falco peregrinus' : 'Buteo buteo'}
-                  commonAs="span"
-                  scientificAs="i"
-                />
-              </div>
-              <div
-                className="anatomy-species t-tabs"
-                role="group"
-                aria-label="Beispielvogel wählen"
+            {(['Wanderfalke', 'Mäusebussard'] as const).map((label, index) => (
+              <button
+                key={label}
+                type="button"
+                className="t-tab"
+                aria-pressed={species === index}
+                onClick={() => {
+                  setSpecies(index as 0 | 1);
+                  setOpen(null);
+                  setPinned(null);
+                }}
               >
-                {(['Wanderfalke', 'Mäusebussard'] as const).map(
-                  (label, index) => (
-                    <button
-                      key={label}
-                      type="button"
-                      className="t-tab"
-                      aria-pressed={species === index}
-                      onClick={() => {
-                        setSpecies(index as 0 | 1);
-                        setOpen(null);
-                        setPinned(null);
-                      }}
-                    >
-                      {label}
-                    </button>
-                  ),
-                )}
-              </div>
-            </div>
-            <div className="anatomy-canvas">
-              <Image
-                className="anatomy-bird"
-                src={images[species]}
-                alt={`${name} im Flug, von schräg unten mit ausgebreiteten Flügeln`}
-                width={1400}
-                height={1400}
-                unoptimized
-                priority
-                draggable={false}
-              />
-              <TooltipProvider delay={80}>
-                {parts.map((part) => (
-                  <Tooltip
-                    key={`${species}-${part.id}`}
-                    triggerId={`anatomy-${species}-${part.id}`}
-                    open={(pinned ?? open) === part.id}
-                    onOpenChange={(nextOpen, details) => {
-                      if (nextOpen && pinned !== part.id) setPinned(null);
-                      if (
-                        details.reason === 'escape-key' ||
-                        details.reason === 'outside-press'
-                      )
-                        setPinned(null);
-                      setOpen((current) =>
-                        nextOpen
-                          ? part.id
-                          : current === part.id
-                            ? null
-                            : current,
-                      );
-                    }}
-                  >
-                    <TooltipTrigger
-                      id={`anatomy-${species}-${part.id}`}
-                      closeOnClick={false}
-                      className="anatomy-point"
-                      style={{
-                        left: `${part.positions[species][0]}%`,
-                        top: `${part.positions[species][1]}%`,
-                      }}
-                      aria-label={part.name}
-                      aria-pressed={selected === part.id}
-                      onClick={() => {
-                        setSelected(part.id);
-                        setPinned(pinned === part.id ? null : part.id);
-                        setOpen(null);
-                      }}
-                    >
-                      <span className="anatomy-point-core" />
-                    </TooltipTrigger>
-                    <TooltipContent className="anatomy-tooltip" sideOffset={8}>
-                      <span>
-                        <strong>{part.name}</strong>
-                        <span>{part.text}</span>
-                      </span>
-                    </TooltipContent>
-                  </Tooltip>
-                ))}
-              </TooltipProvider>
-            </div>
-          </section>
-          <aside
-            className="anatomy-notes detail-panel"
-            aria-label="Körperteile entdecken"
-          >
-            <div className="anatomy-notes-heading">
-              <h2>Der Körperbau</h2>
-            </div>
-            <p className="anatomy-notes-intro">
-              Jedes Detail hat eine Aufgabe.
-            </p>
-            <div
-              className="anatomy-part-list"
-              role="group"
-              aria-label="Körperteil wählen"
-            >
-              {parts.map((part) => (
-                <button
-                  type="button"
-                  key={part.id}
+                {label}
+              </button>
+            ))}
+          </div>
+        </div>
+        <div className="anatomy-canvas">
+          <Image
+            className="anatomy-bird"
+            src={images[species]}
+            alt={`${name} im Flug, von schräg unten mit ausgebreiteten Flügeln`}
+            width={1400}
+            height={1400}
+            unoptimized
+            priority
+            draggable={false}
+          />
+          <TooltipProvider delay={80}>
+            {parts.map((part) => (
+              <Tooltip
+                key={`${species}-${part.id}`}
+                triggerId={`anatomy-${species}-${part.id}`}
+                open={(pinned ?? open) === part.id}
+                onOpenChange={(nextOpen, details) => {
+                  if (nextOpen && pinned !== part.id) setPinned(null);
+                  if (
+                    details.reason === 'escape-key' ||
+                    details.reason === 'outside-press'
+                  )
+                    setPinned(null);
+                  setOpen((current) =>
+                    nextOpen ? part.id : current === part.id ? null : current,
+                  );
+                }}
+              >
+                <TooltipTrigger
+                  id={`anatomy-${species}-${part.id}`}
+                  closeOnClick={false}
+                  className="anatomy-point"
+                  style={{
+                    left: `${part.positions[species][0]}%`,
+                    top: `${part.positions[species][1]}%`,
+                  }}
+                  aria-label={part.name}
                   aria-pressed={selected === part.id}
                   onClick={() => {
                     setSelected(part.id);
-                    setPinned(part.id);
+                    setPinned(pinned === part.id ? null : part.id);
                     setOpen(null);
                   }}
                 >
-                  <span className="anatomy-list-dot" />
-                  {part.name}
-                </button>
-              ))}
-            </div>
-          </aside>
+                  <span className="anatomy-point-core" />
+                </TooltipTrigger>
+                <TooltipContent className="anatomy-tooltip" sideOffset={8}>
+                  <span>
+                    <strong>{part.name}</strong>
+                    <span>{part.text}</span>
+                  </span>
+                </TooltipContent>
+              </Tooltip>
+            ))}
+          </TooltipProvider>
         </div>
-      </main>
+      </section>
+      <aside
+        className="anatomy-notes detail-panel"
+        aria-label="Körperteile entdecken"
+      >
+        <div className="anatomy-notes-heading">
+          <h2>Der Körperbau</h2>
+        </div>
+        <p className="anatomy-notes-intro">Jedes Detail hat eine Aufgabe.</p>
+        <div
+          className="anatomy-part-list"
+          role="group"
+          aria-label="Körperteil wählen"
+        >
+          {parts.map((part) => (
+            <button
+              type="button"
+              key={part.id}
+              aria-pressed={selected === part.id}
+              onClick={() => {
+                setSelected(part.id);
+                setPinned(part.id);
+                setOpen(null);
+              }}
+            >
+              <span className="anatomy-list-dot" />
+              {part.name}
+            </button>
+          ))}
+        </div>
+      </aside>
     </div>
   );
 }

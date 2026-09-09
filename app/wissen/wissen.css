@@ -267,3 +267,425 @@
     padding: var(--space-16);
   }
 }
+
+/* Knowledge topics share the established surface, typography and Teal tokens. */
+.knowledge-explorer[data-slot='tabs'] {
+  gap: var(--space-24);
+}
+.knowledge-tabs[data-slot='tabs-list'] {
+  background: var(--hover);
+  height: auto;
+  max-width: 100%;
+  padding: var(--space-4);
+  border-radius: var(--radius-pill);
+  gap: var(--space-4);
+}
+.knowledge-tabs [data-slot='tabs-trigger'] {
+  color: var(--muted-foreground);
+  border-radius: var(--radius-pill);
+  padding: var(--space-8) var(--space-20);
+  font-size: var(--type-button);
+  gap: var(--space-8);
+  height: auto;
+}
+.knowledge-tabs [data-slot='tabs-trigger'][data-active] {
+  background: var(--background);
+  color: var(--foreground);
+  box-shadow: var(--shadow-active-pill);
+}
+.knowledge-split {
+  display: grid;
+  grid-template-columns: minmax(0, 1fr) 350px;
+  border: var(--border-structure) solid var(--border);
+  border-radius: var(--radius-surface);
+  overflow: hidden;
+}
+.flight-surface,
+.falconry-map-surface {
+  background: var(--stage);
+  min-width: 0;
+}
+.knowledge-surface-heading {
+  display: flex;
+  align-items: center;
+  justify-content: space-between;
+  gap: var(--space-16);
+  padding: var(--panel-padding);
+}
+.knowledge-surface-heading h2,
+.knowledge-notes h2 {
+  font-size: var(--type-detail-heading);
+  font-weight: var(--weight-label-heading);
+  line-height: var(--leading-heading);
+}
+.knowledge-eyebrow {
+  display: block;
+  color: var(--muted-foreground);
+  font-size: var(--type-ui);
+  margin-bottom: var(--space-8);
+}
+.knowledge-tag {
+  font-size: var(--type-tag);
+  padding: var(--space-4) var(--space-12);
+  background: var(--selected);
+  color: var(--main-color);
+  border-radius: var(--radius-pill);
+  white-space: nowrap;
+}
+.knowledge-notes {
+  border-left: var(--border-structure) solid var(--border);
+  min-width: 0;
+}
+.knowledge-notes p {
+  font-size: var(--type-body);
+  color: var(--muted-foreground);
+  line-height: var(--leading-relaxed);
+  margin-top: var(--space-12);
+}
+.knowledge-choice-list {
+  display: grid;
+  grid-template-columns: 1fr 1fr;
+  gap: var(--space-8);
+  margin: var(--space-24) 0;
+}
+.knowledge-choice-list button {
+  display: flex;
+  align-items: center;
+  gap: var(--space-8);
+  padding: var(--space-12);
+  border-radius: var(--radius-control);
+  border: var(--border-structure) solid var(--border);
+  font-size: var(--type-button);
+  color: var(--muted-foreground);
+  text-align: left;
+}
+.knowledge-choice-list button:hover {
+  background: var(--hover);
+}
+.knowledge-choice-list button[aria-pressed='true'],
+.falconry-region-choices button[aria-pressed='true'] {
+  color: var(--main-color);
+  background: var(--selected);
+  border-color: var(--main-color);
+}
+.knowledge-choice-list button:focus-visible,
+.falconry-map-pin:focus-visible {
+  outline: 2px solid var(--ring);
+  outline-offset: 4px;
+}
+.knowledge-description h3 {
+  font-size: var(--type-lead);
+  font-weight: var(--weight-label-heading);
+  line-height: var(--leading-heading);
+}
+.flight-stage {
+  position: relative;
+  width: 100%;
+  height: 420px;
+}
+.flight-stage canvas {
+  display: block;
+  width: 100%;
+  height: 100%;
+}
+.flight-toolbar {
+  display: flex;
+  gap: var(--space-8);
+  align-items: center;
+  padding: var(--panel-padding);
+  flex-wrap: wrap;
+}
+.flight-toolbar > span {
+  margin-left: auto;
+  max-width: 260px;
+  color: var(--muted-foreground);
+  font-size: var(--type-caption);
+  text-align: right;
+}
+.flight-fallback {
+  position: absolute;
+  inset: 0;
+  display: flex;
+  flex-direction: column;
+  align-items: center;
+  justify-content: center;
+  padding: var(--panel-padding);
+  gap: var(--space-12);
+}
+.flight-fallback img {
+  width: 65%;
+  max-height: 300px;
+  object-fit: contain;
+  filter: brightness(0);
+  opacity: 0.65;
+}
+:root[data-theme='dark'] .flight-fallback img {
+  filter: brightness(0) invert(1);
+}
+.flight-fallback output {
+  font-size: var(--type-ui);
+  color: var(--muted-foreground);
+  text-align: center;
+}
+.flight-facts {
+  display: grid;
+  gap: var(--space-12);
+  margin: var(--space-24) 0;
+}
+.flight-facts > div {
+  display: grid;
+  grid-template-columns: 1fr 1fr;
+  gap: var(--space-12);
+  font-size: var(--type-ui);
+}
+.flight-facts dt {
+  color: var(--muted-foreground);
+}
+.flight-facts dd {
+  text-align: right;
+}
+.knowledge-observe {
+  border-left: var(--border-selection) solid var(--main-color);
+  padding-left: var(--space-16);
+  margin: var(--space-24) 0;
+}
+.knowledge-text-link {
+  display: inline-block;
+  font-size: var(--type-ui);
+  color: var(--main-color);
+  margin-top: var(--space-16);
+  text-decoration: underline;
+  text-underline-offset: 4px;
+}
+.knowledge-source {
+  display: flex;
+  gap: var(--space-8);
+  align-items: center;
+  font-size: var(--type-caption);
+  color: var(--muted-foreground);
+  margin-top: var(--space-24);
+}
+.knowledge-source:hover {
+  color: var(--main-color);
+}
+.falconry-map {
+  position: relative;
+  width: 100%;
+  aspect-ratio: 1000 / 540;
+}
+.falconry-basemap {
+  width: 100%;
+  height: 100%;
+  display: block;
+}
+.falconry-basemap path {
+  fill: color-mix(in srgb, var(--main-color) 13%, var(--stage));
+  stroke: color-mix(in srgb, var(--main-color) 30%, var(--stage));
+  stroke-width: 0.55px;
+}
+/* Map marker dimensions and coordinates are cartographic geometry, not spacing roles. */
+.falconry-map-pin {
+  position: absolute;
+  transform: translate(-50%, -50%);
+  width: 48px;
+  height: 48px;
+  border-radius: 50%;
+  z-index: 1;
+}
+.falconry-pin-portrait {
+  display: grid;
+  place-items: center;
+  width: 100%;
+  height: 100%;
+  border: 2px solid var(--border);
+  border-radius: 50%;
+  background: var(--background);
+  transition:
+    border-color 180ms,
+    box-shadow 180ms;
+}
+.falconry-pin-portrait img {
+  width: 40px;
+  height: 40px;
+  object-fit: contain;
+}
+.falconry-pin-label {
+  position: absolute;
+  top: calc(100% + 6px);
+  left: 50%;
+  transform: translateX(-50%);
+  background: var(--background);
+  border-radius: var(--radius-small);
+  padding: var(--space-2) var(--space-8);
+  font-size: var(--type-ui);
+  white-space: nowrap;
+}
+.falconry-map-pin[aria-pressed='true'] {
+  z-index: 2;
+}
+.falconry-map-pin[aria-pressed='true'] .falconry-pin-portrait {
+  border-color: var(--main-color);
+  box-shadow: 0 0 0 6px color-mix(in srgb, var(--main-color) 16%, transparent);
+}
+.falconry-map-pin[aria-pressed='true'] .falconry-pin-label {
+  color: var(--main-color);
+}
+.falconry-map-pin:hover .falconry-pin-portrait {
+  border-color: var(--main-color);
+}
+.falconry-region-choices {
+  display: flex;
+  flex-wrap: wrap;
+  gap: var(--space-8);
+  padding: 0 var(--panel-padding);
+}
+.falconry-region-choices button {
+  border: var(--border-structure) solid var(--border);
+  border-radius: var(--radius-pill);
+}
+.falconry-map-caption {
+  display: flex;
+  justify-content: space-between;
+  flex-wrap: wrap;
+  gap: var(--space-8);
+  padding: var(--space-16) var(--panel-padding);
+  font-size: var(--type-caption);
+  color: var(--muted-foreground);
+}
+.falconry-map-caption a,
+.falconry-heritage a {
+  text-decoration: underline;
+  text-underline-offset: 3px;
+}
+.falconry-heritage {
+  display: flex;
+  gap: var(--space-12);
+  margin: var(--space-12) var(--panel-padding) var(--panel-padding);
+  padding-top: var(--space-20);
+  border-top: var(--border-structure) solid var(--border);
+  color: var(--muted-foreground);
+}
+.falconry-heritage > svg {
+  flex-shrink: 0;
+  color: var(--main-color);
+}
+.falconry-heritage p {
+  font-size: var(--type-body);
+  line-height: var(--leading-relaxed);
+}
+.falconry-region-tag {
+  display: inline-block;
+  margin-top: var(--space-16);
+}
+.falconry-world-birds {
+  display: grid;
+  gap: var(--space-8);
+  margin-top: var(--space-24);
+}
+.falconry-world-bird {
+  display: flex;
+  gap: var(--space-12);
+  align-items: center;
+  padding: var(--space-8);
+  border-radius: var(--radius-control);
+}
+.falconry-world-bird:hover {
+  background: var(--hover);
+}
+.falconry-world-bird > img {
+  width: 52px;
+  height: 52px;
+  object-fit: contain;
+  flex-shrink: 0;
+}
+.falconry-world-bird > svg {
+  margin-left: auto;
+  flex-shrink: 0;
+  color: var(--muted-foreground);
+}
+.falconry-map-status {
+  display: flex;
+  flex-direction: column;
+  gap: var(--space-12);
+  align-items: center;
+  justify-content: center;
+  position: absolute;
+  inset: 0;
+  padding: var(--panel-padding);
+  text-align: center;
+  color: var(--muted-foreground);
+  font-size: var(--type-body);
+}
+@media (max-width: 1050px) {
+  .knowledge-split {
+    grid-template-columns: minmax(0, 1fr) 310px;
+  }
+  .knowledge-choice-list {
+    grid-template-columns: 1fr;
+  }
+  .flight-toolbar > span {
+    margin-left: 0;
+    max-width: none;
+    text-align: left;
+    width: 100%;
+  }
+  .falconry-map-pin {
+    width: 40px;
+    height: 40px;
+  }
+  .falconry-pin-portrait img {
+    width: 34px;
+    height: 34px;
+  }
+  .falconry-pin-label {
+    display: none;
+  }
+}
+@media (max-width: 760px) {
+  .knowledge-split {
+    grid-template-columns: minmax(0, 1fr);
+  }
+  .knowledge-notes {
+    border-left: 0;
+    border-top: var(--border-structure) solid var(--border);
+  }
+  .knowledge-choice-list {
+    grid-template-columns: 1fr 1fr;
+  }
+  .knowledge-tabs [data-slot='tabs-trigger'] {
+    padding: var(--space-8);
+    gap: var(--space-4);
+  }
+  .knowledge-tabs [data-slot='tabs-trigger'] svg {
+    display: none;
+  }
+  .knowledge-surface-heading {
+    align-items: flex-start;
+    flex-wrap: wrap;
+  }
+  .flight-stage {
+    height: 320px;
+  }
+  .falconry-map {
+    margin: var(--space-24) 0;
+  }
+  .falconry-map-pin {
+    width: 36px;
+    height: 36px;
+  }
+  .falconry-pin-portrait img {
+    width: 30px;
+    height: 30px;
+  }
+}
+@media (prefers-reduced-motion: reduce) {
+  .falconry-pin-portrait {
+    transition: none;
+  }
+}
+
+.falconry-bird-name {
+  display: flex;
+  flex-direction: column;
+  min-width: 0;
+}

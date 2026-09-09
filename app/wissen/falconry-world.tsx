@@ -1,0 +1,224 @@
+'use client';
+
+import { useEffect, useState } from 'react';
+import Image from 'next/image';
+import Link from 'next/link';
+import { ArrowUpRight, BookOpen, Globe2 } from 'lucide-react';
+import { Button } from '@/components/ui/button';
+import { SpeciesName } from '@/components/species-name';
+import { rangeBasemapUrl } from '@/lib/range-maps';
+import {
+  createMapLoader,
+  parseBasemap,
+  type Basemap,
+} from '@/lib/range-map-data';
+import { falconryRegions, type KnowledgeBird } from './knowledge-data';
+
+const loadBasemap = createMapLoader(parseBasemap);
+// Projected through scripts/map-projection.mjs, exactly like the existing map.
+const locations: Record<string, [number, number]> = {
+  mongolei: [714.11, 116.95],
+  arabien: [622.47, 192.66],
+  europa: [524.44, 110.51],
+  amerika: [215.89, 166.55],
+};
+
+export default function FalconryWorld({ birds }: { birds: KnowledgeBird[] }) {
+  const [selected, setSelected] = useState('mongolei');
+  const [base, setBase] = useState<Basemap | null>(null);
+  const [failed, setFailed] = useState(false);
+  const [attempt, setAttempt] = useState(0);
+  const region = falconryRegions.find((item) => item.id === selected)!;
+  useEffect(() => {
+    let active = true;
+    loadBasemap(rangeBasemapUrl)
+      .then((data) => {
+        if (active) setBase(data);
+      })
+      .catch(() => {
+        if (active) setFailed(true);
+      });
+    return () => {
+      active = false;
+    };
+  }, [attempt]);
+
+  return (
+    <div className="knowledge-split falconry-world">
+      <section
+        className="falconry-map-surface"
+        aria-label="Falknerei auf der Weltkarte"
+      >
+        <header className="knowledge-surface-heading">
+          <div>
+            <span className="knowledge-eyebrow">Mensch & Greifvogel</span>
+            <h2>Eine Kunst, viele Traditionen</h2>
+          </div>
+          <Globe2 size={24} aria-hidden="true" />
+        </header>
+        <div className="falconry-map">
+          {base ? (
+            <>
+              <svg
+                viewBox={base.viewBox.join(' ')}
+                aria-hidden="true"
+                className="falconry-basemap"
+              >
+                <g>
+                  {base.paths.map((d, index) => (
+                    <path
+                      key={index}
+                      d={d}
+                      fillRule="evenodd"
+                      vectorEffect="non-scaling-stroke"
+                    />
+                  ))}
+                </g>
+              </svg>
+              {falconryRegions.map((item) => {
+                const [x, y] = locations[item.id];
+                const bird = birds.find((bird) => bird.id === item.birds[0])!;
+                return (
+                  <button
+                    type="button"
+                    className="falconry-map-pin"
+                    key={item.id}
+                    style={{
+                      left: `${((x - base.viewBox[0]) / base.viewBox[2]) * 100}%`,
+                      top: `${((y - base.viewBox[1]) / base.viewBox[3]) * 100}%`,
+                    }}
+                    aria-label={`${item.name}: ${item.title}`}
+                    aria-pressed={selected === item.id}
+                    onClick={() => setSelected(item.id)}
+                  >
+                    <span className="falconry-pin-portrait">
+                      <Image
+                        src={bird.portrait}
+                        alt=""
+                        width={52}
+                        height={52}
+                        unoptimized
+                      />
+                    </span>
+                    <span className="falconry-pin-label">{item.name}</span>
+                  </button>
+                );
+              })}
+            </>
+          ) : (
+            <output className="falconry-map-status">
+              {failed ? (
+                <>
+                  <p>
+                    Die Karte konnte nicht geladen werden. Die Regionen bleiben
+                    unten auswählbar.
+                  </p>
+                  <Button
+                    variant="outline"
+                    onClick={() => {
+                      setFailed(false);
+                      setAttempt((value) => value + 1);
+                    }}
+                  >
+                    Erneut laden
+                  </Button>
+                </>
+              ) : (
+                'Weltkarte wird geladen …'
+              )}
+            </output>
+          )}
+        </div>
+        <fieldset
+          className="falconry-region-choices"
+          aria-label="Falknereiregion wählen"
+        >
+          {falconryRegions.map((item) => (
+            <Button
+              key={item.id}
+              variant="ghost"
+              aria-pressed={selected === item.id}
+              onClick={() => setSelected(item.id)}
+            >
+              {item.name}
+            </Button>
+          ))}
+        </fieldset>
+        <div className="falconry-map-caption">
+          <span>Ausgewählte Traditionen · keine Verbreitungskarte</span>
+          <a
+            href="https://www.naturalearthdata.com/about/terms-of-use/"
+            target="_blank"
+            rel="noreferrer"
+          >
+            Karte: Natural Earth
+          </a>
+        </div>
+        <div className="falconry-heritage">
+          <BookOpen size={20} aria-hidden="true" />
+          <p>
+            Falknerei ist die Jagd mit einem abgetragenen, also ausgebildeten
+            Greifvogel. Sie wird von der UNESCO als immaterielles Kulturerbe
+            anerkannt.{' '}
+            <a
+              href="https://ich.unesco.org/en/RL/falconry-a-living-human-heritage-01708"
+              target="_blank"
+              rel="noreferrer"
+            >
+              Zum Kulturerbe
+            </a>
+          </p>
+        </div>
+      </section>
+      <aside
+        className="knowledge-notes detail-panel"
+        aria-live="polite"
+        aria-atomic="true"
+      >
+        <span className="knowledge-eyebrow">{region.place}</span>
+        <h2>{region.title}</h2>
+        <span className="knowledge-tag falconry-region-tag">{region.tag}</span>
+        <p>{region.text}</p>
+        <div className="falconry-world-birds">
+          {region.birds.map((id) => {
+            const bird = birds.find((item) => item.id === id)!;
+            return (
+              <a href={bird.href} key={id} className="falconry-world-bird">
+                <Image
+                  src={bird.portrait}
+                  alt=""
+                  width={52}
+                  height={52}
+                  unoptimized
+                />
+                <span className="falconry-bird-name">
+                  <SpeciesName
+                    name={bird.name}
+                    latin={bird.latin}
+                    variant="sidebar"
+                    commonAs="span"
+                    scientificAs="i"
+                  />
+                </span>
+                <ArrowUpRight size={16} aria-hidden="true" />
+              </a>
+            );
+          })}
+        </div>
+        <p className="knowledge-observe">{region.detail}</p>
+        <a
+          className="knowledge-source"
+          href={region.source}
+          target="_blank"
+          rel="noreferrer"
+        >
+          {region.sourceName}
+          <ArrowUpRight size={14} aria-hidden="true" />
+        </a>
+        <Link href="/falknerei" className="knowledge-text-link">
+          Grundlagen, Ausrüstung & Beizvögel entdecken
+        </Link>
+      </aside>
+    </div>
+  );
+}

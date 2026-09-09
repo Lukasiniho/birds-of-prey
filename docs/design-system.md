@@ -344,3 +344,24 @@ Schätzfragen: Regler und Eingabewert stehen unter dem Fragetext ohne automatisc
 oberen Flex-Abstand. Der natürliche Bereich bleibt vor der Auflösung unsichtbar
 im Layout und reserviert exakt seinen späteren Platz, auch bei Textumbruch.
 Schätzwerte: `text-5xl` (40 px)/700; aufgelöste Werte: `text-2xl` (24 px)/700.
+
+## Wissen: Flugkunst und Falknerei-Weltkarte
+
+Die Themen Körperbau, Flugkunst und Falknerei teilen einen Seitenkopf und
+Base-UI-Tabs. Direkte Themenlinks verwenden `/wissen#flugkunst` und
+`/wissen#falknerei`. Die vorhandene Anatomie bleibt der Standardbereich.
+Die neuen Flächen verwenden die gemeinsamen Teal-, Typografie- und Panelrollen.
+Artnamen in Flugstudien verwenden `knowledge`, Beizvögel auf der Weltkarte
+`sidebar`, entsprechend der vorhandenen Falknerei-Hierarchie.
+
+Die SVG-Karte verwendet dieselben Natural-Earth-Pfade und dieselbe Projektion
+wie die Verbreitungskarten. Markerkoordinaten entstehen mit
+`scripts/map-projection.mjs`; sie markieren regionale Beispiele und keine
+Verbreitungsgebiete. Die Markergrößen (48/40/36 px), Porträts (40/34/30 px) und
+Canvas-Höhen (420/320 px) sind Geometrie-Ausnahmen für die Arbeitsflächen.
+
+Die Flugstudien verwenden die Alphakanäle der vorhandenen Vogelillustrationen
+als Silhouetten. Three.js wird erst beim Öffnen der Flugkunst geladen. Die
+Flügelbewegung ist eine schematische Verformung der Illustration, kein
+anatomisches 3D-Modell. Pause, Neustart, reduzierte Bewegung, Ressourcenabbau
+beim Themenwechsel sowie Ersatzdarstellung bei fehlendem WebGL sind vorgesehen.

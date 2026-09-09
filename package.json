@@ -7,7 +7,7 @@
   },
   "scripts": {
     "predev": "node scripts/optimize-images.mjs",
-    "dev": "vinext dev",
+    "dev": "vite",
     "prebuild": "node scripts/optimize-images.mjs",
     "build": "vinext build",
     "postbuild": "node scripts/compact-deployment-images.mjs",

@@ -1,22 +1,42 @@
 import type { Metadata } from 'next';
-import { birdImage } from '@/lib/birds';
+import { birdImage, birds } from '@/lib/birds';
+import { birdHref } from '@/lib/bird-routes';
+import { portraitImages } from '@/lib/portrait-images';
 import { imageSource } from '@/lib/optimized-images';
-import AnatomyExplorer from './anatomy-explorer';
+import KnowledgeExplorer from './knowledge-explorer';
 import './wissen.css';
 
 export const metadata: Metadata = {
   title: 'Wissen · Greifvogelkompass',
   description:
-    'Den Körperbau von Wanderfalke und Mäusebussard interaktiv entdecken: Schnabel, Gefieder, Flügel, Fänge und Schwanzfedern.',
+    'Greifvögel verstehen: Körperbau entdecken, Flugweisen als Silhouettenanimation erleben und Falknereitraditionen auf der Weltkarte erkunden.',
 };
 
 export default function WissenPage() {
   return (
-    <AnatomyExplorer
-      images={[
-        imageSource(birdImage('wanderfalke', 'male')),
-        imageSource(birdImage('maeusebussard', 'male')),
-      ]}
+    <KnowledgeExplorer
+      birds={birds
+        .filter((bird) =>
+          [
+            'wanderfalke',
+            'maeusebussard',
+            'turmfalke',
+            'steinadler',
+            'sakerfalke',
+            'lannerfalke',
+            'habicht',
+            'wuestenbussard',
+            'rotschwanzbussard',
+          ].includes(bird.id),
+        )
+        .map((bird) => ({
+          id: bird.id,
+          name: bird.name,
+          latin: bird.latin,
+          href: birdHref(bird),
+          image: imageSource(birdImage(bird.id, 'male')),
+          portrait: imageSource(portraitImages[bird.id]),
+        }))}
     />
   );
 }
