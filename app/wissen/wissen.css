@@ -10,10 +10,11 @@
   margin-bottom: var(--section-gap);
 }
 
-.anatomy-species {
+/* Pill switch inside a stage heading, shared by anatomy and the falconry map. */
+.stage-tabs {
   flex-shrink: 0;
 }
-.anatomy-species.t-tabs .t-tab[aria-pressed='true'] {
+.stage-tabs.t-tabs .t-tab[aria-pressed='true'] {
   background: var(--tabs-pill-bg);
   box-shadow: var(--shadow-active-pill);
 }
@@ -434,6 +435,119 @@
   margin: 0;
   padding: 0 var(--panel-padding) var(--panel-padding);
 }
+/* The timeline is the map's second axis: one station per turning point,
+   the info popover sits bottom-left exactly as on the map. */
+.falconry-timeline-surface {
+  position: relative;
+  padding: 0 var(--panel-padding) calc(var(--panel-padding) + 26px);
+}
+.falconry-timeline {
+  list-style: none;
+  margin: 0;
+  padding: 0;
+  display: grid;
+}
+.falconry-era {
+  display: grid;
+  grid-template-columns: 132px var(--space-16) minmax(0, 1fr);
+  column-gap: var(--space-12);
+  align-items: start;
+  width: 100%;
+  padding: var(--space-12) var(--space-8);
+  border: var(--border-selection) solid transparent;
+  border-radius: var(--radius-control);
+  background: transparent;
+  color: var(--foreground);
+  font: inherit;
+  text-align: left;
+  cursor: pointer;
+  transition:
+    background var(--duration-quick) var(--ease-smooth-out),
+    border-color var(--duration-fast) var(--ease-smooth-out);
+}
+/* Hover and selection follow the tile role: tinted stage, teal frame. */
+.falconry-era:hover {
+  background: color-mix(in srgb, var(--main-color) 9%, var(--stage));
+}
+.falconry-era[aria-pressed='true'] {
+  border-color: var(--main-color);
+  background: var(--selected);
+}
+.falconry-era:focus-visible {
+  outline: 2px solid var(--ring);
+  outline-offset: -2px;
+}
+.falconry-era-date {
+  padding-top: var(--space-2);
+  font-size: var(--type-caption);
+  line-height: var(--leading-normal);
+  color: var(--muted-foreground);
+  text-align: right;
+}
+/* Marker and rail: the rail runs through every station, the dot sits on it. */
+.falconry-era-marker {
+  position: relative;
+  align-self: stretch;
+  display: block;
+  width: var(--space-16);
+  min-height: 100%;
+}
+.falconry-era-marker::before {
+  content: '';
+  position: absolute;
+  left: 50%;
+  top: calc(-1 * var(--space-12));
+  bottom: calc(-1 * var(--space-12));
+  width: 1px;
+  transform: translateX(-50%);
+  background: var(--border);
+}
+.falconry-timeline > li:first-child .falconry-era-marker::before {
+  top: 10px;
+}
+.falconry-timeline > li:last-child .falconry-era-marker::before {
+  bottom: auto;
+  height: calc(10px + var(--space-12));
+}
+.falconry-era-marker::after {
+  content: '';
+  position: absolute;
+  left: 50%;
+  top: 5px;
+  width: 10px;
+  height: 10px;
+  border-radius: 50%;
+  transform: translateX(-50%);
+  border: 2px solid var(--muted-foreground);
+  background: var(--stage);
+  transition:
+    border-color var(--duration-fast) var(--ease-smooth-out),
+    background var(--duration-fast) var(--ease-smooth-out),
+    box-shadow var(--duration-fast) var(--ease-smooth-out);
+}
+.falconry-era-text {
+  display: grid;
+  gap: var(--space-2);
+  min-width: 0;
+}
+.falconry-era-name {
+  font-size: var(--type-ui);
+  font-weight: 500;
+  line-height: var(--leading-normal);
+}
+.falconry-era-summary {
+  font-size: var(--type-body);
+  line-height: var(--leading-relaxed);
+  color: var(--muted-foreground);
+}
+.falconry-era:hover .falconry-era-marker::after {
+  border-color: var(--main-color);
+}
+.falconry-era[aria-pressed='true'] .falconry-era-marker::after {
+  border-color: var(--main-color);
+  background: var(--main-color);
+  box-shadow: 0 0 0 4px color-mix(in srgb, var(--main-color) 16%, transparent);
+}
 .knowledge-bird-list {
   display: grid;
   gap: var(--space-8);
@@ -508,6 +622,9 @@
   .falconry-map {
     margin: var(--space-24) 0;
   }
+  .falconry-era {
+    grid-template-columns: 88px var(--space-16) minmax(0, 1fr);
+  }
   .falconry-map-pin {
     width: 36px;
     height: 36px;
@@ -521,6 +638,8 @@
   .falconry-pin-portrait,
   .falconry-map-callout,
   .falconry-pin-label,
+  .falconry-era,
+  .falconry-era-marker::after,
   .knowledge-tile,
   .knowledge-bird,
   .knowledge-tabs button[data-slot] {

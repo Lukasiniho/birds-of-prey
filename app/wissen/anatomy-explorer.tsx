@@ -167,7 +167,7 @@ export default function AnatomyExplorer({
             <h2>Jedes Detail hat eine Aufgabe</h2>
           </div>
           <div
-            className="anatomy-species t-tabs"
+            className="stage-tabs t-tabs"
             role="group"
             aria-label="Beispielvogel wählen"
           >

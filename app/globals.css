@@ -2385,6 +2385,11 @@ button.color-dot:not(:disabled) {
   text-transform: uppercase;
   color: var(--muted-foreground);
 }
+/* Duotone motifs carry the teal main colour everywhere, as in the quiz.
+   Zero specificity: any explicit icon colour (filled buttons, states) wins. */
+:where(svg[data-icon-weight='duotone']) {
+  color: var(--main-color);
+}
 /* transitions.dev — 16 Tabs sliding (verbatim snippet). */
 .t-tabs {
   position: relative;
@@ -2448,7 +2453,7 @@ button.color-dot:not(:disabled) {
   --tabs-bar-bg: color-mix(in srgb, var(--foreground) 6%, transparent);
   --tabs-pill-bg: var(--background);
 }
-:is(.specimen-controls .t-tabs, .anatomy-species.t-tabs) {
+:is(.specimen-controls .t-tabs, .stage-tabs.t-tabs) {
   height: auto;
   margin: 0;
   padding: 3px;
@@ -2458,7 +2463,7 @@ button.color-dot:not(:disabled) {
     color-mix(in srgb, var(--foreground) 9%, transparent);
   background: var(--tabs-bar-bg);
 }
-:is(.specimen-controls .t-tabs, .anatomy-species.t-tabs) .t-tab {
+:is(.specimen-controls .t-tabs, .stage-tabs.t-tabs) .t-tab {
   flex: 0 0 auto;
   height: 30px;
   margin: 0;
@@ -2472,14 +2477,14 @@ button.color-dot:not(:disabled) {
     Inter,
     sans-serif;
 }
-:is(.specimen-controls .t-tabs, .anatomy-species.t-tabs) .t-tab[aria-pressed='true'] {
+:is(.specimen-controls .t-tabs, .stage-tabs.t-tabs) .t-tab[aria-pressed='true'] {
   color: var(--tabs-text-active);
 }
-:is(.specimen-controls .t-tabs, .anatomy-species.t-tabs) .t-tab::after {
+:is(.specimen-controls .t-tabs, .stage-tabs.t-tabs) .t-tab::after {
   display: none;
   content: none;
 }
-:is(.specimen-controls .t-tabs, .anatomy-species.t-tabs) .t-tab:focus-visible {
+:is(.specimen-controls .t-tabs, .stage-tabs.t-tabs) .t-tab:focus-visible {
   outline: 2px solid var(--ring);
   outline-offset: 2px;
   box-shadow: none;
@@ -3060,6 +3065,7 @@ button.color-dot:not(:disabled) {
 .bird-audio .bird-audio-play svg {
   width: 16px;
   height: 16px;
+  color: var(--primary-foreground);
 }
 .specimen-panel .image-credit {
   position: static;

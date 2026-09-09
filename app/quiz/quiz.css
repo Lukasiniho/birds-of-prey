@@ -309,9 +309,6 @@
   font-weight: 700;
   line-height: var(--leading-heading);
 }
-.q-hunt-specimen {
-  background: color-mix(in srgb, var(--q-stage), #9dc8b4 9%);
-}
 .q-options[data-slot] {
   display: grid;
   gap: var(--space-12);

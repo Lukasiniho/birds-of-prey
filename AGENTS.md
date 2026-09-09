@@ -6,6 +6,11 @@
 - Inaktive Tab-Texte verwenden durchgängig `--muted-foreground`; keine
   individuellen Farbmischungen oder Opacity-Abschwächungen je Tab-Variante.
 
+- Quiz-Vogelbühnen (linke Fläche jeder Aufgabe) sind immer hellgrau
+  (`--q-stage`); keine teal oder anders getönten Varianten je Aufgabentyp.
+- Alle Duotone-Icons tragen die Teal-Hauptfarbe (`--main-color`), wie im Quiz;
+  nur Icons auf gefüllten Buttons behalten ihre Kontrastfarbe.
+
 ## Einheitliche Vogelbilder
 
 - Die aktuell eingebundene normale adulte Morphe derselben Art ist immer die gemeinsame Ausgangsbasis für alle anderen Morphen und Jungvogelbilder. Die aktuelle Vorlage anhand der Bildzuordnung im Projekt ermitteln.

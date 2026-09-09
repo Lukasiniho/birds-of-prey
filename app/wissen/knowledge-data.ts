@@ -200,3 +200,154 @@ export const falconryRegions = [
     ],
   },
 ] as const;
+
+/** A map region or a timeline era: both feed the same notes panel. */
+export type FalconryChapter = {
+  id: string;
+  place: string;
+  title: string;
+  birds: readonly string[];
+  text: string;
+  detail: string;
+  sources: readonly { name: string; url: string }[];
+};
+
+// The timeline adds the missing axis to the map: rounded dates, one
+// station per turning point, and the four single topics folded into the
+// era they belong to (Frederick II, equipment transfer, falconers' German,
+// falconry today).
+export const falconryEras = [
+  {
+    id: 'ursprung',
+    era: 'vor rund 4000 Jahren',
+    name: 'Ursprünge in der Steppe',
+    summary: 'Reiternomaden Zentralasiens jagen mit Greifvögeln.',
+    place: 'Zentralasiatische Steppe · vor rund 4000 Jahren',
+    title: 'Ursprünge in der Steppe',
+    birds: ['steinadler'],
+    text: 'Die Falknerei entstand vermutlich in den Steppen Zentralasiens, wo Reiternomaden Greifvögel für die Jagd in offener Landschaft abrichteten. Ein genauer Ort und ein genaues Datum lassen sich nicht belegen; die UNESCO geht von mehr als 4000 Jahren zurück.',
+    detail:
+      'Die Adlerjagd der Berkutchi in Kasachstan, Kirgisistan und der Westmongolei gilt als lebendige Fortsetzung dieser frühen Form: zu Pferd, in weiter Landschaft und mit dem Steinadler als Beizvogel.',
+    sources: [
+      {
+        name: 'UNESCO · Falconry, a living human heritage',
+        url: 'https://ich.unesco.org/en/RL/falconry-a-living-human-heritage-01708',
+      },
+      {
+        name: 'International Association for Falconry · A history of falconry',
+        url: 'https://iaf.org/a-history-of-falconry',
+      },
+    ],
+  },
+  {
+    id: 'ausbreitung',
+    era: 'Antike bis 7. Jh.',
+    name: 'Ausbreitung nach Ostasien und in den Nahen Osten',
+    summary: 'Falknerei erreicht China, Japan, Persien und Arabien.',
+    place: 'Von China bis Arabien · Antike bis 7. Jh.',
+    title: 'Ausbreitung entlang der Handelswege',
+    birds: ['sakerfalke', 'wanderfalke'],
+    text: 'Aus der Steppe verbreitete sich die Kunst in beide Richtungen: nach Osten über China bis nach Japan, wo sie ab dem 4. Jahrhundert schriftlich belegt ist, und nach Westen nach Persien und auf die Arabische Halbinsel. In Persien entstanden eigene Lehrbücher, die Baz-Nama.',
+    detail:
+      'Mit den Vögeln wanderte die Ausrüstung: Die Falkenhaube kam aus dem Orient nach Europa, Handschuh, Geschüh und Glocken haben ähnliche Wanderungsgeschichten. Diese Übernahmen verbinden die Regionen der Karte miteinander.',
+    sources: [
+      {
+        name: 'International Association for Falconry · A history of falconry',
+        url: 'https://iaf.org/a-history-of-falconry',
+      },
+      {
+        name: 'Encyclopaedia Iranica · Bāz-nāma',
+        url: 'https://www.iranicaonline.org/articles/baz-nama-books-or-treatises-on-the-keeping-and-training-of-falcons-containing-information-concerning-various-kinds-of-bird/',
+      },
+    ],
+  },
+  {
+    id: 'bluetezeit',
+    era: '12.–16. Jh.',
+    name: 'Europäische Blütezeit',
+    summary:
+      'Beizjagd als höfische Kunst; Friedrich II. schreibt ihr Standardwerk.',
+    place: 'Europa · 12.–16. Jh.',
+    title: 'Blütezeit an den Höfen',
+    birds: ['wanderfalke', 'habicht', 'gerfalke'],
+    text: 'Im Hochmittelalter wurde die Beizjagd in Europa zur Kunst des Adels. Kaiser Friedrich II. verfasste um 1240 „De arte venandi cum avibus“ („Über die Kunst, mit Vögeln zu jagen“): Er beschrieb Vögel nach eigener Beobachtung statt nach Überlieferung, weshalb das Werk bis heute als eines der genauesten vormodernen Vogelbücher gilt.',
+    detail:
+      'Aus dieser Zeit stammt die Falknersprache, die im Deutschen weiterlebt: „sich mausern“ von der Mauser, „nicht viel Federlesens machen“ vom Reinigen des Vogels, „abrichten“ von der Ausbildung und der „Kropf“ als Zeichen für einen satten Beizvogel.',
+    sources: [
+      {
+        name: 'Biblioteca Apostolica Vaticana · De arte venandi cum avibus (Pal. lat. 1071)',
+        url: 'https://digi.vatlib.it/view/MSS_Pal.lat.1071',
+      },
+      {
+        name: 'British Library · A kestrel for a knave',
+        url: 'https://www.bl.uk/stories/blogs/posts/a-kestrel-for-a-knave',
+      },
+    ],
+  },
+  {
+    id: 'niedergang',
+    era: 'ab dem 17. Jh.',
+    name: 'Niedergang',
+    summary: 'Feuerwaffen und Flurbereinigung verdrängen die Beizjagd.',
+    place: 'Europa · ab dem 17. Jh.',
+    title: 'Feuerwaffen und Flurbereinigung',
+    birds: [],
+    text: 'Ab dem 17. Jahrhundert verlor die Beizjagd ihren Rang. Bessere Feuerwaffen machten die Jagd mit dem Vogel als Nahrungsquelle überflüssig, und die Flurbereinigung nahm den Falken den offenen Raum: Hecken, Zäune und dichter bewirtschaftete Felder ließen weite Jagdflüge nicht mehr zu.',
+    detail:
+      'Mit dem Ende der adeligen Jagdprivilegien nach 1789 verschwand die Falknerei in Mitteleuropa fast vollständig. Nur wenige Vereinigungen, etwa in den Niederlanden und in Großbritannien, hielten das Wissen im 19. Jahrhundert am Leben.',
+    sources: [
+      {
+        name: 'International Association for Falconry · A history of falconry',
+        url: 'https://iaf.org/a-history-of-falconry',
+      },
+    ],
+  },
+  {
+    id: 'wiederbelebung',
+    era: '20. Jh.',
+    name: 'Wiederbelebung',
+    summary: 'Verbände, Zucht und Artenschutz holen die Falknerei zurück.',
+    place: 'Deutschland & Europa · 20. Jh.',
+    title: 'Wiederbelebung und Artenschutz',
+    birds: ['wanderfalke', 'habicht'],
+    text: 'Im 20. Jahrhundert kehrte die Falknerei als geregelte Jagdform zurück; in Deutschland gründete sich 1923 der Deutsche Falkenorden. Als der Wanderfalke durch das Insektizid DDT in den 1960er Jahren fast verschwand, trugen Falkner mit Zucht und Auswilderung zu seiner Rückkehr bei.',
+    detail:
+      'Seit dem Washingtoner Artenschutzabkommen CITES von 1975 ist der Handel mit Greifvögeln streng geregelt. Beizvögel stammen heute aus Nachzuchten statt aus Wildfang, und die Beizjagd ist an Jagdschein und Falknerprüfung gebunden.',
+    sources: [
+      {
+        name: 'Deutscher Falkenorden',
+        url: 'https://d-f-o.de/',
+      },
+      {
+        name: 'CITES · Washingtoner Artenschutzabkommen',
+        url: 'https://cites.org/eng/disc/what.php',
+      },
+    ],
+  },
+  {
+    id: 'kulturerbe',
+    era: 'seit 2010',
+    name: 'Immaterielles Kulturerbe',
+    summary: 'Die UNESCO erkennt die Falknerei als lebendiges Erbe an.',
+    place: 'Weltweit · seit 2010',
+    title: 'Immaterielles Kulturerbe',
+    birds: ['wuestenbussard', 'habicht'],
+    text: 'Seit 2010 steht die Falknerei auf der Repräsentativen Liste des immateriellen Kulturerbes der UNESCO, eingetragen als gemeinsamer Antrag mehrerer Länder von Arabien bis Europa. Deutschland gehört seit 2016 dazu; heute tragen mehr als zwanzig Staaten den Eintrag.',
+    detail:
+      'Zugleich hat die Falknerei neue Aufgaben: An Flughäfen vertreiben Habichte und Wüstenbussarde Vögel von den Startbahnen und beugen Vogelschlag vor. So schlägt die alte Kunst die Brücke von der Geschichte zum Naturschutz.',
+    sources: [
+      {
+        name: 'UNESCO · Falconry, a living human heritage',
+        url: 'https://ich.unesco.org/en/RL/falconry-a-living-human-heritage-01708',
+      },
+      {
+        name: 'Deutscher Falkenorden',
+        url: 'https://d-f-o.de/',
+      },
+    ],
+  },
+] as const satisfies readonly (FalconryChapter & {
+  era: string;
+  name: string;
+  summary: string;
+})[];

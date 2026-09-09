@@ -372,7 +372,9 @@ für Buttons ist dafür ausgenommen, damit der Fragezeichen-Cursor erscheint.
 ## Quiz: Art und Ruf erkennen
 
 Die zusätzlichen Erkennungsfragen verwenden dieselben `QuizQuestionTitle`-,
-`SpeciesName`- und Antwortgruppen-Rollen wie die Jagdfrage. Vor der Auflösung
+`SpeciesName`- und Antwortgruppen-Rollen wie die Jagdfrage. Die linke
+Vogelbühne aller Aufgaben ist einheitlich `--q-stage` (hellgrau); keine
+Aufgabe tönt sie teal oder anders ein. Vor der Auflösung
 bleiben Name und beim Rufquiz auch Vogelbild verborgen. Der Audio-Player nutzt
 die gemeinsame Hauptfarbe, Button-Typografie und Abstandstokens; die Quellen
 bleiben in einem per Klick bedienbaren Popover mit zentralem `TooltipHint`.
@@ -393,10 +395,12 @@ Standardgröße 24 px; bestehende Größenklassen und CSS-Rollen bleiben wirksam
 Einzelimporte der SSR-Varianten funktionieren auch in Server Components ohne
 Context-Provider. Nur verwendete Icons gelangen in den Produktionsbuild.
 
-Die Artenfakten behalten ihre fünf Motive, 16 px Größe und Teal-Hauptfarbe.
-Andere Icons erben die bestehende semantische Textfarbe, einschließlich
-Erfolg/Fehler und kontrastierender Icons auf gefüllten Buttons. Die zweite Fläche
-von Duotone verwendet Phosphors 20 % Deckkraft. Keine zweite Icon-Familie ergänzen.
+Alle Duotone-Icons tragen die Teal-Hauptfarbe (`--main-color`), wie die
+Quizmotive: eine globale `:where()`-Regel ohne Spezifität in `app/globals.css`
+setzt sie; explizite Icon-Farben (gefüllte Buttons wie Play/Pause, Zustände)
+gewinnen weiterhin. Regular-Icons erben die bestehende semantische Textfarbe,
+einschließlich Erfolg/Fehler. Die zweite Fläche von Duotone verwendet Phosphors
+20 % Deckkraft. Keine zweite Icon-Familie ergänzen.
 
 Select-, Combobox- und Dropdown-Menüs zeigen keine Auswahlhäkchen. Die frühere
 Häkchenspalte entfällt. Ausgewählte Einträge behalten ihre ARIA-Zustände und
@@ -464,6 +468,26 @@ wie die Verbreitungskarten. Markerkoordinaten entstehen mit
 `scripts/map-projection.mjs`; sie markieren regionale Beispiele und keine
 Verbreitungsgebiete. Die Markergrößen (48/40/36 px) und Porträts (40/34/30 px) sind
 Geometrie-Ausnahmen für die Kartenfläche.
+
+Die Kopfzeile der Kartenfläche trägt rechts den Pill-Switch `.stage-tabs`
+(dieselbe Rolle wie die Beispielvogel-Wahl im Körperbau: `t-tabs`-Schiene,
+gedrückter Zustand mit `--tabs-pill-bg` und `--shadow-active-pill`). Er wechselt
+zwischen „Karte“ und „Zeitstrahl“; ein Kartensymbol gibt es dort nicht mehr.
+Der Zeitstrahl (`falconryEras` in `knowledge-data.ts`) ist die zweite Achse zur
+Karte: sechs Stationen von den Ursprüngen in der Steppe bis zur UNESCO-
+Anerkennung als vertikale Liste mit Datum links, Schiene und Marker in der
+Mitte, Name und Einzeiler rechts. Die vier Einzelthemen (Friedrich II.,
+Wanderung der Ausrüstung, Falknersprache, Falknerei heute) sind in die
+jeweilige Epoche eingearbeitet statt als eigene Kacheln. Die gewählte
+Station folgt der Kachel-Rolle (`.knowledge-tile`): Teal-Rahmen
+(`--border-selection`) auf `--selected`, Hover tönt wie bei den Jagdtechniken
+die Bühne (9 % Hauptfarbe auf `--stage`). Der Stationsname bleibt in der Textfarbe; der Marker trägt die
+Hauptfarbe, gefüllt und mit demselben 16-%-Ring wie die Kartenporträts, wenn
+die Station gewählt ist. Karte und
+Zeitstrahl teilen das rechte Regionsfeld über den Typ `FalconryChapter`
+(„Ort · Zeit“, Titel, Beizvögel, zwei Absätze, Quellen); die Regionsauswahl
+unter der Karte erscheint nur in der Kartenansicht. Der Info-Popover sitzt im
+Zeitstrahl ebenfalls unten links, ohne Basiskarten-Nachweis.
 
 Die Falknerei-Karte umfasst acht regionale Kapitel; die kasachische Adlerjagd
 in Kasachstan, Kirgisistan und der Westmongolei ist ein gemeinsames Kapitel. Versetzte Porträts vermeiden
