@@ -198,6 +198,9 @@
   margin-top: var(--space-16);
   max-width: 45ch;
 }
+.q-estimate-question .q-answer-controls {
+  margin-top: 0;
+}
 .q-estimate {
   display: flex;
   align-items: center;
@@ -213,8 +216,8 @@
   min-width: 170px;
 }
 .q-estimate output strong {
-  font-size: var(--text-4xl);
-  font-weight: 400;
+  font-size: var(--text-5xl);
+  font-weight: 700;
   font-variant-numeric: tabular-nums;
   letter-spacing: -1px;
   line-height: var(--leading-none);
@@ -295,6 +298,9 @@
   color: var(--q-success);
   margin-top: 22px;
 }
+.q-range-reveal[data-revealed='false'] {
+  visibility: hidden;
+}
 .q-range-reveal > span {
   display: flex;
   align-items: center;
@@ -302,8 +308,8 @@
   line-height: var(--leading-compact);
 }
 .q-range-reveal > strong {
-  font-size: var(--type-label-title);
-  font-weight: 600;
+  font-size: var(--text-2xl);
+  font-weight: 700;
   line-height: var(--leading-heading);
 }
 .q-hunt-specimen {

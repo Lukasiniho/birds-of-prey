@@ -338,3 +338,9 @@ Auswahlflächen mischen die Hauptfarbe mit der jeweiligen Oberfläche.
 Wissen verwendet für Artnamen und wissenschaftliche Namen `SpeciesName`
 mit `variant="quiz"`, einschließlich des direkten Textanschlusses. Die
 Artenumschaltung teilt die Sans-Serif-Pillenstile der Atlas-Steuerung.
+
+
+Schätzfragen: Regler und Eingabewert stehen unter dem Fragetext ohne automatischen
+oberen Flex-Abstand. Der natürliche Bereich bleibt vor der Auflösung unsichtbar
+im Layout und reserviert exakt seinen späteren Platz, auch bei Textumbruch.
+Schätzwerte: `text-5xl` (40 px)/700; aufgelöste Werte: `text-2xl` (24 px)/700.

@@ -311,17 +311,19 @@ function EstimateQuestion({
               </span>
               <span>{formatValue(scale.max)}</span>
             </div>
-            {answered && (
-              <div className="q-range-reveal">
-                <span>
-                  <Check size={16} aria-hidden="true" />
-                  Natürlicher Bereich
-                </span>
-                <strong>
-                  {isWeight ? formatWeight(bird) : formatSpan(bird)}
-                </strong>
-              </div>
-            )}
+            <div
+              className="q-range-reveal"
+              data-revealed={answered}
+              aria-hidden={!answered}
+            >
+              <span>
+                <Check size={16} aria-hidden="true" />
+                Natürlicher Bereich
+              </span>
+              <strong>
+                {isWeight ? formatWeight(bird) : formatSpan(bird)}
+              </strong>
+            </div>
           </div>
         </div>
       </div>
