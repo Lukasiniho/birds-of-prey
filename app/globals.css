@@ -1739,7 +1739,7 @@ button.color-dot:not(:disabled) {
     width: 100%;
     border: var(--border-structure) solid var(--border);
     border-radius: var(--radius-surface);
-    background: var(--background);
+    background: var(--atlas-info-surface);
     min-height: 0;
     position: relative;
     overflow: hidden;
@@ -2156,7 +2156,7 @@ button.color-dot:not(:disabled) {
   border: var(--border-structure) solid
     color-mix(in srgb, var(--foreground) 12%, transparent);
   border-radius: var(--radius-surface);
-  background: color-mix(in srgb, var(--background) 60%, transparent);
+  background: var(--atlas-measurement-surface);
 }
 .specimen-measurements.measurements > div {
   min-width: 0;
@@ -2962,8 +2962,8 @@ button.color-dot:not(:disabled) {
   padding: 0;
   gap: var(--space-24);
   border-radius: 0;
-  background: var(--background);
-  box-shadow: 0 calc(-1 * var(--panel-padding)) 0 var(--background);
+  background: var(--atlas-info-surface);
+  box-shadow: 0 calc(-1 * var(--panel-padding)) 0 var(--atlas-info-surface);
 }
 .info-panel .info-tab-list.t-tabs .t-tabs-pill {
   top: auto;

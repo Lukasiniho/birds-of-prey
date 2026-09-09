@@ -269,8 +269,8 @@ der Rahmen bleiben sichtbar. Keine halbdeckende Farbfläche als Ersatz.
 Audio-Spalte: kein zusätzlicher äußerer horizontaler Innenabstand an der
 Messwertbox; die Spalte reicht bis zum inneren Boxrand. Der Button ist damit
 zwischen Trennlinie und Boxrand zentriert (Spalte Desktop 88 px).
-Unterer Fade: insgesamt 58 px, davon die letzten 20 px vollständig transparent;
-der eigentliche Übergang umfasst 38 px. Blur bleibt 2 px.
+Unterer Fade: insgesamt 58 px, davon die letzten 10 px vollständig transparent;
+der eigentliche Übergang umfasst 48 px. Blur bleibt 2 px.
 
 Quiz-Kopf: Titel und Fragenzahl bilden eine gemeinsame Flex-Gruppe mit
 24 px Abstand und vertikaler Zentrierung; nur der Fortschritt steht am
@@ -282,3 +282,7 @@ rechts in zwei Spalten. Bis 1100 px stehen beide Bereiche untereinander.
 Optische Ausrichtung im Quiz-Kopf: Serifentitel 3 px nach oben versetzt,
 weil seine sichtbaren Buchstaben unterhalb der Mitte seiner Zeilenbox liegen.
 Dropdown und Fortschrittsanzeige behalten ihre geometrische Zentrierung.
+
+Im Dunkelmodus teilen Infokarte und Messwertkarte `--atlas-card-surface`
+(#151e25), heller als der Bühnenhintergrund. Fixierte Informationstabs
+verwenden dieselbe Kartenfarbe. Die bisherigen hellen Flächen bleiben erhalten.

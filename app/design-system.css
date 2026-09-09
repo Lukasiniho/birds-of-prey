@@ -10,8 +10,10 @@
   --space-32: 2rem;
   --space-40: 2.5rem;
 
+  --atlas-info-surface: var(--background);
+  --atlas-measurement-surface: color-mix(in srgb, var(--background) 60%, transparent);
   --rail-fade-height: 58px;
-  --rail-fade-clear: var(--space-20);
+  --rail-fade-clear: 10px;
   --select-background: #fff;
   --header-control-height: 38px;
   --page-gutter: var(--space-40);
@@ -38,6 +40,9 @@
     color-mix(in srgb, var(--foreground) 16%, transparent);
 }
 :root[data-theme='dark'] {
+  --atlas-card-surface: #151e25;
+  --atlas-info-surface: var(--atlas-card-surface);
+  --atlas-measurement-surface: var(--atlas-card-surface);
   --select-background: var(--background);
   --shadow-subtle: 0 2px 8px rgb(0 0 0 / 18%);
   --shadow-floating: 0 8px 28px rgb(0 0 0 / 35%);
