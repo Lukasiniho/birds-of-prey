@@ -102,7 +102,7 @@ Entdeckungen: alle Kartentitel in Cormorant Garamond, 24 px/700. Bei Aufgaben
 mit mehreren Arten steht der tatsächliche Fragentitel statt einer Artenliste.
 Der Untertitel verwendet Inter (Sans Serif), text-sm (14 px), mit 2 px Abstand.
 
-Navbar-Marke: Inter (Sans Serif), `--type-brand` = `text-lg` (18 px), Gewicht 600; das feste Steinadler-Porträt
+Navbar-Marke: Inter (Sans Serif), `--type-brand` = `text-xl` (20 px), Gewicht 600; das feste Steinadler-Porträt
 misst 32 × 32 px. Die übrigen Kopfleisten-Controls behalten ihre Höhe.
 
 Entdeckungen: Fragentyp-Unterzeile ausdrücklich Inter (Sans Serif), text-sm (14 px). Punktzahl rechts
