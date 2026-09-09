@@ -971,14 +971,12 @@ function QuestionFeedback({
     <QuizFeedback points={answer.points}>
       {question.kind === 'span' && bird && (
         <p>
-          {bird.name}: {formatSpan(bird)}. Deine Schätzung: {answer.span} cm.
+          Spannweite: {formatSpan(bird)}.
         </p>
       )}
       {question.kind === 'weight-estimate' && bird && (
         <p>
-          {bird.name}: {formatWeight(bird)}. Deine Schätzung:{' '}
-          {number.format(answer.weight / weightEstimateScale(bird).divisor)}{' '}
-          {weightEstimateScale(bird).divisor === 1 ? 'g' : 'kg'}.
+          Gewicht: {formatWeight(bird)}.
         </p>
       )}
       {question.kind === 'hunt' && (
@@ -989,8 +987,11 @@ function QuestionFeedback({
       )}
       {question.kind === 'prey' && (
         <p>
-          Passend:{' '}
-          {question.correct.map((id) => preyCatalog[id].name).join(', ')}.
+          {answer.food.filter((id) => question.correct.includes(id)).length} von{' '}
+          {question.correct.length} passenden Beutetieren gewählt
+          {answer.food.some((id) => !question.correct.includes(id))
+            ? `; ${answer.food.filter((id) => !question.correct.includes(id)).length} unpassend`
+            : ''}.
         </p>
       )}
       {question.kind === 'compare' && (
@@ -1001,11 +1002,7 @@ function QuestionFeedback({
       )}
       {question.kind === 'weight' && (
         <p>
-          Von leicht nach schwer:{' '}
-          {weightOrder(question.birdIds, birds)
-            .map((id) => birds[id].name)
-            .join(' → ')}
-          .
+          Am leichtesten: {birds[weightOrder(question.birdIds, birds)[0]].name}.
         </p>
       )}
     </QuizFeedback>

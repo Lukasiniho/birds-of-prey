@@ -11,10 +11,10 @@ export function QuizFeedback({ points, children }: QuizFeedbackProps) {
   const perfect = points === 100;
   const Icon = perfect ? Check : X;
   const title = perfect
-    ? 'Volltreffer. Gut beobachtet!'
+    ? 'Volltreffer!'
     : points >= 60
-      ? 'Schon ziemlich nah dran!'
-      : 'Wieder etwas gelernt.';
+      ? 'Fast richtig.'
+      : 'Noch nicht ganz.';
 
   return (
     <div

@@ -588,10 +588,10 @@
   align-items: center;
   justify-content: space-between;
   gap: var(--space-24);
-  height: calc(7rem + env(safe-area-inset-bottom));
-  padding: var(--space-16)
+  height: calc(5rem + env(safe-area-inset-bottom));
+  padding: var(--space-12)
     max(var(--page-gutter), calc((100vw - 1360px) / 2 + var(--page-gutter)));
-  padding-bottom: calc(var(--space-16) + env(safe-area-inset-bottom));
+  padding-bottom: calc(var(--space-12) + env(safe-area-inset-bottom));
   box-shadow: var(--shadow-floating);
   border-top: var(--border-structure) solid var(--q-line);
   background: var(--q-surface);
@@ -884,13 +884,13 @@
     height: 150px;
   }
   .q-answer-bar {
-    padding: var(--space-16)
+    padding: var(--space-12)
       max(var(--page-gutter), calc((100vw - 1360px) / 2 + var(--page-gutter)));
     height: auto;
     flex-direction: column;
-    gap: var(--space-12);
+    gap: var(--space-8);
     align-items: stretch;
-    padding-bottom: calc(var(--space-16) + env(safe-area-inset-bottom));
+    padding-bottom: calc(var(--space-12) + env(safe-area-inset-bottom));
   }
   .q-answer-bar > .q-primary,
   .q-primary[data-slot] {
@@ -1236,11 +1236,11 @@
 }
 @media (max-width: 760px) {
   .q-answer-bar > .q-feedback {
-    max-height: 35dvh;
+    max-height: 6rem;
   }
 }
 .q-main {
-  padding-bottom: calc(var(--answer-bar-height, 112px) + var(--section-gap));
+  padding-bottom: calc(var(--answer-bar-height, 80px) + var(--section-gap));
 }
 .q-question-controls,
 .q-specimen,

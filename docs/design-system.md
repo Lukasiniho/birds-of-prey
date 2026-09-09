@@ -299,9 +299,12 @@ denselben Innenabstand. Keine breitere Gewichtsspalte, auch nicht mobil.
 Navigation: Der gemeinsame Markentitel lautet „Greifvogelkompass“. Das mobile
 Hamburger-Menü verwendet `modal={false}` ohne Scroll-Lock und dessen Layoutverschiebung.
 
-Quiz-Fußleiste: Desktop 7 rem feste Höhe plus Safe Area, Aktionsbutton vertikal
-zentriert und 224 px breit bei allen Beschriftungen. Lange Erklärungen scrollen
-innerhalb der verfügbaren Höhe. Mobil wächst die Erklärung nach oben; der Button
+Quiz-Fußleiste: Desktop 5 rem feste Höhe plus Safe Area, Aktionsbutton vertikal
+zentriert und 224 px breit bei allen Beschriftungen, 12 px vertikaler Innenabstand.
+Rückmeldungen bleiben kurz: Messwert statt wiederholter Schätzung, Beuteanzahl
+statt Namensliste, leichteste Art statt vierteiliger Reihenfolge. Scrollen dient
+nur als Rückfall bei sehr schmalen Ansichten oder Textvergrößerung. Mobil ist
+die Erklärung auf 6 rem begrenzt und wächst nach oben; der Button
 bleibt darunter bei voller Breite und 3 rem Höhe fest verankert. Buttontext wird
 mit Flexbox und kompakter Zeilenhöhe zentriert. Das dekorative Pfeil-Icon entfällt.
 
