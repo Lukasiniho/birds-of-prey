@@ -114,4 +114,86 @@ export const falconryRegions = [
     source: 'https://www.n-a-f-a.com/?page=History',
     sourceName: 'North American Falconers Association',
   },
+  {
+    id: 'japan',
+    name: 'Japan',
+    place: 'Japan · Takagari',
+    title: 'Der Habicht und die Samurai',
+    coordinates: [139.7, 35.7],
+    birds: ['habicht'],
+    tag: 'Jagd als Herrschaftssymbol',
+    text: 'Takagari heißt die japanische Kunst der Beizjagd. Neben der kaiserlichen Hofkultur prägten Samurai und Shōgune ihre Geschichte. Der Habicht war ein besonders geschätzter Jagdgefährte; wertvolle Vögel wurden auch als politische Geschenke überreicht.',
+    detail:
+      'Unter den Tokugawa-Shōgunen war Falknerei mehr als Jagd: Jagdrechte, Reviere und das Verschenken von Greifvögeln machten gesellschaftlichen Rang und Herrschaft sichtbar.',
+    source:
+      'https://www.falconryheritage.org/uploads/itemUploads/8608/05_p095.pdf',
+    sourceName: 'Japanese Falconry in the Edo Period',
+  },
+  {
+    id: 'persien',
+    name: 'Persien & Indien',
+    place: 'Persien · Mogulreich in Nordindien',
+    title: 'Beizvögel am Kaiserhof',
+    coordinates: [78, 27.2],
+    birds: ['sperber'],
+    tag: 'Höfische Falknerei',
+    text: 'Persien zählt zu den großen historischen Traditionsregionen der Falknerei. Persische Fachschriften sammelten Wissen über Haltung, Ausbildung und Pflege der Vögel. Auch die Mogulherrscher in Indien waren begeisterte Falkner: Kaiser Akbar schätzte besonders den Sperber.',
+    detail:
+      'Falknerei verband Jagdkunst mit höfischem Prestige. Ein einziger Ursprungsort der frühen Falknerei lässt sich nicht sicher bestimmen; die persische und die indische Geschichte bilden eigene, miteinander verbundene Kapitel.',
+    source: 'https://iaf.org/a-history-of-falconry',
+    sourceName: 'International Association for Falconry · Geschichte',
+    additionalSource:
+      'https://www.iranicaonline.org/articles/baz-nama-books-or-treatises-on-the-keeping-and-training-of-falcons-containing-information-concerning-various-kinds-of-bird/',
+    additionalSourceName:
+      'Encyclopaedia Iranica · Persische Falknereischriften',
+  },
+  {
+    id: 'zentralasien',
+    name: 'Zentralasien',
+    place: 'Kasachstan · Kirgisistan',
+    title: 'Mit Adler und Taigan',
+    coordinates: [75, 43],
+    birds: ['steinadler'],
+    tag: 'Berkutchi & Salbuurun',
+    text: 'Berkutchi, die Adlerjäger Zentralasiens, führen Steinadler zur Jagd. In Kasachstan und Kirgisistan ist dieses Wissen Teil regionaler Jagdkultur. Das kirgisische Salbuurun verbindet die Jagd mit Greifvögeln mit der Arbeit der Taigans, einer einheimischen Windhundrasse.',
+    detail:
+      'Eine eigene regionale Perspektive, aber keine getrennte Herkunft: Die Adlerjäger der Westmongolei gehören ebenfalls zur kasachischen Tradition. Unterschiede liegen unter anderem in Landschaft, lokaler Weitergabe und der Verbindung mit anderen Jagdformen.',
+    source: 'https://worldnomadgames.org/en/sport/eagle-hunting/',
+    sourceName: 'World Nomad Games · Burkut Saluu & Salbuurun',
+    additionalSource: 'https://www.ijih.org/volumes/article/469',
+    additionalSourceName:
+      'International Journal of Intangible Heritage · Altai Kazakh Falconry',
+  },
+  {
+    id: 'britische-inseln',
+    name: 'Britische Inseln',
+    place: 'Britische Inseln · England im Spätmittelalter',
+    title: 'Welcher Vogel für welchen Stand?',
+    coordinates: [-2, 53],
+    birds: ['gerfalke', 'wanderfalke', 'habicht'],
+    tag: 'Boke of St Albans · 1486',
+    text: 'Ein Greifvogel auf der Faust konnte gesellschaftlichen Rang verkörpern. Das 1486 gedruckte Boke of St Albans enthält eine berühmte Rangordnung, die verschiedenen Ständen bestimmte Beizvögel zuweist. So wird Falknerei zum Spiegel einer hierarchischen Gesellschaft.',
+    detail:
+      'Diese Liste ist keine verlässliche Vorschrift für die tatsächliche Jagdpraxis. Die British Library betont: Welche Vögel eingesetzt wurden, hing auch von Beute und Gelände ab. Das englische Buch steht hier für ein Beispiel innerhalb der vielfältigen britischen Traditionen.',
+    source: 'https://www.bl.uk/stories/blogs/posts/a-kestrel-for-a-knave',
+    sourceName: 'British Library · A kestrel for a knave',
+  },
+  {
+    id: 'nordischer-raum',
+    name: 'Island & Skandinavien',
+    place: 'Island · Skandinavische Höfe und Handelswege',
+    title: 'Gerfalken als kostbare Geschenke',
+    coordinates: [-19, 65],
+    birds: ['gerfalke'],
+    tag: 'Handel & Diplomatie',
+    text: 'Gerfalken aus dem hohen Norden waren an europäischen und arabischen Höfen begehrt. Besonders helle Vögel galten als Kostbarkeiten. Aus Island gelangten sie über weite Handelswege zu ihren Empfängern und dienten Herrschern auch als diplomatische Geschenke.',
+    detail:
+      'Der Handel verband Island eng mit Skandinavien: Dänische Könige kontrollierten Fang und Ausfuhr; später brachte ein eigens eingesetztes Falkenschiff die Vögel nach Kopenhagen. Die Karte markiert Island als Herkunftsregion dieses historischen Netzwerks.',
+    source: 'https://fishandships.dsm.museum/?p=328',
+    sourceName: 'Deutsches Schifffahrtsmuseum · Icelandic gyrfalcons',
+    additionalSource:
+      'https://www.academia.edu/37525267/The_export_of_gyrfalcons_from_Iceland_during_the_16th_century_a_boundless_business_in_a_proto_globalized_world',
+    additionalSourceName:
+      'Mehler, Küchelmann & Holterman · Historischer Gerfalkenhandel',
+  },
 ] as const;

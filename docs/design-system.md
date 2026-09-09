@@ -365,3 +365,8 @@ als Silhouetten. Three.js wird erst beim Öffnen der Flugkunst geladen. Die
 Flügelbewegung ist eine schematische Verformung der Illustration, kein
 anatomisches 3D-Modell. Pause, Neustart, reduzierte Bewegung, Ressourcenabbau
 beim Themenwechsel sowie Ersatzdarstellung bei fehlendem WebGL sind vorgesehen.
+
+Die Falknerei-Karte umfasst neun regionale Kapitel. Versetzte Porträts vermeiden
+Überlagerungen; Verbindungslinien führen zu den geografischen Ankerpunkten.
+Beschriftungen erscheinen bei Auswahl, Hover oder Tastaturfokus; auf schmalen
+Ansichten stehen die Regionsnamen in der vollständig bedienbaren Auswahlliste.

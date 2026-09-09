@@ -483,6 +483,20 @@
   stroke: color-mix(in srgb, var(--main-color) 30%, var(--stage));
   stroke-width: 0.55px;
 }
+.falconry-map-callout {
+  color: var(--muted-foreground);
+}
+.falconry-map-callout line {
+  stroke: currentColor;
+  stroke-width: 1;
+  opacity: 0.5;
+}
+.falconry-map-callout circle {
+  fill: currentColor;
+}
+.falconry-map-callout[data-selected='true'] {
+  color: var(--main-color);
+}
 /* Map marker dimensions and coordinates are cartographic geometry, not spacing roles. */
 .falconry-map-pin {
   position: absolute;
@@ -510,8 +524,10 @@
   object-fit: contain;
 }
 .falconry-pin-label {
+  visibility: hidden;
+  pointer-events: none;
   position: absolute;
-  top: calc(100% + 6px);
+  top: calc(100% + var(--space-4));
   left: 50%;
   transform: translateX(-50%);
   background: var(--background);
@@ -527,7 +543,10 @@
   border-color: var(--main-color);
   box-shadow: 0 0 0 6px color-mix(in srgb, var(--main-color) 16%, transparent);
 }
+.falconry-map-pin:hover .falconry-pin-label,
+.falconry-map-pin:focus-visible .falconry-pin-label,
 .falconry-map-pin[aria-pressed='true'] .falconry-pin-label {
+  visibility: visible;
   color: var(--main-color);
 }
 .falconry-map-pin:hover .falconry-pin-portrait {

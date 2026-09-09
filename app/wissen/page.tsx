@@ -25,6 +25,8 @@ export default function WissenPage() {
             'sakerfalke',
             'lannerfalke',
             'habicht',
+            'sperber',
+            'gerfalke',
             'wuestenbussard',
             'rotschwanzbussard',
           ].includes(bird.id),

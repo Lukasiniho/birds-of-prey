@@ -21,6 +21,24 @@ const locations: Record<string, [number, number]> = {
   arabien: [622.47, 192.66],
   europa: [524.44, 110.51],
   amerika: [215.89, 166.55],
+  japan: [854.11, 158.07],
+  persien: [703.24, 184.79],
+  zentralasien: [684.24, 135.28],
+  'britische-inseln': [495.36, 104.82],
+  'nordischer-raum': [459.64, 70.42],
+};
+
+// Offset portraits keep nearby traditions selectable; lines retain geographic anchors.
+const pinLocations: typeof locations = {
+  amerika: [215, 166],
+  'nordischer-raum': [415, 35],
+  'britische-inseln': [360, 145],
+  europa: [515, 185],
+  arabien: [610, 300],
+  persien: [770, 280],
+  zentralasien: [610, 55],
+  mongolei: [780, 105],
+  japan: [920, 190],
 };
 
 export default function FalconryWorld({ birds }: { birds: KnowledgeBird[] }) {
@@ -74,9 +92,29 @@ export default function FalconryWorld({ birds }: { birds: KnowledgeBird[] }) {
                     />
                   ))}
                 </g>
+                {falconryRegions.map((item) => {
+                  const [x, y] = locations[item.id];
+                  const [pinX, pinY] = pinLocations[item.id];
+                  return (
+                    <g
+                      key={item.id}
+                      className="falconry-map-callout"
+                      data-selected={selected === item.id}
+                    >
+                      <line
+                        x1={x}
+                        y1={y}
+                        x2={pinX}
+                        y2={pinY}
+                        vectorEffect="non-scaling-stroke"
+                      />
+                      <circle cx={x} cy={y} r={3} />
+                    </g>
+                  );
+                })}
               </svg>
               {falconryRegions.map((item) => {
-                const [x, y] = locations[item.id];
+                const [x, y] = pinLocations[item.id];
                 const bird = birds.find((bird) => bird.id === item.birds[0])!;
                 return (
                   <button
@@ -215,6 +253,17 @@ export default function FalconryWorld({ birds }: { birds: KnowledgeBird[] }) {
           {region.sourceName}
           <ArrowUpRight size={14} aria-hidden="true" />
         </a>
+        {'additionalSource' in region && (
+          <a
+            className="knowledge-source"
+            href={region.additionalSource}
+            target="_blank"
+            rel="noreferrer"
+          >
+            {region.additionalSourceName}
+            <ArrowUpRight size={14} aria-hidden="true" />
+          </a>
+        )}
         <Link href="/falknerei" className="knowledge-text-link">
           Grundlagen, Ausrüstung & Beizvögel entdecken
         </Link>
