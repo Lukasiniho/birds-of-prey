@@ -1,5 +1,8 @@
 # Softes Design-System
 
+Spannweite und Gewicht: Bei Von-bis-Spannen entfällt „ca.“ in der Anzeige.
+Bei Einzelwerten bleibt die Näherungsangabe erhalten; Quelldaten bleiben unverändert.
+
 Stand: 9. September 2026. Die Rollen wurden mit Lukas abgestimmt. Sie geben
 wiederkehrenden Elementen gemeinsame Werte, lassen aber begründete optische und
 fachliche Ausnahmen zu. Keine automatische Rundung sämtlicher CSS-Zahlen.

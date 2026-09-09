@@ -61,7 +61,10 @@ import {
 function Measurement({ value, unit }: { value: string; unit: string }) {
   // transitions.dev number pop-in: every character is a .t-digit, the last two
   // ride in behind the rest. Keying the group by value replays it on change.
-  const parts = value.split(/(ca\.|bis|–)/g).filter(Boolean);
+  const displayValue = /\d\s*[–—-]\s*\d/.test(value)
+    ? value.replace(/^\s*ca\.?\s*/i, '')
+    : value;
+  const parts = displayValue.split(/(ca\.|bis|–)/g).filter(Boolean);
   type Piece = { qualifier: string } | { ch: string };
   const pieces: Piece[] = parts.flatMap((part): Piece[] =>
     /^(ca\.|bis)$/.test(part)

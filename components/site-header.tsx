@@ -3,7 +3,8 @@
 /* oxlint-disable next/no-html-link-for-pages -- Use document navigation for the static Netlify export. */
 
 import { useEffect, useState } from 'react';
-import { Moon, Search, Sun, X } from 'lucide-react';
+import { Menu, Moon, Search, Sun, X } from 'lucide-react';
+import { DropdownMenu, DropdownMenuTrigger, DropdownMenuContent, DropdownMenuItem } from '@/components/ui/dropdown-menu';
 import { Button } from '@/components/ui/button';
 import { Input } from '@/components/ui/input';
 
@@ -85,6 +86,20 @@ export function SiteHeader({
           </a>
         ))}
       </nav>
+      <div className="mobile-navigation">
+        <DropdownMenu>
+          <DropdownMenuTrigger render={<Button variant="ghost" size="icon" aria-label="Navigation öffnen" />}>
+            <Menu />
+          </DropdownMenuTrigger>
+          <DropdownMenuContent align="end" className="mobile-navigation-menu">
+            {sections.map((section) => (
+              <DropdownMenuItem key={section.id} render={<a href={section.href} aria-current={activeSection === section.id ? 'page' : undefined} />}>
+                {section.label}
+              </DropdownMenuItem>
+            ))}
+          </DropdownMenuContent>
+        </DropdownMenu>
+      </div>
       <div className="header-actions">
         <Button
           variant="ghost"
