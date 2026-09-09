@@ -2,13 +2,13 @@ import { parseMeasurementRange } from './quiz-engine.ts';
 
 type Measurements = { span: string; weight: string; unit: string };
 
-/** Navigation classes, not biological/taxonomic categories. Upper bounds alone
- * are not treated as averages: use the weight fallback in that case. */
+/** Navigation classes, not biological/taxonomic categories. Both measurements count independently; the larger class wins.
+ * Upper bounds alone are not treated as averages. */
 export const sizeBuckets = [
-  { id: 'size-xs', title: 'Sehr klein', spanBelow: 80, weightBelow: 300 },
-  { id: 'size-s', title: 'Klein', spanBelow: 120, weightBelow: 1000 },
-  { id: 'size-m', title: 'Mittelgroß', spanBelow: 170, weightBelow: 2500 },
-  { id: 'size-l', title: 'Groß', spanBelow: 220, weightBelow: 5000 },
+  { id: 'size-xs', title: 'Sehr klein', spanBelow: 70, weightBelow: 200 },
+  { id: 'size-s', title: 'Klein', spanBelow: 100, weightBelow: 750 },
+  { id: 'size-m', title: 'Mittelgroß', spanBelow: 150, weightBelow: 2000 },
+  { id: 'size-l', title: 'Groß', spanBelow: 210, weightBelow: 5000 },
   {
     id: 'size-xl',
     title: 'Sehr groß',
@@ -33,10 +33,14 @@ function representativeValue(text: string): number | undefined {
 
 export function sizeBucketFor(bird: Measurements) {
   const span = representativeValue(bird.span);
-  if (span !== undefined)
-    return sizeBuckets.find((bucket) => span < bucket.spanBelow)!;
   const weight = representativeValue(bird.weight);
-  if (weight === undefined || !['g', 'kg'].includes(bird.unit)) return;
-  const grams = bird.unit === 'kg' ? weight * 1000 : weight;
-  return sizeBuckets.find((bucket) => grams < bucket.weightBelow)!;
+  const grams = weight !== undefined && ['g', 'kg'].includes(bird.unit)
+    ? weight * (bird.unit === 'kg' ? 1000 : 1)
+    : undefined;
+  if (span === undefined && grams === undefined) return;
+  // A heavy, short-winged species must not be classified as small.
+  return sizeBuckets.find((bucket) =>
+    (span === undefined || span < bucket.spanBelow) &&
+    (grams === undefined || grams < bucket.weightBelow)
+  )!;
 }

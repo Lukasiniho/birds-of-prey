@@ -32,3 +32,7 @@
   abweichenden Stile pro Seite; Cluster-Auswahl ist die visuelle Referenz.
 - Wissenschaftliche Quiz-Namen: 18 px, direkt am deutschen Namen (24 px).
 - Suche, Navigationslinks und Theme-Schalter teilen `--header-control-height`.
+
+- Größenklassen berücksichtigen Spannweite und Gewicht unabhängig: die höhere
+  Klasse zählt. Feste Grenzen, keine Quantile der vorhandenen Artenauswahl.
+  Habicht mindestens mittelgroß; repräsentatives Gewicht ab 1 kg nie klein.

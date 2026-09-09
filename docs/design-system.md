@@ -164,22 +164,25 @@ Die Auswahl bietet Gattung, Verbreitung, Lebensraum und Größe. „Region“ en
 als redundante geografische Ansicht. Verbreitung verwendet genau eine vorhandene
 Verbreitungsangabe pro Art; Lebensraum bleibt bewusst eine Mehrfachzuordnung.
 
-Größe nutzt fünf feste Navigationsklassen, aufsteigend sortiert. Grundlage ist
-der Mittelwert einer angegebenen Spannweiten-Spanne in cm oder ein expliziter
-Einzelwert. Eine bloße Obergrenze wie „bis 200“ wird nicht als Mittelwert
-interpretiert; dann wird das mittlere/angegebene Gewicht herangezogen (kg→g).
+Größe verwendet feste Grenzen statt Quantile unserer Auswahl. Spannweite und
+Gewicht werden unabhängig klassifiziert; die größere Klasse entscheidet.
+So bleibt etwa der Habicht mittelgroß, auch bei vielen Adlern im Katalog.
+Als repräsentativer Wert dient jeweils der Mittelwert einer angegebenen Spanne
+oder ein Einzelwert. Bloße Obergrenzen werden nicht als Mittelwerte interpretiert.
+Fehlt ein verwertbares Maß, zählt das andere; fehlen beide, bleibt die Art unter
+„Größe nicht bekannt“ auffindbar. Jede Art wird genau einer Gruppe zugeordnet.
 
-| Klasse     | Spannweite      | Ersatzweise Gewicht |
-| ---------- | --------------- | ------------------- |
-| Sehr klein | <80 cm          | <300 g              |
-| Klein      | 80 bis <120 cm  | 300 bis <1.000 g    |
-| Mittelgroß | 120 bis <170 cm | 1.000 bis <2.500 g  |
-| Groß       | 170 bis <220 cm | 2.500 bis <5.000 g  |
-| Sehr groß  | ≥220 cm         | ≥5.000 g            |
+| Klasse | Spannweite | Gewicht |
+| --- | --- | --- |
+| Sehr klein | <70 cm | <200 g |
+| Klein | 70 bis <100 cm | 200 bis <750 g |
+| Mittelgroß | 100 bis <150 cm | 750 bis <2.000 g |
+| Groß | 150 bis <210 cm | 2.000 bis <5.000 g |
+| Sehr groß | ≥210 cm | ≥5.000 g |
 
-Jede Art erscheint genau einmal, leere Klassen werden bei Suchfiltern ausgeblendet.
-Fehlen später beide Maße, bleibt die Art unter „Größe nicht bekannt“ auffindbar.
-Die fünf Klassen sind Navigationshilfen, keine biologische Klassifikation.
+Die Tabelle zeigt zwei unabhängige Skalen; es zählt stets die höhere Einstufung.
+Ein repräsentatives Gewicht ab 1 kg kann daher niemals „klein“ ergeben.
+Die Gruppen sind Navigationshilfen, keine biologische Klassifikation.
 Die Berechnung liegt in `lib/species-size.ts`.
 
 ## Aktualisierte Abstimmung
@@ -233,5 +236,8 @@ mit sanft eingeblendeter 1-px-Unschärfe. Der Verlauf liegt außerhalb des
 Scrollinhalts, fängt keine Eingaben ab und respektiert Hell-/Dunkelmodus.
 Zusätzliches Endpadding hält den letzten Inhalt vollständig lesbar.
 
-Rechte Desktop-Spalte: 440 px, ab 1600 px Fensterbreite 480 px; auf schmalem
+Rechte Desktop-Spalte: 410 px, ab 1600 px Fensterbreite 440 px; auf schmalem
 Desktop bis 1190 px 360 px. Die Mitte nimmt den verbleibenden Platz ein.
+
+Messwertleiste: 8 px vertikales Padding auf Desktop, 32-px-Audiobutton mit
+gefüllter Primärfarbe und kontrastreichem Symbol. Bild-/Audiohinweise mittig.
