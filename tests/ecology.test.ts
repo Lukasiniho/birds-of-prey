@@ -9,7 +9,7 @@ import {
 import { landscapes } from '../lib/habitats.ts';
 import { preyCatalog } from '../lib/diets.ts';
 test('every species has complete structured ecology and valid references', () => {
-  assert.equal(speciesRecords.length, 35);
+  assert.equal(speciesRecords.length, 39);
   for (const b of speciesRecords) {
     assert(b.ecology.food.length, b.id);
     assert(b.ecology.huntingTags.length, b.id);

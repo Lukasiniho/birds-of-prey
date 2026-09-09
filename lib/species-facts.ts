@@ -15,6 +15,116 @@ export type SpeciesFactsData = {
   movement: SpeciesFact;
 };
 export const speciesFacts: Record<string, SpeciesFactsData> = {
+  habichtsadler: {
+    lifespan: {
+      value: '20 Jahre',
+      context: 'Höchstalter · Tierhaltung',
+      sources: [
+        'https://genomics.senescence.info/species/entry.php?species=Aquila_fasciata',
+      ],
+    },
+    clutch: {
+      value: 'Meist 2 Eier',
+      sources: ['https://seo.org/ave/aguila-perdicera/'],
+    },
+    conservation: {
+      code: 'LC',
+      sources: [
+        'https://datazone.birdlife.org/species/factsheet/bonellis-eagle-aquila-fasciata',
+      ],
+    },
+    activity: {
+      value: 'Tagaktiv',
+      sources: ['https://seo.org/ave/aguila-perdicera/'],
+    },
+    movement: {
+      value: 'Standvogel',
+      note: 'Altvögel meist reviertreu; Jungvögel können weiträumig abwandern.',
+      sources: ['https://seo.org/ave/aguila-perdicera/'],
+    },
+  },
+  iberienadler: {
+    lifespan: {
+      value: 'über 44 Jahre',
+      context: 'Höchstalter · Tierhaltung',
+      sources: [
+        'https://genomics.senescence.info/species/entry.php?species=Aquila_adalberti',
+      ],
+    },
+    clutch: {
+      value: 'Meist 2–3 Eier',
+      sources: ['https://seo.org/ave/aguila-imperial-iberica/'],
+    },
+    conservation: {
+      code: 'VU',
+      sources: ['https://www.cms.int/species/aquila-adalberti'],
+    },
+    activity: {
+      value: 'Tagaktiv',
+      sources: ['https://seo.org/ave/aguila-imperial-iberica/'],
+    },
+    movement: {
+      value: 'Standvogel',
+      note: 'Altvögel meist reviertreu; Jungvögel können weiträumig abwandern.',
+      sources: ['https://seo.org/ave/aguila-imperial-iberica/'],
+    },
+  },
+  klippenadler: {
+    lifespan: {
+      value: 'bis 40 Jahre',
+      context: 'Mögliches Höchstalter · Literaturangabe',
+      sources: [
+        'https://wiredspace.wits.ac.za/bitstream/handle/10539/8616/Research%20Report%20Final.pdf?sequence=1',
+      ],
+      note: 'Literaturangabe eines möglichen Höchstalters, keine mittlere Lebenserwartung; die Quelle trennt Wildbahn und Tierhaltung hier nicht ausdrücklich.',
+    },
+    clutch: {
+      value: 'Meist 2 Eier',
+      sources: ['https://www.sanbi.org/animal-of-the-week/verreauxs-eagle/'],
+    },
+    conservation: {
+      code: 'LC',
+      sources: [
+        'https://www.birdlife.org.za/red-data-book/red-list/verreauxs-eagle/',
+      ],
+    },
+    activity: {
+      value: 'Tagaktiv',
+      sources: ['https://www.sanbi.org/animal-of-the-week/verreauxs-eagle/'],
+    },
+    movement: {
+      value: 'Standvogel',
+      note: 'Altvögel meist reviertreu; Jungvögel können weiträumig abwandern.',
+      sources: ['https://www.sanbi.org/animal-of-the-week/verreauxs-eagle/'],
+    },
+  },
+  zwergadler: {
+    lifespan: {
+      value: 'ca. 8 Jahre',
+      context: 'Mittelwert · untersuchte Population',
+      sources: [
+        'https://idus.us.es/bitstreams/ebf755f0-0371-4fb4-8f2a-b2460dc8a0c5/download',
+      ],
+      note: 'Mittelwert 7,95 Jahre aus den in der zitierten Studie herangezogenen Ringdaten; kein globaler Altersrekord.',
+    },
+    clutch: {
+      value: '1–2 Eier',
+      sources: ['https://seo.org/ave/aguila-calzada/'],
+    },
+    conservation: {
+      code: 'LC',
+      sources: ['https://mme.hu/en/magyarorszagmadarai/madaradatbazis-hiepen'],
+    },
+    activity: {
+      value: 'Tagaktiv',
+      sources: ['https://seo.org/ave/aguila-calzada/'],
+    },
+    movement: {
+      value: 'Überwiegend Zugvogel',
+      note: 'Europäische Brutvögel überwintern meist in Afrika; einzelne Populationen und Vögel bleiben im Brutgebiet.',
+      sources: ['https://seo.org/ave/aguila-calzada/'],
+    },
+  },
   rotschwanzbussard: {
     lifespan: {
       value: 'über 30 Jahre',

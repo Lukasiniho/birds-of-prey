@@ -2,10 +2,14 @@ export type MorphSpeciesId =
   | 'maeusebussard'
   | 'gerfalke'
   | 'koenigsbussard'
-  | 'rotschwanzbussard';
+  | 'rotschwanzbussard'
+  | 'wespenbussard'
+  | 'gaukler'
+  | 'bartgeier'
+  | 'zwergadler';
 
 // The existing image convention calls the adult stage "male" for these species.
-export type MorphStage = 'male' | 'juvenile';
+export type MorphStage = 'male' | 'female' | 'juvenile';
 export type MorphColor = [label: string, hex: string];
 export type MorphSource = { name: string; url: string };
 export type BirdMorphChoice = {
@@ -15,12 +19,16 @@ export type BirdMorphChoice = {
   juvenileNote: string;
   adultColors: MorphColor[];
   juvenileColors: MorphColor[];
+  femaleNote?: string;
+  femaleColors?: MorphColor[];
   rangeNote?: string;
   // Omitted for the default morph: use the species' existing stage image.
-  images?: Record<MorphStage, string>;
+  images?: Partial<Record<MorphStage, string>>;
 };
 export type BirdMorphConfig = {
   label: string;
+  stages?: MorphStage[];
+  hintLabel?: string;
   defaultId: string;
   note: string;
   rangeNote?: string;
@@ -29,6 +37,262 @@ export type BirdMorphConfig = {
 };
 
 export const birdMorphs: Record<MorphSpeciesId, BirdMorphConfig> = {
+  zwergadler: {
+    label: 'Farbform',
+    defaultId: 'hell',
+    note: 'Helle und dunkle Zwergadler gehören zur selben Art. Beide Morphen kommen bei beiden Geschlechtern und auch bei Jungvögeln vor; braune Zwischenformen sind möglich.',
+    sources: [
+      {
+        name: 'SEO/BirdLife – Zwergadler',
+        url: 'https://seo.org/ave/aguila-calzada/',
+      },
+      {
+        name: 'CSIC – Gefieder und Maße',
+        url: 'https://www.vertebradosibericos.org/aves/identificacion/hiepenid.html',
+      },
+    ],
+    choices: [
+      {
+        id: 'hell',
+        label: 'Hell',
+        adultNote:
+          'Weißlicher Körper und helle Unterflügeldecken kontrastieren mit dunklen Schwungfedern. Der Schwanz ist heller graubraun; kleine helle Schulterflecken können auffallen.',
+        juvenileNote:
+          'Wie die helle adulte Morphe, oft mit wärmer beigefarbener Unterseite, hellen Federsäumen und dunkler Iris.',
+        adultColors: [
+          ['Cremeweiß', '#ECE5D6'],
+          ['Braun', '#795B3C'],
+          ['Schwarzbraun', '#342D26'],
+        ],
+        juvenileColors: [
+          ['Cremebeige', '#DBC8A6'],
+          ['Braun', '#886A49'],
+          ['Dunkelbraun', '#3E332A'],
+        ],
+      },
+      {
+        id: 'dunkel',
+        label: 'Dunkel',
+        adultNote:
+          'Brauner bis dunkel schokoladenbrauner Körper und dunkle Unterflügeldecken. Etwas hellere Schwungfedern und die hellen Schulterflecken bleiben als Kontraste erhalten.',
+        juvenileNote:
+          'Dunkelbrauner Körper mit frisch hell gesäumten Deckfedern und dunkler Iris. Die Grundfarbe ähnelt bereits der dunklen adulten Morphe.',
+        adultColors: [
+          ['Schokoladenbraun', '#493326'],
+          ['Graubraun', '#948878'],
+          ['Cremeweiß', '#E7DECD'],
+        ],
+        juvenileColors: [
+          ['Dunkelbraun', '#57412E'],
+          ['Ockerbeige', '#B19873'],
+          ['Graubraun', '#908371'],
+        ],
+        images: {
+          male: '/birds/morph-zwergadler-dark.png',
+          juvenile: '/birds/morph-juvenile-zwergadler-dark.png',
+        },
+      },
+    ],
+  },
+  wespenbussard: {
+    label: 'Farbform',
+    defaultId: 'mittel',
+    note: 'Wespenbussarde variieren von sehr hell bis fast einfarbig dunkelbraun. Hell, Mittel und Dunkel zeigen Beispiele eines fließenden Spektrums, keine Unterarten. Die Farbvariation kommt auch bei Jungvögeln vor; Irisfarbe und Federzeichnung helfen bei der Altersbestimmung.',
+    sources: [
+      {
+        name: 'Spanisches Umweltministerium – Wespenbussard',
+        url: 'https://des.iepnb.es/areas-tematicas/especies-silvestres/eidos/10739/Pernis%20apivorus',
+      },
+      {
+        name: 'Cornell Lab – Wespenbussard',
+        url: 'https://ebird.org/species/euhbuz1',
+      },
+      {
+        name: 'Birds in Bulgaria – Altersmerkmale',
+        url: 'https://www.birdsinbulgaria.org/birds.php?l=en&semeystvo=13&type=bird&vid=72',
+      },
+    ],
+    choices: [
+      {
+        id: 'hell',
+        label: 'Hell',
+        adultNote:
+          'Sehr helle Unterseite und Unterflügeldecken mit wenigen braunen Zeichnungen. Dunkle Handwurzelflecken und Bänder auf Schwingen und Schwanz bleiben sichtbar; die Iris ist gelb.',
+        juvenileNote:
+          'Helle Unterseite mit wenigen braunen Strichen. Die Iris ist dunkel, die Wachshaut gelblich; Schwingen und Schwanz sind gleichmäßiger gebändert als beim Altvogel.',
+        adultColors: [
+          ['Cremeweiß', '#EEE9DE'],
+          ['Braun', '#80674D'],
+          ['Dunkelbraun', '#40352A'],
+        ],
+        juvenileColors: [
+          ['Cremeweiß', '#E9E1D1'],
+          ['Braune Striche', '#856C50'],
+          ['Dunkelbraun', '#40352A'],
+        ],
+        images: {
+          male: '/birds/morph-wespenbussard-hell-male.png',
+          juvenile: '/birds/morph-wespenbussard-hell-juvenile.png',
+        },
+      },
+      {
+        id: 'mittel',
+        label: 'Mittel',
+        adultNote:
+          'Cremefarbene Unterseite mit deutlicher brauner Zeichnung und dunklen Handwurzelflecken. Schwingen und Schwanz sind gebändert; die Iris ist gelb.',
+        juvenileNote:
+          'Brauner Kopf und braun gezeichnete, cremefarbene Unterseite. Dunkle Iris, gelbliche Wachshaut und mehrere gleichmäßiger verteilte Schwanzbänder kennzeichnen das Jugendkleid.',
+        adultColors: [
+          ['Cremebeige', '#DCD0B8'],
+          ['Braun', '#80664A'],
+          ['Dunkelbraun', '#40352A'],
+        ],
+        juvenileColors: [
+          ['Cremebeige', '#D8C9AC'],
+          ['Braun', '#80664A'],
+          ['Dunkelbraun', '#40352A'],
+        ],
+        images: { juvenile: '/birds/morph-wespenbussard-mittel-juvenile.png' },
+      },
+      {
+        id: 'dunkel',
+        label: 'Dunkel',
+        adultNote:
+          'Dunkelbrauner Körper und dunkle Unterflügeldecken kontrastieren mit helleren, gebänderten Schwungfedern. Die gelbe Iris hebt sich vom dunklen Kopf ab.',
+        juvenileNote:
+          'Kopf, Körper und Unterflügeldecken sind dunkelbraun, die Schwungfedern heller und gebändert. Die Iris bleibt dunkel; der Schwanz zeigt mehrere gleichmäßiger verteilte Bänder.',
+        adultColors: [
+          ['Schokoladenbraun', '#493426'],
+          ['Dunkelbraun', '#30271F'],
+          ['Graubeige', '#B2A38A'],
+        ],
+        juvenileColors: [
+          ['Schokoladenbraun', '#493426'],
+          ['Dunkelbraun', '#30271F'],
+          ['Graubeige', '#AD9D83'],
+        ],
+        images: {
+          male: '/birds/morph-wespenbussard-dunkel-male.png',
+          juvenile: '/birds/morph-wespenbussard-dunkel-juvenile.png',
+        },
+      },
+    ],
+  },
+  gaukler: {
+    label: 'Rückenfarbe',
+    stages: ['male', 'female'],
+    defaultId: 'kastanienbraun',
+    note: 'Neben dem gewöhnlichen kastanienbraunen Rücken gibt es eine seltene cremefarbene Morphe mit hellerem, blass kastanienfarbenem Schwanz. Der schwarze Körper bleibt erhalten. Die Rückenfarbe ist von den Geschlechtsmerkmalen am Flügel zu unterscheiden. Für das braune Jugendkleid wird hier keine eigene Morphenzeichnung angenommen.',
+    sources: [
+      {
+        name: 'Lip Kee – dokumentierte cremefarbene Morphe',
+        url: 'https://commons.wikimedia.org/wiki/File:Bateleur_cream_backed_morph_(20964420378).jpg',
+      },
+      {
+        name: 'Cornell Lab – Gaukler, Geschlechts- und Altersmerkmale',
+        url: 'https://ebird.org/species/batele1',
+      },
+    ],
+    choices: [
+      {
+        id: 'kastanienbraun',
+        label: 'Kastanienbraun',
+        adultNote:
+          'Schwarzer Kopf und Körper, kastanienbrauner Rücken und kurzer kastanienbrauner Schwanz. Beim Männchen ist der schwarze Hinterrand des hellen Unterflügels breit.',
+        femaleNote:
+          'Kastanienbrauner Rücken und Schwanz wie beim Männchen. Die hellen Armschwingen des Weibchens tragen einen schmaleren schwarzen Hinterrand.',
+        juvenileNote:
+          'Junge Gaukler sind überwiegend braun. Die hier gezeigte Rückenfarbwahl gilt nur für das adulte Gefieder.',
+        adultColors: [
+          ['Schwarz', '#24242A'],
+          ['Kastanienbraun', '#98552F'],
+          ['Silbergrau', '#C4C1BF'],
+        ],
+        juvenileColors: [
+          ['Braun', '#70553D'],
+          ['Dunkelbraun', '#3D3027'],
+        ],
+      },
+      {
+        id: 'creme',
+        label: 'Creme',
+        adultNote:
+          'Cremefarbener Rücken und blass kastanienfarbener Schwanz bei weiterhin schwarzem Kopf und Körper. Das Männchen behält den breiten schwarzen Flügelhinterrand.',
+        femaleNote:
+          'Cremefarbener Rücken und heller kastanienfarbener Schwanz. Die hellen Armschwingen mit schmalem schwarzem Hinterrand kennzeichnen das Weibchen.',
+        juvenileNote:
+          'Die adulte cremefarbene Rückenform wird hier nicht auf das überwiegend braune Jugendkleid übertragen.',
+        adultColors: [
+          ['Schwarz', '#24242A'],
+          ['Graubeige', '#C1BCB0'],
+          ['Helles Graubraun', '#AAA092'],
+          ['Silbergrau', '#C4C1BF'],
+        ],
+        juvenileColors: [
+          ['Braun', '#70553D'],
+          ['Dunkelbraun', '#3D3027'],
+        ],
+        images: {
+          male: '/birds/morph-gaukler-creme-male.png',
+          female: '/birds/morph-gaukler-creme-female.png',
+        },
+      },
+    ],
+  },
+  bartgeier: {
+    label: 'Gefiederfärbung',
+    hintLabel: 'Warum Weiß und Rostorange?',
+    stages: ['male'],
+    defaultId: 'rostorange',
+    note: 'Weiß und Rostorange sind keine genetischen Farbmorphen. Die hellen Federn adulter Bartgeier sind von Natur aus weiß und werden durch Bäder in eisenoxidhaltigem Wasser rostorange gefärbt. Die Intensität kann sich bei demselben Vogel ändern. Jungvögel besitzen unabhängig davon ein überwiegend dunkles Jugendkleid.',
+    sources: [
+      {
+        name: 'Vulture Conservation Foundation – Bartgeier',
+        url: 'https://4vultures.org/vultures/bearded-vulture/',
+      },
+      {
+        name: 'Negro et al. – kosmetische Gefiederfärbung',
+        url: 'https://pmc.ncbi.nlm.nih.gov/articles/PMC6525594/',
+      },
+    ],
+    choices: [
+      {
+        id: 'rostorange',
+        label: 'Rostorange',
+        adultNote:
+          'Kopf, Hals und Unterseite sind durch äußere Eisenoxidablagerungen rostorange gefärbt. Flügel und Schwanz bleiben dunkel, Bart und Augenmaske schwarz.',
+        juvenileNote:
+          'Junge Bartgeier tragen überwiegend dunkelbraunes Gefieder mit dunklem Kopf und Hals; ihnen fehlt die helle adulte Unterseite.',
+        adultColors: [
+          ['Rostorange', '#CE9453'],
+          ['Dunkelbraun', '#493E30'],
+          ['Schwarz', '#252622'],
+        ],
+        juvenileColors: [
+          ['Dunkelbraun', '#4A3A2D'],
+          ['Braun', '#796047'],
+        ],
+      },
+      {
+        id: 'weiss',
+        label: 'Weiß',
+        adultNote:
+          'Die ungefärbten Federn an Kopf, Hals und Unterseite sind weiß bis cremeweiß. Dunkle Flügel, dunkler Schwanz sowie schwarze Augenmaske und Bart bleiben erhalten.',
+        juvenileNote:
+          'Die weiße adulte Unterseite ist kein Jugendmerkmal. Junge Bartgeier sind überwiegend dunkelbraun.',
+        adultColors: [
+          ['Cremeweiß', '#EEEAE0'],
+          ['Dunkelbraun', '#493E30'],
+          ['Schwarz', '#252622'],
+        ],
+        juvenileColors: [
+          ['Dunkelbraun', '#4A3A2D'],
+          ['Braun', '#796047'],
+        ],
+        images: { male: '/birds/morph-bartgeier-weiss-male.png' },
+      },
+    ],
+  },
   maeusebussard: {
     label: 'Farbform',
     defaultId: 'mittel',
@@ -153,8 +417,8 @@ export const birdMorphs: Record<MorphSpeciesId, BirdMorphConfig> = {
           ['Blaugraue Füße', '#849199'],
         ],
         images: {
-          male: '/birds/morph-gerfalke-weiss-male.png?v=6d0dc31fd0f5',
-          juvenile: '/birds/morph-gerfalke-weiss-juvenile.png?v=78d0a89a4d06',
+          male: '/birds/morph-gerfalke-weiss-male.png?v=ecfc8cb16b28',
+          juvenile: '/birds/morph-gerfalke-weiss-juvenile.png?v=3e506aebe4f6',
         },
       },
       {
@@ -193,8 +457,8 @@ export const birdMorphs: Record<MorphSpeciesId, BirdMorphConfig> = {
           ['Graubraune Schwingen', '#777168'],
         ],
         images: {
-          male: '/birds/morph-gerfalke-dunkel-male.png?v=7685df3aefc5',
-          juvenile: '/birds/morph-gerfalke-dunkel-juvenile.png?v=ec3dc9ac897b',
+          male: '/birds/morph-gerfalke-dunkel-male.png?v=bab2a4ad27e7',
+          juvenile: '/birds/morph-gerfalke-dunkel-juvenile.png?v=3cf027d7a27f',
         },
       },
     ],
@@ -352,18 +616,23 @@ export const birdMorphs: Record<MorphSpeciesId, BirdMorphConfig> = {
 
 export function getBirdMorphConfig(
   speciesId: string,
+  stage?: MorphStage,
 ): BirdMorphConfig | undefined {
   if (!Object.prototype.hasOwnProperty.call(birdMorphs, speciesId))
     return undefined;
-  return birdMorphs[speciesId as MorphSpeciesId];
+  const config = birdMorphs[speciesId as MorphSpeciesId];
+  return stage && config.stages && !config.stages.includes(stage)
+    ? undefined
+    : config;
 }
 
 /** Unknown or absent choices resolve to the species' default morph. */
 export function getBirdMorphChoice(
   speciesId: string,
   morphId?: string | null,
+  stage?: MorphStage,
 ): BirdMorphChoice | undefined {
-  const config = getBirdMorphConfig(speciesId);
+  const config = getBirdMorphConfig(speciesId, stage);
   return (
     config?.choices.find((choice) => choice.id === morphId) ??
     config?.choices.find((choice) => choice.id === config.defaultId)
@@ -375,11 +644,21 @@ export function getBirdMorphAppearance(
   morphId: string | null | undefined,
   stage: MorphStage,
 ): { note: string; colors: MorphColor[]; image?: string } | undefined {
-  const choice = getBirdMorphChoice(speciesId, morphId);
+  const choice = getBirdMorphChoice(speciesId, morphId, stage);
   if (!choice) return undefined;
   return {
-    note: stage === 'juvenile' ? choice.juvenileNote : choice.adultNote,
-    colors: stage === 'juvenile' ? choice.juvenileColors : choice.adultColors,
+    note:
+      stage === 'juvenile'
+        ? choice.juvenileNote
+        : stage === 'female'
+          ? (choice.femaleNote ?? choice.adultNote)
+          : choice.adultNote,
+    colors:
+      stage === 'juvenile'
+        ? choice.juvenileColors
+        : stage === 'female'
+          ? (choice.femaleColors ?? choice.adultColors)
+          : choice.adultColors,
     image: choice.images?.[stage],
   };
 }

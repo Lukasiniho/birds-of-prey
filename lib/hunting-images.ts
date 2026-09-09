@@ -1,4 +1,9 @@
 export const huntingImages: Record<string, string> = {
+  habichtsadler: '/birds/hunting-habichtsadler.png',
+  iberienadler: '/birds/hunting-iberienadler.png',
+  klippenadler: '/birds/hunting-klippenadler.png',
+  zwergadler: '/birds/hunting-zwergadler.png',
+
   steinadler: '/hunting-steinadler.png?v=19a4e0d7762a',
   wanderfalke: '/hunting-wanderfalke.png?v=5ceb8a948dac',
   turmfalke: '/hunting-turmfalke.png?v=62c9687c925f',

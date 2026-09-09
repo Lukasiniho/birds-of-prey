@@ -42,7 +42,7 @@ void test('all 19 European catalog species have reference vector overlays', () =
 });
 
 void test('every catalog bird has a map and every map belongs to a catalog bird', () => {
-  assert.equal(birds.length, 35);
+  assert.equal(birds.length, 39);
   assert.deepEqual(
     Object.keys(displayRangeMaps).sort(),
     birds.map((bird) => bird.id).sort(),

@@ -1,6 +1,6 @@
 # Kompakte Artinformationen
 
-Stand: 9. September 2026. Alle 35 Katalogarten erhalten fünf Zeilen im
+Stand: 9. September 2026. Alle 39 Katalogarten erhalten fünf Zeilen im
 Steckbrief: Lebenserwartung, Gelegegröße, Gefährdung weltweit, Aktivitätszeit
 und Zugverhalten. `lib/species-facts.ts` hält die Werte sowie feldbezogene
 Quellen und regionale Hinweise. `components/species-facts.tsx` stellt sie dar.
@@ -73,3 +73,16 @@ Alle Tooltips verwenden `components/ui/tooltip.tsx` und `app/tooltips.css`.
 Die äußere Messfläche bleibt stabil; innen skaliert die Oberfläche von 0,98
 auf 1. Die Spitze bleibt außerhalb des skalierten Elements. Größenanimation,
 Opazität, Farben, Abstände und Reduced Motion sind zentral definiert.
+
+## Vier zusätzliche Adler — 9. September 2026
+
+Habichtsadler und Iberienadler: AnAge nennt Höchstalter in Tierhaltung
+(20 bzw. 44,5 Jahre), ausdrücklich keine mittlere Lebenserwartung. Beim
+Klippenadler wird die Literaturangabe „bis 40 Jahre“ als mögliches Höchstalter
+mit unklarer Haltungssituation ausgewiesen. Der Zwergadler-Wert von rund acht
+Jahren stammt aus einer untersuchten Population (7,95 Jahre), nicht aus
+einer globalen Altersstatistik. Feldbezogene Quellen stehen im Datensatz.
+
+Globale Kategorien: Habichtsadler LC, Iberienadler VU, Klippenadler LC,
+Zwergadler LC. Spanische bzw. südafrikanische regionale Rote Listen werden
+nicht als weltweiter Status übernommen.

@@ -1,5 +1,11 @@
 /** Short quiz cues, condensed from the full species profiles. */
 export const quizIdentification: Record<string, string> = {
+  habichtsadler:
+    'Heller Körper, dunkle Unterflügeldecken und breite Schwanzendbinde.',
+  iberienadler: 'Dunkles Alterskleid mit weißen Schultern und hellem Nacken.',
+  klippenadler: 'Schwarz mit weißem Rücken-V und hellen Flügelfenstern.',
+  zwergadler:
+    'Kleiner Adler mit hellen Schulterflecken; helle und dunkle Morphe.',
   rotschwanzbussard:
     'Breite Flügel, kurzer Schwanz; Altvögel mit rotem Schwanz.',
   habicht: 'Kurze, breite Flügel, langer Schwanz und heller Überaugenstreif.',

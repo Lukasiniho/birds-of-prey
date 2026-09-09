@@ -292,4 +292,44 @@ export const referenceRangeMaps: Partial<Record<string, DisplayRangeMapEntry>> =
       licenseUrl: 'https://creativecommons.org/licenses/by-sa/3.0/',
       note: 'Ohne den als eigene Art geführten Magellanuhu.',
     },
+    habichtsadler: {
+      url: '/maps/habichtsadler-reference-09340962b994.json',
+      label: 'Verbreitung',
+      sourceName: 'Nach R. Altenkamp (Accipiter), Berlin',
+      sourceUrl:
+        'https://commons.wikimedia.org/wiki/File:Hieraaetus_fasciatus_area.PNG',
+      license: 'CC BY 3.0',
+      licenseUrl: 'https://creativecommons.org/licenses/by/3.0',
+      note: 'Aus lizenzierter Verbreitungsillustration abgeleitet; Brutgebiet nach Referenz von 2006/2001. Generalisierte Grenzen; keine aktuellen Beobachtungsdaten.',
+    },
+    zwergadler: {
+      url: '/maps/zwergadler-reference-a183312f3920.json',
+      label: 'Verbreitung',
+      sourceName: 'Nach Alexander Kürthy',
+      sourceUrl:
+        'https://commons.wikimedia.org/wiki/File:HieraaetusPennatusIUCNver2018_2.png',
+      license: 'CC BY-SA 3.0',
+      licenseUrl: 'https://creativecommons.org/licenses/by-sa/3.0',
+      note: 'Aus lizenzierter Verbreitungsillustration abgeleitet; Brut-, Stand-, Durchzugs- und Wintergebiete der Referenz 2018.2 zusammengefasst. Generalisierte Grenzen; keine aktuellen Beobachtungsdaten.',
+    },
+    klippenadler: {
+      url: '/maps/klippenadler-reference-a94f92ce98d9.json',
+      label: 'Verbreitung',
+      sourceName: 'Nach Scops',
+      sourceUrl:
+        'https://commons.wikimedia.org/wiki/File:Aquila_verreauxii_distr.png',
+      license: 'CC BY 2.5',
+      licenseUrl: 'https://creativecommons.org/licenses/by/2.5/',
+      note: 'Aus lizenzierter Referenzillustration abgeleitet; Darstellung nach Raptors of the World (2001), ohne unsichere Fragezeichen-Markierungen. Generalisierte Grenzen, keine aktuelle Bestandserhebung.',
+    },
+    iberienadler: {
+      url: '/maps/iberienadler-reference-ebdccedadab5.json',
+      label: 'Verbreitung',
+      sourceName: 'Nach Erfil; überarbeitet von Fobos92',
+      sourceUrl:
+        'https://commons.wikimedia.org/wiki/File:Aquila_adalberti_distr.PNG',
+      license: 'CC BY-SA 3.0',
+      licenseUrl: 'https://creativecommons.org/licenses/by-sa/3.0/',
+      note: 'Aus lizenzierter Referenzillustration abgeleitet; Kartenrevision 2024; historische, blass markierte Gebiete ausgeschlossen. Generalisierte Grenzen, keine aktuelle Bestandserhebung.',
+    },
   };

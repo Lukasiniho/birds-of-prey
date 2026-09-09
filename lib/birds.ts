@@ -287,7 +287,13 @@ export const plumages = [
   { value: 'juvenile', label: 'Jungvogel' },
 ] as const;
 export function plumagesFor(id: string): { value: Plumage; label: string }[] {
-  return ['turmfalke', 'gaukler', 'sperber', 'andenkondor'].includes(id)
+  return [
+    'turmfalke',
+    'gaukler',
+    'sperber',
+    'andenkondor',
+    'fischadler',
+  ].includes(id)
     ? [...plumages]
     : [
         { value: 'male', label: 'Altvogel' },
@@ -307,8 +313,6 @@ const adultNotes: Record<string, string> = {
     'Dunkelbraunes Gefieder mit goldbraunem Nacken. Die Geschlechter unterscheiden sich vor allem in der Größe; Weibchen sind meist kräftiger.',
   seeadler:
     'Heller brauner Kopf, gelber Schnabel und weißer Schwanz im Alterskleid. Weibchen sind ähnlich gefärbt, aber meist größer und schwerer.',
-  fischadler:
-    'Weißer Kopf mit dunklem Augenstreif und ein unterschiedlich ausgeprägtes Brustband. Weibchen sind meist größer und zeigen oft ein stärkeres Brustband; eine sichere Bestimmung erlaubt das allein nicht.',
   weisskopfseeadler:
     'Weißer Kopf und Schwanz über einem dunkelbraunen Körper. Beide Geschlechter tragen dieses Alterskleid; Weibchen sind im Mittel größer.',
   riesenseeadler:
@@ -386,9 +390,9 @@ export const plumageNotes: Record<string, Record<Plumage, string>> = {
       'Dunkles, unregelmäßig aufgehelltes Gefieder und ein dunkler Schnabel. Der Schwanz ist noch nicht rein weiß.',
   },
   fischadler: {
-    male: 'Weißer Kopf mit dunklem Augenstreif. Das Brustband ist oft schwach ausgeprägt oder fehlt.',
+    male: 'Weißer Kopf mit dunklem Augenstreif. Das Brustband ist oft schwach ausgeprägt oder fehlt; die Unterflügeldecken sind meist weniger gefleckt als beim Weibchen. Es gibt Überschneidungen zwischen den Geschlechtern.',
     female:
-      'Häufig stärker geflecktes Brustband und kräftigerer Körperbau. Einzelne Tiere lassen sich daran nicht sicher bestimmen.',
+      'Häufig breiteres, stärker geflecktes Brustband und mehr dunkle Tropfenflecken an den Unterflügeldecken. Weibchen sind im Mittel größer; die gleich groß dargestellten Bilder vergleichen die Gefiederzeichnung. Das Brustband allein erlaubt keine sichere Geschlechtsbestimmung.',
     juvenile:
       'Helle Säume an den Rücken- und Flügelfedern erzeugen ein geschupptes Muster. Die Augen wirken orangegelb.',
   },

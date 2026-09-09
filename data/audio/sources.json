@@ -1111,5 +1111,135 @@
       "sha256": "401762e43f3207a534d64de516bfb08b73c073ac413dc65c209ddff04b13dbf4",
       "downloadFilename": "sperber.mp3"
     }
+  },
+  {
+    "birdId": "habichtsadler",
+    "path": "public/audio/habichtsadler-b941c7cb1c54.mp3",
+    "label": "Flugruf",
+    "author": "Jean Claude Roché / Tierstimmenarchiv, Museum für Naturkunde Berlin",
+    "sourceUrl": "https://suche.tierstimmenarchiv.de/search/showdetails.html?unique_identifier=TSA%3AAquila_fasciata_Roc01__5_1_0&language=deutsch",
+    "downloadUrl": "https://suche.tierstimmenarchiv.de/download.mp3?unique_identifier=TSA:Aquila_fasciata_Roc01__5_1_0",
+    "license": "CC BY-SA 3.0 DE",
+    "licenseUrl": "https://creativecommons.org/licenses/by-sa/3.0/de/",
+    "verifiedAt": "2026-09-09",
+    "durationSeconds": 7.0,
+    "sha256": "b941c7cb1c54ec98692f5210830ea1e35b549d1a84caf2e40d09b92d578a99b7",
+    "bytes": 112892,
+    "description": "Flugrufe eines Paares bei La Malière in Südfrankreich.",
+    "changes": "Rufsequenz ausgewählt und gekürzt; als Mono-MP3 gespeichert, Lautstärke angepasst und Schnittkanten kurz ein- und ausgeblendet. Tonhöhe und Abspielgeschwindigkeit unverändert.",
+    "edit": {
+      "startSeconds": 6.0,
+      "endSeconds": 13.0,
+      "gainDb": 22.061,
+      "fadeInSeconds": 0.012,
+      "fadeOutSeconds": 0.02,
+      "sampleRateHz": 44100,
+      "bitrateKbps": 128,
+      "encoder": "FFmpeg 7.1 / libmp3lame"
+    },
+    "original": {
+      "durationSeconds": 89.13873,
+      "sha256": "0dadb543f8f1aa03b9ab2f2b2b8287be107b9b01f9decb0bec06ffba1e8d7f8a",
+      "downloadFilename": "habichtsadler.mp3"
+    },
+    "archiveIdentifier": "TSA:Aquila_fasciata_Roc01__5_1_0",
+    "archive": "Tierstimmenarchiv, Museum für Naturkunde Berlin"
+  },
+  {
+    "birdId": "klippenadler",
+    "path": "public/audio/klippenadler-e8446071d373.mp3",
+    "label": "Ruf",
+    "author": "Hans Lütgens / Tierstimmenarchiv, Museum für Naturkunde Berlin",
+    "sourceUrl": "https://suche.tierstimmenarchiv.de/search/showdetails.html?unique_identifier=TSA%3AAquila_verreauxii_Lue_60_4_1&language=deutsch",
+    "downloadUrl": "https://suche.tierstimmenarchiv.de/download.mp3?unique_identifier=TSA:Aquila_verreauxii_Lue_60_4_1",
+    "license": "CC BY-SA 3.0 DE",
+    "licenseUrl": "https://creativecommons.org/licenses/by-sa/3.0/de/",
+    "verifiedAt": "2026-09-09",
+    "durationSeconds": 7.0,
+    "sha256": "e8446071d37333f1d1ff8cfec270cf11101943618610b3337658e1da73050386",
+    "bytes": 112892,
+    "description": "Rufe aus dem Zoo Berlin; im Archiv unter dem Namen Kaffernadler geführt.",
+    "changes": "Rufsequenz ausgewählt und gekürzt; als Mono-MP3 gespeichert, Lautstärke angepasst und Schnittkanten kurz ein- und ausgeblendet. Tonhöhe und Abspielgeschwindigkeit unverändert.",
+    "edit": {
+      "startSeconds": 6.65,
+      "endSeconds": 13.65,
+      "gainDb": 5.678,
+      "fadeInSeconds": 0.012,
+      "fadeOutSeconds": 0.02,
+      "sampleRateHz": 44100,
+      "bitrateKbps": 128,
+      "encoder": "FFmpeg 7.1 / libmp3lame"
+    },
+    "original": {
+      "durationSeconds": 13.86,
+      "sha256": "e6b09ad5f50e7fc444b3a77fa0e6c34e22416ebd1008d7f23c22bdb2d7e4d287",
+      "downloadFilename": "klippenadler.mp3"
+    },
+    "archiveIdentifier": "TSA:Aquila_verreauxii_Lue_60_4_1",
+    "archive": "Tierstimmenarchiv, Museum für Naturkunde Berlin"
+  },
+  {
+    "birdId": "zwergadler",
+    "path": "public/audio/zwergadler-c06e43c8698f.mp3",
+    "label": "Flugruf",
+    "author": "Jean Claude Roché / Tierstimmenarchiv, Museum für Naturkunde Berlin",
+    "sourceUrl": "https://suche.tierstimmenarchiv.de/search/showdetails.html?unique_identifier=TSA%3AHieraaetus_pennatus_Roc01__4_3_0&language=deutsch",
+    "downloadUrl": "https://suche.tierstimmenarchiv.de/download.mp3?unique_identifier=TSA:Hieraaetus_pennatus_Roc01__4_3_0",
+    "license": "CC BY-SA 3.0 DE",
+    "licenseUrl": "https://creativecommons.org/licenses/by-sa/3.0/de/",
+    "verifiedAt": "2026-09-09",
+    "durationSeconds": 7.0,
+    "sha256": "c06e43c8698f578e4c18402c1f52292612799617578f460f4b693a443d013080",
+    "bytes": 112892,
+    "description": "Flugrufe eines Paares bei Aire-sur-l’Adour in Frankreich, aufgenommen am 27. Juli 1965.",
+    "changes": "Rufsequenz ausgewählt und gekürzt; als Mono-MP3 gespeichert, Lautstärke angepasst und Schnittkanten kurz ein- und ausgeblendet. Tonhöhe und Abspielgeschwindigkeit unverändert.",
+    "edit": {
+      "startSeconds": 69.9,
+      "endSeconds": 76.9,
+      "gainDb": 5.207,
+      "fadeInSeconds": 0.012,
+      "fadeOutSeconds": 0.02,
+      "sampleRateHz": 44100,
+      "bitrateKbps": 128,
+      "encoder": "FFmpeg 7.1 / libmp3lame"
+    },
+    "original": {
+      "durationSeconds": 238.380726,
+      "sha256": "792158f9b4372ac1811b34d41718522d0757ba0193fd0f1f654ba7bc3d0aa3fb",
+      "downloadFilename": "zwergadler.mp3"
+    },
+    "archiveIdentifier": "TSA:Hieraaetus_pennatus_Roc01__4_3_0",
+    "archive": "Tierstimmenarchiv, Museum für Naturkunde Berlin"
+  },
+  {
+    "birdId": "iberienadler",
+    "path": "public/audio/iberienadler-07118be850a9.mp3",
+    "label": "Ruf am Nest",
+    "author": "João Tomás",
+    "sourceUrl": "https://xeno-canto.org/973524",
+    "downloadUrl": "https://xeno-canto.org/973524/download",
+    "license": "CC BY-NC-SA 4.0",
+    "licenseUrl": "https://creativecommons.org/licenses/by-nc-sa/4.0/",
+    "verifiedAt": "2026-09-09",
+    "durationSeconds": 8.452063,
+    "sha256": "07118be850a94e58d7565f66b5673fd854799a8a5c9cec2843226be2179bf66f",
+    "bytes": 136297,
+    "description": "Ruf eines adulten Weibchens bei der Rückkehr mit einem Zweig zum Nest bei El Maderal in Spanien, aufgenommen am 16. Februar 2025.",
+    "changes": "Vollständige kurze Rufsequenz als Mono-MP3 gespeichert, Lautstärke angepasst und Schnittkanten kurz ein- und ausgeblendet. Tonhöhe und Abspielgeschwindigkeit unverändert.",
+    "edit": {
+      "startSeconds": 0,
+      "endSeconds": 8.452063,
+      "gainDb": 14.086,
+      "fadeInSeconds": 0.012,
+      "fadeOutSeconds": 0.02,
+      "sampleRateHz": 44100,
+      "bitrateKbps": 128,
+      "encoder": "FFmpeg 7.1 / libmp3lame"
+    },
+    "original": {
+      "durationSeconds": 8.452063,
+      "sha256": "870a38de529c0cde2ab6175d239b476f35cc83fe1cf09e179d5f4a8fe0ac3fb4",
+      "downloadFilename": "iberienadler-original.wav"
+    }
   }
 ]

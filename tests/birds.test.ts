@@ -4,15 +4,15 @@ import { birds, filterBirds, groupBirds, plumagesFor } from '../lib/birds.ts';
 void test('German and scientific searches return the right species', () => {
   assert.equal(filterBirds('mäuse')[0]?.id, 'maeusebussard');
   assert.equal(filterBirds('FALCO').length, 6);
-  assert.equal(filterBirds('   ').length, 35);
+  assert.equal(filterBirds('   ').length, 39);
   assert.equal(filterBirds('unbekannt').length, 0);
 });
 void test('genus grouping preserves every bird exactly once', () => {
   const groups = groupBirds(birds, 'genus');
-  assert.equal(groups.length, 22);
+  assert.equal(groups.length, 23);
   const all = groups.flatMap((g) => g.birds.map((b) => b.id));
-  assert.equal(all.length, 35);
-  assert.equal(new Set(all).size, 35);
+  assert.equal(all.length, 39);
+  assert.equal(new Set(all).size, 39);
   assert.equal(groups.find((g) => g.id === 'Falco')?.birds.length, 6);
 });
 void test('all grouping modes retain every matching species and no extras', () => {

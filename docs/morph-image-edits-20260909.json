@@ -1,0 +1,198 @@
+{
+  "date": "2026-09-09",
+  "method": "All plumage edits directly reference the species normal adult image. User-authorized local resize and alpha restoration via scripts/restore-bird-alpha.mjs. Original assets unchanged.",
+  "edits": [
+    {
+      "source": "public/birds/wespenbussard-20260907.png",
+      "sourceSha256": "a69d3dccf170877794f2ff34cea86c39a1dd01bde6cee3d797ad61de311d603a",
+      "output": "public/birds/morph-wespenbussard-hell-male.png",
+      "outputSha256": "3a6676b3400c6e319c11d54a1d34ed9eed4f0b1bb9af6c8d55be348d45f5f89f",
+      "mode": "built-in image_gen edit",
+      "prompt": "Use case: precise-object-edit\nAsset type: bird identification atlas transparent PNG variant.\nInput image: sole EDIT TARGET, the normal adult source of this species.\nPrimary request: Adult male European honey buzzard, pale morph: make the underbody and underwing coverts very pale cream/white with sparse brown markings. Preserve the source's dark carpal patches and barred flight feathers and tail. Keep the adult yellow iris. Retain all original feather detail, only recolor/repattern plumage.\nCanvas: preserve the original 1254 by 1254 pixels.\nConstraints: This is an EDIT of the provided normal adult bird image, not a new bird illustration. Preserve its exact pose, leftward flight direction, perspective, outline/silhouette, every wing and tail feather position, head/beak/feet geometry, framing, canvas dimensions, subject size and position and realistic illustration style. Change ONLY the requested plumage/eye/cere colors and markings. Keep the whole bird fully uncropped. Preserve the actual transparent alpha background, no checkerboard, no solid background, no shadow, no text. The existing source silhouette and composition must not move when toggling variants.",
+      "rawDimensions": [
+        1254,
+        1254
+      ],
+      "rawHasAlpha": false,
+      "finalDimensions": [
+        1254,
+        1254
+      ],
+      "finalHasAlpha": true,
+      "alphaIdenticalToSource": true
+    },
+    {
+      "source": "public/birds/wespenbussard-20260907.png",
+      "sourceSha256": "a69d3dccf170877794f2ff34cea86c39a1dd01bde6cee3d797ad61de311d603a",
+      "output": "public/birds/morph-wespenbussard-dunkel-male.png",
+      "outputSha256": "119d1cb6ce432c5a2cf2f0397912aeedeca9386b5d41e6a82134d238a43c1af7",
+      "mode": "built-in image_gen edit",
+      "prompt": "Use case: precise-object-edit\nAsset type: bird identification atlas transparent PNG variant.\nInput image: sole EDIT TARGET, the normal adult source of this species.\nPrimary request: Adult male European honey buzzard, dark morph: make underbody and underwing coverts very dark chocolate brown, contrasting clearly with the paler barred flight feathers and tail. Keep the adult yellow iris. Retain all original feather detail, only recolor/repattern plumage.\nCanvas: preserve the original 1254 by 1254 pixels.\nConstraints: This is an EDIT of the provided normal adult bird image, not a new bird illustration. Preserve its exact pose, leftward flight direction, perspective, outline/silhouette, every wing and tail feather position, head/beak/feet geometry, framing, canvas dimensions, subject size and position and realistic illustration style. Change ONLY the requested plumage/eye/cere colors and markings. Keep the whole bird fully uncropped. Preserve the actual transparent alpha background, no checkerboard, no solid background, no shadow, no text. The existing source silhouette and composition must not move when toggling variants.",
+      "rawDimensions": [
+        1254,
+        1254
+      ],
+      "rawHasAlpha": false,
+      "finalDimensions": [
+        1254,
+        1254
+      ],
+      "finalHasAlpha": true,
+      "alphaIdenticalToSource": true
+    },
+    {
+      "source": "public/birds/wespenbussard-20260907.png",
+      "sourceSha256": "a69d3dccf170877794f2ff34cea86c39a1dd01bde6cee3d797ad61de311d603a",
+      "output": "public/birds/morph-wespenbussard-hell-juvenile.png",
+      "outputSha256": "ffad0d1f42a97febeaf0a4bd1093c9ff2b0572a2be1d1e3395baeda59a57351e",
+      "mode": "built-in image_gen edit",
+      "prompt": "Use case: precise-object-edit\nAsset type: bird identification atlas transparent PNG variant.\nInput image: sole EDIT TARGET, the normal adult source of this species.\nPrimary request: Juvenile European honey buzzard, pale morph: pale cream underbody with sparse brown streaks, dark brown iris instead of yellow, yellow cere, more evenly spaced 4–5 dark tail/flight-feather bands, and more extensive dark feather tips. Make these juvenile plumage changes on this exact normal adult silhouette, without changing any anatomy or proportions.\nCanvas: preserve the original 1254 by 1254 pixels.\nConstraints: This is an EDIT of the provided normal adult bird image, not a new bird illustration. Preserve its exact pose, leftward flight direction, perspective, outline/silhouette, every wing and tail feather position, head/beak/feet geometry, framing, canvas dimensions, subject size and position and realistic illustration style. Change ONLY the requested plumage/eye/cere colors and markings. Keep the whole bird fully uncropped. Preserve the actual transparent alpha background, no checkerboard, no solid background, no shadow, no text. The existing source silhouette and composition must not move when toggling variants.",
+      "rawDimensions": [
+        1254,
+        1254
+      ],
+      "rawHasAlpha": false,
+      "finalDimensions": [
+        1254,
+        1254
+      ],
+      "finalHasAlpha": true,
+      "alphaIdenticalToSource": true
+    },
+    {
+      "source": "public/birds/wespenbussard-20260907.png",
+      "sourceSha256": "a69d3dccf170877794f2ff34cea86c39a1dd01bde6cee3d797ad61de311d603a",
+      "output": "public/birds/morph-wespenbussard-mittel-juvenile.png",
+      "outputSha256": "4a2d1c7b0ffa2beb709a32742cf2b60d7534c4f5f1faaa9ae50e88498211b85c",
+      "mode": "built-in image_gen edit",
+      "prompt": "Use case: precise-object-edit\nAsset type: bird identification atlas transparent PNG variant.\nInput image: sole EDIT TARGET, the normal adult source of this species.\nPrimary request: Juvenile European honey buzzard, intermediate morph: brown head, cream underbody with prominent brown streaks, intermediate brown-and-cream underwing coverts, dark brown iris instead of yellow, yellow cere, evenly spaced 4–5 dark bars on tail. Make juvenile plumage changes on this exact normal adult silhouette without changing any anatomy or proportions.\nCanvas: preserve the original 1254 by 1254 pixels.\nConstraints: This is an EDIT of the provided normal adult bird image, not a new bird illustration. Preserve its exact pose, leftward flight direction, perspective, outline/silhouette, every wing and tail feather position, head/beak/feet geometry, framing, canvas dimensions, subject size and position and realistic illustration style. Change ONLY the requested plumage/eye/cere colors and markings. Keep the whole bird fully uncropped. Preserve the actual transparent alpha background, no checkerboard, no solid background, no shadow, no text. The existing source silhouette and composition must not move when toggling variants.",
+      "rawDimensions": [
+        1254,
+        1254
+      ],
+      "rawHasAlpha": false,
+      "finalDimensions": [
+        1254,
+        1254
+      ],
+      "finalHasAlpha": true,
+      "alphaIdenticalToSource": true
+    },
+    {
+      "source": "public/birds/wespenbussard-20260907.png",
+      "sourceSha256": "a69d3dccf170877794f2ff34cea86c39a1dd01bde6cee3d797ad61de311d603a",
+      "output": "public/birds/morph-wespenbussard-dunkel-juvenile.png",
+      "outputSha256": "6ed0372afd217439052a6416d37d6df44c55b35766ff9659948c80c40e9c845d",
+      "mode": "built-in image_gen edit",
+      "prompt": "Use case: precise-object-edit\nAsset type: bird identification atlas transparent PNG variant.\nInput image: sole EDIT TARGET, the normal adult source of this species.\nPrimary request: Juvenile European honey buzzard, dark morph: chocolate-brown head, underbody and underwing coverts contrasting with paler barred flight feathers, dark brown iris instead of yellow, yellow cere, evenly barred tail with 4–5 dark bars. Make juvenile plumage changes on this exact normal adult silhouette without changing any anatomy or proportions.\nCanvas: preserve the original 1254 by 1254 pixels.\nConstraints: This is an EDIT of the provided normal adult bird image, not a new bird illustration. Preserve its exact pose, leftward flight direction, perspective, outline/silhouette, every wing and tail feather position, head/beak/feet geometry, framing, canvas dimensions, subject size and position and realistic illustration style. Change ONLY the requested plumage/eye/cere colors and markings. Keep the whole bird fully uncropped. Preserve the actual transparent alpha background, no checkerboard, no solid background, no shadow, no text. The existing source silhouette and composition must not move when toggling variants.",
+      "rawDimensions": [
+        1254,
+        1254
+      ],
+      "rawHasAlpha": false,
+      "finalDimensions": [
+        1254,
+        1254
+      ],
+      "finalHasAlpha": true,
+      "alphaIdenticalToSource": true
+    },
+    {
+      "source": "public/birds/gaukler.png",
+      "sourceSha256": "2beff99eb75376631196b7f20e1ce322180e0a9d502f68c9222b8e9e7e1fc43c",
+      "output": "public/birds/morph-gaukler-creme-male.png",
+      "outputSha256": "bc8b1f97e0281455ee601e713f77cbf715c237d9950981d72f154e1b85b39d21",
+      "mode": "built-in image_gen edit",
+      "prompt": "Use case: precise-object-edit\nAsset type: realistic bird atlas transparent PNG.\nInput image: sole EDIT TARGET, the existing normal adult male Bateleur. This must be a direct EDIT of this exact bird, not a fresh illustration.\nPrimary color correction: recolor ONLY the existing chestnut mantle/back/shoulder feathers to naturally muted, desaturated soft gray-beige/taupe (approximate midtone #c1bcb0), maintaining original feather textures, feather-to-feather variations and realistic darker gray-brown shadows. Recolor the chestnut tail to muted pale gray-brown beige (approximate midtone #aaa092) with subtle natural buff and varied feather shading. These plumage areas must look like natural low-saturation beige-gray feathers: NO bright cream, ivory, yellow, golden, or orange highlights; no flat uniformly painted regions or pasted Photoshop tint. Preserve natural feather depth and texture.\nSex: adult MALE. Keep all original male wing coloring unchanged: original gray wing panels and broad black secondary trailing band. Only mute and lighten the chestnut back/shoulder and tail regions as above.\nStrict invariants: exact original 1385 x 1385 canvas, entire uncropped bird, subject scale, placement, silhouette, leftward flight direction, perspective, pose, all wing and tail feather positions, head/beak/feet shapes, framing and realistic illustration style unchanged. Keep black head/body, red face and red feet unchanged. Modify feather colors only. Genuine transparent alpha background, no checkerboard or solid backdrop, no text/shadow/watermark.",
+      "rawDimensions": [
+        1254,
+        1254
+      ],
+      "rawHasAlpha": false,
+      "finalDimensions": [
+        1385,
+        1385
+      ],
+      "finalHasAlpha": true,
+      "alphaIdenticalToSource": true,
+      "adjustment": "User correction: reduce yellow saturation to natural muted gray-beige and gray-brown; fresh direct edit of normal adult source."
+    },
+    {
+      "source": "public/birds/bartgeier-20260907.png",
+      "sourceSha256": "4982215d7ad46855feb6eeaebdba7b78b263c6ab5f4dd184be636932a4c71204",
+      "output": "public/birds/morph-bartgeier-weiss-male.png",
+      "outputSha256": "bad7d249d686ed23c5aada2b1e60848248793f636ca0fa8df9044b33f58df640",
+      "mode": "built-in image_gen edit",
+      "prompt": "Use case: precise-object-edit\nAsset type: bird identification atlas transparent PNG variant.\nInput image: sole EDIT TARGET, the normal adult source of this species.\nPrimary request: Adult Bearded vulture with naturally unstained white plumage. Remove ONLY cosmetic orange iron staining from the head, neck, breast, belly and feathered legs, making these feathers naturally white/ivory while keeping realistic shading and feather texture. This is cosmetic stain removal, not albinism or a genetic morph. Preserve all dark wings/tail, black facial mask and beard, red eye and other anatomy exactly.\nCanvas: preserve the original 1254 by 1254 pixels.\nConstraints: This is an EDIT of the provided normal adult bird image, not a new bird illustration. Preserve its exact pose, leftward flight direction, perspective, outline/silhouette, every wing and tail feather position, head/beak/feet geometry, framing, canvas dimensions, subject size and position and realistic illustration style. Change ONLY the requested plumage/eye/cere colors and markings. Keep the whole bird fully uncropped. Preserve the actual transparent alpha background, no checkerboard, no solid background, no shadow, no text. The existing source silhouette and composition must not move when toggling variants.",
+      "rawDimensions": [
+        1254,
+        1254
+      ],
+      "rawHasAlpha": false,
+      "finalDimensions": [
+        1254,
+        1254
+      ],
+      "finalHasAlpha": true,
+      "alphaIdenticalToSource": true
+    },
+    {
+      "source": "public/birds/fischadler.png",
+      "sourceSha256": "79946d4bd230315fa67babbab87438bb73a4eaa8894269540bd05c99baaee800",
+      "output": "public/birds/female-fischadler-20260909.png",
+      "outputSha256": "7410b30ff90288d99c98b5f3ada3d47fc516ff26635e5eeaaa3d7eb55c1d19dd",
+      "mode": "built-in image_gen edit",
+      "prompt": "Use case: precise-object-edit\nAsset type: bird identification atlas transparent PNG sex variant.\nInput image: sole EDIT TARGET, existing normal adult male-like Eurasian Osprey.\nPrimary request: edit only plumage to a representative female Eurasian Osprey. Add a broader conspicuous dark-brown speckled breast necklace across upper breast and more dark droplet spots/barring on underwing coverts and axillaries. Preserve the white belly, dark eye stripe, yellow iris, pale blue-gray feet, and original feather textures. This is a representative plumage difference with natural overlap, not a different species or a larger bird.\nCanvas: preserve original 1306 by 1306 pixels.\nConstraints: Edit this provided existing bird image. Preserve EXACT original pose, leftward flight direction, perspective, silhouette, wing and tail feather positions, head/beak/feet geometry, image size and position on canvas, framing and realistic illustration style. Change only sex-related plumage, no anatomy/proportion changes. Whole bird fully uncropped. Actual transparent alpha background, no checkerboard, solid background, shadow, text. Source composition must stay identical when toggling sex.",
+      "rawDimensions": [
+        1254,
+        1254
+      ],
+      "rawHasAlpha": false,
+      "finalDimensions": [
+        1306,
+        1306
+      ],
+      "finalHasAlpha": true,
+      "alphaIdenticalToSource": true
+    },
+    {
+      "source": "public/birds/bartgeier-20260907.png",
+      "sourceSha256": "4982215d7ad46855feb6eeaebdba7b78b263c6ab5f4dd184be636932a4c71204",
+      "output": "public/birds/juvenile-bartgeier-20260909.png",
+      "outputSha256": "6e201c979c4a959a9d7d594fdd819486d266ee10593459b448afb773c5e0ff9d",
+      "mode": "built-in image_gen edit",
+      "prompt": "Use case: precise-object-edit\nAsset type: bird identification atlas transparent PNG age variant.\nInput image: sole EDIT TARGET, the original normal ADULT Bearded vulture. Edit this exact adult bird directly into juvenile plumage, do not create a new bird.\nPrimary request: Juvenile Bearded vulture: head, neck and upper breast BLACKISH DARK BROWN; mottled brown body and paler brown shoulder/wing-coverts, dark flight feathers and tail. IRIS MUST BE DARK BROWN, not the adult pale or red-looking eye. Remove ALL adult white cheek/neck plumage and ALL orange coloration; the cheek and whole head/neck should be dark brown/blackish, without an adult pale cheek or neck patch. Keep the beard black. Preserve beak shape and feather texture.\nCanvas:1254 by1254 pixels.\nStrict invariants: Keep exact original normal adult pose, silhouette, leftward flight direction, perspective, every wing/tail feather position, head/beak/feet geometry, framing, scale, subject position and realistic illustration style. Change only age-related plumage and iris color, no anatomical or proportional change. Whole bird fully uncropped. Actual transparent alpha background, no checkerboard, solid background, shadow or text. Silhouette and composition must stay identical when toggling age.",
+      "rawDimensions": [
+        1254,
+        1254
+      ],
+      "rawHasAlpha": false,
+      "finalDimensions": [
+        1254,
+        1254
+      ],
+      "finalHasAlpha": true,
+      "alphaIdenticalToSource": true
+    },
+    {
+      "source": "public/birds/gaukler.png",
+      "sourceSha256": "2beff99eb75376631196b7f20e1ce322180e0a9d502f68c9222b8e9e7e1fc43c",
+      "output": "public/birds/morph-gaukler-creme-female.png",
+      "outputSha256": "4cc4f8eeb1a3d9d0ccf07e63c2016dafa89da9412765c1a5f7a199223ae2c582",
+      "mode": "built-in image_gen edit",
+      "prompt": "Use case: precise-object-edit\nAsset type: realistic bird atlas transparent PNG.\nInput image: sole EDIT TARGET, the existing normal adult male Bateleur. This must be a direct EDIT of this exact bird, not a fresh illustration.\nPrimary color correction: recolor ONLY the existing chestnut mantle/back/shoulder feathers to naturally muted, desaturated soft gray-beige/taupe (approximate midtone #c1bcb0), maintaining original feather textures, feather-to-feather variations and realistic darker gray-brown shadows. Recolor the chestnut tail to muted pale gray-brown beige (approximate midtone #aaa092) with subtle natural buff and varied feather shading. These plumage areas must look like natural low-saturation beige-gray feathers: NO bright cream, ivory, yellow, golden, or orange highlights; no flat uniformly painted regions or pasted Photoshop tint. Preserve natural feather depth and texture.\nSex: adult FEMALE. Additionally change BOTH wings' entire SECONDARY feather fields to pale silvery gray almost to the trailing edge, leaving only a NARROW dark terminal fringe. Especially the lower-right trailing edge of the raised UPPER-RIGHT wing from body to wrist must have gray secondary feathers with narrow dark tips, NOT the broad male black secondary field. The LOWER-LEFT wing's inner secondaries also must be pale gray with narrow dark tips. Keep long outer PRIMARY FINGERS black, do not whiten them. Female plumage only; do not change anatomy, feather outlines or size.\nStrict invariants: exact original 1385 x 1385 canvas, entire uncropped bird, subject scale, placement, silhouette, leftward flight direction, perspective, pose, all wing and tail feather positions, head/beak/feet shapes, framing and realistic illustration style unchanged. Keep black head/body, red face and red feet unchanged. Modify feather colors only. Genuine transparent alpha background, no checkerboard or solid backdrop, no text/shadow/watermark.",
+      "rawDimensions": [
+        1254,
+        1254
+      ],
+      "rawHasAlpha": false,
+      "finalDimensions": [
+        1385,
+        1385
+      ],
+      "finalHasAlpha": true,
+      "alphaIdenticalToSource": true,
+      "adjustment": "User correction: reduce yellow saturation to natural muted gray-beige and gray-brown; fresh direct edit of normal adult source."
+    }
+  ]
+}

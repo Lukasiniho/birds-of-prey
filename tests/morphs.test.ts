@@ -7,8 +7,8 @@ import {
   getBirdMorphAppearance,
   getBirdMorphConfig,
 } from '../lib/morphs.ts';
-import { birdImage } from '../lib/birds.ts';
-void test('every colour form has complete adult and juvenile illustrations', () => {
+import { birdImage, plumagesFor, plumageNoteFor } from '../lib/birds.ts';
+void test('every colour form has illustrations for its supported plumages', () => {
   let forms = 0;
   for (const [id, config] of Object.entries(birdMorphs)) {
     assert.equal(
@@ -17,7 +17,8 @@ void test('every colour form has complete adult and juvenile illustrations', () 
     );
     for (const choice of config.choices) {
       forms++;
-      for (const stage of ['male', 'juvenile'] as const) {
+      for (const { value: stage } of plumagesFor(id)) {
+        if (!getBirdMorphConfig(id, stage)) continue;
         const appearance = getBirdMorphAppearance(id, choice.id, stage)!;
         const path = (appearance.image ?? birdImage(id, stage)).split('?')[0];
         assert.ok(
@@ -29,7 +30,57 @@ void test('every colour form has complete adult and juvenile illustrations', () 
       }
     }
   }
-  assert.equal(forms, 11);
+  assert.equal(forms, 20);
+});
+void test('adult-only colour choices do not replace juvenile plumages', () => {
+  for (const id of ['gaukler', 'bartgeier']) {
+    const config = getBirdMorphConfig(id)!;
+    for (const choice of config.choices) {
+      assert.equal(getBirdMorphConfig(id, 'juvenile'), undefined);
+      assert.equal(getBirdMorphChoice(id, choice.id, 'juvenile'), undefined);
+      assert.equal(
+        getBirdMorphAppearance(id, choice.id, 'juvenile'),
+        undefined,
+      );
+    }
+  }
+});
+void test('female Bateleur retains its own image and identification across morphs', () => {
+  const male = getBirdMorphAppearance('gaukler', 'creme', 'male')!;
+  const female = getBirdMorphAppearance('gaukler', 'creme', 'female')!;
+  assert.notEqual(male.image, female.image);
+  assert.match(female.image!, /female/);
+  assert.match(male.note, /breiten/);
+  assert.match(female.note, /schmalem/);
+  assert.equal(
+    getBirdMorphAppearance('gaukler', 'kastanienbraun', 'female')!.image,
+    undefined,
+  );
+});
+void test('Osprey offers sexes instead of invented colour morphs', () => {
+  assert.equal(getBirdMorphConfig('fischadler'), undefined);
+  assert.deepEqual(
+    plumagesFor('fischadler').map(({ value }) => value),
+    ['male', 'female', 'juvenile'],
+  );
+  assert.notEqual(
+    birdImage('fischadler', 'male'),
+    birdImage('fischadler', 'female'),
+  );
+  assert.match(plumageNoteFor('fischadler', 'male'), /schwach/);
+  assert.match(
+    plumageNoteFor('fischadler', 'female'),
+    /keine sichere Geschlechtsbestimmung/,
+  );
+});
+void test('default adult images remain the existing normal form', () => {
+  for (const id of ['wespenbussard', 'gaukler', 'bartgeier']) {
+    assert.equal(
+      getBirdMorphAppearance(id, undefined, 'male')!.image,
+      undefined,
+    );
+  }
+  assert.match(birdMorphs.bartgeier.note, /keine genetischen Farbmorphen/);
 });
 void test('colour choice resolves within the current species and has a valid default', () => {
   assert.equal(getBirdMorphChoice('maeusebussard', 'weiss')?.id, 'mittel');

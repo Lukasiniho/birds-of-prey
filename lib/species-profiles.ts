@@ -30,6 +30,62 @@ const fund = (name: string) => [
 ];
 
 export const speciesProfiles: Record<string, SpeciesProfile> = {
+  habichtsadler: {
+    identification:
+      'Breite Flügel, langer Schwanz und ein heller Körper zwischen dunklen Unterflügeldecken. Die Schwanzendbinde ist beim Altvogel breit, beim Jungvogel noch undeutlich.',
+    behaviour:
+      'Paare besetzen feste Reviere; Jungvögel streifen nach dem Verlassen des Elternreviers weiträumig umher.',
+    breeding:
+      'Der Asthorst liegt meist in einer Felswand, regional auf einem Baum. Die Brut dauert etwa 37–40 Tage; nach rund zwei Monaten werden die Jungen flügge.',
+    sources: [
+      {
+        name: 'SEO/BirdLife',
+        url: 'https://seo.org/ave/aguila-perdicera/',
+      },
+    ],
+  },
+  iberienadler: {
+    identification:
+      'Rechteckige Flügel, kräftiger Schnabel und im Alterskleid weiße Schultern. Jungvögel sind warm rotbraun und deutlich anders gefärbt als junge Kaiseradler.',
+    behaviour:
+      'Die Altvögel halten ganzjährig am Revier fest. Jungvögel wandern während der Suche nach geeigneten Lebensräumen weiter umher.',
+    breeding:
+      'Beide Partner bauen den großen Baumhorst. Nach etwa 44 Tagen Brutzeit schlüpfen die Jungen; sie verbringen ungefähr elf Wochen im Nest.',
+    sources: [
+      {
+        name: 'SEO/BirdLife',
+        url: 'https://seo.org/ave/aguila-imperial-iberica/',
+      },
+    ],
+  },
+  klippenadler: {
+    identification:
+      'Schwarzer Altvogel mit weißem Rücken-V und Bürzel sowie hellen Flügelfenstern. Die Flügel sind zur Basis auffällig schmal; Jungvögel sind überwiegend braun.',
+    behaviour:
+      'Paare nutzen die Aufwinde steiler Hänge. Etablierte Altvögel bleiben ihrem Felsrevier treu, während Jungvögel abwandern.',
+    breeding:
+      'Ein großer Asthorst wird meist auf einem Felsvorsprung angelegt. Häufig überlebt nur das ältere Küken. Die Nestlingszeit dauert ungefähr drei Monate.',
+    sources: [
+      {
+        name: 'SANBI',
+        url: 'https://www.sanbi.org/animal-of-the-week/verreauxs-eagle/',
+      },
+    ],
+  },
+  zwergadler: {
+    identification:
+      'Etwa bussardgroß, mit sechs deutlich gefingerten Handschwingen und relativ langem Schwanz. Die helle Morphe hat einen markanten Hell-Dunkel-Kontrast; die dunkle ist braun.',
+    behaviour:
+      'Europäische Brutvögel ziehen meist nach Afrika. Helle und dunkle Vögel können sich miteinander verpaaren; die Farbformen sind keine Unterarten.',
+    breeding:
+      'Er baut den Horst überwiegend in hohen Bäumen. Nach etwa 37–40 Tagen schlüpfen die Jungen; nach rund acht Wochen verlassen sie das Nest.',
+    sources: [
+      {
+        name: 'SEO/BirdLife',
+        url: 'https://seo.org/ave/aguila-calzada/',
+      },
+    ],
+  },
   rotschwanzbussard: {
     identification:
       'Breite Flügel, ein gedrungener Körper und ein relativ kurzer, gerundeter Schwanz ergeben die typische Bussardsilhouette. Bei hellen Altvögeln fällt häufig ein dunkles Bauchband auf; der namensgebende rote Schwanz fehlt Jungvögeln noch.',
@@ -111,7 +167,13 @@ export const speciesProfiles: Record<string, SpeciesProfile> = {
       'Er hält sich bevorzugt über offenen Gewässern auf. Zur Balz zeigt das Männchen wellenförmige Flugvorführungen, mitunter mit einem Fisch in den Fängen. Verteidigt wird vor allem die unmittelbare Umgebung des Horstes.',
     breeding:
       'Das große Astnest braucht einen freien Anflug: Baumspitzen, Masten und Nistplattformen sind typische Plätze. Wiederholtes Ergänzen lässt einen Horst über Jahre wachsen. Beide Eltern tragen zur Versorgung der Jungen bei.',
-    sources: cornell('Osprey'),
+    sources: [
+      ...cornell('Osprey'),
+      {
+        name: 'Roine Strandberg – Alter, Geschlecht und Unterarten des Fischadlers',
+        url: 'https://www.dutchbirding.nl/journal/pdf/DB_2013_35_2.pdf',
+      },
+    ],
   },
   weisskopfseeadler: {
     identification:

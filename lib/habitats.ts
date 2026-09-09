@@ -61,6 +61,10 @@ export const landscapes: Record<
   },
 };
 export const speciesLandscapes: Record<string, string[]> = {
+  habichtsadler: ['felsen', 'wald', 'feldflur'],
+  iberienadler: ['wald', 'feldflur'],
+  klippenadler: ['felsen', 'gebirge'],
+  zwergadler: ['wald', 'feldflur', 'savanne'],
   wuestenbussard: ['dornbuschland'],
   kaiseradler: ['steppe', 'feldflur'],
   steppenadler: ['steppe'],

@@ -1,7 +1,7 @@
 # Distribution maps
 
-The app renders **all 35 catalog species** with one shared Natural Earth SVG basemap:
-32 species from licensed, georeferenced reference illustrations,
+The app renders **all 39 catalog species** with one shared Natural Earth SVG basemap:
+36 species from licensed, georeferenced reference illustrations,
 and the three original reviewed American iNaturalist model overlays.
 There is one renderer and one geographic-to-SVG projection, regardless of source.
 No raster map is used by the UI. Missing or unavailable maps remain hidden.
@@ -70,3 +70,17 @@ Run:
 npm run maps:build
 node --experimental-strip-types --test tests/range-maps.test.ts tests/reference-range-maps.test.ts
 ```
+
+## Eagle additions — 2026-09-09
+
+Habichtsadler, Iberienadler, Klippenadler and Zwergadler use licensed reference
+overlays with original files, inverse registrations, palettes and geographic
+regression points committed beside the existing species. Sources retain their
+CC BY 2.5 / CC BY 3.0 / CC BY-SA 3.0 licenses. The maps are generalized historical
+reference illustrations, not a 2026 population census. Iberienadler excludes
+faded historical range; Klippenadler excludes three question-mark annotations
+and the cyan Lake Victoria. Zwergadler combines present seasonal range classes.
+
+The Habichtsadler iNaturalist 2.33 candidate was rejected: overly broad North
+African/Arabian coverage and missing Lesser Sunda populations compared with the
+Altenkamp reference and the CSIC species account. No candidate model is shipped.
