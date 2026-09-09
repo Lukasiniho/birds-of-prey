@@ -30,14 +30,16 @@ relative rem-Werte; die Browser-Schriftgröße bleibt frei wählbar.
 Alle eigenständigen Namenspaare verwenden `SpeciesName` aus
 `components/species-name.tsx`. Einzelne Namen verwenden `SpeciesCommonName`
 oder `SpeciesScientificName`. Semantische Elemente sind über `commonAs`,
-`scientificAs` beziehungsweise `as` wählbar; die expliziten Varianten `standard`, `atlas-title` und `sidebar` bewahren die
+`scientificAs` beziehungsweise `as` wählbar; die expliziten Varianten `standard`, `atlas-title`, `sidebar` und `quiz` bewahren die
 gewünschte Hierarchie.
 Die Atlas-Titelanimation nutzt dieselbe Komponente mit `animated`.
 
 Kompakte deutsche und wissenschaftliche Namen verwenden 20/16 px, Cormorant
 Garamond und Gewicht 600. Die Atlas-Titelvariante behält 40–64 px und Gewicht 700;
 der wissenschaftliche Name ist halb so groß (mindestens 16 px), Gewicht 400.
-Die Seitenliste behält 20/16 px und Gewicht 700/600. Deutsche Namen stehen aufrecht in der Vordergrundfarbe,
+Die Seitenliste behält 20/16 px und Gewicht 700/600. Die Quiz-Variante nutzt
+24/16 px mit Gewicht 700/600 für alle Aufgaben, Auswahlkarten, Ergebnisse und
+Drag-Vorschauen. Deutsche Namen stehen aufrecht in der Vordergrundfarbe,
 wissenschaftliche kursiv in der sekundären Textfarbe. Das gilt für Atlas,
 Seitenliste, Quiz, Drag-Vorschauen, Wissen, Falknerei und mobile Ansichten.
 Lange Namen dürfen umbrechen; sie werden nicht kleiner. Namen im Fließtext

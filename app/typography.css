@@ -47,6 +47,7 @@
   --type-tag: 0.8125rem;
   --type-detail-heading: var(--text-xl);
   --type-species-common: var(--text-xl);
+  --type-species-quiz: var(--text-2xl);
   --type-lead: var(--text-lg);
   --type-label-title: var(--text-xl);
   --type-card-title: clamp(var(--text-xl), 1.125rem + 0.5vw, var(--text-2xl));
@@ -115,6 +116,11 @@
   .species-scientific-name[data-name-variant='sidebar'] {
   font-size: var(--type-scientific);
   font-weight: 600;
+}
+
+:is(.app-shell, .q-drag-ghost) .species-common-name[data-name-variant='quiz'] {
+  font-size: var(--type-species-quiz);
+  font-weight: 700;
 }
 
 @theme inline {

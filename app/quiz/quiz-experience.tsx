@@ -177,6 +177,7 @@ function EstimateQuestion({
       <div className="q-specimen q-span-specimen">
         <div className="q-specimen-label">
           <SpeciesName
+            variant="quiz"
             name={bird.name}
             latin={bird.latin}
             commonAs="span"
@@ -346,6 +347,7 @@ function HuntQuestion({
       <div className="q-specimen q-hunt-specimen">
         <div className="q-specimen-label">
           <SpeciesName
+            variant="quiz"
             name={bird.name}
             latin={bird.latin}
             commonAs="span"
@@ -629,6 +631,7 @@ function WeightQuestion({
             <BirdArt bird={birds[id]} className="q-card-bird" />
             <div className="q-card-name">
               <SpeciesName
+                variant="quiz"
                 name={birds[id].name}
                 latin={birds[id].latin}
                 commonAs="h3"
@@ -681,7 +684,7 @@ function WeightQuestion({
             aria-hidden="true"
           >
             <BirdArt bird={birds[drag.id]} />
-            <SpeciesCommonName as="strong">
+            <SpeciesCommonName variant="quiz" as="strong">
               {birds[drag.id].name}
             </SpeciesCommonName>
           </div>,
@@ -833,7 +836,7 @@ function HabitatQuestion({
             >
               <BirdArt bird={birds[id]} portrait />
               <span>
-                <SpeciesCommonName as="strong">
+                <SpeciesCommonName variant="quiz" as="strong">
                   {birds[id].name}
                 </SpeciesCommonName>
                 <small>
@@ -905,7 +908,11 @@ function HabitatQuestion({
                         height={36}
                         unoptimized
                       />
-                      <SpeciesCommonName as="span" className="q-resident-name ">
+                      <SpeciesCommonName
+                        variant="quiz"
+                        as="span"
+                        className="q-resident-name "
+                      >
                         {birds[id].name}
                       </SpeciesCommonName>
                       {answered &&
@@ -937,7 +944,7 @@ function HabitatQuestion({
             aria-hidden="true"
           >
             <BirdArt bird={birds[drag.id]} portrait />
-            <SpeciesCommonName as="strong">
+            <SpeciesCommonName variant="quiz" as="strong">
               {birds[drag.id].name}
             </SpeciesCommonName>
           </div>,
@@ -1116,7 +1123,7 @@ function QuizResults({
                       : 'Wo sind die Vögel zu Hause?'}
                   </strong>
                 ) : (
-                  <SpeciesCommonName as="strong">
+                  <SpeciesCommonName variant="quiz" as="strong">
                     {question.kind === 'compare'
                       ? question.birdIds.map((id) => birds[id].name).join(' & ')
                       : bird.name}

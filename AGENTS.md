@@ -18,3 +18,7 @@
   in der linken Artenliste erhalten. Abstandsbereinigung ändert keine Typografie.
 - Rechte Detailüberschriften verwenden `--type-detail-heading`; spezifischere
   Selektoren und mobile Regeln dürfen nicht wieder größere Werte erzwingen.
+
+- Deutsche Artnamen im gesamten Quiz verwenden die `quiz`-Variante: 24 px und
+  Gewicht 700; wissenschaftliche Namen bleiben 16 px/600. Auch Ergebnisse,
+  Auswahlkarten und Drag-Vorschauen müssen diese Variante nutzen.

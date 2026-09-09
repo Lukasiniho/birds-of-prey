@@ -85,7 +85,9 @@ Einheitlichkeit bedeutet gleiche Rolle, nicht gleiche Größe für alle Inhalte.
 Die große Atlas-Überschrift behält die vorherige Hierarchie: 40–64 px,
 Schriftgewicht 700; wissenschaftlicher Name halb so groß, mindestens 16 px,
 Gewicht 400. Die linke Artenliste bleibt 20/16 px mit Gewicht 700/600.
-Quiz- und sonstige kompakte Namenspaare verwenden 20/16 px mit Gewicht 600.
+Quiz-Namenspaare verwenden 24/16 px mit Gewicht 700/600, einschließlich
+Auswahlkarten, Ergebnisansicht und Drag-Vorschauen. Sonstige kompakte
+Namenspaare verwenden 20/16 px mit Gewicht 600.
 Diese Varianten liegen in `SpeciesName`, nicht in lokalen Größenüberschreibungen.
 
 Rechte Detailüberschriften wie „Erkennungsmerkmale“, „Farben“, „Lebensweise“,

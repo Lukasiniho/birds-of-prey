@@ -183,6 +183,7 @@ export function PreyQuestion({
         >
           <div className="q-specimen-label">
             <SpeciesName
+              variant="quiz"
               name={bird.name}
               latin={bird.latin}
               commonAs="span"

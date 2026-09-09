@@ -67,6 +67,7 @@ export function WingComparison({
                 </div>
               )}
               <SpeciesName
+                variant="quiz"
                 name={bird.name}
                 latin={bird.latin}
                 commonAs="h3"
