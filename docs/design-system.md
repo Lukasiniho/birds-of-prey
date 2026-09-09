@@ -278,3 +278,7 @@ rechten Rand. Kein verteilender Leerraum zwischen Titel und Fragenzahl.
 
 Quiz-Ergebnis: Punktekreis 180 px; Auswertung links, Punkte nach Fragentyp
 rechts in zwei Spalten. Bis 1100 px stehen beide Bereiche untereinander.
+
+Optische Ausrichtung im Quiz-Kopf: Serifentitel 3 px nach oben versetzt,
+weil seine sichtbaren Buchstaben unterhalb der Mitte seiner Zeilenbox liegen.
+Dropdown und Fortschrittsanzeige behalten ihre geometrische Zentrierung.

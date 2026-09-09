@@ -54,6 +54,10 @@
   font-weight: 600;
   letter-spacing: -0.9px;
 }
+/* Cormorant’s visible letterforms sit below the center of its line box. */
+.q-title-controls > h1 {
+  transform: translateY(-3px);
+}
 .q-heading-row h1:focus {
   outline: none;
 }
