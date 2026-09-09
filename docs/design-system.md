@@ -298,3 +298,7 @@ denselben Innenabstand. Keine breitere Gewichtsspalte, auch nicht mobil.
 
 Navigation: Der gemeinsame Markentitel lautet „Greifvogelkompass“. Das mobile
 Hamburger-Menü verwendet `modal={false}` ohne Scroll-Lock und dessen Layoutverschiebung.
+
+Quiz-Fußleiste: Der Aktionsbutton bleibt am unteren Rand verankert. Desktopbreite
+224 px für alle Beschriftungen, mobil volle Breite. Erklärungen wachsen nach oben;
+der Button darf weder durch ihre Höhe noch durch Textwechsel springen.
