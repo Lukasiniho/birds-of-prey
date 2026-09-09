@@ -196,7 +196,6 @@ export default function FalconryWorld({ birds }: { birds: KnowledgeBird[] }) {
       >
         <span className="knowledge-eyebrow">{region.place}</span>
         <h2>{region.title}</h2>
-        <p>{region.text}</p>
         <div className="falconry-world-birds">
           {region.birds.map((id) => {
             const bird = birds.find((item) => item.id === id)!;
@@ -223,6 +222,7 @@ export default function FalconryWorld({ birds }: { birds: KnowledgeBird[] }) {
             );
           })}
         </div>
+        <p>{region.text}</p>
         <p>{region.detail}</p>
       </aside>
     </div>
