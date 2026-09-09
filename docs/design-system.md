@@ -113,7 +113,7 @@ Artnamen. Die Atlas-Titelvariante bleibt eine bewusste eigene Rolle.
 
 Das gilt rechts unter anderem für „Erkennungsmerkmale“, „Farben“, „Lebensweise“,
 „Brut & Aufzucht“, „Nahrungsbeispiele“ und „Jagdweise“. Fließtext bleibt 14 px,
-Tags 13 px. Spezifischere CSS-Regeln dürfen diese gemeinsamen Rollen nicht
+Tags 14 px (`text-sm`). Spezifischere CSS-Regeln dürfen diese gemeinsamen Rollen nicht
 überschreiben.
 
 ## Bewusste Ausnahmen

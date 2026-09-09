@@ -3176,7 +3176,7 @@ html {
   align-items: center;
   gap: var(--space-8);
   min-width: 0;
-  font-family: var(--font-display), 'Cormorant Garamond', Georgia, serif;
+  font-family: var(--font-body), Inter, Arial, sans-serif;
   font-size: var(--type-brand);
   font-weight: 600;
   letter-spacing: -0.65px;

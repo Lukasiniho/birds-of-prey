@@ -13,7 +13,7 @@ relative rem-Werte; die Browser-Schriftgröße bleibt frei wählbar.
 | Rolle                                | CSS-Variable            | Größe    |
 | ------------------------------------ | ----------------------- | -------- |
 | Quellen und Bildnachweise            | `--type-caption`        | 12 px    |
-| Tags                                 | `--type-tag`            | 13 px    |
+| Tags                                 | `--type-tag`            | 14 px    |
 | Filter und sonstige UI-Texte         | `--type-ui`             | 14 px    |
 | Buttons und Hauptnavigation          | `--type-button`         | 16 px    |
 | Fließtext und Aufgabenbeschreibungen | `--type-body`           | 14 px    |
@@ -53,7 +53,7 @@ Die bisherigen 20-px-Namen und 20-px-Detailtitel sowie der zwischenzeitliche
   ergänzen. Neue Rollen nur in `app/typography.css` definieren und hier dokumentieren.
 - Dieselbe Funktion bekommt auf jeder Seite dieselbe Rolle. Mobile Ansichten
   ändern das Layout, nicht die Größe von Fließtext oder Artnamen.
-- Fließtext ist auf Nutzerwunsch kompakt mit 14 px. Tags verwenden 13 px;
+- Fließtext ist auf Nutzerwunsch kompakt mit 14 px. Tags verwenden ebenfalls 14 px (`text-sm`);
   Quellen 12 px. Browser-Zoom bleibt möglich.
 - Detailüberschriften im Atlas, in Wissen und Falknerei verwenden dieselbe
   `--type-detail-heading`-Rolle. Tags haben eine einzige gemeinsame CSS-Regel.
@@ -102,7 +102,7 @@ Entdeckungen: alle Kartentitel in Cormorant Garamond, 24 px/700. Bei Aufgaben
 mit mehreren Arten steht der tatsächliche Fragentitel statt einer Artenliste.
 Der Untertitel verwendet Inter (Sans Serif), 18 px, mit 2 px Abstand.
 
-Navbar-Marke: `--type-brand` 20–28 px responsiv; das feste Steinadler-Porträt
+Navbar-Marke: Inter (Sans Serif), `--type-brand` 20–28 px responsiv; das feste Steinadler-Porträt
 misst 32 × 32 px. Die übrigen Kopfleisten-Controls behalten ihre Höhe.
 
 Entdeckungen: Fragentyp-Unterzeile ausdrücklich Inter (Sans Serif), 18 px. Punktzahl rechts

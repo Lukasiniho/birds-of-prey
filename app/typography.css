@@ -45,7 +45,7 @@
   --type-ui: var(--text-sm);
   --type-button: var(--text-base);
   --type-body: var(--text-sm);
-  --type-tag: 0.8125rem;
+  --type-tag: var(--text-sm);
   --type-label-heading: var(--text-lg);
   --weight-label-heading: 700;
   --type-detail-heading: var(--text-2xl);
