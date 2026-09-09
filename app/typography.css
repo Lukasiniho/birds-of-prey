@@ -60,7 +60,7 @@
   --type-card-title: clamp(var(--text-xl), 1.125rem + 0.5vw, var(--text-2xl));
   --type-heading: var(--text-3xl);
   --type-section-title: clamp(var(--text-4xl), 1.75rem + 1vw, var(--text-5xl));
-  --type-page-title: clamp(2rem, 1.5rem + 1.75vw, var(--text-5xl));
+  --type-page-title: clamp(var(--text-3xl), 1.25rem + 1.75vw, var(--text-4xl));
   --type-hero: clamp(var(--text-4xl), 1.5rem + 2vw, var(--text-6xl));
   /* Long species names keep the same hierarchy within the narrow atlas stage. */
   --type-hero-compact: clamp(var(--text-4xl), 1.5rem + 2vw, var(--text-6xl));

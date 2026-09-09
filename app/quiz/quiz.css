@@ -32,10 +32,12 @@
   max-width: 1360px;
   margin-inline: auto;
 }
+/* Top-aligned so the title keeps the same position as on the other pages
+ * regardless of how tall the controls and progress column are. */
 .q-heading-row {
   display: flex;
   flex-wrap: wrap;
-  align-items: center;
+  align-items: flex-start;
   justify-content: space-between;
   gap: var(--space-24);
   margin-bottom: var(--section-gap);
@@ -43,20 +45,15 @@
 .q-title-controls {
   display: flex;
   flex-wrap: wrap;
-  align-items: center;
+  align-items: flex-start;
   gap: var(--space-12) var(--space-24);
 }
-.q-heading-row h1,
 .q-results h1 {
   font-family: var(--font-display), Georgia, serif;
   font-size: var(--type-page-title);
   line-height: var(--leading-display);
   font-weight: 600;
-  letter-spacing: -0.9px;
-}
-/* Cormorant’s visible letterforms sit below the center of its line box. */
-.q-title-controls > h1 {
-  transform: translateY(-3px);
+  letter-spacing: -0.02em;
 }
 .q-heading-row h1:focus {
   outline: none;
@@ -897,12 +894,9 @@
 @media (max-width: 760px) {
   .q-heading-row {
     gap: var(--space-12);
-    flex-wrap: wrap;
-    align-items: center;
     margin-bottom: var(--section-gap);
   }
   .q-heading-row h1 {
-    font-size: var(--type-page-title);
     max-width: 15ch;
   }
   .q-workspace {
@@ -1232,48 +1226,49 @@
   }
 }
 
+/* One quiet line, centred on the title's line box so it never outgrows it. */
 .q-question-progress {
   display: flex;
-  flex-direction: column;
-  align-items: flex-end;
-  gap: var(--space-4);
+  align-items: center;
+  gap: var(--space-12);
+  min-height: calc(var(--type-page-title) * var(--leading-display));
   flex-shrink: 0;
 }
 .q-progress-label {
   font-family: var(--font-body), Inter, Arial, sans-serif;
-  font-size: var(--type-body);
+  font-size: var(--type-caption);
   line-height: var(--leading-normal);
   font-weight: 400;
-  color: var(--q-ink);
+  color: var(--q-muted);
   white-space: nowrap;
   font-variant-numeric: tabular-nums;
 }
 .q-step-dots {
   display: flex;
-  gap: var(--space-2);
+  gap: 0;
   flex-shrink: 0;
 }
-.q-step-dots button {
+.q-step-dots > * {
   display: grid;
   place-items: center;
-  width: 34px;
-  height: 34px;
+  width: 24px;
+  height: 24px;
   border: 0;
   border-radius: 50%;
   background: transparent;
-  color: color-mix(in srgb, var(--q-muted), transparent 45%);
+  color: color-mix(in srgb, var(--q-muted), transparent 60%);
 }
-.q-step-dots button > span {
-  width: 10px;
-  height: 10px;
+.q-step-dots > * > span {
+  width: 7px;
+  height: 7px;
   border-radius: 50%;
   background: currentColor;
 }
-.q-step-dots button[data-done='true'] {
+.q-step-dots > [data-done='true'] {
   background: var(--q-success-soft);
   color: var(--q-success);
 }
-.q-step-dots button[aria-current] {
+.q-step-dots > [aria-current] {
   background: var(--q-accent-soft);
   color: var(--q-accent);
 }
@@ -1282,15 +1277,7 @@
     max-width: none;
   }
   .q-question-progress {
-    align-items: flex-start;
-    gap: var(--space-4);
-  }
-  .q-step-dots {
-    gap: var(--space-2);
-  }
-  .q-step-dots button {
-    width: 30px;
-    height: 30px;
+    min-height: 0;
   }
 }
 

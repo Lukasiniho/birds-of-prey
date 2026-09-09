@@ -15,7 +15,7 @@ export function SectionPlaceholder({
     <div className="app-shell section-shell">
       <SiteHeader activeSection={section} />
       <main className="section-placeholder">
-        <h1>{title}</h1>
+        <h1 className="page-title">{title}</h1>
         <p>{description}</p>
         <a className="section-back-link" href="/">
           Vögel entdecken

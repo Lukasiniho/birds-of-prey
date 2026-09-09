@@ -1295,15 +1295,63 @@ export default function QuizExperience({
     };
   }, [showResults, ready]);
 
+  const completed = Object.keys(answers).length;
+  const roundSettings = (
+    <div className="q-round-settings">
+      <span id="q-count-label">Fragenzahl</span>
+      <Select
+        value={String(questionCount)}
+        items={questionCounts}
+        disabled={completed > 0 && !showResults}
+        onValueChange={(value) => {
+          if (!value) return;
+          const count = Number(value);
+          if (count === questionCount) return;
+          setQuestionCount(count);
+          if (!showResults) {
+            setQuestions(freshRound(quizHistory(questions), count));
+            setCurrent(0);
+            setDrafts({});
+          }
+        }}
+      >
+        <SelectTrigger aria-labelledby="q-count-label">
+          <SelectValue />
+        </SelectTrigger>
+        <SelectContent>
+          {questionCounts.map(({ value, label }) => (
+            <SelectItem key={value} value={value}>
+              {label}
+            </SelectItem>
+          ))}
+        </SelectContent>
+      </Select>
+    </div>
+  );
+
   // Static HTML and the first client render must agree. Never show a throwaway
-  // server round before selecting the browser's history-aware round.
+  // server round before selecting the browser's history-aware round. The
+  // heading row already has its final shape so nothing shifts once it arrives.
   if (!ready) {
     return (
       <div className="app-shell section-shell quiz-shell">
         <SiteHeader activeSection="quiz" />
         <main className="q-main page-content" ref={mainRef} aria-busy="true">
           <div className="q-heading-row">
-            <h1>Das Greifvogel-Quiz</h1>
+            <div className="q-title-controls">
+              <h1 className="page-title">Das Greifvogel-Quiz</h1>
+              {roundSettings}
+            </div>
+            <div className="q-question-progress" aria-hidden="true">
+              <p className="q-progress-label">Frage 1 von {questionCount}</p>
+              <div className="q-step-dots">
+                {Array.from({ length: questionCount }, (_, index) => (
+                  <span key={index} aria-current={index === 0 ? 'step' : undefined}>
+                    <span />
+                  </span>
+                ))}
+              </div>
+            </div>
           </div>
         </main>
       </div>
@@ -1313,7 +1361,6 @@ export default function QuizExperience({
   const question = questions[current];
   const draft = drafts[question.id] ?? initialDraft(question, birds);
   const answer = answers[question.id];
-  const completed = Object.keys(answers).length;
   const bird = 'birdId' in question ? birds[question.birdId] : null;
 
   function navigate(index: number) {
@@ -1392,39 +1439,6 @@ export default function QuizExperience({
   const onChange = (value: Draft) =>
     setDrafts((previous) => ({ ...previous, [question.id]: value }));
 
-  const roundSettings = (
-    <div className="q-round-settings">
-      <span id="q-count-label">Fragenzahl</span>
-      <Select
-        value={String(questionCount)}
-        items={questionCounts}
-        disabled={completed > 0 && !showResults}
-        onValueChange={(value) => {
-          if (!value) return;
-          const count = Number(value);
-          if (count === questionCount) return;
-          setQuestionCount(count);
-          if (!showResults) {
-            setQuestions(freshRound(quizHistory(questions), count));
-            setCurrent(0);
-            setDrafts({});
-          }
-        }}
-      >
-        <SelectTrigger aria-labelledby="q-count-label">
-          <SelectValue />
-        </SelectTrigger>
-        <SelectContent>
-          {questionCounts.map(({ value, label }) => (
-            <SelectItem key={value} value={value}>
-              {label}
-            </SelectItem>
-          ))}
-        </SelectContent>
-      </Select>
-    </div>
-  );
-
   return (
     <div className="app-shell section-shell quiz-shell">
       <SiteHeader activeSection="quiz" />
@@ -1444,7 +1458,7 @@ export default function QuizExperience({
           <>
             <div className="q-heading-row">
               <div className="q-title-controls">
-                <h1 ref={headingRef} tabIndex={-1}>
+                <h1 className="page-title" ref={headingRef} tabIndex={-1}>
                   Das Greifvogel-Quiz
                 </h1>
                 {roundSettings}

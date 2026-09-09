@@ -9,12 +9,6 @@
   gap: 28px;
   margin-bottom: var(--section-gap);
 }
-.knowledge-heading h1 {
-  font-family: var(--font-display), Georgia, serif;
-  font-size: var(--type-page-title);
-  font-weight: 600;
-  line-height: var(--leading-display);
-}
 
 .anatomy-species {
   flex-shrink: 0;

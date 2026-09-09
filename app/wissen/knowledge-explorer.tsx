@@ -39,7 +39,7 @@ export default function KnowledgeExplorer({
       <SiteHeader activeSection="wissen" />
       <main className="knowledge-main page-content">
         <header className="knowledge-heading">
-          <h1>Greifvögel verstehen</h1>
+          <h1 className="page-title">Greifvögel verstehen</h1>
         </header>
         <Tabs
           value={section}
