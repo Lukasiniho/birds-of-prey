@@ -7,6 +7,24 @@ export type KnowledgeBird = {
   portrait: string;
 };
 
+export type PreyHunter = {
+  id: string;
+  name: string;
+  latin: string;
+  href: string;
+  portrait: string;
+  importance: 'primary' | 'occasional';
+  note?: string;
+  /** Every prey key this species hunts, for the reverse highlight. */
+  prey: string[];
+};
+
+export type PreyEntry = {
+  key: string;
+  name: string;
+  hunters: PreyHunter[];
+};
+
 export const falconryRegions = [
   {
     id: 'arabien',

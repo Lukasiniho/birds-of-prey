@@ -1,6 +1,5 @@
 'use client';
 
-import { SpeciesName } from '@/components/species-name';
 import { useState } from 'react';
 import Image from 'next/image';
 import {
@@ -163,14 +162,9 @@ export default function AnatomyExplorer({
         }}
       >
         <div className="anatomy-stage-heading">
-          <div className="anatomy-stage-caption">
-            <SpeciesName
-              variant="quiz"
-              name={name}
-              latin={species === 0 ? 'Falco peregrinus' : 'Buteo buteo'}
-              commonAs="span"
-              scientificAs="i"
-            />
+          <div>
+            <span className="knowledge-eyebrow">Form & Funktion</span>
+            <h2>Jedes Detail hat eine Aufgabe</h2>
           </div>
           <div
             className="anatomy-species t-tabs"
@@ -261,7 +255,9 @@ export default function AnatomyExplorer({
         <div className="anatomy-notes-heading">
           <h2>Der Körperbau</h2>
         </div>
-        <p className="anatomy-notes-intro">Jedes Detail hat eine Aufgabe.</p>
+        <p className="anatomy-notes-intro">
+          Wähle ein Körperteil und sieh, wofür es gebaut ist.
+        </p>
         <div
           className="anatomy-part-list"
           role="group"

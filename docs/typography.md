@@ -24,7 +24,7 @@ relative rem-Werte; die Browser-Schriftgröße bleibt frei wählbar.
 | Karten- und Listentitel              | `--type-card-title`     | 20–24 px |
 | Weitere Überschrift                  | `--type-heading`        | 28 px    |
 | Große Abschnittsüberschrift          | `--type-section-title`  | 32–40 px |
-| Seitentitel                          | `--type-page-title`     | 36–48 px |
+| Seitentitel                          | `--type-page-title`     | 32–40 px |
 
 ## Artnamen als Komponente
 

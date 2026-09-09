@@ -399,11 +399,40 @@ das übrige Verhalten der Vorlage bleibt erhalten. `components.json` verwendet
 `phosphor` für künftig ergänzte Primitiven, deren Icons ebenfalls über die zentrale
 Komponente einzubinden sind. Die Kartengrafik bleibt eine fachliche SVG-Visualisierung.
 
+## Wissen: Bewegung
+
+Die Wissen-Seite verwendet ausschließlich die Motion-Tokens aus
+`app/transitions-root.css`. Der Tab-Unterstrich ist die gemessene
+transitions.dev-Pille (`useSlidingPill` aus `lib/use-sliding-pill.ts`, geteilt
+mit dem Atlas). Tab-Inhalte wechseln bewusst ohne Animation; die rechte Leiste
+wechselt beim Auswählen als Text-Swap (`--duration-fast`, `--ease-in-out`,
+`--distance-micro`), indem der Scrollbereich pro Auswahl neu gemountet wird.
+Hover auf Kartenporträts und Beutekacheln wechselt nur Rahmen, Fläche und
+Schatten, ohne Versatz oder Sprung; Farbwechsel
+nutzen `--duration-quick`/`--duration-fast`. Reduced Motion schaltet alle
+Übergänge und Animationen der Seite ab.
+
+## Wissen: Jagdtiere
+
+Der dritte Wissen-Tab kehrt die Nahrungsangaben der Artenseiten um: links ein
+Grid aller illustrierten Beutetiere mit mindestens einem Jäger (`.prey-grid`,
+sortiert nach Anzahl der Arten), rechts das scrollende Panel mit den Jägern,
+getrennt nach Hauptbeute und Gelegenheitsbeute. Die Jägerzeilen teilen die
+Rolle `.knowledge-bird` mit den Beizvögeln der Falknerei-Karte; Anmerkungen zur
+Beute erscheinen als `TooltipHint`. Beim Hover über einen Jäger markieren sich
+alle Kacheln seiner weiteren Beute mit einem halbtransparenten Teal-Rahmen.
+Kachel-Hover tönt die Bühne selbst (9 % Hauptfarbe auf `--stage`), damit die
+Kachel im Hellmodus nicht zur weißen Karte wird; `--hover` wäre dort unsichtbar
+und im Dunkelmodus blaugrau statt Teal.
+Die Kachelillustrationen sind 72 px groß, eine Geometrie-Ausnahme zum 105-px-
+Rahmen der Artenseite; Daten kommen unverändert aus `lib/ecology.ts`.
+
 ## Wissen: Falknerei-Weltkarte
 
 Die Themen Körperbau und Falknerei teilen einen Seitenkopf und Base-UI-Tabs
 (`variant="line"`). `.knowledge-tabs` verwendet dieselben Werte wie die
-Atlas-Informationstabs (38 px Schiene, `--type-label-title`, 2 px Marker),
+Atlas-Informationstabs (38 px Schiene, 2 px Marker), aber zwei Stufen kleiner
+mit `--type-button` (16 px),
 linksbündig mit 24 px Abstand. Direkte Themenlinks verwenden
 `/wissen#falknerei`; die vorhandene Anatomie bleibt der Standardbereich.
 Die Kartenfläche verwendet die gemeinsamen Teal-, Typografie- und Panelrollen;
@@ -421,7 +450,8 @@ Geometrie-Ausnahmen für die Kartenfläche.
 Die Falknerei-Karte umfasst acht regionale Kapitel; die kasachische Adlerjagd
 in Kasachstan, Kirgisistan und der Westmongolei ist ein gemeinsames Kapitel. Versetzte Porträts vermeiden
 Überlagerungen; Verbindungslinien führen zu den geografischen Ankerpunkten.
-Das Regionsfeld rechts scrollt innerhalb der Kartenhöhe (absolut positionierter
+Die rechten Leisten aller Wissen-Tabs verwenden `--atlas-info-surface`, dieselbe
+Fläche wie die Informationsleiste im Atlas. Das Regionsfeld rechts scrollt innerhalb der Kartenhöhe (absolut positionierter
 Inhalt), damit unter der Regionsauswahl keine Leerfläche entsteht; unter 760 px
 steht es wieder im normalen Fluss. Die Regionsauswahl unter der Karte verwendet die gemeinsame Tag-Rolle
 `.ecology-tags` als Buttons; der gewählte Eintrag ist invertiert: Hauptfarbe als

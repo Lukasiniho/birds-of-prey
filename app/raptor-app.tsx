@@ -1,18 +1,18 @@
 'use client';
-import { AppSelectTrigger as SelectTrigger, AppSelectContent as SelectContent } from '@/components/app-select';
+import {
+  AppSelectTrigger as SelectTrigger,
+  AppSelectContent as SelectContent,
+} from '@/components/app-select';
 import { SpeciesName, SpeciesScientificName } from '@/components/species-name';
-import { useEffect, useLayoutEffect, useRef, useState } from 'react';
+import { useEffect, useRef, useState } from 'react';
+import { useSlidingPill } from '@/lib/use-sliding-pill';
 import Image from 'next/image';
 import { BirdAudio, BirdAudioCredit } from '@/components/bird-audio';
 import { birdHref, birdForPath } from '@/lib/bird-routes';
 import { Feather, CaretDown } from '@/components/icons';
 import { SiteHeader } from '@/components/site-header';
 import { Button } from '@/components/ui/button';
-import {
-  Select,
-  SelectValue,
-  SelectItem,
-} from '@/components/ui/select';
+import { Select, SelectValue, SelectItem } from '@/components/ui/select';
 import { Tabs, TabsList, TabsTrigger, TabsContent } from '@/components/ui/tabs';
 import {
   Sidebar,
@@ -148,42 +148,6 @@ function RevealHeading({ name, latin }: { name: string; latin: string }) {
 }
 /* transitions.dev tabs sliding: JS writes the active tab's offset and width
    onto the pill, CSS tweens it. A new group (another species) snaps instead. */
-function useSlidingPill(group: string, active: string) {
-  const barRef = useRef<HTMLDivElement>(null);
-  const pillRef = useRef<HTMLSpanElement>(null);
-  const lastGroup = useRef<string | null>(null);
-  useLayoutEffect(() => {
-    const bar = barRef.current;
-    const pill = pillRef.current;
-    if (!bar || !pill) return;
-    function moveTo(animate: boolean) {
-      const tab = bar!.querySelector<HTMLElement>(
-        '.t-tab[aria-selected="true"], .t-tab[aria-pressed="true"]',
-      );
-      if (!tab) return;
-      if (!animate) {
-        const prev = pill!.style.transition;
-        pill!.style.transition = 'none';
-        pill!.style.transform = `translateX(${tab.offsetLeft}px)`;
-        pill!.style.width = `${tab.offsetWidth}px`;
-        void pill!.offsetWidth;
-        pill!.style.transition = prev;
-      } else {
-        pill!.style.transform = `translateX(${tab.offsetLeft}px)`;
-        pill!.style.width = `${tab.offsetWidth}px`;
-      }
-    }
-    const firstPaint = lastGroup.current === null;
-    moveTo(!firstPaint && lastGroup.current === group);
-    lastGroup.current = group;
-    const snap = () => moveTo(false);
-    window.addEventListener('resize', snap);
-    // Web fonts can land after the first measurement; re-snap once they do.
-    if (firstPaint) document.fonts?.ready.then(snap).catch(() => {});
-    return () => window.removeEventListener('resize', snap);
-  }, [group, active]);
-  return { barRef, pillRef };
-}
 type ArtLayer = { src: string; alt: string };
 type ArtSlots = { a: ArtLayer; b: ArtLayer | null; active: 'a' | 'b' };
 /* transitions.dev icon swap: both illustrations sit in one grid cell and
@@ -201,11 +165,7 @@ function BirdArt({
 }) {
   const morphConfig = getBirdMorphConfig(bird.id, plumage);
   const morph = getBirdMorphChoice(bird.id, morphId, plumage);
-  const appearance = getBirdMorphAppearance(
-    bird.id,
-    morphId,
-    plumage,
-  );
+  const appearance = getBirdMorphAppearance(bird.id, morphId, plumage);
   const nextSource = imageSource(
     appearance?.image ?? birdImage(bird.id, plumage),
   );
@@ -388,11 +348,7 @@ export default function RaptorApp({
   const bodyColors = bodyColorsFor(bird.id, plumage);
   const morphConfig = getBirdMorphConfig(bird.id, plumage);
   const morph = getBirdMorphChoice(bird.id, chosenMorphs[bird.id], plumage);
-  const appearance = getBirdMorphAppearance(
-    bird.id,
-    morph?.id,
-    plumage,
-  );
+  const appearance = getBirdMorphAppearance(bird.id, morph?.id, plumage);
   const { barRef: plumageBarRef, pillRef: plumagePillRef } = useSlidingPill(
     bird.id,
     plumage,
@@ -419,11 +375,7 @@ export default function RaptorApp({
     const ageForBird = plumagesFor(id).some((p) => p.value === age)
       ? age
       : 'male';
-    const variant = getBirdMorphAppearance(
-      id,
-      morphId,
-      ageForBird,
-    );
+    const variant = getBirdMorphAppearance(id, morphId, ageForBird);
     void loadImage(
       imageSource(variant?.image ?? birdImage(id, ageForBird)),
     ).catch(() => {});
@@ -450,14 +402,10 @@ export default function RaptorApp({
                   }}
                   items={groupingOptions}
                 >
-                  <SelectTrigger
-                    aria-label="Vogelarten gruppieren nach"
-
-                  >
+                  <SelectTrigger aria-label="Vogelarten gruppieren nach">
                     <SelectValue />
                   </SelectTrigger>
                   <SelectContent
-
                     align="start"
                     sideOffset={6}
                     alignItemWithTrigger={false}
@@ -691,131 +639,136 @@ export default function RaptorApp({
                 </TabsTrigger>
               </TabsList>
               <div className="info-scroll detail-panel">
-              <TabsContent value="profil" className="info-tab-content">
-                <SpeciesFacts speciesId={bird.id} />
-                <section className="profile-section">
-                  <h2>Erkennungsmerkmale</h2>
-                  <p>{speciesProfiles[bird.id].identification}</p>
-                </section>
-                <section className="color-section">
-                  <h2>Farben</h2>
-                  <div className="body-colors">
-                    <ColorRow
-                      label="Gefieder"
-                      colors={appearance?.colors ?? colorsFor(bird, plumage)}
-                    />
-                    <ColorRow label="Augen" colors={bodyColors.eyes} />
-                    <ColorRow
-                      label="Beine & Füße"
-                      colors={bodyColors.legs}
-                      note={bodyColors.note}
-                    />
-                  </div>
-                  <div className="plumage-note">
-                    <h3>
-                      {
-                        plumagesFor(bird.id).find((p) => p.value === plumage)!
-                          .label
-                      }
-                      {morph && ` · ${morph.label}`}
-                    </h3>
-                    <p>
-                      {appearance?.note ?? plumageNoteFor(bird.id, plumage)}
-                    </p>
-                    {morphConfig && (
-                      <div
-                        className="morph-context t-acc"
-                        data-open={hintOpen ? 'true' : 'false'}
-                      >
-                        <button
-                          type="button"
-                          className="t-acc-head"
-                          aria-expanded={hintOpen}
-                          onClick={() => setHintOpen(!hintOpen)}
-                        >
-                          <span className="t-acc-chevron" aria-hidden="true">
-                            <CaretDown />
-                          </span>
-                          {morphConfig.hintLabel ?? 'Hinweis zu den Farbformen'}
-                        </button>
-                        <div className="t-acc-panel">
-                          <div className="t-acc-panel-inner">
-                            <p>{morphConfig.note}</p>
-                          </div>
-                        </div>
-                      </div>
-                    )}
-                  </div>
-                </section>
-                <section className="profile-section">
-                  <h2>Lebensweise</h2>
-                  <p>{speciesProfiles[bird.id].behaviour}</p>
-                </section>
-                <section className="profile-section">
-                  <h2>Brut & Aufzucht</h2>
-                  <p>{speciesProfiles[bird.id].breeding}</p>
-                </section>
-              </TabsContent>
-              <TabsContent value="nahrung" className="info-tab-content">
-                <section className="diet-section">
-                  <h2>Nahrungsbeispiele</h2>
-                  <PreyGallery items={bird.ecology.diet.examples} />
-                  <p>{bird.ecology.diet.summary}</p>
-                  {bird.ecology.diet.occasionalExamples.length > 0 && (
-                    <div className="occasional-prey">
-                      <h3>Gelegentlich</h3>
-                      <PreyGallery
-                        items={bird.ecology.diet.occasionalExamples}
+                <TabsContent value="profil" className="info-tab-content">
+                  <SpeciesFacts speciesId={bird.id} />
+                  <section className="profile-section">
+                    <h2>Erkennungsmerkmale</h2>
+                    <p>{speciesProfiles[bird.id].identification}</p>
+                  </section>
+                  <section className="color-section">
+                    <h2>Farben</h2>
+                    <div className="body-colors">
+                      <ColorRow
+                        label="Gefieder"
+                        colors={appearance?.colors ?? colorsFor(bird, plumage)}
+                      />
+                      <ColorRow label="Augen" colors={bodyColors.eyes} />
+                      <ColorRow
+                        label="Beine & Füße"
+                        colors={bodyColors.legs}
+                        note={bodyColors.note}
                       />
                     </div>
-                  )}
-                </section>
-                <section className="hunting-section">
-                  <h2>Jagdweise</h2>
-                  <div className="ecology-tags">
-                    {bird.ecology.huntingTags.map((id) => (
-                      <span key={id}>{huntingTypes[id].label}</span>
-                    ))}
-                  </div>
-                  <HuntingArt bird={bird} />
-                  <p className="hunting-text">{bird.ecology.hunting.text}</p>
-                </section>
-              </TabsContent>
-              <TabsContent value="lebensraum" className="info-tab-content">
-                <section className="habitat">
-                  <div className="range-block">
-                    <h2>Verbreitung</h2>
-                    <p>{bird.range}</p>
-                    {bird.ecology.status.tags.some((id) => id !== 'ausserhalb') && (
-                    <div className="ecology-status">
-                      <h3>Status in Deutschland</h3>
-                      <div className="ecology-tags">
-                        {bird.ecology.status.tags.filter((id) => id !== 'ausserhalb').map((id) => (
-                          <span key={id}>{statusLabels[id]}</span>
-                        ))}
-                      </div>
+                    <div className="plumage-note">
+                      <h3>
+                        {
+                          plumagesFor(bird.id).find((p) => p.value === plumage)!
+                            .label
+                        }
+                        {morph && ` · ${morph.label}`}
+                      </h3>
+                      <p>
+                        {appearance?.note ?? plumageNoteFor(bird.id, plumage)}
+                      </p>
+                      {morphConfig && (
+                        <div
+                          className="morph-context t-acc"
+                          data-open={hintOpen ? 'true' : 'false'}
+                        >
+                          <button
+                            type="button"
+                            className="t-acc-head"
+                            aria-expanded={hintOpen}
+                            onClick={() => setHintOpen(!hintOpen)}
+                          >
+                            <span className="t-acc-chevron" aria-hidden="true">
+                              <CaretDown />
+                            </span>
+                            {morphConfig.hintLabel ??
+                              'Hinweis zu den Farbformen'}
+                          </button>
+                          <div className="t-acc-panel">
+                            <div className="t-acc-panel-inner">
+                              <p>{morphConfig.note}</p>
+                            </div>
+                          </div>
+                        </div>
+                      )}
                     </div>
-                    )}
-                    <RangeMap birdId={bird.id} name={bird.name} />
-                  </div>
-                  <h2>Lebensraum</h2>
-                  <p>{bird.habitat}</p>
-                  <div className="habitat-gallery">
-                    {bird.ecology.habitatTags.map((id) => (
-                      <figure key={id}>
-                        <Image
-                          src={imageSource(habitatImages[id])}
-                          alt={landscapes[id].description}
-                          width={1536}
-                          height={1024}
-                          unoptimized
+                  </section>
+                  <section className="profile-section">
+                    <h2>Lebensweise</h2>
+                    <p>{speciesProfiles[bird.id].behaviour}</p>
+                  </section>
+                  <section className="profile-section">
+                    <h2>Brut & Aufzucht</h2>
+                    <p>{speciesProfiles[bird.id].breeding}</p>
+                  </section>
+                </TabsContent>
+                <TabsContent value="nahrung" className="info-tab-content">
+                  <section className="diet-section">
+                    <h2>Nahrungsbeispiele</h2>
+                    <PreyGallery items={bird.ecology.diet.examples} />
+                    <p>{bird.ecology.diet.summary}</p>
+                    {bird.ecology.diet.occasionalExamples.length > 0 && (
+                      <div className="occasional-prey">
+                        <h3>Gelegentlich</h3>
+                        <PreyGallery
+                          items={bird.ecology.diet.occasionalExamples}
                         />
-                        <figcaption>{landscapes[id].label}</figcaption>
-                      </figure>
-                    ))}
-                  </div>
-                </section>
-              </TabsContent>
+                      </div>
+                    )}
+                  </section>
+                  <section className="hunting-section">
+                    <h2>Jagdweise</h2>
+                    <div className="ecology-tags">
+                      {bird.ecology.huntingTags.map((id) => (
+                        <span key={id}>{huntingTypes[id].label}</span>
+                      ))}
+                    </div>
+                    <HuntingArt bird={bird} />
+                    <p className="hunting-text">{bird.ecology.hunting.text}</p>
+                  </section>
+                </TabsContent>
+                <TabsContent value="lebensraum" className="info-tab-content">
+                  <section className="habitat">
+                    <div className="range-block">
+                      <h2>Verbreitung</h2>
+                      <p>{bird.range}</p>
+                      {bird.ecology.status.tags.some(
+                        (id) => id !== 'ausserhalb',
+                      ) && (
+                        <div className="ecology-status">
+                          <h3>Status in Deutschland</h3>
+                          <div className="ecology-tags">
+                            {bird.ecology.status.tags
+                              .filter((id) => id !== 'ausserhalb')
+                              .map((id) => (
+                                <span key={id}>{statusLabels[id]}</span>
+                              ))}
+                          </div>
+                        </div>
+                      )}
+                      <RangeMap birdId={bird.id} name={bird.name} />
+                    </div>
+                    <h2>Lebensraum</h2>
+                    <p>{bird.habitat}</p>
+                    <div className="habitat-gallery">
+                      {bird.ecology.habitatTags.map((id) => (
+                        <figure key={id}>
+                          <Image
+                            src={imageSource(habitatImages[id])}
+                            alt={landscapes[id].description}
+                            width={1536}
+                            height={1024}
+                            unoptimized
+                          />
+                          <figcaption>{landscapes[id].label}</figcaption>
+                        </figure>
+                      ))}
+                    </div>
+                  </section>
+                </TabsContent>
               </div>
             </Tabs>
           </aside>

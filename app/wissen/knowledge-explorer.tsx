@@ -2,20 +2,25 @@
 
 import { useSyncExternalStore } from 'react';
 import { SiteHeader } from '@/components/site-header';
+import { useSlidingPill } from '@/lib/use-sliding-pill';
 import { Tabs, TabsContent, TabsList, TabsTrigger } from '@/components/ui/tabs';
 import AnatomyExplorer from './anatomy-explorer';
 import FalconryWorld from './falconry-world';
-import type { KnowledgeBird } from './knowledge-data';
+import PreyExplorer from './prey-explorer';
+import type { KnowledgeBird, PreyEntry } from './knowledge-data';
 
 const sections = [
   { id: 'koerperbau', label: 'Körperbau' },
   { id: 'falknerei', label: 'Falknerei' },
+  { id: 'jagdtiere', label: 'Jagdtiere' },
 ];
 
 export default function KnowledgeExplorer({
   birds,
+  prey,
 }: {
   birds: KnowledgeBird[];
+  prey: PreyEntry[];
 }) {
   const section = useSyncExternalStore(
     (notify) => {
@@ -28,6 +33,7 @@ export default function KnowledgeExplorer({
     },
     () => 'koerperbau',
   );
+  const { barRef, pillRef } = useSlidingPill('wissen', section);
   return (
     <div className="app-shell section-shell knowledge-shell">
       <SiteHeader activeSection="wissen" />
@@ -46,11 +52,13 @@ export default function KnowledgeExplorer({
         >
           <TabsList
             variant="line"
-            className="knowledge-tabs"
+            className="knowledge-tabs t-tabs"
             aria-label="Wissensbereiche"
+            ref={barRef}
           >
+            <span className="t-tabs-pill" aria-hidden="true" ref={pillRef} />
             {sections.map(({ id, label }) => (
-              <TabsTrigger key={id} value={id}>
+              <TabsTrigger key={id} value={id} className="t-tab">
                 {label}
               </TabsTrigger>
             ))}
@@ -65,6 +73,9 @@ export default function KnowledgeExplorer({
           </TabsContent>
           <TabsContent value="falknerei">
             <FalconryWorld birds={birds} />
+          </TabsContent>
+          <TabsContent value="jagdtiere">
+            <PreyExplorer prey={prey} />
           </TabsContent>
         </Tabs>
       </main>

@@ -188,14 +188,14 @@ export default function FalconryWorld({ birds }: { birds: KnowledgeBird[] }) {
         </fieldset>
       </section>
       <aside className="knowledge-notes" aria-live="polite" aria-atomic="true">
-        <div className="knowledge-notes-scroll detail-panel">
+        <div className="knowledge-notes-scroll detail-panel" key={region.id}>
           <span className="knowledge-eyebrow">{region.place}</span>
           <h2>{region.title}</h2>
-          <div className="falconry-world-birds">
+          <div className="knowledge-bird-list">
             {region.birds.map((id) => {
               const bird = birds.find((item) => item.id === id)!;
               return (
-                <a href={bird.href} key={id} className="falconry-world-bird">
+                <a href={bird.href} key={id} className="knowledge-bird">
                   <Image
                     src={bird.portrait}
                     alt=""
@@ -203,7 +203,7 @@ export default function FalconryWorld({ birds }: { birds: KnowledgeBird[] }) {
                     height={52}
                     unoptimized
                   />
-                  <span className="falconry-bird-name">
+                  <span className="knowledge-bird-name">
                     <SpeciesName
                       name={bird.name}
                       latin={bird.latin}

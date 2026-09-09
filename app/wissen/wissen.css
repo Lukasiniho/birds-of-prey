@@ -48,11 +48,6 @@
   padding: 0 6px;
   margin-bottom: var(--space-12);
 }
-.anatomy-stage-caption {
-  display: flex;
-  flex-direction: column;
-  gap: 0;
-}
 .anatomy-canvas {
   position: relative;
   width: 100%;
@@ -121,7 +116,7 @@
 }
 .anatomy-notes {
   border-left: var(--border-structure) solid var(--border);
-  background: var(--background);
+  background: var(--atlas-info-surface);
 }
 .anatomy-notes-heading {
   display: flex;
@@ -240,7 +235,7 @@
   height: 38px;
   flex: 0 1 auto;
   font-family: var(--font-body), Inter, sans-serif;
-  font-size: var(--type-label-title);
+  font-size: var(--type-button);
   line-height: var(--leading-none);
   font-weight: 400;
   padding: 0 0 13px;
@@ -249,7 +244,7 @@
   border-radius: 0;
   background: transparent;
   box-shadow: none;
-  transition: color 0.15s;
+  transition: color var(--duration-quick) var(--ease-smooth-out);
 }
 .knowledge-tabs button[data-active] {
   color: var(--foreground);
@@ -265,6 +260,40 @@
   outline-offset: 3px;
   box-shadow: none;
 }
+/* The underline is the transitions.dev sliding pill, measured like the atlas tabs. */
+.knowledge-tabs.t-tabs {
+  position: relative;
+  padding: 0;
+  border-radius: 0;
+  background: transparent;
+}
+.knowledge-tabs .t-tabs-pill {
+  top: auto;
+  bottom: -1px;
+  height: 2px;
+  border-radius: 0;
+  background: var(--foreground);
+}
+.knowledge-tabs .t-tab::after {
+  display: none;
+  content: none;
+}
+/* The side panel swaps like a text swap; tab panels switch without motion. */
+.knowledge-notes-scroll {
+  animation: knowledge-swap var(--duration-fast) var(--ease-in-out) both;
+}
+@keyframes knowledge-swap {
+  from {
+    opacity: 0;
+    transform: translateY(var(--distance-micro));
+    filter: blur(var(--blur-small));
+  }
+  to {
+    opacity: 1;
+    transform: translateY(0);
+    filter: blur(0);
+  }
+}
 .knowledge-split {
   display: grid;
   grid-template-columns: minmax(0, 1fr) 350px;
@@ -272,7 +301,8 @@
   border-radius: var(--radius-surface);
   overflow: hidden;
 }
-.falconry-map-surface {
+.falconry-map-surface,
+.prey-surface {
   background: var(--stage);
   min-width: 0;
 }
@@ -284,6 +314,7 @@
   padding: var(--panel-padding);
 }
 .knowledge-surface-heading h2,
+.anatomy-stage-heading h2,
 .knowledge-notes h2 {
   font-size: var(--type-detail-heading);
   font-weight: var(--weight-label-heading);
@@ -299,6 +330,7 @@
 .knowledge-notes {
   position: relative;
   border-left: var(--border-structure) solid var(--border);
+  background: var(--atlas-info-surface);
   min-width: 0;
 }
 .knowledge-notes-scroll {
@@ -335,6 +367,7 @@
 }
 .falconry-map-callout {
   color: var(--muted-foreground);
+  transition: color var(--duration-fast) var(--ease-smooth-out);
 }
 .falconry-map-callout line {
   stroke: currentColor;
@@ -365,8 +398,8 @@
   border-radius: 50%;
   background: var(--background);
   transition:
-    border-color 180ms,
-    box-shadow 180ms;
+    border-color var(--duration-fast) var(--ease-smooth-out),
+    box-shadow var(--duration-fast) var(--ease-smooth-out);
 }
 .falconry-pin-portrait img {
   width: 40px;
@@ -385,6 +418,7 @@
   font-size: var(--type-caption);
   color: var(--muted-foreground);
   white-space: nowrap;
+  transition: color var(--duration-quick) var(--ease-smooth-out);
 }
 .falconry-map-pin[aria-pressed='true'] {
   z-index: 2;
@@ -406,28 +440,31 @@
   margin: 0;
   padding: 0 var(--panel-padding) var(--panel-padding);
 }
-.falconry-world-birds {
+.knowledge-bird-list {
   display: grid;
   gap: var(--space-8);
   margin-top: var(--space-16);
 }
-.falconry-world-bird {
+.knowledge-bird {
   display: flex;
   gap: var(--space-12);
   align-items: center;
   padding: var(--space-8);
   border-radius: var(--radius-control);
 }
-.falconry-world-bird:hover {
+.knowledge-bird {
+  transition: background var(--duration-quick) var(--ease-smooth-out);
+}
+.knowledge-bird:hover {
   background: var(--hover);
 }
-.falconry-world-bird > img {
+.knowledge-bird > img {
   width: 52px;
   height: 52px;
   object-fit: contain;
   flex-shrink: 0;
 }
-.falconry-world-bird > svg {
+.knowledge-bird > svg {
   margin-left: auto;
   flex-shrink: 0;
   color: var(--muted-foreground);
@@ -487,13 +524,91 @@
   }
 }
 @media (prefers-reduced-motion: reduce) {
-  .falconry-pin-portrait {
+  .falconry-pin-portrait,
+  .falconry-map-callout,
+  .falconry-pin-label,
+  .prey-tile,
+  .knowledge-bird,
+  .knowledge-tabs button[data-slot] {
     transition: none;
+  }
+  .knowledge-notes-scroll {
+    animation: none;
   }
 }
 
-.falconry-bird-name {
+.knowledge-bird-name {
   display: flex;
   flex-direction: column;
   min-width: 0;
+}
+
+/* Prey explorer: illustrated prey tiles left, hunters right. Tile art is a
+   72px geometry exception to the 105px species-page prey frame. */
+.prey-grid {
+  display: grid;
+  grid-template-columns: repeat(auto-fill, minmax(124px, 1fr));
+  gap: var(--space-8);
+  padding: 0 var(--panel-padding) var(--panel-padding);
+}
+.prey-tile {
+  display: flex;
+  flex-direction: column;
+  align-items: center;
+  gap: var(--space-2);
+  padding: var(--space-12) var(--space-8);
+  border: var(--border-selection) solid transparent;
+  border-radius: var(--radius-control);
+  background: transparent;
+  color: var(--foreground);
+  font-size: var(--type-ui);
+  text-align: center;
+  cursor: pointer;
+  transition:
+    background var(--duration-fast) var(--ease-smooth-out),
+    border-color var(--duration-fast) var(--ease-smooth-out);
+}
+/* Hover tints the stage itself so the tile never turns into a white card. */
+.prey-tile:hover {
+  background: color-mix(in srgb, var(--main-color) 9%, var(--stage));
+}
+.prey-tile[data-related='true'] {
+  border-color: color-mix(in srgb, var(--main-color) 45%, transparent);
+}
+.prey-tile[aria-pressed='true'] {
+  border-color: var(--main-color);
+  background: var(--selected);
+}
+.prey-tile:focus-visible {
+  outline: 2px solid var(--ring);
+  outline-offset: 2px;
+}
+.prey-tile .prey-image.framed-prey,
+.prey-tile .prey-symbol {
+  width: 72px;
+  height: 72px;
+  min-height: 0;
+  margin: 0 0 var(--space-8);
+}
+.prey-tile-name {
+  font-weight: 500;
+  line-height: var(--leading-compact);
+}
+.prey-tile-count {
+  font-size: var(--type-caption);
+  color: var(--muted-foreground);
+}
+.prey-group h3 {
+  margin-top: var(--space-24);
+  font-size: var(--type-ui);
+  font-weight: 500;
+  color: var(--muted-foreground);
+}
+.prey-group .knowledge-bird-list {
+  margin-top: var(--space-8);
+}
+@media (max-width: 760px) {
+  .prey-grid {
+    grid-template-columns: repeat(auto-fill, minmax(104px, 1fr));
+  }
 }
