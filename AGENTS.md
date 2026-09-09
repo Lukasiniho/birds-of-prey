@@ -7,3 +7,14 @@
 - Pose, Flugrichtung, Perspektive, Silhouette, Flügelstellung, Schwanzhaltung, Bildausschnitt und Darstellungsstil des adulten Bildes beibehalten. Nur altersbedingte Merkmale wie Gefiederfarbe und Zeichnung anpassen.
 - Den transparenten Hintergrund erhalten und den Vogel vollständig im Bild zeigen.
 - Diese Vorgabe gilt dauerhaft für alle Arten, sofern der Nutzer für eine konkrete Bearbeitung nicht ausdrücklich etwas anderes verlangt.
+
+## Design-System
+
+- Vor UI-Änderungen `docs/design-system.md` und `docs/typography.md` lesen.
+- Gemeinsame Rollen aus `app/design-system.css` und vorhandene Komponenten verwenden.
+- Gleiche sichtbare Funktionen erhalten gleiche Rollen; neue lokale Größen oder
+  weitere Override-Schichten vermeiden. Optische Geometrie-Ausnahmen dokumentieren.
+- Die große Atlas-Titelgröße sowie Schriftgewichte 700/400 im Titel und 700/600
+  in der linken Artenliste erhalten. Abstandsbereinigung ändert keine Typografie.
+- Rechte Detailüberschriften verwenden `--type-detail-heading`; spezifischere
+  Selektoren und mobile Regeln dürfen nicht wieder größere Werte erzwingen.

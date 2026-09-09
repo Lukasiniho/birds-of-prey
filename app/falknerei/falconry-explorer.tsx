@@ -49,7 +49,7 @@ export default function FalconryExplorer({ species }: { species: Species[] }) {
   return (
     <div className="app-shell section-shell falconry-shell">
       <SiteHeader activeSection="falknerei" />
-      <main className="falconry-main">
+      <main className="falconry-main page-content">
         <header className="falconry-heading">
           <h1>Falknerei kennenlernen</h1>
           <p>Die Beizjagd, ihre Vögel und das Handwerk dahinter.</p>
@@ -145,7 +145,10 @@ export default function FalconryExplorer({ species }: { species: Species[] }) {
                   </p>
                 )}
               </section>
-              <aside className="falconry-notes" aria-label={chapter.label}>
+              <aside
+                className="falconry-notes detail-panel"
+                aria-label={chapter.label}
+              >
                 {chapter.id === 'grundlagen' && (
                   <>
                     <h2>Die Beizjagd</h2>

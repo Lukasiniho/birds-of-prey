@@ -30,16 +30,20 @@ relative rem-Werte; die Browser-Schriftgröße bleibt frei wählbar.
 Alle eigenständigen Namenspaare verwenden `SpeciesName` aus
 `components/species-name.tsx`. Einzelne Namen verwenden `SpeciesCommonName`
 oder `SpeciesScientificName`. Semantische Elemente sind über `commonAs`,
-`scientificAs` beziehungsweise `as` wählbar; eine Größenvariante gibt es nicht.
+`scientificAs` beziehungsweise `as` wählbar; die expliziten Varianten `standard`, `atlas-title` und `sidebar` bewahren die
+gewünschte Hierarchie.
 Die Atlas-Titelanimation nutzt dieselbe Komponente mit `animated`.
 
-Deutsche und wissenschaftliche Namen verwenden überall 20/16 px, Cormorant
-Garamond und Gewicht 600. Deutsche Namen stehen aufrecht in der Vordergrundfarbe,
+Kompakte deutsche und wissenschaftliche Namen verwenden 20/16 px, Cormorant
+Garamond und Gewicht 600. Die Atlas-Titelvariante behält 40–64 px und Gewicht 700;
+der wissenschaftliche Name ist halb so groß (mindestens 16 px), Gewicht 400.
+Die Seitenliste behält 20/16 px und Gewicht 700/600. Deutsche Namen stehen aufrecht in der Vordergrundfarbe,
 wissenschaftliche kursiv in der sekundären Textfarbe. Das gilt für Atlas,
 Seitenliste, Quiz, Drag-Vorschauen, Wissen, Falknerei und mobile Ansichten.
 Lange Namen dürfen umbrechen; sie werden nicht kleiner. Namen im Fließtext
-bleiben Teil dessen Formatierung. Frühere lokale Größen-, Verhältnis- und
-Gewichtsausnahmen entfallen mit der Vereinheitlichung vom 9. September 2026.
+bleiben Teil dessen Formatierung. Größen und Gewichte dieser Rollen werden zentral definiert; lokale
+Überschreibungen entfallen. Die große Atlas-Titelgröße und die kräftige
+Seitenliste bleiben ausdrücklich erhalten.
 
 ## Regeln für Änderungen
 
@@ -57,5 +61,5 @@ Gewichtsausnahmen entfallen mit der Vereinheitlichung vom 9. September 2026.
   `--leading-heading` (1,2), `--leading-compact` (1,4), `--leading-normal` (1,5)
   oder `--leading-relaxed` (1,7).
 - Bibliothekskomponenten in `components/ui` behalten ihre Vorlage.
-- Eine darüber hinausgehende Vereinheitlichung von Abständen, Rahmen und Radien
-  ist ein separater Vorschlag und benötigt den Input des Nutzers.
+- Abstände, Rahmen, Radien und Schatten folgen dem freigegebenen
+  [soften Design-System](design-system.md).

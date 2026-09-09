@@ -1295,7 +1295,7 @@ export default function QuizExperience({
   return (
     <div className="app-shell section-shell quiz-shell">
       <SiteHeader activeSection="quiz" />
-      <main className="q-main" ref={mainRef}>
+      <main className="q-main page-content" ref={mainRef}>
         {showResults ? (
           <QuizResults
             questions={questions}

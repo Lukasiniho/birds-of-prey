@@ -138,6 +138,7 @@ function RevealHeading({ name, latin }: { name: string; latin: string }) {
         commonAs="h1"
         scientificAs="p"
         animated
+        variant="atlas-title"
       />
     </div>
   );
@@ -516,6 +517,7 @@ export default function RaptorApp({
                           >
                             <SpeciesName
                               name={b.name}
+                              variant="sidebar"
                               latin={b.latin}
                               commonAs="strong"
                               scientificAs="em"
@@ -654,7 +656,7 @@ export default function RaptorApp({
             </div>
           </main>
           <aside
-            className="info-panel"
+            className="info-panel detail-panel"
             aria-label={`Informationen zum ${bird.name}`}
           >
             <Tabs

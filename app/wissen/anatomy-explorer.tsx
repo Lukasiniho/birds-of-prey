@@ -148,7 +148,7 @@ export default function AnatomyExplorer({
   return (
     <div className="app-shell section-shell knowledge-shell">
       <SiteHeader activeSection="wissen" />
-      <main className="knowledge-main">
+      <main className="knowledge-main page-content">
         <header className="knowledge-heading">
           <div>
             <h1>Greifvögel verstehen</h1>
@@ -269,7 +269,10 @@ export default function AnatomyExplorer({
               </TooltipProvider>
             </div>
           </section>
-          <aside className="anatomy-notes" aria-label="Körperteile entdecken">
+          <aside
+            className="anatomy-notes detail-panel"
+            aria-label="Körperteile entdecken"
+          >
             <div className="anatomy-notes-heading">
               <h2>Der Körperbau</h2>
             </div>

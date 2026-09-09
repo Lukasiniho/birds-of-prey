@@ -91,6 +91,32 @@
   margin-top: 2px;
 }
 
+/* Preserve the established atlas title and sidebar hierarchy. */
+:is(.app-shell, .q-drag-ghost)
+  .species-common-name[data-name-variant='atlas-title'] {
+  font-size: var(--type-hero);
+  font-weight: 700;
+  line-height: var(--leading-display);
+  letter-spacing: -1.1px;
+}
+:is(.app-shell, .q-drag-ghost)
+  .species-scientific-name[data-name-variant='atlas-title'] {
+  font-size: max(var(--type-scientific), calc(var(--type-hero) * 0.5));
+  font-weight: 400;
+  line-height: var(--leading-display);
+  letter-spacing: 0.25px;
+  margin-top: -0.15em;
+}
+:is(.app-shell, .q-drag-ghost)
+  .species-common-name[data-name-variant='sidebar'] {
+  font-weight: 700;
+}
+:is(.app-shell, .q-drag-ghost)
+  .species-scientific-name[data-name-variant='sidebar'] {
+  font-size: var(--type-scientific);
+  font-weight: 600;
+}
+
 @theme inline {
   --text-caption: var(--type-caption);
   --text-caption--line-height: var(--leading-normal);
