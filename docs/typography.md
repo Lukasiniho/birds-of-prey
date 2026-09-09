@@ -39,7 +39,7 @@ Alle kompakten deutschen Artnamen und rechten Abschnittstitel teilen
 `--type-label-heading` (18 px) und `--weight-label-heading` (700). Das gilt
 auch für die Quiz-Variante, Auswahlkarten, Ergebnisse und Drag-Vorschauen.
 Wissenschaftliche Namen bleiben 16 px/600 und kursiv. Die Atlas-Titelvariante
-behält 40–64 px/700; ihr wissenschaftlicher Name ist halb so groß (mindestens
+behält 32–48 px/700; ihr wissenschaftlicher Name ist halb so groß (mindestens
 16 px), Gewicht 400. Namen im Fließtext folgen dessen Formatierung.
 
 Die bisherigen 20-px-Namen und 20-px-Detailtitel sowie der zwischenzeitliche
@@ -111,3 +111,7 @@ Klassen verhindern, dass Untertitel und Punktzahl gemeinsame small-Regeln erben.
 
 Gefieder-Auswahl (Altvogel/Jungvogel und Farbformen): Inter, text-sm (14 px),
 Gewicht 500. Die Buttonrolle wird hierfür auf die vorhandene Body-Rolle gesetzt.
+
+Atlas-Vogelname: auf Nutzerwunsch responsive von `text-4xl` bis `text-6xl`
+(32–48 px), weiterhin Cormorant Garamond/700. Der wissenschaftliche Name
+bleibt halb so groß (16–24 px), Gewicht 400. Artenliste und Quiz bleiben unverändert.

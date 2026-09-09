@@ -98,7 +98,7 @@ separate Rollen.
 ## Typografie und bewahrte Hierarchie
 
 Einheitlichkeit bedeutet gleiche Rolle, nicht gleiche Größe für alle Inhalte.
-Die große Atlas-Überschrift behält die vorherige Hierarchie: 40–64 px,
+Die große Atlas-Überschrift behält die vorherige Hierarchie: 32–48 px,
 Schriftgewicht 700; wissenschaftlicher Name halb so groß, mindestens 16 px,
 Gewicht 400.
 
