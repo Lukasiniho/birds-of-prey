@@ -101,9 +101,9 @@
       "source": "public/birds/gaukler.png",
       "sourceSha256": "2beff99eb75376631196b7f20e1ce322180e0a9d502f68c9222b8e9e7e1fc43c",
       "output": "public/birds/morph-gaukler-creme-male.png",
-      "outputSha256": "ce51799b386f6f4a5232b28c18a8332dbab5fb6cc2ad09027e175072a82df074",
+      "outputSha256": "bc8b1f97e0281455ee601e713f77cbf715c237d9950981d72f154e1b85b39d21",
       "mode": "built-in image_gen edit",
-      "prompt": "Use case: precise-object-edit\nAsset type: bird identification atlas transparent PNG variant.\nInput image: sole EDIT TARGET, the normal adult source of this species.\nPrimary request: Adult male Bateleur, rare cream-backed morph: recolor the existing chestnut mantle/back/shoulder feather regions to pale cream buff, and the existing chestnut tail to pale chestnut/sandy buff. Preserve the black head and body, existing silver-gray wing panels, broad black male secondary region and black trailing edges, and red bare face and feet. Precisely recolor existing feather regions without changing shapes.\nCanvas: preserve the original 1385 by 1385 pixels.\nConstraints: This is an EDIT of the provided normal adult bird image, not a new bird illustration. Preserve its exact pose, leftward flight direction, perspective, outline/silhouette, every wing and tail feather position, head/beak/feet geometry, framing, canvas dimensions, subject size and position and realistic illustration style. Change ONLY the requested plumage/eye/cere colors and markings. Keep the whole bird fully uncropped. Preserve the actual transparent alpha background, no checkerboard, no solid background, no shadow, no text. The existing source silhouette and composition must not move when toggling variants.",
+      "prompt": "Use case: precise-object-edit\nAsset type: realistic bird atlas transparent PNG.\nInput image: sole EDIT TARGET, the existing normal adult male Bateleur. This must be a direct EDIT of this exact bird, not a fresh illustration.\nPrimary color correction: recolor ONLY the existing chestnut mantle/back/shoulder feathers to naturally muted, desaturated soft gray-beige/taupe (approximate midtone #c1bcb0), maintaining original feather textures, feather-to-feather variations and realistic darker gray-brown shadows. Recolor the chestnut tail to muted pale gray-brown beige (approximate midtone #aaa092) with subtle natural buff and varied feather shading. These plumage areas must look like natural low-saturation beige-gray feathers: NO bright cream, ivory, yellow, golden, or orange highlights; no flat uniformly painted regions or pasted Photoshop tint. Preserve natural feather depth and texture.\nSex: adult MALE. Keep all original male wing coloring unchanged: original gray wing panels and broad black secondary trailing band. Only mute and lighten the chestnut back/shoulder and tail regions as above.\nStrict invariants: exact original 1385 x 1385 canvas, entire uncropped bird, subject scale, placement, silhouette, leftward flight direction, perspective, pose, all wing and tail feather positions, head/beak/feet shapes, framing and realistic illustration style unchanged. Keep black head/body, red face and red feet unchanged. Modify feather colors only. Genuine transparent alpha background, no checkerboard or solid backdrop, no text/shadow/watermark.",
       "rawDimensions": [
         1254,
         1254
@@ -114,7 +114,8 @@
         1385
       ],
       "finalHasAlpha": true,
-      "alphaIdenticalToSource": true
+      "alphaIdenticalToSource": true,
+      "adjustment": "User correction: reduce yellow saturation to natural muted gray-beige and gray-brown; fresh direct edit of normal adult source."
     },
     {
       "source": "public/birds/bartgeier-20260907.png",
@@ -177,9 +178,9 @@
       "source": "public/birds/gaukler.png",
       "sourceSha256": "2beff99eb75376631196b7f20e1ce322180e0a9d502f68c9222b8e9e7e1fc43c",
       "output": "public/birds/morph-gaukler-creme-female.png",
-      "outputSha256": "6dd4a772ce409d026d826ed88552641b07ab5082363fd2fd1b3ddd25c422795a",
+      "outputSha256": "4cc4f8eeb1a3d9d0ccf07e63c2016dafa89da9412765c1a5f7a199223ae2c582",
       "mode": "built-in image_gen edit",
-      "prompt": "Use case: precise-object-edit\nAsset type: bird identification atlas transparent PNG morph/sex variant.\nInput image: sole EDIT TARGET, original NORMAL ADULT MALE Bateleur. Convert only plumage to adult FEMALE cream-backed morph directly on this exact source image.\nPrimary request: Female Bateleur wing plumage MUST differ on BOTH wings: make the entire SECONDARY feathers PALE SILVERY GRAY almost all the way to the trailing edge, leaving only a NARROW black/dark terminal fringe. This is especially crucial along the lower-right trailing edge of the RAISED UPPER-RIGHT WING, from the bird's body out to the wrist: remove the broad male black secondary band here and replace with pale silvery gray secondaries plus a narrow black terminal edge. Also make the LOWER-LEFT WING's inner secondary region pale silvery gray with narrow dark fringe. Do NOT leave a broad black male secondary field on EITHER wing. The outermost LONG PRIMARY FINGERS remain dark/black, so do not whiten those. Recolor chestnut back/mantle/shoulder feathers pale CREAM BUFF and chestnut tail pale sandy buff. Keep black head and body, red bare face and feet.\nCanvas:1385 by1385 pixels, unchanged from supplied source.\nStrict invariants: This is an EDIT of the supplied normal adult. Preserve its exact silhouette, leftward flight direction, pose, perspective, wing angles and positions of ALL wing/tail feather outlines, head/beak/feet geometry, framing, scale, subject position and realistic illustration style. Only recolor existing feathers for female cream morph; do not change any anatomy or geometry. Keep entire bird uncropped. Actual transparent alpha background, no checkerboard, solid backdrop, shadow or text.",
+      "prompt": "Use case: precise-object-edit\nAsset type: realistic bird atlas transparent PNG.\nInput image: sole EDIT TARGET, the existing normal adult male Bateleur. This must be a direct EDIT of this exact bird, not a fresh illustration.\nPrimary color correction: recolor ONLY the existing chestnut mantle/back/shoulder feathers to naturally muted, desaturated soft gray-beige/taupe (approximate midtone #c1bcb0), maintaining original feather textures, feather-to-feather variations and realistic darker gray-brown shadows. Recolor the chestnut tail to muted pale gray-brown beige (approximate midtone #aaa092) with subtle natural buff and varied feather shading. These plumage areas must look like natural low-saturation beige-gray feathers: NO bright cream, ivory, yellow, golden, or orange highlights; no flat uniformly painted regions or pasted Photoshop tint. Preserve natural feather depth and texture.\nSex: adult FEMALE. Additionally change BOTH wings' entire SECONDARY feather fields to pale silvery gray almost to the trailing edge, leaving only a NARROW dark terminal fringe. Especially the lower-right trailing edge of the raised UPPER-RIGHT wing from body to wrist must have gray secondary feathers with narrow dark tips, NOT the broad male black secondary field. The LOWER-LEFT wing's inner secondaries also must be pale gray with narrow dark tips. Keep long outer PRIMARY FINGERS black, do not whiten them. Female plumage only; do not change anatomy, feather outlines or size.\nStrict invariants: exact original 1385 x 1385 canvas, entire uncropped bird, subject scale, placement, silhouette, leftward flight direction, perspective, pose, all wing and tail feather positions, head/beak/feet shapes, framing and realistic illustration style unchanged. Keep black head/body, red face and red feet unchanged. Modify feather colors only. Genuine transparent alpha background, no checkerboard or solid backdrop, no text/shadow/watermark.",
       "rawDimensions": [
         1254,
         1254
@@ -190,7 +191,8 @@
         1385
       ],
       "finalHasAlpha": true,
-      "alphaIdenticalToSource": true
+      "alphaIdenticalToSource": true,
+      "adjustment": "User correction: reduce yellow saturation to natural muted gray-beige and gray-brown; fresh direct edit of normal adult source."
     }
   ]
 }

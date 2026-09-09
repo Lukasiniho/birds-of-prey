@@ -224,8 +224,8 @@ export const birdMorphs: Record<MorphSpeciesId, BirdMorphConfig> = {
           'Die adulte cremefarbene Rückenform wird hier nicht auf das überwiegend braune Jugendkleid übertragen.',
         adultColors: [
           ['Schwarz', '#24242A'],
-          ['Creme', '#E1D1AE'],
-          ['Heller Kastanienton', '#BF9365'],
+          ['Graubeige', '#C1BCB0'],
+          ['Helles Graubraun', '#AAA092'],
           ['Silbergrau', '#C4C1BF'],
         ],
         juvenileColors: [
