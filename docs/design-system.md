@@ -231,8 +231,8 @@ unterscheiden. Kopfleisten-Controls teilen 38 px Höhe; Navigation 20 px
 horizontales Padding. Wissenschaftliche Quiz-Namen: 18 px, ohne oberen Abstand
 zum deutschen Namen (24 px). Andere wissenschaftliche Namensrollen bleiben bestehen.
 
-Die rechte Desktop-Infokarte hat unten einen 40-px-Verlauf zur Flächenfarbe
-mit sanft eingeblendeter 1-px-Unschärfe. Der Verlauf liegt außerhalb des
+Die rechte Desktop-Infokarte hat unten einen 64-px-Verlauf zur Flächenfarbe
+mit sanft eingeblendeter 3-px-Unschärfe. Der Verlauf liegt außerhalb des
 Scrollinhalts, fängt keine Eingaben ab und respektiert Hell-/Dunkelmodus.
 Zusätzliches Endpadding hält den letzten Inhalt vollständig lesbar.
 
@@ -241,3 +241,6 @@ Desktop bis 1190 px 360 px. Die Mitte nimmt den verbleibenden Platz ein.
 
 Messwertleiste: 8 px vertikales Padding auf Desktop, 32-px-Audiobutton mit
 gefüllter Primärfarbe und kontrastreichem Symbol. Bild-/Audiohinweise mittig.
+
+Fragenzahl steht in derselben Titelzeile rechts vom Quiz-Titel. Dropdowns
+verwenden `--select-background`: Weiß im Hellmodus, Oberflächenfarbe im Dunkelmodus.

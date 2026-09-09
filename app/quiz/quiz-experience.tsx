@@ -1296,10 +1296,7 @@ export default function QuizExperience({
   const onChange = (value: Draft) =>
     setDrafts((previous) => ({ ...previous, [question.id]: value }));
 
-  return (
-    <div className="app-shell section-shell quiz-shell">
-      <SiteHeader activeSection="quiz" />
-      <main className="q-main page-content" ref={mainRef}>
+  const roundSettings = (
         <div className="q-round-settings">
           <span id="q-count-label">Fragenzahl</span>
           <Select
@@ -1323,7 +1320,15 @@ export default function QuizExperience({
             </SelectContent>
           </Select>
         </div>
+  );
+
+  return (
+    <div className="app-shell section-shell quiz-shell">
+      <SiteHeader activeSection="quiz" />
+      <main className="q-main page-content" ref={mainRef}>
         {showResults ? (
+          <>
+          {roundSettings}
           <QuizResults
             questions={questions}
             answers={answers}
@@ -1331,12 +1336,14 @@ export default function QuizExperience({
             onRestart={restart}
             onReview={navigate}
           />
+          </>
         ) : (
           <>
             <div className="q-heading-row">
               <h1 ref={headingRef} tabIndex={-1}>
                 Das Greifvogel-Quiz
               </h1>
+              {roundSettings}
               <div className="q-question-progress">
                 <p
                   className="q-progress-label"

@@ -36,3 +36,6 @@
 - Größenklassen berücksichtigen Spannweite und Gewicht unabhängig: die höhere
   Klasse zählt. Feste Grenzen, keine Quantile der vorhandenen Artenauswahl.
   Habicht mindestens mittelgroß; repräsentatives Gewicht ab 1 kg nie klein.
+
+- Dropdown-Trigger und Menüs im Hellmodus weiß (`--select-background`), im
+  Dunkelmodus an die Oberfläche angepasst. Fragenzahl rechts vom Quiz-Titel.

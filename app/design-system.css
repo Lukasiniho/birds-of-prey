@@ -10,6 +10,8 @@
   --space-32: 2rem;
   --space-40: 2.5rem;
 
+  --rail-fade-height: 64px;
+  --select-background: #fff;
   --header-control-height: 38px;
   --page-gutter: var(--space-40);
   --atlas-gutter: var(--space-12);
@@ -35,6 +37,7 @@
     color-mix(in srgb, var(--foreground) 16%, transparent);
 }
 :root[data-theme='dark'] {
+  --select-background: var(--background);
   --shadow-subtle: 0 2px 8px rgb(0 0 0 / 18%);
   --shadow-floating: 0 8px 28px rgb(0 0 0 / 35%);
 }

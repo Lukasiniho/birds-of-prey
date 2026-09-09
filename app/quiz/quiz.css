@@ -34,6 +34,7 @@
 }
 .q-heading-row {
   display: flex;
+  flex-wrap: wrap;
   align-items: center;
   justify-content: space-between;
   gap: var(--space-24);
@@ -1231,7 +1232,7 @@
   display: flex;
   align-items: center;
   gap: var(--space-12);
-  margin-bottom: var(--space-16);
+  flex-shrink: 0;
   font-size: var(--type-ui);
 }
 .q-round-settings [data-slot='select-trigger'] { width: 130px; }
