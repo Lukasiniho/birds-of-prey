@@ -1175,10 +1175,13 @@ button.color-dot:not(:disabled) {
 }
 .app-select-options [data-slot='select-item'] {
   font-size: var(--type-ui);
-  padding: var(--space-8) var(--space-32) var(--space-8) var(--space-12);
+  padding: var(--space-8) var(--space-12);
 }
-.app-select-options [data-highlighted] {
+.app-select-options :is([data-highlighted], [data-selected]) {
   background: var(--selected);
+}
+.app-select-options [data-selected] {
+  color: var(--main-color);
 }
 .species-group + .species-group {
   margin-top: var(--space-16);

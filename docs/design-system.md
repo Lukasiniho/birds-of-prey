@@ -372,20 +372,30 @@ auch für diese Aufgaben. Die übrigen Atlas- und Wissen-Styles bleiben auf main
 
 ## Einheitliche Icons
 
-Alle UI-Icons verwenden Phosphor Duotone aus `components/icons.tsx` und dem
-Paket `@phosphor-icons/react`. Die zentrale Komponente setzt `weight="duotone"`
-fest; Standardgröße 24 px, bestehende Größenklassen und CSS-Rollen bleiben wirksam.
+Alle Icons verwenden die Familie Phosphor aus `components/icons.tsx` und dem
+Paket `@phosphor-icons/react`. Die zentrale Komponente wählt pro Motiv den Schnitt:
+
+- `regular` für Bedienelemente: Pfeile, Chevrons, Drag-Griffe, Plus/Minus,
+  Schließen, Menü, Vergrößern, Laden, Häkchen und allgemeine Statushinweise.
+- `duotone` ausdrücklich für Suche, Hell-Dunkel-Schalter, Play/Pause und den
+  Standort im Quiz. Inhaltliche Fakten- und Quizmotive behalten ebenfalls Duotone.
+
+Standardgröße 24 px; bestehende Größenklassen und CSS-Rollen bleiben wirksam.
 Einzelimporte der SSR-Varianten funktionieren auch in Server Components ohne
 Context-Provider. Nur verwendete Icons gelangen in den Produktionsbuild.
 
 Die Artenfakten behalten ihre fünf Motive, 16 px Größe und Teal-Hauptfarbe.
 Andere Icons erben die bestehende semantische Textfarbe, einschließlich
 Erfolg/Fehler und kontrastierender Icons auf gefüllten Buttons. Die zweite Fläche
-verwendet Phosphors 20 % Deckkraft. Reine Zeichen wie Plus, Kreuz oder Caret
-können auch im offiziellen Duotone-Schnitt einfarbig bleiben.
+von Duotone verwendet Phosphors 20 % Deckkraft. Keine zweite Icon-Familie ergänzen.
 
-Auf ausdrücklichen Nutzerwunsch gilt die Vereinheitlichung auch für die
-Icon-Imports in `components/ui`; die übrige Vorlage bleibt erhalten.
-`components.json` verwendet `phosphor` für künftig ergänzte Primitiven, deren
-Icons ebenfalls über die zentrale Komponente einzubinden sind. Die Kartengrafik
-bleibt eine fachliche SVG-Visualisierung und ist kein UI-Icon.
+Select-, Combobox- und Dropdown-Menüs zeigen keine Auswahlhäkchen. Die frühere
+Häkchenspalte entfällt. Ausgewählte Einträge behalten ihre ARIA-Zustände und
+werden über die bestehende Auswahlfläche hervorgehoben; App-Select verwendet
+zusätzlich die Teal-Textfarbe. Tastaturfokus und Auswahl bleiben getrennte Zustände.
+Eigenständige Checkboxen und Quiz-Rückmeldungen behalten ihr Regular-Häkchen.
+
+Auf ausdrücklichen Nutzerwunsch gelten diese Anpassungen auch in `components/ui`;
+das übrige Verhalten der Vorlage bleibt erhalten. `components.json` verwendet
+`phosphor` für künftig ergänzte Primitiven, deren Icons ebenfalls über die zentrale
+Komponente einzubinden sind. Die Kartengrafik bleibt eine fachliche SVG-Visualisierung.

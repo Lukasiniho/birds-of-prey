@@ -44,67 +44,79 @@ import { WarningCircleIcon } from '@phosphor-icons/react/dist/ssr/WarningCircle'
 import { XIcon } from '@phosphor-icons/react/dist/ssr/X';
 import { XCircleIcon } from '@phosphor-icons/react/dist/ssr/XCircle';
 
-/** Shared Phosphor Duotone icons, usable in client and server components. */
+/** Shared Phosphor icons: regular controls with deliberate duotone accents. */
 export type AppIconProps = Omit<IconProps, 'weight'>;
 
-function duotone(IconComponent: Icon) {
-  return function DuotoneIcon({ size = 24, ...props }: AppIconProps) {
+function phosphorIcon(
+  IconComponent: Icon,
+  weight: 'regular' | 'duotone' = 'regular',
+) {
+  return function AppIcon({ size = 24, ...props }: AppIconProps) {
     return (
       <IconComponent
         size={size}
         aria-hidden="true"
         focusable="false"
         {...props}
-        weight="duotone"
-        data-icon-weight="duotone"
+        weight={weight}
+        data-icon-weight={weight}
       />
     );
   };
 }
 
-export const ArrowCounterClockwise = /*#__PURE__*/ duotone(
+export const ArrowCounterClockwise = /*#__PURE__*/ phosphorIcon(
   ArrowCounterClockwiseIcon,
 );
-export const ArrowDown = /*#__PURE__*/ duotone(ArrowDownIcon);
-export const ArrowLeft = /*#__PURE__*/ duotone(ArrowLeftIcon);
-export const ArrowRight = /*#__PURE__*/ duotone(ArrowRightIcon);
-export const ArrowUpRight = /*#__PURE__*/ duotone(ArrowUpRightIcon);
-export const ArrowsLeftRight = /*#__PURE__*/ duotone(ArrowsLeftRightIcon);
-export const Bone = /*#__PURE__*/ duotone(BoneIcon);
-export const Bug = /*#__PURE__*/ duotone(BugIcon);
-export const CaretDown = /*#__PURE__*/ duotone(CaretDownIcon);
-export const CaretLeft = /*#__PURE__*/ duotone(CaretLeftIcon);
-export const CaretRight = /*#__PURE__*/ duotone(CaretRightIcon);
-export const CaretUp = /*#__PURE__*/ duotone(CaretUpIcon);
-export const Check = /*#__PURE__*/ duotone(CheckIcon);
-export const CheckCircle = /*#__PURE__*/ duotone(CheckCircleIcon);
-export const Compass = /*#__PURE__*/ duotone(CompassIcon);
-export const CornersOut = /*#__PURE__*/ duotone(CornersOutIcon);
-export const Crosshair = /*#__PURE__*/ duotone(CrosshairIcon);
-export const DotsSix = /*#__PURE__*/ duotone(DotsSixIcon);
-export const DotsThree = /*#__PURE__*/ duotone(DotsThreeIcon);
-export const Ear = /*#__PURE__*/ duotone(EarIcon);
-export const Egg = /*#__PURE__*/ duotone(EggIcon);
-export const Eye = /*#__PURE__*/ duotone(EyeIcon);
-export const Feather = /*#__PURE__*/ duotone(FeatherIcon);
-export const ForkKnife = /*#__PURE__*/ duotone(ForkKnifeIcon);
-export const HourglassMedium = /*#__PURE__*/ duotone(HourglassMediumIcon);
-export const Info = /*#__PURE__*/ duotone(InfoIcon);
-export const List = /*#__PURE__*/ duotone(ListIcon);
-export const MagnifyingGlass = /*#__PURE__*/ duotone(MagnifyingGlassIcon);
-export const MapPin = /*#__PURE__*/ duotone(MapPinIcon);
-export const Minus = /*#__PURE__*/ duotone(MinusIcon);
-export const Moon = /*#__PURE__*/ duotone(MoonIcon);
-export const Pause = /*#__PURE__*/ duotone(PauseIcon);
-export const Play = /*#__PURE__*/ duotone(PlayIcon);
-export const Plus = /*#__PURE__*/ duotone(PlusIcon);
-export const Ruler = /*#__PURE__*/ duotone(RulerIcon);
-export const Scales = /*#__PURE__*/ duotone(ScalesIcon);
-export const SidebarSimple = /*#__PURE__*/ duotone(SidebarSimpleIcon);
-export const SpinnerGap = /*#__PURE__*/ duotone(SpinnerGapIcon);
-export const Sun = /*#__PURE__*/ duotone(SunIcon);
-export const SunHorizon = /*#__PURE__*/ duotone(SunHorizonIcon);
-export const Warning = /*#__PURE__*/ duotone(WarningIcon);
-export const WarningCircle = /*#__PURE__*/ duotone(WarningCircleIcon);
-export const X = /*#__PURE__*/ duotone(XIcon);
-export const XCircle = /*#__PURE__*/ duotone(XCircleIcon);
+export const ArrowDown = /*#__PURE__*/ phosphorIcon(ArrowDownIcon);
+export const ArrowLeft = /*#__PURE__*/ phosphorIcon(ArrowLeftIcon);
+export const ArrowRight = /*#__PURE__*/ phosphorIcon(ArrowRightIcon);
+export const ArrowUpRight = /*#__PURE__*/ phosphorIcon(ArrowUpRightIcon);
+export const ArrowsLeftRight = /*#__PURE__*/ phosphorIcon(ArrowsLeftRightIcon);
+export const Bone = /*#__PURE__*/ phosphorIcon(BoneIcon, 'duotone');
+export const Bug = /*#__PURE__*/ phosphorIcon(BugIcon, 'duotone');
+export const CaretDown = /*#__PURE__*/ phosphorIcon(CaretDownIcon);
+export const CaretLeft = /*#__PURE__*/ phosphorIcon(CaretLeftIcon);
+export const CaretRight = /*#__PURE__*/ phosphorIcon(CaretRightIcon);
+export const CaretUp = /*#__PURE__*/ phosphorIcon(CaretUpIcon);
+export const Check = /*#__PURE__*/ phosphorIcon(CheckIcon);
+export const CheckCircle = /*#__PURE__*/ phosphorIcon(CheckCircleIcon);
+export const Compass = /*#__PURE__*/ phosphorIcon(CompassIcon, 'duotone');
+export const CornersOut = /*#__PURE__*/ phosphorIcon(CornersOutIcon);
+export const Crosshair = /*#__PURE__*/ phosphorIcon(CrosshairIcon, 'duotone');
+export const DotsSix = /*#__PURE__*/ phosphorIcon(DotsSixIcon);
+export const DotsThree = /*#__PURE__*/ phosphorIcon(DotsThreeIcon);
+export const Ear = /*#__PURE__*/ phosphorIcon(EarIcon, 'duotone');
+export const Egg = /*#__PURE__*/ phosphorIcon(EggIcon, 'duotone');
+export const Eye = /*#__PURE__*/ phosphorIcon(EyeIcon, 'duotone');
+export const Feather = /*#__PURE__*/ phosphorIcon(FeatherIcon, 'duotone');
+export const ForkKnife = /*#__PURE__*/ phosphorIcon(ForkKnifeIcon, 'duotone');
+export const HourglassMedium = /*#__PURE__*/ phosphorIcon(
+  HourglassMediumIcon,
+  'duotone',
+);
+export const Info = /*#__PURE__*/ phosphorIcon(InfoIcon);
+export const List = /*#__PURE__*/ phosphorIcon(ListIcon);
+export const MagnifyingGlass = /*#__PURE__*/ phosphorIcon(
+  MagnifyingGlassIcon,
+  'duotone',
+);
+export const MapPin = /*#__PURE__*/ phosphorIcon(MapPinIcon, 'duotone');
+export const Minus = /*#__PURE__*/ phosphorIcon(MinusIcon);
+export const Moon = /*#__PURE__*/ phosphorIcon(MoonIcon, 'duotone');
+export const Pause = /*#__PURE__*/ phosphorIcon(PauseIcon, 'duotone');
+export const Play = /*#__PURE__*/ phosphorIcon(PlayIcon, 'duotone');
+export const Plus = /*#__PURE__*/ phosphorIcon(PlusIcon);
+export const Ruler = /*#__PURE__*/ phosphorIcon(RulerIcon, 'duotone');
+export const Scales = /*#__PURE__*/ phosphorIcon(ScalesIcon, 'duotone');
+export const SidebarSimple = /*#__PURE__*/ phosphorIcon(SidebarSimpleIcon);
+export const SpinnerGap = /*#__PURE__*/ phosphorIcon(SpinnerGapIcon);
+export const Sun = /*#__PURE__*/ phosphorIcon(SunIcon, 'duotone');
+export const SunHorizon = /*#__PURE__*/ phosphorIcon(SunHorizonIcon, 'duotone');
+export const Warning = /*#__PURE__*/ phosphorIcon(WarningIcon);
+export const WarningCircle = /*#__PURE__*/ phosphorIcon(
+  WarningCircleIcon,
+  'duotone',
+);
+export const X = /*#__PURE__*/ phosphorIcon(XIcon);
+export const XCircle = /*#__PURE__*/ phosphorIcon(XCircleIcon);
