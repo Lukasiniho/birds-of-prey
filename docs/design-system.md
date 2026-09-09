@@ -253,3 +253,7 @@ und unten (8 px), ohne absolute Positionierung oder überlappende Außenabständ
 Unterer Verlauf: transparent am Anfang, 15 % Flächenfarbe bei 45 % Höhe und
 maximal 55 % am unteren Rand. Blur 2 px, gleichmäßig über die volle Höhe
 eingeblendet. Kein deckender Abschluss.
+
+Messwertleiste: auf Wunsch insgesamt 10 px höher durch jeweils 5 px zusätzliches
+Padding oben/unten. Die Wertezeile wird für die optische Zentrierung der
+Display-Schrift zum Play-Kreis um 3 px angehoben; Beschriftungen bleiben bündig.

@@ -2150,7 +2150,7 @@ button.color-dot:not(:disabled) {
   width: calc(100% - 56px);
   max-width: 640px;
   margin: var(--space-8) 28px 0;
-  padding: var(--space-8) var(--space-12);
+  padding: calc(var(--space-8) + 5px) var(--space-12);
   border: var(--border-structure) solid
     color-mix(in srgb, var(--foreground) 12%, transparent);
   border-radius: var(--radius-surface);
@@ -2574,7 +2574,7 @@ button.color-dot:not(:disabled) {
   }
   .specimen-measurements.measurements {
     margin: var(--space-8) 28px 0;
-    padding: var(--space-8) var(--space-12);
+    padding: calc(var(--space-8) + 5px) var(--space-12);
   }
   .specimen-measurements.measurements > div > span {
     margin-bottom: 5px;
@@ -3080,6 +3080,8 @@ button.color-dot:not(:disabled) {
   margin: 0;
 }
 .specimen-measurements.measurements:has(.bird-audio) > div > p {
+  /* Optical centering of the display face against the circular audio control. */
+  transform: translateY(-3px);
   margin: 0;
   display: flex;
   align-items: baseline;
