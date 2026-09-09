@@ -1,9 +1,10 @@
 .q-feedback {
   --q-feedback-text: #171717;
+  --feedback-icon-size: 2.25rem;
   flex: 1;
   min-width: 0;
   display: grid;
-  grid-template-columns: 22px minmax(0, 1fr) auto;
+  grid-template-columns: var(--feedback-icon-size) minmax(0, 1fr) auto;
   align-items: center;
   gap: var(--space-12);
 }
@@ -13,28 +14,32 @@
 .q-feedback-icon {
   display: grid;
   place-items: center;
-  width: 22px;
-  height: 22px;
-  color: var(--q-accent);
+  width: var(--feedback-icon-size);
+  height: var(--feedback-icon-size);
+  border-radius: 50%;
+  color: var(--q-error);
+  background: var(--q-error-soft);
 }
 .q-feedback-icon svg {
   display: block;
 }
 .q-feedback[data-perfect='true'] .q-feedback-icon {
   color: var(--q-success);
+  background: var(--q-success-soft);
 }
 .q-feedback-copy {
   min-width: 0;
 }
 .q-feedback-title {
   margin: 0;
-  font-size: var(--type-body);
+  font-size: var(--type-feedback-title);
   font-weight: 700;
   line-height: var(--leading-compact);
   color: var(--q-feedback-text);
 }
 .q-feedback-detail {
-  margin-top: 3px;
+  font-weight: 400;
+  margin-top: var(--space-4);
   font-size: var(--type-ui);
   line-height: var(--leading-compact);
   color: var(--q-feedback-text);
@@ -47,7 +52,7 @@
 .q-feedback-detail p + p,
 .q-feedback-detail ul + p,
 .q-feedback-detail ol + p {
-  margin-top: 6px;
+  margin-top: var(--space-8);
 }
 .q-points-earned {
   font-size: var(--type-metric);
@@ -70,4 +75,8 @@
   .q-feedback {
     gap: var(--space-12);
   }
+}
+
+.q-feedback-detail :is(b, strong) {
+  font-weight: inherit;
 }

@@ -1,5 +1,6 @@
 'use client';
 
+import { QuizQuestionTitle } from '@/components/quiz/question-title';
 import { SpeciesName } from '@/components/species-name';
 import Image from 'next/image';
 import { ArrowLeftRight, Check, X } from 'lucide-react';
@@ -25,9 +26,7 @@ export function WingComparison({
         <span className="q-task-label">
           <ArrowLeftRight size={17} /> Flügel im Vergleich
         </span>
-        <h2 id="q-question-title" tabIndex={-1}>
-          Wer hat die größere Spannweite?
-        </h2>
+        <QuizQuestionTitle>Wer hat die größere Spannweite?</QuizQuestionTitle>
         {!answered && <p>Wähle den Vogel mit der größeren Spannweite.</p>}
       </div>
       <fieldset

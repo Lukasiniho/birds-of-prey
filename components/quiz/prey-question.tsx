@@ -1,5 +1,6 @@
 'use client';
 
+import { QuizQuestionTitle } from '@/components/quiz/question-title';
 import { SpeciesName } from '@/components/species-name';
 import { useRef, useState, type PointerEvent } from 'react';
 import { createPortal } from 'react-dom';
@@ -97,9 +98,7 @@ export function PreyQuestion({
         <span className="q-task-label">
           <Utensils size={17} /> Speiseplan zusammenstellen
         </span>
-        <h2 id="q-question-title" tabIndex={-1}>
-          Was frisst dieser Vogel?
-        </h2>
+        <QuizQuestionTitle>Was frisst dieser Vogel?</QuizQuestionTitle>
         <p>
           Ziehe die typische Nahrung zum Vogel oder tippe sie an. Mehrere
           Antworten sind möglich.

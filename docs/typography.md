@@ -65,3 +65,9 @@ Seitenliste bleiben ausdrücklich erhalten.
 - Bibliothekskomponenten in `components/ui` behalten ihre Vorlage.
 - Abstände, Rahmen, Radien und Schatten folgen dem freigegebenen
   [soften Design-System](design-system.md).
+
+Quiz-Rückmeldungen: Titel 16 px/700 über `--type-feedback-title`; Erklärung
+14 px/400 ohne fett hervorgehobene Wörter oder Werte.
+
+Alle Quiz-Fragentitel: `QuizQuestionTitle` und `--type-quiz-question`,
+28 px/700, auch mobil. Keine lokalen Fragentitel-Größen ergänzen.

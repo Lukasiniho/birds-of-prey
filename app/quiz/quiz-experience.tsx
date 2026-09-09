@@ -1,5 +1,6 @@
 'use client';
 
+import { QuizQuestionTitle } from '@/components/quiz/question-title';
 import { SpeciesName, SpeciesCommonName } from '@/components/species-name';
 import {
   useCallback,
@@ -211,7 +212,7 @@ function EstimateQuestion({
         <span className="q-task-label">
           <Icon size={17} /> Dein Augenmaß ist gefragt
         </span>
-        <h2 id="q-question-title" tabIndex={-1}>
+        <QuizQuestionTitle>
           {isWeight ? (
             <>
               Wie schwer ist
@@ -225,13 +226,13 @@ function EstimateQuestion({
               diese Flügel?
             </>
           )}
-        </h2>
+        </QuizQuestionTitle>
         <p>
           {isWeight
             ? 'Schätze das Körpergewicht des Vogels.'
             : 'Schätze die Spannweite. Gemessen wird von einer Flügelspitze zur anderen.'}
         </p>
-        <div>
+        <div className="q-answer-controls">
           <div className="q-estimate">
             <Button
               variant="ghost"
@@ -363,14 +364,14 @@ function HuntQuestion({
         <span className="q-task-label">
           <Crosshair size={17} /> Jagdweisen erkennen
         </span>
-        <h2 id="q-question-title" tabIndex={-1}>
+        <QuizQuestionTitle>
           Wie kommt dieser
           <br />
           Vogel an seine Beute?
-        </h2>
+        </QuizQuestionTitle>
         <p>Wähle die typische Jagdweise der Art {bird.name}.</p>
         <RadioGroup
-          className="q-options"
+          className="q-options q-answer-controls"
           value={draft.choice ?? ''}
           onValueChange={(value) =>
             onChange({ ...draft, choice: String(value) })
@@ -574,9 +575,7 @@ function WeightQuestion({
           <span className="q-task-label">
             <Scale size={17} /> Vier Vögel, eine Reihenfolge
           </span>
-          <h2 id="q-question-title" tabIndex={-1}>
-            Von federleicht zu schwer.
-          </h2>
+          <QuizQuestionTitle>Von federleicht zu schwer.</QuizQuestionTitle>
           <p>Ordne die vier Arten nach ihrem typischen Gewicht.</p>
         </div>
         <div className="q-weight-direction">
@@ -776,9 +775,7 @@ function HabitatQuestion({
           <span className="q-task-label">
             <MapPin size={17} /> Finde ein passendes Zuhause
           </span>
-          <h2 id="q-question-title" tabIndex={-1}>
-            Wer lebt denn hier?
-          </h2>
+          <QuizQuestionTitle>Wer lebt denn hier?</QuizQuestionTitle>
           <p>
             Ordne die Vögel durch Ziehen oder Antippen zu. Mehrere Vögel dürfen
             dieselbe Landschaft teilen.
@@ -970,21 +967,18 @@ function QuestionFeedback({
     <QuizFeedback points={answer.points}>
       {question.kind === 'span' && bird && (
         <p>
-          {bird.name}: <b>{formatSpan(bird)}</b>. Deine Schätzung: {answer.span}{' '}
-          cm.
+          {bird.name}: {formatSpan(bird)}. Deine Schätzung: {answer.span} cm.
         </p>
       )}
       {question.kind === 'weight-estimate' && bird && (
         <p>
-          {bird.name}: <b>{formatWeight(bird)}</b>. Deine Schätzung:{' '}
+          {bird.name}: {formatWeight(bird)}. Deine Schätzung:{' '}
           {number.format(answer.weight / weightEstimateScale(bird).divisor)}{' '}
           {weightEstimateScale(bird).divisor === 1 ? 'g' : 'kg'}.
         </p>
       )}
       {question.kind === 'hunt' && (
-        <p>
-          Richtig: <b>{huntingTypes[question.correct].label}</b>.
-        </p>
+        <p>Richtig: {huntingTypes[question.correct].label}.</p>
       )}
       {question.kind === 'habitat' && (
         <p>{answer.points / 25} von 4 Vögeln passend zugeordnet.</p>
@@ -997,7 +991,7 @@ function QuestionFeedback({
       )}
       {question.kind === 'compare' && (
         <p>
-          Größere Spannweite: <b>{birds[question.correct].name}</b> (
+          Größere Spannweite: {birds[question.correct].name} (
           {formatSpan(birds[question.correct])}).
         </p>
       )}

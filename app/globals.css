@@ -172,10 +172,11 @@ h2 {
   padding: var(--space-24) var(--space-16) var(--space-20);
   background: var(--background);
   min-width: 0;
+  padding-inline: var(--atlas-gutter);
 }
 .library-top {
-  padding: 0 var(--space-8);
   gap: var(--space-16);
+  padding: 0;
 }
 .library-top h2 {
   font-size: var(--type-heading);
@@ -631,6 +632,7 @@ button.color-dot:not(:disabled) {
   }
   .species-panel[data-slot] {
     padding: var(--space-24) var(--space-16) var(--space-20);
+    padding-inline: var(--atlas-gutter);
   }
   .portrait {
     width: 49px;
@@ -724,12 +726,13 @@ button.color-dot:not(:disabled) {
     padding: var(--space-16) var(--space-20) var(--space-12);
     border-right: 0;
     border-bottom: var(--border-structure) solid var(--border);
+    padding-inline: var(--atlas-gutter);
   }
   .library-top {
-    padding: 0;
     display: flex;
     align-items: center;
     gap: var(--space-16);
+    padding: 0;
   }
   .library-top h2 {
     margin: 0;
@@ -1223,8 +1226,8 @@ button.color-dot:not(:disabled) {
   line-height: var(--leading-normal);
   font-weight: 500;
   color: var(--muted-foreground);
-  padding: 0 10px;
   margin-bottom: var(--space-8);
+  padding: 0;
 }
 .bird-entry[data-slot] {
   height: 69px;
@@ -1237,6 +1240,7 @@ button.color-dot:not(:disabled) {
   scrollbar-width: thin;
   scrollbar-color: var(--border) transparent;
   padding: var(--space-24) var(--space-16) var(--space-20);
+  padding-inline: var(--atlas-gutter);
 }
 .library-filter {
   margin-bottom: 18px;
@@ -1246,12 +1250,14 @@ button.color-dot:not(:disabled) {
   .species-panel[data-slot] {
     max-height: 830px;
     padding: var(--space-24) var(--space-16) var(--space-20);
+    padding-inline: var(--atlas-gutter);
   }
 }
 @media (max-width: 640px) {
   .species-panel[data-slot] {
     max-height: none;
     padding: var(--space-16) var(--space-20) var(--space-12);
+    padding-inline: var(--atlas-gutter);
   }
   .library-top {
     flex-wrap: wrap;
@@ -1298,9 +1304,9 @@ button.color-dot:not(:disabled) {
   }
   .species-group-title {
     flex-wrap: wrap;
-    padding: 0 5px;
     margin-bottom: var(--space-8);
     gap: var(--space-8);
+    padding: 0;
   }
   .bird-list[data-slot] {
     overflow: visible;
@@ -1582,10 +1588,11 @@ button.color-dot:not(:disabled) {
 }
 .species-panel[data-slot] {
   padding: var(--space-24) var(--space-16) var(--space-20);
+  padding-inline: var(--atlas-gutter);
 }
 .library-top {
-  padding: 0 var(--space-8);
   gap: var(--space-16);
+  padding: 0;
 }
 .library-filter {
   margin: 0 0 22px;
@@ -1604,9 +1611,9 @@ button.color-dot:not(:disabled) {
   height: 37px;
 }
 .species-group-title {
-  padding: 0 10px;
   margin-bottom: var(--space-8);
   gap: var(--space-8);
+  padding: 0;
 }
 .species-group + .species-group {
   margin-top: var(--space-24);
@@ -1623,6 +1630,7 @@ button.color-dot:not(:disabled) {
   }
   .species-panel[data-slot] {
     padding: var(--space-24) var(--space-16) var(--space-20);
+    padding-inline: var(--atlas-gutter);
   }
 }
 @media (max-width: 800px) {
@@ -1659,11 +1667,12 @@ button.color-dot:not(:disabled) {
   }
   .species-panel[data-slot] {
     padding: var(--space-16) var(--space-20) var(--space-12);
+    padding-inline: var(--atlas-gutter);
   }
   .library-top {
     display: block;
-    padding: 0;
     gap: var(--space-16);
+    padding: 0;
   }
   .library-filter {
     display: none;
@@ -1683,9 +1692,9 @@ button.color-dot:not(:disabled) {
     margin-top: var(--space-24);
   }
   .species-group-title {
-    padding: 0 5px;
     margin-bottom: var(--space-8);
     gap: var(--space-8);
+    padding: 0;
   }
   .bird-entry[data-slot] {
     gap: var(--space-8);
@@ -1761,6 +1770,7 @@ button.color-dot:not(:disabled) {
     overflow-y: auto;
     overscroll-behavior: contain;
     padding: var(--space-24) var(--space-16) var(--space-20);
+    padding-inline: var(--atlas-gutter);
   }
   .specimen-panel {
     height: 100%;

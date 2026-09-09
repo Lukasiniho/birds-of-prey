@@ -11,6 +11,7 @@
   --space-40: 2.5rem;
 
   --page-gutter: var(--space-40);
+  --atlas-gutter: var(--space-16);
   --section-gap: var(--space-32);
   --panel-padding: var(--space-24);
   --panel-padding-compact: var(--space-16);
@@ -44,6 +45,12 @@
 @media (max-width: 760px) {
   :root {
     --page-gutter: var(--space-20);
+    --atlas-gutter: var(--space-20);
     --panel-padding: var(--panel-padding-compact);
   }
+}
+
+/* The atlas header aligns with its species rail, not the editorial page gutter. */
+.site-header[data-section='birds'] {
+  --page-gutter: var(--atlas-gutter);
 }

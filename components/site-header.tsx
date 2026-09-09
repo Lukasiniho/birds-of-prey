@@ -48,7 +48,7 @@ export function SiteHeader({
   }
 
   return (
-    <header className="topbar site-header">
+    <header className="topbar site-header" data-section={activeSection}>
       <a href="/" className="site-title">
         Die Welt der Greifvögel
       </a>

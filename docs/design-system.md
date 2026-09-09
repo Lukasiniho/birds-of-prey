@@ -42,7 +42,10 @@ Bevorzugt semantische Rollen verwenden:
 `.page-content` teilt Seitenabstände zwischen Quiz, Wissen und Falknerei.
 `.detail-panel` teilt das Padding zwischen Atlas, Anatomie und Falknerei.
 Die Atlas-Bühne bleibt ein flächiges Spaltenlayout; ihre Illustration erhält
-keinen zusätzlichen Seitenrand. Die gemeinsame Kopfleiste nutzt den Seitenrand.
+keinen zusätzlichen Seitenrand. Die Kopfleiste folgt auf Quiz-/Wissensseiten dem Seitenrand. Im Atlas
+richtet sie sich mit `--atlas-gutter` (16 px Desktop, 20 px mobil) an der
+linken Artenleiste aus. Gruppierungs- und Gruppenüberschriften bekommen keine
+zusätzliche horizontale Einrückung.
 Die bestehenden maximalen Inhaltsbreiten dürfen sich wegen der Arbeitsflächen
 unterscheiden (Quiz 1360 px; Wissen/Falknerei 1440 px).
 
@@ -121,3 +124,21 @@ Fließtext 14 px, Tags 13 px. Die spezifische Regel
 4. Schriftgrößen und Gewichte nicht im Rahmen einer Abstandsbereinigung ändern.
 5. Build und betroffene Interaktionen prüfen. Bei Layoutfehlern auch die
    spezifischeren Selektoren und alle vorhandenen Breakpoints prüfen.
+
+## Quiz-Rückmeldungen
+
+Alle Aufgaben verwenden `QuizFeedback`. Die Überschrift nutzt
+`--type-feedback-title` (16 px), Gewicht 700. Erklärungstext bleibt 14 px und
+Gewicht 400, auch Antworten oder Messwerte darin werden nicht fett hervorgehoben.
+Ein 36-px-Kreis trägt das 24-px-Symbol: grünes Häkchen auf hellem Grün bei
+Volltreffern, rotes Kreuz auf hellem Rot bei unvollständigen/falschen Antworten.
+Die vorhandenen Erfolgs-/Fehlerfarben berücksichtigen auch den Dunkelmodus.
+
+## Quiz-Aufgaben
+
+Alle sieben Aufgabentypen nutzen `QuizQuestionTitle`: 28 px, Gewicht 700.
+Aufgabenbereiche haben links, rechts und unten dasselbe `--panel-padding`
+(24 px Desktop, 16 px mobil). In zweispaltigen Aufgaben sitzt die Antwortgruppe
+am unteren Innenrand; zusätzliche Höhe wird vor der Gruppe aufgenommen, nicht
+als unterschiedlich großer Leerraum unter der letzten Antwort. Die Titelrolle
+und diese Abstände gelten vor und nach der Auswertung.

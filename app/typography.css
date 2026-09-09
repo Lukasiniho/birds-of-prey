@@ -46,6 +46,8 @@
   --type-body: var(--text-sm);
   --type-tag: 0.8125rem;
   --type-detail-heading: var(--text-xl);
+  --type-feedback-title: var(--text-base);
+  --type-quiz-question: var(--text-3xl);
   --type-species-common: var(--text-xl);
   --type-species-quiz: var(--text-2xl);
   --type-lead: var(--text-lg);

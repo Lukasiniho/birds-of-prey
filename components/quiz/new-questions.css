@@ -11,13 +11,6 @@
 .q-new-heading .q-task-label {
   margin-bottom: var(--space-12);
 }
-.q-new-heading h2 {
-  font-family: var(--font-display), Georgia, serif;
-  font-size: var(--type-section-title);
-  line-height: var(--leading-display);
-  font-weight: 600;
-  color: var(--q-ink);
-}
 .q-new-heading p {
   color: var(--q-muted);
   font-size: var(--type-body);
