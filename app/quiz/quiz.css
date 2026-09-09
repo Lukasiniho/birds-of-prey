@@ -1326,7 +1326,7 @@
   font-family: var(--font-display), Georgia, serif;
   font-size: var(--type-quiz-question);
   font-weight: 700;
-  line-height: var(--leading-heading);
+  line-height: var(--leading-display);
   letter-spacing: normal;
   color: var(--q-ink);
 }

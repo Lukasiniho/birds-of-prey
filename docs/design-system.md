@@ -154,7 +154,8 @@ Die vorhandenen Erfolgs-/Fehlerfarben berücksichtigen auch den Dunkelmodus.
 
 ## Quiz-Aufgaben
 
-Alle sieben Aufgabentypen nutzen `QuizQuestionTitle`: 32 px, Gewicht 700.
+Alle Aufgabentypen nutzen `QuizQuestionTitle`: 32 px, Gewicht 700,
+Zeilenhöhe `--leading-display` (1,1), auch bei mehrzeiligen Fragen und mobil.
 Aufgabenbereiche haben links, rechts und unten dasselbe `--panel-padding`
 (24 px Desktop, 16 px mobil). In zweispaltigen Aufgaben sitzt die Antwortgruppe
 am unteren Innenrand; zusätzliche Höhe wird vor der Gruppe aufgenommen, nicht
