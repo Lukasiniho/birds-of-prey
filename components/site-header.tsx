@@ -7,7 +7,13 @@ import { useEffect, useState } from 'react';
 import Image from 'next/image';
 import { portraitImages } from '@/lib/portrait-images';
 
-import { Menu, Moon, Search, Sun, X } from 'lucide-react';
+import {
+  List as Menu,
+  Moon,
+  MagnifyingGlass as Search,
+  Sun,
+  X,
+} from '@/components/icons';
 import { DropdownMenu, DropdownMenuTrigger, DropdownMenuContent, DropdownMenuItem } from '@/components/ui/dropdown-menu';
 import { Button } from '@/components/ui/button';
 import { Input } from '@/components/ui/input';

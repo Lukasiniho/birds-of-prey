@@ -1,7 +1,7 @@
 'use client';
 
 import { useEffect, useId, useState } from 'react';
-import { Expand, Info, X } from 'lucide-react';
+import { CornersOut as Expand, Info, X } from '@/components/icons';
 import { Button } from '@/components/ui/button';
 import {
   Popover,

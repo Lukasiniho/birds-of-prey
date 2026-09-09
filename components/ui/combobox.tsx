@@ -11,7 +11,11 @@ import {
   InputGroupButton,
   InputGroupInput,
 } from '@/components/ui/input-group';
-import { ChevronDownIcon, XIcon, CheckIcon } from 'lucide-react';
+import {
+  CaretDown as ChevronDownIcon,
+  X as XIcon,
+  Check as CheckIcon,
+} from '@/components/icons';
 
 const Combobox = ComboboxPrimitive.Root;
 

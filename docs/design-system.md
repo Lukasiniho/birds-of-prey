@@ -98,7 +98,7 @@ separate Rollen.
 ## Typografie und bewahrte Hierarchie
 
 Einheitlichkeit bedeutet gleiche Rolle, nicht gleiche Größe für alle Inhalte.
-Die große Atlas-Überschrift behält die vorherige Hierarchie: 40–64 px,
+Die große Atlas-Überschrift behält die vorherige Hierarchie: 32–48 px,
 Schriftgewicht 700; wissenschaftlicher Name halb so groß, mindestens 16 px,
 Gewicht 400.
 
@@ -369,3 +369,23 @@ die gemeinsame Hauptfarbe, Button-Typografie und Abstandstokens; die Quellen
 bleiben in einem per Klick bedienbaren Popover mit zentralem `TooltipHint`.
 Die bestehende Fragenzahl-Auswahl, Ergebnis-Typografie und feste Fußleiste gelten
 auch für diese Aufgaben. Die übrigen Atlas- und Wissen-Styles bleiben auf main-Stand.
+
+## Einheitliche Icons
+
+Alle UI-Icons verwenden Phosphor Duotone aus `components/icons.tsx` und dem
+Paket `@phosphor-icons/react`. Die zentrale Komponente setzt `weight="duotone"`
+fest; Standardgröße 24 px, bestehende Größenklassen und CSS-Rollen bleiben wirksam.
+Einzelimporte der SSR-Varianten funktionieren auch in Server Components ohne
+Context-Provider. Nur verwendete Icons gelangen in den Produktionsbuild.
+
+Die Artenfakten behalten ihre fünf Motive, 16 px Größe und Teal-Hauptfarbe.
+Andere Icons erben die bestehende semantische Textfarbe, einschließlich
+Erfolg/Fehler und kontrastierender Icons auf gefüllten Buttons. Die zweite Fläche
+verwendet Phosphors 20 % Deckkraft. Reine Zeichen wie Plus, Kreuz oder Caret
+können auch im offiziellen Duotone-Schnitt einfarbig bleiben.
+
+Auf ausdrücklichen Nutzerwunsch gilt die Vereinheitlichung auch für die
+Icon-Imports in `components/ui`; die übrige Vorlage bleibt erhalten.
+`components.json` verwendet `phosphor` für künftig ergänzte Primitiven, deren
+Icons ebenfalls über die zentrale Komponente einzubinden sind. Die Kartengrafik
+bleibt eine fachliche SVG-Visualisierung und ist kein UI-Icon.
