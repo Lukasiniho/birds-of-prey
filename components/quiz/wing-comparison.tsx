@@ -1,5 +1,6 @@
 'use client';
 
+import { SpeciesName } from '@/components/species-name';
 import Image from 'next/image';
 import { ArrowLeftRight, Check, X } from 'lucide-react';
 import type { QuizBird, QuizQuestion } from '@/lib/quiz-engine';
@@ -65,8 +66,12 @@ export function WingComparison({
                   />
                 </div>
               )}
-              <h3 className="species-common-name">{bird.name}</h3>
-              <i className="species-scientific-name">{bird.latin}</i>
+              <SpeciesName
+                name={bird.name}
+                latin={bird.latin}
+                commonAs="h3"
+                scientificAs="i"
+              />
               {answered && (
                 <div className="q-comparison-range">
                   <strong>

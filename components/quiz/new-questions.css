@@ -105,12 +105,8 @@
   border-color: var(--q-line);
 }
 .q-prey-target .q-specimen-label {
-  --species-common-size: var(--type-heading);
   align-self: stretch;
   padding: 0;
-}
-.q-prey-target .q-specimen-label > span {
-  font-size: var(--species-common-size);
 }
 .q-prey-bird {
   width: 100%;
@@ -188,7 +184,6 @@
   gap: 20px;
 }
 .q-comparison-card {
-  --species-common-size: var(--type-card-title);
   position: relative;
   min-width: 0;
   padding: 26px 18px;
@@ -204,10 +199,6 @@
 }
 .q-comparison-task[data-answered='true'] .q-comparison-card {
   padding-top: 52px;
-}
-.q-comparison-card h3 {
-  font-size: var(--species-common-size);
-  line-height: var(--leading-display);
 }
 .q-comparison-card > i {
   display: block;

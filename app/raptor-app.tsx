@@ -1,4 +1,5 @@
 'use client';
+import { SpeciesName, SpeciesScientificName } from '@/components/species-name';
 import { useEffect, useLayoutEffect, useRef, useState } from 'react';
 import Image from 'next/image';
 import { BirdAudio, BirdAudioCredit } from '@/components/bird-audio';
@@ -43,11 +44,7 @@ import {
   type BirdSpecies,
 } from '@/lib/birds';
 import { landscapes } from '@/lib/habitats';
-import {
-  speciesById,
-  huntingTypes,
-  statusLabels,
-} from '@/lib/ecology';
+import { speciesById, huntingTypes, statusLabels } from '@/lib/ecology';
 import { habitatImages } from '@/lib/habitat-images';
 import { portraitImages } from '@/lib/portrait-images';
 import { huntingImages } from '@/lib/hunting-images';
@@ -135,12 +132,13 @@ function RevealHeading({ name, latin }: { name: string; latin: string }) {
   }, [name, latin]);
   return (
     <div className="t-stagger is-shown" ref={ref}>
-      <h1 className="species-common-name t-stagger-line t-stagger-line--1">
-        {initial.name}
-      </h1>
-      <p className="species-scientific-name t-stagger-line t-stagger-line--2">
-        {initial.latin}
-      </p>
+      <SpeciesName
+        name={initial.name}
+        latin={initial.latin}
+        commonAs="h1"
+        scientificAs="p"
+        animated
+      />
     </div>
   );
 }
@@ -474,9 +472,9 @@ export default function RaptorApp({
                   <h3 className="species-group-title">
                     <span>{group.title}</span>
                     {group.subtitle && (
-                      <small className="species-scientific-name">
+                      <SpeciesScientificName as="small">
                         {group.subtitle}
-                      </small>
+                      </SpeciesScientificName>
                     )}
                   </h3>
                   <SidebarMenu className="bird-list">
@@ -516,12 +514,12 @@ export default function RaptorApp({
                           <span
                             className={`bird-label ${b.name.length > 15 ? 'long-label' : ''}`}
                           >
-                            <strong className="species-common-name">
-                              {b.name}
-                            </strong>
-                            <em className="species-scientific-name">
-                              {b.latin}
-                            </em>
+                            <SpeciesName
+                              name={b.name}
+                              latin={b.latin}
+                              commonAs="strong"
+                              scientificAs="em"
+                            />
                           </span>
                         </SidebarMenuButton>
                       </SidebarMenuItem>

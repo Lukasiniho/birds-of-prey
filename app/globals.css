@@ -262,7 +262,6 @@ h2 {
   box-shadow: none !important;
 }
 .bird-label {
-  --species-common-size: var(--type-label-title);
   display: flex;
   flex-direction: column;
   min-width: 0;
@@ -270,14 +269,7 @@ h2 {
   padding-right: 3px;
 }
 .bird-label strong {
-  font-size: var(--species-common-size);
-  letter-spacing: 0.02em;
-  line-height: var(--leading-display);
   white-space: nowrap;
-}
-.bird-label .species-common-name,
-.specimen-heading .species-common-name {
-  font-weight: 700;
 }
 .selected-dot {
   width: 4px;
@@ -360,9 +352,6 @@ h2 {
   overflow: hidden;
 }
 .specimen-heading {
-  --species-common-size: var(--type-hero);
-  --species-scientific-scale: 0.5;
-  --species-scientific-weight: 400;
   display: flex;
   justify-content: space-between;
   gap: 8px;
@@ -377,17 +366,8 @@ h2 {
   margin-bottom: 12px;
 }
 .specimen-heading h1 {
-  font-size: var(--species-common-size);
-  line-height: var(--leading-display);
-  letter-spacing: -1.8px;
   overflow-wrap: normal;
   hyphens: auto;
-}
-.specimen-heading:has(h1.long-name) {
-  --species-common-size: var(--type-hero-compact);
-}
-.specimen-heading h1.long-name {
-  letter-spacing: -1.7px;
 }
 .image-stage {
   position: relative;
@@ -499,9 +479,7 @@ h2 {
   padding: 31px 27px 24px;
   min-width: 0;
 }
-.intro h2 {
-  font-size: var(--type-heading);
-}
+
 .intro p {
   font-size: var(--type-body);
   line-height: var(--leading-relaxed);
@@ -574,9 +552,7 @@ button.color-dot:not(:disabled) {
   margin-top: 26px;
   padding-top: 23px;
 }
-.diet-section h2 {
-  font-size: var(--type-heading);
-}
+
 .prey-list {
   display: grid;
   grid-template-columns: repeat(3, minmax(0, 1fr));
@@ -804,12 +780,6 @@ button.color-dot:not(:disabled) {
   .specimen-heading {
     padding: 24px 22px 0;
   }
-  .specimen-heading h1 {
-    letter-spacing: -1.5px;
-  }
-  .specimen-heading h1.long-name {
-    letter-spacing: -1.2px;
-  }
   .species-family {
     margin-bottom: 9px;
   }
@@ -833,9 +803,7 @@ button.color-dot:not(:disabled) {
     gap: 28px 23px;
     padding: 27px 23px;
   }
-  .info-panel h2 {
-    font-size: var(--type-heading);
-  }
+
   .measurements > div {
     display: block;
     margin-bottom: 14px;
@@ -1165,17 +1133,7 @@ button.color-dot:not(:disabled) {
   padding: 0 15px;
 }
 .specimen-heading h1 {
-  line-height: var(--leading-display);
-  letter-spacing: -1.2px;
   text-wrap: balance;
-}
-.specimen-heading h1.long-name {
-  letter-spacing: -0.9px;
-}
-.specimen-heading .species-scientific-name {
-  letter-spacing: 0.25px;
-  line-height: var(--leading-display);
-  margin-top: -0.15em;
 }
 @media (min-width: 1600px) {
   .specimen-heading {
@@ -1193,12 +1151,6 @@ button.color-dot:not(:disabled) {
 @media (max-width: 640px) {
   .specimen-heading {
     padding: 45px 18px 0;
-  }
-  .specimen-heading h1 {
-    letter-spacing: -0.8px;
-  }
-  .specimen-heading h1.long-name {
-    letter-spacing: -0.5px;
   }
 }
 .image-credit {
@@ -1357,21 +1309,11 @@ button.color-dot:not(:disabled) {
     height: 61px;
   }
 }
-.specimen-heading h1 {
-  letter-spacing: -1.1px;
-}
-.specimen-heading h1.long-name {
-  letter-spacing: -1px;
-}
 .site-title {
   font-family:
     var(--font-display), 'Cormorant Garamond', Georgia, serif !important;
 }
-@media (max-width: 640px) {
-  .specimen-heading h1.long-name {
-    letter-spacing: -0.8px;
-  }
-}
+
 .head-portrait {
   background-image: url('/bird-portraits.png');
   background-size: 400% 200%;
@@ -1574,12 +1516,8 @@ button.color-dot:not(:disabled) {
   background-size: contain;
   background-position: center;
 }
-.bird-label.long-label {
-  --species-common-size: var(--type-lead);
-}
 .bird-label.long-label strong {
   white-space: normal;
-  line-height: var(--leading-display);
   overflow-wrap: anywhere;
 }
 
@@ -3062,19 +3000,7 @@ button.color-dot:not(:disabled) {
   gap: 6px;
   margin: 10px 0 14px;
 }
-.ecology-tags > a,
-.ecology-tags > span {
-  font-size: var(--type-ui);
-  line-height: var(--leading-compact);
-  padding: 5px 9px;
-  border: 1px solid var(--border);
-  border-radius: 5px;
-  background: var(--hover);
-}
-.ecology-tags > a:hover {
-  background: var(--selected);
-  border-color: var(--ring);
-}
+
 .ecology-status {
   margin: 14px 0;
 }
@@ -3118,7 +3044,7 @@ button.color-dot:not(:disabled) {
   border-radius: 999px;
   background: color-mix(in srgb, var(--ring) 12%, var(--background));
   color: var(--foreground);
-  font-size: var(--type-ui);
+  font-size: var(--type-tag);
   font-weight: 500;
   line-height: var(--leading-normal);
   letter-spacing: 0.005em;
@@ -3427,4 +3353,9 @@ button.color-dot:not(:disabled) {
   .section-placeholder {
     padding-inline: 20px;
   }
+}
+
+.info-panel h2 {
+  font-size: var(--type-detail-heading);
+  line-height: var(--leading-heading);
 }

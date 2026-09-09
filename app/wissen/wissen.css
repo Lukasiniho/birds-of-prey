@@ -70,14 +70,9 @@
   margin-bottom: 12px;
 }
 .anatomy-stage-caption {
-  --species-common-size: var(--type-heading);
   display: flex;
   flex-direction: column;
   gap: 5px;
-}
-.anatomy-stage-caption span {
-  font-size: var(--species-common-size);
-  line-height: var(--leading-display);
 }
 .anatomy-canvas {
   position: relative;
@@ -162,7 +157,7 @@
   gap: 10px;
 }
 .anatomy-notes-heading h2 {
-  font-size: var(--type-heading);
+  font-size: var(--type-detail-heading);
 }
 .anatomy-notes-intro {
   margin-top: 10px;

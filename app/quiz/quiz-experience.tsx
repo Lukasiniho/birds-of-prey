@@ -1,5 +1,6 @@
 'use client';
 
+import { SpeciesName, SpeciesCommonName } from '@/components/species-name';
 import {
   useCallback,
   useLayoutEffect,
@@ -175,8 +176,12 @@ function EstimateQuestion({
     <div className="q-split q-estimate-question">
       <div className="q-specimen q-span-specimen">
         <div className="q-specimen-label">
-          <span className="species-common-name">{bird.name}</span>
-          <i className="species-scientific-name">{bird.latin}</i>
+          <SpeciesName
+            name={bird.name}
+            latin={bird.latin}
+            commonAs="span"
+            scientificAs="i"
+          />
         </div>
         <div className="q-bird-space">
           <div className="q-orbit" aria-hidden="true" />
@@ -340,8 +345,12 @@ function HuntQuestion({
     <div className="q-split q-hunt-split">
       <div className="q-specimen q-hunt-specimen">
         <div className="q-specimen-label">
-          <span className="species-common-name">{bird.name}</span>
-          <i className="species-scientific-name">{bird.latin}</i>
+          <SpeciesName
+            name={bird.name}
+            latin={bird.latin}
+            commonAs="span"
+            scientificAs="i"
+          />
         </div>
         <div className="q-bird-space">
           <div className="q-orbit" aria-hidden="true" />
@@ -619,8 +628,12 @@ function WeightQuestion({
             </div>
             <BirdArt bird={birds[id]} className="q-card-bird" />
             <div className="q-card-name">
-              <h3 className="species-common-name">{birds[id].name}</h3>
-              <i className="species-scientific-name">{birds[id].latin}</i>
+              <SpeciesName
+                name={birds[id].name}
+                latin={birds[id].latin}
+                commonAs="h3"
+                scientificAs="i"
+              />
             </div>
             {answered ? (
               <div className="q-card-weight">
@@ -668,9 +681,9 @@ function WeightQuestion({
             aria-hidden="true"
           >
             <BirdArt bird={birds[drag.id]} />
-            <strong className="species-common-name">
+            <SpeciesCommonName as="strong">
               {birds[drag.id].name}
-            </strong>
+            </SpeciesCommonName>
           </div>,
           document.body,
         )}
@@ -820,9 +833,9 @@ function HabitatQuestion({
             >
               <BirdArt bird={birds[id]} portrait />
               <span>
-                <strong className="species-common-name">
+                <SpeciesCommonName as="strong">
                   {birds[id].name}
-                </strong>
+                </SpeciesCommonName>
                 <small>
                   {placement ? placement.label : 'Noch auf der Suche'}
                 </small>
@@ -892,9 +905,9 @@ function HabitatQuestion({
                         height={36}
                         unoptimized
                       />
-                      <span className="q-resident-name species-common-name">
+                      <SpeciesCommonName as="span" className="q-resident-name ">
                         {birds[id].name}
-                      </span>
+                      </SpeciesCommonName>
                       {answered &&
                         (birds[id].habitats.includes(habitat.id) ? (
                           <Check size={18} aria-label="Richtig zugeordnet" />
@@ -924,9 +937,9 @@ function HabitatQuestion({
             aria-hidden="true"
           >
             <BirdArt bird={birds[drag.id]} portrait />
-            <strong className="species-common-name">
+            <SpeciesCommonName as="strong">
               {birds[drag.id].name}
-            </strong>
+            </SpeciesCommonName>
           </div>,
           document.body,
         )}
@@ -1096,23 +1109,19 @@ function QuizResults({
                 unoptimized
               />
               <span>
-                <strong
-                  className={
-                    question.kind === 'weight' || question.kind === 'habitat'
-                      ? undefined
-                      : 'species-common-name'
-                  }
-                >
-                  {question.kind === 'weight'
-                    ? 'Vier Vögel auf der Waage'
-                    : question.kind === 'habitat'
-                      ? 'Wo sind die Vögel zu Hause?'
-                      : question.kind === 'compare'
-                        ? question.birdIds
-                            .map((id) => birds[id].name)
-                            .join(' & ')
-                        : bird.name}
-                </strong>
+                {question.kind === 'weight' || question.kind === 'habitat' ? (
+                  <strong>
+                    {question.kind === 'weight'
+                      ? 'Vier Vögel auf der Waage'
+                      : 'Wo sind die Vögel zu Hause?'}
+                  </strong>
+                ) : (
+                  <SpeciesCommonName as="strong">
+                    {question.kind === 'compare'
+                      ? question.birdIds.map((id) => birds[id].name).join(' & ')
+                      : bird.name}
+                  </SpeciesCommonName>
+                )}
                 <small>{mode.label}</small>
               </span>
               <b>
@@ -1188,6 +1197,25 @@ export default function QuizExperience({
   const [answers, setAnswers] = useState<Record<string, Answer>>({});
   const [showResults, setShowResults] = useState(false);
   const headingRef = useRef<HTMLHeadingElement>(null);
+  const mainRef = useRef<HTMLElement>(null);
+  const answerBarRef = useRef<HTMLDivElement>(null);
+  useLayoutEffect(() => {
+    const main = mainRef.current;
+    const bar = answerBarRef.current;
+    if (!main || !bar) return;
+    const update = () =>
+      main.style.setProperty(
+        '--answer-bar-height',
+        `${bar.getBoundingClientRect().height}px`,
+      );
+    update();
+    const observer = new ResizeObserver(update);
+    observer.observe(bar);
+    return () => {
+      observer.disconnect();
+      main.style.removeProperty('--answer-bar-height');
+    };
+  }, [showResults]);
   const question = questions[current];
   const draft = drafts[question.id] ?? initialDraft(question, birds);
   const answer = answers[question.id];
@@ -1267,7 +1295,7 @@ export default function QuizExperience({
   return (
     <div className="app-shell section-shell quiz-shell">
       <SiteHeader activeSection="quiz" />
-      <main className="q-main">
+      <main className="q-main" ref={mainRef}>
         {showResults ? (
           <QuizResults
             questions={questions}
@@ -1282,28 +1310,28 @@ export default function QuizExperience({
               <h1 ref={headingRef} tabIndex={-1}>
                 Das Greifvogel-Quiz
               </h1>
-            </div>
-            <div className="q-question-progress">
-              <p
-                className="q-progress-label"
-                aria-live="polite"
-                aria-atomic="true"
-              >
-                Frage {current + 1} von {questions.length}
-              </p>
-              <nav className="q-step-dots" aria-label="Quiz-Fragen">
-                {questions.map((item, index) => (
-                  <button
-                    key={item.id}
-                    aria-label={`Frage ${index + 1} von ${questions.length}: ${modes.find((mode) => mode.id === item.kind)!.label}${answers[item.id] ? ', beantwortet' : ''}`}
-                    aria-current={current === index ? 'step' : undefined}
-                    data-done={Boolean(answers[item.id])}
-                    onClick={() => navigate(index)}
-                  >
-                    <span aria-hidden="true" />
-                  </button>
-                ))}
-              </nav>
+              <div className="q-question-progress">
+                <p
+                  className="q-progress-label"
+                  aria-live="polite"
+                  aria-atomic="true"
+                >
+                  Frage {current + 1} von {questions.length}
+                </p>
+                <nav className="q-step-dots" aria-label="Quiz-Fragen">
+                  {questions.map((item, index) => (
+                    <button
+                      key={item.id}
+                      aria-label={`Frage ${index + 1} von ${questions.length}: ${modes.find((mode) => mode.id === item.kind)!.label}${answers[item.id] ? ', beantwortet' : ''}`}
+                      aria-current={current === index ? 'step' : undefined}
+                      data-done={Boolean(answers[item.id])}
+                      onClick={() => navigate(index)}
+                    >
+                      <span aria-hidden="true" />
+                    </button>
+                  ))}
+                </nav>
+              </div>
             </div>
             <div className="q-workspace">
               <div key={`question-${question.id}`} className="q-question-scene">
@@ -1367,38 +1395,38 @@ export default function QuizExperience({
                   />
                 )}
               </div>
-              <div className="q-answer-bar">
-                {answer && (
-                  <QuestionFeedback
-                    key={`feedback-${question.id}`}
-                    question={question}
-                    answer={answer}
-                    birds={birds}
-                    huntingTypes={huntingTypes}
-                  />
-                )}
-                <Button
-                  className="q-primary"
-                  disabled={!answer && !canSubmit}
-                  onClick={answer ? next : submit}
-                >
-                  {answer
-                    ? completed === questions.length
-                      ? 'Ergebnis ansehen'
-                      : 'Nächste Aufgabe'
-                    : question.kind === 'span' ||
-                        question.kind === 'weight-estimate'
-                      ? 'Schätzung prüfen'
-                      : question.kind === 'weight'
-                        ? 'Reihenfolge prüfen'
-                        : question.kind === 'habitat'
-                          ? 'Zuordnung prüfen'
-                          : question.kind === 'prey'
-                            ? 'Auswahl prüfen'
-                            : 'Antwort prüfen'}
-                  <ArrowRight size={18} />
-                </Button>
-              </div>
+            </div>
+            <div className="q-answer-bar" ref={answerBarRef}>
+              {answer && (
+                <QuestionFeedback
+                  key={`feedback-${question.id}`}
+                  question={question}
+                  answer={answer}
+                  birds={birds}
+                  huntingTypes={huntingTypes}
+                />
+              )}
+              <Button
+                className="q-primary"
+                disabled={!answer && !canSubmit}
+                onClick={answer ? next : submit}
+              >
+                {answer
+                  ? completed === questions.length
+                    ? 'Ergebnis ansehen'
+                    : 'Nächste Aufgabe'
+                  : question.kind === 'span' ||
+                      question.kind === 'weight-estimate'
+                    ? 'Schätzung prüfen'
+                    : question.kind === 'weight'
+                      ? 'Reihenfolge prüfen'
+                      : question.kind === 'habitat'
+                        ? 'Zuordnung prüfen'
+                        : question.kind === 'prey'
+                          ? 'Auswahl prüfen'
+                          : 'Antwort prüfen'}
+                <ArrowRight size={18} />
+              </Button>
             </div>
           </>
         )}

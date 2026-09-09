@@ -1,5 +1,6 @@
 'use client';
 
+import { SpeciesName, SpeciesCommonName } from '@/components/species-name';
 import { useState } from 'react';
 import Image from 'next/image';
 import { SiteHeader } from '@/components/site-header';
@@ -176,10 +177,12 @@ export default function AnatomyExplorer({
           >
             <div className="anatomy-stage-heading">
               <div className="anatomy-stage-caption">
-                <span className="species-common-name">{name}</span>
-                <i className="species-scientific-name">
-                  {species === 0 ? 'Falco peregrinus' : 'Buteo buteo'}
-                </i>
+                <SpeciesName
+                  name={name}
+                  latin={species === 0 ? 'Falco peregrinus' : 'Buteo buteo'}
+                  commonAs="span"
+                  scientificAs="i"
+                />
               </div>
               <div
                 className="anatomy-species"
@@ -190,7 +193,6 @@ export default function AnatomyExplorer({
                   (label, index) => (
                     <button
                       key={label}
-                      className="species-common-name"
                       type="button"
                       aria-pressed={species === index}
                       onClick={() => {
@@ -199,7 +201,7 @@ export default function AnatomyExplorer({
                         setPinned(null);
                       }}
                     >
-                      {label}
+                      <SpeciesCommonName>{label}</SpeciesCommonName>
                     </button>
                   ),
                 )}

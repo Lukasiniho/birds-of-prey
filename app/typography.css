@@ -42,9 +42,11 @@
   --type-caption: var(--text-xs);
   /* Italic scientific names need a larger size than source metadata. */
   --type-scientific: var(--text-base);
-  --species-scientific-scale: 0.75;
   --type-ui: var(--text-sm);
-  --type-body: var(--text-base);
+  --type-body: var(--text-sm);
+  --type-tag: 0.8125rem;
+  --type-detail-heading: var(--text-xl);
+  --type-species-common: var(--text-xl);
   --type-lead: var(--text-lg);
   --type-label-title: var(--text-xl);
   --type-card-title: clamp(var(--text-xl), 1.125rem + 0.5vw, var(--text-2xl));
@@ -66,31 +68,27 @@
   --type-score: var(--text-7xl);
 }
 
-/* Species labels share one typeface and weight across every page and breakpoint.
- * Name pairs declare --species-common-size; the scientific name scales with it.
- */
+/* SpeciesName owns all standalone names, including buttons and drag previews.
+ * Explicit classes keep typography independent of surrounding heading/button rules. */
 :is(.app-shell, .q-drag-ghost) .species-common-name,
 :is(.app-shell, .q-drag-ghost) .species-scientific-name {
   font-family: var(--font-display), 'Cormorant Garamond', Georgia, serif;
   font-weight: 600;
-  color: var(--foreground);
+  line-height: var(--leading-heading);
+  letter-spacing: normal;
+  overflow-wrap: anywhere;
 }
 :is(.app-shell, .q-drag-ghost) .species-common-name {
+  font-size: var(--type-species-common);
   font-style: normal;
+  color: var(--foreground);
 }
 :is(.app-shell, .q-drag-ghost) .species-scientific-name {
-  font-weight: var(--species-scientific-weight, 600);
-  color: var(--muted-foreground);
-  font-size: max(
-    var(--type-scientific),
-    calc(
-      var(--species-common-size, var(--type-label-title)) *
-        var(--species-scientific-scale)
-    )
-  );
+  display: block;
+  font-size: var(--type-scientific);
   font-style: italic;
-  line-height: var(--leading-normal);
-  overflow-wrap: anywhere;
+  color: var(--muted-foreground);
+  margin-top: 2px;
 }
 
 @theme inline {

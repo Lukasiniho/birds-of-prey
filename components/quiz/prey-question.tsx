@@ -1,5 +1,6 @@
 'use client';
 
+import { SpeciesName } from '@/components/species-name';
 import { useRef, useState, type PointerEvent } from 'react';
 import { createPortal } from 'react-dom';
 import Image from 'next/image';
@@ -181,8 +182,12 @@ export function PreyQuestion({
           aria-label={`Nahrung für ${bird.name}`}
         >
           <div className="q-specimen-label">
-            <span className="species-common-name">{bird.name}</span>
-            <i className="species-scientific-name">{bird.latin}</i>
+            <SpeciesName
+              name={bird.name}
+              latin={bird.latin}
+              commonAs="span"
+              scientificAs="i"
+            />
           </div>
           <Image
             className="q-prey-bird"

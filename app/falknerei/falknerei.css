@@ -79,17 +79,11 @@
   background: var(--stage);
 }
 .falconry-stage-label {
-  --species-common-size: var(--type-heading);
   position: relative;
   z-index: 1;
 }
-.falconry-stage-label h2 {
-  font-size: var(--species-common-size);
-  line-height: var(--leading-heading);
-}
 .falconry-stage-label i {
   display: block;
-  margin-top: 3px;
 }
 .falconry-art {
   flex: 1;
@@ -120,7 +114,7 @@
   border-left: 1px solid var(--border);
 }
 .falconry-notes h2 {
-  font-size: var(--type-heading);
+  font-size: var(--type-detail-heading);
   font-weight: 600;
   line-height: var(--leading-heading);
   margin-bottom: 14px;
