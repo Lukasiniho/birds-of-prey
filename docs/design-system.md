@@ -494,7 +494,8 @@ Die Falknerei-Karte umfasst acht regionale Kapitel; die kasachische Adlerjagd
 in Kasachstan, Kirgisistan und der Westmongolei ist ein gemeinsames Kapitel. Versetzte Porträts vermeiden
 Überlagerungen; Verbindungslinien führen zu den geografischen Ankerpunkten.
 Die rechten Leisten aller Wissen-Tabs verwenden `--atlas-info-surface`, dieselbe
-Fläche wie die Informationsleiste im Atlas. Das Regionsfeld rechts scrollt innerhalb der Kartenhöhe (absolut positionierter
+Fläche wie die Informationsleiste im Atlas, und dieselbe Breite: 350 px, unter
+1050 px 310 px, auch im Körperbau. Das Regionsfeld rechts scrollt innerhalb der Kartenhöhe (absolut positionierter
 Inhalt), damit unter der Regionsauswahl keine Leerfläche entsteht; unter 760 px
 steht es wieder im normalen Fluss. Die Regionsauswahl unter der Karte verwendet die gemeinsame Tag-Rolle
 `.ecology-tags` als Buttons; der gewählte Eintrag ist invertiert: Hauptfarbe als
