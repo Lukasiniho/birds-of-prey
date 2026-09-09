@@ -41,7 +41,7 @@ type QuizTask =
   | { kind: 'weight'; birdIds: string[] }
   | { kind: 'habitat'; birdIds: string[]; habitatIds: string[] }
   | { kind: 'prey'; birdId: string; options: string[]; correct: string[] }
-  | { kind: 'compare'; birdIds: [string, string]; correct: string };
+  | { kind: 'compare'; birdIds: [string, string, string, string]; correct: string };
 
 export type QuizQuestion = QuizTask & { id: string };
 export type QuizHistory = {
@@ -362,17 +362,21 @@ export function createQuizRound(
   for (let i = 0; i < counts.prey; i++) add(choose(preyTasks));
 
   const comparisons: Extract<QuizTask, { kind: 'compare' }>[] = [];
-  eligible.forEach((a, index) =>
-    eligible.slice(index + 1).forEach((b) => {
-      if (a.span[1] < b.span[0] || b.span[1] < a.span[0]) {
-        comparisons.push({
-          kind: 'compare',
-          birdIds: shuffled([a.id, b.id], random) as [string, string],
-          correct: meanSpan(a) > meanSpan(b) ? a.id : b.id,
-        });
+  for (const winner of eligible) {
+    // The winner's entire range exceeds every distractor's range.
+    const smaller = eligible.filter((bird) => bird.span[1] < winner.span[0]);
+    for (let a = 0; a < smaller.length - 2; a++) {
+      for (let b = a + 1; b < smaller.length - 1; b++) {
+        for (let c = b + 1; c < smaller.length; c++) {
+          comparisons.push({
+            kind: 'compare',
+            birdIds: shuffled([winner.id, smaller[a].id, smaller[b].id, smaller[c].id], random) as [string, string, string, string],
+            correct: winner.id,
+          });
+        }
       }
-    }),
-  );
+    }
+  }
   for (let i = 0; i < counts.compare; i++) add(choose(comparisons));
 
   const habitatBirds = eligible.filter((bird) =>

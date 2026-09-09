@@ -994,7 +994,7 @@ function QuestionFeedback({
       )}
       {question.kind === 'compare' && (
         <p>
-          Größere Spannweite: {birds[question.correct].name} (
+          Größte Spannweite: {birds[question.correct].name} (
           {formatSpan(birds[question.correct])}).
         </p>
       )}

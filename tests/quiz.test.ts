@@ -130,7 +130,7 @@ void test('rounds contain eight answerable tasks across all seven kinds', () => 
       if ('birdIds' in question)
         assert.equal(
           new Set(question.birdIds).size,
-          question.kind === 'compare' ? 2 : 4,
+          4,
         );
     for (const kind of quizKinds) {
       const count = round.filter((q) => q.kind === kind).length;
@@ -186,9 +186,11 @@ void test('rounds contain eight answerable tasks across all seven kinds', () => 
         }
       }
       if (question.kind === 'compare') {
-        const [a, b] = question.birdIds.map((id) => quizBirds[id]);
-        assert(a.span[1] < b.span[0] || b.span[1] < a.span[0]);
-        assert.equal(question.correct, meanSpan(a) > meanSpan(b) ? a.id : b.id);
+        assert(question.birdIds.includes(question.correct));
+        const winner = quizBirds[question.correct];
+        for (const id of question.birdIds.filter((id) => id !== question.correct)) {
+          assert(winner.span[0] > quizBirds[id].span[1]);
+        }
       }
       if (question.kind === 'habitat') {
         for (const id of question.birdIds)

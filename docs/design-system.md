@@ -305,3 +305,6 @@ der Button darf weder durch ihre Höhe noch durch Textwechsel springen.
 
 Spannweitenvergleich: Vogelbilder bleiben vor und nach der Antwort unverändert
 sichtbar. Die Spannweite wird im reservierten Bereich unter dem Artnamen eingeblendet.
+
+Spannweitenquiz: Vier verschiedene Arten zur Auswahl. Der gesamte Spannweitenbereich
+der richtigen Art liegt oberhalb der Bereiche aller drei Ablenker. Bilder bleiben bei Auflösung sichtbar.

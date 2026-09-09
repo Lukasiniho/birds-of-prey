@@ -26,12 +26,12 @@ export function WingComparison({
         <span className="q-task-label">
           <ArrowLeftRight size={17} /> Flügel im Vergleich
         </span>
-        <QuizQuestionTitle>Wer hat die größere Spannweite?</QuizQuestionTitle>
-        <p>Wähle den Vogel mit der größeren Spannweite.</p>
+        <QuizQuestionTitle>Welcher dieser vier Vögel hat die größte Spannweite?</QuizQuestionTitle>
+        <p>Wähle den Vogel mit der größten Spannweite.</p>
       </div>
       <fieldset
         className="q-comparison-options"
-        aria-label="Vogel mit der größeren Spannweite wählen"
+        aria-label="Vogel mit der größten Spannweite wählen"
       >
         {question.birdIds.map((id) => {
           const bird = birds[id];
