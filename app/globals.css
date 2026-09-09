@@ -1670,13 +1670,19 @@ button.color-dot:not(:disabled) {
     overflow: hidden;
 
   }
-  .info-scroll {
-    min-height: 0;
-    flex: 1;
+  .info-tabs[data-slot] {
     overflow-y: auto;
     overscroll-behavior: contain;
     scrollbar-width: thin;
     scrollbar-color: var(--border) transparent;
+  }
+  .info-panel .info-tab-list.t-tabs {
+    position: sticky;
+    top: 0;
+  }
+  .info-scroll {
+    min-height: 0;
+    flex: 0 0 auto;
     padding-bottom: calc(var(--panel-padding) + var(--rail-fade-height));
     mask-image: linear-gradient(to bottom, black calc(100% - var(--rail-fade-height)),
       transparent calc(100% - var(--rail-fade-clear)));
@@ -2870,12 +2876,11 @@ button.color-dot:not(:disabled) {
 
 /* The information tabs slide their underline with the same tabs pill. */
 .info-panel .info-tab-list.t-tabs {
-  position: relative;
-  margin: var(--panel-padding);
+  margin: 0 var(--panel-padding) var(--panel-padding);
   width: calc(100% - 2 * var(--panel-padding));
   z-index: 3;
   flex-shrink: 0;
-  padding: 0;
+  padding: var(--panel-padding) 0 0;
   gap: var(--space-24);
   border-radius: 0;
   background: var(--atlas-info-surface);
