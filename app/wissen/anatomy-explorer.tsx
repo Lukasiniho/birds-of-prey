@@ -152,10 +152,6 @@ export default function AnatomyExplorer({
         <header className="knowledge-heading">
           <div>
             <h1>Greifvögel verstehen</h1>
-            <p>
-              Entdecke, wie ein Greifvogel gebaut ist – vom Schnabel bis zur
-              Schwanzspitze.
-            </p>
           </div>
         </header>
         <div className="anatomy-layout">

@@ -1,5 +1,5 @@
 .knowledge-main {
-  max-width: 1440px;
+  max-width: 1360px;
   margin: 0 auto;
 }
 .knowledge-heading {
@@ -15,13 +15,7 @@
   font-weight: 600;
   line-height: var(--leading-display);
 }
-.knowledge-heading p {
-  margin-top: var(--space-12);
-  max-width: 60ch;
-  font-size: var(--type-body);
-  line-height: var(--leading-normal);
-  color: var(--muted-foreground);
-}
+
 .anatomy-species {
   display: flex;
   flex-shrink: 0;
@@ -112,13 +106,7 @@
     0 0 0 3px #28495625,
     0 2px 5px #14232d40;
 }
-.anatomy-point-core::after {
-  content: '';
-  width: 5px;
-  height: 5px;
-  border-radius: 50%;
-  background: #a1c8d5;
-}
+
 .anatomy-point[aria-pressed='true'] .anatomy-point-core,
 .anatomy-point:hover .anatomy-point-core,
 .anatomy-point:focus-visible .anatomy-point-core {

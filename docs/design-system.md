@@ -52,7 +52,7 @@ zusätzliche horizontale Einrückung. Vogelkarten verwenden 4 px Innenabstand
 und 8 px zwischen Porträt und Name. Das Außenpadding der Artenleiste wird nur
 einmal definiert, damit lange Namen möglichst viel Platz behalten.
 Die bestehenden maximalen Inhaltsbreiten dürfen sich wegen der Arbeitsflächen
-unterscheiden (Quiz 1360 px; Wissen/Falknerei 1440 px).
+unterscheiden (Quiz und Wissen 1360 px; Falknerei 1440 px).
 
 Im Atlas bilden `--rail-section-gap`, `--rail-content-gap` und
 `--rail-caption-gap` Aliase auf 24/16/12 px, keine eigene Skala.
