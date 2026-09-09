@@ -62,7 +62,7 @@ Im Atlas bilden `--rail-section-gap`, `--rail-content-gap` und
 | Rolle                |   Wert | Einsatz                                      |
 | -------------------- | -----: | -------------------------------------------- |
 | `--radius-small`     |   6 px | Kleine Kennzeichnungen, Bildausschnitte      |
-| `--radius-control`   |   8 px | Buttons, Eingaben, Auswahlsteuerung          |
+| `--radius-control`   |  12 px | Buttons, Eingaben, Auswahlsteuerung          |
 | `--radius-card`      |  12 px | Quizkarten, Karten-Vorschauen, Drag-Vorschau |
 | `--radius-surface`   |  20 px | Große Arbeitsflächen und Dialoge             |
 | `--radius-pill`      | 999 px | Tags und pillenförmige Tabs                  |
@@ -299,9 +299,11 @@ denselben Innenabstand. Keine breitere Gewichtsspalte, auch nicht mobil.
 Navigation: Der gemeinsame Markentitel lautet „Greifvogelkompass“. Das mobile
 Hamburger-Menü verwendet `modal={false}` ohne Scroll-Lock und dessen Layoutverschiebung.
 
-Quiz-Fußleiste: Der Aktionsbutton bleibt am unteren Rand verankert. Desktopbreite
-224 px für alle Beschriftungen, mobil volle Breite. Erklärungen wachsen nach oben;
-der Button darf weder durch ihre Höhe noch durch Textwechsel springen.
+Quiz-Fußleiste: Desktop 7 rem feste Höhe plus Safe Area, Aktionsbutton vertikal
+zentriert und 224 px breit bei allen Beschriftungen. Lange Erklärungen scrollen
+innerhalb der verfügbaren Höhe. Mobil wächst die Erklärung nach oben; der Button
+bleibt darunter bei voller Breite und 3 rem Höhe fest verankert. Buttontext wird
+mit Flexbox und kompakter Zeilenhöhe zentriert. Das dekorative Pfeil-Icon entfällt.
 
 Spannweitenvergleich: Vogelbilder bleiben vor und nach der Antwort unverändert
 sichtbar. Die Spannweite wird im reservierten Bereich unter dem Artnamen eingeblendet.

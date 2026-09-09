@@ -14,7 +14,8 @@ relative rem-Werte; die Browser-Schriftgröße bleibt frei wählbar.
 | ------------------------------------ | ----------------------- | -------- |
 | Quellen und Bildnachweise            | `--type-caption`        | 12 px    |
 | Tags                                 | `--type-tag`            | 13 px    |
-| Navigation, Buttons, Filter          | `--type-ui`             | 14 px    |
+| Filter und sonstige UI-Texte         | `--type-ui`             | 14 px    |
+| Buttons und Hauptnavigation          | `--type-button`         | 16 px    |
 | Fließtext und Aufgabenbeschreibungen | `--type-body`           | 14 px    |
 | Wissenschaftlicher Artname           | `--type-scientific`     | 16 px    |
 | Einleitung                           | `--type-lead`           | 18 px    |
@@ -91,3 +92,12 @@ Varianten-Tokens. Die Artenliste bleibt 18 px/700. Messwertleiste: 20 px Radius
 (`--radius-surface`). Rechte Atlas-Infospalte auf Desktop: abgerundete Fläche
 mit gleichem Radius, 12 px Randabstand oben/rechts/unten auf durchgehendem
 Bühnenhintergrund. Scrollen und fixierte Tabs bleiben innerhalb dieser Fläche.
+
+Buttons verwenden `--type-button` (16 px), einschließlich kleiner Buttonvarianten.
+Innerhalb von Buttons verweist `--type-ui` auf diese Rolle; explizite Artnamen
+und Informationshierarchien behalten ihre eigenen Rollen. Runde Icon-Controls
+und pillenförmige Tabs behalten ihre Geometrie.
+
+Entdeckungen: alle Kartentitel in Cormorant Garamond, 24 px/700. Bei Aufgaben
+mit mehreren Arten steht der tatsächliche Fragentitel statt einer Artenliste.
+Der Untertitel verwendet ebenfalls Serifenschrift, 18 px, mit 2 px Abstand.

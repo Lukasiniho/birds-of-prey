@@ -87,7 +87,14 @@ a {
   cursor: pointer;
 }
 button {
+  --type-ui: var(--type-button);
   font-family: inherit;
+  font-size: var(--type-button);
+  border-radius: var(--radius-control);
+}
+button[data-slot='button'] {
+  font-size: var(--type-button);
+  border-radius: var(--radius-control);
 }
 a {
   color: inherit;
@@ -3279,7 +3286,7 @@ button.color-dot:not(:disabled) {
   height: var(--header-control-height);
   padding: 0 var(--space-20);
   border-radius: var(--radius-control);
-  font-size: var(--type-ui);
+  font-size: var(--type-button);
   line-height: var(--leading-normal);
   font-weight: 500;
   color: var(--muted-foreground);

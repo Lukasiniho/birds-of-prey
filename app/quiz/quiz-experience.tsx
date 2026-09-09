@@ -1113,18 +1113,20 @@ function QuizResults({
                 unoptimized
               />
               <span>
-                {question.kind === 'weight' || question.kind === 'habitat' ? (
-                  <strong>
-                    {question.kind === 'weight'
-                      ? 'Vier Vögel auf der Waage'
-                      : 'Wo sind die Vögel zu Hause?'}
-                  </strong>
-                ) : (
-                  <SpeciesCommonName variant="quiz" as="strong">
-                    {question.kind === 'compare'
-                      ? question.birdIds.map((id) => birds[id].name).join(' & ')
-                      : bird.name}
+                {'birdId' in question ? (
+                  <SpeciesCommonName variant="quiz" as="strong" className="q-review-title">
+                    {bird.name}
                   </SpeciesCommonName>
+                ) : (
+                  <strong className="q-review-title">
+                    {question.kind === 'weight'
+                    ? 'Von federleicht zu schwer.'
+                    : question.kind === 'habitat'
+                      ? 'Wer lebt denn hier?'
+                      : question.kind === 'compare'
+                        ? 'Welcher dieser vier Vögel hat die größte Spannweite?'
+                        : bird.name}
+                  </strong>
                 )}
                 <small>{mode.label}</small>
               </span>
@@ -1463,7 +1465,6 @@ export default function QuizExperience({
                         : question.kind === 'prey'
                           ? 'Auswahl prüfen'
                           : 'Antwort prüfen'}
-                <ArrowRight size={18} />
               </Button>
             </div>
           </>

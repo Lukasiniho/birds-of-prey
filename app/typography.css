@@ -43,6 +43,7 @@
   /* Italic scientific names need a larger size than source metadata. */
   --type-scientific: var(--text-base);
   --type-ui: var(--text-sm);
+  --type-button: var(--text-base);
   --type-body: var(--text-sm);
   --type-tag: 0.8125rem;
   --type-label-heading: var(--text-lg);
