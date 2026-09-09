@@ -43,9 +43,11 @@ Bevorzugt semantische Rollen verwenden:
 `.detail-panel` teilt das Padding zwischen Atlas, Anatomie und Falknerei.
 Die Atlas-Bühne bleibt ein flächiges Spaltenlayout; ihre Illustration erhält
 keinen zusätzlichen Seitenrand. Die Kopfleiste folgt auf Quiz-/Wissensseiten dem Seitenrand. Im Atlas
-richtet sie sich mit `--atlas-gutter` (16 px Desktop, 20 px mobil) an der
+richtet sie sich mit `--atlas-gutter` (8 px) an der
 linken Artenleiste aus. Gruppierungs- und Gruppenüberschriften bekommen keine
-zusätzliche horizontale Einrückung.
+zusätzliche horizontale Einrückung. Vogelkarten verwenden 4 px Innenabstand
+und 8 px zwischen Porträt und Name. Das Außenpadding der Artenleiste wird nur
+einmal definiert, damit lange Namen möglichst viel Platz behalten.
 Die bestehenden maximalen Inhaltsbreiten dürfen sich wegen der Arbeitsflächen
 unterscheiden (Quiz 1360 px; Wissen/Falknerei 1440 px).
 
@@ -87,16 +89,21 @@ sind keine dekorative Elevation.
 Einheitlichkeit bedeutet gleiche Rolle, nicht gleiche Größe für alle Inhalte.
 Die große Atlas-Überschrift behält die vorherige Hierarchie: 40–64 px,
 Schriftgewicht 700; wissenschaftlicher Name halb so groß, mindestens 16 px,
-Gewicht 400. Die linke Artenliste bleibt 20/16 px mit Gewicht 700/600.
-Quiz-Namenspaare verwenden 24/16 px mit Gewicht 700/600, einschließlich
-Auswahlkarten, Ergebnisansicht und Drag-Vorschauen. Sonstige kompakte
-Namenspaare verwenden 20/16 px mit Gewicht 600.
-Diese Varianten liegen in `SpeciesName`, nicht in lokalen Größenüberschreibungen.
+Gewicht 400.
 
-Rechte Detailüberschriften wie „Erkennungsmerkmale“, „Farben“, „Lebensweise“,
-„Brut & Aufzucht“, „Nahrungsbeispiele“ und „Jagdweise“ verwenden 20 px;
-Fließtext 14 px, Tags 13 px. Die spezifische Regel
-`.info-panel .info-tab-content h2` muss dieselbe zentrale Detailrolle verwenden.
+Nach der abschließenden Abstimmung verwenden alle kompakten deutschen Artnamen
+(Seitenliste, Quiz einschließlich Ergebnisse/Drag-Vorschauen, Wissen und
+Falknerei) und die rechten Abschnittsüberschriften dieselbe Rolle:
+`--type-label-heading` mit 18 px und `--weight-label-heading` mit 700.
+`--type-species-common`, `--type-species-quiz` und `--type-detail-heading` sind
+Aliase dieser Rolle. Wissenschaftliche Namen bleiben 16 px/600.
+Dies ersetzt die zwischenzeitlichen 20-px- bzw. 24-px-Vorschläge für kompakte
+Artnamen. Die Atlas-Titelvariante bleibt eine bewusste eigene Rolle.
+
+Das gilt rechts unter anderem für „Erkennungsmerkmale“, „Farben“, „Lebensweise“,
+„Brut & Aufzucht“, „Nahrungsbeispiele“ und „Jagdweise“. Fließtext bleibt 14 px,
+Tags 13 px. Spezifischere CSS-Regeln dürfen diese gemeinsamen Rollen nicht
+überschreiben.
 
 ## Bewusste Ausnahmen
 

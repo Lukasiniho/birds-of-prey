@@ -18,8 +18,8 @@ relative rem-Werte; die Browser-Schriftgröße bleibt frei wählbar.
 | Fließtext und Aufgabenbeschreibungen | `--type-body`           | 14 px    |
 | Wissenschaftlicher Artname           | `--type-scientific`     | 16 px    |
 | Einleitung                           | `--type-lead`           | 18 px    |
-| Deutscher Artname                    | `--type-species-common` | 20 px    |
-| Überschrift im Detailbereich         | `--type-detail-heading` | 20 px    |
+| Deutscher Artname                    | `--type-species-common` | 18 px    |
+| Überschrift im Detailbereich         | `--type-detail-heading` | 18 px    |
 | Karten- und Listentitel              | `--type-card-title`     | 20–24 px |
 | Weitere Überschrift                  | `--type-heading`        | 28 px    |
 | Große Abschnittsüberschrift          | `--type-section-title`  | 32–40 px |
@@ -34,18 +34,15 @@ oder `SpeciesScientificName`. Semantische Elemente sind über `commonAs`,
 gewünschte Hierarchie.
 Die Atlas-Titelanimation nutzt dieselbe Komponente mit `animated`.
 
-Kompakte deutsche und wissenschaftliche Namen verwenden 20/16 px, Cormorant
-Garamond und Gewicht 600. Die Atlas-Titelvariante behält 40–64 px und Gewicht 700;
-der wissenschaftliche Name ist halb so groß (mindestens 16 px), Gewicht 400.
-Die Seitenliste behält 20/16 px und Gewicht 700/600. Die Quiz-Variante nutzt
-24/16 px mit Gewicht 700/600 für alle Aufgaben, Auswahlkarten, Ergebnisse und
-Drag-Vorschauen. Deutsche Namen stehen aufrecht in der Vordergrundfarbe,
-wissenschaftliche kursiv in der sekundären Textfarbe. Das gilt für Atlas,
-Seitenliste, Quiz, Drag-Vorschauen, Wissen, Falknerei und mobile Ansichten.
-Lange Namen dürfen umbrechen; sie werden nicht kleiner. Namen im Fließtext
-bleiben Teil dessen Formatierung. Größen und Gewichte dieser Rollen werden zentral definiert; lokale
-Überschreibungen entfallen. Die große Atlas-Titelgröße und die kräftige
-Seitenliste bleiben ausdrücklich erhalten.
+Alle kompakten deutschen Artnamen und rechten Abschnittstitel teilen
+`--type-label-heading` (18 px) und `--weight-label-heading` (700). Das gilt
+auch für die Quiz-Variante, Auswahlkarten, Ergebnisse und Drag-Vorschauen.
+Wissenschaftliche Namen bleiben 16 px/600 und kursiv. Die Atlas-Titelvariante
+behält 40–64 px/700; ihr wissenschaftlicher Name ist halb so groß (mindestens
+16 px), Gewicht 400. Namen im Fließtext folgen dessen Formatierung.
+
+Die bisherigen 20-px-Namen und 20-px-Detailtitel sowie der zwischenzeitliche
+24-px-Quizvorschlag sind durch die gemeinsam abgestimmte 18-px-Rolle ersetzt.
 
 ## Regeln für Änderungen
 

@@ -45,11 +45,13 @@
   --type-ui: var(--text-sm);
   --type-body: var(--text-sm);
   --type-tag: 0.8125rem;
-  --type-detail-heading: var(--text-xl);
+  --type-label-heading: var(--text-lg);
+  --weight-label-heading: 700;
+  --type-detail-heading: var(--type-label-heading);
   --type-feedback-title: var(--text-base);
   --type-quiz-question: var(--text-3xl);
-  --type-species-common: var(--text-xl);
-  --type-species-quiz: var(--text-2xl);
+  --type-species-common: var(--type-label-heading);
+  --type-species-quiz: var(--type-label-heading);
   --type-lead: var(--text-lg);
   --type-label-title: var(--text-xl);
   --type-card-title: clamp(var(--text-xl), 1.125rem + 0.5vw, var(--text-2xl));
@@ -83,6 +85,7 @@
 }
 :is(.app-shell, .q-drag-ghost) .species-common-name {
   font-size: var(--type-species-common);
+  font-weight: var(--weight-label-heading);
   font-style: normal;
   color: var(--foreground);
 }

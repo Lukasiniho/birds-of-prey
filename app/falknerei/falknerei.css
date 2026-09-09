@@ -113,7 +113,7 @@
 }
 .falconry-notes h2 {
   font-size: var(--type-detail-heading);
-  font-weight: 600;
+  font-weight: var(--weight-label-heading);
   line-height: var(--leading-heading);
   margin-bottom: 14px;
 }
@@ -133,9 +133,9 @@
 .falconry-notes dt,
 .falconry-note-block h3 {
   font-family: var(--font-display), Georgia, serif;
-  font-size: var(--type-card-title);
+  font-size: var(--type-detail-heading);
   line-height: var(--leading-heading);
-  font-weight: 600;
+  font-weight: var(--weight-label-heading);
 }
 .falconry-notes dd,
 .falconry-note-block p {

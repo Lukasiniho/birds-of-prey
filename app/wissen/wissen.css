@@ -156,6 +156,7 @@
 }
 .anatomy-notes-heading h2 {
   font-size: var(--type-detail-heading);
+  font-weight: var(--weight-label-heading);
 }
 .anatomy-notes-intro {
   margin-top: var(--space-12);
