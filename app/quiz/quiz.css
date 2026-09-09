@@ -202,10 +202,10 @@
   min-width: 170px;
 }
 .q-estimate output strong {
-  font-size: var(--type-score);
+  font-size: var(--text-4xl);
   font-weight: 400;
   font-variant-numeric: tabular-nums;
-  letter-spacing: -3px;
+  letter-spacing: -1px;
   line-height: var(--leading-none);
 }
 .q-estimate output span {
@@ -622,18 +622,18 @@
   transition: width var(--duration-slow) var(--ease-smooth-out);
 }
 .q-results {
-  padding: 25px 0;
+  padding: var(--space-16) 0;
   animation: q-scene-enter var(--duration-slow) var(--ease-smooth-out);
 }
 .q-result-main {
   display: flex;
   gap: var(--space-32);
   align-items: center;
-  padding: var(--space-24) var(--space-40) 50px;
+  padding: 0 0 var(--space-20);
 }
 .q-result-score {
-  width: 230px;
-  height: 230px;
+  width: 144px;
+  height: 144px;
   padding: var(--space-8);
   flex-shrink: 0;
   border-radius: 50%;
@@ -657,9 +657,9 @@
   margin-bottom: var(--space-4);
 }
 .q-result-score strong {
-  font-size: var(--type-score);
+  font-size: var(--text-4xl);
   font-weight: 400;
-  letter-spacing: -3px;
+  letter-spacing: -1px;
   line-height: var(--leading-heading);
 }
 .q-result-score span {
@@ -669,8 +669,11 @@
 .q-result-copy {
   max-width: 590px;
 }
+.q-results .q-result-copy h1 {
+  font-size: var(--type-heading);
+}
 .q-result-copy p {
-  margin: 19px 0 25px;
+  margin: var(--space-8) 0 var(--space-12);
   line-height: var(--leading-relaxed);
   color: var(--q-muted);
   font-size: var(--type-body);
@@ -678,8 +681,8 @@
 .q-result-breakdown {
   display: grid;
   grid-template-columns: repeat(3, 1fr);
-  gap: var(--space-24);
-  padding: 25px 0;
+  gap: var(--space-12) var(--space-24);
+  padding: var(--space-16) 0;
   border-block: 1px solid var(--q-line);
 }
 .q-result-breakdown > div {
@@ -854,13 +857,14 @@
     gap: var(--space-12);
   }
   .q-result-main {
-    padding: 0 0 28px;
-    flex-direction: column;
-    text-align: center;
-    gap: var(--space-32);
+    padding: 0 0 var(--space-16);
+    flex-direction: row;
+    flex-wrap: wrap;
+    text-align: left;
+    gap: var(--space-16);
   }
   .q-result-main .q-task-label {
-    justify-content: center;
+    justify-content: flex-start;
   }
   .q-results h1 {
     font-size: var(--type-page-title);
@@ -1222,3 +1226,12 @@
   padding-top: var(--space-24);
   margin-bottom: 0;
 }
+
+.q-round-settings {
+  display: flex;
+  align-items: center;
+  gap: var(--space-12);
+  margin-bottom: var(--space-16);
+  font-size: var(--type-ui);
+}
+.q-round-settings [data-slot='select-trigger'] { width: 130px; }

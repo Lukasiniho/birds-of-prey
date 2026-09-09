@@ -38,6 +38,7 @@ import { preyCatalog } from '@/lib/diets';
 import { QuizFeedback } from '@/components/quiz/answer-feedback';
 import { closestWeightSlot } from '@/lib/quiz-drag';
 import { Button } from '@/components/ui/button';
+import { Select, SelectTrigger, SelectValue, SelectContent, SelectItem } from '@/components/ui/select';
 import { Slider } from '@/components/ui/slider';
 import { RadioGroup, RadioGroupItem } from '@/components/ui/radio-group';
 import {
@@ -87,6 +88,7 @@ const modes = [
     Icon: ArrowLeftRight,
   },
 ] as const;
+const questionCounts = [5, 8, 12, 16].map((count) => ({ value: String(count), label: `${count} Fragen` }));
 const number = new Intl.NumberFormat('de-DE', { maximumFractionDigits: 1 });
 const weightNumber = new Intl.NumberFormat('de-DE', {
   maximumFractionDigits: 3,
@@ -1058,8 +1060,6 @@ function QuizResults({
           </h1>
           <p>
             {perfect} von {questions.length} Aufgaben mit voller Punktzahl.
-            Schau dir die Auflösungen noch einmal an oder entdecke in der
-            nächsten Runde andere Vögel.
           </p>
           <Button className="q-primary" onClick={onRestart}>
             <RotateCcw size={17} /> Noch eine Runde
@@ -1069,6 +1069,7 @@ function QuizResults({
       <div className="q-result-breakdown">
         {modes.map(({ id, label, Icon }) => {
           const maxScore = questions.filter((q) => q.kind === id).length * 100;
+          if (!maxScore) return null;
           const score = questions
             .filter((q) => q.kind === id)
             .reduce((sum, q) => sum + answers[q.id].points, 0);
@@ -1093,7 +1094,6 @@ function QuizResults({
       </div>
       <div className="q-review-heading">
         <h2>Deine Entdeckungen</h2>
-        <span>Jede Auflösung bleibt für dich da.</span>
       </div>
       <div className="q-review-list">
         {questions.map((question, index) => {
@@ -1150,10 +1150,11 @@ export default function QuizExperience({
   initialQuestions: QuizQuestion[];
 }) {
   const [questions, setQuestions] = useState(initialQuestions);
+  const [questionCount, setQuestionCount] = useState(8);
   const initialized = useRef(false);
   const historyKey = 'bird-quiz:last-round:v1';
   const freshRound = useCallback(
-    (previous?: QuizHistory) => {
+    (previous?: QuizHistory, count = questionCount) => {
       const nextQuestions = createQuizRound(
         birds,
         Object.keys(huntingTypes),
@@ -1161,6 +1162,7 @@ export default function QuizExperience({
         {
           seed: crypto.getRandomValues(new Uint32Array(1))[0],
           previous,
+          count,
         },
       );
       try {
@@ -1173,7 +1175,7 @@ export default function QuizExperience({
       }
       return nextQuestions;
     },
-    [birds, huntingTypes, habitats],
+    [birds, huntingTypes, habitats, questionCount],
   );
   useLayoutEffect(() => {
     if (initialized.current) return;
@@ -1297,6 +1299,29 @@ export default function QuizExperience({
     <div className="app-shell section-shell quiz-shell">
       <SiteHeader activeSection="quiz" />
       <main className="q-main page-content" ref={mainRef}>
+        <div className="q-round-settings">
+          <span id="q-count-label">Fragenzahl</span>
+          <Select
+            value={String(questionCount)}
+            items={questionCounts}
+            disabled={completed > 0 && !showResults}
+            onValueChange={(value) => {
+              if (!value) return;
+              const count = Number(value);
+              setQuestionCount(count);
+              if (!showResults) {
+                setQuestions(freshRound(quizHistory(questions), count));
+                setCurrent(0);
+                setDrafts({});
+              }
+            }}
+          >
+            <SelectTrigger aria-labelledby="q-count-label"><SelectValue /></SelectTrigger>
+            <SelectContent>
+              {questionCounts.map(({ value, label }) => <SelectItem key={value} value={value}>{label}</SelectItem>)}
+            </SelectContent>
+          </Select>
+        </div>
         {showResults ? (
           <QuizResults
             questions={questions}

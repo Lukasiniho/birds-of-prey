@@ -210,3 +210,7 @@ steht die Navigation. Links stehen Titel und direkt anschließend die Suche.
 
 Vergleichskarten im Quiz: Namen oben links, Vogel rechts; kein gestapelter
 Namensblock unter dem Bild. Auf schmalen Displays stehen die Karten untereinander.
+
+Quiz-Fragenzahl: 5, 8 (Standard), 12 oder 16. Vor der ersten Antwort wählbar,
+in einer begonnenen Runde gesperrt; im Ergebnis für die nächste Runde wählbar.
+Ergebnisübersicht: 144-px-Punktekreis, kompakter Titel und kurze Zusammenfassung.

@@ -212,8 +212,10 @@ export function createQuizRound(
   birds: Record<string, QuizBird>,
   huntingOptions: readonly string[],
   habitatIds: readonly string[],
-  { seed, previous }: { seed: number; previous?: QuizHistory },
+  { seed, previous, count = 8 }: { seed: number; previous?: QuizHistory; count?: number },
 ): QuizQuestion[] {
+  if (!Number.isInteger(count) || count < 1 || count > 16)
+    throw new RangeError('Question count must be an integer between 1 and 16.');
   // Seeded randomness keeps a round reproducible without changing it on renders.
   let state = seed >>> 0;
   const random = () => {
@@ -256,9 +258,9 @@ export function createQuizRound(
   }
 
   const counts = Object.fromEntries(
-    quizKinds.map((kind) => [kind, 1]),
+    quizKinds.map((kind) => [kind, Math.floor(count / quizKinds.length)]),
   ) as Record<QuizKind, number>;
-  for (const kind of shuffled(quizKinds, random).slice(0, 8 - quizKinds.length))
+  for (const kind of shuffled(quizKinds, random).slice(0, count % quizKinds.length))
     counts[kind]++;
   const eligible = Object.values(birds);
   // Enumerate compatible sets from the data: each next range must start above
