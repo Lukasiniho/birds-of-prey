@@ -3,7 +3,8 @@
 /* oxlint-disable next/no-html-link-for-pages -- Use document navigation for the static Netlify export. */
 
 import { useEffect, useState } from 'react';
-import { Moon, Search, Sun, X } from 'lucide-react';
+import { Menu, Moon, Search, Sun, X } from 'lucide-react';
+import { DropdownMenu, DropdownMenuTrigger, DropdownMenuContent, DropdownMenuItem } from '@/components/ui/dropdown-menu';
 import { Button } from '@/components/ui/button';
 import { Input } from '@/components/ui/input';
 
@@ -48,21 +49,11 @@ export function SiteHeader({
   }
 
   return (
-    <header className="topbar site-header">
+    <header className="topbar site-header" data-section={activeSection}>
+      <div className="header-brand">
       <a href="/" className="site-title">
-        Die Welt der Greifvögel
+        Greifvogelkompass
       </a>
-      <nav className="site-navigation" aria-label="Hauptnavigation">
-        {sections.map((section) => (
-          <a
-            key={section.id}
-            href={section.href}
-            aria-current={activeSection === section.id ? 'page' : undefined}
-          >
-            {section.label}
-          </a>
-        ))}
-      </nav>
       {onQueryChange && (
         <div className="search-wrap topbar-search">
           <Search size={17} />
@@ -83,6 +74,32 @@ export function SiteHeader({
           )}
         </div>
       )}
+      </div>
+      <nav className="site-navigation" aria-label="Hauptnavigation">
+        {sections.map((section) => (
+          <a
+            key={section.id}
+            href={section.href}
+            aria-current={activeSection === section.id ? 'page' : undefined}
+          >
+            {section.label}
+          </a>
+        ))}
+      </nav>
+      <div className="mobile-navigation">
+        <DropdownMenu modal={false}>
+          <DropdownMenuTrigger render={<Button variant="ghost" size="icon" aria-label="Navigation öffnen" />}>
+            <Menu />
+          </DropdownMenuTrigger>
+          <DropdownMenuContent align="end" className="mobile-navigation-menu">
+            {sections.map((section) => (
+              <DropdownMenuItem key={section.id} render={<a href={section.href} aria-current={activeSection === section.id ? 'page' : undefined} />}>
+                {section.label}
+              </DropdownMenuItem>
+            ))}
+          </DropdownMenuContent>
+        </DropdownMenu>
+      </div>
       <div className="header-actions">
         <Button
           variant="ghost"

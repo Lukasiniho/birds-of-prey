@@ -3,39 +3,31 @@
   min-width: 0;
   margin: 0;
   border: 0;
-  padding: 32px 28px;
   background: var(--q-stage);
 }
 .q-new-heading {
-  margin-bottom: 28px;
+  margin-bottom: var(--section-gap);
 }
 .q-new-heading .q-task-label {
-  margin-bottom: 12px;
-}
-.q-new-heading h2 {
-  font-family: var(--font-display), Georgia, serif;
-  font-size: var(--type-section-title);
-  line-height: var(--leading-display);
-  font-weight: 600;
-  color: var(--q-ink);
+  margin-bottom: var(--space-12);
 }
 .q-new-heading p {
   color: var(--q-muted);
   font-size: var(--type-body);
   line-height: var(--leading-normal);
-  margin-top: 12px;
+  margin-top: var(--space-12);
   max-width: 70ch;
 }
 .q-prey-layout {
   display: grid;
   grid-template-columns: 1.15fr 1fr;
-  gap: 24px;
+  gap: var(--space-24);
   align-items: stretch;
 }
 .q-prey-options {
   display: grid;
   grid-template-columns: repeat(3, minmax(0, 1fr));
-  gap: 12px;
+  gap: var(--space-12);
 }
 .q-prey-option {
   position: relative;
@@ -43,11 +35,11 @@
   flex-direction: column;
   align-items: center;
   justify-content: center;
-  gap: 14px;
+  gap: var(--space-12);
   min-width: 0;
-  padding: 24px 12px 18px;
-  border: 2px solid var(--q-line);
-  border-radius: 14px;
+  padding: var(--space-24) var(--space-12) var(--space-16);
+  border: var(--border-selection) solid var(--q-line);
+  border-radius: var(--radius-card);
   background: var(--q-surface);
   color: var(--q-ink);
   cursor: grab;
@@ -92,9 +84,9 @@
   display: flex;
   flex-direction: column;
   align-items: center;
-  padding: 22px;
-  border: 2px dashed var(--selection-border);
-  border-radius: 16px;
+  padding: var(--panel-padding);
+  border: var(--border-selection) dashed var(--selection-border);
+  border-radius: var(--radius-card);
   background: var(--q-surface);
 }
 .q-prey-target[data-over='true'] {
@@ -105,18 +97,14 @@
   border-color: var(--q-line);
 }
 .q-prey-target .q-specimen-label {
-  --species-common-size: var(--type-heading);
   align-self: stretch;
   padding: 0;
-}
-.q-prey-target .q-specimen-label > span {
-  font-size: var(--species-common-size);
 }
 .q-prey-bird {
   width: 100%;
   height: 190px;
   object-fit: contain;
-  margin: 12px 0;
+  margin: var(--space-12) 0;
   pointer-events: none;
 }
 .q-prey-plate {
@@ -124,17 +112,17 @@
   flex-wrap: wrap;
   align-items: center;
   justify-content: center;
-  gap: 8px;
+  gap: var(--space-8);
   min-height: 48px;
   margin-top: auto;
 }
 .q-prey-plate button {
   display: flex;
   align-items: center;
-  gap: 6px;
-  border: 1px solid var(--q-line);
-  border-radius: 8px;
-  padding: 6px 9px;
+  gap: var(--space-8);
+  border: var(--border-structure) solid var(--q-line);
+  border-radius: var(--radius-control);
+  padding: var(--space-8) var(--space-12);
   font-size: var(--type-ui);
   background: var(--q-stage);
   color: var(--q-ink);
@@ -159,12 +147,12 @@
   z-index: 1000;
   pointer-events: none;
   width: 130px;
-  padding: 12px;
-  border: 1px solid var(--border);
-  border-radius: 12px;
+  padding: var(--space-12);
+  border: var(--border-structure) solid var(--border);
+  border-radius: var(--radius-card);
   background: var(--background);
   color: var(--foreground);
-  box-shadow: 0 12px 30px #0003;
+  box-shadow: var(--shadow-floating);
   text-align: center;
 }
 .q-prey-drag .prey-image,
@@ -175,7 +163,7 @@
 }
 .q-prey-drag strong {
   display: block;
-  margin-top: 8px;
+  margin-top: var(--space-8);
   font-size: var(--type-ui);
 }
 .q-comparison-options {
@@ -185,32 +173,28 @@
   border: 0;
   display: grid;
   grid-template-columns: repeat(2, minmax(0, 1fr));
-  gap: 20px;
+  gap: var(--space-20);
 }
 .q-comparison-card {
-  --species-common-size: var(--type-card-title);
   position: relative;
   min-width: 0;
-  padding: 26px 18px;
-  border: 2px solid var(--q-line);
-  border-radius: 16px;
+  padding: var(--panel-padding);
+  border: var(--border-selection) solid var(--q-line);
+  border-radius: var(--radius-card);
   background: var(--q-surface);
   color: var(--q-ink);
-  text-align: center;
+  display: grid;
+  grid-template-columns: minmax(0, 2fr) minmax(0, 3fr);
+  gap: var(--space-12);
+  align-items: start;
+  text-align: left;
   cursor: pointer;
 }
 .q-comparison-card:disabled {
   cursor: default;
 }
-.q-comparison-task[data-answered='true'] .q-comparison-card {
-  padding-top: 52px;
-}
-.q-comparison-card h3 {
-  font-size: var(--species-common-size);
-  line-height: var(--leading-display);
-}
-.q-comparison-card > i {
-  display: block;
+.q-comparison-name {
+  min-width: 0;
 }
 .q-compare-radio {
   position: absolute;
@@ -220,7 +204,7 @@
   place-items: center;
   width: 22px;
   height: 22px;
-  border: 1px solid var(--q-line);
+  border: var(--border-structure) solid var(--q-line);
   border-radius: 50%;
 }
 .q-comparison-card[data-selected='true'] .q-compare-radio {
@@ -239,7 +223,7 @@
   display: grid;
   place-items: center;
   position: relative;
-  margin-bottom: 20px;
+  margin: 0;
 }
 .q-comparison-art > img {
   position: absolute;
@@ -252,19 +236,22 @@
   display: flex;
   align-items: center;
   justify-content: center;
-  gap: 12px;
+  gap: var(--space-12);
   flex-wrap: wrap;
-  margin-top: 18px;
+  margin: 0;
+  padding-right: var(--space-24);
   font-size: var(--type-body);
 }
 @media (max-width: 900px) {
   .q-prey-layout {
     grid-template-columns: 1fr;
+    gap: var(--space-24);
   }
   .q-prey-target {
     display: grid;
     grid-template-columns: 1fr 120px;
     gap: 10px;
+    padding: var(--panel-padding);
   }
   .q-prey-bird {
     height: 115px;
@@ -277,12 +264,8 @@
   }
 }
 @media (max-width: 600px) {
-  .q-prey-task,
-  .q-comparison-task {
-    padding: 24px 16px;
-  }
   .q-prey-options {
-    gap: 8px;
+    gap: var(--space-12);
     grid-template-columns: repeat(2, minmax(0, 1fr));
   }
   .q-prey-art {
@@ -291,28 +274,28 @@
     min-height: 75px;
   }
   .q-prey-option {
-    gap: 8px;
-    padding: 23px 8px 12px;
+    gap: var(--space-12);
+    padding: var(--space-24) var(--space-12) var(--space-16);
   }
   .q-prey-target {
-    padding: 15px;
+    padding: var(--panel-padding);
     grid-template-columns: 1fr 85px;
   }
   .q-comparison-options {
-    gap: 10px;
+    grid-template-columns: 1fr;
+    gap: var(--space-20);
   }
   .q-comparison-card {
-    padding: 20px 8px;
+    padding: var(--panel-padding);
   }
   .q-comparison-card h3 {
     overflow-wrap: anywhere;
   }
-  .q-comparison-card > i {
+  .q-comparison-name > i {
     overflow-wrap: anywhere;
   }
   .q-comparison-art {
     height: 155px;
-    margin-bottom: 12px;
   }
   .q-compare-radio {
     top: 10px;

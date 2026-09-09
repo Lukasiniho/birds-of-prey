@@ -1,5 +1,7 @@
 'use client';
 
+import { QuizQuestionTitle } from '@/components/quiz/question-title';
+import { SpeciesName } from '@/components/species-name';
 import { useRef, useState, type PointerEvent } from 'react';
 import { createPortal } from 'react-dom';
 import Image from 'next/image';
@@ -96,9 +98,7 @@ export function PreyQuestion({
         <span className="q-task-label">
           <Utensils size={17} /> Speiseplan zusammenstellen
         </span>
-        <h2 id="q-question-title" tabIndex={-1}>
-          Was frisst dieser Vogel?
-        </h2>
+        <QuizQuestionTitle>Was frisst dieser Vogel?</QuizQuestionTitle>
         <p>
           Ziehe die typische Nahrung zum Vogel oder tippe sie an. Mehrere
           Antworten sind möglich.
@@ -181,8 +181,13 @@ export function PreyQuestion({
           aria-label={`Nahrung für ${bird.name}`}
         >
           <div className="q-specimen-label">
-            <span className="species-common-name">{bird.name}</span>
-            <i className="species-scientific-name">{bird.latin}</i>
+            <SpeciesName
+              variant="quiz"
+              name={bird.name}
+              latin={bird.latin}
+              commonAs="span"
+              scientificAs="i"
+            />
           </div>
           <Image
             className="q-prey-bird"

@@ -16,7 +16,7 @@ void test('genus grouping preserves every bird exactly once', () => {
   assert.equal(groups.find((g) => g.id === 'Falco')?.birds.length, 6);
 });
 void test('all grouping modes retain every matching species and no extras', () => {
-  for (const mode of ['genus', 'region', 'range', 'habitat'] as const) {
+  for (const mode of ['genus', 'range', 'habitat', 'size'] as const) {
     const filtered = filterBirds('adler');
     const ids = new Set(
       groupBirds(filtered, mode).flatMap((g) => g.birds.map((b) => b.id)),

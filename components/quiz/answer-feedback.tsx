@@ -1,5 +1,5 @@
 import type { ReactNode } from 'react';
-import { Check, Lightbulb } from 'lucide-react';
+import { Check, X } from 'lucide-react';
 import './answer-feedback.css';
 
 type QuizFeedbackProps = {
@@ -9,7 +9,7 @@ type QuizFeedbackProps = {
 
 export function QuizFeedback({ points, children }: QuizFeedbackProps) {
   const perfect = points === 100;
-  const Icon = perfect ? Check : Lightbulb;
+  const Icon = perfect ? Check : X;
   const title = perfect
     ? 'Volltreffer. Gut beobachtet!'
     : points >= 60
@@ -24,7 +24,7 @@ export function QuizFeedback({ points, children }: QuizFeedbackProps) {
       aria-atomic="true"
     >
       <span className="q-feedback-icon" aria-hidden="true">
-        <Icon size={18} strokeWidth={1.75} />
+        <Icon size={24} strokeWidth={1.75} />
       </span>
       <div className="q-feedback-copy">
         <p className="q-feedback-title">{title}</p>

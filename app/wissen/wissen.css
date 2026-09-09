@@ -1,14 +1,13 @@
 .knowledge-main {
   max-width: 1440px;
   margin: 0 auto;
-  padding: 42px 40px 24px;
 }
 .knowledge-heading {
   display: flex;
   justify-content: space-between;
   align-items: center;
   gap: 28px;
-  margin-bottom: 30px;
+  margin-bottom: var(--section-gap);
 }
 .knowledge-heading h1 {
   font-family: var(--font-display), Georgia, serif;
@@ -17,7 +16,7 @@
   line-height: var(--leading-display);
 }
 .knowledge-heading p {
-  margin-top: 12px;
+  margin-top: var(--space-12);
   max-width: 60ch;
   font-size: var(--type-body);
   line-height: var(--leading-normal);
@@ -26,29 +25,29 @@
 .anatomy-species {
   display: flex;
   flex-shrink: 0;
-  padding: 5px;
-  gap: 3px;
-  border: 1px solid var(--border);
-  border-radius: 12px;
+  padding: var(--space-4);
+  gap: var(--space-4);
+  border: var(--border-structure) solid var(--border);
+  border-radius: var(--radius-control);
   background: var(--muted);
 }
 .anatomy-species button {
   min-height: 42px;
-  padding: 9px 15px;
+  padding: var(--space-8) var(--space-16);
   font-size: var(--type-card-title);
-  border-radius: 8px;
+  border-radius: var(--radius-control);
   color: var(--muted-foreground);
 }
 .anatomy-species button[aria-pressed='true'] {
   background: var(--background);
   color: var(--foreground);
-  box-shadow: 0 2px 6px var(--shadow);
+  box-shadow: var(--shadow-subtle);
 }
 .anatomy-layout {
   display: grid;
   grid-template-columns: minmax(0, 1fr) 330px;
-  border: 1px solid var(--border);
-  border-radius: 18px;
+  border: var(--border-structure) solid var(--border);
+  border-radius: var(--radius-surface);
   overflow: hidden;
 }
 .anatomy-stage {
@@ -56,7 +55,7 @@
   display: flex;
   flex-direction: column;
   justify-content: flex-start;
-  padding: 24px 22px 44px;
+  padding: var(--space-24) 22px 44px;
   background: var(--stage);
   min-width: 0;
 }
@@ -65,19 +64,14 @@
   align-items: center;
   justify-content: space-between;
   flex-wrap: wrap;
-  gap: 18px;
+  gap: var(--space-16);
   padding: 0 6px;
-  margin-bottom: 12px;
+  margin-bottom: var(--space-12);
 }
 .anatomy-stage-caption {
-  --species-common-size: var(--type-heading);
   display: flex;
   flex-direction: column;
-  gap: 5px;
-}
-.anatomy-stage-caption span {
-  font-size: var(--species-common-size);
-  line-height: var(--leading-display);
+  gap: var(--space-4);
 }
 .anatomy-canvas {
   position: relative;
@@ -143,7 +137,7 @@
   display: flex;
   align-items: center;
   justify-content: center;
-  gap: 8px;
+  gap: var(--space-8);
   position: absolute;
   bottom: 22px;
   left: 12px;
@@ -152,37 +146,37 @@
   font-size: var(--type-ui);
 }
 .anatomy-notes {
-  padding: 30px 26px;
-  border-left: 1px solid var(--border);
+  border-left: var(--border-structure) solid var(--border);
   background: var(--background);
 }
 .anatomy-notes-heading {
   display: flex;
   align-items: center;
-  gap: 10px;
+  gap: var(--space-12);
 }
 .anatomy-notes-heading h2 {
-  font-size: var(--type-heading);
+  font-size: var(--type-detail-heading);
+  font-weight: var(--weight-label-heading);
 }
 .anatomy-notes-intro {
-  margin-top: 10px;
+  margin-top: var(--space-12);
   font-size: var(--type-body);
   color: var(--muted-foreground);
 }
 .anatomy-part-list {
   display: grid;
   grid-template-columns: minmax(0, 1fr);
-  gap: 6px;
-  margin: 24px 0 0;
+  gap: var(--space-8);
+  margin: var(--space-24) 0 0;
 }
 .anatomy-part-list button {
   display: flex;
   align-items: center;
-  gap: 9px;
+  gap: var(--space-8);
   min-height: 38px;
-  padding: 8px 10px;
-  border: 1px solid transparent;
-  border-radius: 7px;
+  padding: var(--space-8) var(--space-12);
+  border: var(--border-selection) solid transparent;
+  border-radius: var(--radius-control);
   font-size: var(--type-ui);
   text-align: left;
 }
@@ -204,16 +198,16 @@
   background: var(--foreground);
 }
 .anatomy-species-note {
-  margin-top: 23px;
+  margin-top: var(--space-24);
   padding-left: 14px;
-  border-left: 2px solid var(--ring);
+  border-left: var(--border-selection) solid var(--ring);
 }
 .anatomy-species-note strong {
   font-weight: 500;
   font-size: var(--type-ui);
 }
 .anatomy-species-note p {
-  margin-top: 6px;
+  margin-top: var(--space-8);
   font-size: var(--type-body);
   line-height: var(--leading-relaxed);
   color: var(--muted-foreground);
@@ -225,12 +219,12 @@
   width: 290px;
   max-width: calc(100vw - 28px);
   white-space: normal;
-  padding: 17px 19px;
-  border-radius: 12px;
+  padding: var(--space-16);
+  border-radius: var(--radius-card);
   background: var(--background);
   color: var(--foreground);
-  border: 1px solid var(--border);
-  box-shadow: 0 6px 28px #14232d26;
+  border: var(--border-structure) solid var(--border);
+  box-shadow: var(--shadow-floating);
   animation: none;
   transition:
     opacity var(--tt-out-dur) var(--tt-out-ease),
@@ -260,37 +254,29 @@
   display: none;
 }
 @media (max-width: 1050px) {
-  .knowledge-main {
-    padding: 28px 22px 20px;
-  }
   .knowledge-heading {
     align-items: flex-start;
     flex-direction: column;
-    gap: 20px;
+    gap: var(--space-20);
+    margin-bottom: var(--section-gap);
   }
   .anatomy-layout {
     grid-template-columns: minmax(0, 1fr) 300px;
-  }
-  .anatomy-notes {
-    padding: 24px 20px;
   }
   .anatomy-stage {
     padding-inline: 6px;
   }
 }
 @media (max-width: 760px) {
-  .knowledge-main {
-    padding: 26px 16px 20px;
-  }
   .anatomy-layout {
     grid-template-columns: minmax(0, 1fr);
   }
   .anatomy-stage {
-    padding: 22px 12px 44px;
+    padding: 22px var(--space-12) 44px;
   }
   .anatomy-notes {
     border-left: 0;
-    border-top: 1px solid var(--border);
+    border-top: var(--border-structure) solid var(--border);
   }
   .anatomy-point {
     width: 28px;
@@ -302,13 +288,17 @@
   }
   .anatomy-species {
     width: 100%;
+    gap: var(--space-4);
+    padding: var(--space-4);
   }
   .anatomy-species button {
     flex: 1;
+    padding: var(--space-8) var(--space-16);
   }
 }
 @media (prefers-reduced-motion: reduce) {
   .anatomy-tooltip[data-slot] {
     transition: none !important;
+    padding: var(--space-16);
   }
 }

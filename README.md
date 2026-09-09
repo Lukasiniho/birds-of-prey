@@ -1,4 +1,5 @@
 # birds-of-prey
+
 A collection of various birds of prey
 
 Interaktiver deutschsprachiger Greifvogelatlas für greifvogelkompass.de.
@@ -8,6 +9,10 @@ Interaktiver deutschsprachiger Greifvogelatlas für greifvogelkompass.de.
 Node.js 22 verwenden, dann `npm ci` und `npm run dev`.
 
 ## Design und Typografie
+
+Das [softe Design-System](docs/design-system.md) dokumentiert die freigegebenen
+Abstände, Rahmen, Radien, Schatten und bewussten Ausnahmen. Seine zentralen
+Werte stehen in `app/design-system.css`.
 
 Tailwind CSS 4 und shadcn/Base UI bilden die Basis; das Seitendesign nutzt eigene
 CSS-Dateien. Schriftgrößen und Zeilenhöhen werden zentral in `app/typography.css`

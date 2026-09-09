@@ -1,5 +1,6 @@
 'use client';
 
+import { SpeciesName, SpeciesCommonName } from '@/components/species-name';
 import { useState } from 'react';
 import Image from 'next/image';
 import { ArrowUpRight } from 'lucide-react';
@@ -48,7 +49,7 @@ export default function FalconryExplorer({ species }: { species: Species[] }) {
   return (
     <div className="app-shell section-shell falconry-shell">
       <SiteHeader activeSection="falknerei" />
-      <main className="falconry-main">
+      <main className="falconry-main page-content">
         <header className="falconry-heading">
           <h1>Falknerei kennenlernen</h1>
           <p>Die Beizjagd, ihre Vögel und das Handwerk dahinter.</p>
@@ -76,16 +77,20 @@ export default function FalconryExplorer({ species }: { species: Species[] }) {
                 }
               >
                 <div className="falconry-stage-label">
-                  <h2 className="species-common-name">
-                    {chapter.id === 'beizvoegel'
-                      ? bird.name
-                      : 'Wanderfalke auf der Faust'}
-                  </h2>
-                  <i className="species-scientific-name">
-                    {chapter.id === 'beizvoegel'
-                      ? bird.latin
-                      : 'Falco peregrinus'}
-                  </i>
+                  <SpeciesName
+                    name={
+                      chapter.id === 'beizvoegel'
+                        ? bird.name
+                        : 'Wanderfalke auf der Faust'
+                    }
+                    latin={
+                      chapter.id === 'beizvoegel'
+                        ? bird.latin
+                        : 'Falco peregrinus'
+                    }
+                    commonAs="h2"
+                    scientificAs="i"
+                  />
                 </div>
                 <div
                   className={`falconry-art ${chapter.id === 'beizvoegel' ? 'falconry-flight' : ''}`}
@@ -126,7 +131,9 @@ export default function FalconryExplorer({ species }: { species: Species[] }) {
                           height={52}
                           alt=""
                         />
-                        <span className="species-common-name">{item.name}</span>
+                        <SpeciesCommonName as="span">
+                          {item.name}
+                        </SpeciesCommonName>
                       </button>
                     ))}
                   </div>
@@ -138,7 +145,10 @@ export default function FalconryExplorer({ species }: { species: Species[] }) {
                   </p>
                 )}
               </section>
-              <aside className="falconry-notes" aria-label={chapter.label}>
+              <aside
+                className="falconry-notes detail-panel"
+                aria-label={chapter.label}
+              >
                 {chapter.id === 'grundlagen' && (
                   <>
                     <h2>Die Beizjagd</h2>
@@ -211,7 +221,7 @@ export default function FalconryExplorer({ species }: { species: Species[] }) {
                 )}
                 {chapter.id === 'beizvoegel' && (
                   <>
-                    <h2 className="species-common-name">{bird.name}</h2>
+                    <SpeciesCommonName as="h2">{bird.name}</SpeciesCommonName>
                     <p className="falconry-note-subtitle">{bird.subtitle}</p>
                     <p>{bird.text}</p>
                     <div className="falconry-note-block">

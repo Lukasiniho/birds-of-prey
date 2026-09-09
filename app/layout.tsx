@@ -3,5 +3,5 @@ import { Cormorant_Garamond, Inter } from 'next/font/google';
 import './globals.css';
 const display = Cormorant_Garamond({ variable: '--font-display', subsets: ['latin'], weight: ['400', '500', '600', '700'], style: ['normal', 'italic'] });
 const body = Inter({ variable: '--font-body', subsets: ['latin'] });
-export const metadata: Metadata = { title: 'Die Welt der Greifvögel', description: 'Greifvögel entdecken: Arten, Lebensräume, Gefiederfarben und Beutetiere.' };
+export const metadata: Metadata = { title: 'Greifvogelkompass', description: 'Greifvögel entdecken: Arten, Lebensräume, Gefiederfarben und Beutetiere.' };
 export default function RootLayout({ children }: { children: React.ReactNode }) { return <html lang="de"><body className={`${display.variable} ${body.variable}`}>{children}</body></html>; }

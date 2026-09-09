@@ -1,4 +1,6 @@
 'use client';
+import { AppSelectTrigger as SelectTrigger, AppSelectContent as SelectContent } from '@/components/app-select';
+import { SpeciesName, SpeciesScientificName } from '@/components/species-name';
 import { useEffect, useLayoutEffect, useRef, useState } from 'react';
 import Image from 'next/image';
 import { BirdAudio, BirdAudioCredit } from '@/components/bird-audio';
@@ -8,9 +10,7 @@ import { SiteHeader } from '@/components/site-header';
 import { Button } from '@/components/ui/button';
 import {
   Select,
-  SelectTrigger,
   SelectValue,
-  SelectContent,
   SelectItem,
 } from '@/components/ui/select';
 import { Tabs, TabsList, TabsTrigger, TabsContent } from '@/components/ui/tabs';
@@ -43,11 +43,7 @@ import {
   type BirdSpecies,
 } from '@/lib/birds';
 import { landscapes } from '@/lib/habitats';
-import {
-  speciesById,
-  huntingTypes,
-  statusLabels,
-} from '@/lib/ecology';
+import { speciesById, huntingTypes, statusLabels } from '@/lib/ecology';
 import { habitatImages } from '@/lib/habitat-images';
 import { portraitImages } from '@/lib/portrait-images';
 import { huntingImages } from '@/lib/hunting-images';
@@ -65,7 +61,10 @@ import {
 function Measurement({ value, unit }: { value: string; unit: string }) {
   // transitions.dev number pop-in: every character is a .t-digit, the last two
   // ride in behind the rest. Keying the group by value replays it on change.
-  const parts = value.split(/(ca\.|bis|–)/g).filter(Boolean);
+  const displayValue = /\d\s*[–—-]\s*\d/.test(value)
+    ? value.replace(/^\s*ca\.?\s*/i, '')
+    : value;
+  const parts = displayValue.split(/(ca\.|bis|–)/g).filter(Boolean);
   type Piece = { qualifier: string } | { ch: string };
   const pieces: Piece[] = parts.flatMap((part): Piece[] =>
     /^(ca\.|bis)$/.test(part)
@@ -135,12 +134,14 @@ function RevealHeading({ name, latin }: { name: string; latin: string }) {
   }, [name, latin]);
   return (
     <div className="t-stagger is-shown" ref={ref}>
-      <h1 className="species-common-name t-stagger-line t-stagger-line--1">
-        {initial.name}
-      </h1>
-      <p className="species-scientific-name t-stagger-line t-stagger-line--2">
-        {initial.latin}
-      </p>
+      <SpeciesName
+        name={initial.name}
+        latin={initial.latin}
+        commonAs="h1"
+        scientificAs="p"
+        animated
+        variant="atlas-title"
+      />
     </div>
   );
 }
@@ -448,12 +449,12 @@ export default function RaptorApp({
                 >
                   <SelectTrigger
                     aria-label="Vogelarten gruppieren nach"
-                    className="grouping-select"
+
                   >
                     <SelectValue />
                   </SelectTrigger>
                   <SelectContent
-                    className="grouping-options t-dropdown"
+
                     align="start"
                     sideOffset={6}
                     alignItemWithTrigger={false}
@@ -474,9 +475,9 @@ export default function RaptorApp({
                   <h3 className="species-group-title">
                     <span>{group.title}</span>
                     {group.subtitle && (
-                      <small className="species-scientific-name">
+                      <SpeciesScientificName as="small">
                         {group.subtitle}
-                      </small>
+                      </SpeciesScientificName>
                     )}
                   </h3>
                   <SidebarMenu className="bird-list">
@@ -516,12 +517,13 @@ export default function RaptorApp({
                           <span
                             className={`bird-label ${b.name.length > 15 ? 'long-label' : ''}`}
                           >
-                            <strong className="species-common-name">
-                              {b.name}
-                            </strong>
-                            <em className="species-scientific-name">
-                              {b.latin}
-                            </em>
+                            <SpeciesName
+                              name={b.name}
+                              variant="sidebar"
+                              latin={b.latin}
+                              commonAs="strong"
+                              scientificAs="em"
+                            />
                           </span>
                         </SidebarMenuButton>
                       </SidebarMenuItem>
@@ -685,6 +687,7 @@ export default function RaptorApp({
                   Lebensraum
                 </TabsTrigger>
               </TabsList>
+              <div className="info-scroll detail-panel">
               <TabsContent value="profil" className="info-tab-content">
                 <section className="profile-section">
                   <h2>Erkennungsmerkmale</h2>
@@ -781,14 +784,16 @@ export default function RaptorApp({
                   <div className="range-block">
                     <h2>Verbreitung</h2>
                     <p>{bird.range}</p>
+                    {bird.ecology.status.tags.some((id) => id !== 'ausserhalb') && (
                     <div className="ecology-status">
                       <h3>Status in Deutschland</h3>
                       <div className="ecology-tags">
-                        {bird.ecology.status.tags.map((id) => (
+                        {bird.ecology.status.tags.filter((id) => id !== 'ausserhalb').map((id) => (
                           <span key={id}>{statusLabels[id]}</span>
                         ))}
                       </div>
                     </div>
+                    )}
                     <RangeMap birdId={bird.id} name={bird.name} />
                   </div>
                   <h2>Lebensraum</h2>
@@ -809,6 +814,7 @@ export default function RaptorApp({
                   </div>
                 </section>
               </TabsContent>
+              </div>
             </Tabs>
           </aside>
         </SidebarProvider>

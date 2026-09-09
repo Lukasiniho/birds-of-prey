@@ -1,5 +1,6 @@
 'use client';
 
+import { SpeciesName, SpeciesCommonName } from '@/components/species-name';
 import { useState } from 'react';
 import Image from 'next/image';
 import { SiteHeader } from '@/components/site-header';
@@ -147,7 +148,7 @@ export default function AnatomyExplorer({
   return (
     <div className="app-shell section-shell knowledge-shell">
       <SiteHeader activeSection="wissen" />
-      <main className="knowledge-main">
+      <main className="knowledge-main page-content">
         <header className="knowledge-heading">
           <div>
             <h1>Greifvögel verstehen</h1>
@@ -176,10 +177,13 @@ export default function AnatomyExplorer({
           >
             <div className="anatomy-stage-heading">
               <div className="anatomy-stage-caption">
-                <span className="species-common-name">{name}</span>
-                <i className="species-scientific-name">
-                  {species === 0 ? 'Falco peregrinus' : 'Buteo buteo'}
-                </i>
+                <SpeciesName
+                  variant="knowledge"
+                  name={name}
+                  latin={species === 0 ? 'Falco peregrinus' : 'Buteo buteo'}
+                  commonAs="span"
+                  scientificAs="i"
+                />
               </div>
               <div
                 className="anatomy-species"
@@ -190,7 +194,6 @@ export default function AnatomyExplorer({
                   (label, index) => (
                     <button
                       key={label}
-                      className="species-common-name"
                       type="button"
                       aria-pressed={species === index}
                       onClick={() => {
@@ -199,7 +202,7 @@ export default function AnatomyExplorer({
                         setPinned(null);
                       }}
                     >
-                      {label}
+                      <SpeciesCommonName variant="knowledge">{label}</SpeciesCommonName>
                     </button>
                   ),
                 )}
@@ -267,7 +270,10 @@ export default function AnatomyExplorer({
               </TooltipProvider>
             </div>
           </section>
-          <aside className="anatomy-notes" aria-label="Körperteile entdecken">
+          <aside
+            className="anatomy-notes detail-panel"
+            aria-label="Körperteile entdecken"
+          >
             <div className="anatomy-notes-heading">
               <h2>Der Körperbau</h2>
             </div>

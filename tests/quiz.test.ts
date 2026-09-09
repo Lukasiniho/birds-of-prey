@@ -356,3 +356,19 @@ void test('food grading gives partial credit without rewarding selecting everyth
   assert.equal(scorePrey(['mouse', 'mouse'], correct, options), 0);
   assert.equal(scorePrey(['unknown'], correct, options), 0);
 });
+
+void test('selected round lengths have balanced modes and unique questions', () => {
+  for (const count of [5, 8, 12, 16]) {
+    for (const seed of [1, 42, 1234]) {
+      const round = createQuizRound(quizBirds, Object.keys(huntingTypes), availableHabitats, { seed, count });
+      assert.equal(round.length, count);
+      assert.equal(new Set(round.map(q => q.id)).size, count);
+      assert.equal(new Set(round.map(quizQuestionKey)).size, count);
+      const counts = quizKinds.map(kind => round.filter(q => q.kind === kind).length);
+      assert(Math.max(...counts) - Math.min(...counts) <= 1);
+    }
+  }
+  for (const count of [0, 17, 2.5, NaN]) {
+    assert.throws(() => createQuizRound(quizBirds, Object.keys(huntingTypes), availableHabitats, { seed: 1, count }), RangeError);
+  }
+});
