@@ -1,5 +1,8 @@
 # Projektregeln
 
+- Mobile Suchfelder verwenden mindestens 16 px Schriftgröße gegen Fokus-Zoom.
+  Browser-Zoom niemals über die Viewport-Einstellungen deaktivieren.
+
 - Inaktive Tab-Texte verwenden durchgängig `--muted-foreground`; keine
   individuellen Farbmischungen oder Opacity-Abschwächungen je Tab-Variante.
 
