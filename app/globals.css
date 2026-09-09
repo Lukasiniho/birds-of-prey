@@ -2473,7 +2473,7 @@ button.color-dot:not(:disabled) {
   background: transparent;
   box-shadow: none;
   font:
-    500 var(--type-ui) / var(--leading-none) var(--font-body),
+    500 var(--type-body) / var(--leading-none) var(--font-body),
     Inter,
     sans-serif;
 }
@@ -2488,9 +2488,6 @@ button.color-dot:not(:disabled) {
   outline: 2px solid var(--ring);
   outline-offset: 2px;
   box-shadow: none;
-}
-.specimen-controls .t-tab {
-  --type-ui: var(--type-body);
 }
 .specimen-controls .t-tabs-pill {
   box-shadow: var(--shadow-active-pill);

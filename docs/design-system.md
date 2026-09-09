@@ -471,7 +471,8 @@ Geometrie-Ausnahmen für die Kartenfläche.
 
 Die Kopfzeile der Kartenfläche trägt rechts den Pill-Switch `.stage-tabs`
 (dieselbe Rolle wie die Beispielvogel-Wahl im Körperbau: `t-tabs`-Schiene,
-gedrückter Zustand mit `--tabs-pill-bg` und `--shadow-active-pill`). Er wechselt
+gedrückter Zustand mit `--tabs-pill-bg` und `--shadow-active-pill`, Schrift
+`--type-body` wie die Gefieder-Pills im Atlas). Er wechselt
 zwischen „Karte“ und „Zeitstrahl“; ein Kartensymbol gibt es dort nicht mehr.
 Der Zeitstrahl (`falconryEras` in `knowledge-data.ts`) ist die zweite Achse zur
 Karte: sechs Stationen von den Ursprüngen in der Steppe bis zur UNESCO-

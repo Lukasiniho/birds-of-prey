@@ -6,6 +6,9 @@
 - Inaktive Tab-Texte verwenden durchgängig `--muted-foreground`; keine
   individuellen Farbmischungen oder Opacity-Abschwächungen je Tab-Variante.
 
+- Pill-Switches (`.t-tabs` im Atlas-Gefieder wie `.stage-tabs` im Wissen)
+  verwenden einheitlich `--type-body` (14 px); keine größere Tab-Schrift
+  auf einzelnen Seiten.
 - Quiz-Vogelbühnen (linke Fläche jeder Aufgabe) sind immer hellgrau
   (`--q-stage`); keine teal oder anders getönten Varianten je Aufgabentyp.
 - Alle Duotone-Icons tragen die Teal-Hauptfarbe (`--main-color`), wie im Quiz;
