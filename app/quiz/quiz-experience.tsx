@@ -1033,6 +1033,7 @@ function QuizResults({
   ).length;
   return (
     <section className="q-results" aria-labelledby="q-result-title">
+      <div className="q-result-overview">
       <div className="q-result-main">
         <div
           className="q-result-score"
@@ -1092,6 +1093,7 @@ function QuizResults({
             </div>
           );
         })}
+      </div>
       </div>
       <div className="q-review-heading">
         <h2>Deine Entdeckungen</h2>

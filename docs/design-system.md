@@ -275,3 +275,6 @@ der eigentliche Übergang umfasst 28 px. Blur bleibt 2 px.
 Quiz-Kopf: Titel und Fragenzahl bilden eine gemeinsame Flex-Gruppe mit
 24 px Abstand und vertikaler Zentrierung; nur der Fortschritt steht am
 rechten Rand. Kein verteilender Leerraum zwischen Titel und Fragenzahl.
+
+Quiz-Ergebnis: Punktekreis 180 px; Auswertung links, Punkte nach Fragentyp
+rechts in zwei Spalten. Bis 1100 px stehen beide Bereiche untereinander.
