@@ -302,3 +302,6 @@ Hamburger-Menü verwendet `modal={false}` ohne Scroll-Lock und dessen Layoutvers
 Quiz-Fußleiste: Der Aktionsbutton bleibt am unteren Rand verankert. Desktopbreite
 224 px für alle Beschriftungen, mobil volle Breite. Erklärungen wachsen nach oben;
 der Button darf weder durch ihre Höhe noch durch Textwechsel springen.
+
+Spannweitenvergleich: Vogelbilder bleiben vor und nach der Antwort unverändert
+sichtbar. Die Spannweite wird im reservierten Bereich unter dem Artnamen eingeblendet.

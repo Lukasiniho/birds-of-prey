@@ -27,7 +27,7 @@ export function WingComparison({
           <ArrowLeftRight size={17} /> Flügel im Vergleich
         </span>
         <QuizQuestionTitle>Wer hat die größere Spannweite?</QuizQuestionTitle>
-        {!answered && <p>Wähle den Vogel mit der größeren Spannweite.</p>}
+        <p>Wähle den Vogel mit der größeren Spannweite.</p>
       </div>
       <fieldset
         className="q-comparison-options"
@@ -61,26 +61,20 @@ export function WingComparison({
                 commonAs="h3"
                 scientificAs="i"
               />
+                <div className="q-comparison-range" style={{ visibility: answered ? 'visible' : 'hidden' }}>
+                  <strong>{bird.span[0]}–{bird.span[1]} cm</strong>
+                </div>
               </div>
-              {!answered && (
-                <div className="q-comparison-art">
-                  <Image
-                    src={bird.image}
-                    alt=""
-                    width={1000}
-                    height={1000}
-                    unoptimized
-                    draggable={false}
-                  />
-                </div>
-              )}
-              {answered && (
-                <div className="q-comparison-range">
-                  <strong>
-                    {bird.span[0]}–{bird.span[1]} cm
-                  </strong>
-                </div>
-              )}
+              <div className="q-comparison-art">
+                <Image
+                  src={bird.image}
+                  alt=""
+                  width={1000}
+                  height={1000}
+                  unoptimized
+                  draggable={false}
+                />
+              </div>
             </button>
           );
         })}
