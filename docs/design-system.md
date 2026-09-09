@@ -264,3 +264,8 @@ zusätzlichen rechten Margin.
 
 Audiosteuerung ohne sichtbare Beschriftung „Stimme“: gefüllter 38-px-Button,
 über beide Zeilen vertikal zentriert. Zugänglicher Play-/Pause-Name bleibt erhalten.
+
+Korrektur zum unteren Verlauf: echte Transparenzmaske auf dem Scrollinhalt,
+von voller Sichtbarkeit 64 px vor dem Rand auf 0 % Sichtbarkeit 8 px vor
+dem Rand. Unten ist der Inhalt vollständig unsichtbar, die Kartenfläche und
+der Rahmen bleiben sichtbar. Keine halbdeckende Farbfläche als Ersatz.

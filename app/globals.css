@@ -1753,6 +1753,8 @@ button.color-dot:not(:disabled) {
     scrollbar-width: thin;
     scrollbar-color: var(--border) transparent;
     padding-bottom: calc(var(--panel-padding) + var(--rail-fade-height));
+    mask-image: linear-gradient(to bottom, black calc(100% - var(--rail-fade-height)),
+      transparent calc(100% - var(--space-8)));
   }
   .info-panel::after {
     content: '';
@@ -1761,9 +1763,7 @@ button.color-dot:not(:disabled) {
     height: var(--rail-fade-height);
     z-index: 4;
     pointer-events: none;
-    background: linear-gradient(to bottom, transparent 0%,
-      color-mix(in srgb, var(--background) 15%, transparent) 45%,
-      color-mix(in srgb, var(--background) 55%, transparent) 100%);
+    background: transparent;
     backdrop-filter: blur(2px);
     mask-image: linear-gradient(to bottom, transparent, black 100%);
   }
