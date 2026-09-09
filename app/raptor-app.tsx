@@ -90,7 +90,7 @@ function Measurement({ value, unit }: { value: string; unit: string }) {
             </span>
           ) : (
             <span
-              className={`t-digit${p.ch === '–' ? ' measurement-secondary' : ''}`}
+              className={`t-digit${p.ch === '–' ? ' measurement-secondary measurement-dash' : ''}`}
               data-stagger={
                 i === stagger1 ? '1' : i === stagger2 ? '2' : undefined
               }

@@ -1583,6 +1583,12 @@ button.color-dot:not(:disabled) {
   color: var(--muted-foreground);
 }
 
+/* Von-bis-Angaben: Halbgeviertstrich mit einem schmalen Abstand (Haarspatium)
+   auf beiden Seiten. */
+.measurement-dash {
+  padding-inline: 0.08em;
+}
+
 .measurement-qualifier {
   font-family: var(--font-body), Inter, sans-serif;
   font-size: var(--type-ui);
