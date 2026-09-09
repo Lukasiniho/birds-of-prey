@@ -71,7 +71,7 @@ Alle Quiz-Fragentitel: `QuizQuestionTitle` und `--type-quiz-question`,
 
 ## Aktualisierte Abstimmung
 
-Die rechte Überschriftenrolle beträgt jetzt 20 px/700 und darf von der linken
+Die rechte Überschriftenrolle beträgt jetzt 24 px/700 und darf von der linken
 Artenliste (18 px/700) abweichen. Deutsche Namen in Quiz und Wissen verwenden
 die Varianten `quiz` und `knowledge`, beide 20 px/700. Wissenschaftliche Namen
 und die große Atlas-Titelvariante behalten ihre Größe und Gewichte. Dies ersetzt
@@ -82,3 +82,6 @@ Gruppentitel und beide Seiten der Kopfleiste folgen diesem Token. Die drei
 Informationstabs bleiben mit deckendem Hintergrund beim Scrollen sichtbar.
 „Status in Deutschland“ erscheint nur mit Vorkommensangaben; der Wert
 `ausserhalb` wird mitsamt ansonsten leerem Abschnitt ausgeblendet.
+
+Die Kopfleiste endet immer mit dem Hell-Dunkel-Schalter ganz rechts; davor
+steht die Navigation. Links stehen Titel und direkt anschließend die Suche.

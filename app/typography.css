@@ -47,7 +47,7 @@
   --type-tag: 0.8125rem;
   --type-label-heading: var(--text-lg);
   --weight-label-heading: 700;
-  --type-detail-heading: var(--text-xl);
+  --type-detail-heading: var(--text-2xl);
   --type-feedback-title: var(--text-base);
   --type-quiz-question: var(--text-3xl);
   --type-species-common: var(--type-label-heading);

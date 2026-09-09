@@ -74,6 +74,17 @@ export function SiteHeader({
         </div>
       )}
       </div>
+      <nav className="site-navigation" aria-label="Hauptnavigation">
+        {sections.map((section) => (
+          <a
+            key={section.id}
+            href={section.href}
+            aria-current={activeSection === section.id ? 'page' : undefined}
+          >
+            {section.label}
+          </a>
+        ))}
+      </nav>
       <div className="header-actions">
         <Button
           variant="ghost"
@@ -93,17 +104,6 @@ export function SiteHeader({
           </span>
         </Button>
       </div>
-      <nav className="site-navigation" aria-label="Hauptnavigation">
-        {sections.map((section) => (
-          <a
-            key={section.id}
-            href={section.href}
-            aria-current={activeSection === section.id ? 'page' : undefined}
-          >
-            {section.label}
-          </a>
-        ))}
-      </nav>
     </header>
   );
 }

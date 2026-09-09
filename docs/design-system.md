@@ -184,7 +184,7 @@ Die Berechnung liegt in `lib/species-size.ts`.
 
 ## Aktualisierte Abstimmung
 
-Die rechte Überschriftenrolle beträgt jetzt 20 px/700 und darf von der linken
+Die rechte Überschriftenrolle beträgt jetzt 24 px/700 und darf von der linken
 Artenliste (18 px/700) abweichen. Deutsche Namen in Quiz und Wissen verwenden
 die Varianten `quiz` und `knowledge`, beide 20 px/700. Wissenschaftliche Namen
 und die große Atlas-Titelvariante behalten ihre Größe und Gewichte. Dies ersetzt
@@ -200,3 +200,10 @@ Die gemeinsame Kopfleiste platziert die Suche direkt rechts neben dem Titel.
 Hell-Dunkel-Schalter und Navigation haben feste Grid-Spalten am rechten Rand,
 auch auf Seiten ohne Suche. Alle Seiten verwenden dafür 12 px Außenabstand
 und dieselben responsiven Zeilen und Höhen.
+
+Seitenleisten: oberer Innenabstand entspricht dem linken und rechten
+Innenabstand (Artenliste 12 px; Detailbereich über `--panel-padding`).
+Die Informationstabs erhalten kein zusätzliches oberes Padding.
+
+Die Kopfleiste endet immer mit dem Hell-Dunkel-Schalter ganz rechts; davor
+steht die Navigation. Links stehen Titel und direkt anschließend die Suche.

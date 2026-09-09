@@ -22,7 +22,7 @@
 - Deutsche Artnamen in Quiz und Wissen verwenden ihre expliziten Varianten
   `quiz` bzw. `knowledge`: 20 px/700. Seitenleiste und Falknerei bleiben 18 px/700.
   Wissenschaftliche Namen bleiben 16 px/600; die Atlas-Titelvariante bleibt groß.
-- Rechte Detailüberschriften verwenden 20 px/700, ausdrücklich unabhängig
+- Rechte Detailüberschriften verwenden 24 px/700, ausdrücklich unabhängig
   von der Seitenleiste. Atlas-Außenabstände und Titelleiste verwenden 12 px.
 - Die drei Informationstabs bleiben beim Scrollen sichtbar. Deutschlandstatus
   nur bei tatsächlichem Vorkommen anzeigen, niemals den Platzhalter „ausserhalb“.
