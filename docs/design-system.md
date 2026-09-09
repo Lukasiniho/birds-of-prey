@@ -232,3 +232,6 @@ Die rechte Desktop-Infokarte hat unten einen 40-px-Verlauf zur Flächenfarbe
 mit sanft eingeblendeter 1-px-Unschärfe. Der Verlauf liegt außerhalb des
 Scrollinhalts, fängt keine Eingaben ab und respektiert Hell-/Dunkelmodus.
 Zusätzliches Endpadding hält den letzten Inhalt vollständig lesbar.
+
+Rechte Desktop-Spalte: 440 px, ab 1600 px Fensterbreite 480 px; auf schmalem
+Desktop bis 1190 px 360 px. Die Mitte nimmt den verbleibenden Platz ein.
