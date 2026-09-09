@@ -26,3 +26,9 @@
   von der Seitenleiste. Atlas-Außenabstände und Titelleiste verwenden 12 px.
 - Die drei Informationstabs bleiben beim Scrollen sichtbar. Deutschlandstatus
   nur bei tatsächlichem Vorkommen anzeigen, niemals den Platzhalter „ausserhalb“.
+
+- Dropdowns verwenden einheitlich `AppSelectTrigger` und `AppSelectContent` aus
+  `components/app-select.tsx` sowie die gemeinsamen `app-select`-Stile. Keine
+  abweichenden Stile pro Seite; Cluster-Auswahl ist die visuelle Referenz.
+- Wissenschaftliche Quiz-Namen: 18 px, direkt am deutschen Namen (24 px).
+- Suche, Navigationslinks und Theme-Schalter teilen `--header-control-height`.

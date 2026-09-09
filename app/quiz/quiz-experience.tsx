@@ -1,5 +1,6 @@
 'use client';
 
+import { AppSelectTrigger as SelectTrigger, AppSelectContent as SelectContent } from '@/components/app-select';
 import { QuizQuestionTitle } from '@/components/quiz/question-title';
 import { SpeciesName, SpeciesCommonName } from '@/components/species-name';
 import {
@@ -38,7 +39,7 @@ import { preyCatalog } from '@/lib/diets';
 import { QuizFeedback } from '@/components/quiz/answer-feedback';
 import { closestWeightSlot } from '@/lib/quiz-drag';
 import { Button } from '@/components/ui/button';
-import { Select, SelectTrigger, SelectValue, SelectContent, SelectItem } from '@/components/ui/select';
+import { Select, SelectValue, SelectItem } from '@/components/ui/select';
 import { Slider } from '@/components/ui/slider';
 import { RadioGroup, RadioGroupItem } from '@/components/ui/radio-group';
 import {

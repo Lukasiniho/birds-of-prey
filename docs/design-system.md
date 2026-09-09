@@ -220,3 +220,15 @@ Varianten-Tokens. Die Artenliste bleibt 18 px/700. Messwertleiste: 20 px Radius
 (`--radius-surface`). Rechte Atlas-Infospalte auf Desktop: abgerundete Fläche
 mit gleichem Radius, 12 px Randabstand oben/rechts/unten auf durchgehendem
 Bühnenhintergrund. Scrollen und fixierte Tabs bleiben innerhalb dieser Fläche.
+
+Dropdowns: Cluster-Auswahl und Fragenzahl teilen `AppSelectTrigger` und
+`AppSelectContent`, inklusive Rahmen, Typografie, Popup und Animation. Neue
+Dropdowns verwenden dieselbe Komposition; nur die Breite darf sich nach Inhalt
+unterscheiden. Kopfleisten-Controls teilen 38 px Höhe; Navigation 20 px
+horizontales Padding. Wissenschaftliche Quiz-Namen: 18 px, ohne oberen Abstand
+zum deutschen Namen (24 px). Andere wissenschaftliche Namensrollen bleiben bestehen.
+
+Die rechte Desktop-Infokarte hat unten einen 40-px-Verlauf zur Flächenfarbe
+mit sanft eingeblendeter 1-px-Unschärfe. Der Verlauf liegt außerhalb des
+Scrollinhalts, fängt keine Eingaben ab und respektiert Hell-/Dunkelmodus.
+Zusätzliches Endpadding hält den letzten Inhalt vollständig lesbar.

@@ -149,8 +149,8 @@ h2 {
   gap: var(--space-12);
 }
 .theme-toggle {
-  height: 38px !important;
-  width: 38px !important;
+  height: var(--header-control-height) !important;
+  width: var(--header-control-height) !important;
   min-width: 38px;
   padding: 0 !important;
 }
@@ -1175,32 +1175,32 @@ button.color-dot:not(:disabled) {
   font-size: var(--type-caption);
   color: var(--muted-foreground);
 }
-.grouping-select[data-slot] {
+.app-select[data-slot] {
   width: 100%;
-  height: 35px;
+  height: 37px;
   border: var(--border-structure) solid var(--border);
   border-radius: var(--radius-control);
   font-size: var(--type-ui);
   color: var(--foreground);
   box-shadow: none;
 }
-.grouping-select[data-slot]:focus-visible {
+.app-select[data-slot]:focus-visible {
   outline: 1px solid var(--ring);
   outline-offset: 2px;
   box-shadow: none;
 }
-.grouping-options[data-slot] {
+.app-select-options[data-slot] {
   background: var(--background);
   color: var(--foreground);
   padding: var(--space-4);
   border: var(--border-structure) solid var(--border);
   box-shadow: var(--shadow-floating);
 }
-.grouping-options [data-slot='select-item'] {
+.app-select-options [data-slot='select-item'] {
   font-size: var(--type-ui);
   padding: var(--space-8) var(--space-32) var(--space-8) var(--space-12);
 }
-.grouping-options [data-highlighted] {
+.app-select-options [data-highlighted] {
   background: var(--selected);
 }
 .species-group + .species-group {
@@ -1263,9 +1263,8 @@ button.color-dot:not(:disabled) {
     gap: var(--space-8);
     padding-bottom: 0;
   }
-  .grouping-select[data-slot] {
+  .app-select[data-slot] {
     width: 150px;
-    height: 31px;
   }
   .grouped-navigation {
     display: block;
@@ -1557,7 +1556,7 @@ button.color-dot:not(:disabled) {
   width: 100%;
 }
 .topbar-search input {
-  height: 38px;
+  height: var(--header-control-height);
   background: var(--background);
 }
 .header-actions {
@@ -1579,9 +1578,6 @@ button.color-dot:not(:disabled) {
 .grouping-control {
   gap: var(--space-8);
   padding-bottom: var(--space-24);
-}
-.grouping-select[data-slot] {
-  height: 37px;
 }
 .species-group-title {
   margin-bottom: var(--space-8);
@@ -1618,9 +1614,7 @@ button.color-dot:not(:disabled) {
     grid-column: 1/-1;
     grid-row: 2;
   }
-  .topbar-search input {
-    height: 36px;
-  }
+
   .header-actions {
     grid-column: 2;
     grid-row: 1;
@@ -1643,9 +1637,7 @@ button.color-dot:not(:disabled) {
     gap: var(--space-8);
     padding-bottom: 0;
   }
-  .grouping-select[data-slot] {
-    height: 33px;
-  }
+
   .species-group + .species-group {
     margin: 18px 0 0;
     margin-top: var(--space-16);
@@ -1745,11 +1737,31 @@ button.color-dot:not(:disabled) {
     border-radius: var(--radius-surface);
     background: var(--background);
     min-height: 0;
+    position: relative;
+    overflow: hidden;
+
+  }
+  .info-scroll {
+    min-height: 0;
+    flex: 1;
     overflow-y: auto;
     overscroll-behavior: contain;
     scrollbar-width: thin;
     scrollbar-color: var(--border) transparent;
+    padding-bottom: calc(var(--panel-padding) + var(--space-40));
   }
+  .info-panel::after {
+    content: '';
+    position: absolute;
+    inset: auto 0 0;
+    height: var(--space-40);
+    z-index: 4;
+    pointer-events: none;
+    background: linear-gradient(to bottom, transparent, var(--background));
+    backdrop-filter: blur(1px);
+    mask-image: linear-gradient(to bottom, transparent, black);
+  }
+
 }
 
 :root {
@@ -2914,17 +2926,17 @@ button.color-dot:not(:disabled) {
 /* Base UI drives the select popup with data-starting-style on its first
    frame and data-ending-style while it closes; those map onto the snippet's
    .is-open and .is-closing states. Its own zoom keyframes are switched off. */
-.grouping-options.t-dropdown[data-slot] {
+.app-select-options.t-dropdown[data-slot] {
   animation: none !important;
 }
-.grouping-options.t-dropdown[data-open]:not([data-starting-style]):not(
+.app-select-options.t-dropdown[data-open]:not([data-starting-style]):not(
     [data-ending-style]
   ) {
   transform: scale(1);
   opacity: 1;
   pointer-events: auto;
 }
-.grouping-options.t-dropdown[data-ending-style] {
+.app-select-options.t-dropdown[data-ending-style] {
   transform: scale(var(--dropdown-closing-scale));
   opacity: 0;
   pointer-events: none;
@@ -3241,7 +3253,11 @@ button.color-dot:not(:disabled) {
   gap: var(--space-4);
 }
 .site-navigation a {
-  padding: var(--space-12) var(--space-12);
+  display: inline-flex;
+  align-items: center;
+  justify-content: center;
+  height: var(--header-control-height);
+  padding: 0 var(--space-20);
   border-radius: var(--radius-control);
   font-size: var(--type-ui);
   line-height: var(--leading-normal);
@@ -3319,9 +3335,7 @@ button.color-dot:not(:disabled) {
   .site-header .topbar-search {
     flex-basis: 180px;
   }
-  .site-navigation a {
-    padding: var(--space-12);
-  }
+
   .app-columns[data-slot] {
     min-height: calc(100dvh - var(--site-header-height));
   }

@@ -51,6 +51,7 @@
   --type-feedback-title: var(--text-base);
   --type-quiz-question: var(--text-4xl);
   --type-species-common: var(--type-label-heading);
+  --type-scientific-quiz: var(--text-lg);
   --type-species-quiz: var(--text-2xl);
   --type-species-knowledge: var(--text-2xl);
   --type-lead: var(--text-lg);
@@ -127,6 +128,11 @@
 :is(.app-shell, .q-drag-ghost) .species-common-name[data-name-variant='quiz'] {
   font-size: var(--type-species-quiz);
   font-weight: 700;
+}
+
+ :is(.app-shell, .q-drag-ghost) .species-scientific-name[data-name-variant='quiz'] {
+  font-size: var(--type-scientific-quiz);
+  margin-top: 0;
 }
 
 .app-shell .species-common-name[data-name-variant='knowledge'] {

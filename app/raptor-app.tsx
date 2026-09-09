@@ -1,4 +1,5 @@
 'use client';
+import { AppSelectTrigger as SelectTrigger, AppSelectContent as SelectContent } from '@/components/app-select';
 import { SpeciesName, SpeciesScientificName } from '@/components/species-name';
 import { useEffect, useLayoutEffect, useRef, useState } from 'react';
 import Image from 'next/image';
@@ -9,9 +10,7 @@ import { SiteHeader } from '@/components/site-header';
 import { Button } from '@/components/ui/button';
 import {
   Select,
-  SelectTrigger,
   SelectValue,
-  SelectContent,
   SelectItem,
 } from '@/components/ui/select';
 import { Tabs, TabsList, TabsTrigger, TabsContent } from '@/components/ui/tabs';
@@ -447,12 +446,12 @@ export default function RaptorApp({
                 >
                   <SelectTrigger
                     aria-label="Vogelarten gruppieren nach"
-                    className="grouping-select"
+
                   >
                     <SelectValue />
                   </SelectTrigger>
                   <SelectContent
-                    className="grouping-options t-dropdown"
+
                     align="start"
                     sideOffset={6}
                     alignItemWithTrigger={false}
@@ -661,9 +660,10 @@ export default function RaptorApp({
             </div>
           </main>
           <aside
-            className="info-panel detail-panel"
+            className="info-panel"
             aria-label={`Informationen zum ${bird.name}`}
           >
+            <div className="info-scroll detail-panel">
             <Tabs
               value={infoTab}
               onValueChange={(v) => setInfoTab(String(v))}
@@ -817,6 +817,7 @@ export default function RaptorApp({
                 </section>
               </TabsContent>
             </Tabs>
+            </div>
           </aside>
         </SidebarProvider>
         <output className="sr-only" aria-live="polite">
