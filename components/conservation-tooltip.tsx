@@ -47,7 +47,7 @@ export function ConservationTooltip({
       <TooltipContent
         side="top"
         align="end"
-        className="block w-80 max-w-[calc(100vw-2rem)] rounded-control border border-border bg-background p-4 font-sans text-sm text-foreground shadow-floating [&>svg]:hidden"
+        className="conservation-tooltip block w-80 max-w-[calc(100vw-2rem)] rounded-control border border-border bg-background p-4 font-sans text-sm text-foreground shadow-floating"
       >
         <p className="m-0 font-semibold">Gefährdung weltweit</p>
         <ol

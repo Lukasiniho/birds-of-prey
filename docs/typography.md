@@ -108,3 +108,6 @@ misst 32 × 32 px. Die übrigen Kopfleisten-Controls behalten ihre Höhe.
 Entdeckungen: Fragentyp-Unterzeile ausdrücklich Inter (Sans Serif), text-sm (14 px). Punktzahl rechts
 in Inter (Sans Serif), text-sm (14 px)/600; „/ 100“ ebenfalls 14 px, Gewicht 400. Eigene
 Klassen verhindern, dass Untertitel und Punktzahl gemeinsame small-Regeln erben.
+
+Gefieder-Auswahl (Altvogel/Jungvogel und Farbformen): Inter, text-sm (14 px),
+Gewicht 500. Die Buttonrolle wird hierfür auf die vorhandene Body-Rolle gesetzt.

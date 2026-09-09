@@ -68,3 +68,7 @@ vor ausdrücklicher Freigabe. Der Branch-Commit trägt `[skip netlify]` und
 Gefährdung: per Hover, Tastaturfokus oder Klick öffnet sich die IUCN-Skala
 LC–NT–VU–EN–CR–EW–EX. Die aktive Kategorie wird markiert und erklärt.
 DD und NE sind außerhalb der Skala erläutert. Escape oder Klick außerhalb schließt den Tooltip.
+
+Der Gefährdungs-Tooltip blendet ausschließlich über Opazität ein und aus.
+Seine Abmessungen bleiben während der Animation konstant, damit die Spitze
+ihre Position zum Auslöser behält. Reduced Motion deaktiviert den Übergang.

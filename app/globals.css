@@ -2470,6 +2470,9 @@ button.color-dot:not(:disabled) {
   outline-offset: 2px;
   box-shadow: none;
 }
+.specimen-controls .t-tab {
+  --type-ui: var(--type-body);
+}
 .specimen-controls .t-tabs-pill {
   box-shadow: var(--shadow-active-pill);
 }
@@ -3367,4 +3370,25 @@ html {
   font-size: var(--type-caption);
   font-weight: 400;
   color: var(--muted-foreground);
+}
+
+/* Keep the popup bounds fixed while Floating UI positions its arrow. */
+.conservation-tooltip[data-slot='tooltip-content'] {
+  animation: none;
+  transform: none;
+  opacity: 1;
+  transition: opacity var(--duration-quick) var(--ease-out);
+}
+.conservation-tooltip[data-starting-style],
+.conservation-tooltip[data-ending-style] {
+  opacity: 0;
+}
+.conservation-tooltip > [aria-hidden='true'][data-side] {
+  background: var(--background);
+  fill: var(--background);
+}
+@media (prefers-reduced-motion: reduce) {
+  .conservation-tooltip[data-slot='tooltip-content'] {
+    transition: none;
+  }
 }
