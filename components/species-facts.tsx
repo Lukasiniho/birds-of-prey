@@ -28,10 +28,7 @@ export function SpeciesFacts({ speciesId }: { speciesId: string }) {
             <Icon aria-hidden="true" strokeWidth={1.5} />
             <span>{label}</span>
           </dt>
-          <dd>
-            {value}
-            {context && <small>{context}</small>}
-          </dd>
+          <dd title={context}>{value}</dd>
         </div>
       ))}
     </dl>
