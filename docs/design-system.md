@@ -313,3 +313,16 @@ sichtbar. Die Spannweite wird im reservierten Bereich unter dem Artnamen eingebl
 
 Spannweitenquiz: Vier verschiedene Arten zur Auswahl. Der gesamte Spannweitenbereich
 der richtigen Art liegt oberhalb der Bereiche aller drei Ablenker. Bilder bleiben bei Auflösung sichtbar.
+
+Kopfleiste: ein gemeinsames Grid ohne routenabhängige Größen. Abstände nach Atlas-Referenz: Desktop 74 px;
+801–1200 px zwei feste 47-px-Zeilen mit 12 px Außenpadding und 8 px Abstand
+(126 px insgesamt). Bis 800 px überall 124 px mit fest reservierter Suchzeile;
+Titel, Menü und Theme-Schalter stehen in der ersten Zeile. Die Suche erscheint ausschließlich
+im Atlas. Auf anderen Routen bleibt die zweite Zeile frei, ohne unsichtbare
+Eingabefelder. `scrollbar-gutter: stable` verhindert seitliches Springen beim
+Wechsel zwischen Atlas und scrollenden Seiten. Legacy-Header-Regeln entfallen.
+
+Quiz-Start: keine Ladeanzeige und keine vorübergehende Beispielrunde. Die
+Zufallsrunde wird einmal vor dem ersten Client-Paint initialisiert. Die Auswahl
+bewertet Kandidaten linear; nur die ausgewählte Vergleichsaufgabe wird gemischt.
+Der Dokument-Scrollbereich bleibt routenübergreifend reserviert und sichtbar.

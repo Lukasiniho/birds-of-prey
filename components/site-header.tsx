@@ -60,7 +60,7 @@ export function SiteHeader({
         </span>
         <span>Greifvogelkompass</span>
       </a>
-      {onQueryChange && (
+      {activeSection === 'birds' && onQueryChange && (
         <div className="search-wrap topbar-search">
           <Search size={17} />
           <Input

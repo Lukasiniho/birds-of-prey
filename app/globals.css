@@ -122,15 +122,6 @@ h2 {
   min-height: 100dvh;
   --site-header-height: 74px;
 }
-.topbar {
-  height: 74px;
-  padding: 0 var(--page-gutter) 0;
-  display: flex;
-  align-items: center;
-  justify-content: space-between;
-  border-bottom: var(--border-structure) solid var(--border);
-  background: var(--topbar);
-}
 .brand {
   display: flex;
   align-items: center;
@@ -149,11 +140,6 @@ h2 {
 .tagline {
   font-size: var(--type-ui);
   color: var(--muted-foreground);
-}
-.header-actions {
-  display: flex;
-  align-items: center;
-  gap: var(--space-12);
 }
 .theme-toggle {
   height: var(--header-control-height) !important;
@@ -705,19 +691,12 @@ button.color-dot:not(:disabled) {
   }
 }
 @media (max-width: 640px) {
-  .topbar {
-    height: 65px;
-    padding: 0 var(--page-gutter) 0;
-  }
   .brand {
     gap: var(--space-12);
   }
   .brand svg {
     width: 30px;
     height: 30px;
-  }
-  .header-actions {
-    gap: var(--space-12);
   }
   .app-columns[data-slot] {
     display: flex;
@@ -863,13 +842,6 @@ button.color-dot:not(:disabled) {
   }
 }
 /* Refined title and information rail: a 4px rhythm, three clear reading levels. */
-.site-title {
-  font-family: var(--font-display), Georgia, serif;
-  font-size: var(--type-brand);
-  font-weight: 600;
-  letter-spacing: -0.65px;
-  line-height: var(--leading-display);
-}
 .info-panel {
   display: flex;
   flex-direction: column;
@@ -1087,13 +1059,6 @@ button.color-dot:not(:disabled) {
   }
 }
 @media (max-width: 640px) {
-  .site-title {
-    max-width: 180px;
-    letter-spacing: -0.5px;
-  }
-  .header-actions {
-    gap: var(--space-12);
-  }
   .info-tab-list[data-slot] {
     gap: var(--space-24);
     margin-bottom: 25px;
@@ -1307,10 +1272,6 @@ button.color-dot:not(:disabled) {
   .bird-entry[data-slot] {
     height: 61px;
   }
-}
-.site-title {
-  font-family:
-    var(--font-display), 'Cormorant Garamond', Georgia, serif !important;
 }
 
 .head-portrait {
@@ -1557,22 +1518,9 @@ button.color-dot:not(:disabled) {
 }
 
 /* Clear header search and a quiet, consistently spaced species library. */
-.topbar {
-  display: grid;
-  grid-template-columns: minmax(260px, 1fr) minmax(200px, 300px) auto;
-  gap: 28px;
-}
-.topbar-search {
-  margin: 0;
-  width: 100%;
-}
 .topbar-search input {
   height: var(--header-control-height);
   background: var(--background);
-}
-.header-actions {
-  justify-self: end;
-  gap: var(--space-12);
 }
 .library-top {
   gap: var(--space-16);
@@ -1597,40 +1545,8 @@ button.color-dot:not(:disabled) {
 .species-group + .species-group {
   margin-top: var(--space-16);
 }
-@media (max-width: 1190px) {
-  .topbar {
-    grid-template-columns: minmax(235px, 1fr) minmax(180px, 250px) auto;
-    gap: var(--space-20);
-    padding-inline: var(--page-gutter);
-  }
-}
-@media (max-width: 800px) {
-  .topbar {
-    grid-template-columns: 1fr minmax(175px, 220px) auto;
-    gap: 14px;
-  }
-}
 @media (max-width: 640px) {
-  .topbar {
-    height: auto;
-    min-height: 116px;
-    grid-template-columns: 1fr auto;
-    gap: var(--space-12);
-    padding: 15px var(--page-gutter) 15px;
-  }
-  .site-title {
-    max-width: none;
-  }
-  .topbar-search {
-    grid-column: 1/-1;
-    grid-row: 2;
-  }
 
-  .header-actions {
-    grid-column: 2;
-    grid-row: 1;
-    gap: var(--space-12);
-  }
   .app-columns[data-slot] {
     min-height: calc(100dvh - 116px);
   }
@@ -3230,28 +3146,42 @@ button.color-dot:not(:disabled) {
   color: var(--muted-foreground);
 }
 
-/* Shared navigation for the atlas and its companion pages. */
+/* One header layout for every route; only the atlas supplies search content. */
+html {
+  overflow-y: scroll;
+  scrollbar-gutter: stable;
+}
 .topbar.site-header {
-  grid-template-columns: minmax(0, 1fr) auto auto;
-  gap: var(--space-12);
-  padding-right: var(--page-gutter);
+  display: grid;
+  grid-template-columns: minmax(0, 1fr) auto var(--header-control-height);
+  grid-template-rows: 74px;
+  align-items: center;
+  gap: 0 var(--space-12);
   height: var(--site-header-height);
+  padding: 0 var(--atlas-gutter);
+  border-bottom: var(--border-structure) solid var(--border);
+  background: var(--topbar);
 }
 .site-header .header-brand {
+  grid-column: 1;
+  grid-row: 1;
   display: flex;
   align-items: center;
   gap: var(--space-12);
   min-width: 0;
 }
-.site-header .topbar-search {
-  flex: 0 1 220px;
-  min-width: 140px;
-}
 .site-header .site-title {
-  min-width: 0;
   display: flex;
+  flex: 0 0 auto;
   align-items: center;
   gap: var(--space-8);
+  min-width: 0;
+  font-family: var(--font-display), 'Cormorant Garamond', Georgia, serif;
+  font-size: var(--type-brand);
+  font-weight: 600;
+  letter-spacing: -0.65px;
+  line-height: var(--leading-display);
+  white-space: nowrap;
 }
 .site-title-portrait {
   flex: 0 0 var(--space-32);
@@ -3264,17 +3194,23 @@ button.color-dot:not(:disabled) {
   height: 100%;
   object-fit: contain;
 }
-
+.site-header .topbar-search {
+  flex: 0 1 220px;
+  min-width: 140px;
+  width: 100%;
+  margin: 0;
+}
 .site-header .header-actions {
   grid-column: 3;
   grid-row: 1;
+  display: flex;
+  align-items: center;
+  justify-self: end;
 }
 .site-header .site-navigation {
   grid-column: 2;
   grid-row: 1;
   justify-self: end;
-}
-.site-navigation {
   display: flex;
   align-items: center;
   gap: var(--space-4);
@@ -3334,23 +3270,16 @@ button.color-dot:not(:disabled) {
     height: calc(100dvh - var(--site-header-height));
   }
 }
-@media (max-width: 1200px) {
-  .app-shell {
-    --site-header-height: 126px;
-  }
+@media (min-width: 801px) and (max-width: 1200px) {
+  .app-shell { --site-header-height: 126px; }
   .topbar.site-header {
-    grid-template-columns: minmax(0, 1fr) auto auto;
+    grid-template-rows: 47px 47px;
     gap: var(--space-8) var(--space-12);
-    padding: var(--space-12) var(--page-gutter);
+    padding: var(--space-12) var(--atlas-gutter);
   }
-  .site-header .header-brand {
-    grid-column: 1 / -1;
-    grid-row: 1;
-  }
-  .site-header .header-actions,
-  .site-header .site-navigation {
-    grid-row: 2;
-  }
+  .site-header .header-brand { grid-column: 1 / -1; grid-row: 1; }
+  .site-header .site-navigation,
+  .site-header .header-actions { grid-row: 2; }
 }
 .mobile-navigation { display: none; }
 .mobile-navigation-menu[data-slot] {
@@ -3364,9 +3293,15 @@ button.color-dot:not(:disabled) {
   padding: var(--space-8) var(--space-12);
 }
 @media (max-width: 800px) {
-  .app-shell { --site-header-height: 74px; }
-  .app-shell:has(> .site-header .topbar-search) { --site-header-height: 124px; }
-  .topbar.site-header { min-height: 0; }
+  /* Reserve the same search row on all routes, without adding hidden controls. */
+  .app-shell { --site-header-height: 124px; }
+  .topbar.site-header {
+    grid-template-columns: minmax(0, 1fr) repeat(2, var(--header-control-height));
+    grid-template-rows: 50px var(--header-control-height);
+    row-gap: var(--space-12);
+    padding: var(--space-12) var(--atlas-gutter);
+    align-content: start;
+  }
   .site-header .header-brand { display: contents; }
   .site-header .site-title { grid-column: 1; grid-row: 1; }
   .site-header .site-navigation { display: none; }

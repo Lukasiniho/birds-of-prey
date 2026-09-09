@@ -239,19 +239,28 @@ export function createQuizRound(
     for (const id of taskBirds(task)) used.set(id, (used.get(id) ?? 0) + 1);
   };
   function choose<T extends QuizTask>(candidates: T[]): T {
-    const unused = candidates.filter(
-      (task) =>
-        !tasks.some(
-          (existing) => quizQuestionKey(existing) === quizQuestionKey(task),
-        ),
-    );
-    const fresh = unused.filter(
-      (task) => !previousKeys.has(quizQuestionKey(task)),
-    );
-    const pool = fresh.length ? fresh : unused;
-    const selected = shuffled(pool, random).sort(
-      (a, b) => penalty(taskBirds(a)) - penalty(taskBirds(b)),
-    )[0];
+    const usedKeys = new Set(tasks.map(quizQuestionKey));
+    let selected: T | undefined;
+    let bestRepeat = Infinity;
+    let bestPenalty = Infinity;
+    let ties = 0;
+    // One pass instead of repeatedly scoring and sorting every candidate.
+    // Reservoir sampling keeps equally suitable questions equally likely.
+    for (const task of candidates) {
+      const key = quizQuestionKey(task);
+      if (usedKeys.has(key)) continue;
+      const repeat = previousKeys.has(key) ? 1 : 0;
+      const score = penalty(taskBirds(task));
+      if (repeat < bestRepeat || (repeat === bestRepeat && score < bestPenalty)) {
+        selected = task;
+        bestRepeat = repeat;
+        bestPenalty = score;
+        ties = 1;
+      } else if (repeat === bestRepeat && score === bestPenalty) {
+        ties++;
+        if (random() < 1 / ties) selected = task;
+      }
+    }
     if (!selected)
       throw new Error('Not enough suitable birds for a complete quiz round.');
     return selected;
@@ -370,14 +379,17 @@ export function createQuizRound(
         for (let c = b + 1; c < smaller.length; c++) {
           comparisons.push({
             kind: 'compare',
-            birdIds: shuffled([winner.id, smaller[a].id, smaller[b].id, smaller[c].id], random) as [string, string, string, string],
+            birdIds: [winner.id, smaller[a].id, smaller[b].id, smaller[c].id],
             correct: winner.id,
           });
         }
       }
     }
   }
-  for (let i = 0; i < counts.compare; i++) add(choose(comparisons));
+  for (let i = 0; i < counts.compare; i++) {
+    const task = choose(comparisons);
+    add({ ...task, birdIds: shuffled(task.birdIds, random) as [string, string, string, string] });
+  }
 
   const habitatBirds = eligible.filter((bird) =>
     bird.habitats.some((id) => habitatIds.includes(id)),

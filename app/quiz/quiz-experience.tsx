@@ -5,7 +5,6 @@ import { QuizQuestionTitle } from '@/components/quiz/question-title';
 import { SpeciesName, SpeciesCommonName } from '@/components/species-name';
 import {
   useCallback,
-  useEffect,
   useLayoutEffect,
   useRef,
   useState,
@@ -1179,7 +1178,7 @@ export default function QuizExperience({
     },
     [birds, huntingTypes, habitats, questionCount],
   );
-  useEffect(() => {
+  useLayoutEffect(() => {
     if (initialized.current) return;
     initialized.current = true;
     let previous: QuizHistory | undefined;
@@ -1232,7 +1231,6 @@ export default function QuizExperience({
           <div className="q-heading-row">
             <h1>Das Greifvogel-Quiz</h1>
           </div>
-          <p role="status">Deine Fragen werden vorbereitet …</p>
         </main>
       </div>
     );
