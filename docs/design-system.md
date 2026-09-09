@@ -399,26 +399,24 @@ das übrige Verhalten der Vorlage bleibt erhalten. `components.json` verwendet
 `phosphor` für künftig ergänzte Primitiven, deren Icons ebenfalls über die zentrale
 Komponente einzubinden sind. Die Kartengrafik bleibt eine fachliche SVG-Visualisierung.
 
-## Wissen: Flugkunst und Falknerei-Weltkarte
+## Wissen: Falknerei-Weltkarte
 
-Die Themen Körperbau, Flugkunst und Falknerei teilen einen Seitenkopf und
-Base-UI-Tabs. Direkte Themenlinks verwenden `/wissen#flugkunst` und
-`/wissen#falknerei`. Die vorhandene Anatomie bleibt der Standardbereich.
-Die neuen Flächen verwenden die gemeinsamen Teal-, Typografie- und Panelrollen.
-Artnamen in Flugstudien verwenden `knowledge`, Beizvögel auf der Weltkarte
-`sidebar`, entsprechend der vorhandenen Falknerei-Hierarchie.
+Die Themen Körperbau und Falknerei teilen einen Seitenkopf und Base-UI-Tabs
+(`variant="line"`). `.knowledge-tabs` verwendet dieselben Werte wie die
+Atlas-Informationstabs (38 px Schiene, `--type-label-title`, 2 px Marker),
+linksbündig mit 24 px Abstand. Direkte Themenlinks verwenden
+`/wissen#falknerei`; die vorhandene Anatomie bleibt der Standardbereich.
+Die Kartenfläche verwendet die gemeinsamen Teal-, Typografie- und Panelrollen;
+Beizvögel auf der Weltkarte verwenden `sidebar`, entsprechend der vorhandenen
+Falknerei-Hierarchie. Der Übertitel im Regionsfeld folgt einheitlich dem Muster
+„Region · Zeit“; es gibt keinen Tag unter der Überschrift, und der Detailtext
+ist ein normaler Absatz ohne Zitatbalken.
 
 Die SVG-Karte verwendet dieselben Natural-Earth-Pfade und dieselbe Projektion
 wie die Verbreitungskarten. Markerkoordinaten entstehen mit
 `scripts/map-projection.mjs`; sie markieren regionale Beispiele und keine
-Verbreitungsgebiete. Die Markergrößen (48/40/36 px), Porträts (40/34/30 px) und
-Canvas-Höhen (420/320 px) sind Geometrie-Ausnahmen für die Arbeitsflächen.
-
-Die Flugstudien verwenden die Alphakanäle der vorhandenen Vogelillustrationen
-als Silhouetten. Three.js wird erst beim Öffnen der Flugkunst geladen. Die
-Flügelbewegung ist eine schematische Verformung der Illustration, kein
-anatomisches 3D-Modell. Pause, Neustart, reduzierte Bewegung, Ressourcenabbau
-beim Themenwechsel sowie Ersatzdarstellung bei fehlendem WebGL sind vorgesehen.
+Verbreitungsgebiete. Die Markergrößen (48/40/36 px) und Porträts (40/34/30 px) sind
+Geometrie-Ausnahmen für die Kartenfläche.
 
 Die Falknerei-Karte umfasst neun regionale Kapitel. Versetzte Porträts vermeiden
 Überlagerungen; Verbindungslinien führen zu den geografischen Ankerpunkten.

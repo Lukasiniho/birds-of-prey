@@ -2,7 +2,7 @@
 
 import { useEffect, useState } from 'react';
 import Image from 'next/image';
-import { ArrowUpRight, Globe, Info } from '@/components/icons';
+import { ArrowUpRight, GlobeHemisphereWest, Info } from '@/components/icons';
 import { Button } from '@/components/ui/button';
 import {
   Popover,
@@ -77,7 +77,7 @@ export default function FalconryWorld({ birds }: { birds: KnowledgeBird[] }) {
             <span className="knowledge-eyebrow">Mensch & Greifvogel</span>
             <h2>Eine Kunst, viele Traditionen</h2>
           </div>
-          <Globe size={24} aria-hidden="true" />
+          <GlobeHemisphereWest size={24} aria-hidden="true" />
         </header>
         <div className="falconry-map">
           {base ? (
@@ -196,7 +196,6 @@ export default function FalconryWorld({ birds }: { birds: KnowledgeBird[] }) {
       >
         <span className="knowledge-eyebrow">{region.place}</span>
         <h2>{region.title}</h2>
-        <span className="knowledge-tag falconry-region-tag">{region.tag}</span>
         <p>{region.text}</p>
         <div className="falconry-world-birds">
           {region.birds.map((id) => {
@@ -224,7 +223,7 @@ export default function FalconryWorld({ birds }: { birds: KnowledgeBird[] }) {
             );
           })}
         </div>
-        <p className="knowledge-observe">{region.detail}</p>
+        <p>{region.detail}</p>
       </aside>
     </div>
   );

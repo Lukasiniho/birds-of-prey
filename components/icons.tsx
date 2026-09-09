@@ -5,14 +5,12 @@ import { ArrowLeftIcon } from '@phosphor-icons/react/dist/ssr/ArrowLeft';
 import { ArrowRightIcon } from '@phosphor-icons/react/dist/ssr/ArrowRight';
 import { ArrowUpRightIcon } from '@phosphor-icons/react/dist/ssr/ArrowUpRight';
 import { ArrowsLeftRightIcon } from '@phosphor-icons/react/dist/ssr/ArrowsLeftRight';
-import { BirdIcon } from '@phosphor-icons/react/dist/ssr/Bird';
 import { BoneIcon } from '@phosphor-icons/react/dist/ssr/Bone';
 import { BugIcon } from '@phosphor-icons/react/dist/ssr/Bug';
 import { CaretDownIcon } from '@phosphor-icons/react/dist/ssr/CaretDown';
 import { CaretLeftIcon } from '@phosphor-icons/react/dist/ssr/CaretLeft';
 import { CaretRightIcon } from '@phosphor-icons/react/dist/ssr/CaretRight';
 import { CaretUpIcon } from '@phosphor-icons/react/dist/ssr/CaretUp';
-import { CircleDashedIcon } from '@phosphor-icons/react/dist/ssr/CircleDashed';
 import { CheckIcon } from '@phosphor-icons/react/dist/ssr/Check';
 import { CheckCircleIcon } from '@phosphor-icons/react/dist/ssr/CheckCircle';
 import { CompassIcon } from '@phosphor-icons/react/dist/ssr/Compass';
@@ -25,7 +23,7 @@ import { EggIcon } from '@phosphor-icons/react/dist/ssr/Egg';
 import { EyeIcon } from '@phosphor-icons/react/dist/ssr/Eye';
 import { FeatherIcon } from '@phosphor-icons/react/dist/ssr/Feather';
 import { ForkKnifeIcon } from '@phosphor-icons/react/dist/ssr/ForkKnife';
-import { GlobeIcon } from '@phosphor-icons/react/dist/ssr/Globe';
+import { GlobeHemisphereWestIcon } from '@phosphor-icons/react/dist/ssr/GlobeHemisphereWest';
 import { HourglassMediumIcon } from '@phosphor-icons/react/dist/ssr/HourglassMedium';
 import { InfoIcon } from '@phosphor-icons/react/dist/ssr/Info';
 import { ListIcon } from '@phosphor-icons/react/dist/ssr/List';
@@ -37,7 +35,6 @@ import { PauseIcon } from '@phosphor-icons/react/dist/ssr/Pause';
 import { PlayIcon } from '@phosphor-icons/react/dist/ssr/Play';
 import { PlusIcon } from '@phosphor-icons/react/dist/ssr/Plus';
 import { RulerIcon } from '@phosphor-icons/react/dist/ssr/Ruler';
-import { ScanIcon } from '@phosphor-icons/react/dist/ssr/Scan';
 import { ScalesIcon } from '@phosphor-icons/react/dist/ssr/Scales';
 import { SidebarSimpleIcon } from '@phosphor-icons/react/dist/ssr/SidebarSimple';
 import { SpinnerGapIcon } from '@phosphor-icons/react/dist/ssr/SpinnerGap';
@@ -45,7 +42,6 @@ import { SunIcon } from '@phosphor-icons/react/dist/ssr/Sun';
 import { SunHorizonIcon } from '@phosphor-icons/react/dist/ssr/SunHorizon';
 import { WarningIcon } from '@phosphor-icons/react/dist/ssr/Warning';
 import { WarningCircleIcon } from '@phosphor-icons/react/dist/ssr/WarningCircle';
-import { WindIcon } from '@phosphor-icons/react/dist/ssr/Wind';
 import { XIcon } from '@phosphor-icons/react/dist/ssr/X';
 import { XCircleIcon } from '@phosphor-icons/react/dist/ssr/XCircle';
 
@@ -78,7 +74,6 @@ export const ArrowLeft = /*#__PURE__*/ phosphorIcon(ArrowLeftIcon);
 export const ArrowRight = /*#__PURE__*/ phosphorIcon(ArrowRightIcon);
 export const ArrowUpRight = /*#__PURE__*/ phosphorIcon(ArrowUpRightIcon);
 export const ArrowsLeftRight = /*#__PURE__*/ phosphorIcon(ArrowsLeftRightIcon);
-export const Bird = /*#__PURE__*/ phosphorIcon(BirdIcon, 'duotone');
 export const Bone = /*#__PURE__*/ phosphorIcon(BoneIcon, 'duotone');
 export const Bug = /*#__PURE__*/ phosphorIcon(BugIcon, 'duotone');
 export const CaretDown = /*#__PURE__*/ phosphorIcon(CaretDownIcon);
@@ -87,7 +82,6 @@ export const CaretRight = /*#__PURE__*/ phosphorIcon(CaretRightIcon);
 export const CaretUp = /*#__PURE__*/ phosphorIcon(CaretUpIcon);
 export const Check = /*#__PURE__*/ phosphorIcon(CheckIcon);
 export const CheckCircle = /*#__PURE__*/ phosphorIcon(CheckCircleIcon);
-export const CircleDashed = /*#__PURE__*/ phosphorIcon(CircleDashedIcon);
 export const Compass = /*#__PURE__*/ phosphorIcon(CompassIcon, 'duotone');
 export const CornersOut = /*#__PURE__*/ phosphorIcon(CornersOutIcon);
 export const Crosshair = /*#__PURE__*/ phosphorIcon(CrosshairIcon, 'duotone');
@@ -98,7 +92,10 @@ export const Egg = /*#__PURE__*/ phosphorIcon(EggIcon, 'duotone');
 export const Eye = /*#__PURE__*/ phosphorIcon(EyeIcon, 'duotone');
 export const Feather = /*#__PURE__*/ phosphorIcon(FeatherIcon, 'duotone');
 export const ForkKnife = /*#__PURE__*/ phosphorIcon(ForkKnifeIcon, 'duotone');
-export const Globe = /*#__PURE__*/ phosphorIcon(GlobeIcon, 'duotone');
+export const GlobeHemisphereWest = /*#__PURE__*/ phosphorIcon(
+  GlobeHemisphereWestIcon,
+  'duotone',
+);
 export const HourglassMedium = /*#__PURE__*/ phosphorIcon(
   HourglassMediumIcon,
   'duotone',
@@ -116,7 +113,6 @@ export const Pause = /*#__PURE__*/ phosphorIcon(PauseIcon, 'duotone');
 export const Play = /*#__PURE__*/ phosphorIcon(PlayIcon, 'duotone');
 export const Plus = /*#__PURE__*/ phosphorIcon(PlusIcon);
 export const Ruler = /*#__PURE__*/ phosphorIcon(RulerIcon, 'duotone');
-export const Scan = /*#__PURE__*/ phosphorIcon(ScanIcon, 'duotone');
 export const Scales = /*#__PURE__*/ phosphorIcon(ScalesIcon, 'duotone');
 export const SidebarSimple = /*#__PURE__*/ phosphorIcon(SidebarSimpleIcon);
 export const SpinnerGap = /*#__PURE__*/ phosphorIcon(SpinnerGapIcon);
@@ -127,6 +123,5 @@ export const WarningCircle = /*#__PURE__*/ phosphorIcon(
   WarningCircleIcon,
   'duotone',
 );
-export const Wind = /*#__PURE__*/ phosphorIcon(WindIcon, 'duotone');
 export const X = /*#__PURE__*/ phosphorIcon(XIcon);
 export const XCircle = /*#__PURE__*/ phosphorIcon(XCircleIcon);

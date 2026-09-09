@@ -225,26 +225,45 @@
 .knowledge-explorer[data-slot='tabs'] {
   gap: var(--space-24);
 }
-.knowledge-tabs[data-slot='tabs-list'] {
-  background: var(--hover);
-  height: auto;
-  max-width: 100%;
-  padding: var(--space-4);
-  border-radius: var(--radius-pill);
-  gap: var(--space-4);
+/* Underline tabs: the same 38px rail, label-title type and 2px marker as the atlas information tabs. */
+.knowledge-tabs[data-slot] {
+  display: flex;
+  justify-content: flex-start;
+  gap: var(--space-24);
+  width: 100%;
+  height: 38px;
+  border-bottom: var(--border-structure) solid var(--border);
+  padding: 0;
+  border-radius: 0;
 }
-.knowledge-tabs [data-slot='tabs-trigger'] {
+.knowledge-tabs button[data-slot] {
+  height: 38px;
+  flex: 0 1 auto;
+  font-family: var(--font-body), Inter, sans-serif;
+  font-size: var(--type-label-title);
+  line-height: var(--leading-none);
+  font-weight: 400;
+  padding: 0 0 13px;
+  border: 0;
   color: var(--muted-foreground);
-  border-radius: var(--radius-pill);
-  padding: var(--space-8) var(--space-20);
-  font-size: var(--type-button);
-  gap: var(--space-8);
-  height: auto;
+  border-radius: 0;
+  background: transparent;
+  box-shadow: none;
+  transition: color 0.15s;
 }
-.knowledge-tabs [data-slot='tabs-trigger'][data-active] {
-  background: var(--background);
+.knowledge-tabs button[data-active] {
   color: var(--foreground);
-  box-shadow: var(--shadow-active-pill);
+  font-weight: 500;
+}
+.knowledge-tabs button[data-slot]:after {
+  bottom: -1px;
+  height: 2px;
+  background: var(--foreground);
+}
+.knowledge-tabs button[data-slot]:focus-visible {
+  outline: 1px solid var(--ring);
+  outline-offset: 3px;
+  box-shadow: none;
 }
 .knowledge-split {
   display: grid;
@@ -253,7 +272,6 @@
   border-radius: var(--radius-surface);
   overflow: hidden;
 }
-.flight-surface,
 .falconry-map-surface {
   background: var(--stage);
   min-width: 0;
@@ -277,14 +295,6 @@
   font-size: var(--type-ui);
   margin-bottom: var(--space-8);
 }
-.knowledge-tag {
-  font-size: var(--type-tag);
-  padding: var(--space-4) var(--space-12);
-  background: var(--selected);
-  color: var(--main-color);
-  border-radius: var(--radius-pill);
-  white-space: nowrap;
-}
 .knowledge-notes {
   border-left: var(--border-structure) solid var(--border);
   min-width: 0;
@@ -295,131 +305,14 @@
   line-height: var(--leading-relaxed);
   margin-top: var(--space-12);
 }
-.knowledge-choice-list {
-  display: grid;
-  grid-template-columns: 1fr 1fr;
-  gap: var(--space-8);
-  margin: var(--space-24) 0;
-}
-.knowledge-choice-list button {
-  display: flex;
-  align-items: center;
-  gap: var(--space-8);
-  padding: var(--space-12);
-  border-radius: var(--radius-control);
-  border: var(--border-structure) solid var(--border);
-  font-size: var(--type-button);
-  color: var(--muted-foreground);
-  text-align: left;
-}
-.knowledge-choice-list button:hover {
-  background: var(--hover);
-}
-.knowledge-choice-list button[aria-pressed='true'],
 .falconry-region-choices button[aria-pressed='true'] {
   color: var(--main-color);
   background: var(--selected);
   border-color: var(--main-color);
 }
-.knowledge-choice-list button:focus-visible,
 .falconry-map-pin:focus-visible {
   outline: 2px solid var(--ring);
   outline-offset: 4px;
-}
-.knowledge-description h3 {
-  font-size: var(--type-lead);
-  font-weight: var(--weight-label-heading);
-  line-height: var(--leading-heading);
-}
-.flight-stage {
-  position: relative;
-  width: 100%;
-  height: 420px;
-}
-.flight-stage canvas {
-  display: block;
-  width: 100%;
-  height: 100%;
-}
-.flight-toolbar {
-  display: flex;
-  gap: var(--space-8);
-  align-items: center;
-  padding: var(--panel-padding);
-  flex-wrap: wrap;
-}
-.flight-toolbar > span {
-  margin-left: auto;
-  max-width: 260px;
-  color: var(--muted-foreground);
-  font-size: var(--type-caption);
-  text-align: right;
-}
-.flight-fallback {
-  position: absolute;
-  inset: 0;
-  display: flex;
-  flex-direction: column;
-  align-items: center;
-  justify-content: center;
-  padding: var(--panel-padding);
-  gap: var(--space-12);
-}
-.flight-fallback img {
-  width: 65%;
-  max-height: 300px;
-  object-fit: contain;
-  filter: brightness(0);
-  opacity: 0.65;
-}
-:root[data-theme='dark'] .flight-fallback img {
-  filter: brightness(0) invert(1);
-}
-.flight-fallback output {
-  font-size: var(--type-ui);
-  color: var(--muted-foreground);
-  text-align: center;
-}
-.flight-facts {
-  display: grid;
-  gap: var(--space-12);
-  margin: var(--space-24) 0;
-}
-.flight-facts > div {
-  display: grid;
-  grid-template-columns: 1fr 1fr;
-  gap: var(--space-12);
-  font-size: var(--type-ui);
-}
-.flight-facts dt {
-  color: var(--muted-foreground);
-}
-.flight-facts dd {
-  text-align: right;
-}
-.knowledge-observe {
-  border-left: var(--border-selection) solid var(--main-color);
-  padding-left: var(--space-16);
-  margin: var(--space-24) 0;
-}
-.knowledge-text-link {
-  display: inline-block;
-  font-size: var(--type-ui);
-  color: var(--main-color);
-  margin-top: var(--space-16);
-  text-decoration: underline;
-  text-underline-offset: 4px;
-}
-.knowledge-source {
-  display: flex;
-  gap: var(--space-8);
-  align-items: center;
-  font-size: var(--type-caption);
-  color: var(--muted-foreground);
-  margin-top: var(--space-24);
-}
-.knowledge-source:hover {
-  color: var(--main-color);
 }
 .falconry-map {
   position: relative;
@@ -514,10 +407,6 @@
   border: var(--border-structure) solid var(--border);
   border-radius: var(--radius-pill);
 }
-.falconry-region-tag {
-  display: inline-block;
-  margin-top: var(--space-16);
-}
 .falconry-world-birds {
   display: grid;
   gap: var(--space-8);
@@ -561,15 +450,6 @@
   .knowledge-split {
     grid-template-columns: minmax(0, 1fr) 310px;
   }
-  .knowledge-choice-list {
-    grid-template-columns: 1fr;
-  }
-  .flight-toolbar > span {
-    margin-left: 0;
-    max-width: none;
-    text-align: left;
-    width: 100%;
-  }
   .falconry-map-pin {
     width: 40px;
     height: 40px;
@@ -587,22 +467,9 @@
     border-left: 0;
     border-top: var(--border-structure) solid var(--border);
   }
-  .knowledge-choice-list {
-    grid-template-columns: 1fr 1fr;
-  }
-  .knowledge-tabs [data-slot='tabs-trigger'] {
-    padding: var(--space-8);
-    gap: var(--space-4);
-  }
-  .knowledge-tabs [data-slot='tabs-trigger'] svg {
-    display: none;
-  }
   .knowledge-surface-heading {
     align-items: flex-start;
     flex-wrap: wrap;
-  }
-  .flight-stage {
-    height: 320px;
   }
   .falconry-map {
     margin: var(--space-24) 0;

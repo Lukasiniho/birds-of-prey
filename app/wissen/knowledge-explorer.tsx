@@ -1,18 +1,15 @@
 'use client';
 
 import { useSyncExternalStore } from 'react';
-import { Bird, Globe, Scan } from '@/components/icons';
 import { SiteHeader } from '@/components/site-header';
 import { Tabs, TabsContent, TabsList, TabsTrigger } from '@/components/ui/tabs';
 import AnatomyExplorer from './anatomy-explorer';
-import FlightExplorer from './flight-explorer';
 import FalconryWorld from './falconry-world';
 import type { KnowledgeBird } from './knowledge-data';
 
 const sections = [
-  { id: 'koerperbau', label: 'Körperbau', icon: Scan },
-  { id: 'flugkunst', label: 'Flugkunst', icon: Bird },
-  { id: 'falknerei', label: 'Falknerei', icon: Globe },
+  { id: 'koerperbau', label: 'Körperbau' },
+  { id: 'falknerei', label: 'Falknerei' },
 ];
 
 export default function KnowledgeExplorer({
@@ -47,10 +44,13 @@ export default function KnowledgeExplorer({
           }}
           className="knowledge-explorer"
         >
-          <TabsList className="knowledge-tabs" aria-label="Wissensbereiche">
-            {sections.map(({ id, label, icon: Icon }) => (
+          <TabsList
+            variant="line"
+            className="knowledge-tabs"
+            aria-label="Wissensbereiche"
+          >
+            {sections.map(({ id, label }) => (
               <TabsTrigger key={id} value={id}>
-                <Icon aria-hidden="true" />
                 {label}
               </TabsTrigger>
             ))}
@@ -62,9 +62,6 @@ export default function KnowledgeExplorer({
                 birds.find((bird) => bird.id === 'maeusebussard')!.image,
               ]}
             />
-          </TabsContent>
-          <TabsContent value="flugkunst">
-            <FlightExplorer birds={birds} />
           </TabsContent>
           <TabsContent value="falknerei">
             <FalconryWorld birds={birds} />

@@ -9,7 +9,7 @@ import './wissen.css';
 export const metadata: Metadata = {
   title: 'Wissen · Greifvogelkompass',
   description:
-    'Greifvögel verstehen: Körperbau entdecken, Flugweisen als Silhouettenanimation erleben und Falknereitraditionen auf der Weltkarte erkunden.',
+    'Greifvögel verstehen: Körperbau entdecken und Falknereitraditionen auf der Weltkarte erkunden.',
 };
 
 export default function WissenPage() {
@@ -20,7 +20,6 @@ export default function WissenPage() {
           [
             'wanderfalke',
             'maeusebussard',
-            'turmfalke',
             'steinadler',
             'sakerfalke',
             'lannerfalke',
