@@ -33,9 +33,9 @@
 - Wissenschaftliche Quiz-Namen: 18 px, direkt am deutschen Namen (24 px).
 - Suche, Navigationslinks und Theme-Schalter teilen `--header-control-height`.
 
-- Größenklassen berücksichtigen Spannweite und Gewicht unabhängig: die höhere
-  Klasse zählt. Feste Grenzen, keine Quantile der vorhandenen Artenauswahl.
-  Habicht mindestens mittelgroß; repräsentatives Gewicht ab 1 kg nie klein.
+- Größenklassen werden nach typischem Gewicht bestimmt, nicht nach Flügelspannweite
+  oder Quantilen der vorhandenen Arten. Spannweite sortiert nur innerhalb der Klasse.
+  Habicht, Mäusebussard, Rot- und Schwarzmilan sind mittelgroß.
 
 - Dropdown-Trigger und Menüs im Hellmodus weiß (`--select-background`), im
   Dunkelmodus an die Oberfläche angepasst. Fragenzahl rechts vom Quiz-Titel.

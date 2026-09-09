@@ -1,4 +1,4 @@
-import { sizeBuckets, sizeBucketFor } from './species-size.ts';
+import { sizeBuckets, sizeBucketFor, compareSizeWithinGroup } from './species-size.ts';
 import { landscapes, speciesLandscapes } from './habitats.ts';
 import { birdImages } from './bird-images.ts';
 import { huntingImages } from './hunting-images.ts';
@@ -255,7 +255,7 @@ export function groupBirds(list: BirdSpecies[], mode: GroupMode) {
         id: bucket.id,
         title: bucket.title,
         subtitle: undefined,
-        birds: bySize.get(bucket.id)!,
+        birds: [...bySize.get(bucket.id)!].sort(compareSizeWithinGroup),
       }));
   }
   const groups = new Map<

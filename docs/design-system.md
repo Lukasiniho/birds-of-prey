@@ -164,26 +164,22 @@ Die Auswahl bietet Gattung, Verbreitung, Lebensraum und Größe. „Region“ en
 als redundante geografische Ansicht. Verbreitung verwendet genau eine vorhandene
 Verbreitungsangabe pro Art; Lebensraum bleibt bewusst eine Mehrfachzuordnung.
 
-Größe verwendet feste Grenzen statt Quantile unserer Auswahl. Spannweite und
-Gewicht werden unabhängig klassifiziert; die größere Klasse entscheidet.
-So bleibt etwa der Habicht mittelgroß, auch bei vielen Adlern im Katalog.
-Als repräsentativer Wert dient jeweils der Mittelwert einer angegebenen Spanne
-oder ein Einzelwert. Bloße Obergrenzen werden nicht als Mittelwerte interpretiert.
-Fehlt ein verwertbares Maß, zählt das andere; fehlen beide, bleibt die Art unter
-„Größe nicht bekannt“ auffindbar. Jede Art wird genau einer Gruppe zugeordnet.
+Größe richtet sich nach dem typischen Gewicht (Mittelwert der angegebenen
+Gewichtsspanne oder Einzelwert), nicht nach relativen Häufigkeiten im Katalog.
+Spannweite sortiert ausschließlich innerhalb der Gewichtsklasse; lange Flügel
+stufen leichte Arten nicht hoch. Jede Art erscheint genau einmal.
 
-| Klasse | Spannweite | Gewicht |
-| --- | --- | --- |
-| Sehr klein | <70 cm | <200 g |
-| Klein | 70 bis <100 cm | 200 bis <750 g |
-| Mittelgroß | 100 bis <150 cm | 750 bis <2.000 g |
-| Groß | 150 bis <210 cm | 2.000 bis <5.000 g |
-| Sehr groß | ≥210 cm | ≥5.000 g |
+| Klasse | Typisches Gewicht |
+| --- | --- |
+| Sehr klein | <200 g |
+| Klein | 200 bis <600 g |
+| Mittelgroß | 600 bis <2.000 g |
+| Groß | 2.000 bis <5.000 g |
+| Sehr groß | ≥5.000 g |
 
-Die Tabelle zeigt zwei unabhängige Skalen; es zählt stets die höhere Einstufung.
-Ein repräsentatives Gewicht ab 1 kg kann daher niemals „klein“ ergeben.
-Die Gruppen sind Navigationshilfen, keine biologische Klassifikation.
-Die Berechnung liegt in `lib/species-size.ts`.
+Habicht, Mäusebussard, Rot- und Schwarzmilan: mittelgroß. Steppenadler: groß.
+Fehlendes/unklares Gewicht: „Größe nicht bekannt“. Leere Gruppen sind unsichtbar.
+Dies sind Navigationsklassen, keine biologische Klassifikation.
 
 ## Aktualisierte Abstimmung
 

@@ -467,7 +467,7 @@ export default function RaptorApp({
               </div>
               {grouping === 'size' && (
                 <p className="grouping-note">
-                  Nach Spannweite und Gewicht; die größere Klasse zählt.
+                  Größe nach Gewicht; innerhalb nach Spannweite.
                 </p>
               )}
             </div>
