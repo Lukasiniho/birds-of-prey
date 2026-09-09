@@ -3,6 +3,10 @@
 /* oxlint-disable next/no-html-link-for-pages -- Use document navigation for the static Netlify export. */
 
 import { useEffect, useState } from 'react';
+import Image from 'next/image';
+import { portraitImages } from '@/lib/portrait-images';
+
+const headerPortraits = Object.values(portraitImages);
 import { Menu, Moon, Search, Sun, X } from 'lucide-react';
 import { DropdownMenu, DropdownMenuTrigger, DropdownMenuContent, DropdownMenuItem } from '@/components/ui/dropdown-menu';
 import { Button } from '@/components/ui/button';
@@ -26,9 +30,11 @@ export function SiteHeader({
   onQueryChange?: (query: string) => void;
 }) {
   const [dark, setDark] = useState(false);
+  const [portrait, setPortrait] = useState<string | null>(null);
 
   useEffect(() => {
     const timer = window.setTimeout(() => {
+      setPortrait(headerPortraits[Math.floor(Math.random() * headerPortraits.length)]);
       let savedDark = document.documentElement.dataset.theme === 'dark';
       try {
         savedDark = localStorage.getItem('raptor:theme') === 'dark';
@@ -52,7 +58,10 @@ export function SiteHeader({
     <header className="topbar site-header" data-section={activeSection}>
       <div className="header-brand">
       <a href="/" className="site-title">
-        Greifvogelkompass
+        <span className="site-title-portrait" aria-hidden="true">
+          {portrait && <Image src={portrait} alt="" width={48} height={48} unoptimized />}
+        </span>
+        <span>Greifvogelkompass</span>
       </a>
       {onQueryChange && (
         <div className="search-wrap topbar-search">
