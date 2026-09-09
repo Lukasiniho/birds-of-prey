@@ -422,8 +422,9 @@ beim Themenwechsel sowie Ersatzdarstellung bei fehlendem WebGL sind vorgesehen.
 
 Die Falknerei-Karte umfasst neun regionale Kapitel. Versetzte Porträts vermeiden
 Überlagerungen; Verbindungslinien führen zu den geografischen Ankerpunkten.
-Beschriftungen erscheinen bei Auswahl, Hover oder Tastaturfokus; auf schmalen
-Ansichten stehen die Regionsnamen in der vollständig bedienbaren Auswahlliste.
+Die Regionsnamen stehen dauerhaft in Caption-Größe unter den Porträts und
+wechseln bei Auswahl, Hover oder Tastaturfokus in die Hauptfarbe; die
+Auswahlliste darunter bleibt vollständig bedienbar.
 Kartenquelle und UNESCO-Hinweis liegen wie bei den Verbreitungskarten im
 `range-map-source`-Info-Popover unten links in der Karte; es gibt keine eigene
 Fußzeile unter der Karte.

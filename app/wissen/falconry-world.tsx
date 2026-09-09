@@ -2,7 +2,6 @@
 
 import { useEffect, useState } from 'react';
 import Image from 'next/image';
-import Link from 'next/link';
 import { ArrowUpRight, Globe, Info } from '@/components/icons';
 import { Button } from '@/components/ui/button';
 import {
@@ -172,7 +171,7 @@ export default function FalconryWorld({ birds }: { birds: KnowledgeBird[] }) {
               )}
             </output>
           )}
-          <FalconryMapInfo />
+          <FalconryMapInfo region={region} />
         </div>
         <fieldset
           className="falconry-region-choices"
@@ -226,42 +225,23 @@ export default function FalconryWorld({ birds }: { birds: KnowledgeBird[] }) {
           })}
         </div>
         <p className="knowledge-observe">{region.detail}</p>
-        <a
-          className="knowledge-source"
-          href={region.source}
-          target="_blank"
-          rel="noreferrer"
-        >
-          {region.sourceName}
-          <ArrowUpRight size={14} aria-hidden="true" />
-        </a>
-        {'additionalSource' in region && (
-          <a
-            className="knowledge-source"
-            href={region.additionalSource}
-            target="_blank"
-            rel="noreferrer"
-          >
-            {region.additionalSourceName}
-            <ArrowUpRight size={14} aria-hidden="true" />
-          </a>
-        )}
-        <Link href="/falknerei" className="knowledge-text-link">
-          Grundlagen, Ausrüstung & Beizvögel entdecken
-        </Link>
       </aside>
     </div>
   );
 }
 
 // Sources sit in the same info popover as on the distribution maps.
-function FalconryMapInfo() {
+function FalconryMapInfo({
+  region,
+}: {
+  region: (typeof falconryRegions)[number];
+}) {
   return (
     <Popover>
-      <TooltipHint content="Karte, Quelle und Kulturerbe">
+      <TooltipHint content="Quellen, Karte und Kulturerbe">
         <PopoverTrigger
           className="range-map-source"
-          aria-label="Karte, Quelle und Kulturerbe"
+          aria-label="Quellen, Karte und Kulturerbe"
         >
           <Info size={14} aria-hidden="true" />
         </PopoverTrigger>
@@ -272,7 +252,23 @@ function FalconryMapInfo() {
         className="range-map-source-details"
       >
         <div className="range-map-credits">
-          <div>Ausgewählte Traditionen · keine Verbreitungskarte</div>
+          <div>
+            <a href={region.source} target="_blank" rel="noreferrer">
+              {region.sourceName}
+            </a>
+          </div>
+          {'additionalSource' in region && (
+            <div>
+              <a
+                href={region.additionalSource}
+                target="_blank"
+                rel="noreferrer"
+              >
+                {region.additionalSourceName}
+              </a>
+            </div>
+          )}
+          <small>Ausgewählte Traditionen · keine Verbreitungskarte</small>
           <small>
             Basiskarte:{' '}
             <a

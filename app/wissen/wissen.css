@@ -477,7 +477,6 @@
   object-fit: contain;
 }
 .falconry-pin-label {
-  visibility: hidden;
   pointer-events: none;
   position: absolute;
   top: calc(100% + var(--space-4));
@@ -486,7 +485,8 @@
   background: var(--background);
   border-radius: var(--radius-small);
   padding: var(--space-2) var(--space-8);
-  font-size: var(--type-ui);
+  font-size: var(--type-caption);
+  color: var(--muted-foreground);
   white-space: nowrap;
 }
 .falconry-map-pin[aria-pressed='true'] {
@@ -499,7 +499,6 @@
 .falconry-map-pin:hover .falconry-pin-label,
 .falconry-map-pin:focus-visible .falconry-pin-label,
 .falconry-map-pin[aria-pressed='true'] .falconry-pin-label {
-  visibility: visible;
   color: var(--main-color);
 }
 .falconry-map-pin:hover .falconry-pin-portrait {
@@ -578,9 +577,6 @@
   .falconry-pin-portrait img {
     width: 34px;
     height: 34px;
-  }
-  .falconry-pin-label {
-    display: none;
   }
 }
 @media (max-width: 760px) {
