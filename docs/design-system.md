@@ -207,3 +207,6 @@ Die Informationstabs erhalten kein zusätzliches oberes Padding.
 
 Die Kopfleiste endet immer mit dem Hell-Dunkel-Schalter ganz rechts; davor
 steht die Navigation. Links stehen Titel und direkt anschließend die Suche.
+
+Vergleichskarten im Quiz: Namen oben links, Vogel rechts; kein gestapelter
+Namensblock unter dem Bild. Auf schmalen Displays stehen die Karten untereinander.

@@ -183,17 +183,18 @@
   border-radius: var(--radius-card);
   background: var(--q-surface);
   color: var(--q-ink);
-  text-align: center;
+  display: grid;
+  grid-template-columns: minmax(0, 2fr) minmax(0, 3fr);
+  gap: var(--space-12);
+  align-items: start;
+  text-align: left;
   cursor: pointer;
 }
 .q-comparison-card:disabled {
   cursor: default;
 }
-.q-comparison-task[data-answered='true'] .q-comparison-card {
-  padding-top: 52px;
-}
-.q-comparison-card > i {
-  display: block;
+.q-comparison-name {
+  min-width: 0;
 }
 .q-compare-radio {
   position: absolute;
@@ -222,7 +223,7 @@
   display: grid;
   place-items: center;
   position: relative;
-  margin-bottom: var(--space-20);
+  margin: 0;
 }
 .q-comparison-art > img {
   position: absolute;
@@ -237,7 +238,8 @@
   justify-content: center;
   gap: var(--space-12);
   flex-wrap: wrap;
-  margin-top: 18px;
+  margin: 0;
+  padding-right: var(--space-24);
   font-size: var(--type-body);
 }
 @media (max-width: 900px) {
@@ -280,6 +282,7 @@
     grid-template-columns: 1fr 85px;
   }
   .q-comparison-options {
+    grid-template-columns: 1fr;
     gap: var(--space-20);
   }
   .q-comparison-card {
@@ -288,12 +291,11 @@
   .q-comparison-card h3 {
     overflow-wrap: anywhere;
   }
-  .q-comparison-card > i {
+  .q-comparison-name > i {
     overflow-wrap: anywhere;
   }
   .q-comparison-art {
     height: 155px;
-    margin-bottom: var(--space-12);
   }
   .q-compare-radio {
     top: 10px;

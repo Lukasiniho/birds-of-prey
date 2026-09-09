@@ -53,6 +53,15 @@ export function WingComparison({
                 {answered && correct && <Check size={17} />}
                 {answered && choice === id && !correct && <X size={17} />}
               </span>
+              <div className="q-comparison-name">
+              <SpeciesName
+                variant="quiz"
+                name={bird.name}
+                latin={bird.latin}
+                commonAs="h3"
+                scientificAs="i"
+              />
+              </div>
               {!answered && (
                 <div className="q-comparison-art">
                   <Image
@@ -65,13 +74,6 @@ export function WingComparison({
                   />
                 </div>
               )}
-              <SpeciesName
-                variant="quiz"
-                name={bird.name}
-                latin={bird.latin}
-                commonAs="h3"
-                scientificAs="i"
-              />
               {answered && (
                 <div className="q-comparison-range">
                   <strong>
