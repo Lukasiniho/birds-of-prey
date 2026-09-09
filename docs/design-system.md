@@ -289,3 +289,6 @@ Dropdown und Fortschrittsanzeige behalten ihre geometrische Zentrierung.
 Im Dunkelmodus teilen Infokarte und Messwertkarte `--atlas-card-surface`
 (#151e25), heller als der Bühnenhintergrund. Fixierte Informationstabs
 verwenden dieselbe Kartenfarbe. Die bisherigen hellen Flächen bleiben erhalten.
+
+Die drei Informationstabs stehen außerhalb von `.info-scroll`. Nur die
+Tab-Inhalte scrollen; die Scrollbar beginnt unterhalb des festen Tab-Kopfs.

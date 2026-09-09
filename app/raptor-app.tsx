@@ -661,7 +661,6 @@ export default function RaptorApp({
             className="info-panel"
             aria-label={`Informationen zum ${bird.name}`}
           >
-            <div className="info-scroll detail-panel">
             <Tabs
               value={infoTab}
               onValueChange={(v) => setInfoTab(String(v))}
@@ -688,6 +687,7 @@ export default function RaptorApp({
                   Lebensraum
                 </TabsTrigger>
               </TabsList>
+              <div className="info-scroll detail-panel">
               <TabsContent value="profil" className="info-tab-content">
                 <section className="profile-section">
                   <h2>Erkennungsmerkmale</h2>
@@ -814,8 +814,8 @@ export default function RaptorApp({
                   </div>
                 </section>
               </TabsContent>
+              </div>
             </Tabs>
-            </div>
           </aside>
         </SidebarProvider>
         <output className="sr-only" aria-live="polite">
