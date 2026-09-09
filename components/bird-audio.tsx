@@ -48,7 +48,6 @@ export function BirdAudio({ birdId, name }: { birdId: string; name: string }) {
   }
   return (
     <div className="bird-audio">
-      <span>Stimme</span>
       <Button
         variant="ghost"
         className="bird-audio-play"

@@ -257,3 +257,10 @@ eingeblendet. Kein deckender Abschluss.
 Messwertleiste: auf Wunsch insgesamt 10 px höher durch jeweils 5 px zusätzliches
 Padding oben/unten. Die Wertezeile wird für die optische Zentrierung der
 Display-Schrift zum Play-Kreis um 3 px angehoben; Beschriftungen bleiben bündig.
+
+Der rechte Außenabstand der Desktop-Infobox wird einmalig am Spaltencontainer
+reserviert: 12 px, identisch zu oben und unten. Die Box füllt ihre Spalte ohne
+zusätzlichen rechten Margin.
+
+Audiosteuerung ohne sichtbare Beschriftung „Stimme“: gefüllter 38-px-Button,
+über beide Zeilen vertikal zentriert. Zugänglicher Play-/Pause-Name bleibt erhalten.
