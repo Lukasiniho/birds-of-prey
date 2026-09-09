@@ -28,6 +28,8 @@ export function validateReferenceSources(sources) {
       !https(source.sourceUrl) ||
       !https(source.licenseUrl) ||
       ![
+        'CC BY 2.5',
+        'CC BY 3.0',
         'CC BY-SA 2.5',
         'CC BY-SA 3.0',
         'CC BY-SA 4.0',

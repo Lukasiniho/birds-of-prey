@@ -13,6 +13,7 @@ export const preyCatalog: Record<
   string,
   { name: string; tile?: number; image?: string; icon?: 'bone' | 'bug' }
 > = {
+  schliefer: { name: 'Schliefer', image: '/prey-schliefer.png' },
   aas: { name: 'Aas', image: '/prey-aas.png' },
   knochen: { name: 'Knochen', image: '/prey-knochen.png' },
   wespenbrut: {
@@ -145,6 +146,93 @@ export const preyCatalog: Record<
   },
 };
 export const diets: Record<string, Diet> = {
+  habichtsadler: {
+    summary:
+      'Kaninchen und mittelgroße Vögel, insbesondere Tauben und Hühnervögel, bilden die Hauptnahrung. Regional kommen Eidechsen hinzu.',
+    primary: ['kaninchen', 'tauben', 'vogel'],
+    occasional: ['reptilien'],
+    carrion: false,
+    examples: [
+      {
+        key: 'kaninchen',
+      },
+      {
+        key: 'taube',
+      },
+    ],
+    occasionalExamples: [
+      {
+        key: 'echse',
+      },
+    ],
+    sources: ['https://seo.org/ave/aguila-perdicera/'],
+  },
+  iberienadler: {
+    summary:
+      'Kaninchen sind die wichtigste Beute. Bei geringer Verfügbarkeit werden unter anderem Tauben und Wasservögel gefangen; auch Aas wird genutzt.',
+    primary: ['kaninchen'],
+    occasional: ['tauben', 'wasservogel', 'reptilien'],
+    carrion: true,
+    examples: [
+      {
+        key: 'kaninchen',
+      },
+    ],
+    occasionalExamples: [
+      {
+        key: 'taube',
+      },
+      {
+        key: 'ente',
+      },
+    ],
+    sources: ['https://seo.org/ave/aguila-imperial-iberica/'],
+  },
+  klippenadler: {
+    summary:
+      'Vor allem Schliefer, die in den Felsen seiner Jagdreviere leben. Je nach Gebiet ergänzen Hasen, Hühnervögel und gelegentlich Aas die Nahrung.',
+    primary: ['schliefer'],
+    occasional: ['hasen', 'perlhuhner'],
+    carrion: true,
+    examples: [
+      {
+        key: 'schliefer',
+      },
+    ],
+    occasionalExamples: [
+      {
+        key: 'hase',
+      },
+      {
+        key: 'perlhuhn',
+      },
+    ],
+    sources: ['https://www.sanbi.org/animal-of-the-week/verreauxs-eagle/'],
+  },
+  zwergadler: {
+    summary:
+      'Kleine Vögel, Eidechsen und kleine Säugetiere bilden die Nahrung. Die Anteile unterscheiden sich zwischen Brutgebieten und Winterquartieren.',
+    primary: ['vogel', 'eidechsen', 'kleinsauger'],
+    occasional: ['insekten'],
+    carrion: false,
+    examples: [
+      {
+        key: 'singvogel',
+      },
+      {
+        key: 'echse',
+      },
+      {
+        key: 'maus',
+      },
+    ],
+    occasionalExamples: [
+      {
+        key: 'heuschrecke',
+      },
+    ],
+    sources: ['https://seo.org/ave/aguila-calzada/'],
+  },
   wuestenbussard: {
     summary:
       'Kaninchen, Hasen, Ziesel und weitere Nagetiere bilden den Schwerpunkt. Größere Beutetiere lassen sich durch gemeinsames Jagen überwältigen; Vögel und Reptilien ergänzen die Nahrung.',

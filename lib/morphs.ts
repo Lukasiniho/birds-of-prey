@@ -5,7 +5,8 @@ export type MorphSpeciesId =
   | 'rotschwanzbussard'
   | 'wespenbussard'
   | 'gaukler'
-  | 'bartgeier';
+  | 'bartgeier'
+  | 'zwergadler';
 
 // The existing image convention calls the adult stage "male" for these species.
 export type MorphStage = 'male' | 'female' | 'juvenile';
@@ -36,6 +37,63 @@ export type BirdMorphConfig = {
 };
 
 export const birdMorphs: Record<MorphSpeciesId, BirdMorphConfig> = {
+  zwergadler: {
+    label: 'Farbform',
+    defaultId: 'hell',
+    note: 'Helle und dunkle Zwergadler gehören zur selben Art. Beide Morphen kommen bei beiden Geschlechtern und auch bei Jungvögeln vor; braune Zwischenformen sind möglich.',
+    sources: [
+      {
+        name: 'SEO/BirdLife – Zwergadler',
+        url: 'https://seo.org/ave/aguila-calzada/',
+      },
+      {
+        name: 'CSIC – Gefieder und Maße',
+        url: 'https://www.vertebradosibericos.org/aves/identificacion/hiepenid.html',
+      },
+    ],
+    choices: [
+      {
+        id: 'hell',
+        label: 'Hell',
+        adultNote:
+          'Weißlicher Körper und helle Unterflügeldecken kontrastieren mit dunklen Schwungfedern. Der Schwanz ist heller graubraun; kleine helle Schulterflecken können auffallen.',
+        juvenileNote:
+          'Wie die helle adulte Morphe, oft mit wärmer beigefarbener Unterseite, hellen Federsäumen und dunkler Iris.',
+        adultColors: [
+          ['Cremeweiß', '#ECE5D6'],
+          ['Braun', '#795B3C'],
+          ['Schwarzbraun', '#342D26'],
+        ],
+        juvenileColors: [
+          ['Cremebeige', '#DBC8A6'],
+          ['Braun', '#886A49'],
+          ['Dunkelbraun', '#3E332A'],
+        ],
+      },
+      {
+        id: 'dunkel',
+        label: 'Dunkel',
+        adultNote:
+          'Brauner bis dunkel schokoladenbrauner Körper und dunkle Unterflügeldecken. Etwas hellere Schwungfedern und die hellen Schulterflecken bleiben als Kontraste erhalten.',
+        juvenileNote:
+          'Dunkelbrauner Körper mit frisch hell gesäumten Deckfedern und dunkler Iris. Die Grundfarbe ähnelt bereits der dunklen adulten Morphe.',
+        adultColors: [
+          ['Schokoladenbraun', '#493326'],
+          ['Graubraun', '#948878'],
+          ['Cremeweiß', '#E7DECD'],
+        ],
+        juvenileColors: [
+          ['Dunkelbraun', '#57412E'],
+          ['Ockerbeige', '#B19873'],
+          ['Graubraun', '#908371'],
+        ],
+        images: {
+          male: '/birds/morph-zwergadler-dark.png',
+          juvenile: '/birds/morph-juvenile-zwergadler-dark.png',
+        },
+      },
+    ],
+  },
   wespenbussard: {
     label: 'Farbform',
     defaultId: 'mittel',

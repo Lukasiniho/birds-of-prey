@@ -1,4 +1,13 @@
 export const birdImages: Record<string, string> = {
+  habichtsadler: '/birds/habichtsadler.png',
+  'juvenile-habichtsadler': '/birds/juvenile-habichtsadler.png',
+  iberienadler: '/birds/iberienadler.png',
+  'juvenile-iberienadler': '/birds/juvenile-iberienadler.png',
+  klippenadler: '/birds/klippenadler.png',
+  'juvenile-klippenadler': '/birds/juvenile-klippenadler.png',
+  zwergadler: '/birds/zwergadler.png',
+  'juvenile-zwergadler': '/birds/juvenile-zwergadler.png',
+
   'female-fischadler': '/birds/female-fischadler-20260909.png',
   'juvenile-wespenbussard': '/birds/morph-wespenbussard-mittel-juvenile.png',
   'juvenile-bartgeier': '/birds/juvenile-bartgeier-20260909.png',

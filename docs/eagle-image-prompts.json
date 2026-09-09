@@ -1,0 +1,56 @@
+[
+  {
+    "name": "habichtsadler",
+    "path": "/Users/lukasvonhohnhorst/.codex/generated_images/01a087ae-c6e0-74f0-a020-613ece8b07c3/exec-3c5a8970-b70d-4507-92bb-b99ee3d04f23.png",
+    "prompt": "Use case: scientific-educational. Create a NEW single adult Bonelli's Eagle (Aquila fasciata, Habichtsadler) full-body flight illustration for a European raptor identification atlas. Naturalistic hand-painted highly detailed feathers, clean realistic educational wildlife rendering matching a premium ornithological plate. Compact athletic eagle, relatively long tail, broad wings narrowing at body with bulging secondaries. Three-quarter underside flight view, head facing left, wings spread diagonally from lower left to upper right, tail fanned toward lower right, feet loosely tucked. Adult plumage: dark brown head and upperparts, white throat and creamy white breast and belly with distinct fine dark brown longitudinal streaks, darker underwing coverts strongly contrasting pale gray flight feathers with subtle dark barring, broad black subterminal band on gray tail. Yellow cere and feet, orange yellow iris, black bill tip. Entire bird including every wingtip and tail feather fully visible, centered with clean margin. Square canvas 1536x1536 if possible. GENUINELY TRANSPARENT alpha background, no floor or cast shadow, no landscape, no text, no border, no checkerboard pattern.",
+    "reference": null
+  },
+  {
+    "name": "iberienadler",
+    "path": "/Users/lukasvonhohnhorst/.codex/generated_images/01a087ae-c6e0-74f0-a020-613ece8b07c3/exec-673f93fc-533f-4440-b32e-cc355019da80.png",
+    "prompt": "Use case: scientific-educational. Create a NEW single adult Spanish Imperial Eagle (Aquila adalberti, Iberienadler) full-body flight illustration for a European raptor identification atlas. Naturalistic hand-painted highly detailed individual feathers, realistic educational wildlife rendering matching a premium ornithological plate. Powerful large eagle, long broad wings, prominent head and hooked bill. Three-quarter underside flight view, head facing left, wings spread diagonally from lower left to upper right, tail fanned toward lower right, feet loosely tucked. Correct adult plumage: predominantly very dark chocolate almost black brown body and underwing coverts, contrasting pale cream golden nape and crown, clearly visible extensive WHITE SHOULDER and upper leading-edge patches along wing root, gray brown dark barred flight feathers and tail with broad dark terminal band. Yellow cere and feet, yellow amber iris, dark hooked bill. Entire bird including every wingtip and tail feather fully visible, centered with clean margin. Square canvas 1536x1536 if possible. GENUINELY TRANSPARENT alpha background, no floor or cast shadow, no landscape, no text, no border, no checkerboard pattern.",
+    "reference": null
+  },
+  {
+    "name": "juvenile-habichtsadler",
+    "path": "/Users/lukasvonhohnhorst/.codex/generated_images/01a087ae-c6e0-74f0-a020-613ece8b07c3/exec-7c639c9d-1cf4-4d42-bacc-8e46bccce660.png",
+    "prompt": "Use case: precise-object-edit. Input image 1 is the EDIT TARGET and sole source: the final adult Bonelli's Eagle Aquila fasciata flight illustration. Make its juvenile age variant by changing ONLY plumage colors and markings and iris. Preserve EXACTLY identical pose, body silhouette, size, location, head position, flight direction, perspective, wings and every flight feather shape, feet, tail posture, crop, canvas dimensions and naturalistic painted style. Juvenile Bonelli's has warm rufous buff breast belly head and underwing coverts with sparse fine brown streaking, paler brown upper feathers; REMOVE adult's broad black tail end band, leaving fine narrow bars on pale gray tail; pale flight feathers, dark fingertips. Less intense brownish amber juvenile iris. Do not change the bird's outline or framing at all. Preserve genuinely transparent background alpha, no additional objects or text.",
+    "reference": "/Users/lukasvonhohnhorst/.codex/generated_images/01a087ae-c6e0-74f0-a020-613ece8b07c3/exec-3c5a8970-b70d-4507-92bb-b99ee3d04f23.png"
+  },
+  {
+    "name": "juvenile-iberienadler",
+    "path": "/Users/lukasvonhohnhorst/.codex/generated_images/01a087ae-c6e0-74f0-a020-613ece8b07c3/exec-93eaf4f5-43ca-4ce6-8aca-860f573b65ab.png",
+    "prompt": "Use case: precise-object-edit. Input image 1 is the EDIT TARGET and sole source: final adult Spanish Imperial Eagle Aquila adalberti flight illustration. Make its first-year juvenile age variant by changing ONLY plumage colors and markings and iris. Preserve EXACTLY identical pose, silhouette, size, location, head position, flight direction, perspective, wings and every flight feather shape, feet, tail posture, crop, canvas dimensions and naturalistic painted style. Juvenile Spanish Imperial Eagle has rich uniform warm reddish rufous tawny head, body and wing coverts, almost unstreaked. Remove ALL adult white shoulder leading-edge patches and cream nape, replace these with rich rufous tawny matching juvenile body. Flight feathers are dark brown contrasting warm tawny wing coverts with paler outer feather edges; tail brown with no exaggerated adult band. Brown juvenile iris. Do not change the bird's outline or framing at all. Preserve genuinely transparent background alpha, no additional objects or text.",
+    "reference": "/Users/lukasvonhohnhorst/.codex/generated_images/01a087ae-c6e0-74f0-a020-613ece8b07c3/exec-673f93fc-533f-4440-b32e-cc355019da80.png"
+  },
+  {
+    "name": "portrait-habichtsadler",
+    "path": "/Users/lukasvonhohnhorst/.codex/generated_images/01a087ae-c6e0-74f0-a020-613ece8b07c3/exec-970506ff-7e1d-4213-b51e-7010f49dcfc1.png",
+    "prompt": "Use case: scientific-educational. New close-up bust portrait of adult Bonelli's Eagle Aquila fasciata facing left, complete beak head neck upper breast. Premium naturalistic hand-painted educational wildlife illustration with exquisitely detailed fine feathers, lifelike eye. Adult dark brown crown nape and cheeks, white throat creamy white breast distinctly streaked dark brown, orange yellow iris, yellow cere, steel gray hooked bill black tip. Square canvas, head and neck dominate, no clipping at top or sides, lower bust ends in natural feather edge. GENUINELY TRANSPARENT alpha background, no scenery no text no border no shadow no checkerboard.",
+    "reference": null
+  },
+  {
+    "name": "portrait-iberienadler",
+    "path": "/Users/lukasvonhohnhorst/.codex/generated_images/01a087ae-c6e0-74f0-a020-613ece8b07c3/exec-70ce9a87-ec82-4332-94c6-304b22d0940f.png",
+    "prompt": "Use case: scientific-educational. New close-up bust portrait of adult Spanish Imperial Eagle Aquila adalberti facing left, complete beak head neck upper breast. Premium naturalistic hand-painted educational wildlife illustration with exquisitely detailed fine feathers, lifelike eye. Adult very dark chocolate brown cheeks throat and breast, strongly contrasting pale creamy golden crown and nape, small visible white shoulder feather area at lower right, yellow amber iris, yellow cere, slate gray powerful hooked bill black tip. Square canvas, head and neck dominate, no clipping at top or sides, lower bust ends in natural feather edge. GENUINELY TRANSPARENT alpha background, no scenery no text no border no shadow no checkerboard.",
+    "reference": null
+  },
+  {
+    "name": "hunting-habichtsadler",
+    "path": "/Users/lukasvonhohnhorst/.codex/generated_images/01a087ae-c6e0-74f0-a020-613ece8b07c3/exec-32ca1006-a8a9-42fb-a22c-58ea1a6db84d.png",
+    "prompt": "Use case: scientific-educational. New full-body adult Bonelli's Eagle Aquila fasciata hunting illustration, eagle braking in midair with wings swept up and fully spread, head facing right, yellow feet and talons reaching and grasping a small wild European rabbit, prey anatomically natural and intact. Entire bird and rabbit visible in centered square composition, ample margins around all feathers. Correct adult eagle: athletic medium eagle, dark brown head, white throat and breast with fine dark brown longitudinal streaks, dark underwing coverts contrasted against pale gray barred flight feathers, pale gray tail with broad dark end band, orange yellow iris yellow cere. Match premium naturalistic hand-painted detailed educational bird atlas illustration. Genuine transparent alpha background; only eagle and prey, no ground no landscape no floor shadow no blood no wounds no text no watermark no checkerboard.",
+    "reference": null
+  },
+  {
+    "name": "hunting-iberienadler",
+    "path": "/Users/lukasvonhohnhorst/.codex/generated_images/01a087ae-c6e0-74f0-a020-613ece8b07c3/exec-b1a85974-5245-4a17-9c31-68e2f4bee136.png",
+    "prompt": "Use case: scientific-educational. New full-body adult Spanish Imperial Eagle Aquila adalberti hunting illustration, eagle braking in midair with wings swept up and fully spread, head facing right, yellow feet and talons reaching and grasping a small wild European rabbit, prey anatomically natural and intact. Entire bird and rabbit visible in centered square composition, ample margins around all feathers. Correct adult eagle: large powerful dark chocolate almost black eagle, pale cream golden crown and nape, conspicuous white shoulder and wing leading-edge patches, gray brown subtly barred flight feathers, gray brown tail broad dark terminal band, yellow amber iris yellow cere. Match premium naturalistic hand-painted detailed educational bird atlas illustration. Genuine transparent alpha background; only eagle and prey, no ground no landscape no floor shadow no blood no wounds no text no watermark no checkerboard.",
+    "reference": null
+  },
+  {
+    "name": "prey-schliefer",
+    "path": "/Users/lukasvonhohnhorst/.codex/generated_images/01a087ae-c6e0-74f0-a020-613ece8b07c3/exec-c496b2bf-900c-4efd-8f9e-9f8a8830f819.png",
+    "prompt": "Use case: scientific-educational. Create a new full body rock hyrax Procavia capensis isolated wildlife illustration, anatomically accurate squat compact mammal with brown gray coarse grizzled fur, small rounded ears, blunt muzzle, dark glossy eyes, short legs and broad toes, no visible tail. Standing calmly in three-quarter side view facing left, entire animal with all feet visible. Premium highly detailed naturalistic hand-painted educational animal atlas style, fine realistic fur, soft even lighting. Square canvas, centered large animal and clean margin, GENUINELY TRANSPARENT alpha background, no rocks no ground no scenery no floor no cast shadow no text no watermark no checkerboard pattern. This is a rock hyrax, not a rabbit or rodent.",
+    "reference": null
+  }
+]

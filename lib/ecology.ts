@@ -105,6 +105,10 @@ export const huntingTypes = {
 } as const;
 export type HuntingType = keyof typeof huntingTypes;
 const techniques: Record<string, HuntingType[]> = {
+  habichtsadler: ['deckung', 'luftjagd', 'kooperativ'],
+  iberienadler: ['ansitz', 'suchflug'],
+  klippenadler: ['suchflug', 'deckung', 'kooperativ'],
+  zwergadler: ['suchflug', 'sturzflug', 'luftjagd'],
   rotschwanzbussard: ['ansitz'],
   habicht: ['deckung'],
   maeusebussard: ['ansitz'],
@@ -152,6 +156,8 @@ export const statusLabels = {
 export type SeasonStatus = keyof typeof statusLabels;
 // Geographic scope is essential: these tags describe Germany, not the global range.
 const germany: Record<string, SeasonStatus[]> = {
+  habichtsadler: ['selten'],
+  zwergadler: ['selten'],
   habicht: ['brut', 'winter'],
   maeusebussard: ['brut', 'winter', 'durchzug'],
   wanderfalke: ['brut', 'winter', 'durchzug'],
@@ -183,6 +189,14 @@ export type RelativeSize = keyof typeof relativeSizeLabels;
 // Editorial, qualitative body-mass comparison for the illustrated prey examples.
 // Never infer size from the display image or apply a category-wide size to every species.
 const sizeBySpecies: Record<string, Partial<Record<string, RelativeSize>>> = {
+  habichtsadler: { kaninchen: 'aehnlich', taube: 'kleiner', echse: 'kleiner' },
+  iberienadler: { kaninchen: 'kleiner', taube: 'kleiner', ente: 'kleiner' },
+  klippenadler: {
+    schliefer: 'aehnlich',
+    hase: 'aehnlich',
+    perlhuhn: 'kleiner',
+  },
+  zwergadler: { singvogel: 'kleiner', echse: 'kleiner', maus: 'kleiner' },
   rotschwanzbussard: {
     wuehlmaus: 'kleiner',
     kaninchen: 'aehnlich',
@@ -274,6 +288,7 @@ const sizeBySpecies: Record<string, Partial<Record<string, RelativeSize>>> = {
   sperber: { singvogel: 'kleiner', taube: 'groesser' },
 };
 export const preyCategoryById: Record<string, PreyCategory> = {
+  schliefer: 'weitere',
   aas: 'aas',
   knochen: 'aas',
   wespenbrut: 'insekten',
@@ -310,6 +325,7 @@ export const preyCategoryById: Record<string, PreyCategory> = {
   krebs: 'weitere',
 };
 const namedPrey: Record<string, string[]> = {
+  schliefer: ['schliefer'],
   wuhlmause: ['wuehlmaus'],
   mause: ['maus'],
   ratten: ['ratte'],
@@ -434,8 +450,11 @@ export const speciesRecords = birds.map((bird) => {
       status: {
         region: 'DE' as const,
         tags: germany[bird.id] ?? (['ausserhalb'] as SeasonStatus[]),
-        sources:
-          bird.id === 'bartgeier'
+        sources: ['habichtsadler', 'zwergadler'].includes(bird.id)
+          ? [
+              'https://www.dda-web.de/downloads/publications/statusreports/svid_2021_seltenheitenbericht.pdf',
+            ]
+          : bird.id === 'bartgeier'
             ? [
                 'https://www.lbv.de/naturschutz/arten-schuetzen/voegel/bartgeier/',
               ]

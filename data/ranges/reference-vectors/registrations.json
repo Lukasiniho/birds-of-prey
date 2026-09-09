@@ -3893,5 +3893,506 @@
     "all_fits": [],
     "status": "reviewed",
     "coastlineReference": "Natural Earth 1:110m (world-registration-110m.geojson)"
+  },
+  "habichtsadler": {
+    "proj_string": "+proj=robin +R=1 +lon_0=0",
+    "parameters_1000px": [
+      374.43537491982596,
+      -377.8216609969809,
+      147.8297577585164,
+      486.2328784858786
+    ],
+    "coast_rmse_capped15_px": 3.106339454650879,
+    "coast_median_px": 0.7127648591995239,
+    "coast_p90_px": 4.490983009338379,
+    "sample_count": 15053,
+    "image_width": 2456,
+    "image_height": 1916,
+    "pixel_transform_native": [
+      919.6132808030925,
+      -927.929999408585,
+      363.06988505491626,
+      1194.1879495613177
+    ],
+    "transform_definition": "pixel_x=sx*projected_x+tx; pixel_y=sy*projected_y+ty",
+    "validation": "Odd coastline samples withheld from affine fit. Normalized to 1000px width.",
+    "controls": [
+      [
+        -5.6,
+        36,
+        283.70089285714283,
+        640.0401785714286
+      ],
+      [
+        7.05,
+        57.98,
+        481.05803571428567,
+        298.77678571428567
+      ],
+      [
+        77.55,
+        8.08,
+        1395.205357142857,
+        1041.607142857143
+      ],
+      [
+        20,
+        -34.8,
+        618.1116071428571,
+        1729.6160714285713
+      ],
+      [
+        51.3,
+        12,
+        1038.8660714285713,
+        989.5267857142857
+      ],
+      [
+        -17.5,
+        14.7,
+        119.23660714285714,
+        964.8571428571428
+      ],
+      [
+        139.7,
+        35.7,
+        2103.772321428571,
+        644.1517857142857
+      ]
+    ],
+    "review_bounds": null,
+    "all_fits": [
+      {
+        "proj_string": "+proj=gall +R=1 +lon_0=0",
+        "parameters_1000px": [
+          428.9625431147216,
+          -397.5159793883418,
+          148.32368680040486,
+          484.8483301666996
+        ],
+        "coast_rmse_capped15_px": 7.051433563232422,
+        "coast_median_px": 3.8367815017700195,
+        "coast_p90_px": 13.707350730895996,
+        "sample_count": 12784
+      },
+      {
+        "proj_string": "+proj=eqc +R=1 +lon_0=0",
+        "parameters_1000px": [
+          302.4445359500626,
+          -357.5330658991529,
+          146.75816759310968,
+          484.8146082207216
+        ],
+        "coast_rmse_capped15_px": 7.284379959106445,
+        "coast_median_px": 3.248990535736084,
+        "coast_p90_px": 16.69632339477539,
+        "sample_count": 14101
+      },
+      {
+        "proj_string": "+proj=mill +R=1 +lon_0=0",
+        "parameters_1000px": [
+          302.80335223805776,
+          -330.7630401574546,
+          149.89499169822585,
+          484.03105753931516
+        ],
+        "coast_rmse_capped15_px": 7.287477970123291,
+        "coast_median_px": 4.283295631408691,
+        "coast_p90_px": 14.074874877929688,
+        "sample_count": 12453
+      },
+      {
+        "proj_string": "+proj=merc +R=1 +lon_0=0",
+        "parameters_1000px": [
+          302.6039710936529,
+          -322.57640257933423,
+          149.66505465755986,
+          484.20261814632966
+        ],
+        "coast_rmse_capped15_px": 7.5907087326049805,
+        "coast_median_px": 4.600357532501221,
+        "coast_p90_px": 15.260835647583008,
+        "sample_count": 11997
+      }
+    ]
+  },
+  "zwergadler": {
+    "proj_string": "+proj=merc +R=1 +lon_0=0",
+    "parameters_1000px": [
+      334.6702267814836,
+      -333.7399478490713,
+      210.11020798502773,
+      472.3361518531966
+    ],
+    "coast_rmse_capped15_px": 1.6368839740753174,
+    "coast_median_px": 0.2454863041639328,
+    "coast_p90_px": 2.417445421218872,
+    "sample_count": 9266,
+    "image_width": 3507,
+    "image_height": 2480,
+    "pixel_transform_native": [
+      1173.6884853226632,
+      -1170.425997106693,
+      736.8564994034922,
+      1656.4828845491604
+    ],
+    "transform_definition": "pixel_x=sx*projected_x+tx; pixel_y=sy*projected_y+ty",
+    "validation": "Odd coastline samples withheld from affine fit. Normalized to 1000px width.",
+    "controls": [
+      [
+        -5.6,
+        36,
+        601.8368644067797,
+        884.1800847457628
+      ],
+      [
+        7.05,
+        57.98,
+        913.9004237288136,
+        226.6175847457627
+      ],
+      [
+        77.55,
+        8.08,
+        2368.3395127118642,
+        1467.4417372881355
+      ],
+      [
+        20,
+        -34.8,
+        1134.9454449152543,
+        2398.0598516949153
+      ],
+      [
+        51.3,
+        12,
+        1783.2203389830509,
+        1376.4231991525423
+      ],
+      [
+        -17.5,
+        14.7,
+        386.364406779661,
+        1277.9745762711864
+      ]
+    ],
+    "review_bounds": null,
+    "all_fits": []
+  },
+  "klippenadler": {
+    "proj_string": "+proj=robin +R=1 +lon_0=10",
+    "parameters_1000px": [
+      795.5378123587466,
+      -794.7843271391728,
+      395.42320921091226,
+      525.7901505282694
+    ],
+    "coast_rmse_capped15_px": 3.357365846633911,
+    "coast_median_px": 0.9645880460739136,
+    "coast_p90_px": 4.10211706161499,
+    "sample_count": 1360,
+    "coast_rmse_px": 7.633192539215088,
+    "image_width": 1171,
+    "image_height": 1317,
+    "pixel_transform_native": [
+      931.5747782720923,
+      -930.6924470799714,
+      463.0405779859783,
+      615.7002662686034
+    ],
+    "transform_definition": "pixel_x=sx*projected_x+tx; pixel_y=sy*projected_y+ty",
+    "validation": "Every third coastline sample (index 1 mod 3) withheld from affine fit; normalized to 1000px width. Error is measured to the nearest extracted coastline pixel.",
+    "controls": [
+      [
+        -5.6,
+        36,
+        260,
+        61
+      ],
+      [
+        20,
+        -34.8,
+        595,
+        1150
+      ],
+      [
+        -17.5,
+        14.7,
+        94,
+        391
+      ],
+      [
+        51.3,
+        12,
+        1025,
+        432
+      ],
+      [
+        49.3,
+        -11.9,
+        1001,
+        805
+      ],
+      [
+        8.7,
+        -0.6,
+        455,
+        623
+      ]
+    ],
+    "review_bounds": [
+      -20,
+      -36,
+      59,
+      37
+    ],
+    "all_fits": [
+      {
+        "proj_string": "+proj=robin +R=1 +lon_0=20",
+        "parameters_1000px": [
+          795.2979006200195,
+          -795.0593468441309,
+          511.0370439050611,
+          525.8090999907932
+        ],
+        "coast_rmse_capped15_px": 3.538966178894043,
+        "coast_median_px": 1.26822829246521,
+        "coast_p90_px": 4.41706657409668,
+        "sample_count": 1360,
+        "coast_rmse_px": 7.565106391906738
+      },
+      {
+        "proj_string": "+proj=robin +R=1 +lon_0=0",
+        "parameters_1000px": [
+          795.8032881195509,
+          -795.0564866720949,
+          279.6978914011713,
+          525.8555715066931
+        ],
+        "coast_rmse_capped15_px": 3.596079111099243,
+        "coast_median_px": 1.122626543045044,
+        "coast_p90_px": 4.772887229919434,
+        "sample_count": 1360,
+        "coast_rmse_px": 7.91021728515625
+      },
+      {
+        "proj_string": "+proj=wintri +R=1 +lon_0=0",
+        "parameters_1000px": [
+          677.4966845536828,
+          -760.0246342184277,
+          279.5454370087431,
+          525.8045687900596
+        ],
+        "coast_rmse_capped15_px": 4.073904514312744,
+        "coast_median_px": 1.4401767253875732,
+        "coast_p90_px": 6.196773052215576,
+        "sample_count": 1360,
+        "coast_rmse_px": 8.110548973083496
+      },
+      {
+        "proj_string": "+proj=eqc +R=1 +lon_0=0",
+        "parameters_1000px": [
+          664.041534641483,
+          -763.1653578954524,
+          279.1873745424991,
+          526.2542897913066
+        ],
+        "coast_rmse_capped15_px": 4.409711837768555,
+        "coast_median_px": 1.7050938606262207,
+        "coast_p90_px": 6.366156101226807,
+        "sample_count": 1360,
+        "coast_rmse_px": 8.501239776611328
+      },
+      {
+        "proj_string": "+proj=mill +R=1 +lon_0=0",
+        "parameters_1000px": [
+          664.8893650195722,
+          -736.9559354806966,
+          279.6998101986271,
+          526.0594295023601
+        ],
+        "coast_rmse_capped15_px": 4.675247669219971,
+        "coast_median_px": 2.0878705978393555,
+        "coast_p90_px": 7.403515338897705,
+        "sample_count": 1360,
+        "coast_rmse_px": 8.48196029663086
+      },
+      {
+        "proj_string": "+proj=merc +R=1 +lon_0=0",
+        "parameters_1000px": [
+          665.1968351490101,
+          -721.9721199015562,
+          279.94994870819187,
+          525.7206098042743
+        ],
+        "coast_rmse_capped15_px": 5.26965856552124,
+        "coast_median_px": 2.666827440261841,
+        "coast_p90_px": 8.790297508239746,
+        "sample_count": 1360,
+        "coast_rmse_px": 8.758491516113281
+      },
+      {
+        "proj_string": "+proj=laea +R=1 +lon_0=15 +lat_0=0",
+        "parameters_1000px": [
+          695.5737891925646,
+          -768.9727452276106,
+          453.7279171567346,
+          525.8816232796171
+        ],
+        "coast_rmse_capped15_px": 6.122583866119385,
+        "coast_median_px": 2.592404365539551,
+        "coast_p90_px": 12.126212120056152,
+        "sample_count": 1360,
+        "coast_rmse_px": 9.547947883605957
+      }
+    ],
+    "excluded_pixel_rectangles": [
+      [
+        782,
+        120,
+        804,
+        148
+      ],
+      [
+        801,
+        159,
+        825,
+        189
+      ],
+      [
+        899,
+        311,
+        921,
+        342
+      ]
+    ],
+    "annotation_exclusion_notes": "Only three green question-mark annotations (Israel / northern Saudi Arabia / southwestern Saudi Arabia). Cyan Lake Victoria excluded by green hue classification; ocean is blue and excluded."
+  },
+  "iberienadler": {
+    "proj_string": "+proj=merc +R=1 +lon_0=0",
+    "parameters_1000px": [
+      3264.6574434278646,
+      -3231.6936942089114,
+      720.0532871220169,
+      2768.2473321759003
+    ],
+    "coast_rmse_capped15_px": 2.3533213138580322,
+    "coast_median_px": 0.48711368441581726,
+    "coast_p90_px": 2.1471447944641113,
+    "sample_count": 151,
+    "coast_rmse_px": 2.5486984252929688,
+    "image_width": 816,
+    "image_height": 588,
+    "pixel_transform_native": [
+      2663.960473837137,
+      -2637.0620544744716,
+      587.5634822915657,
+      2258.8898230555346
+    ],
+    "transform_definition": "pixel_x=sx*projected_x+tx; pixel_y=sy*projected_y+ty",
+    "validation": "Every third coastline sample (index 1 mod 3) withheld from affine fit; normalized to 1000px width. Error is measured to the nearest extracted coastline pixel.",
+    "controls": [
+      [
+        -9.5,
+        43,
+        156,
+        64
+      ],
+      [
+        -5.6,
+        36,
+        334,
+        481
+      ],
+      [
+        3.3,
+        42.3,
+        743,
+        105
+      ],
+      [
+        -9,
+        37,
+        174,
+        420
+      ],
+      [
+        0.65,
+        40.7,
+        617,
+        216
+      ],
+      [
+        -0.3,
+        39.4,
+        584,
+        280
+      ]
+    ],
+    "review_bounds": [
+      -10,
+      34,
+      5,
+      44
+    ],
+    "all_fits": [
+      {
+        "proj_string": "+proj=mill +R=1 +lon_0=0",
+        "parameters_1000px": [
+          3267.5664153117345,
+          -3571.180861128506,
+          720.5461021274789,
+          2934.5006350216945
+        ],
+        "coast_rmse_capped15_px": 2.6248221397399902,
+        "coast_median_px": 1.0394092798233032,
+        "coast_p90_px": 2.6931111812591553,
+        "sample_count": 152,
+        "coast_rmse_px": 2.9514241218566895
+      },
+      {
+        "proj_string": "+proj=eqc +R=1 +lon_0=0",
+        "parameters_1000px": [
+          3268.7907545380444,
+          -4211.215789734449,
+          720.6613065562391,
+          3237.697200692913
+        ],
+        "coast_rmse_capped15_px": 3.525273323059082,
+        "coast_median_px": 1.6916708946228027,
+        "coast_p90_px": 5.461904048919678,
+        "sample_count": 151,
+        "coast_rmse_px": 3.778667449951172
+      },
+      {
+        "proj_string": "+proj=robin +R=1 +lon_0=0",
+        "parameters_1000px": [
+          4174.977928006575,
+          -4409.357688634569,
+          721.3744617889938,
+          3253.815863230085
+        ],
+        "coast_rmse_capped15_px": 4.3678998947143555,
+        "coast_median_px": 2.486811399459839,
+        "coast_p90_px": 7.2108330726623535,
+        "sample_count": 151,
+        "coast_rmse_px": 4.428283214569092
+      },
+      {
+        "proj_string": "+proj=laea +R=1 +lon_0=10 +lat_0=52",
+        "parameters_1000px": [
+          4046.384594054156,
+          -4366.529567759712,
+          1256.376193806828,
+          -569.2069907325161
+        ],
+        "coast_rmse_capped15_px": 11.850679397583008,
+        "coast_median_px": 14.145318031311035,
+        "coast_p90_px": 40.0,
+        "sample_count": 146,
+        "coast_rmse_px": 23.139339447021484
+      }
+    ],
+    "annotation_exclusion_notes": "Only saturated #177a1b current range included; pale #89998b historical range excluded by saturation >=90. Existing white province boundaries rejoined with documented 3px closing."
   }
 }

@@ -1324,5 +1324,369 @@
       ]
     },
     "note": "Ohne den als eigene Art geführten Magellanuhu."
+  },
+  {
+    "id": "habichtsadler",
+    "author": "R. Altenkamp (Accipiter), Berlin",
+    "sourceUrl": "https://commons.wikimedia.org/wiki/File:Hieraaetus_fasciatus_area.PNG",
+    "license": "CC BY 3.0",
+    "licenseUrl": "https://creativecommons.org/licenses/by/3.0",
+    "sha256": "0230cded6bdd2ccd47d5ec63275ebd20ff191c60d4dc55ebc0bfe803035e1b96",
+    "downloadedOn": "2026-09-09",
+    "adaptedOn": "2026-09-09",
+    "note": "Aus lizenzierter Verbreitungsillustration abgeleitet; Brutgebiet nach Referenz von 2006/2001. Generalisierte Grenzen; keine aktuellen Beobachtungsdaten.",
+    "review": {
+      "status": "approved",
+      "reviewedOn": "2026-09-09",
+      "registrationErrorPx1000": 4.490983009338379,
+      "notes": "Global inverse projection with affine coastline fit; odd coastline samples withheld. Original and coastline overlay visually compared. Full colored contours retained; no hand-drawn biological boundary. Aus lizenzierter Verbreitungsillustration abgeleitet; Brutgebiet nach Referenz von 2006/2001. Generalisierte Grenzen; keine aktuellen Beobachtungsdaten.",
+      "inside": [
+        [
+          -4,
+          38
+        ],
+        [
+          76,
+          18
+        ],
+        [
+          115,
+          24
+        ],
+        [
+          124,
+          -9.5
+        ]
+      ],
+      "outside": [
+        [
+          13.4,
+          52.5
+        ],
+        [
+          0,
+          -20
+        ]
+      ]
+    }
+  },
+  {
+    "id": "zwergadler",
+    "author": "Alexander Kürthy",
+    "sourceUrl": "https://commons.wikimedia.org/wiki/File:HieraaetusPennatusIUCNver2018_2.png",
+    "license": "CC BY-SA 3.0",
+    "licenseUrl": "https://creativecommons.org/licenses/by-sa/3.0",
+    "sha256": "bb5a570d3f5ee7a9d5485d17780737db3025b382eb215226e418bb8af935c835",
+    "downloadedOn": "2026-09-09",
+    "adaptedOn": "2026-09-09",
+    "note": "Aus lizenzierter Verbreitungsillustration abgeleitet; Brut-, Stand-, Durchzugs- und Wintergebiete der Referenz 2018.2 zusammengefasst. Generalisierte Grenzen; keine aktuellen Beobachtungsdaten.",
+    "review": {
+      "status": "approved",
+      "reviewedOn": "2026-09-09",
+      "registrationErrorPx1000": 2.417445421218872,
+      "notes": "Global inverse projection with affine coastline fit; odd coastline samples withheld. Original and coastline overlay visually compared. Full colored contours retained; no hand-drawn biological boundary. Aus lizenzierter Verbreitungsillustration abgeleitet; Brut-, Stand-, Durchzugs- und Wintergebiete der Referenz 2018.2 zusammengefasst. Generalisierte Grenzen; keine aktuellen Beobachtungsdaten.",
+      "inside": [
+        [
+          -4,
+          39
+        ],
+        [
+          78,
+          20
+        ],
+        [
+          25,
+          -25
+        ]
+      ],
+      "outside": [
+        [
+          13.4,
+          52.5
+        ],
+        [
+          20,
+          25
+        ],
+        [
+          135,
+          -25
+        ]
+      ]
+    }
+  },
+  {
+    "id": "klippenadler",
+    "sourceUrl": "https://commons.wikimedia.org/wiki/File:Aquila_verreauxii_distr.png",
+    "author": "Scops",
+    "license": "CC BY 2.5",
+    "licenseUrl": "https://creativecommons.org/licenses/by/2.5/",
+    "sha256": "f82b2e5d38109991905df95089bcbbeeeff46de724fecb43609de59378e7d329",
+    "focusBounds": [
+      -23,
+      -37,
+      61,
+      39
+    ],
+    "review": {
+      "status": "approved",
+      "registrationErrorPx1000": 4.102117,
+      "registrationErrorStatistic": "p90 nearest-coastline distance on held-out samples",
+      "notes": "Source coastline visually reviewed in 1000px overlay; held-out coastline p90 4.102px, uncapped RMSE 7.633px, median 0.965px (1360 held-out samples). Only three green question-mark annotations (Israel / northern Saudi Arabia / southwestern Saudi Arabia). Cyan Lake Victoria excluded by green hue classification; ocean is blue and excluded. Uncapped RMSE is higher because small coastline islands present in the Natural Earth reference are omitted from this schematic source.",
+      "inside": [
+        [
+          19,
+          -33
+        ],
+        [
+          38,
+          -5
+        ],
+        [
+          22.0489,
+          17.6019
+        ],
+        [
+          40.0878,
+          21.1901
+        ],
+        [
+          53.7175,
+          17.5378
+        ],
+        [
+          44.1869,
+          16.5766
+        ],
+        [
+          44.2731,
+          13.7573
+        ],
+        [
+          20.7895,
+          11.7709
+        ]
+      ],
+      "outside": [
+        [
+          17,
+          -22
+        ],
+        [
+          42,
+          22
+        ],
+        [
+          20,
+          0
+        ],
+        [
+          32,
+          -1
+        ],
+        [
+          47,
+          -20
+        ],
+        [
+          35,
+          31
+        ],
+        [
+          43,
+          18
+        ]
+      ],
+      "reviewedOn": "2026-09-09"
+    },
+    "pixelFixtures": [
+      {
+        "sourcePixel": [
+          627,
+          341
+        ],
+        "coordinates": [
+          22.0489,
+          17.6019
+        ],
+        "inside": true
+      },
+      {
+        "sourcePixel": [
+          870,
+          285
+        ],
+        "coordinates": [
+          40.0878,
+          21.1901
+        ],
+        "inside": true
+      },
+      {
+        "sourcePixel": [
+          1058,
+          342
+        ],
+        "coordinates": [
+          53.7175,
+          17.5378
+        ],
+        "inside": true
+      },
+      {
+        "sourcePixel": [
+          929,
+          357
+        ],
+        "coordinates": [
+          44.1869,
+          16.5766
+        ],
+        "inside": true
+      },
+      {
+        "sourcePixel": [
+          932,
+          401
+        ],
+        "coordinates": [
+          44.2731,
+          13.7573
+        ],
+        "inside": true
+      },
+      {
+        "sourcePixel": [
+          611,
+          432
+        ],
+        "coordinates": [
+          20.7895,
+          11.7709
+        ],
+        "inside": true
+      }
+    ],
+    "downloadedOn": "2026-09-09",
+    "adaptedOn": "2026-09-09",
+    "note": "Aus lizenzierter Referenzillustration abgeleitet; Darstellung nach Raptors of the World (2001), ohne unsichere Fragezeichen-Markierungen. Generalisierte Grenzen, keine aktuelle Bestandserhebung."
+  },
+  {
+    "id": "iberienadler",
+    "sourceUrl": "https://commons.wikimedia.org/wiki/File:Aquila_adalberti_distr.PNG",
+    "author": "Erfil; überarbeitet von Fobos92",
+    "license": "CC BY-SA 3.0",
+    "licenseUrl": "https://creativecommons.org/licenses/by-sa/3.0/",
+    "sha256": "784df87c2602c3de53a7d776827b444a667df429c921efb3426cc61107213691",
+    "focusBounds": [
+      -10,
+      35,
+      4,
+      44
+    ],
+    "review": {
+      "status": "approved",
+      "registrationErrorPx1000": 2.147145,
+      "registrationErrorStatistic": "p90 nearest-coastline distance on held-out samples",
+      "notes": "Source coastline visually reviewed in 1000px overlay; held-out coastline p90 2.147px, uncapped RMSE 2.549px, median 0.487px (151 held-out samples). Only saturated #177a1b current range included; pale #89998b historical range excluded by saturation >=90. Existing white province boundaries rejoined with documented 3px closing.",
+      "inside": [
+        [
+          -6,
+          39.5
+        ],
+        [
+          -4,
+          39.4
+        ],
+        [
+          -4.5,
+          40.5
+        ],
+        [
+          -8.6582,
+          38.231
+        ],
+        [
+          -4.6793,
+          41.0577
+        ],
+        [
+          -6.0128,
+          38.4865
+        ],
+        [
+          -6.0343,
+          36.7832
+        ]
+      ],
+      "outside": [
+        [
+          -5,
+          35
+        ],
+        [
+          -3,
+          43
+        ],
+        [
+          -7.5,
+          37.5
+        ],
+        [
+          -1,
+          40
+        ]
+      ],
+      "reviewedOn": "2026-09-09"
+    },
+    "pixelFixtures": [
+      {
+        "sourcePixel": [
+          185,
+          352
+        ],
+        "coordinates": [
+          -8.6582,
+          38.231
+        ],
+        "inside": true
+      },
+      {
+        "sourcePixel": [
+          370,
+          183
+        ],
+        "coordinates": [
+          -4.6793,
+          41.0577
+        ],
+        "inside": true
+      },
+      {
+        "sourcePixel": [
+          308,
+          337
+        ],
+        "coordinates": [
+          -6.0128,
+          38.4865
+        ],
+        "inside": true
+      },
+      {
+        "sourcePixel": [
+          307,
+          436
+        ],
+        "coordinates": [
+          -6.0343,
+          36.7832
+        ],
+        "inside": true
+      }
+    ],
+    "downloadedOn": "2026-09-09",
+    "adaptedOn": "2026-09-09",
+    "note": "Aus lizenzierter Referenzillustration abgeleitet; Kartenrevision 2024; historische, blass markierte Gebiete ausgeschlossen. Generalisierte Grenzen, keine aktuelle Bestandserhebung."
   }
 ]

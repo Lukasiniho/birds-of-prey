@@ -10,6 +10,15 @@ export const preyFraming: Record<
     imageHeight: number;
   }
 > = {
+  schliefer: {
+    src: '/prey-schliefer.png',
+    x: 23,
+    y: 115,
+    width: 1203,
+    height: 1036,
+    imageWidth: 1254,
+    imageHeight: 1254,
+  },
   aas: {
     src: '/prey-aas.png',
     x: 15,

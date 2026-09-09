@@ -30,7 +30,7 @@ void test('every colour form has illustrations for its supported plumages', () =
       }
     }
   }
-  assert.equal(forms, 18);
+  assert.equal(forms, 20);
 });
 void test('adult-only colour choices do not replace juvenile plumages', () => {
   for (const id of ['gaukler', 'bartgeier']) {

@@ -1,4 +1,9 @@
 export const portraitImages: Record<string, string> = {
+  habichtsadler: '/birds/portrait-habichtsadler.png',
+  iberienadler: '/birds/portrait-iberienadler.png',
+  klippenadler: '/birds/portrait-klippenadler.png',
+  zwergadler: '/birds/portrait-zwergadler.png',
+
   rotschwanzbussard: '/birds/portrait-rotschwanzbussard.png?v=e9022360ffb0',
   falklandkarakara: '/birds/portrait-falklandkarakara.png?v=add0d454c053',
   aguja: '/birds/portrait-aguja.png?v=25ffd480ca0a',

@@ -589,5 +589,69 @@
         "label": "Aktuelles Vorkommen (saisonale/Unterarten-Flächen zusammengefasst)"
       }
     ]
+  },
+  "habichtsadler": {
+    "sourceUrl": "https://commons.wikimedia.org/wiki/File:Hieraaetus_fasciatus_area.PNG",
+    "author": "R. Altenkamp (Accipiter), Berlin",
+    "license": "CC BY 3.0",
+    "licenseUrl": "https://creativecommons.org/licenses/by/3.0",
+    "legend": [
+      {
+        "color": "#008000",
+        "label": "Brutgebiet"
+      }
+    ]
+  },
+  "zwergadler": {
+    "sourceUrl": "https://commons.wikimedia.org/wiki/File:HieraaetusPennatusIUCNver2018_2.png",
+    "author": "Alexander Kürthy",
+    "license": "CC BY-SA 3.0",
+    "licenseUrl": "https://creativecommons.org/licenses/by-sa/3.0",
+    "legend": [
+      {
+        "color": "#00FF00",
+        "label": "Brutgebiet"
+      },
+      {
+        "color": "#008000",
+        "label": "Ganzjährig"
+      },
+      {
+        "color": "#00FFFF",
+        "label": "Durchzug"
+      },
+      {
+        "color": "#007FFF",
+        "label": "Wintergebiet"
+      }
+    ]
+  },
+  "klippenadler": {
+    "sourceUrl": "https://commons.wikimedia.org/wiki/File:Aquila_verreauxii_distr.png",
+    "author": "Scops",
+    "license": "CC BY 2.5",
+    "licenseUrl": "https://creativecommons.org/licenses/by/2.5/",
+    "legend": [
+      {
+        "label": "Ganzjährig",
+        "color": "#339966"
+      }
+    ]
+  },
+  "iberienadler": {
+    "sourceUrl": "https://commons.wikimedia.org/wiki/File:Aquila_adalberti_distr.PNG",
+    "author": "Erfil; überarbeitet von Fobos92",
+    "license": "CC BY-SA 3.0",
+    "licenseUrl": "https://creativecommons.org/licenses/by-sa/3.0/",
+    "legend": [
+      {
+        "label": "Aktuelles Vorkommen",
+        "color": "#177a1b"
+      },
+      {
+        "label": "Historisch erloschen",
+        "color": "#89998b"
+      }
+    ]
   }
 }
