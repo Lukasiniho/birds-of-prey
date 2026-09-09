@@ -120,7 +120,7 @@ h2 {
 }
 .app-shell {
   min-height: 100dvh;
-  --site-header-height: 74px;
+  --site-header-height: 66px;
 }
 .brand {
   display: flex;
@@ -155,7 +155,7 @@ h2 {
 .app-columns[data-slot] {
   display: grid;
   grid-template-columns: 284px minmax(0, 1fr) 410px;
-  min-height: calc(100dvh - 74px);
+  min-height: calc(100dvh - var(--site-header-height));
   align-items: stretch;
 }
 .species-panel[data-slot] {
@@ -611,7 +611,7 @@ button.color-dot:not(:disabled) {
     padding: var(--space-40) 48px 0;
   }
   .specimen-panel {
-    min-height: calc(100dvh - 74px);
+    min-height: calc(100dvh - var(--site-header-height));
   }
   .portrait {
     width: 65px;
@@ -1199,7 +1199,7 @@ button.color-dot:not(:disabled) {
   height: 69px;
 }
 .species-panel[data-slot] {
-  max-height: calc(100dvh - 74px);
+  max-height: calc(100dvh - var(--site-header-height));
   overflow-y: auto;
   scrollbar-width: thin;
   scrollbar-color: var(--border) transparent;
@@ -1631,7 +1631,7 @@ button.color-dot:not(:disabled) {
     overflow: hidden;
   }
   .app-columns[data-slot] {
-    height: calc(100dvh - 74px);
+    height: calc(100dvh - var(--site-header-height));
     background: var(--stage);
     padding-right: var(--atlas-gutter);
     min-height: 0;
@@ -3154,7 +3154,7 @@ html {
 .topbar.site-header {
   display: grid;
   grid-template-columns: minmax(0, 1fr) auto var(--header-control-height);
-  grid-template-rows: 74px;
+  grid-template-rows: 66px;
   align-items: center;
   gap: 0 var(--space-12);
   height: var(--site-header-height);
@@ -3271,11 +3271,11 @@ html {
   }
 }
 @media (min-width: 801px) and (max-width: 1200px) {
-  .app-shell { --site-header-height: 126px; }
+  .app-shell { --site-header-height: 118px; }
   .topbar.site-header {
     grid-template-rows: 47px 47px;
     gap: var(--space-8) var(--space-12);
-    padding: var(--space-12) var(--atlas-gutter);
+    padding: var(--space-8) var(--atlas-gutter);
   }
   .site-header .header-brand { grid-column: 1 / -1; grid-row: 1; }
   .site-header .site-navigation,
@@ -3294,12 +3294,12 @@ html {
 }
 @media (max-width: 800px) {
   /* Reserve the same search row on all routes, without adding hidden controls. */
-  .app-shell { --site-header-height: 124px; }
+  .app-shell { --site-header-height: 116px; }
   .topbar.site-header {
     grid-template-columns: minmax(0, 1fr) repeat(2, var(--header-control-height));
     grid-template-rows: 50px var(--header-control-height);
     row-gap: var(--space-12);
-    padding: var(--space-12) var(--atlas-gutter);
+    padding: var(--space-8) var(--atlas-gutter);
     align-content: start;
   }
   .site-header .header-brand { display: contents; }

@@ -314,9 +314,9 @@ sichtbar. Die Spannweite wird im reservierten Bereich unter dem Artnamen eingebl
 Spannweitenquiz: Vier verschiedene Arten zur Auswahl. Der gesamte Spannweitenbereich
 der richtigen Art liegt oberhalb der Bereiche aller drei Ablenker. Bilder bleiben bei Auflösung sichtbar.
 
-Kopfleiste: ein gemeinsames Grid ohne routenabhängige Größen. Abstände nach Atlas-Referenz: Desktop 74 px;
-801–1200 px zwei feste 47-px-Zeilen mit 12 px Außenpadding und 8 px Abstand
-(126 px insgesamt). Bis 800 px überall 124 px mit fest reservierter Suchzeile;
+Kopfleiste: ein gemeinsames Grid ohne routenabhängige Größen. Abstände nach Atlas-Referenz, oben/unten um je 4 px reduziert: Desktop 66 px;
+801–1200 px zwei feste 47-px-Zeilen mit 8 px Außenpadding und 8 px Abstand
+(118 px insgesamt). Bis 800 px überall 116 px mit fest reservierter Suchzeile;
 Titel, Menü und Theme-Schalter stehen in der ersten Zeile. Die Suche erscheint ausschließlich
 im Atlas. Auf anderen Routen bleibt die zweite Zeile frei, ohne unsichtbare
 Eingabefelder. `scrollbar-gutter: stable` verhindert seitliches Springen beim
