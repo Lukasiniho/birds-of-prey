@@ -1,0 +1,73 @@
+/* Shared by swatches, anatomy, conservation and sidebar tooltips.
+   Floating UI measures a stationary popup; only its inner surface scales. */
+.app-tooltip[data-slot='tooltip-content'] {
+  --tooltip-padding: var(--space-8) var(--space-12);
+  position: relative;
+  width: max-content;
+  max-width: min(20rem, calc(100vw - 2 * var(--space-16)));
+  font-family: var(--font-body), Inter, sans-serif;
+  font-size: var(--type-caption);
+  line-height: var(--leading-normal);
+  color: var(--foreground);
+  opacity: 1;
+  transition: opacity var(--duration-quick) var(--ease-out);
+}
+.app-tooltip[data-variant='detail'] {
+  --tooltip-padding: var(--space-16);
+  width: 20rem;
+  font-size: var(--type-body);
+}
+.app-tooltip-surface {
+  padding: var(--tooltip-padding);
+  border: var(--border-structure) solid var(--border);
+  border-radius: var(--radius-control);
+  background: var(--background);
+  box-shadow: var(--shadow-floating);
+  transform-origin: var(--transform-origin);
+  transform: scale(1);
+  transition: transform var(--duration-quick) var(--ease-out);
+}
+.app-tooltip[data-starting-style],
+.app-tooltip[data-ending-style] {
+  opacity: 0;
+}
+.app-tooltip[data-starting-style] > .app-tooltip-surface,
+.app-tooltip[data-ending-style] > .app-tooltip-surface {
+  transform: scale(var(--scale-small));
+}
+.app-tooltip-arrow {
+  width: var(--space-8);
+  height: var(--space-8);
+  background: var(--background);
+  rotate: 45deg;
+}
+.app-tooltip-arrow[data-side='top'] {
+  bottom: calc(-1 * var(--space-4));
+  border-right: var(--border-structure) solid var(--border);
+  border-bottom: var(--border-structure) solid var(--border);
+}
+.app-tooltip-arrow[data-side='bottom'] {
+  top: calc(-1 * var(--space-4));
+  border-left: var(--border-structure) solid var(--border);
+  border-top: var(--border-structure) solid var(--border);
+}
+.app-tooltip-arrow[data-side='left'] {
+  right: calc(-1 * var(--space-4));
+  border-right: var(--border-structure) solid var(--border);
+  border-top: var(--border-structure) solid var(--border);
+}
+.app-tooltip-arrow[data-side='right'] {
+  left: calc(-1 * var(--space-4));
+  border-left: var(--border-structure) solid var(--border);
+  border-bottom: var(--border-structure) solid var(--border);
+}
+@media (prefers-reduced-motion: reduce) {
+  .app-tooltip[data-slot='tooltip-content'],
+  .app-tooltip-surface {
+    transition: none;
+  }
+  .app-tooltip[data-starting-style] > .app-tooltip-surface,
+  .app-tooltip[data-ending-style] > .app-tooltip-surface {
+    transform: none;
+  }
+}

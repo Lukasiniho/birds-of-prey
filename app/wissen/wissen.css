@@ -187,46 +187,6 @@
   color: var(--muted-foreground);
 }
 
-/* Use the existing tooltip primitive for focus, hover, dismissal and collision handling. */
-.anatomy-tooltip[data-slot] {
-  display: block;
-  width: 290px;
-  max-width: calc(100vw - 28px);
-  white-space: normal;
-  padding: var(--space-16);
-  border-radius: var(--radius-card);
-  background: var(--background);
-  color: var(--foreground);
-  border: var(--border-structure) solid var(--border);
-  box-shadow: var(--shadow-floating);
-  animation: none;
-  transition:
-    opacity var(--tt-out-dur) var(--tt-out-ease),
-    transform var(--tt-out-dur) var(--tt-out-ease);
-}
-.anatomy-tooltip[data-slot] strong {
-  display: block;
-  margin-bottom: 6px;
-  font-size: var(--type-body);
-  font-weight: 600;
-}
-.anatomy-tooltip[data-slot] span span {
-  display: block;
-  font-size: var(--type-ui);
-  line-height: var(--leading-relaxed);
-}
-.anatomy-tooltip[data-open] {
-  transition-duration: var(--tt-in-dur);
-  transition-timing-function: var(--tt-in-ease);
-}
-.anatomy-tooltip[data-starting-style],
-.anatomy-tooltip[data-ending-style] {
-  opacity: 0;
-  transform: scale(var(--tt-scale));
-}
-.anatomy-tooltip > [aria-hidden='true'][data-side] {
-  display: none;
-}
 @media (max-width: 1050px) {
   .knowledge-heading {
     align-items: flex-start;
@@ -259,11 +219,5 @@
   .anatomy-point-core {
     width: 17px;
     height: 17px;
-  }
-}
-@media (prefers-reduced-motion: reduce) {
-  .anatomy-tooltip[data-slot] {
-    transition: none !important;
-    padding: var(--space-16);
   }
 }

@@ -1,3 +1,4 @@
+import { TooltipHint } from '@/components/ui/tooltip';
 import { ConservationTooltip } from '@/components/conservation-tooltip';
 import { conservationLabels, speciesFacts } from '@/lib/species-facts';
 
@@ -92,12 +93,28 @@ export function SpeciesFacts({ speciesId }: { speciesId: string }) {
             </svg>
             <span>{label}</span>
           </dt>
-          <dd title={context}>
+          <dd>
             {icon === 'warning-circle' ? (
               <ConservationTooltip
                 key={speciesId}
                 code={facts.conservation.code}
               />
+            ) : context ? (
+              <TooltipHint content={context}>
+                <button
+                  type="button"
+                  className="cursor-help"
+                  style={{
+                    border: 0,
+                    padding: 0,
+                    background: 'transparent',
+                    font: 'inherit',
+                    color: 'inherit',
+                  }}
+                >
+                  {value}
+                </button>
+              </TooltipHint>
             ) : (
               value
             )}

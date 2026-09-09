@@ -120,7 +120,6 @@ function MapSourceInfo({ entry }: { entry: RangeMapEntry }) {
       <PopoverTrigger
         className="range-map-source"
         aria-label="Kartenquellen und Lizenz"
-        title="Kartenquellen und Lizenz"
       >
         <Info size={14} aria-hidden="true" />
       </PopoverTrigger>

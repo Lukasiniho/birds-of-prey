@@ -2,6 +2,7 @@
 
 /* oxlint-disable next/no-html-link-for-pages -- Use document navigation for the static Netlify export. */
 
+import { TooltipHint } from '@/components/ui/tooltip';
 import { useEffect, useState } from 'react';
 import Image from 'next/image';
 import { portraitImages } from '@/lib/portrait-images';
@@ -107,13 +108,13 @@ export function SiteHeader({
         </DropdownMenu>
       </div>
       <div className="header-actions">
+        <TooltipHint content={dark ? 'Hellmodus' : 'Dunkelmodus'}>
         <Button
           variant="ghost"
           size="icon"
           className="theme-toggle"
           onClick={toggleTheme}
           aria-label={dark ? 'Hellmodus aktivieren' : 'Dunkelmodus aktivieren'}
-          title={dark ? 'Hellmodus' : 'Dunkelmodus'}
         >
           <span className="t-icon-swap" data-state={dark ? 'b' : 'a'}>
             <span className="t-icon" data-icon="a">
@@ -124,6 +125,7 @@ export function SiteHeader({
             </span>
           </span>
         </Button>
+        </TooltipHint>
       </div>
     </header>
   );

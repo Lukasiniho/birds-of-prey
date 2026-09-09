@@ -344,3 +344,18 @@ Schätzfragen: Regler und Eingabewert stehen unter dem Fragetext ohne automatisc
 oberen Flex-Abstand. Der natürliche Bereich bleibt vor der Auflösung unsichtbar
 im Layout und reserviert exakt seinen späteren Platz, auch bei Textumbruch.
 Schätzwerte: `text-5xl` (40 px)/700; aufgelöste Werte: `text-2xl` (24 px)/700.
+
+## Gemeinsame Tooltips
+
+`components/ui/tooltip.tsx` ist die zentrale, auf Nutzerwunsch angepasste
+Tooltip-Komponente für die gesamte Seite. `app/tooltips.css` gestaltet sie;
+keine eigenen Popup-Animationen oder Oberflächen in Seiten-CSS ergänzen.
+`compact` verwendet Caption-Text und automatische Breite; `detail` Body-Text
+und maximal 320 px. Beide verwenden dieselben Oberflächen- und Motion-Tokens.
+Die äußere Messfläche bleibt statisch. Nur die innere Oberfläche skaliert,
+während die separat positionierte Spitze mit dem gesamten Tooltip einblendet.
+`TooltipHint` ersetzt einfache native Titelhinweise. Der Provider liegt im Layout.
+
+Farbfelder behalten beim Wechsel von Alter/Morphe ihre Position als React-Key.
+Ihre Hintergrundfarbe blendet über `--duration-medium` sanft über; neue Felder
+blenden ein. Reduced Motion deaktiviert diese Übergänge.

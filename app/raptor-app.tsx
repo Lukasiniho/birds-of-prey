@@ -293,8 +293,9 @@ function ColorRow({
     <div className="body-color-row">
       <span>{label}</span>
       <div className="swatch-row">
-        {colors.map(([name, color]) => (
-          <Tooltip key={name}>
+        {/* Stable slots let CSS blend colors instead of remounting each dot. */}
+        {colors.map(([name, color], index) => (
+          <Tooltip key={index}>
             <TooltipTrigger
               className="color-dot"
               aria-label={`${label}: ${name}${note ? '. ' + note : ''}`}

@@ -52,7 +52,7 @@ Quellen und regionale Hinweise. `components/species-facts.tsx` stellt sie dar.
 
 Fünf semantische Definitionszeilen ohne eigene Karten. Phosphor-Duotone-Icons
 (16 px, Original-SVG-Pfade, Teal mit 20 % Flächendeckkraft), vorhandene Abstands- und Textrollen, Inter-Fließtext,
-Werte rechtsbündig mit Gewicht 600. Die Lebensdauer-Einordnung bleibt im title-Attribut; sie erscheint nicht als Zusatzzeile. Labels und Werte dürfen umbrechen. Die Tabs bleiben
+Werte rechtsbündig mit Gewicht 600. Die Lebensdauer-Einordnung erscheint im gemeinsamen Tooltip, nicht als Zusatzzeile. Labels und Werte dürfen umbrechen. Die Tabs bleiben
 außerhalb des Scrollbereichs fixiert. Wiederholte Eizahlen im Bruttext entfallen;
 Nestbau, Brutdauer und Aufzucht bleiben erhalten.
 
@@ -67,8 +67,9 @@ vor ausdrücklicher Freigabe. Der Branch-Commit trägt `[skip netlify]` und
 
 Gefährdung: per Hover, Tastaturfokus oder Klick öffnet sich die IUCN-Skala
 LC–NT–VU–EN–CR–EW–EX. Die aktive Kategorie wird markiert und erklärt.
-DD und NE sind außerhalb der Skala erläutert. Escape oder Klick außerhalb schließt den Tooltip.
+Escape oder Klick außerhalb schließt den Tooltip.
 
-Der Gefährdungs-Tooltip blendet ausschließlich über Opazität ein und aus.
-Seine Abmessungen bleiben während der Animation konstant, damit die Spitze
-ihre Position zum Auslöser behält. Reduced Motion deaktiviert den Übergang.
+Alle Tooltips verwenden `components/ui/tooltip.tsx` und `app/tooltips.css`.
+Die äußere Messfläche bleibt stabil; innen skaliert die Oberfläche von 0,98
+auf 1. Die Spitze bleibt außerhalb des skalierten Elements. Größenanimation,
+Opazität, Farben, Abstände und Reduced Motion sind zentral definiert.
