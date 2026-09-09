@@ -64,7 +64,7 @@
   --type-hero: clamp(var(--text-5xl), 1.875rem + 2.5vw, var(--text-7xl));
   /* Long species names keep the same hierarchy within the narrow atlas stage. */
   --type-hero-compact: clamp(var(--text-4xl), 1.5rem + 2vw, var(--text-6xl));
-  --type-brand: clamp(var(--text-2xl), 1.25rem + 1vw, var(--text-4xl));
+  --type-brand: clamp(var(--text-xl), 1.125rem + 1vw, var(--text-3xl));
   --type-subtitle: var(--type-card-title);
   --type-metric: var(--text-4xl);
   /* Measurement cells are size containers; the rem term preserves text scaling. */

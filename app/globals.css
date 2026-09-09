@@ -3254,9 +3254,9 @@ button.color-dot:not(:disabled) {
   gap: var(--space-8);
 }
 .site-title-portrait {
-  flex: 0 0 var(--header-control-height);
-  width: var(--header-control-height);
-  height: var(--header-control-height);
+  flex: 0 0 var(--space-32);
+  width: var(--space-32);
+  height: var(--space-32);
 }
 .site-title-portrait img {
   display: block;
