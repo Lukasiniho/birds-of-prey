@@ -3207,14 +3207,15 @@ html {
   justify-self: end;
   display: flex;
   align-items: center;
-  gap: var(--space-4);
+  gap: var(--space-12);
 }
 .site-navigation a {
   display: inline-flex;
   align-items: center;
   justify-content: center;
   height: var(--header-control-height);
-  padding: 0 var(--space-20);
+  /* Match horizontal inset to the space above and below the text line. */
+  padding: 0 max(0px, calc((var(--header-control-height) - var(--type-button) * var(--leading-normal)) / 2));
   border-radius: var(--radius-control);
   font-size: var(--type-button);
   line-height: var(--leading-normal);
