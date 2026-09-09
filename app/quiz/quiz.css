@@ -782,7 +782,7 @@
 }
 .q-review-subtitle {
   display: block;
-  font-family: var(--font-display), 'Cormorant Garamond', Georgia, serif;
+  font-family: var(--font-body), Inter, Arial, sans-serif;
   font-size: var(--type-lead);
   font-weight: 400;
   line-height: var(--leading-heading);
@@ -792,7 +792,7 @@
 .q-review-score {
   flex-shrink: 0;
   font-family: var(--font-body), Inter, Arial, sans-serif;
-  font-size: var(--type-lead);
+  font-size: var(--type-button);
   font-weight: 600;
   line-height: var(--leading-compact);
   font-variant-numeric: tabular-nums;

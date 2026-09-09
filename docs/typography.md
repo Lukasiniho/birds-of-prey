@@ -100,11 +100,11 @@ und pillenförmige Tabs behalten ihre Geometrie.
 
 Entdeckungen: alle Kartentitel in Cormorant Garamond, 24 px/700. Bei Aufgaben
 mit mehreren Arten steht der tatsächliche Fragentitel statt einer Artenliste.
-Der Untertitel verwendet ebenfalls Serifenschrift, 18 px, mit 2 px Abstand.
+Der Untertitel verwendet Inter (Sans Serif), 18 px, mit 2 px Abstand.
 
 Navbar-Marke: `--type-brand` 20–28 px responsiv; das feste Steinadler-Porträt
 misst 32 × 32 px. Die übrigen Kopfleisten-Controls behalten ihre Höhe.
 
-Entdeckungen: Fragentyp-Unterzeile ausdrücklich Serif, 18 px. Punktzahl rechts
-in Inter (Sans Serif), 18 px/600; „/ 100“ ebenfalls 18 px, Gewicht 400. Eigene
+Entdeckungen: Fragentyp-Unterzeile ausdrücklich Inter (Sans Serif), 18 px. Punktzahl rechts
+in Inter (Sans Serif), 16 px/600; „/ 100“ ebenfalls 16 px, Gewicht 400. Eigene
 Klassen verhindern, dass Untertitel und Punktzahl gemeinsame small-Regeln erben.
