@@ -2526,7 +2526,7 @@ button.color-dot:not(:disabled) {
 }
 .info-panel .plumage-note h3 {
   font-family: var(--font-display), 'Cormorant Garamond', Georgia, serif;
-  font-size: var(--type-detail-heading);
+  font-size: var(--type-label-heading);
   font-weight: var(--weight-label-heading);
   line-height: var(--leading-heading);
   letter-spacing: -0.1px;
