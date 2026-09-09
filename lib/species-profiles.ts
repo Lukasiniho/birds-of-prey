@@ -111,7 +111,13 @@ export const speciesProfiles: Record<string, SpeciesProfile> = {
       'Er hält sich bevorzugt über offenen Gewässern auf. Zur Balz zeigt das Männchen wellenförmige Flugvorführungen, mitunter mit einem Fisch in den Fängen. Verteidigt wird vor allem die unmittelbare Umgebung des Horstes.',
     breeding:
       'Das große Astnest braucht einen freien Anflug: Baumspitzen, Masten und Nistplattformen sind typische Plätze. Wiederholtes Ergänzen lässt einen Horst über Jahre wachsen. Beide Eltern tragen zur Versorgung der Jungen bei.',
-    sources: cornell('Osprey'),
+    sources: [
+      ...cornell('Osprey'),
+      {
+        name: 'Roine Strandberg – Alter, Geschlecht und Unterarten des Fischadlers',
+        url: 'https://www.dutchbirding.nl/journal/pdf/DB_2013_35_2.pdf',
+      },
+    ],
   },
   weisskopfseeadler: {
     identification:

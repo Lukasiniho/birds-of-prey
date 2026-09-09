@@ -199,16 +199,17 @@ function BirdArt({
   plumage: Plumage;
   morphId?: string;
 }) {
-  const morph = getBirdMorphChoice(bird.id, morphId);
+  const morphConfig = getBirdMorphConfig(bird.id, plumage);
+  const morph = getBirdMorphChoice(bird.id, morphId, plumage);
   const appearance = getBirdMorphAppearance(
     bird.id,
     morphId,
-    plumage === 'juvenile' ? 'juvenile' : 'male',
+    plumage,
   );
   const nextSource = imageSource(
     appearance?.image ?? birdImage(bird.id, plumage),
   );
-  const nextAlt = `${bird.name} – ${plumagesFor(bird.id).find((p) => p.value === plumage)!.label}${morph ? `, Farbform ${morph.label}` : ''}`;
+  const nextAlt = `${bird.name} – ${plumagesFor(bird.id).find((p) => p.value === plumage)!.label}${morph ? `, ${morphConfig!.label} ${morph.label}` : ''}`;
   const [slots, setSlots] = useState<ArtSlots>({
     a: { src: nextSource, alt: nextAlt },
     b: null,
@@ -385,12 +386,12 @@ export default function RaptorApp({
     ? chosenPlumage
     : 'male';
   const bodyColors = bodyColorsFor(bird.id, plumage);
-  const morphConfig = getBirdMorphConfig(bird.id);
-  const morph = getBirdMorphChoice(bird.id, chosenMorphs[bird.id]);
+  const morphConfig = getBirdMorphConfig(bird.id, plumage);
+  const morph = getBirdMorphChoice(bird.id, chosenMorphs[bird.id], plumage);
   const appearance = getBirdMorphAppearance(
     bird.id,
     morph?.id,
-    plumage === 'juvenile' ? 'juvenile' : 'male',
+    plumage,
   );
   const { barRef: plumageBarRef, pillRef: plumagePillRef } = useSlidingPill(
     bird.id,
@@ -421,7 +422,7 @@ export default function RaptorApp({
     const variant = getBirdMorphAppearance(
       id,
       morphId,
-      ageForBird === 'juvenile' ? 'juvenile' : 'male',
+      ageForBird,
     );
     void loadImage(
       imageSource(variant?.image ?? birdImage(id, ageForBird)),
@@ -735,7 +736,7 @@ export default function RaptorApp({
                           <span className="t-acc-chevron" aria-hidden="true">
                             <CaretDown />
                           </span>
-                          Hinweis zu den Farbformen
+                          {morphConfig.hintLabel ?? 'Hinweis zu den Farbformen'}
                         </button>
                         <div className="t-acc-panel">
                           <div className="t-acc-panel-inner">

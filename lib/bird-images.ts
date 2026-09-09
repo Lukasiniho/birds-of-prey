@@ -1,4 +1,7 @@
 export const birdImages: Record<string, string> = {
+  'female-fischadler': '/birds/female-fischadler-20260909.png',
+  'juvenile-wespenbussard': '/birds/morph-wespenbussard-mittel-juvenile.png',
+  'juvenile-bartgeier': '/birds/juvenile-bartgeier-20260909.png',
   'juvenile-wanderfalke': '/birds/juvenile-wanderfalke.png?v=f0c0ef3d0904',
   'juvenile-lannerfalke': '/birds/juvenile-lannerfalke.png?v=129e2e00e483',
   rotschwanzbussard: '/birds/rotschwanzbussard.png?v=bb1f1776b323',
@@ -8,8 +11,7 @@ export const birdImages: Record<string, string> = {
   'juvenile-sperber': '/birds/juvenile-sperber.png?v=bfaeca0d6478',
   falklandkarakara: '/birds/falklandkarakara.png?v=2b670af57f78',
   'juvenile-rotmilan': '/birds/juvenile-rotmilan.png?v=10d852e88d3b',
-  'juvenile-wuestenbussard':
-    '/birds/juvenile-wuestenbussard-pair-20260907.png',
+  'juvenile-wuestenbussard': '/birds/juvenile-wuestenbussard-pair-20260907.png',
   aguja: '/birds/aguja.png?v=619fff7f72c6',
   'juvenile-gaukler': '/birds/juvenile-gaukler.png?v=c0546f30dca7',
   'juvenile-aguja': '/birds/juvenile-aguja.png?v=85b3b27e6d8f',
