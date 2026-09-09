@@ -1,5 +1,8 @@
 # Projektregeln
 
+- Inaktive Tab-Texte verwenden durchgängig `--muted-foreground`; keine
+  individuellen Farbmischungen oder Opacity-Abschwächungen je Tab-Variante.
+
 ## Einheitliche Vogelbilder
 
 - Jungtierbilder immer aus dem aktuell eingebundenen adulten Bild derselben Art ableiten. Die aktuelle Vorlage anhand der Bildzuordnung im Projekt ermitteln.

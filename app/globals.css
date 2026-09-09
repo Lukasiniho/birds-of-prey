@@ -2510,11 +2510,7 @@ button.color-dot:not(:disabled) {
 /* Tabs tokens on the app palette, plus the app's type on the tabs. The
    selectors outrank the older line-variant tab rules earlier in this file. */
 :root {
-  --tabs-text-muted: color-mix(
-    in srgb,
-    var(--foreground) 72%,
-    var(--muted-foreground)
-  );
+  --tabs-text-muted: var(--muted-foreground);
   --tabs-text-active: var(--foreground);
   --tabs-bar-bg: color-mix(in srgb, var(--foreground) 6%, transparent);
   --tabs-pill-bg: var(--background);
