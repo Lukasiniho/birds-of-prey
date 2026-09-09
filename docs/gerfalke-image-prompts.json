@@ -1,0 +1,54 @@
+{
+  "date": "2026-09-09",
+  "mode": "built-in image_gen",
+  "reference": "public/birds/gerfalke.png",
+  "postprocessing": "User-authorized local cutout: normal adult alpha mask copied byte-for-byte; narrow matte fringe cleaned using original edge detail with local color matching. Canvas, scale and position preserved.",
+  "assets": [
+    {
+      "file": "public/birds/morph-gerfalke-dunkel-male.png",
+      "width": 1254,
+      "height": 1254,
+      "alphaIdenticalToNormal": true,
+      "meanLuma": 99
+    },
+    {
+      "file": "public/birds/morph-gerfalke-weiss-male.png",
+      "width": 1254,
+      "height": 1254,
+      "alphaIdenticalToNormal": true,
+      "meanLuma": 181
+    },
+    {
+      "file": "public/birds/morph-gerfalke-dunkel-juvenile.png",
+      "width": 1254,
+      "height": 1254,
+      "alphaIdenticalToNormal": true,
+      "meanLuma": 105
+    },
+    {
+      "file": "public/birds/morph-gerfalke-weiss-juvenile.png",
+      "width": 1254,
+      "height": 1254,
+      "alphaIdenticalToNormal": true,
+      "meanLuma": 149
+    }
+  ],
+  "prompts": [
+    {
+      "key": "dark_adult",
+      "prompt": "Use case: precise-object-edit. Asset type: scientific bird identification atlas, transparent PNG, square canvas. Input image 1 is the sole edit target and sole structural source: the current normal adult gyrfalcon. Make a plumage-color edit to this EXACT bird cutout. Preserve the input's precise pose, flight direction leftward, perspective, silhouette, head and beak shape, eye position, claw geometry, every feather's geometry, wing angles, tail angle, scale, position and square canvas. The diagonal upper-right and lower-left wingtips, head, body and tail must occupy exactly the same locations as the input. Never redraw/repose/recompose/rotate/mirror/zoom/crop the bird. Fully visible bird including every feather tip, same margins. Keep original realistic detailed natural-history illustration style, lighting, sharpness. Actual transparent background and clean preserved alpha, not a painted checkerboard, no floor, no shadow, no text or extras. Only change morph/age-dependent plumage color and pattern plus explicitly requested soft-part colors. Produce the adult DARK MORPH of this gyrfalcon, moderately dark medium slate gray overall, with clear softer pale-gray feather bars and fine mottling, subtly lighter gray face/throat, gray flight feathers and tail with readable pale transverse bands. The result must be considerably lighter and gentler than a nearly charcoal-black dark morph: use middle and medium-dark grays, avoid near-black body masses or extreme high contrast. It must still clearly read as a dark morph, darker than the normal adult input, with an even gray breast and darker softly barred pattern. Retain adult yellow cere, yellow eye ring and yellow feet exactly as in the input."
+    },
+    {
+      "key": "light_adult",
+      "prompt": "Use case: precise-object-edit. Asset type: scientific bird identification atlas, transparent PNG, square canvas. Input image 1 is the sole edit target and sole structural source: the current normal adult gyrfalcon. Make a plumage-color edit to this EXACT bird cutout. Preserve the input's precise pose, flight direction leftward, perspective, silhouette, head and beak shape, eye position, claw geometry, every feather's geometry, wing angles, tail angle, scale, position and square canvas. The diagonal upper-right and lower-left wingtips, head, body and tail must occupy exactly the same locations as the input. Never redraw/repose/recompose/rotate/mirror/zoom/crop the bird. Fully visible bird including every feather tip, same margins. Keep original realistic detailed natural-history illustration style, lighting, sharpness. Actual transparent background and clean preserved alpha, not a painted checkerboard, no floor, no shadow, no text or extras. Only change morph/age-dependent plumage color and pattern plus explicitly requested soft-part colors. Produce the adult WHITE / LIGHT MORPH of this gyrfalcon, with an off-white and pale cool gray ground and CLEARLY VISIBLE moderate-gray flecking and transverse bars on the wings and tail, scattered soft gray markings on the breast and belly. The light morph should be perceptibly darker and more richly marked than a glaring almost-pure-white bird, while still clearly reading as the light morph and lighter overall than the input normal gray adult. Avoid bleached white wings and invisible markings; preserve feather texture and natural subtle shading. Retain adult yellow cere, yellow eye ring and yellow feet exactly as in the input."
+    },
+    {
+      "key": "dark_juvenile",
+      "prompt": "Use case: precise-object-edit. Asset type: scientific bird identification atlas, transparent PNG, square canvas. Input image 1 is the sole edit target and sole structural source: the current normal adult gyrfalcon. Make a plumage-color edit to this EXACT bird cutout. Preserve the input's precise pose, flight direction leftward, perspective, silhouette, head and beak shape, eye position, claw geometry, every feather's geometry, wing angles, tail angle, scale, position and square canvas. The diagonal upper-right and lower-left wingtips, head, body and tail must occupy exactly the same locations as the input. Never redraw/repose/recompose/rotate/mirror/zoom/crop the bird. Fully visible bird including every feather tip, same margins. Keep original realistic detailed natural-history illustration style, lighting, sharpness. Actual transparent background and clean preserved alpha, not a painted checkerboard, no floor, no shadow, no text or extras. Only change morph/age-dependent plumage color and pattern plus explicitly requested soft-part colors. Produce the JUVENILE DARK MORPH of this gyrfalcon directly from the adult input. Age changes are COLOR/PATTERN ONLY; no change to body or feather geometry. Moderate medium gray-brown overall, much lighter than nearly black chocolate-brown, with clear warm pale-gray/buff feather edges and softer juvenile longitudinal brown streaks on breast and belly in place of adult barring. Wings and tail have readable soft gray-brown bands. Retain darker-morph identity but keep visible midtone feather detail and gentle contrast. Change only the colors of the cere, eye ring and feet from adult yellow to juvenile cool gray/slate gray; preserve their exact shapes and black claw tips."
+    },
+    {
+      "key": "light_juvenile",
+      "prompt": "Use case: precise-object-edit. Asset type: scientific bird identification atlas, transparent PNG, square canvas. Input image 1 is the sole edit target and sole structural source: the current normal adult gyrfalcon. Make a plumage-color edit to this EXACT bird cutout. Preserve the input's precise pose, flight direction leftward, perspective, silhouette, head and beak shape, eye position, claw geometry, every feather's geometry, wing angles, tail angle, scale, position and square canvas. The diagonal upper-right and lower-left wingtips, head, body and tail must occupy exactly the same locations as the input. Never redraw/repose/recompose/rotate/mirror/zoom/crop the bird. Fully visible bird including every feather tip, same margins. Keep original realistic detailed natural-history illustration style, lighting, sharpness. Actual transparent background and clean preserved alpha, not a painted checkerboard, no floor, no shadow, no text or extras. Only change morph/age-dependent plumage color and pattern plus explicitly requested soft-part colors. Produce the JUVENILE WHITE / LIGHT MORPH of this gyrfalcon directly from the adult input. Age changes are COLOR/PATTERN ONLY; no change to body or feather geometry. Pale gray and cream/off-white ground with clearly visible medium gray-brown juvenile longitudinal streaking on breast and belly, fine gray-brown markings on head, and distinct muted gray-brown bands and flecks on the wings and tail. Make this noticeably darker and more marked than a near-pure-white juvenile; keep it recognizably the light morph, with natural pale-gray shadows and visible detailed feather texture, no glaring or bleached white areas. Change only the colors of the cere, eye ring and feet from adult yellow to juvenile cool gray/slate gray; preserve their exact shapes and black claw tips."
+    }
+  ]
+}

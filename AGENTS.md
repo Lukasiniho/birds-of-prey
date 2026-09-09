@@ -8,9 +8,9 @@
 
 ## Einheitliche Vogelbilder
 
-- Jungtierbilder immer aus dem aktuell eingebundenen adulten Bild derselben Art ableiten. Die aktuelle Vorlage anhand der Bildzuordnung im Projekt ermitteln.
-- Das adulte Bild ist die Referenz und Bearbeitungsgrundlage, auch wenn ein vorhandenes Jungtierbild ersetzt werden soll. Nicht das alte Jungtierbild als Vorlage verwenden.
-- Pose, Flugrichtung, Perspektive, Silhouette, Flügelstellung, Schwanzhaltung, Bildausschnitt und Darstellungsstil des adulten Bildes beibehalten. Nur altersbedingte Merkmale wie Gefiederfarbe und Zeichnung anpassen.
+- Die aktuell eingebundene normale adulte Morphe derselben Art ist immer die gemeinsame Ausgangsbasis für alle anderen Morphen und Jungvogelbilder. Die aktuelle Vorlage anhand der Bildzuordnung im Projekt ermitteln.
+- Alle Varianten direkt aus dieser normalen adulten Morphe ableiten, auch wenn ein vorhandenes Morphen- oder Jungvogelbild ersetzt wird. Weder eine andere Morphe noch ein altes Jungvogelbild als Bearbeitungsgrundlage verwenden.
+- Pose, Flugrichtung, Perspektive, Silhouette, Flügelstellung, Schwanzhaltung, Bildausschnitt, Bildgröße, Position auf der Bildfläche und Darstellungsstil der normalen adulten Morphe beibehalten. Nur morphen- bzw. altersbedingte Merkmale wie Gefiederfarbe und Zeichnung anpassen, damit das Bild beim Wechsel der Variante nicht springt.
 - Den transparenten Hintergrund erhalten und den Vogel vollständig im Bild zeigen.
 - Diese Vorgabe gilt dauerhaft für alle Arten, sofern der Nutzer für eine konkrete Bearbeitung nicht ausdrücklich etwas anderes verlangt.
 
