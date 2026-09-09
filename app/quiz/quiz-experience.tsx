@@ -579,12 +579,7 @@ function WeightQuestion({
             <Scale size={17} /> Vier Vögel, eine Reihenfolge
           </span>
           <QuizQuestionTitle>Von federleicht zu schwer.</QuizQuestionTitle>
-          <p>Ordne die vier Arten nach ihrem typischen Gewicht.</p>
-        </div>
-        <div className="q-weight-direction">
-          <span>Leicht</span>
-          <ArrowRight size={18} strokeWidth={1.5} aria-hidden="true" />
-          <span>Schwer</span>
+          <p>Ordne die vier Arten nach ihrem typischen Gewicht – von leicht nach schwer.</p>
         </div>
       </div>
       <ol

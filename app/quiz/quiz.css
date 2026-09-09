@@ -455,16 +455,6 @@
   margin-top: 10px;
   max-width: 62ch;
 }
-.q-weight-direction {
-  display: flex;
-  align-items: center;
-  gap: var(--space-24);
-  padding-bottom: var(--space-4);
-  color: var(--q-muted);
-  font-size: var(--type-caption);
-  font-weight: 700;
-  white-space: nowrap;
-}
 .q-weight-board {
   display: grid;
   grid-template-columns: repeat(4, minmax(0, 1fr));
@@ -820,9 +810,6 @@
   .q-result-overview {
     grid-template-columns: 1fr;
     gap: var(--space-16);
-  }
-  .q-weight-direction {
-    display: none;
   }
   .q-weight-board {
     gap: var(--space-16);
