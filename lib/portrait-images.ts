@@ -1,8 +1,8 @@
 export const portraitImages: Record<string, string> = {
-  habichtsadler: '/birds/portrait-habichtsadler.png',
-  iberienadler: '/birds/portrait-iberienadler.png',
-  klippenadler: '/birds/portrait-klippenadler.png',
-  zwergadler: '/birds/portrait-zwergadler.png',
+  habichtsadler: '/birds/portrait-habichtsadler.png?v=66274418c6ef',
+  iberienadler: '/birds/portrait-iberienadler.png?v=819d3344762d',
+  klippenadler: '/birds/portrait-klippenadler.png?v=08b84b490975',
+  zwergadler: '/birds/portrait-zwergadler.png?v=89c4f450f81f',
 
   rotschwanzbussard: '/birds/portrait-rotschwanzbussard.png?v=e9022360ffb0',
   falklandkarakara: '/birds/portrait-falklandkarakara.png?v=add0d454c053',
@@ -33,7 +33,7 @@ export const portraitImages: Record<string, string> = {
   turmfalke: '/birds/portrait-turmfalke.png?v=79efac9042ba',
   wuestenbussard: '/birds/portrait-wuestenbussard-20260907.png',
   kronenadler: '/birds/portrait-kronenadler.png?v=d675a84eb9f5',
-  kaiseradler: '/birds/portrait-kaiseradler.png?v=d2a673b25fc8',
+  kaiseradler: '/birds/portrait-kaiseradler.png?v=84dc6567eb1e',
   steppenadler: '/birds/portrait-steppenadler.png?v=99d2f86658ba',
   sekretaer: '/birds/portrait-sekretaer-20260907.png',
   bartgeier: '/birds/portrait-bartgeier-20260907.png',
