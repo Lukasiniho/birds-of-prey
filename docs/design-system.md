@@ -196,7 +196,7 @@ Informationstabs bleiben mit deckendem Hintergrund beim Scrollen sichtbar.
 „Status in Deutschland“ erscheint nur mit Vorkommensangaben; der Wert
 `ausserhalb` wird mitsamt ansonsten leerem Abschnitt ausgeblendet.
 
-Die gemeinsame Kopfleiste platziert die Suche links neben dem Titel.
+Die gemeinsame Kopfleiste platziert die Suche direkt rechts neben dem Titel.
 Hell-Dunkel-Schalter und Navigation haben feste Grid-Spalten am rechten Rand,
 auch auf Seiten ohne Suche. Alle Seiten verwenden dafür 12 px Außenabstand
 und dieselben responsiven Zeilen und Höhen.

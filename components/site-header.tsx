@@ -50,6 +50,9 @@ export function SiteHeader({
   return (
     <header className="topbar site-header" data-section={activeSection}>
       <div className="header-brand">
+      <a href="/" className="site-title">
+        Die Welt der Greifvögel
+      </a>
       {onQueryChange && (
         <div className="search-wrap topbar-search">
           <Search size={17} />
@@ -70,9 +73,6 @@ export function SiteHeader({
           )}
         </div>
       )}
-      <a href="/" className="site-title">
-        Die Welt der Greifvögel
-      </a>
       </div>
       <div className="header-actions">
         <Button
