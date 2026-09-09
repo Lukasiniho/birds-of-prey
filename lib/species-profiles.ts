@@ -45,7 +45,7 @@ export const speciesProfiles: Record<string, SpeciesProfile> = {
     behaviour:
       'Der Habicht lebt häufig unauffällig in Deckung. Bei der Balz im Spätwinter wird er mit auffälligen Flugmanövern sichtbarer. Etablierte Paare sind ihrem Revier treu und können es über viele Jahre nutzen.',
     breeding:
-      'Der Horst liegt gewöhnlich in einer hohen Astgabel. Meist werden drei bis vier Eier gelegt. Mit etwa sechs Wochen sind die Jungen flugfähig, werden aber noch weiter versorgt, bevor sie das elterliche Revier verlassen.',
+      'Der Horst liegt gewöhnlich in einer hohen Astgabel. Mit etwa sechs Wochen sind die Jungen flugfähig, werden aber noch weiter versorgt, bevor sie das elterliche Revier verlassen.',
     sources: lbv('habicht'),
   },
   maeusebussard: {
@@ -142,7 +142,7 @@ export const speciesProfiles: Record<string, SpeciesProfile> = {
     behaviour:
       'Beim niedrigen Suchflug kippt der Gaukler immer wieder leicht von einer Seite zur anderen. Die Gesichtshaut kann je nach Erregung kräftiger rot erscheinen. Er verbringt viel Zeit über offenem Gelände.',
     breeding:
-      'Das Paar baut einen Asthorst in einer Baumgabel. Gewöhnlich wird nur ein Ei gelegt. Nach mehreren Monaten im Nest fliegt der Jungvogel aus, bleibt aber noch längere Zeit auf die Nahrung seiner Eltern angewiesen.',
+      'Das Paar baut einen Asthorst in einer Baumgabel. Nach mehreren Monaten im Nest fliegt der Jungvogel aus, bleibt aber noch längere Zeit auf die Nahrung seiner Eltern angewiesen.',
     sources: fund('bateleur-eagle'),
   },
   aguja: {
@@ -294,7 +294,7 @@ export const speciesProfiles: Record<string, SpeciesProfile> = {
     behaviour:
       'Er nutzt große Reviere und verbringt viel Zeit im Segelflug. Paare können ihr Gebiet über Jahre halten. Während der Balz kreisen die Partner gemeinsam oder rufen einander von Ansitzen aus zu.',
     breeding:
-      'Ein großer Asthorst liegt meist in einem hohen Baum, örtlich auch auf einer Felswand oder einem Strommast. Meist wird ein Ei gelegt. Die aufwendige Aufzucht bindet beide Eltern: Anfangs jagt besonders das Männchen, während das Weibchen den Jungvogel betreut.',
+      'Ein großer Asthorst liegt meist in einem hohen Baum, örtlich auch auf einer Felswand oder einem Strommast. Die aufwendige Aufzucht bindet beide Eltern: Anfangs jagt besonders das Männchen, während das Weibchen den Jungvogel betreut.',
     sources: fund('martial-eagle'),
   },
   virginiauhu: {
@@ -344,7 +344,7 @@ export const speciesProfiles: Record<string, SpeciesProfile> = {
     behaviour:
       'Kaiseradler leben in festen Paaren und verteidigen weiträumige Reviere. Nordöstliche Populationen ziehen im Winter bis in den Nahen Osten, nach Afrika und Südasien; die Paare in Mitteleuropa bleiben meist ganzjährig im Brutgebiet.',
     breeding:
-      'Der große Horst steht frei auf hohen Bäumen, in Steppen auch auf Strommasten. Meist werden zwei Eier gelegt; die Jungen werden nach etwa zwei Monaten flügge und bleiben noch Wochen in der Nähe der Eltern.',
+      'Der große Horst steht frei auf hohen Bäumen, in Steppen auch auf Strommasten. Die Jungen werden nach etwa zwei Monaten flügge und bleiben noch Wochen in der Nähe der Eltern.',
     sources: fund('eastern-imperial-eagle'),
   },
   steppenadler: {
@@ -353,7 +353,7 @@ export const speciesProfiles: Record<string, SpeciesProfile> = {
     behaviour:
       'Außerhalb der Brutzeit ist er ein Langstreckenzieher, der sich an Zugkonzentrationen wie Eilat oder Batumi zu Tausenden sammelt. Im Winterquartier schließen sich viele Vögel an Termitenschwärmen und Aasplätzen zusammen.',
     breeding:
-      'Der flache Horst liegt oft direkt am Boden, auf niedrigen Büschen, Felsen oder Masten. Ein bis drei Eier werden rund sechs Wochen bebrütet; die Jungen fliegen nach etwa zwei Monaten aus.',
+      'Der flache Horst liegt oft direkt am Boden, auf niedrigen Büschen, Felsen oder Masten. Das Gelege wird rund sechs Wochen bebrütet; die Jungen fliegen nach etwa zwei Monaten aus.',
     sources: fund('steppe-eagle'),
   },
   sekretaer: {
@@ -362,7 +362,7 @@ export const speciesProfiles: Record<string, SpeciesProfile> = {
     behaviour:
       'Sekretäre laufen am Tag bis zu 30 Kilometer durch das Gras und fliegen nur, um Ruhebäume oder den Horst zu erreichen. Paare bleiben zusammen und zeigen bei der Balz wellenförmige Schauflüge mit lauten Rufen.',
     breeding:
-      'Der breite, flache Horst aus Zweigen liegt auf der Krone einer Schirmakazie. Meist werden zwei bis drei Eier gelegt; die Jungen werden rund sechs Wochen bebrütet und verlassen den Horst nach etwa drei Monaten.',
+      'Der breite, flache Horst aus Zweigen liegt auf der Krone einer Schirmakazie. Das Gelege wird rund sechs Wochen bebrütet und verlassen den Horst nach etwa drei Monaten.',
     sources: [
       {
         name: 'San Diego Zoo',
@@ -376,7 +376,7 @@ export const speciesProfiles: Record<string, SpeciesProfile> = {
     behaviour:
       'Andenkondore starten am Morgen an sonnenbeschienenen Hängen und nutzen Thermik und Hangaufwinde, um mit minimalem Kraftaufwand hunderte Kilometer zu segeln. An Kadavern und Schlafplätzen gelten feste Rangordnungen.',
     breeding:
-      'Gebrütet wird in Felsnischen in großer Höhe, ohne eigentliches Nest. Ein einziges Ei wird knapp zwei Monate bebrütet, und der Jungvogel bleibt bis zu einem Jahr bei den Eltern, sodass Paare oft nur alle zwei Jahre brüten.',
+      'Gebrütet wird in Felsnischen in großer Höhe, ohne eigentliches Nest. Das Ei wird knapp zwei Monate bebrütet, und der Jungvogel bleibt bis zu einem Jahr bei den Eltern, sodass Paare oft nur alle zwei Jahre brüten.',
     sources: [
       {
         name: 'San Diego Zoo',
@@ -390,7 +390,7 @@ export const speciesProfiles: Record<string, SpeciesProfile> = {
     behaviour:
       'Wespenbussarde treffen erst im Mai bei uns ein und ziehen im September wieder ab. Auf dem Zug meiden sie das offene Meer und sammeln sich an Engstellen wie Gibraltar und dem Bosporus zu Tausenden.',
     breeding:
-      'Der Horst wird in hohen Bäumen gebaut und mit frischen belaubten Zweigen ausgekleidet. Zwei Eier werden gut fünf Wochen bebrütet; die Jungen werden mit Wespenwaben gefüttert und fliegen nach etwa 40 Tagen aus.',
+      'Der Horst wird in hohen Bäumen gebaut und mit frischen belaubten Zweigen ausgekleidet. Das Gelege wird gut fünf Wochen bebrütet; die Jungen werden mit Wespenwaben gefüttert und fliegen nach etwa 40 Tagen aus.',
     sources: nabu('wespenbussard'),
   },
   bartgeier: {
@@ -399,7 +399,7 @@ export const speciesProfiles: Record<string, SpeciesProfile> = {
     behaviour:
       'Bartgeier segeln dicht an Felswänden entlang und suchen dort nach Knochen. Nach ihrer Ausrottung wurden sie seit 1986 in den Alpen wieder angesiedelt; heute brüten dort wieder über 300 Paare. Jungvögel wandern weit umher, bevor sie ein Revier gründen.',
     breeding:
-      'Das Nest liegt in einer geschützten Felsnische und wird mit Wolle und Haaren ausgepolstert. Das Weibchen legt im Winter ein bis zwei Eier; meist wird nur ein Junges großgezogen, das nach rund vier Monaten ausfliegt.',
+      'Das Nest liegt in einer geschützten Felsnische und wird mit Wolle und Haaren ausgepolstert. Die Eiablage erfolgt im Winter; meist wird nur ein Junges großgezogen, das nach rund vier Monaten ausfliegt.',
     sources: lbv('bartgeier'),
   },
   kronenadler: {
