@@ -676,13 +676,9 @@
   justify-content: center;
   align-items: center;
 }
-.q-result-score svg {
-  color: var(--q-accent);
-  margin-bottom: var(--space-4);
-}
 .q-result-score strong {
   font-size: var(--text-5xl);
-  font-weight: 400;
+  font-weight: 700;
   letter-spacing: -1px;
   line-height: var(--leading-heading);
 }

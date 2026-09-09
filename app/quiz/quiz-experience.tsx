@@ -28,8 +28,6 @@ import {
   RotateCcw,
   Ruler,
   Scale,
-  Sparkles,
-  Trophy,
   X,
 } from 'lucide-react';
 import { SiteHeader } from '@/components/site-header';
@@ -1041,14 +1039,13 @@ function QuizResults({
           }
         >
           <div>
-            <Trophy size={28} />
             <strong>{total}</strong>
             <span>von {questions.length * 100} Punkten</span>
           </div>
         </div>
         <div className="q-result-copy">
           <span className="q-task-label">
-            <Sparkles size={17} /> Deine Runde ist komplett
+            Deine Runde ist komplett
           </span>
           <h1 id="q-result-title" tabIndex={-1}>
             {total >= questions.length * 80
