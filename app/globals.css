@@ -3150,7 +3150,7 @@ html {
   grid-template-columns: minmax(0, 1fr) auto var(--header-control-height);
   grid-template-rows: 66px;
   align-items: center;
-  gap: 0 var(--space-12);
+  gap: 0 var(--space-8);
   height: var(--site-header-height);
   padding: 0 var(--atlas-gutter);
   border-bottom: var(--border-structure) solid var(--border);
@@ -3207,7 +3207,7 @@ html {
   justify-self: end;
   display: flex;
   align-items: center;
-  gap: var(--space-12);
+  gap: var(--space-8);
 }
 .site-navigation a {
   display: inline-flex;
@@ -3269,7 +3269,7 @@ html {
   .app-shell { --site-header-height: 118px; }
   .topbar.site-header {
     grid-template-rows: 47px 47px;
-    gap: var(--space-8) var(--space-12);
+    gap: var(--space-8);
     padding: var(--space-8) var(--atlas-gutter);
   }
   .site-header .header-brand { grid-column: 1 / -1; grid-row: 1; }
