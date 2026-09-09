@@ -18,23 +18,23 @@ import { createPortal } from 'react-dom';
 import Image from 'next/image';
 import {
   ArrowLeft,
-  ArrowLeftRight,
-  Utensils,
+  ArrowsLeftRight as ArrowLeftRight,
+  ForkKnife as Utensils,
   ArrowRight,
   Check,
-  ChevronRight,
+  CaretRight as ChevronRight,
   Crosshair,
   Eye,
   Ear,
-  Grip,
+  DotsSix as Grip,
   MapPin,
   Minus,
   Plus,
-  RotateCcw,
+  ArrowCounterClockwise as RotateCcw,
   Ruler,
-  Scale,
+  Scales as Scale,
   X,
-} from 'lucide-react';
+} from '@/components/icons';
 import { SiteHeader } from '@/components/site-header';
 import { PreyQuestion } from '@/components/quiz/prey-question';
 import { WingComparison } from '@/components/quiz/wing-comparison';

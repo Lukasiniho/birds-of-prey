@@ -1,6 +1,6 @@
 import { preyCatalog } from '@/lib/diets';
 import Image from 'next/image';
-import { Bone, Bug } from 'lucide-react';
+import { Bone, Bug } from '@/components/icons';
 import { preyFraming } from '@/lib/prey-framing';
 import { imageSource } from '@/lib/optimized-images';
 export function PreyArt({ preyKey }: { preyKey: string }) {

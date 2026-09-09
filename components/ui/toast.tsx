@@ -6,13 +6,13 @@ import { Toast as ToastPrimitive } from '@base-ui/react/toast';
 import { cn } from '@/lib/utils';
 import { Button } from '@/components/ui/button';
 import {
-  XIcon,
-  CircleCheckIcon,
-  InfoIcon,
-  TriangleAlertIcon,
-  OctagonXIcon,
-  Loader2Icon,
-} from 'lucide-react';
+  X as XIcon,
+  CheckCircle as CircleCheckIcon,
+  Info as InfoIcon,
+  Warning as TriangleAlertIcon,
+  XCircle as OctagonXIcon,
+  SpinnerGap as Loader2Icon,
+} from '@/components/icons';
 
 const toast = ToastPrimitive.createToastManager();
 

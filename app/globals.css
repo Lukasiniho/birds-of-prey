@@ -151,7 +151,6 @@ h2 {
 .theme-toggle svg {
   width: 18px !important;
   height: 18px !important;
-  stroke-width: 1.5;
 }
 .app-columns[data-slot] {
   display: grid;
@@ -186,7 +185,6 @@ h2 {
   left: 11px;
   color: var(--muted-foreground);
   z-index: 1;
-  stroke-width: 1.5;
 }
 .search-wrap input {
   height: 39px;
@@ -425,7 +423,6 @@ h2 {
 .image-toolbar svg {
   width: 17px !important;
   height: 17px !important;
-  stroke-width: 1.5;
 }
 .zoom-value {
   width: 43px;
@@ -2573,17 +2570,12 @@ button.color-dot:not(:disabled) {
    scaleY(-1) about the centre passes through a flat line at
    the midpoint (same look as a `d:` path morph) but animates
    in every browser, unlike CSS `d:` morphing (Chromium only).
-   The chevron path is symmetric about the 16x16 viewBox
-   centre, so the flip lands exactly on the "^"; non-scaling
-   -stroke keeps the stroke width constant through the flip. */
+   The Phosphor caret remains centered throughout the flip. */
 .t-acc-chevron {
   display: inline-flex;
   transform: scaleY(1);
   transform-origin: center;
   transition: transform var(--acc-chevron) var(--acc-ease);
-}
-.t-acc-chevron path {
-  vector-effect: non-scaling-stroke;
 }
 .t-acc[data-open='true'] .t-acc-chevron {
   transform: scaleY(-1);
@@ -2634,11 +2626,6 @@ button.color-dot:not(:disabled) {
 .info-panel .t-acc-chevron svg {
   width: 13px;
   height: 13px;
-  fill: none;
-  stroke: currentColor;
-  stroke-width: 1.5;
-  stroke-linecap: round;
-  stroke-linejoin: round;
 }
 .info-panel .t-acc-panel-inner > p {
   margin-top: var(--space-8);
@@ -2944,7 +2931,6 @@ button.color-dot:not(:disabled) {
 .prey-symbol svg {
   width: 46px;
   height: 46px;
-  stroke-width: 1.2;
 }
 
 .info-panel .ecology-tags {

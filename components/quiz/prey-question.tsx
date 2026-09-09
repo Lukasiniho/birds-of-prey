@@ -5,7 +5,12 @@ import { SpeciesName } from '@/components/species-name';
 import { useRef, useState, type PointerEvent } from 'react';
 import { createPortal } from 'react-dom';
 import Image from 'next/image';
-import { Check, Grip, Utensils, X } from 'lucide-react';
+import {
+  Check,
+  DotsSix as Grip,
+  ForkKnife as Utensils,
+  X,
+} from '@/components/icons';
 import { PreyArt } from '@/components/prey-art';
 import { preyCatalog } from '@/lib/diets';
 import type { QuizBird, QuizQuestion } from '@/lib/quiz-engine';

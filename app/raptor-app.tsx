@@ -5,7 +5,7 @@ import { useEffect, useLayoutEffect, useRef, useState } from 'react';
 import Image from 'next/image';
 import { BirdAudio, BirdAudioCredit } from '@/components/bird-audio';
 import { birdHref, birdForPath } from '@/lib/bird-routes';
-import { Feather } from 'lucide-react';
+import { Feather, CaretDown } from '@/components/icons';
 import { SiteHeader } from '@/components/site-header';
 import { Button } from '@/components/ui/button';
 import {
@@ -733,9 +733,7 @@ export default function RaptorApp({
                           onClick={() => setHintOpen(!hintOpen)}
                         >
                           <span className="t-acc-chevron" aria-hidden="true">
-                            <svg viewBox="0 0 16 16">
-                              <path d="M4 6.5L8 10.5L12 6.5" />
-                            </svg>
+                            <CaretDown />
                           </span>
                           Hinweis zu den Farbformen
                         </button>

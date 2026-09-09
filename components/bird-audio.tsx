@@ -1,6 +1,6 @@
 'use client';
 import { useEffect, useRef, useState } from 'react';
-import { Play, Pause, LoaderCircle } from 'lucide-react';
+import { Play, Pause, SpinnerGap as LoaderCircle } from '@/components/icons';
 import { Button } from '@/components/ui/button';
 import {
   Popover,

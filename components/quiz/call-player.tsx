@@ -1,7 +1,12 @@
 'use client';
 
 import { useEffect, useRef, useState } from 'react';
-import { Info, Pause, Play, RotateCcw } from 'lucide-react';
+import {
+  Info,
+  Pause,
+  Play,
+  ArrowCounterClockwise as RotateCcw,
+} from '@/components/icons';
 import { TooltipHint } from '@/components/ui/tooltip';
 import { Button } from '@/components/ui/button';
 import {
@@ -92,8 +97,6 @@ export function QuizCallPlayer({
         <Icon
           aria-hidden="true"
           className={revealed ? 'size-4.5' : 'size-8'}
-          fill={state === 'error' ? 'none' : 'currentColor'}
-          strokeWidth={state === 'error' ? 1.5 : 0}
         />
         <span>{label}</span>
       </Button>
