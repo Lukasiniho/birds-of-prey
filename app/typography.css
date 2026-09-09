@@ -49,7 +49,7 @@
   --weight-label-heading: 700;
   --type-detail-heading: var(--text-2xl);
   --type-feedback-title: var(--text-base);
-  --type-quiz-question: var(--text-3xl);
+  --type-quiz-question: var(--text-4xl);
   --type-species-common: var(--type-label-heading);
   --type-species-quiz: var(--text-xl);
   --type-species-knowledge: var(--text-xl);

@@ -67,7 +67,7 @@ Quiz-Rückmeldungen: Titel 16 px/700 über `--type-feedback-title`; Erklärung
 14 px/400 ohne fett hervorgehobene Wörter oder Werte.
 
 Alle Quiz-Fragentitel: `QuizQuestionTitle` und `--type-quiz-question`,
-28 px/700, auch mobil. Keine lokalen Fragentitel-Größen ergänzen.
+32 px/700, auch mobil. Keine lokalen Fragentitel-Größen ergänzen.
 
 ## Aktualisierte Abstimmung
 
