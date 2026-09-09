@@ -359,3 +359,13 @@ während die separat positionierte Spitze mit dem gesamten Tooltip einblendet.
 Farbfelder behalten beim Wechsel von Alter/Morphe ihre Position als React-Key.
 Ihre Hintergrundfarbe blendet über `--duration-medium` sanft über; neue Felder
 blenden ein. Reduced Motion deaktiviert diese Übergänge.
+
+## Quiz: Art und Ruf erkennen
+
+Die zusätzlichen Erkennungsfragen verwenden dieselben `QuizQuestionTitle`-,
+`SpeciesName`- und Antwortgruppen-Rollen wie die Jagdfrage. Vor der Auflösung
+bleiben Name und beim Rufquiz auch Vogelbild verborgen. Der Audio-Player nutzt
+die gemeinsame Hauptfarbe, Button-Typografie und Abstandstokens; die Quellen
+bleiben in einem per Klick bedienbaren Popover mit zentralem `TooltipHint`.
+Die bestehende Fragenzahl-Auswahl, Ergebnis-Typografie und feste Fußleiste gelten
+auch für diese Aufgaben. Die übrigen Atlas- und Wissen-Styles bleiben auf main-Stand.

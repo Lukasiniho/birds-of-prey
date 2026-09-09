@@ -333,6 +333,81 @@
     border-color var(--duration-quick) var(--ease-smooth-out),
     background var(--duration-quick) var(--ease-smooth-out);
 }
+.q-specimen[data-call='true'] .q-bird-space {
+  display: flex;
+  flex-direction: column;
+  justify-content: center;
+  align-items: center;
+}
+.q-call-player {
+  position: relative;
+  z-index: 1;
+  display: flex;
+  flex-direction: column;
+  align-items: center;
+  gap: var(--space-12);
+  padding-block: var(--space-24);
+  text-align: center;
+}
+.quiz-shell .q-call-play[data-slot] {
+  display: flex;
+  flex-direction: column;
+  height: auto;
+  gap: var(--space-16);
+  padding: var(--space-16) var(--space-24);
+  border: 0;
+  outline: none;
+  background: transparent;
+  box-shadow: none;
+  color: var(--selection-border);
+  font-size: var(--type-button);
+}
+.quiz-shell .q-call-play[data-slot]:hover {
+  color: var(--q-ink);
+}
+.q-call-play > svg {
+  box-sizing: content-box;
+  padding: var(--space-24);
+  border: 0;
+  border-radius: 50%;
+  background: var(--main-color);
+  color: var(--primary-foreground);
+}
+.quiz-shell .q-call-play[data-slot]:hover > svg {
+  background: color-mix(in srgb, var(--main-color) 85%, var(--foreground));
+}
+.quiz-shell .q-call-play[data-slot]:focus-visible > svg {
+  box-shadow:
+    0 0 0 3px var(--q-stage),
+    0 0 0 5px var(--selection-border);
+}
+.q-call-credit:focus-visible {
+  outline: 2px solid var(--selection-border);
+  outline-offset: 4px;
+}
+.q-call-status,
+.q-call-credit {
+  color: var(--q-muted);
+  font-size: var(--type-caption);
+  line-height: var(--leading-relaxed);
+}
+.q-call-credit {
+  z-index: 2;
+  border: 0;
+  cursor: pointer;
+}
+.q-call-player[data-revealed='true'] {
+  padding-block: 0;
+  gap: var(--space-4);
+}
+.quiz-shell .q-call-player[data-revealed='true'] .q-call-play[data-slot] {
+  flex-direction: row;
+  gap: var(--space-8);
+  padding: var(--space-8) var(--space-12);
+}
+.q-call-player[data-revealed='true'] .q-call-play > svg {
+  padding: var(--space-8);
+}
 /* Shared card states: selection first, grading last so results always win. */
 .quiz-shell
   :is(
@@ -1268,4 +1343,6 @@
   flex-shrink: 0;
   font-size: var(--type-ui);
 }
-.q-round-settings [data-slot='select-trigger'] { width: 130px; }
+.q-round-settings [data-slot='select-trigger'] {
+  width: 130px;
+}
