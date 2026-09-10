@@ -3046,6 +3046,11 @@ button.color-dot:not(:disabled) {
 }
 .specimen-measurements.measurements > .bird-audio {
   padding-inline: var(--space-8);
+  /* The play control centres on the full cell height, not on the label/value rows. */
+  grid-template-rows: none;
+  align-content: center;
+  align-items: center;
+  align-self: stretch;
 }
 
 /* Sex-specific measurements: a ♂ and a ♀ row share one cell. The two rows use
