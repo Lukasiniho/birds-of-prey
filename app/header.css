@@ -193,7 +193,9 @@ html {
   background: var(--selected);
 }
 
-@media (min-width: 761px) and (max-width: 1190px) {
+/* Two rows only where one no longer fits: brand, search, navigation and
+   actions need about 785px side by side. */
+@media (min-width: 761px) and (max-width: 980px) {
   .app-shell { --site-header-height: 118px; }
   .topbar.site-header {
     grid-template-rows: 47px 47px;
