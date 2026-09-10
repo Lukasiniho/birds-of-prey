@@ -10,6 +10,7 @@ import { SegmentedControl } from '@/components/segmented-control';
 import { ArtImage } from '@/components/art-image';
 import { BirdAudio, BirdAudioCredit } from '@/components/bird-audio';
 import { birdHref, birdForPath } from '@/lib/bird-routes';
+import { SITE_NAME, SITE_URL } from '@/lib/site';
 import {
   Feather,
   CaretDown,
@@ -379,6 +380,7 @@ export default function RaptorApp({
   const [grouping, setGrouping] = useState<GroupMode>('genus');
   const [hintOpen, setHintOpen] = useState(false);
   const [infoTab, setInfoTab] = useState('profil');
+  const [path, setPath] = useState('');
   const bird = speciesById[selected];
   useEffect(() => {
     function syncFromUrl() {
@@ -388,23 +390,30 @@ export default function RaptorApp({
         speciesById[legacyId ?? ''] ??
         speciesById[initialBirdId];
       setSelected(current.id);
-      if (legacyId || window.location.pathname === '/')
+      // The legacy ?art= links get rewritten to their species path. The home
+      // page keeps its own URL: it is the site's canonical entry point, not a
+      // duplicate of whichever species it happens to open on.
+      if (legacyId) {
         window.history.replaceState(
           window.history.state,
           '',
           birdHref(current),
         );
+        setPath(birdHref(current));
+      } else setPath(window.location.pathname);
     }
     syncFromUrl();
     window.addEventListener('popstate', syncFromUrl);
     return () => window.removeEventListener('popstate', syncFromUrl);
   }, [initialBirdId]);
   useEffect(() => {
-    document.title = `${bird.name} · Greifvogelkompass`;
+    // Before the first sync the server-rendered title and canonical still fit.
+    if (!path || path === '/') return;
+    document.title = `${bird.name} · ${SITE_NAME}`;
     document
       .querySelector('link[rel="canonical"]')
-      ?.setAttribute('href', birdHref(bird));
-  }, [bird]);
+      ?.setAttribute('href', SITE_URL + birdHref(bird));
+  }, [bird, path]);
   const availablePlumages = plumagesFor(bird.id);
   const plumage = availablePlumages.some((p) => p.value === chosenPlumage)
     ? chosenPlumage
@@ -427,6 +436,7 @@ export default function RaptorApp({
     const href = birdHref(speciesById[id]);
     if (window.location.pathname !== href)
       window.history.pushState(window.history.state, '', href);
+    setPath(href);
   }
   function warmBird(
     id: string,
