@@ -1,6 +1,6 @@
-import { parseMeasurementRange } from './quiz-engine.ts';
+import type { MeasurementRange } from './birds.ts';
 
-type Measurements = { span: string; weight: string; unit: string };
+type Measurements = { span: MeasurementRange; weight: MeasurementRange };
 
 /** Fixed mass classes: wingspan never promotes a light, long-winged bird. */
 export const sizeBuckets = [
@@ -11,24 +11,14 @@ export const sizeBuckets = [
   { id: 'size-xl', title: 'Sehr groß', weightBelow: Infinity },
 ] as const;
 
-function representativeValue(text: string): number | undefined {
-  if (/\b(?:bis|über|unter|mehr|weniger)\b|[<>≤≥]/i.test(text)) return;
-  try {
-    const [min, max] = parseMeasurementRange(text);
-    if (min > 0) return (min + max) / 2;
-  } catch {
-    const single = text.trim().match(/^(?:ca\.?\s*)?(\d[\d.]*(?:,\d+)?)$/i);
-    if (single) {
-      const value = Number(single[1].replace(/\./g, '').replace(',', '.'));
-      if (value > 0) return value;
-    }
-  }
+function representativeValue([min, max]: MeasurementRange): number | undefined {
+  if (!(min > 0) || !(max >= min)) return;
+  return (min + max) / 2;
 }
 
 export function sizeBucketFor(bird: Measurements) {
-  const weight = representativeValue(bird.weight);
-  if (weight === undefined || !['g', 'kg'].includes(bird.unit)) return;
-  const grams = weight * (bird.unit === 'kg' ? 1000 : 1);
+  const grams = representativeValue(bird.weight);
+  if (grams === undefined) return;
   return sizeBuckets.find(bucket => grams < bucket.weightBelow)!;
 }
 

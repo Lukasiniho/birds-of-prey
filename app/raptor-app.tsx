@@ -9,7 +9,12 @@ import { useSlidingPill } from '@/lib/use-sliding-pill';
 import Image from 'next/image';
 import { BirdAudio, BirdAudioCredit } from '@/components/bird-audio';
 import { birdHref, birdForPath } from '@/lib/bird-routes';
-import { Feather, CaretDown } from '@/components/icons';
+import {
+  Feather,
+  CaretDown,
+  GenderFemale,
+  GenderMale,
+} from '@/components/icons';
 import { SiteHeader } from '@/components/site-header';
 import { Button } from '@/components/ui/button';
 import { Select, SelectValue, SelectItem } from '@/components/ui/select';
@@ -41,6 +46,7 @@ import {
   type Plumage,
   type GroupMode,
   type BirdSpecies,
+  type MeasurementRange,
 } from '@/lib/birds';
 import { landscapes } from '@/lib/habitats';
 import { speciesById, huntingTypes, statusLabels } from '@/lib/ecology';
@@ -59,50 +65,108 @@ import {
   getBirdMorphChoice,
   getBirdMorphAppearance,
 } from '@/lib/morphs';
-function Measurement({ value, unit }: { value: string; unit: string }) {
+/** Weight unit for one species: grams below 1 kg, otherwise kilograms. */
+function weightUnitFor(bird: { weight: MeasurementRange }): 'g' | 'kg' {
+  return bird.weight[1] >= 1000 ? 'kg' : 'g';
+}
+const gramFormat = new Intl.NumberFormat('de-DE', { maximumFractionDigits: 0 });
+const kiloFormat = new Intl.NumberFormat('de-DE', {
+  minimumFractionDigits: 1,
+  maximumFractionDigits: 1,
+});
+/** Renders a stored [min, max] as display text in the given unit (weights are stored in grams). */
+export function formatMeasurement(
+  [min, max]: MeasurementRange,
+  unit: 'cm' | 'g' | 'kg',
+) {
+  const format = (n: number) =>
+    unit === 'kg' ? kiloFormat.format(n / 1000) : gramFormat.format(n);
+  return min === max ? format(min) : `${format(min)}–${format(max)}`;
+}
+
+function MeasurementValue({ value, unit }: { value: string; unit: string }) {
   // transitions.dev number pop-in: every character is a .t-digit, the last two
   // ride in behind the rest. Keying the group by value replays it on change.
-  const displayValue = /\d\s*[–—-]\s*\d/.test(value)
-    ? value.replace(/^\s*ca\.?\s*/i, '')
-    : value;
-  const parts = displayValue.split(/(ca\.|bis|–)/g).filter(Boolean);
-  type Piece = { qualifier: string } | { ch: string };
-  const pieces: Piece[] = parts.flatMap((part): Piece[] =>
-    /^(ca\.|bis)$/.test(part)
-      ? [{ qualifier: part }]
-      : part.split('').map((ch) => ({ ch: ch === ' ' ? '\u00A0' : ch })),
-  );
-  const digitIndexes = pieces
-    .map((p, i) => ('ch' in p ? i : -1))
-    .filter((i) => i >= 0);
-  const stagger1 = digitIndexes[digitIndexes.length - 2];
-  const stagger2 = digitIndexes[digitIndexes.length - 1];
+  const pieces = value
+    .split('')
+    .map((ch) => ({ ch: ch === ' ' ? '\u00A0' : ch }));
+  const stagger1 = pieces.length - 2;
+  const stagger2 = pieces.length - 1;
   return (
-    <p>
+    <>
       <span className="t-digit-group is-animating" key={value}>
-        {pieces.map((p, i) =>
-          'qualifier' in p ? (
-            <span
-              className="measurement-secondary measurement-qualifier"
-              key={i}
-            >
-              {p.qualifier}
-            </span>
-          ) : (
-            <span
-              className={`t-digit${p.ch === '–' ? ' measurement-secondary measurement-dash' : ''}`}
-              data-stagger={
-                i === stagger1 ? '1' : i === stagger2 ? '2' : undefined
-              }
-              key={i}
-            >
-              {p.ch}
-            </span>
-          ),
-        )}
+        {pieces.map((p, i) => (
+          <span
+            className={`t-digit${p.ch === '–' ? ' measurement-secondary measurement-dash' : ''}`}
+            data-stagger={
+              i === stagger1 ? '1' : i === stagger2 ? '2' : undefined
+            }
+            key={i}
+          >
+            {p.ch}
+          </span>
+        ))}
       </span>
       <small>{unit}</small>
-    </p>
+    </>
+  );
+}
+
+/**
+ * One measurement cell. With sex-specific ranges it shows a ♂ and a ♀ row,
+ * otherwise the single combined range.
+ */
+function Measurement({
+  label,
+  range,
+  sexes,
+  unit,
+}: {
+  label: string;
+  range: MeasurementRange;
+  sexes?: { male?: MeasurementRange; female?: MeasurementRange };
+  unit: 'cm' | 'g' | 'kg';
+}) {
+  const split = sexes?.male && sexes?.female;
+  return (
+    <div className={split ? 'measurement-split' : undefined}>
+      <span>{label}</span>
+      {split ? (
+        <dl className="measurement-rows">
+          <div className="measurement-row">
+            <dt>
+              <GenderMale size={14} />
+              <span className="sr-only">Männchen</span>
+            </dt>
+            <dd>
+              <MeasurementValue
+                value={formatMeasurement(sexes.male!, unit)}
+                unit={unit}
+              />
+            </dd>
+          </div>
+          <div className="measurement-row">
+            <dt>
+              <GenderFemale size={14} />
+              <span className="sr-only">Weibchen</span>
+            </dt>
+            <dd>
+              <MeasurementValue
+                value={formatMeasurement(sexes.female!, unit)}
+                unit={unit}
+              />
+            </dd>
+          </div>
+        </dl>
+      ) : (
+        <p>
+          <MeasurementValue
+            value={formatMeasurement(range, unit)}
+            unit={unit}
+          />
+        </p>
+      )}
+    </div>
   );
 }
 /* transitions.dev texts reveal: the name and Latin name rise in with a
@@ -589,14 +653,32 @@ export default function RaptorApp({
               className="measurements specimen-measurements"
               aria-label="Größe und Gewicht"
             >
-              <div>
-                <span>Spannweite</span>
-                <Measurement value={bird.span} unit="cm" />
-              </div>
-              <div>
-                <span>Gewicht</span>
-                <Measurement value={bird.weight} unit={bird.unit} />
-              </div>
+              <Measurement
+                label="Spannweite"
+                range={bird.span}
+                sexes={
+                  bird.sexes?.male.span && bird.sexes.female.span
+                    ? {
+                        male: bird.sexes.male.span,
+                        female: bird.sexes.female.span,
+                      }
+                    : undefined
+                }
+                unit="cm"
+              />
+              <Measurement
+                label="Gewicht"
+                range={bird.weight}
+                sexes={
+                  bird.sexes
+                    ? {
+                        male: bird.sexes.male.weight,
+                        female: bird.sexes.female.weight,
+                      }
+                    : undefined
+                }
+                unit={weightUnitFor(bird)}
+              />
               <BirdAudio key={bird.id} birdId={bird.id} name={bird.name} />
             </section>
             <div className="image-credit">

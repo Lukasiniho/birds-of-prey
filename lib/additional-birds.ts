@@ -19,9 +19,8 @@ export const additionalBirds: AdditionalBird[] = [
     name: 'Weißkopfseeadler',
     latin: 'Haliaeetus leucocephalus',
     group: 'Adler',
-    span: 'ca. 205',
-    weight: 'ca. 3.000–6.300',
-    unit: 'g',
+    span: [180, 230],
+    weight: [3000, 6300],
     intro:
       'Der weiße Kopf und Schwanz leuchten über den Seen und Küsten Nordamerikas.',
     habitat:
@@ -74,9 +73,12 @@ export const additionalBirds: AdditionalBird[] = [
     name: 'Riesenseeadler',
     latin: 'Haliaeetus pelagicus',
     group: 'Adler',
-    span: 'ca. 200–260',
-    weight: 'ca. 5.000–9.000',
-    unit: 'g',
+    span: [195, 250],
+    weight: [4900, 9500],
+    sexes: {
+      male: { weight: [4900, 6800] },
+      female: { weight: [6200, 9500] },
+    },
     intro:
       'Ein gewaltiger Schnabel und weiße Schulterfelder kennzeichnen diesen Seeadler des Nordpazifiks.',
     habitat:
@@ -129,9 +131,8 @@ export const additionalBirds: AdditionalBird[] = [
     name: 'Gaukler',
     latin: 'Terathopius ecaudatus',
     group: 'Adler',
-    span: 'ca. 170–190',
-    weight: 'ca. 1.800–3.000',
-    unit: 'g',
+    span: [170, 190],
+    weight: [1800, 3000],
     intro:
       'Auf langen Schwingen schaukelt er über Afrikas Savannen; sein Schwanz ist auffallend kurz.',
     habitat:
@@ -186,9 +187,8 @@ export const additionalBirds: AdditionalBird[] = [
     name: 'Aguja',
     latin: 'Geranoaetus melanoleucus',
     group: 'Bussarde',
-    span: 'ca. 150–185',
-    weight: 'ca. 1.700–3.200',
-    unit: 'g',
+    span: [150, 200],
+    weight: [1670, 3170],
     intro:
       'Mit breiten Flügeln und dunklem Brustschild kreist dieser kräftige Bussard über Südamerikas offenen Landschaften.',
     habitat:
@@ -244,9 +244,12 @@ export const additionalBirds: AdditionalBird[] = [
     name: 'Uhu',
     latin: 'Bubo bubo',
     group: 'Eulen',
-    span: 'ca. 160–190',
-    weight: 'ca. 1.800–4.200',
-    unit: 'g',
+    span: [160, 190],
+    weight: [1500, 4200],
+    sexes: {
+      male: { weight: [1500, 2800] },
+      female: { weight: [1750, 4200] },
+    },
     intro:
       'Mit leisen Flügelschlägen zieht die große Eule in der Dämmerung über ihre Jagdflächen.',
     habitat:
@@ -302,9 +305,12 @@ export const additionalBirds: AdditionalBird[] = [
     name: 'Schwarzmilan',
     latin: 'Milvus migrans',
     group: 'Milane',
-    span: 'ca. 130–155',
-    weight: 'ca. 650–950',
-    unit: 'g',
+    span: [135, 150],
+    weight: [630, 950],
+    sexes: {
+      male: { weight: [630, 920] },
+      female: { weight: [740, 950] },
+    },
     intro:
       'Mit leicht gegabeltem Schwanz gleitet er über Flüsse, Seen und offene Landschaften.',
     habitat:
@@ -366,9 +372,12 @@ export const additionalBirds: AdditionalBird[] = [
     name: 'Rotmilan',
     latin: 'Milvus milvus',
     group: 'Milane',
-    span: 'ca. 155–180',
-    weight: 'ca. 800–1.200',
-    unit: 'g',
+    span: [155, 180],
+    weight: [800, 1300],
+    sexes: {
+      male: { weight: [800, 1200] },
+      female: { weight: [1000, 1300] },
+    },
     intro:
       'Sein langer, tief gegabelter Schwanz steuert ihn elegant über Wiesen und Felder.',
     habitat:
@@ -425,9 +434,12 @@ export const additionalBirds: AdditionalBird[] = [
     name: 'Gerfalke',
     latin: 'Falco rusticolus',
     group: 'Falken',
-    span: 'ca. 125',
-    weight: 'ca. 800–2.100',
-    unit: 'g',
+    span: [110, 135],
+    weight: [950, 2000],
+    sexes: {
+      male: { span: [110, 130], weight: [950, 1300] },
+      female: { span: [125, 135], weight: [1400, 2000] },
+    },
     intro:
       'Der größte Falke jagt über weite Tundren und arktische Küsten. Die Gefiederfarbe reicht von Weiß bis Dunkelgrau.',
     habitat:
@@ -481,9 +493,12 @@ export const additionalBirds: AdditionalBird[] = [
     name: 'Sakerfalke',
     latin: 'Falco cherrug',
     group: 'Falken',
-    span: 'ca. 105–130',
-    weight: 'ca. 750–1.300',
-    unit: 'g',
+    span: [110, 125],
+    weight: [700, 1300],
+    sexes: {
+      male: { weight: [700, 900] },
+      female: { weight: [970, 1300] },
+    },
     intro:
       'Ein kräftiger Falke der eurasischen Steppen, der am Boden und im freien Luftraum jagt.',
     habitat:
@@ -538,9 +553,12 @@ export const additionalBirds: AdditionalBird[] = [
     name: 'Lannerfalke',
     latin: 'Falco biarmicus',
     group: 'Falken',
-    span: 'ca. 95–105',
-    weight: 'ca. 500–900',
-    unit: 'g',
+    span: [100, 110],
+    weight: [500, 900],
+    sexes: {
+      male: { weight: [500, 600] },
+      female: { weight: [700, 900] },
+    },
     intro:
       'Mit langen Schwingen verfolgt dieser Falke Vögel über offenen Landschaften und felsigen Hängen.',
     habitat:
@@ -596,9 +614,12 @@ export const additionalBirds: AdditionalBird[] = [
     name: 'Baumfalke',
     latin: 'Falco subbuteo',
     group: 'Falken',
-    span: 'ca. 75–85',
-    weight: 'ca. 130–340',
-    unit: 'g',
+    span: [75, 85],
+    weight: [131, 340],
+    sexes: {
+      male: { weight: [131, 232] },
+      female: { weight: [141, 340] },
+    },
     intro:
       'Ein schlanker Flugjäger mit sichelförmigen Flügeln, der Libellen und kleine Vögel in der Luft erbeutet.',
     habitat:
@@ -653,9 +674,8 @@ export const additionalBirds: AdditionalBird[] = [
     name: 'Falklandkarakara',
     latin: 'Daptrius australis',
     group: 'Karakaras',
-    span: 'ca. 110–130',
-    weight: 'ca. 1.200–2.300',
-    unit: 'g',
+    span: [115, 125],
+    weight: [1180, 1700],
     intro:
       'Ein neugieriger Karakara der südlichsten Inseln Südamerikas, der an Küsten nach sehr unterschiedlicher Nahrung sucht.',
     habitat:
@@ -710,9 +730,8 @@ export const additionalBirds: AdditionalBird[] = [
     name: 'Schopfkarakara',
     latin: 'Caracara plancus',
     group: 'Karakaras',
-    span: 'ca. 120–125',
-    weight: 'ca. 1.100–1.300',
-    unit: 'g',
+    span: [120, 130],
+    weight: [900, 1600],
     intro:
       'Dieser langbeinige Verwandte der Falken ist ebenso geschickt zu Fuß wie im Flug und sucht vielseitig nach Nahrung.',
     habitat:
@@ -765,9 +784,8 @@ export const additionalBirds: AdditionalBird[] = [
     name: 'Königsbussard',
     latin: 'Buteo regalis',
     group: 'Bussarde',
-    span: 'ca. 135–140',
-    weight: 'ca. 980–2.100',
-    unit: 'g',
+    span: [120, 160],
+    weight: [977, 2074],
     intro:
       'Ein großer Bussard der nordamerikanischen Grasländer mit rostfarbenen Schultern und bis zu den Zehen befiederten Läufen.',
     habitat:
@@ -820,9 +838,12 @@ export const additionalBirds: AdditionalBird[] = [
     name: 'Harpyie',
     latin: 'Harpia harpyja',
     group: 'Adler',
-    span: 'bis 200',
-    weight: 'ca. 3.800–9.000',
-    unit: 'g',
+    span: [175, 225],
+    weight: [4000, 9000],
+    sexes: {
+      male: { weight: [4000, 6000] },
+      female: { weight: [6000, 9000] },
+    },
     intro:
       'Mit breiten Flügeln und mächtigen Fängen jagt sie zwischen den Baumkronen des Regenwaldes.',
     habitat:
@@ -876,9 +897,12 @@ export const additionalBirds: AdditionalBird[] = [
     name: 'Kampfadler',
     latin: 'Polemaetus bellicosus',
     group: 'Adler',
-    span: 'ca. 190–260',
-    weight: 'ca. 6.200',
-    unit: 'g',
+    span: [190, 240],
+    weight: [2200, 6500],
+    sexes: {
+      male: { weight: [2200, 3800] },
+      female: { weight: [4450, 6500] },
+    },
     intro:
       'Ein mächtiger Segelflieger über Afrikas Savannen, mit dunkler Brust und markant getupftem Bauch.',
     habitat:
@@ -932,9 +956,12 @@ export const additionalBirds: AdditionalBird[] = [
     name: 'Virginia-Uhu',
     latin: 'Bubo virginianus',
     group: 'Eulen',
-    span: 'ca. 100–145',
-    weight: 'ca. 900–2.500',
-    unit: 'g',
+    span: [100, 145],
+    weight: [680, 2503],
+    sexes: {
+      male: { weight: [680, 1588] },
+      female: { weight: [825, 2503] },
+    },
     intro:
       'Gelbe Augen und breite Federohren prägen diese kräftige Eule Amerikas.',
     habitat:
@@ -989,9 +1016,8 @@ export const additionalBirds: AdditionalBird[] = [
     name: 'Weißstorch',
     latin: 'Ciconia ciconia',
     group: 'Störche',
-    span: 'bis 220',
-    weight: 'ca. 3.000–4.500',
-    unit: 'g',
+    span: [155, 215],
+    weight: [2300, 4500],
     intro:
       'Mit gestrecktem Hals und weit ausgebreiteten Flügeln kreist er über Wiesen und Auen.',
     habitat:
@@ -1043,9 +1069,12 @@ export const additionalBirds: AdditionalBird[] = [
     name: 'Sperber',
     latin: 'Accipiter nisus',
     group: 'Habichte & Sperber',
-    span: 'ca. 60–80',
-    weight: 'ca. 130–350',
-    unit: 'g',
+    span: [60, 75],
+    weight: [110, 345],
+    sexes: {
+      male: { span: [60, 65], weight: [110, 195] },
+      female: { span: [65, 75], weight: [185, 345] },
+    },
     intro:
       'Kurze Flügel und ein langer Schwanz machen ihn zum wendigen Jäger kleiner Vögel.',
     habitat:

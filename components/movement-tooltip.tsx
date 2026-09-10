@@ -71,7 +71,7 @@ export function MovementTooltip({ fact }: { fact: SpeciesFact }) {
           ))}
         </ol>
         <div
-          className="mb-3 flex justify-between gap-4 text-xs text-muted-foreground"
+          className="mb-3 flex justify-between gap-4 text-muted-foreground"
           aria-hidden="true"
         >
           <span>Standvogel</span>

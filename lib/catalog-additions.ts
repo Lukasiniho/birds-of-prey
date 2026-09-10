@@ -15,9 +15,12 @@ export const catalogAdditions: AdditionalBird[] = [
     group: 'Bussarde',
     genusLabel: 'Wüstenbussarde',
     tile: null,
-    span: 'ca. 105–120',
-    weight: 'ca. 515–880',
-    unit: 'g',
+    span: [105, 120],
+    weight: [546, 1633],
+    sexes: {
+      male: { weight: [546, 850] },
+      female: { weight: [766, 1633] },
+    },
     intro:
       'Ein ungewöhnlich geselliger Greifvogel: Wüstenbussarde jagen gemeinsam und unterstützen sich bei der Jungenaufzucht.',
     habitat:
@@ -67,9 +70,12 @@ export const catalogAdditions: AdditionalBird[] = [
     group: 'Adler',
     genusLabel: 'Echte Adler',
     tile: null,
-    span: 'ca. 180–215',
-    weight: 'ca. 2.450–4.500',
-    unit: 'g',
+    span: [180, 220],
+    weight: [2450, 4550],
+    sexes: {
+      male: { span: [180, 200], weight: [2450, 2750] },
+      female: { span: [200, 220], weight: [3150, 4550] },
+    },
     intro:
       'Ein großer, dunkler Adler der Steppen und Auwälder, dessen goldgelber Nacken und weiße Schulterflecken ihn im Alterskleid unverwechselbar machen.',
     habitat:
@@ -128,9 +134,12 @@ export const catalogAdditions: AdditionalBird[] = [
     group: 'Adler',
     genusLabel: 'Echte Adler',
     tile: null,
-    span: 'ca. 165–215',
-    weight: 'ca. 2.000–4.900',
-    unit: 'g',
+    span: [170, 200],
+    weight: [2000, 3900],
+    sexes: {
+      male: { weight: [2000, 3000] },
+      female: { weight: [2300, 3900] },
+    },
     intro:
       'Ein einfarbig brauner Adler der eurasischen Steppen, der im Winter in riesigen Zügen bis nach Afrika und Indien wandert.',
     habitat:
@@ -189,9 +198,8 @@ export const catalogAdditions: AdditionalBird[] = [
     group: 'Sekretäre',
     genusLabel: 'Sekretäre',
     tile: null,
-    span: 'ca. 190–215',
-    weight: 'ca. 2.300–4.300',
-    unit: 'g',
+    span: [190, 215],
+    weight: [2300, 4300],
     intro:
       'Ein Greifvogel auf Stelzen: Der Sekretär durchstreift Afrikas Savannen zu Fuß und erlegt Schlangen mit gezielten Tritten.',
     habitat:
@@ -249,9 +257,8 @@ export const catalogAdditions: AdditionalBird[] = [
     group: 'Geier',
     genusLabel: 'Neuweltgeier',
     tile: null,
-    span: 'ca. 270–320',
-    weight: 'ca. 8.000–15.000',
-    unit: 'g',
+    span: [270, 320],
+    weight: [8000, 15000],
     intro:
       'Der größte flugfähige Greifvogel der Welt: Mit über drei Metern Spannweite segelt der Andenkondor stundenlang ohne Flügelschlag.',
     habitat:
@@ -308,9 +315,12 @@ export const catalogAdditions: AdditionalBird[] = [
     group: 'Bussarde',
     genusLabel: 'Wespenbussarde',
     tile: null,
-    span: 'ca. 115–135',
-    weight: 'ca. 600–1.100',
-    unit: 'g',
+    span: [120, 145],
+    weight: [515, 1050],
+    sexes: {
+      male: { weight: [515, 945] },
+      female: { weight: [530, 1050] },
+    },
     intro:
       'Ein Sommergast unserer Wälder, der mit dem Mäusebussard leicht zu verwechseln ist und sich auf die Brut von Wespen spezialisiert hat.',
     habitat:
@@ -366,9 +376,8 @@ export const catalogAdditions: AdditionalBird[] = [
     group: 'Geier',
     genusLabel: 'Bartgeier',
     tile: null,
-    span: 'ca. 235–285',
-    weight: 'ca. 4.500–7.000',
-    unit: 'g',
+    span: [250, 290],
+    weight: [4500, 7150],
     intro:
       'Der Knochenbrecher der Alpen: Der Bartgeier lebt fast ausschließlich von Knochen und wurde nach seiner Ausrottung erfolgreich wieder angesiedelt.',
     habitat:
@@ -431,9 +440,12 @@ export const catalogAdditions: AdditionalBird[] = [
     group: 'Adler',
     genusLabel: 'Kronenadler',
     tile: null,
-    span: 'ca. 150–180',
-    weight: 'ca. 2.700–4.700',
-    unit: 'g',
+    span: [150, 180],
+    weight: [2550, 4700],
+    sexes: {
+      male: { weight: [2550, 4120] },
+      female: { weight: [3200, 4700] },
+    },
     intro:
       'Ein kräftiger Waldadler Afrikas, der mit kurzen breiten Flügeln und langem Steuerschwanz zwischen Baumkronen manövriert.',
     habitat:

@@ -55,7 +55,7 @@ export function ConservationTooltip({
               key={level}
               aria-current={level === code ? 'step' : undefined}
               aria-label={`${level}: ${label}${level === code ? ' – aktuelle Einstufung' : ''}`}
-              className="flex aspect-square items-center justify-center rounded-full border text-xs font-semibold"
+              className="flex aspect-square items-center justify-center rounded-full border font-semibold"
               style={
                 level === code
                   ? {
@@ -76,7 +76,7 @@ export function ConservationTooltip({
           ))}
         </ol>
         <div
-          className="mb-3 flex justify-between gap-4 text-xs text-muted-foreground"
+          className="mb-3 flex justify-between gap-4 text-muted-foreground"
           aria-hidden="true"
         >
           <span>Nicht gefährdet</span>

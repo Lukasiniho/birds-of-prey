@@ -68,8 +68,27 @@ void test('all images exist and eye and leg colours follow the chosen age', asyn
   const { existsSync } = await import('node:fs');
   const { birdImage, bodyColorsFor, hunts } = await import('../lib/birds.ts');
   for (const bird of birds) {
-    assert.equal(bird.unit, 'g');
-    assert.match(bird.weight, /(ca\.|bis)/);
+    // Weights are stored in grams as [min, max]; sex ranges lie inside the species range.
+    assert(bird.weight[0] > 0 && bird.weight[1] >= bird.weight[0], bird.id);
+    assert(bird.span[0] > 0 && bird.span[1] >= bird.span[0], bird.id);
+    if (bird.sexes) {
+      for (const sex of [bird.sexes.male, bird.sexes.female]) {
+        assert(
+          sex.weight[0] >= bird.weight[0] && sex.weight[1] <= bird.weight[1],
+          bird.id,
+        );
+        if (sex.span)
+          assert(
+            sex.span[0] >= bird.span[0] && sex.span[1] <= bird.span[1],
+            bird.id,
+          );
+      }
+      assert(
+        bird.sexes.male.weight[1] <= bird.sexes.female.weight[1] ||
+          bird.id === 'andenkondor',
+        bird.id,
+      );
+    }
     for (const { value: mode } of plumagesFor(bird.id)) {
       assert(
         existsSync(
@@ -141,8 +160,12 @@ void test('all species have reviewed diets, valid prey and illustrated habitats'
           new URL('../public' + huntingImages[bird.id], import.meta.url),
         ),
       );
-    for (const n of bird.span.match(/\d+/g) ?? [])
-      assert.equal(Number(n) % 5, 0);
+    for (const n of [
+      ...bird.span,
+      ...(bird.sexes?.male.span ?? []),
+      ...(bird.sexes?.female.span ?? []),
+    ])
+      assert.equal(n % 5, 0, bird.id);
   }
   assert.deepEqual(diets.fischadler.examples, [{ key: 'fisch' }]);
   assert(diets.steinadler.examples.some((p) => p.key === 'hase'));

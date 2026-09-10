@@ -401,10 +401,9 @@ void test('successive rounds avoid repeating the same species question or card c
   }
 });
 
-void test('incomplete ranges are excluded instead of inventing biological limits', () => {
+void test('every quiz bird carries proper [min, max] ranges in cm and grams', () => {
   assert(Object.keys(quizBirds).length > 10);
-  assert(!quizBirds.weissstorch); // Only an upper wingspan bound is stored.
-  assert(!quizBirds.weisskopfseeadler); // Single approximate wingspan, no range.
+  assert(quizBirds.weisskopfseeadler); // Now stored as a real wingspan range.
   for (const bird of Object.values(quizBirds)) {
     assert(bird.span[0] > 0 && bird.span[1] >= bird.span[0]);
     assert(bird.weight[0] > 0 && bird.weight[1] >= bird.weight[0]);

@@ -23,6 +23,8 @@ import { EggIcon } from '@phosphor-icons/react/dist/ssr/Egg';
 import { EyeIcon } from '@phosphor-icons/react/dist/ssr/Eye';
 import { FeatherIcon } from '@phosphor-icons/react/dist/ssr/Feather';
 import { ForkKnifeIcon } from '@phosphor-icons/react/dist/ssr/ForkKnife';
+import { GenderFemaleIcon } from '@phosphor-icons/react/dist/ssr/GenderFemale';
+import { GenderMaleIcon } from '@phosphor-icons/react/dist/ssr/GenderMale';
 import { GlobeHemisphereWestIcon } from '@phosphor-icons/react/dist/ssr/GlobeHemisphereWest';
 import { HourglassMediumIcon } from '@phosphor-icons/react/dist/ssr/HourglassMedium';
 import { InfoIcon } from '@phosphor-icons/react/dist/ssr/Info';
@@ -92,6 +94,8 @@ export const Egg = /*#__PURE__*/ phosphorIcon(EggIcon, 'duotone');
 export const Eye = /*#__PURE__*/ phosphorIcon(EyeIcon, 'duotone');
 export const Feather = /*#__PURE__*/ phosphorIcon(FeatherIcon, 'duotone');
 export const ForkKnife = /*#__PURE__*/ phosphorIcon(ForkKnifeIcon, 'duotone');
+export const GenderFemale = /*#__PURE__*/ phosphorIcon(GenderFemaleIcon);
+export const GenderMale = /*#__PURE__*/ phosphorIcon(GenderMaleIcon);
 export const GlobeHemisphereWest = /*#__PURE__*/ phosphorIcon(
   GlobeHemisphereWestIcon,
   'duotone',
