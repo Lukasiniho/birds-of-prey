@@ -122,27 +122,25 @@ function SexSwitch({
   value: Sex;
   onChange: (sex: Sex) => void;
 }) {
+  // One control: clicking anywhere on the pill flips the sex.
+  const male = value === 'male';
   return (
-    <span className="sex-switch" role="group" aria-label="Geschlecht">
-      <button
-        type="button"
-        className="sex-switch-option"
-        aria-pressed={value === 'female'}
-        aria-label="Weibchen"
-        onClick={() => onChange('female')}
-      >
+    <button
+      type="button"
+      className="sex-switch"
+      role="switch"
+      aria-checked={male}
+      aria-label={male ? 'Männchen angezeigt' : 'Weibchen angezeigt'}
+      title={male ? 'Zu Weibchen wechseln' : 'Zu Männchen wechseln'}
+      onClick={() => onChange(male ? 'female' : 'male')}
+    >
+      <span className="sex-switch-option" data-active={!male}>
         <GenderFemale size={12} />
-      </button>
-      <button
-        type="button"
-        className="sex-switch-option"
-        aria-pressed={value === 'male'}
-        aria-label="Männchen"
-        onClick={() => onChange('male')}
-      >
+      </span>
+      <span className="sex-switch-option" data-active={male}>
         <GenderMale size={12} />
-      </button>
-    </span>
+      </span>
+    </button>
   );
 }
 

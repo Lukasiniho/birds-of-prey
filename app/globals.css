@@ -3058,20 +3058,26 @@ button.color-dot:not(:disabled) {
 }
 
 /* Dimorphic species: a mini ♀/♂ switch beside the weight label picks which
-   sex's ranges the box shows. Same tokens as the pill switches, icon-sized. */
+   sex's ranges the box shows. Same bar, pill, border and shadow as the pill
+   switches (.specimen-controls .t-tabs), only icon-sized. */
 .specimen-measurements.measurements > div > span {
   display: inline-flex;
   align-items: center;
   justify-content: center;
   gap: var(--space-8);
 }
+/* The whole pill is one switch button; the icons only show which side is on. */
 .sex-switch {
   display: inline-flex;
   align-items: center;
   gap: 2px;
   padding: 2px;
-  border-radius: var(--radius-pill);
+  border-radius: var(--radius-tab-pill);
+  border: var(--border-structure) solid
+    color-mix(in srgb, var(--foreground) 9%, transparent);
   background: var(--tabs-bar-bg);
+  cursor: pointer;
+  font: inherit;
 }
 .sex-switch-option {
   display: inline-flex;
@@ -3079,24 +3085,21 @@ button.color-dot:not(:disabled) {
   justify-content: center;
   width: 18px;
   height: 16px;
-  padding: 0;
-  border: 0;
-  border-radius: var(--radius-pill);
+  border-radius: var(--radius-tab-pill);
   background: transparent;
   color: var(--tabs-text-muted);
-  cursor: pointer;
   transition:
     color var(--tabs-dur) var(--tabs-ease),
     background var(--tabs-dur) var(--tabs-ease);
 }
-.sex-switch-option[aria-pressed='true'] {
+.sex-switch-option[data-active='true'] {
   color: var(--tabs-text-active);
   background: var(--tabs-pill-bg);
   box-shadow: var(--shadow-active-pill);
 }
-.sex-switch-option:focus-visible {
-  outline: 1px solid var(--ring);
-  outline-offset: 1px;
+.sex-switch:focus-visible {
+  outline: 2px solid var(--ring);
+  outline-offset: 2px;
 }
 .sex-switch-option svg {
   color: currentColor;
