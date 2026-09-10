@@ -1,0 +1,111 @@
+/* The styleguide only lays out specimens; every value it shows comes from a
+ * shared role. Nothing here may define a colour, size or radius of its own. */
+.sg-main {
+  max-width: 1360px;
+  margin-inline: auto;
+}
+.sg-heading {
+  margin-bottom: var(--section-gap);
+}
+.sg-heading p {
+  margin-top: var(--space-12);
+  font-size: var(--type-body);
+  line-height: var(--leading-normal);
+  color: var(--muted-foreground);
+}
+.sg-section {
+  margin-bottom: var(--space-40);
+}
+.sg-section > h2 {
+  margin-bottom: var(--space-8);
+}
+.sg-section > p {
+  margin-bottom: var(--space-20);
+  font-size: var(--type-body);
+  line-height: var(--leading-relaxed);
+  color: var(--muted-foreground);
+  max-width: 85ch;
+}
+.sg-grid {
+  display: grid;
+  grid-template-columns: repeat(auto-fill, minmax(210px, 1fr));
+  gap: var(--space-16);
+}
+.sg-swatch {
+  display: grid;
+  gap: var(--space-8);
+  padding: var(--space-12);
+  border: var(--border-structure) solid var(--border);
+  border-radius: var(--radius-card);
+  background: var(--surface);
+}
+.sg-chip {
+  height: 46px;
+  border-radius: var(--radius-small);
+  border: var(--border-structure) solid var(--line-tint);
+}
+.sg-name {
+  font-size: var(--type-ui);
+  font-weight: var(--weight-medium);
+}
+.sg-note {
+  font-size: var(--type-caption);
+  line-height: var(--leading-normal);
+  color: var(--muted-foreground);
+}
+.sg-rows {
+  display: grid;
+  gap: var(--space-16);
+}
+.sg-row {
+  display: grid;
+  grid-template-columns: 220px minmax(0, 1fr);
+  align-items: baseline;
+  gap: var(--space-16);
+  padding-bottom: var(--space-16);
+  border-bottom: var(--border-structure) solid var(--border);
+}
+.sg-row:last-child {
+  border-bottom: 0;
+  padding-bottom: 0;
+}
+.sg-row > dt {
+  font-size: var(--type-caption);
+  color: var(--muted-foreground);
+  font-family: var(--font-stack-body);
+}
+.sg-row > dd {
+  margin: 0;
+  min-width: 0;
+}
+.sg-specimens {
+  display: flex;
+  flex-wrap: wrap;
+  align-items: center;
+  gap: var(--space-16);
+}
+.sg-box {
+  display: grid;
+  place-items: center;
+  width: 96px;
+  height: 64px;
+  border: var(--border-structure) solid var(--border);
+  background: var(--surface);
+  font-size: var(--type-caption);
+  color: var(--muted-foreground);
+}
+.sg-surface {
+  display: grid;
+  place-items: center;
+  min-height: 84px;
+  padding: var(--space-16);
+  border-radius: var(--radius-card);
+  font-size: var(--type-caption);
+  color: var(--muted-foreground);
+}
+@media (max-width: 760px) {
+  .sg-row {
+    grid-template-columns: minmax(0, 1fr);
+    gap: var(--space-4);
+  }
+}

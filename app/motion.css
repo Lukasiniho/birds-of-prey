@@ -1,0 +1,288 @@
+/* transitions.dev snippets on the app tokens: accordion, text reveal, number pop-in,
+   icon swap and menu dropdown. Tokens live in transitions-root.css. */
+
+/* transitions.dev — 21 Accordion expand (verbatim snippet). */
+/* grid-template-rows 0fr → 1fr gives a clean height animation
+   with no JS measurement; the inner element clips overflow. */
+.t-acc-panel {
+  display: grid;
+  grid-template-rows: 0fr;
+  transition: grid-template-rows var(--acc-collapse) var(--acc-ease);
+}
+.t-acc[data-open='true'] .t-acc-panel {
+  grid-template-rows: 1fr;
+  transition: grid-template-rows var(--acc-expand) var(--acc-ease);
+}
+.t-acc-panel-inner {
+  overflow: hidden;
+  opacity: 0;
+  filter: blur(2px);
+  transition:
+    opacity var(--acc-collapse) var(--acc-ease),
+    filter var(--acc-collapse) var(--acc-ease);
+}
+.t-acc[data-open='true'] .t-acc-panel-inner {
+  opacity: 1;
+  filter: blur(0);
+  transition:
+    opacity var(--acc-expand) var(--acc-ease),
+    filter var(--acc-expand) var(--acc-ease);
+}
+/* Flip the chevron vertically to turn the "v" into a "^".
+   scaleY(-1) about the centre passes through a flat line at
+   the midpoint (same look as a `d:` path morph) but animates
+   in every browser, unlike CSS `d:` morphing (Chromium only).
+   The Phosphor caret remains centered throughout the flip. */
+.t-acc-chevron {
+  display: inline-flex;
+  transform: scaleY(1);
+  transform-origin: center;
+  transition: transform var(--acc-chevron) var(--acc-ease);
+}
+.t-acc[data-open='true'] .t-acc-chevron {
+  transform: scaleY(-1);
+}
+
+@media (prefers-reduced-motion: reduce) {
+  .t-acc-panel,
+  .t-acc-panel-inner,
+  .t-acc-chevron {
+    transition: none !important;
+  }
+}
+
+/* The colour-form hint wears the accordion. */
+.info-panel .morph-context.t-acc {
+  margin-top: var(--space-12);
+  font-size: var(--type-caption);
+  line-height: var(--leading-normal);
+  color: var(--muted-foreground);
+}
+.info-panel .t-acc-head {
+  appearance: none;
+  display: flex;
+  align-items: center;
+  gap: var(--space-8);
+  min-height: 20px;
+  margin: 0;
+  padding: 0;
+  border: 0;
+  background: transparent;
+  color: inherit;
+  font: inherit;
+  font-weight: var(--weight-medium);
+  line-height: var(--leading-normal);
+  text-align: left;
+  cursor: pointer;
+  user-select: none;
+  transition: color var(--duration-quick) var(--ease-out);
+}
+.info-panel .t-acc-head:hover {
+  color: var(--foreground);
+}
+.info-panel .t-acc-head:focus-visible {
+  border-radius: var(--radius-small);
+}
+.info-panel .t-acc-chevron svg {
+  width: 13px;
+  height: 13px;
+}
+.info-panel .t-acc-panel-inner > p {
+  margin-top: var(--space-8);
+  font-size: var(--type-caption);
+}
+
+/* transitions.dev — 18 Texts reveal (verbatim snippet). */
+/* Lines start translated down + blurred + invisible; .is-shown
+   on the parent flips them to their resting state. The second
+   line's transition-delay holds it back by --stagger-stagger
+   so the eye lands on the headline first. */
+.t-stagger-line {
+  display: block;
+  opacity: 0;
+  transform: translateY(var(--stagger-distance));
+  filter: blur(var(--stagger-blur));
+  transition:
+    opacity var(--stagger-dur) var(--stagger-ease),
+    transform var(--stagger-dur) var(--stagger-ease),
+    filter var(--stagger-dur) var(--stagger-ease);
+  will-change: transform, opacity, filter;
+}
+.t-stagger-line--2 {
+  transition-delay: var(--stagger-stagger);
+}
+
+.t-stagger.is-shown .t-stagger-line {
+  opacity: 1;
+  transform: translateY(0);
+  filter: blur(0);
+}
+/* Exit decouples from the stagger: same fade for every line,
+   no Y return, no blur — so the disappearance reads as a
+   single quiet fade instead of a reverse reveal. */
+.t-stagger.is-hiding .t-stagger-line {
+  opacity: 0;
+  transform: translateY(0);
+  filter: blur(0);
+  transition:
+    opacity var(--duration-quick) var(--ease-out),
+    transform 0s var(--ease-linear),
+    filter 0s var(--ease-linear);
+  transition-delay: 0s;
+}
+
+@media (prefers-reduced-motion: reduce) {
+  .t-stagger-line {
+    transition: none !important;
+  }
+}
+
+/* transitions.dev — 02 Number pop-in (verbatim snippet). */
+@keyframes t-digit-pop-in {
+  0% {
+    transform: translate(
+      calc(var(--digit-distance) * var(--digit-dir-x)),
+      calc(var(--digit-distance) * var(--digit-dir-y))
+    );
+    opacity: 0;
+    filter: blur(var(--digit-blur));
+  }
+  100% {
+    transform: translate(0, 0);
+    opacity: 1;
+    filter: blur(0);
+  }
+}
+
+.t-digit-group {
+  display: inline-flex;
+  align-items: baseline;
+}
+.t-digit {
+  display: inline-block;
+  will-change: transform, opacity, filter;
+}
+.t-digit-group.is-animating .t-digit {
+  animation: t-digit-pop-in var(--digit-dur) var(--digit-ease) both;
+}
+.t-digit-group.is-animating .t-digit[data-stagger='1'] {
+  animation-delay: var(--digit-stagger);
+}
+.t-digit-group.is-animating .t-digit[data-stagger='2'] {
+  animation-delay: calc(var(--digit-stagger) * 2);
+}
+
+@media (prefers-reduced-motion: reduce) {
+  .t-digit-group .t-digit {
+    animation: none !important;
+  }
+}
+
+/* transitions.dev — 09 Icon swap (verbatim snippet). */
+.t-icon-swap {
+  position: relative;
+  display: inline-grid;
+}
+.t-icon-swap .t-icon {
+  grid-area: 1 / 1;
+  transition:
+    opacity var(--icon-swap-dur) var(--icon-swap-ease),
+    filter var(--icon-swap-dur) var(--icon-swap-ease),
+    transform var(--icon-swap-dur) var(--icon-swap-ease);
+  will-change: opacity, filter, transform;
+}
+.t-icon-swap[data-state='a'] .t-icon[data-icon='a'],
+.t-icon-swap[data-state='b'] .t-icon[data-icon='b'] {
+  opacity: 1;
+  filter: blur(0);
+  transform: scale(1);
+}
+.t-icon-swap[data-state='a'] .t-icon[data-icon='b'],
+.t-icon-swap[data-state='b'] .t-icon[data-icon='a'] {
+  opacity: 0;
+  filter: blur(var(--icon-swap-blur));
+  transform: scale(var(--icon-swap-start-scale));
+}
+
+@media (prefers-reduced-motion: reduce) {
+  .t-icon-swap .t-icon {
+    transition: none !important;
+  }
+}
+
+/* The theme toggle's two icons share one grid cell; measurement rows stay inline. */
+.theme-toggle .t-icon {
+  display: inline-flex;
+}
+.measurements .t-digit-group {
+  white-space: pre;
+}
+
+/* transitions.dev — 05 Menu dropdown (verbatim snippet). */
+.t-dropdown {
+  transform-origin: top left;
+  transform: scale(var(--dropdown-pre-scale));
+  opacity: 0;
+  pointer-events: none;
+  transition:
+    transform var(--dropdown-open-dur) var(--dropdown-ease),
+    opacity var(--dropdown-open-dur) var(--dropdown-ease);
+  will-change: transform, opacity;
+}
+.t-dropdown[data-origin='top-right'] {
+  transform-origin: top right;
+}
+.t-dropdown[data-origin='top-center'] {
+  transform-origin: top center;
+}
+.t-dropdown[data-origin='bottom-left'] {
+  transform-origin: bottom left;
+}
+.t-dropdown[data-origin='bottom-center'] {
+  transform-origin: bottom center;
+}
+.t-dropdown[data-origin='bottom-right'] {
+  transform-origin: bottom right;
+}
+
+.t-dropdown.is-open {
+  transform: scale(1);
+  opacity: 1;
+  pointer-events: auto;
+}
+.t-dropdown.is-closing {
+  transform: scale(var(--dropdown-closing-scale));
+  opacity: 0;
+  pointer-events: none;
+  transition:
+    transform var(--dropdown-close-dur) var(--dropdown-ease),
+    opacity var(--dropdown-close-dur) var(--dropdown-ease);
+}
+
+@media (prefers-reduced-motion: reduce) {
+  .t-dropdown {
+    transition: none !important;
+  }
+}
+
+/* Base UI drives the select popup with data-starting-style on its first
+   frame and data-ending-style while it closes; those map onto the snippet's
+   .is-open and .is-closing states. Its own zoom keyframes are switched off. */
+.app-select-options.t-dropdown[data-slot] {
+  animation: none !important;
+}
+.app-select-options.t-dropdown[data-open]:not([data-starting-style]):not(
+    [data-ending-style]
+  ) {
+  transform: scale(1);
+  opacity: 1;
+  pointer-events: auto;
+}
+.app-select-options.t-dropdown[data-ending-style] {
+  transform: scale(var(--dropdown-closing-scale));
+  opacity: 0;
+  pointer-events: none;
+  transition:
+    transform var(--dropdown-close-dur) var(--dropdown-ease),
+    opacity var(--dropdown-close-dur) var(--dropdown-ease);
+}

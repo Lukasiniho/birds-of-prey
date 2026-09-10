@@ -1,120 +1,102 @@
 # Typografie
 
-Das Projekt verwendet Tailwind CSS 4, shadcn/Base UI und eigene Seiten-Stylesheets.
-Die gemeinsame Größen- und Zeilenhöhenskala liegt in `app/typography.css` und wird
-einmal über `app/globals.css` geladen. Inter ist die Schrift für Fließtext und
-Bedienelemente; Cormorant Garamond bleibt die Schrift für redaktionelle Titel.
+Stand: 10. September 2026. Dieses Dokument beschreibt den aktuellen Zustand,
+keine Änderungshistorie. Die Skala liegt in `app/typography.css` und wird einmal
+über `app/globals.css` geladen. Inter ist die Schrift für Fließtext und
+Bedienelemente, Source Serif 4 die für redaktionelle Titel. Ergänzend gilt
+[docs/design-system.md](design-system.md) für Farben, Abstände und Bewegung.
 
 ## Textrollen
 
 Pixelangaben gelten bei einer Browser-Basisgröße von 16 px. Im Code stehen
 relative rem-Werte; die Browser-Schriftgröße bleibt frei wählbar.
 
-| Rolle                                | CSS-Variable            | Größe    |
-| ------------------------------------ | ----------------------- | -------- |
-| Quellen und Bildnachweise            | `--type-caption`        | 12 px    |
-| Tooltips (alle Varianten, inkl. Inhalt) | `--type-tooltip`     | 14 px    |
-| Tags                                 | `--type-tag`            | 14 px    |
-| Filter und sonstige UI-Texte         | `--type-ui`             | 14 px    |
-| Buttons und Hauptnavigation          | `--type-button`         | 16 px    |
-| Unterstrich-Tabs                     | `--type-tab`            | 16 px    |
-| Fließtext und Aufgabenbeschreibungen | `--type-body`           | 14 px    |
-| Wissenschaftlicher Artname           | `--type-scientific`     | 16 px    |
-| Einleitung                           | `--type-lead`           | 18 px    |
-| Deutscher Artname                    | `--type-species-common` | 18 px    |
-| Überschrift im Detailbereich         | `--type-detail-heading` | 18 px    |
-| Karten- und Listentitel              | `--type-card-title`     | 20–24 px |
-| Weitere Überschrift                  | `--type-heading`        | 28 px    |
-| Große Abschnittsüberschrift          | `--type-section-title`  | 32–40 px |
-| Seitentitel                          | `--type-page-title`     | 32–40 px |
+| Rolle                                   | CSS-Variable               | Größe    |
+| --------------------------------------- | -------------------------- | -------- |
+| Quellen und Bildnachweise               | `--type-caption`           | 12 px    |
+| Filter und sonstige UI-Texte            | `--type-ui`                | 14 px    |
+| Fließtext und Aufgabenbeschreibungen    | `--type-body`              | 14 px    |
+| Tags                                    | `--type-tag`               | 14 px    |
+| Tooltips (alle Varianten, inkl. Inhalt) | `--type-tooltip`           | 14 px    |
+| Wissenschaftlicher Artname              | `--type-scientific`        | 16 px    |
+| Buttons und Hauptnavigation             | `--type-button`            | 16 px    |
+| Unterstrich-Tabs                        | `--type-tab`               | 16 px    |
+| Quiz-Rückmeldung                        | `--type-feedback-title`    | 16 px    |
+| Kompakte Artnamen (Liste, Falknerei)    | `--type-label-heading`     | 18 px    |
+| Einleitung                              | `--type-lead`              | 18 px    |
+| Wissenschaftlicher Artname im Quiz      | `--type-scientific-quiz`   | 18 px    |
+| Label-Titel                             | `--type-label-title`       | 20 px    |
+| Marke in der Kopfzeile                  | `--type-brand`             | 20 px    |
+| Karten- und Listentitel                 | `--type-card-title`        | 20–24 px |
+| Detailüberschrift rechts                | `--type-detail-heading`    | 24 px    |
+| Deutscher Artname in Quiz und Wissen    | `--type-species-quiz`, `--type-species-knowledge` | 24 px |
+| Weitere Überschrift                     | `--type-heading`           | 28 px    |
+| Quiz-Fragentitel                        | `--type-quiz-question`     | 32 px    |
+| Seitentitel                             | `--type-page-title`        | 32–40 px |
+| Große Abschnittsüberschrift             | `--type-section-title`     | 32–40 px |
+| Atlas-Titel                             | `--type-hero`              | 32–48 px |
+| Messwert                                | `--type-metric`            | 32 px    |
+| Messwert, container-skaliert            | `--type-metric-compact`    | 18–32 px |
+| Messwert, ♀/♂ geteilt                   | `--type-metric-split`      | 16–24 px |
+
+Zeilenhöhen ebenfalls über Tokens: `--leading-display` (1,1),
+`--leading-heading` (1,2), `--leading-compact` (1,4), `--leading-normal` (1,5)
+und `--leading-relaxed` (1,7).
+
+## Schriftstapel, Gewichte und Laufweite
+
+Fallback-Schriften stehen ausschließlich in `--font-stack-body` (Inter) und
+`--font-stack-display` (Source Serif 4). Gewichte kommen aus
+`--weight-regular`, `--weight-medium`, `--weight-semibold` und `--weight-bold`
+(400/500/600/700). Laufweiten kommen aus `--tracking-tight` (Display-Größen),
+`--tracking-normal` (Fließtext und UI) und `--tracking-caps` (Versal-Labels).
+Keine rohen Zahlen im Seiten-CSS.
 
 ## Artnamen als Komponente
 
 Alle eigenständigen Namenspaare verwenden `SpeciesName` aus
-`components/species-name.tsx`. Einzelne Namen verwenden `SpeciesCommonName`
-oder `SpeciesScientificName`. Semantische Elemente sind über `commonAs`,
-`scientificAs` beziehungsweise `as` wählbar; die expliziten Varianten `standard`, `atlas-title`, `sidebar` und `quiz` bewahren die
-gewünschte Hierarchie.
-Die Atlas-Titelanimation nutzt dieselbe Komponente mit `animated`.
+`components/species-name.tsx`; einzelne Namen `SpeciesCommonName` oder
+`SpeciesScientificName`. Semantische Elemente sind über `commonAs`,
+`scientificAs` beziehungsweise `as` wählbar. Die Varianten bewahren die
+Hierarchie:
 
-Alle kompakten deutschen Artnamen und rechten Abschnittstitel teilen
-`--type-label-heading` (18 px) und `--weight-label-heading` (700). Das gilt
-auch für die Quiz-Variante, Auswahlkarten, Ergebnisse und Drag-Vorschauen.
-Wissenschaftliche Namen bleiben 16 px/600 und kursiv. Die Atlas-Titelvariante
-behält 32–48 px/700; ihr wissenschaftlicher Name ist halb so groß (mindestens
-16 px), Gewicht 400. Namen im Fließtext folgen dessen Formatierung.
+| Variante      | Deutscher Name   | Wissenschaftlicher Name          |
+| ------------- | ---------------- | -------------------------------- |
+| `standard`    | 18 px / 700      | 16 px / 600, kursiv              |
+| `sidebar`     | 18 px / 700      | 16 px / 600, kursiv              |
+| `quiz`        | 24 px / 700      | 18 px, direkt am deutschen Namen |
+| `knowledge`   | 24 px / 700      | 16 px / 600, kursiv              |
+| `atlas-title` | 32–48 px / 700   | halb so groß (min. 16 px), 400   |
 
-Die bisherigen 20-px-Namen und 20-px-Detailtitel sowie der zwischenzeitliche
-24-px-Quizvorschlag sind durch die gemeinsam abgestimmte 18-px-Rolle ersetzt.
+Die Atlas-Titelanimation nutzt dieselbe Komponente mit `animated`. Namen im
+Fließtext folgen dessen Formatierung.
+
+## Anwendung
+
+- Detailüberschriften im Atlas, in Wissen und Falknerei verwenden dieselbe
+  `--type-detail-heading`-Rolle, ausdrücklich unabhängig von der Artenliste.
+  Spezifischere Selektoren und mobile Regeln erzwingen keine größeren Werte.
+- Buttons verwenden `--type-button`, einschließlich kleiner Varianten;
+  innerhalb von Buttons verweist `--type-ui` auf diese Rolle. Pillen-Tabs und
+  die Gefieder-Auswahl verwenden `--type-body` mit `--weight-medium`.
+- Die Marke in der Kopfzeile steht in der Display-Schrift, 20 px, Gewicht 500;
+  das Steinadler-Porträt misst 32 × 32 px.
+- Quiz-Rückmeldungen: Titel 16 px/700, Erklärung 14 px/400 ohne fett
+  hervorgehobene Wörter oder Werte. Alle Fragentitel nutzen
+  `QuizQuestionTitle` mit `--type-quiz-question` und `--leading-display`,
+  auch mehrzeilig und mobil.
+- Tags haben eine einzige gemeinsame CSS-Regel.
+- Bibliothekskomponenten in `components/ui` behalten ihre Vorlage.
 
 ## Regeln für Änderungen
 
-- In Seiten-CSS zentrale Textrollen verwenden; in JSX stehen bestehende Rollen
-  auch als Tailwind-Klassen zur Verfügung.
-- Keine lokalen Pixelgrößen, `text-[…]`-Sonderwerte oder `clamp()`-Formeln für Text
-  ergänzen. Neue Rollen nur in `app/typography.css` definieren und hier dokumentieren.
 - Dieselbe Funktion bekommt auf jeder Seite dieselbe Rolle. Mobile Ansichten
   ändern das Layout, nicht die Größe von Fließtext oder Artnamen.
-- Fließtext ist auf Nutzerwunsch kompakt mit 14 px. Tags verwenden ebenfalls 14 px (`text-sm`);
-  Quellen 12 px. Browser-Zoom bleibt möglich.
-- Detailüberschriften im Atlas, in Wissen und Falknerei verwenden dieselbe
-  `--type-detail-heading`-Rolle. Tags haben eine einzige gemeinsame CSS-Regel.
-- Zeilenhöhen ebenfalls über Tokens wählen: `--leading-display` (1,1),
-  `--leading-heading` (1,2), `--leading-compact` (1,4), `--leading-normal` (1,5)
-  oder `--leading-relaxed` (1,7).
-- Bibliothekskomponenten in `components/ui` behalten ihre Vorlage.
-- Abstände, Rahmen, Radien und Schatten folgen dem freigegebenen
-  [soften Design-System](design-system.md).
-
-Quiz-Rückmeldungen: Titel 16 px/700 über `--type-feedback-title`; Erklärung
-14 px/400 ohne fett hervorgehobene Wörter oder Werte.
-
-Alle Quiz-Fragentitel: `QuizQuestionTitle` und `--type-quiz-question`,
-32 px/700, auch mobil. Zeilenhöhe `--leading-display` (1,1) für kompakte
-mehrzeilige Überschriften. Keine lokalen Fragentitel-Größen ergänzen.
-
-## Aktualisierte Abstimmung
-
-Die rechte Überschriftenrolle beträgt jetzt 24 px/700 und darf von der linken
-Artenliste (18 px/700) abweichen. Deutsche Namen in Quiz und Wissen verwenden
-die Varianten `quiz` und `knowledge`, beide 24 px/700. Wissenschaftliche Namen
-und die große Atlas-Titelvariante behalten ihre Größe und Gewichte. Dies ersetzt
-die oben beschriebene gemeinsame 18-px-Rolle für diese Bereiche.
-
-Der gemeinsame Atlas-Außenabstand steigt von 8 auf 12 px; Gruppierung,
-Gruppentitel und beide Seiten der Kopfleiste folgen diesem Token. Die drei
-Informationstabs bleiben mit deckendem Hintergrund beim Scrollen sichtbar.
-„Status in Deutschland“ erscheint nur mit Vorkommensangaben; der Wert
-`ausserhalb` wird mitsamt ansonsten leerem Abschnitt ausgeblendet.
-
-Die Kopfleiste endet immer mit dem Hell-Dunkel-Schalter ganz rechts; davor
-steht die Navigation. Links stehen Titel und direkt anschließend die Suche.
-
-Deutsche Artnamen in Quiz und Wissen: 24 px/700, über die gemeinsamen
-Varianten-Tokens. Die Artenliste bleibt 18 px/700. Messwertleiste: 20 px Radius
-(`--radius-surface`). Rechte Atlas-Infospalte auf Desktop: abgerundete Fläche
-mit gleichem Radius, 12 px Randabstand oben/rechts/unten auf durchgehendem
-Bühnenhintergrund. Scrollen und fixierte Tabs bleiben innerhalb dieser Fläche.
-
-Buttons verwenden `--type-button` (16 px), einschließlich kleiner Buttonvarianten.
-Innerhalb von Buttons verweist `--type-ui` auf diese Rolle; explizite Artnamen
-und Informationshierarchien behalten ihre eigenen Rollen. Runde Icon-Controls
-und pillenförmige Tabs behalten ihre Geometrie.
-
-Entdeckungen: alle Kartentitel in Cormorant Garamond, 24 px/700. Bei Aufgaben
-mit mehreren Arten steht der tatsächliche Fragentitel statt einer Artenliste.
-Der Untertitel verwendet Inter (Sans Serif), text-sm (14 px), mit 2 px Abstand.
-
-Navbar-Marke: Inter (Sans Serif), `--type-brand` = `text-xl` (20 px), Gewicht 600; das feste Steinadler-Porträt
-misst 32 × 32 px. Die übrigen Kopfleisten-Controls behalten ihre Höhe.
-
-Entdeckungen: Fragentyp-Unterzeile ausdrücklich Inter (Sans Serif), text-sm (14 px). Punktzahl rechts
-in Inter (Sans Serif), text-sm (14 px)/600; „/ 100“ ebenfalls 14 px, Gewicht 400. Eigene
-Klassen verhindern, dass Untertitel und Punktzahl gemeinsame small-Regeln erben.
-
-Gefieder-Auswahl (Altvogel/Jungvogel und Farbformen): Inter, text-sm (14 px),
-Gewicht 500. Die Buttonrolle wird hierfür auf die vorhandene Body-Rolle gesetzt.
-
-Atlas-Vogelname: auf Nutzerwunsch responsive von `text-4xl` bis `text-6xl`
-(32–48 px), weiterhin Cormorant Garamond/700. Der wissenschaftliche Name
-bleibt halb so groß (16–24 px), Gewicht 400. Artenliste und Quiz bleiben unverändert.
+- Keine lokalen Pixelgrößen, `text-[…]`-Sonderwerte oder eigene `clamp()`-
+  Formeln. Neue Rollen nur in `app/typography.css` definieren und hier
+  dokumentieren. `npm run lint` meldet rohe Größen mit Fundstelle.
+- In Seiten-CSS zentrale Textrollen verwenden; in JSX stehen die Rollen auch als
+  Tailwind-Klassen zur Verfügung.
+- Fließtext bleibt bewusst kompakt bei 14 px, Quellen bei 12 px. Browser-Zoom
+  bleibt möglich; mobile Suchfelder mindestens 16 px gegen Fokus-Zoom.
+- Die Musterseite `/styleguide` zeigt jede Textrolle im Vergleich.

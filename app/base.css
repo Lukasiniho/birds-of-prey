@@ -1,0 +1,63 @@
+/* Base: body, links, buttons, headings, the shared focus ring and the app shell. */
+
+body {
+  margin: 0;
+  font-family: var(--font-stack-body);
+  color: var(--foreground);
+  background: var(--background);
+  font-size: var(--type-body);
+  line-height: var(--leading-normal);
+}
+button,
+a,
+input {
+  -webkit-tap-highlight-color: transparent;
+}
+button,
+a {
+  touch-action: manipulation;
+}
+button:not(:disabled),
+a {
+  cursor: pointer;
+}
+/* Explanatory tooltip triggers read as help, not as actions. */
+button.cursor-help:not(:disabled) {
+  cursor: help;
+}
+button {
+  --type-ui: var(--type-button);
+  font-family: inherit;
+  font-size: var(--type-button);
+  border-radius: var(--radius-control);
+}
+button[data-slot='button'] {
+  font-size: var(--type-button);
+  border-radius: var(--radius-control);
+}
+a {
+  color: inherit;
+  text-decoration: none;
+}
+/* Shared focus indicator; component rules may only move it inward. */
+:is(button, a, input, select, textarea, summary, [tabindex]):focus-visible {
+  outline: var(--focus-ring);
+  outline-offset: var(--focus-offset);
+  box-shadow: none;
+}
+h1,
+h2,
+h3,
+p {
+  margin: 0;
+}
+h2 {
+  font-family: var(--font-stack-display);
+  font-size: var(--type-heading);
+  line-height: var(--leading-display);
+  font-weight: var(--weight-semibold);
+}
+.app-shell {
+  min-height: 100dvh;
+  --site-header-height: 66px;
+}

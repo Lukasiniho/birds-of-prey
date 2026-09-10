@@ -1,0 +1,40 @@
+/* Section pages (Quiz, Wissen, Falknerei): shell, title and placeholder. */
+
+.section-shell {
+  height: auto;
+  min-height: 100dvh;
+  overflow: visible;
+}
+.section-placeholder {
+  max-width: 960px;
+  margin: 0 auto;
+  padding: clamp(48px, 10vw, 120px) 28px;
+}
+/* Every section page shares one title so the text sits in the same spot
+ * when switching between Vögel, Wissen, Quiz and Falknerei. */
+.page-title {
+  font-family: var(--font-stack-display);
+  font-size: var(--type-page-title);
+  font-weight: var(--weight-semibold);
+  line-height: var(--leading-display);
+  letter-spacing: var(--tracking-tight);
+}
+.section-placeholder p {
+  margin-top: var(--space-20);
+  max-width: 55ch;
+  line-height: var(--leading-relaxed);
+  color: var(--muted-foreground);
+}
+.section-back-link {
+  display: inline-block;
+  margin-top: var(--space-32);
+  padding-block: var(--space-8);
+  text-decoration: underline;
+  text-underline-offset: 5px;
+}
+
+@media (max-width: 760px) {
+  .section-placeholder {
+    padding-inline: var(--space-20);
+  }
+}
