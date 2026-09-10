@@ -3306,7 +3306,7 @@ html {
   min-width: 0;
   font-family: var(--font-body), Inter, Arial, sans-serif;
   font-size: var(--type-brand);
-  font-weight: 600;
+  font-weight: 500;
   letter-spacing: -0.65px;
   line-height: var(--leading-display);
   white-space: nowrap;
