@@ -66,6 +66,7 @@
 }
 /* Rail rows clip their overflow, so the ring sits inside the row. */
 .bird-entry[data-slot]:focus-visible {
+  outline: var(--focus-ring);
   outline-offset: -3px;
 }
 .bird-label {
