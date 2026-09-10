@@ -259,6 +259,10 @@ export const catalogAdditions: AdditionalBird[] = [
     tile: null,
     span: [270, 320],
     weight: [8000, 15000],
+    sexes: {
+      male: { weight: [11000, 15000] },
+      female: { weight: [8000, 11000] },
+    },
     intro:
       'Der größte flugfähige Greifvogel der Welt: Mit über drei Metern Spannweite segelt der Andenkondor stundenlang ohne Flügelschlag.',
     habitat:

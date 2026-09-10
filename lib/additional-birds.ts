@@ -21,6 +21,10 @@ export const additionalBirds: AdditionalBird[] = [
     group: 'Adler',
     span: [180, 230],
     weight: [3000, 6300],
+    sexes: {
+      male: { weight: [3000, 4500] },
+      female: { weight: [4500, 6300] },
+    },
     intro:
       'Der weiße Kopf und Schwanz leuchten über den Seen und Küsten Nordamerikas.',
     habitat:
@@ -133,6 +137,10 @@ export const additionalBirds: AdditionalBird[] = [
     group: 'Adler',
     span: [170, 190],
     weight: [1800, 3000],
+    sexes: {
+      male: { weight: [1800, 2500] },
+      female: { weight: [2200, 3000] },
+    },
     intro:
       'Auf langen Schwingen schaukelt er über Afrikas Savannen; sein Schwanz ist auffallend kurz.',
     habitat:
@@ -189,6 +197,10 @@ export const additionalBirds: AdditionalBird[] = [
     group: 'Bussarde',
     span: [150, 200],
     weight: [1700, 3200],
+    sexes: {
+      male: { weight: [1700, 2300] },
+      female: { weight: [2300, 3200] },
+    },
     intro:
       'Mit breiten Flügeln und dunklem Brustschild kreist dieser kräftige Bussard über Südamerikas offenen Landschaften.',
     habitat:
@@ -676,6 +688,10 @@ export const additionalBirds: AdditionalBird[] = [
     group: 'Karakaras',
     span: [115, 125],
     weight: [1200, 1700],
+    sexes: {
+      male: { weight: [1200, 1450] },
+      female: { weight: [1400, 1700] },
+    },
     intro:
       'Ein neugieriger Karakara der südlichsten Inseln Südamerikas, der an Küsten nach sehr unterschiedlicher Nahrung sucht.',
     habitat:
@@ -732,6 +748,10 @@ export const additionalBirds: AdditionalBird[] = [
     group: 'Karakaras',
     span: [120, 130],
     weight: [900, 1600],
+    sexes: {
+      male: { weight: [900, 1300] },
+      female: { weight: [1050, 1600] },
+    },
     intro:
       'Dieser langbeinige Verwandte der Falken ist ebenso geschickt zu Fuß wie im Flug und sucht vielseitig nach Nahrung.',
     habitat:
@@ -786,6 +806,10 @@ export const additionalBirds: AdditionalBird[] = [
     group: 'Bussarde',
     span: [120, 160],
     weight: [1000, 2100],
+    sexes: {
+      male: { weight: [1000, 1500] },
+      female: { weight: [1400, 2100] },
+    },
     intro:
       'Ein großer Bussard der nordamerikanischen Grasländer mit rostfarbenen Schultern und bis zu den Zehen befiederten Läufen.',
     habitat:
