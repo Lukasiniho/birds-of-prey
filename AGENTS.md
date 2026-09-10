@@ -9,6 +9,12 @@
 - Pill-Switches (`.t-tabs` im Atlas-Gefieder wie `.stage-tabs` im Wissen)
   verwenden einheitlich `--type-body` (14 px); keine größere Tab-Schrift
   auf einzelnen Seiten.
+- Maße in den Artdaten sind Zahlenpaare `[min, max]`: Spannweite in cm (auf 5
+  gerundet), Gewicht immer in Gramm — nie in Kilogramm speichern. Geschlechts-
+  spezifische Werte stehen unter `sexes.male`/`sexes.female`; die Anzeige wählt
+  pro Art Gramm (unter 1 kg) oder Kilogramm mit einer Nachkommastelle.
+- Tooltips verwenden durchgängig `--type-tooltip` (14 px), auch für Skalen,
+  Legenden und Hinweise im Inneren; keine Caption-Größe in Tooltips.
 - Quiz-Vogelbühnen (linke Fläche jeder Aufgabe) sind immer hellgrau
   (`--q-stage`); keine teal oder anders getönten Varianten je Aufgabentyp.
 - Alle Duotone-Icons tragen die Teal-Hauptfarbe (`--main-color`), wie im Quiz;

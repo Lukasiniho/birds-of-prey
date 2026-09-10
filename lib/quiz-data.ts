@@ -6,23 +6,15 @@ import { preyFraming } from './prey-framing.ts';
 import { speciesLandscapes } from './habitats.ts';
 import { quizIdentification } from './quiz-identification.ts';
 import { birdRecordings } from './bird-recordings.ts';
-import { parseMeasurementRange, type QuizBird } from './quiz-engine.ts';
+import type { QuizBird } from './quiz-engine.ts';
 
-/** Include species with actual ranges; do not invent bounds for “bis” or averages. */
+/** Include species with actual ranges; measurements are stored as [min, max] in cm and grams. */
 export function buildQuizBirds(): Record<string, QuizBird> {
   return Object.fromEntries(
     birds.flatMap((bird) => {
-      let span: [number, number];
-      let weight: [number, number];
-      try {
-        span = parseMeasurementRange(bird.span);
-        weight = parseMeasurementRange(bird.weight);
-      } catch {
-        return [];
-      }
-      if (span[0] <= 0 || weight[0] <= 0 || !['g', 'kg'].includes(bird.unit))
-        return [];
-      if (bird.unit === 'kg') weight = [weight[0] * 1000, weight[1] * 1000];
+      const { span, weight } = bird;
+      if (!(span[0] > 0) || span[1] < span[0]) return [];
+      if (!(weight[0] > 0) || weight[1] < weight[0]) return [];
       const image = birdImage(bird.id, 'male');
       const portrait = portraitImages[bird.id];
       if (!image || !portrait) return [];

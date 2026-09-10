@@ -1,6 +1,6 @@
 'use client';
 
-import { useSyncExternalStore } from 'react';
+import { useCallback, useEffect, useState, useSyncExternalStore } from 'react';
 import { SiteHeader } from '@/components/site-header';
 import { useSlidingPill } from '@/lib/use-sliding-pill';
 import { Tabs, TabsContent, TabsList, TabsTrigger } from '@/components/ui/tabs';
@@ -15,10 +15,10 @@ import type {
 } from './knowledge-data';
 
 const sections = [
-  { id: 'koerperbau', label: 'Körperbau' },
   { id: 'falknerei', label: 'Falknerei' },
   { id: 'jagdtiere', label: 'Jagdtiere' },
   { id: 'jagdtechniken', label: 'Jagdtechniken' },
+  { id: 'koerperbau', label: 'Körperbau' },
 ];
 
 export default function KnowledgeExplorer({
@@ -37,11 +37,30 @@ export default function KnowledgeExplorer({
     },
     () => {
       const hash = window.location.hash.slice(1);
-      return sections.some((item) => item.id === hash) ? hash : 'koerperbau';
+      return sections.some((item) => item.id === hash) ? hash : 'falknerei';
     },
-    () => 'koerperbau',
+    () => 'falknerei',
   );
   const { barRef, pillRef } = useSlidingPill('wissen', section);
+  // Mobile: the tab rail scrolls sideways; the right-edge fade hides once
+  // the last tab is fully in view so it only reads as "more to the right".
+  const [scrollEnd, setScrollEnd] = useState(true);
+  const updateScrollEnd = useCallback(() => {
+    const bar = barRef.current;
+    if (!bar) return;
+    setScrollEnd(bar.scrollLeft + bar.clientWidth >= bar.scrollWidth - 1);
+  }, [barRef]);
+  useEffect(() => {
+    updateScrollEnd();
+    window.addEventListener('resize', updateScrollEnd);
+    return () => window.removeEventListener('resize', updateScrollEnd);
+  }, [updateScrollEnd]);
+  useEffect(() => {
+    // Keep the selected tab in view when it changes (e.g. via hash).
+    barRef.current
+      ?.querySelector<HTMLElement>('.t-tab[aria-selected="true"]')
+      ?.scrollIntoView({ block: 'nearest', inline: 'nearest' });
+  }, [section, barRef]);
   return (
     <div className="app-shell section-shell knowledge-shell">
       <SiteHeader activeSection="wissen" />
@@ -58,27 +77,25 @@ export default function KnowledgeExplorer({
           }}
           className="knowledge-explorer"
         >
-          <TabsList
-            variant="line"
-            className="knowledge-tabs t-tabs"
-            aria-label="Wissensbereiche"
-            ref={barRef}
+          <div
+            className="knowledge-tabs-rail"
+            data-scroll-end={scrollEnd ? 'true' : undefined}
           >
-            <span className="t-tabs-pill" aria-hidden="true" ref={pillRef} />
-            {sections.map(({ id, label }) => (
-              <TabsTrigger key={id} value={id} className="t-tab">
-                {label}
-              </TabsTrigger>
-            ))}
-          </TabsList>
-          <TabsContent value="koerperbau">
-            <AnatomyExplorer
-              images={[
-                birds.find((bird) => bird.id === 'wanderfalke')!.image,
-                birds.find((bird) => bird.id === 'maeusebussard')!.image,
-              ]}
-            />
-          </TabsContent>
+            <TabsList
+              variant="line"
+              className="knowledge-tabs t-tabs"
+              aria-label="Wissensbereiche"
+              ref={barRef}
+              onScroll={updateScrollEnd}
+            >
+              <span className="t-tabs-pill" aria-hidden="true" ref={pillRef} />
+              {sections.map(({ id, label }) => (
+                <TabsTrigger key={id} value={id} className="t-tab">
+                  {label}
+                </TabsTrigger>
+              ))}
+            </TabsList>
+          </div>
           <TabsContent value="falknerei">
             <FalconryWorld birds={birds} />
           </TabsContent>
@@ -87,6 +104,14 @@ export default function KnowledgeExplorer({
           </TabsContent>
           <TabsContent value="jagdtechniken">
             <TechniqueExplorer techniques={techniques} />
+          </TabsContent>
+          <TabsContent value="koerperbau">
+            <AnatomyExplorer
+              images={[
+                birds.find((bird) => bird.id === 'wanderfalke')!.image,
+                birds.find((bird) => bird.id === 'maeusebussard')!.image,
+              ]}
+            />
           </TabsContent>
         </Tabs>
       </main>

@@ -1077,7 +1077,7 @@
   display: flex;
   flex-direction: column;
   text-align: left;
-  min-height: 250px;
+  min-height: 230px;
   padding: 0;
   overflow: hidden;
   border: var(--border-structure) solid var(--q-line);
@@ -1088,24 +1088,52 @@
     box-shadow var(--duration-quick) var(--ease-smooth-out),
     border-color var(--duration-quick) var(--ease-smooth-out);
 }
+/* The landscape carries its own name: a dark gradient rises from the bottom
+   edge and the title sits on it in white, so no row below the picture is spent. */
+.q-landscape {
+  position: relative;
+  width: 100%;
+  flex-shrink: 0;
+  overflow: hidden;
+}
 .q-landscape-image {
-  height: 135px;
+  display: block;
+  height: 150px;
   width: 100%;
   object-fit: cover;
   pointer-events: none;
 }
+.q-landscape::after {
+  content: '';
+  position: absolute;
+  inset: auto 0 0;
+  height: 62%;
+  pointer-events: none;
+  background: linear-gradient(
+    to top,
+    rgb(0 0 0 / 0.72) 0%,
+    rgb(0 0 0 / 0.42) 45%,
+    rgb(0 0 0 / 0) 100%
+  );
+}
 .q-landscape-title {
-  padding: var(--space-12) var(--space-16) 0;
+  position: absolute;
+  inset: auto 0 0;
+  z-index: 1;
+  padding: 0 var(--space-16) var(--space-12);
   display: flex;
   align-items: center;
   justify-content: space-between;
   gap: var(--space-8);
+  color: #fff;
   font-family: var(--font-display), Georgia, serif;
   font-size: var(--type-card-title);
   font-weight: 600;
+  text-shadow: 0 1px 2px rgb(0 0 0 / 0.35);
 }
 .q-landscape-title svg {
-  color: var(--q-muted);
+  color: rgb(255 255 255 / 0.85);
+  flex-shrink: 0;
 }
 .q-habitat-residents {
   padding: var(--space-12);
@@ -1171,9 +1199,6 @@
   .q-habitat-bird > svg {
     display: none;
   }
-  .q-landscape-title {
-    padding: var(--space-12) var(--space-16) 0;
-  }
   .q-habitat-board {
     gap: var(--space-16);
   }
@@ -1194,10 +1219,14 @@
     height: 45px;
   }
   .q-habitat-zone {
-    min-height: 222px;
+    min-height: 200px;
   }
   .q-landscape-image {
-    height: 108px;
+    height: 120px;
+  }
+  .q-landscape-title {
+    padding: 0 var(--space-12) var(--space-8);
+    font-size: var(--type-lead);
   }
   .q-habitat-selection {
     line-height: var(--leading-normal);

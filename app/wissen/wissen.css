@@ -215,14 +215,20 @@
 .knowledge-explorer[data-slot='tabs'] {
   gap: var(--space-24);
 }
-/* Underline tabs: the same 38px rail, label-title type and 2px marker as the atlas information tabs. */
+/* Underline tabs: the same 38px rail, label-title type and 2px marker as the atlas information tabs.
+   The rail wrapper carries the border and the mobile edge fade; the list itself scrolls sideways. */
+.knowledge-tabs-rail {
+  position: relative;
+  width: 100%;
+  border-bottom: var(--border-structure) solid var(--border);
+}
 .knowledge-tabs[data-slot] {
   display: flex;
   justify-content: flex-start;
   gap: var(--space-24);
   width: 100%;
   height: 38px;
-  border-bottom: var(--border-structure) solid var(--border);
+  margin-bottom: -1px; /* the pill covers the rail border, as before */
   padding: 0;
   border-radius: 0;
 }
@@ -264,7 +270,7 @@
 }
 .knowledge-tabs .t-tabs-pill {
   top: auto;
-  bottom: -1px;
+  bottom: 0;
   height: 2px;
   border-radius: 0;
   background: var(--foreground);
@@ -604,6 +610,36 @@
   }
 }
 @media (max-width: 760px) {
+  .knowledge-tabs[data-slot] {
+    overflow-x: auto;
+    overflow-y: hidden;
+    scrollbar-width: none;
+    -webkit-overflow-scrolling: touch;
+    scroll-padding-inline: var(--space-16);
+  }
+  .knowledge-tabs[data-slot]::-webkit-scrollbar {
+    display: none;
+  }
+  .knowledge-tabs button[data-slot] {
+    flex: 0 0 auto;
+    white-space: nowrap;
+  }
+  /* Right-edge fade signals the rail keeps going; it lifts once the end is reached. */
+  .knowledge-tabs-rail::after {
+    content: '';
+    position: absolute;
+    top: 0;
+    right: 0;
+    bottom: 0;
+    width: 56px;
+    pointer-events: none;
+    background: linear-gradient(to right, transparent, var(--background));
+    opacity: 1;
+    transition: opacity var(--duration-quick) var(--ease-smooth-out);
+  }
+  .knowledge-tabs-rail[data-scroll-end]::after {
+    opacity: 0;
+  }
   .knowledge-split {
     grid-template-columns: minmax(0, 1fr);
   }
@@ -642,7 +678,8 @@
   .falconry-era-marker::after,
   .knowledge-tile,
   .knowledge-bird,
-  .knowledge-tabs button[data-slot] {
+  .knowledge-tabs button[data-slot],
+  .knowledge-tabs-rail::after {
     transition: none;
   }
   .knowledge-notes-scroll {

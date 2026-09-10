@@ -1,12 +1,14 @@
 /* Shared by swatches, anatomy, conservation and sidebar tooltips.
-   Floating UI measures a stationary popup; only its inner surface scales. */
+   Floating UI measures a stationary popup; only its inner surface scales.
+   Every tooltip — compact hints and detail cards alike, including the text
+   inside them — uses one size: --type-tooltip (small, 14px). */
 .app-tooltip[data-slot='tooltip-content'] {
   --tooltip-padding: var(--space-8) var(--space-12);
   position: relative;
   width: max-content;
   max-width: min(20rem, calc(100vw - 2 * var(--space-16)));
   font-family: var(--font-body), Inter, sans-serif;
-  font-size: var(--type-caption);
+  font-size: var(--type-tooltip);
   line-height: var(--leading-normal);
   color: var(--foreground);
   opacity: 1;
@@ -15,7 +17,10 @@
 .app-tooltip[data-variant='detail'] {
   --tooltip-padding: var(--space-16);
   width: 20rem;
-  font-size: var(--type-body);
+}
+/* Nested scales and legends inherit the tooltip size instead of shrinking. */
+.app-tooltip[data-slot='tooltip-content'] .app-tooltip-surface :is(p, li, span, div, strong) {
+  font-size: inherit;
 }
 .app-tooltip-surface {
   padding: var(--tooltip-padding);

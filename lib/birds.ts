@@ -3,6 +3,10 @@ import { landscapes, speciesLandscapes } from './habitats.ts';
 import { birdImages } from './bird-images.ts';
 import { huntingImages } from './hunting-images.ts';
 import { additionalBirds } from './additional-birds.ts';
+/** A natural range as [min, max]. */
+export type MeasurementRange = [number, number];
+/** Per-sex measurements: wingspan in cm (optional), body mass in grams. */
+export type SexMeasurements = { span?: MeasurementRange; weight: MeasurementRange };
 export type BirdSpecies = {
   id: string;
   aliases?: string[];
@@ -10,9 +14,12 @@ export type BirdSpecies = {
   latin: string;
   group: string;
   tile: number | null;
-  span: string;
-  weight: string;
-  unit: string;
+  /** Wingspan in cm, both sexes. */
+  span: MeasurementRange;
+  /** Body mass in grams, both sexes — always grams, never kilograms. */
+  weight: MeasurementRange;
+  /** Sex-specific ranges where sources give them; weight always in grams. */
+  sexes?: { male: SexMeasurements; female: SexMeasurements };
   intro: string;
   habitat: string;
   range: string;
@@ -27,9 +34,12 @@ export const birds: BirdSpecies[] = [
     latin: 'Buteo jamaicensis',
     group: 'Bussarde',
     tile: null,
-    span: 'ca. 115–135',
-    weight: 'ca. 700–1.500',
-    unit: 'g',
+    span: [115, 135],
+    weight: [690, 2000],
+    sexes: {
+      male: { weight: [690, 1300] },
+      female: { weight: [900, 2000] },
+    },
     intro:
       'Über den offenen Landschaften Nordamerikas zieht er weite Kreise und hält nach Beute Ausschau.',
     habitat:
@@ -51,9 +61,12 @@ export const birds: BirdSpecies[] = [
     latin: 'Astur gentilis',
     group: 'Habichte',
     tile: 0,
-    span: 'ca. 100–115',
-    weight: 'ca. 700–1.100',
-    unit: 'g',
+    span: [100, 115],
+    weight: [590, 1350],
+    sexes: {
+      male: { weight: [590, 870] },
+      female: { weight: [890, 1350] },
+    },
     intro:
       'Ein wendiger Jäger, der seine Beute zwischen Bäumen und aus der Deckung überrascht.',
     habitat:
@@ -75,9 +88,12 @@ export const birds: BirdSpecies[] = [
     latin: 'Buteo buteo',
     group: 'Bussarde',
     tile: 1,
-    span: 'ca. 110–130',
-    weight: 'ca. 600–1.400',
-    unit: 'g',
+    span: [110, 140],
+    weight: [427, 1370],
+    sexes: {
+      male: { weight: [427, 1183] },
+      female: { weight: [486, 1370] },
+    },
     intro:
       'Über Wiesen kreisend oder auf einem Zaunpfahl wartend: unser vertrauter Mäusejäger.',
     habitat:
@@ -98,9 +114,12 @@ export const birds: BirdSpecies[] = [
     latin: 'Falco peregrinus',
     group: 'Falken',
     tile: 2,
-    span: 'ca. 90–115',
-    weight: 'ca. 550–1.100',
-    unit: 'g',
+    span: [90, 105],
+    weight: [580, 1100],
+    sexes: {
+      male: { weight: [580, 730] },
+      female: { weight: [850, 1100] },
+    },
     intro:
       'Ein spezialisierter Vogeljäger, der seine Beute im freien Luftraum verfolgt.',
     habitat:
@@ -122,9 +141,12 @@ export const birds: BirdSpecies[] = [
     latin: 'Falco tinnunculus',
     group: 'Falken',
     tile: 3,
-    span: 'ca. 70–80',
-    weight: 'ca. 140–310',
-    unit: 'g',
+    span: [65, 85],
+    weight: [136, 314],
+    sexes: {
+      male: { weight: [136, 252] },
+      female: { weight: [154, 314] },
+    },
     intro:
       'Im Rüttelflug steht er scheinbar still über dem Feld und sucht den Boden nach Mäusen ab.',
     habitat:
@@ -146,9 +168,12 @@ export const birds: BirdSpecies[] = [
     latin: 'Aquila chrysaetos',
     group: 'Adler',
     tile: 4,
-    span: 'ca. 195–230',
-    weight: 'ca. 3.000–6.600',
-    unit: 'g',
+    span: [190, 230],
+    weight: [2870, 6650],
+    sexes: {
+      male: { weight: [2870, 4550] },
+      female: { weight: [3750, 6650] },
+    },
     intro:
       'Mit ausgebreiteten Schwingen gleitet er an Berghängen entlang und nutzt die aufsteigende Luft.',
     habitat:
@@ -169,9 +194,12 @@ export const birds: BirdSpecies[] = [
     latin: 'Haliaeetus albicilla',
     group: 'Adler',
     tile: 5,
-    span: 'ca. 195–245',
-    weight: 'ca. 4.100–6.900',
-    unit: 'g',
+    span: [200, 245],
+    weight: [4100, 6900],
+    sexes: {
+      male: { weight: [4100, 4600] },
+      female: { weight: [5200, 6900] },
+    },
     intro:
       'Über Seen und Küsten patrouilliert dieser mächtige Greifvogel mit seinen breiten Schwingen.',
     habitat:
@@ -193,9 +221,12 @@ export const birds: BirdSpecies[] = [
     latin: 'Pandion haliaetus',
     group: 'Fischadler',
     tile: 6,
-    span: 'ca. 150–165',
-    weight: 'ca. 1.100–2.100',
-    unit: 'g',
+    span: [150, 170],
+    weight: [1300, 2100],
+    sexes: {
+      male: { weight: [1300, 1600] },
+      female: { weight: [1600, 2100] },
+    },
     intro:
       'Er sucht über dem Wasser nach Fischen und greift sie mit vorgestreckten Fängen.',
     habitat:

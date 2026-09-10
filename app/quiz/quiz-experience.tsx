@@ -941,18 +941,20 @@ function HabitatQuestion({
               aria-label={`${birds[selected].name} zu ${habitat.label} zuordnen${residents.length ? `. Hier: ${residents.map((id) => birds[id].name).join(', ')}` : ''}`}
               onClick={() => place(selected, habitat.id)}
             >
-              <Image
-                className="q-landscape-image"
-                src={habitat.image}
-                alt={habitat.description}
-                width={640}
-                height={480}
-                unoptimized
-                draggable={false}
-              />
-              <div className="q-landscape-title">
-                <span>{habitat.label}</span>
-                <MapPin size={17} />
+              <div className="q-landscape">
+                <Image
+                  className="q-landscape-image"
+                  src={habitat.image}
+                  alt={habitat.description}
+                  width={640}
+                  height={480}
+                  unoptimized
+                  draggable={false}
+                />
+                <div className="q-landscape-title">
+                  <span>{habitat.label}</span>
+                  <MapPin size={17} />
+                </div>
               </div>
               <div className="q-habitat-residents">
                 {residents.length ? (

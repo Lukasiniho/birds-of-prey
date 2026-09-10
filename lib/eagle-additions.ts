@@ -6,8 +6,12 @@ export const eagleAdditions: AdditionalBird[] = [
     name: 'Habichtsadler',
     latin: 'Aquila fasciata',
     aliases: ['Bonelli’s Eagle', "Bonelli's Eagle", 'Hieraaetus fasciatus'],
-    span: 'ca. 150–180',
-    weight: 'ca. 1.500–2.500',
+    span: [150, 180],
+    weight: [1400, 3030],
+    sexes: {
+      male: { span: [150, 160], weight: [1400, 2240] },
+      female: { span: [165, 180], weight: [2100, 3030] },
+    },
     genusLabel: 'Echte Adler',
     intro:
       'Ein wendiger Adler mit heller Unterseite und dunklen Unterflügeln, der an warmen Felswänden brütet.',
@@ -41,7 +45,6 @@ export const eagleAdditions: AdditionalBird[] = [
     },
     group: 'Adler',
     tile: null,
-    unit: 'g',
     bodyColors: {
       male: {
         eyes: [['Gelbbraun', '#BA984B']],
@@ -69,8 +72,12 @@ export const eagleAdditions: AdditionalBird[] = [
       'Iberischer Kaiseradler',
       'Spanish Imperial Eagle',
     ],
-    span: 'ca. 180–220',
-    weight: 'ca. 2.500–3.500',
+    span: [180, 210],
+    weight: [2400, 3500],
+    sexes: {
+      male: { weight: [2400, 2900] },
+      female: { weight: [2800, 3500] },
+    },
     genusLabel: 'Echte Adler',
     intro:
       'Weiße Schultern und ein heller Nacken setzen sich vom dunklen Gefieder dieses Adlers der Iberischen Halbinsel ab.',
@@ -104,7 +111,6 @@ export const eagleAdditions: AdditionalBird[] = [
     },
     group: 'Adler',
     tile: null,
-    unit: 'g',
     bodyColors: {
       male: {
         eyes: [['Gelbbraun', '#BA984B']],
@@ -133,8 +139,12 @@ export const eagleAdditions: AdditionalBird[] = [
       "Verreaux's Eagle",
       'Kaffernadler',
     ],
-    span: 'ca. 180–230',
-    weight: 'ca. 3.000–5.800',
+    span: [180, 230],
+    weight: [3000, 5800],
+    sexes: {
+      male: { weight: [3000, 4200] },
+      female: { weight: [3100, 5800] },
+    },
     genusLabel: 'Echte Adler',
     intro:
       'Ein schwarzer Felsenspezialist mit weißem Rücken und hellen Flügelfenstern, der vor allem Schliefer jagt.',
@@ -168,7 +178,6 @@ export const eagleAdditions: AdditionalBird[] = [
     },
     group: 'Adler',
     tile: null,
-    unit: 'g',
     bodyColors: {
       male: {
         eyes: [['Braun', '#614831']],
@@ -192,8 +201,12 @@ export const eagleAdditions: AdditionalBird[] = [
     name: 'Zwergadler',
     latin: 'Hieraaetus pennatus',
     aliases: ['Booted Eagle', 'Aquila pennata', 'Hieraaetus pennata'],
-    span: 'ca. 110–135',
-    weight: 'ca. 510–1.250',
+    span: [110, 135],
+    weight: [630, 1145],
+    sexes: {
+      male: { weight: [630, 770] },
+      female: { weight: [845, 1145] },
+    },
     genusLabel: 'Zwergadler',
     intro:
       'Ein kleiner, wendiger Adler mit heller oder dunkler Morphe und vollständig befiederten Läufen.',
@@ -227,7 +240,6 @@ export const eagleAdditions: AdditionalBird[] = [
     },
     group: 'Adler',
     tile: null,
-    unit: 'g',
     bodyColors: {
       male: {
         eyes: [['Gelbbraun', '#BA984B']],

@@ -2969,6 +2969,13 @@ button.color-dot:not(:disabled) {
   letter-spacing: 0.005em;
   text-decoration: none;
 }
+:root[data-theme='dark'] .ecology-tags > :is(a, button, span):not([aria-pressed='true']) {
+  background: color-mix(in srgb, var(--ring) 24%, var(--background));
+  box-shadow: inset 0 0 0 1px color-mix(in srgb, var(--ring) 38%, transparent);
+}
+:root[data-theme='dark'] .ecology-tags > :is(a, button):not([aria-pressed='true']):hover {
+  background: color-mix(in srgb, var(--ring) 34%, var(--background));
+}
 .ecology-tags > a,
 .ecology-tags > button {
   cursor: pointer;
@@ -3039,6 +3046,46 @@ button.color-dot:not(:disabled) {
 }
 .specimen-measurements.measurements > .bird-audio {
   padding-inline: var(--space-8);
+}
+
+/* Sex-specific measurements: a ♂ and a ♀ row share one cell. The two rows use
+   a smaller display size than the single combined figure so the box keeps
+   its height; the sex marks sit in the muted role like the range dash. */
+.measurement-rows {
+  display: grid;
+  grid-template-columns: auto minmax(0, 1fr);
+  column-gap: var(--space-8);
+  row-gap: var(--space-2);
+  align-items: baseline;
+  margin: 0;
+  justify-self: center;
+}
+.measurement-row {
+  display: contents;
+}
+.measurement-row dt {
+  display: inline-flex;
+  align-items: center;
+  align-self: center;
+  color: var(--muted-foreground);
+}
+.measurement-row dd {
+  margin: 0;
+  display: flex;
+  align-items: baseline;
+  white-space: nowrap;
+  font-family: var(--font-display), Georgia, serif;
+  font-size: var(--type-metric-split);
+  line-height: var(--leading-display);
+  font-weight: 500;
+  letter-spacing: -0.4px;
+}
+.measurement-row dd small {
+  margin-left: 5px;
+}
+.specimen-measurements.measurements:has(.bird-audio) > div.measurement-split {
+  grid-template-rows: 20px auto;
+  row-gap: var(--space-4);
 }
 
 .bird-audio .bird-audio-play {
@@ -3253,6 +3300,12 @@ html {
 .site-navigation a[aria-current='page'] {
   color: var(--foreground);
   background: var(--selected);
+}
+/* Dark surfaces swallow the 10% teal tint; the active link and the tags get
+   the same stronger tint plus a hairline so both read at a glance. */
+:root[data-theme='dark'] .site-navigation a[aria-current='page'] {
+  background: color-mix(in srgb, var(--main-color) 24%, var(--background));
+  box-shadow: inset 0 0 0 1px color-mix(in srgb, var(--main-color) 38%, transparent);
 }
 .section-shell {
   height: auto;
