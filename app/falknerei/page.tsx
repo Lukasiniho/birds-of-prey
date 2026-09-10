@@ -7,7 +7,8 @@ import FalconryExplorer from './falconry-explorer';
 import './falknerei.css';
 
 export const metadata: Metadata = {
-  title: 'Falknerei · Greifvogelkompass',
+  title: 'Falknerei',
+  alternates: { canonical: '/falknerei' },
   description:
     'Falknerei kennenlernen: Beizjagd, Ausrüstung, Beizvögel und der verantwortungsvolle Umgang mit Greifvögeln.',
 };

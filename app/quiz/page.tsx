@@ -10,7 +10,8 @@ import { habitatImages } from '@/lib/habitat-images';
 import './quiz.css';
 
 export const metadata: Metadata = {
-  title: 'Quiz · Greifvogelkompass',
+  title: 'Quiz',
+  alternates: { canonical: '/quiz' },
   description:
     'Greifvogelarten und Rufe erkennen, Spannweiten schätzen und vergleichen, Jagdweisen erkennen, Gewicht schätzen und sortieren, Lebensräume und Nahrung zuordnen. Das dynamische Greifvogel-Quiz.',
 };

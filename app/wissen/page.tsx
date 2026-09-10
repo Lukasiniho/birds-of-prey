@@ -11,7 +11,8 @@ import KnowledgeExplorer from './knowledge-explorer';
 import './wissen.css';
 
 export const metadata: Metadata = {
-  title: 'Wissen · Greifvogelkompass',
+  title: 'Wissen',
+  alternates: { canonical: '/wissen' },
   description:
     'Greifvögel verstehen: Körperbau entdecken, Falknereitraditionen auf der Weltkarte erkunden und nachschlagen, welche Arten welche Beute jagen und wie sie dabei vorgehen.',
 };

@@ -14,12 +14,14 @@ import sharp from 'sharp';
 const root = fileURLToPath(new URL('../', import.meta.url));
 const publicDir = path.join(root, 'public');
 const output = path.join(publicDir, 'optimized');
+// Favicons and the share image must stay PNG at fixed URLs; never convert them.
+const icons = path.join(publicDir, 'icons');
 await mkdir(output, { recursive: true });
 async function imagesIn(directory) {
   const result = [];
   for (const entry of await readdir(directory, { withFileTypes: true })) {
     const filename = path.join(directory, entry.name);
-    if (filename === output) continue;
+    if (filename === output || filename === icons) continue;
     if (entry.isDirectory()) result.push(...(await imagesIn(filename)));
     else if (/\.(png|jpe?g)$/i.test(entry.name)) result.push(filename);
   }
