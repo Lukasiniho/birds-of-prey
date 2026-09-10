@@ -2972,7 +2972,6 @@ button.color-dot:not(:disabled) {
 }
 :root[data-theme='dark'] .ecology-tags > :is(a, button, span):not([aria-pressed='true']) {
   background: color-mix(in srgb, var(--ring) 24%, var(--background));
-  box-shadow: inset 0 0 0 1px color-mix(in srgb, var(--ring) 38%, transparent);
 }
 :root[data-theme='dark'] .ecology-tags > :is(a, button):not([aria-pressed='true']):hover {
   background: color-mix(in srgb, var(--ring) 34%, var(--background));
@@ -3368,10 +3367,9 @@ html {
   background: var(--selected);
 }
 /* Dark surfaces swallow the 10% teal tint; the active link and the tags get
-   the same stronger tint plus a hairline so both read at a glance. */
+   the same stronger tint so both read at a glance (no hairline). */
 :root[data-theme='dark'] .site-navigation a[aria-current='page'] {
   background: color-mix(in srgb, var(--main-color) 24%, var(--background));
-  box-shadow: inset 0 0 0 1px color-mix(in srgb, var(--main-color) 38%, transparent);
 }
 .section-shell {
   height: auto;

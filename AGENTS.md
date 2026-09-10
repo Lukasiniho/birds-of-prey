@@ -11,9 +11,12 @@
   auf einzelnen Seiten.
 - Maße in den Artdaten sind Zahlenpaare `[min, max]`: Spannweite in cm (auf 5
   gerundet), Gewicht immer in Gramm — nie in Kilogramm speichern. Keine
-  Scheingenauigkeit: Gramm unter 1 kg auf 10 g, darüber auf 100 g runden. Geschlechts-
-  spezifische Werte stehen unter `sexes.male`/`sexes.female`; die Anzeige wählt
-  pro Art Gramm (unter 1 kg) oder Kilogramm mit einer Nachkommastelle.
+  Scheingenauigkeit: Gramm unter 1 kg auf 10 g, darüber auf 100 g runden; erreicht
+  eine Art 1 kg, werden alle ihre Werte unter 1 kg auf 50 g gerundet (700–1.300 g,
+  nie 690–1.300 g). Geschlechtsspezifische Werte gibt es nur für das Gewicht,
+  unter `sexes.male`/`sexes.female`; die Spannweite ist immer eine gemeinsame
+  Artspanne, der ♀/♂-Schalter neben dem Gewicht ändert nur das Gewicht. Die
+  Anzeige zeigt Gewicht immer in Gramm, nie in Kilogramm.
 - Tooltips verwenden durchgängig `--type-tooltip` (14 px), auch für Skalen,
   Legenden und Hinweise im Inneren; keine Caption-Größe in Tooltips.
 - Quiz-Vogelbühnen (linke Fläche jeder Aufgabe) sind immer hellgrau

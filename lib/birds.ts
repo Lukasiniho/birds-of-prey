@@ -5,8 +5,8 @@ import { huntingImages } from './hunting-images.ts';
 import { additionalBirds } from './additional-birds.ts';
 /** A natural range as [min, max]. */
 export type MeasurementRange = [number, number];
-/** Per-sex measurements: wingspan in cm (optional), body mass in grams. */
-export type SexMeasurements = { span?: MeasurementRange; weight: MeasurementRange };
+/** Per-sex measurements: body mass in grams. Wingspan is one species range for both sexes. */
+export type SexMeasurements = { weight: MeasurementRange };
 export type BirdSpecies = {
   id: string;
   aliases?: string[];
@@ -35,9 +35,9 @@ export const birds: BirdSpecies[] = [
     group: 'Bussarde',
     tile: null,
     span: [115, 135],
-    weight: [690, 2000],
+    weight: [700, 2000],
     sexes: {
-      male: { weight: [690, 1300] },
+      male: { weight: [700, 1300] },
       female: { weight: [900, 2000] },
     },
     intro:
@@ -62,10 +62,10 @@ export const birds: BirdSpecies[] = [
     group: 'Habichte',
     tile: 0,
     span: [100, 115],
-    weight: [590, 1400],
+    weight: [650, 1800],
     sexes: {
-      male: { weight: [590, 870] },
-      female: { weight: [890, 1400] },
+      male: { weight: [650, 1100] },
+      female: { weight: [900, 1800] },
     },
     intro:
       'Ein wendiger Jäger, der seine Beute zwischen Bäumen und aus der Deckung überrascht.',
@@ -89,10 +89,10 @@ export const birds: BirdSpecies[] = [
     group: 'Bussarde',
     tile: 1,
     span: [110, 140],
-    weight: [430, 1400],
+    weight: [450, 1400],
     sexes: {
-      male: { weight: [430, 1200] },
-      female: { weight: [490, 1400] },
+      male: { weight: [450, 1200] },
+      female: { weight: [500, 1400] },
     },
     intro:
       'Über Wiesen kreisend oder auf einem Zaunpfahl wartend: unser vertrauter Mäusejäger.',
@@ -115,9 +115,9 @@ export const birds: BirdSpecies[] = [
     group: 'Falken',
     tile: 2,
     span: [90, 105],
-    weight: [580, 1100],
+    weight: [600, 1100],
     sexes: {
-      male: { weight: [580, 730] },
+      male: { weight: [600, 750] },
       female: { weight: [850, 1100] },
     },
     intro:

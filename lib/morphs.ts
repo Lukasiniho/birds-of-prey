@@ -182,7 +182,7 @@ export const birdMorphs: Record<MorphSpeciesId, BirdMorphConfig> = {
     label: 'Rückenfarbe',
     stages: ['male', 'female'],
     defaultId: 'kastanienbraun',
-    note: 'Neben dem gewöhnlichen kastanienbraunen Rücken gibt es eine seltene cremefarbene Morphe mit hellerem, blass kastanienfarbenem Schwanz. Der schwarze Körper bleibt erhalten. Die Rückenfarbe ist von den Geschlechtsmerkmalen am Flügel zu unterscheiden. Für das braune Jugendkleid wird hier keine eigene Morphenzeichnung angenommen.',
+    note: 'Neben dem gewöhnlichen kastanienbraunen Rücken gibt es eine seltene cremefarbene Morphe mit hellerem, blass kastanienfarbenem Schwanz. Der schwarze Körper bleibt erhalten. Beide Rückenfarben sind bei Männchen und Weibchen auswählbar; die Geschlechtsmerkmale am Flügel bleiben bestehen. Das braune Jugendkleid wird als eigene Altersstufe gezeigt. Die Auswahl der Rückenfarbe gilt nur für Altvögel.',
     sources: [
       {
         name: 'Lip Kee – dokumentierte cremefarbene Morphe',

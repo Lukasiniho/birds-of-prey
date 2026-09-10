@@ -19,7 +19,7 @@ export const catalogAdditions: AdditionalBird[] = [
     weight: [550, 1600],
     sexes: {
       male: { weight: [550, 850] },
-      female: { weight: [770, 1600] },
+      female: { weight: [750, 1600] },
     },
     intro:
       'Ein ungewöhnlich geselliger Greifvogel: Wüstenbussarde jagen gemeinsam und unterstützen sich bei der Jungenaufzucht.',
@@ -73,8 +73,8 @@ export const catalogAdditions: AdditionalBird[] = [
     span: [180, 220],
     weight: [2400, 4600],
     sexes: {
-      male: { span: [180, 200], weight: [2400, 2800] },
-      female: { span: [200, 220], weight: [3200, 4600] },
+      male: { weight: [2400, 2800] },
+      female: { weight: [3200, 4600] },
     },
     intro:
       'Ein großer, dunkler Adler der Steppen und Auwälder, dessen goldgelber Nacken und weiße Schulterflecken ihn im Alterskleid unverwechselbar machen.',
@@ -316,10 +316,10 @@ export const catalogAdditions: AdditionalBird[] = [
     genusLabel: 'Wespenbussarde',
     tile: null,
     span: [120, 145],
-    weight: [520, 1000],
+    weight: [500, 1000],
     sexes: {
-      male: { weight: [520, 940] },
-      female: { weight: [530, 1000] },
+      male: { weight: [500, 950] },
+      female: { weight: [550, 1000] },
     },
     intro:
       'Ein Sommergast unserer Wälder, der mit dem Mäusebussard leicht zu verwechseln ist und sich auf die Brut von Wespen spezialisiert hat.',

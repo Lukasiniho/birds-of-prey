@@ -437,8 +437,8 @@ export const additionalBirds: AdditionalBird[] = [
     span: [110, 135],
     weight: [950, 2000],
     sexes: {
-      male: { span: [110, 130], weight: [950, 1300] },
-      female: { span: [125, 135], weight: [1400, 2000] },
+      male: { weight: [950, 1300] },
+      female: { weight: [1400, 2000] },
     },
     intro:
       'Der größte Falke jagt über weite Tundren und arktische Küsten. Die Gefiederfarbe reicht von Weiß bis Dunkelgrau.',
@@ -497,7 +497,7 @@ export const additionalBirds: AdditionalBird[] = [
     weight: [700, 1300],
     sexes: {
       male: { weight: [700, 900] },
-      female: { weight: [970, 1300] },
+      female: { weight: [950, 1300] },
     },
     intro:
       'Ein kräftiger Falke der eurasischen Steppen, der am Boden und im freien Luftraum jagt.',
@@ -785,7 +785,7 @@ export const additionalBirds: AdditionalBird[] = [
     latin: 'Buteo regalis',
     group: 'Bussarde',
     span: [120, 160],
-    weight: [980, 2100],
+    weight: [1000, 2100],
     intro:
       'Ein großer Bussard der nordamerikanischen Grasländer mit rostfarbenen Schultern und bis zu den Zehen befiederten Läufen.',
     habitat:
@@ -957,10 +957,10 @@ export const additionalBirds: AdditionalBird[] = [
     latin: 'Bubo virginianus',
     group: 'Eulen',
     span: [100, 145],
-    weight: [680, 2500],
+    weight: [700, 2500],
     sexes: {
-      male: { weight: [680, 1600] },
-      female: { weight: [820, 2500] },
+      male: { weight: [700, 1600] },
+      female: { weight: [800, 2500] },
     },
     intro:
       'Gelbe Augen und breite Federohren prägen diese kräftige Eule Amerikas.',
@@ -1072,8 +1072,8 @@ export const additionalBirds: AdditionalBird[] = [
     span: [60, 75],
     weight: [110, 340],
     sexes: {
-      male: { span: [60, 65], weight: [110, 200] },
-      female: { span: [65, 75], weight: [180, 340] },
+      male: { weight: [110, 200] },
+      female: { weight: [180, 340] },
     },
     intro:
       'Kurze Flügel und ein langer Schwanz machen ihn zum wendigen Jäger kleiner Vögel.',

@@ -65,23 +65,12 @@ import {
   getBirdMorphChoice,
   getBirdMorphAppearance,
 } from '@/lib/morphs';
-/** Weight unit for one species: grams below 1 kg, otherwise kilograms. */
-function weightUnitFor(bird: { weight: MeasurementRange }): 'g' | 'kg' {
-  return bird.weight[1] >= 1000 ? 'kg' : 'g';
-}
-const gramFormat = new Intl.NumberFormat('de-DE', { maximumFractionDigits: 0 });
-const kiloFormat = new Intl.NumberFormat('de-DE', {
-  minimumFractionDigits: 1,
-  maximumFractionDigits: 1,
-});
-/** Renders a stored [min, max] as display text in the given unit (weights are stored in grams). */
-export function formatMeasurement(
-  [min, max]: MeasurementRange,
-  unit: 'cm' | 'g' | 'kg',
-) {
-  const format = (n: number) =>
-    unit === 'kg' ? kiloFormat.format(n / 1000) : gramFormat.format(n);
-  return min === max ? format(min) : `${format(min)}–${format(max)}`;
+const wholeNumber = new Intl.NumberFormat('de-DE', { maximumFractionDigits: 0 });
+/** Renders a stored [min, max] as display text; weights are always shown in grams. */
+export function formatMeasurement([min, max]: MeasurementRange) {
+  return min === max
+    ? wholeNumber.format(min)
+    : `${wholeNumber.format(min)}–${wholeNumber.format(max)}`;
 }
 
 function MeasurementValue({ value, unit }: { value: string; unit: string }) {
@@ -147,6 +136,7 @@ function SexSwitch({
 /**
  * One measurement cell. With sex-specific ranges it shows the range of the
  * chosen sex; the switch itself sits next to the label when `onSexChange` is given.
+ * Only the weight is dimorphic; the wingspan is always the combined species range.
  */
 function Measurement({
   label,
@@ -159,7 +149,7 @@ function Measurement({
   label: string;
   range: MeasurementRange;
   sexes?: { male?: MeasurementRange; female?: MeasurementRange };
-  unit: 'cm' | 'g' | 'kg';
+  unit: 'cm' | 'g';
   sex: Sex;
   onSexChange?: (sex: Sex) => void;
 }) {
@@ -171,7 +161,7 @@ function Measurement({
         {onSexChange && <SexSwitch value={sex} onChange={onSexChange} />}
       </span>
       <p>
-        <MeasurementValue value={formatMeasurement(shown, unit)} unit={unit} />
+        <MeasurementValue value={formatMeasurement(shown)} unit={unit} />
       </p>
     </div>
   );
@@ -664,14 +654,6 @@ export default function RaptorApp({
               <Measurement
                 label="Spannweite"
                 range={bird.span}
-                sexes={
-                  bird.sexes?.male.span && bird.sexes.female.span
-                    ? {
-                        male: bird.sexes.male.span,
-                        female: bird.sexes.female.span,
-                      }
-                    : undefined
-                }
                 unit="cm"
                 sex={sex}
               />
@@ -686,7 +668,7 @@ export default function RaptorApp({
                       }
                     : undefined
                 }
-                unit={weightUnitFor(bird)}
+                unit="g"
                 sex={sex}
                 onSexChange={bird.sexes ? setSex : undefined}
               />
