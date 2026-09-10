@@ -16,7 +16,16 @@ import {
   CaretDown,
   GenderFemale,
   GenderMale,
+  MagnifyingGlass as Search,
+  X,
 } from '@/components/icons';
+import { Input } from '@/components/ui/input';
+import {
+  Sheet,
+  SheetContent,
+  SheetTitle,
+  SheetTrigger,
+} from '@/components/ui/sheet';
 import { SiteHeader } from '@/components/site-header';
 import { Button } from '@/components/ui/button';
 import { Select, SelectValue, SelectItem } from '@/components/ui/select';
@@ -379,6 +388,7 @@ export default function RaptorApp({
   const [query, setQuery] = useState('');
   const [grouping, setGrouping] = useState<GroupMode>('genus');
   const [hintOpen, setHintOpen] = useState(false);
+  const [pickerOpen, setPickerOpen] = useState(false);
   const [infoTab, setInfoTab] = useState('profil');
   const [path, setPath] = useState('');
   const bird = speciesById[selected];
@@ -433,6 +443,7 @@ export default function RaptorApp({
   );
   function select(id: string) {
     setSelected(id);
+    setPickerOpen(false);
     const href = birdHref(speciesById[id]);
     if (window.location.pathname !== href)
       window.history.pushState(window.history.state, '', href);
@@ -453,6 +464,114 @@ export default function RaptorApp({
   }
   const filtered = filterBirds(query);
   const groups = groupBirds(filtered, grouping);
+  const libraryRail = (
+    <>
+      <div className="library-top">
+        <div className="grouping-control">
+          <span>Gruppieren nach</span>
+          <Select
+            value={grouping}
+            onValueChange={(v) => {
+              if (v) setGrouping(v as GroupMode);
+            }}
+            items={groupingOptions}
+          >
+            <SelectTrigger aria-label="Vogelarten gruppieren nach">
+              <SelectValue />
+            </SelectTrigger>
+            <SelectContent
+              align="start"
+              sideOffset={6}
+              alignItemWithTrigger={false}
+              data-origin="top-left"
+            >
+              {groupingOptions.map((o) => (
+                <SelectItem value={o.value} key={o.value}>
+                  {o.label}
+                </SelectItem>
+              ))}
+            </SelectContent>
+          </Select>
+        </div>
+      </div>
+      <nav aria-label="Vogelarten" className="grouped-navigation">
+        {groups.map((group) => (
+          <section className="species-group" key={group.id}>
+            <h3 className="species-group-title">
+              <span>{group.title}</span>
+              {group.subtitle && (
+                <SpeciesScientificName as="small">
+                  {group.subtitle}
+                </SpeciesScientificName>
+              )}
+            </h3>
+            <SidebarMenu className="bird-list">
+              {group.birds.map((b) => (
+                <SidebarMenuItem key={b.id}>
+                  <SidebarMenuButton
+                    className="bird-entry"
+                    isActive={selected === b.id}
+                    aria-current={selected === b.id ? 'page' : undefined}
+                    render={
+                      // oxlint-disable-next-line jsx-a11y/anchor-has-content, jsx-a11y/control-has-associated-label -- the sidebar button supplies the link text
+                      <a href={birdHref(b)} />
+                    }
+                    onClick={(event) => {
+                      if (
+                        event.metaKey ||
+                        event.ctrlKey ||
+                        event.shiftKey ||
+                        event.altKey
+                      )
+                        return;
+                      event.preventDefault();
+                      select(b.id);
+                    }}
+                    onPointerEnter={() => warmBird(b.id)}
+                    onFocus={() => warmBird(b.id)}
+                  >
+                    <span
+                      className="portrait head-portrait own-portrait"
+                      data-species={b.id}
+                      style={
+                        portraitImages[b.id]
+                          ? {
+                              backgroundImage: `url(${imageSource(portraitImages[b.id])})`,
+                            }
+                          : { backgroundImage: 'none' }
+                      }
+                      aria-hidden="true"
+                    />
+                    <span
+                      className={`bird-label ${b.name.length > 15 ? 'long-label' : ''}`}
+                    >
+                      <SpeciesName
+                        name={b.name}
+                        variant="sidebar"
+                        latin={b.latin}
+                        commonAs="strong"
+                        scientificAs="em"
+                      />
+                    </span>
+                  </SidebarMenuButton>
+                </SidebarMenuItem>
+              ))}
+            </SidebarMenu>
+          </section>
+        ))}
+      </nav>
+      {filtered.length === 0 && (
+        <div className="empty-library">
+          <Feather />
+          <p>Keine Art gefunden.</p>
+          <span>Versuche einen anderen Suchbegriff.</span>
+          <Button variant="link" onClick={() => setQuery('')}>
+            Alle Arten anzeigen
+          </Button>
+        </div>
+      )}
+    </>
+  );
   return (
     <TooltipProvider delay={180}>
       <div className="app-shell">
@@ -463,114 +582,56 @@ export default function RaptorApp({
         />
         <SidebarProvider className="app-columns">
           <Sidebar collapsible="none" className="species-panel">
-            <div className="library-top">
-              <div className="grouping-control">
-                <span>Gruppieren nach</span>
-                <Select
-                  value={grouping}
-                  onValueChange={(v) => {
-                    if (v) setGrouping(v as GroupMode);
-                  }}
-                  items={groupingOptions}
-                >
-                  <SelectTrigger aria-label="Vogelarten gruppieren nach">
-                    <SelectValue />
-                  </SelectTrigger>
-                  <SelectContent
-                    align="start"
-                    sideOffset={6}
-                    alignItemWithTrigger={false}
-                    data-origin="top-left"
-                  >
-                    {groupingOptions.map((o) => (
-                      <SelectItem value={o.value} key={o.value}>
-                        {o.label}
-                      </SelectItem>
-                    ))}
-                  </SelectContent>
-                </Select>
-              </div>
-            </div>
-            <nav aria-label="Vogelarten" className="grouped-navigation">
-              {groups.map((group) => (
-                <section className="species-group" key={group.id}>
-                  <h3 className="species-group-title">
-                    <span>{group.title}</span>
-                    {group.subtitle && (
-                      <SpeciesScientificName as="small">
-                        {group.subtitle}
-                      </SpeciesScientificName>
-                    )}
-                  </h3>
-                  <SidebarMenu className="bird-list">
-                    {group.birds.map((b) => (
-                      <SidebarMenuItem key={b.id}>
-                        <SidebarMenuButton
-                          className="bird-entry"
-                          isActive={selected === b.id}
-                          aria-current={selected === b.id ? 'page' : undefined}
-                          render={
-                            // oxlint-disable-next-line jsx-a11y/anchor-has-content, jsx-a11y/control-has-associated-label -- the sidebar button supplies the link text
-                            <a href={birdHref(b)} />
-                          }
-                          onClick={(event) => {
-                            if (
-                              event.metaKey ||
-                              event.ctrlKey ||
-                              event.shiftKey ||
-                              event.altKey
-                            )
-                              return;
-                            event.preventDefault();
-                            select(b.id);
-                          }}
-                          onPointerEnter={() => warmBird(b.id)}
-                          onFocus={() => warmBird(b.id)}
-                        >
-                          <span
-                            className="portrait head-portrait own-portrait"
-                            data-species={b.id}
-                            style={
-                              portraitImages[b.id]
-                                ? {
-                                    backgroundImage: `url(${imageSource(portraitImages[b.id])})`,
-                                  }
-                                : { backgroundImage: 'none' }
-                            }
-                            aria-hidden="true"
-                          />
-                          <span
-                            className={`bird-label ${b.name.length > 15 ? 'long-label' : ''}`}
-                          >
-                            <SpeciesName
-                              name={b.name}
-                              variant="sidebar"
-                              latin={b.latin}
-                              commonAs="strong"
-                              scientificAs="em"
-                            />
-                          </span>
-                        </SidebarMenuButton>
-                      </SidebarMenuItem>
-                    ))}
-                  </SidebarMenu>
-                </section>
-              ))}
-            </nav>
-            {filtered.length === 0 && (
-              <div className="empty-library">
-                <Feather />
-                <p>Keine Art gefunden.</p>
-                <span>Versuche einen anderen Suchbegriff.</span>
-                <Button variant="link" onClick={() => setQuery('')}>
-                  Alle Arten anzeigen
-                </Button>
-              </div>
-            )}
+            {libraryRail}
           </Sidebar>
           <main id="main-content" className="specimen-panel">
             <div className="specimen-heading">
               <RevealHeading name={bird.name} latin={bird.latin} />
+              {/* The rail costs a phone most of its first screen, so there the
+                  species list becomes a sheet under the name. */}
+              <Sheet open={pickerOpen} onOpenChange={setPickerOpen}>
+                <SheetTrigger
+                  render={
+                    <button
+                      type="button"
+                      className="species-picker"
+                      aria-label={
+                        query
+                          ? `Art wechseln, ${filtered.length} Treffer`
+                          : 'Art wechseln'
+                      }
+                    />
+                  }
+                >
+                  <CaretDown />
+                </SheetTrigger>
+                <SheetContent side="bottom" className="species-picker-sheet">
+                  <SheetTitle className="species-picker-title">
+                    Art wählen
+                  </SheetTitle>
+                  {/* The search belongs where the list is: on a phone the
+                      header keeps its single row. */}
+                  <div className="search-wrap picker-search">
+                    <Search size={17} />
+                    <Input
+                      aria-label="Vogelart suchen"
+                      placeholder="Vogelart suchen"
+                      value={query}
+                      onChange={(event) => setQuery(event.target.value)}
+                    />
+                    {query && (
+                      <button
+                        className="clear-search"
+                        aria-label="Suche leeren"
+                        onClick={() => setQuery('')}
+                      >
+                        <X size={14} />
+                      </button>
+                    )}
+                  </div>
+                  {libraryRail}
+                </SheetContent>
+              </Sheet>
             </div>
             <div className="plumage-stage">
               <div className="specimen-controls">

@@ -42,7 +42,7 @@
   color: var(--primary-foreground);
 }
 .bird-list[data-slot] {
-  gap: var(--space-4);
+  gap: var(--space-2);
 }
 .bird-entry[data-slot] {
   height: 75px;
@@ -924,7 +924,7 @@ button.color-dot:not(:disabled) {
   color: var(--main-color);
 }
 .species-group + .species-group {
-  margin-top: var(--space-16);
+  margin-top: var(--space-12);
 }
 .species-group-title {
   display: flex;
@@ -1233,7 +1233,7 @@ button.color-dot:not(:disabled) {
   gap: var(--space-8);
 }
 .species-group + .species-group {
-  margin-top: var(--space-16);
+  margin-top: var(--space-12);
 }
 @media (max-width: 640px) {
 
@@ -1754,7 +1754,7 @@ button.color-dot:not(:disabled) {
 }
 .bird-entry[data-slot] {
   height: auto;
-  min-height: 84px;
+  min-height: 72px;
   align-items: center;
 }
 @media (max-width: 1190px) {
@@ -2215,4 +2215,107 @@ button.color-dot:not(:disabled) {
 }
 @media (prefers-reduced-motion: reduce) {
   .color-dot, button.color-dot:not(:disabled) { transition: none; }
+}
+
+/* Phones trade the species rail for a sheet: the list otherwise eats most of
+   the first screen before a single illustration is in view. */
+.species-picker {
+  display: none;
+}
+@media (max-width: 640px) {
+  .species-panel[data-slot] {
+    display: none;
+  }
+  /* The name is the control: a chevron sits beside it and the button stretches
+     over the whole heading, so tapping the title opens the list. Name and
+     chevron centre together as one block. */
+  .specimen-heading {
+    --species-picker-size: 34px;
+    display: flex;
+    align-items: flex-start;
+    justify-content: center;
+    gap: var(--space-12);
+    padding: var(--space-20) var(--space-16) 0;
+  }
+  .specimen-heading > div {
+    width: auto;
+    min-width: 0;
+    padding: 0;
+  }
+  .species-picker {
+    display: inline-grid;
+    place-items: center;
+    flex: 0 0 var(--species-picker-size);
+    height: var(--species-picker-size);
+    /* Ride the name's own line rather than the middle of the whole block. */
+    margin-top: calc(
+      var(--type-hero) * var(--leading-display) / 2 - var(--species-picker-size) /
+        2
+    );
+    padding: 0;
+    border: var(--border-structure) solid var(--border);
+    border-radius: 50%;
+    background: var(--surface);
+    box-shadow: var(--shadow-subtle);
+    color: var(--foreground);
+  }
+  .species-picker > svg {
+    width: 16px;
+    height: 16px;
+    /* Phosphor's regular caret is a hairline at this size; stroking its own
+       path thickens it without a second icon weight. */
+    stroke: currentColor;
+    stroke-width: 14;
+    stroke-linejoin: round;
+    stroke-linecap: round;
+  }
+  .species-picker::after {
+    content: '';
+    position: absolute;
+    inset: 0;
+  }
+  /* The name swaps in place beside the chevron; the reveal would fade the text
+     out and let the button hop while it does. */
+  .specimen-heading .t-stagger .t-stagger-line,
+  .specimen-heading .t-stagger.is-shown .t-stagger-line,
+  .specimen-heading .t-stagger.is-hiding .t-stagger-line {
+    opacity: 1;
+    transform: none;
+    filter: none;
+    transition: none;
+  }
+  .specimen-controls {
+    margin-top: var(--space-16);
+  }
+}
+.species-picker-sheet[data-slot='sheet-content'] {
+  display: flex;
+  flex-direction: column;
+  gap: 0;
+  max-height: 85dvh;
+  padding: var(--space-20) var(--page-gutter) 0;
+  border-radius: var(--radius-surface) var(--radius-surface) 0 0;
+  background: var(--background);
+}
+.species-picker-sheet .species-picker-title {
+  margin-bottom: var(--space-16);
+  font-family: var(--font-stack-display);
+  font-size: var(--type-label-title);
+  color: var(--foreground);
+}
+.species-picker-sheet .picker-search {
+  margin-bottom: var(--space-12);
+}
+.species-picker-sheet .grouping-control {
+  padding-bottom: var(--space-8);
+}
+/* The list, not the sheet, is what scrolls. */
+.species-picker-sheet .grouped-navigation {
+  flex: 1;
+  min-height: 0;
+  padding-top: var(--space-8);
+  max-height: none;
+  overflow-y: auto;
+  overscroll-behavior-y: contain;
+  padding-bottom: calc(var(--space-20) + env(safe-area-inset-bottom));
 }
