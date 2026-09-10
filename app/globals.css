@@ -3046,7 +3046,10 @@ button.color-dot:not(:disabled) {
 }
 .specimen-measurements.measurements > .bird-audio {
   padding-inline: var(--space-8);
-  /* The play control centres on the full cell height, not on the label/value rows. */
+}
+/* The play control centres on the full cell height, not on the label/value rows
+   (outranks the :has(.bird-audio) > div row template above). */
+.specimen-measurements.measurements:has(.bird-audio) > div.bird-audio {
   grid-template-rows: none;
   align-content: center;
   align-items: center;
