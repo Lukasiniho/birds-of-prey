@@ -676,13 +676,25 @@ export default function RaptorApp({
                   aria-hidden="true"
                   ref={infoPillRef}
                 />
-                <TabsTrigger className="t-tab" value="profil">
+                <TabsTrigger
+                  className="t-tab"
+                  value="profil"
+                  data-label="Steckbrief"
+                >
                   Steckbrief
                 </TabsTrigger>
-                <TabsTrigger className="t-tab" value="nahrung">
+                <TabsTrigger
+                  className="t-tab"
+                  value="nahrung"
+                  data-label="Nahrung"
+                >
                   Nahrung
                 </TabsTrigger>
-                <TabsTrigger className="t-tab" value="lebensraum">
+                <TabsTrigger
+                  className="t-tab"
+                  value="lebensraum"
+                  data-label="Lebensraum"
+                >
                   Lebensraum
                 </TabsTrigger>
               </TabsList>

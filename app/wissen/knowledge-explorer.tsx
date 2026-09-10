@@ -72,7 +72,12 @@ export default function KnowledgeExplorer({
           >
             <span className="t-tabs-pill" aria-hidden="true" ref={pillRef} />
             {sections.map(({ id, label }) => (
-              <TabsTrigger key={id} value={id} className="t-tab">
+              <TabsTrigger
+                key={id}
+                value={id}
+                className="t-tab"
+                data-label={label}
+              >
                 {label}
               </TabsTrigger>
             ))}

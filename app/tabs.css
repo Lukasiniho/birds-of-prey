@@ -113,6 +113,22 @@
   background: transparent;
   box-shadow: none;
 }
+/* Selection bumps the weight, which would widen the label and shove the rest of
+   the rail sideways. A zero-height ghost of the same text at the active weight
+   reserves the wider box, so nothing moves. Triggers repeat their text in
+   data-label; a trigger without it keeps the old jump. */
+.t-tabs-line > .t-tab[data-label] {
+  flex-direction: column;
+  justify-content: center;
+}
+.t-tabs-line > .t-tab[data-label]::before {
+  content: attr(data-label);
+  height: 0;
+  overflow: hidden;
+  visibility: hidden;
+  font-weight: var(--weight-medium);
+  pointer-events: none;
+}
 .t-tabs-line > .t-tabs-pill {
   top: auto;
   bottom: -1px;

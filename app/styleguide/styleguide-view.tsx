@@ -553,6 +553,7 @@ export default function StyleguideView() {
                 key={id}
                 type="button"
                 className="t-tab"
+                data-label={label}
                 aria-pressed={line === id}
                 onClick={() => setLine(id)}
               >

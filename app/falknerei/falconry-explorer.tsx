@@ -70,7 +70,12 @@ export default function FalconryExplorer({ species }: { species: Species[] }) {
           >
             <span className="t-tabs-pill" aria-hidden="true" ref={pillRef} />
             {chapters.map((item) => (
-              <TabsTrigger key={item.id} value={item.id} className="t-tab">
+              <TabsTrigger
+                key={item.id}
+                value={item.id}
+                className="t-tab"
+                data-label={item.label}
+              >
                 {item.label}
               </TabsTrigger>
             ))}
