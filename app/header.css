@@ -148,6 +148,9 @@ html {
   height: 100%;
   object-fit: contain;
 }
+/* The search keeps the header on one row at every width above the mobile
+   breakpoint: the row needs about 810px, and the field gives up 80px of that
+   before its floor, so it still fits at 761px. No second header row. */
 .site-header .topbar-search {
   flex: 0 1 220px;
   min-width: 140px;
@@ -193,19 +196,6 @@ html {
   background: var(--selected);
 }
 
-/* Two rows only where one no longer fits: brand, search, navigation and
-   actions need about 785px side by side. */
-@media (min-width: 761px) and (max-width: 980px) {
-  .app-shell { --site-header-height: 118px; }
-  .topbar.site-header {
-    grid-template-rows: 47px 47px;
-    gap: var(--space-8);
-    padding: var(--space-8) var(--atlas-gutter);
-  }
-  .site-header .header-brand { grid-column: 1 / -1; grid-row: 1; }
-  .site-header .site-navigation,
-  .site-header .header-actions { grid-row: 2; }
-}
 .mobile-navigation { display: none; }
 .header-menu[data-slot] {
   min-width: 160px;
