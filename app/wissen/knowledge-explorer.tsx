@@ -1,6 +1,6 @@
 'use client';
 
-import { useCallback, useEffect, useState, useSyncExternalStore } from 'react';
+import { useEffect, useSyncExternalStore } from 'react';
 import { SiteHeader } from '@/components/site-header';
 import { useSlidingPill } from '@/lib/use-sliding-pill';
 import { Tabs, TabsContent, TabsList, TabsTrigger } from '@/components/ui/tabs';
@@ -42,19 +42,6 @@ export default function KnowledgeExplorer({
     () => 'falknerei',
   );
   const { barRef, pillRef } = useSlidingPill('wissen', section);
-  // Mobile: the tab rail scrolls sideways; the right-edge fade hides once
-  // the last tab is fully in view so it only reads as "more to the right".
-  const [scrollEnd, setScrollEnd] = useState(true);
-  const updateScrollEnd = useCallback(() => {
-    const bar = barRef.current;
-    if (!bar) return;
-    setScrollEnd(bar.scrollLeft + bar.clientWidth >= bar.scrollWidth - 1);
-  }, [barRef]);
-  useEffect(() => {
-    updateScrollEnd();
-    window.addEventListener('resize', updateScrollEnd);
-    return () => window.removeEventListener('resize', updateScrollEnd);
-  }, [updateScrollEnd]);
   useEffect(() => {
     // Keep the selected tab in view when it changes (e.g. via hash).
     barRef.current
@@ -77,16 +64,12 @@ export default function KnowledgeExplorer({
           }}
           className="knowledge-explorer"
         >
-          <div
-            className="knowledge-tabs-rail"
-            data-scroll-end={scrollEnd ? 'true' : undefined}
-          >
+          <div className="knowledge-tabs-rail">
             <TabsList
               variant="line"
               className="knowledge-tabs t-tabs"
               aria-label="Wissensbereiche"
               ref={barRef}
-              onScroll={updateScrollEnd}
             >
               <span className="t-tabs-pill" aria-hidden="true" ref={pillRef} />
               {sections.map(({ id, label }) => (

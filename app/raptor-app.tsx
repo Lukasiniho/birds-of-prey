@@ -112,60 +112,69 @@ function MeasurementValue({ value, unit }: { value: string; unit: string }) {
   );
 }
 
+type Sex = 'female' | 'male';
+
+/** Two-icon mini switch, only rendered for dimorphic species: ♀ left, ♂ right. */
+function SexSwitch({
+  value,
+  onChange,
+}: {
+  value: Sex;
+  onChange: (sex: Sex) => void;
+}) {
+  return (
+    <span className="sex-switch" role="group" aria-label="Geschlecht">
+      <button
+        type="button"
+        className="sex-switch-option"
+        aria-pressed={value === 'female'}
+        aria-label="Weibchen"
+        onClick={() => onChange('female')}
+      >
+        <GenderFemale size={12} />
+      </button>
+      <button
+        type="button"
+        className="sex-switch-option"
+        aria-pressed={value === 'male'}
+        aria-label="Männchen"
+        onClick={() => onChange('male')}
+      >
+        <GenderMale size={12} />
+      </button>
+    </span>
+  );
+}
+
 /**
- * One measurement cell. With sex-specific ranges it shows a ♂ and a ♀ row,
- * otherwise the single combined range.
+ * One measurement cell. With sex-specific ranges it shows the range of the
+ * chosen sex; the switch itself sits next to the label when `onSexChange` is given.
  */
 function Measurement({
   label,
   range,
   sexes,
   unit,
+  sex,
+  onSexChange,
 }: {
   label: string;
   range: MeasurementRange;
   sexes?: { male?: MeasurementRange; female?: MeasurementRange };
   unit: 'cm' | 'g' | 'kg';
+  sex: Sex;
+  onSexChange?: (sex: Sex) => void;
 }) {
-  const split = sexes?.male && sexes?.female;
+  const shown = (sexes?.male && sexes?.female && sexes[sex]) || range;
   return (
-    <div className={split ? 'measurement-split' : undefined}>
-      <span>{label}</span>
-      {split ? (
-        <dl className="measurement-rows">
-          <div className="measurement-row">
-            <dt>
-              <GenderMale size={14} />
-              <span className="sr-only">Männchen</span>
-            </dt>
-            <dd>
-              <MeasurementValue
-                value={formatMeasurement(sexes.male!, unit)}
-                unit={unit}
-              />
-            </dd>
-          </div>
-          <div className="measurement-row">
-            <dt>
-              <GenderFemale size={14} />
-              <span className="sr-only">Weibchen</span>
-            </dt>
-            <dd>
-              <MeasurementValue
-                value={formatMeasurement(sexes.female!, unit)}
-                unit={unit}
-              />
-            </dd>
-          </div>
-        </dl>
-      ) : (
-        <p>
-          <MeasurementValue
-            value={formatMeasurement(range, unit)}
-            unit={unit}
-          />
-        </p>
-      )}
+    <div>
+      <span>
+        {label}
+        {onSexChange && <SexSwitch value={sex} onChange={onSexChange} />}
+      </span>
+      <p>
+        <MeasurementValue value={formatMeasurement(shown, unit)} unit={unit} />
+      </p>
     </div>
   );
 }
@@ -374,6 +383,7 @@ export default function RaptorApp({
 }) {
   const [selected, setSelected] = useState(initialBirdId);
   const [chosenPlumage, setPlumage] = useState<Plumage>('male');
+  const [sex, setSex] = useState<Sex>('male');
   const [chosenMorphs, setMorphs] = useState<Record<string, string>>({});
   const [query, setQuery] = useState('');
   const [grouping, setGrouping] = useState<GroupMode>('genus');
@@ -665,6 +675,7 @@ export default function RaptorApp({
                     : undefined
                 }
                 unit="cm"
+                sex={sex}
               />
               <Measurement
                 label="Gewicht"
@@ -678,6 +689,8 @@ export default function RaptorApp({
                     : undefined
                 }
                 unit={weightUnitFor(bird)}
+                sex={sex}
+                onSexChange={bird.sexes ? setSex : undefined}
               />
               <BirdAudio key={bird.id} birdId={bird.id} name={bird.name} />
             </section>

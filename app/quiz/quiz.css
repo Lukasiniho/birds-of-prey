@@ -1107,12 +1107,12 @@
   content: '';
   position: absolute;
   inset: auto 0 0;
-  height: 68%;
+  height: 66%;
   pointer-events: none;
   background: linear-gradient(
     to top,
-    rgb(0 0 0 / 0.86) 0%,
-    rgb(0 0 0 / 0.6) 40%,
+    rgb(0 0 0 / 0.74) 0%,
+    rgb(0 0 0 / 0.46) 42%,
     rgb(0 0 0 / 0) 100%
   );
 }
@@ -1120,11 +1120,14 @@
   position: absolute;
   inset: auto 0 0;
   z-index: 1;
-  padding: 0 var(--space-16) var(--space-12);
+  /* Optical padding: the text's descender space sits below the baseline, so the
+     bottom inset is smaller than the left one to read as equal. */
+  padding: 0 var(--space-16) 10px;
   display: flex;
   align-items: center;
   justify-content: space-between;
   gap: var(--space-8);
+  line-height: var(--leading-none);
   color: #fff;
   font-family: var(--font-display), Georgia, serif;
   font-size: var(--type-card-title);
@@ -1225,7 +1228,7 @@
     height: 120px;
   }
   .q-landscape-title {
-    padding: 0 var(--space-12) var(--space-8);
+    padding: 0 var(--space-12) 7px;
     font-size: var(--type-lead);
   }
   .q-habitat-selection {

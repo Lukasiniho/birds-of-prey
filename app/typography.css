@@ -75,8 +75,6 @@
     0.875rem + 3cqi,
     var(--text-4xl)
   );
-  /* Two-row (♂/♀) measurement cells: same container scaling, one step smaller. */
-  --type-metric-split: clamp(var(--text-base), 0.75rem + 2cqi, var(--text-2xl));
   --type-score: var(--text-7xl);
 }
 

@@ -216,7 +216,7 @@
   gap: var(--space-24);
 }
 /* Underline tabs: the same 38px rail, label-title type and 2px marker as the atlas information tabs.
-   The rail wrapper carries the border and the mobile edge fade; the list itself scrolls sideways. */
+   The rail wrapper carries the border; the list itself scrolls sideways on mobile. */
 .knowledge-tabs-rail {
   position: relative;
   width: 100%;
@@ -624,28 +624,6 @@
     flex: 0 0 auto;
     white-space: nowrap;
   }
-  /* Right-edge fade signals the rail keeps going; it lifts once the end is reached. */
-  .knowledge-tabs-rail::after {
-    content: '';
-    position: absolute;
-    top: 0;
-    right: 0;
-    bottom: 0;
-    width: 88px;
-    z-index: 2; /* above the tabs, which carry z-index 1 for the sliding pill */
-    pointer-events: none;
-    background: linear-gradient(
-      to right,
-      transparent 0%,
-      color-mix(in srgb, var(--background) 70%, transparent) 40%,
-      var(--background) 78%
-    );
-    opacity: 1;
-    transition: opacity var(--duration-quick) var(--ease-smooth-out);
-  }
-  .knowledge-tabs-rail[data-scroll-end]::after {
-    opacity: 0;
-  }
   .knowledge-split {
     grid-template-columns: minmax(0, 1fr);
   }
@@ -684,8 +662,7 @@
   .falconry-era-marker::after,
   .knowledge-tile,
   .knowledge-bird,
-  .knowledge-tabs button[data-slot],
-  .knowledge-tabs-rail::after {
+  .knowledge-tabs button[data-slot] {
     transition: none;
   }
   .knowledge-notes-scroll {
