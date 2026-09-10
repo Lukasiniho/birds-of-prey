@@ -29,18 +29,21 @@ export function QuizCallPlayer({
     'idle',
   );
 
+  // State updates after unmount are no-ops, so the pending attempt needs no invalidation here.
   useEffect(() => {
     const player = audio.current;
-    return () => {
-      attempt.current++;
-      player?.pause();
-    };
+    return () => player?.pause();
   }, []);
+
+  const [prevRevealed, setPrevRevealed] = useState(revealed);
+  if (revealed !== prevRevealed) {
+    setPrevRevealed(revealed);
+    setState('idle');
+  }
 
   useEffect(() => {
     attempt.current++;
     audio.current?.pause();
-    setState('idle');
   }, [revealed]);
 
   useEffect(() => {
@@ -94,10 +97,7 @@ export function QuizCallPlayer({
         onClick={toggle}
         aria-label={label}
       >
-        <Icon
-          aria-hidden="true"
-          className={revealed ? 'size-4.5' : 'size-8'}
-        />
+        <Icon aria-hidden="true" className={revealed ? 'size-4.5' : 'size-8'} />
         <span>{label}</span>
       </Button>
       <p
@@ -112,6 +112,7 @@ export function QuizCallPlayer({
             ? 'Aufnahme wird geladen …'
             : ''}
       </p>
+      {/* oxlint-disable-next-line jsx-a11y/media-has-caption -- bird calls carry no speech to caption */}
       <audio
         ref={audio}
         src={recording.url}

@@ -38,10 +38,15 @@
   --leading-relaxed: 1.7;
 }
 
-:root {
-  /* Font stacks: the only place fallback fonts are spelled out. */
+/* Font stacks: the only place fallback fonts are spelled out.
+ * Declared on body, not :root: next/font sets --font-body and --font-display on <body>, and a
+ * custom property that references an undefined variable is dropped where it is declared. */
+body {
   --font-stack-body: var(--font-body), Inter, Arial, sans-serif;
   --font-stack-display: var(--font-display), 'Source Serif 4', Georgia, serif;
+}
+
+:root {
   /* Weights */
   --weight-regular: 400;
   --weight-medium: 500;

@@ -64,6 +64,7 @@ export function BirdAudio({ birdId, name }: { birdId: string; name: string }) {
           <Play />
         )}
       </Button>
+      {/* oxlint-disable-next-line jsx-a11y/media-has-caption -- bird calls carry no speech to caption */}
       <audio
         ref={audio}
         preload="none"

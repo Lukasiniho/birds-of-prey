@@ -9,7 +9,6 @@ import { habitatImages } from '../lib/habitat-images.ts';
 import {
   createQuizRound,
   quizKinds,
-  meanSpan,
   scorePrey,
   moveBird,
   parseMeasurementRange,

@@ -54,7 +54,6 @@ function MapDrawing({
         className="range-map-svg"
         viewBox={(world ? data.base.viewBox : data.range.viewBox).join(' ')}
         // SVG needs an explicit image role to expose its accessible name.
-        // oxlint-disable-next-line jsx-a11y/prefer-tag-over-role
         role="img"
         aria-label={`${label}: ${name}`}
       >

@@ -6,14 +6,15 @@
     "node": ">=22.13.0"
   },
   "scripts": {
-    "predev": "node scripts/optimize-images.mjs && npm run sitemap",
+    "predev": "test -f lib/optimized-images.ts -a -f public/sitemap.xml || npm run images",
     "dev": "vinext dev",
-    "prebuild": "node scripts/optimize-images.mjs && npm run sitemap",
+    "prebuild": "npm run images",
     "build": "vinext build",
     "postbuild": "node scripts/compact-deployment-images.mjs",
     "start": "wrangler dev --config dist/server/wrangler.json",
     "lint": "node scripts/check-design-system.mjs && oxlint",
     "lint:design": "node scripts/check-design-system.mjs",
+    "images": "node scripts/optimize-images.mjs && npm run sitemap",
     "sitemap": "node --experimental-strip-types --no-warnings scripts/build-sitemap.mjs",
     "format": "oxfmt",
     "maps:build": "node scripts/build-range-maps.mjs && node scripts/build-reference-range-maps.mjs"
