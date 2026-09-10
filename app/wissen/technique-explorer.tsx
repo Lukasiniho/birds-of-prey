@@ -1,7 +1,7 @@
 'use client';
 
 import { useState } from 'react';
-import Image from 'next/image';
+import { ArtImage } from '@/components/art-image';
 import { ArrowUpRight, Crosshair } from '@/components/icons';
 import { SpeciesName } from '@/components/species-name';
 import type { TechniqueEntry, TechniqueHunter } from './knowledge-data';
@@ -45,12 +45,12 @@ export default function TechniqueExplorer({
               onClick={() => setSelected(item.id)}
             >
               <span className="knowledge-tile-art">
-                <Image
+                <ArtImage
                   src={item.image}
                   alt=""
                   width={72}
                   height={72}
-                  unoptimized
+                  displayWidth={72}
                 />
               </span>
               <span className="knowledge-tile-name">{item.label}</span>
@@ -115,12 +115,12 @@ function HunterGroup({
             onFocus={() => onHover(hunter)}
             onBlur={() => onHover(null)}
           >
-            <Image
+            <ArtImage
               src={hunter.portrait}
               alt=""
               width={52}
               height={52}
-              unoptimized
+              displayWidth={52}
             />
             <span className="knowledge-bird-name">
               <SpeciesName

@@ -1,7 +1,7 @@
 'use client';
 
 import { useState } from 'react';
-import Image from 'next/image';
+import { ArtImage } from '@/components/art-image';
 import { ArrowUpRight, ForkKnife } from '@/components/icons';
 import { PreyArt } from '@/components/prey-art';
 import { SpeciesName } from '@/components/species-name';
@@ -106,12 +106,12 @@ function HunterGroup({
               onFocus={() => onHover(hunter)}
               onBlur={() => onHover(null)}
             >
-              <Image
+              <ArtImage
                 src={hunter.portrait}
                 alt=""
                 width={52}
                 height={52}
-                unoptimized
+                displayWidth={52}
               />
               <span className="knowledge-bird-name">
                 <SpeciesName

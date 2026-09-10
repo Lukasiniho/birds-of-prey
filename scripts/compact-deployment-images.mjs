@@ -16,18 +16,25 @@ if (process.env.NETLIFY) {
     throw error;
   });
   const entries = [];
-  for (const [source, target] of Object.entries(mapping)) {
+  for (const [source, variants] of Object.entries(mapping)) {
     // Restrict all deletion to known raster files within the generated output.
     if (!/^\/[\w/.-]+\.(png|jpe?g)$/i.test(source) ||
-        !/^\/optimized\/[\w.-]+\.webp$/.test(target) ||
         source.split('/').includes('..')) {
       throw new Error(`Invalid image mapping: ${source}`);
     }
+    if (!Array.isArray(variants) || variants.length === 0)
+      throw new Error(`No optimized widths for image: ${source}`);
+    // Every width has to exist before anything is deleted, but only the
+    // largest is a stand-in for the original at its old URL.
+    for (const variant of variants) {
+      if (!/^\/optimized\/[\w.-]+\.webp$/.test(variant.url))
+        throw new Error(`Invalid optimized image: ${variant.url}`);
+      const replacement = await stat(path.join(output, variant.url.slice(1)));
+      if (!replacement.isFile() || replacement.size === 0)
+        throw new Error(`Missing optimized image: ${variant.url}`);
+    }
+    const target = variants[variants.length - 1].url;
     const original = path.join(output, source.slice(1));
-    const optimized = path.join(output, target.slice(1));
-    const replacement = await stat(optimized);
-    if (!replacement.isFile() || replacement.size === 0)
-      throw new Error(`Missing optimized image: ${target}`);
     const originalStat = await stat(original).catch((error) => {
       if (error.code === 'ENOENT') return null;
       throw error;

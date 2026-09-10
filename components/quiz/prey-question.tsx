@@ -4,7 +4,7 @@ import { QuizQuestionTitle } from '@/components/quiz/question-title';
 import { SpeciesName } from '@/components/species-name';
 import { useRef, useState, type PointerEvent } from 'react';
 import { createPortal } from 'react-dom';
-import Image from 'next/image';
+import { ArtImage } from '@/components/art-image';
 import {
   Check,
   DotsSix as Grip,
@@ -194,13 +194,13 @@ export function PreyQuestion({
               scientificAs="i"
             />
           </div>
-          <Image
+          <ArtImage
             className="q-prey-bird"
             src={bird.portrait}
             alt={bird.name}
             width={300}
             height={300}
-            unoptimized
+            displayWidth={190}
             draggable={false}
           />
           <div className="q-prey-plate">

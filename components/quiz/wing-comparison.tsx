@@ -2,7 +2,7 @@
 
 import { QuizQuestionTitle } from '@/components/quiz/question-title';
 import { SpeciesName } from '@/components/species-name';
-import Image from 'next/image';
+import { ArtImage } from '@/components/art-image';
 import {
   ArrowsLeftRight as ArrowLeftRight,
   Check,
@@ -70,12 +70,12 @@ export function WingComparison({
                 </div>
               </div>
               <div className="q-comparison-art">
-                <Image
+                <ArtImage
                   src={bird.image}
                   alt=""
                   width={1000}
                   height={1000}
-                  unoptimized
+                  displayWidth={260}
                   draggable={false}
                 />
               </div>

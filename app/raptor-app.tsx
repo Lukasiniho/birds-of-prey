@@ -7,7 +7,7 @@ import { SpeciesName, SpeciesScientificName } from '@/components/species-name';
 import { useEffect, useRef, useState } from 'react';
 import { useSlidingPill } from '@/lib/use-sliding-pill';
 import { SegmentedControl } from '@/components/segmented-control';
-import Image from 'next/image';
+import { ArtImage } from '@/components/art-image';
 import { BirdAudio, BirdAudioCredit } from '@/components/bird-audio';
 import { birdHref, birdForPath } from '@/lib/bird-routes';
 import {
@@ -276,13 +276,13 @@ function BirdArt({
         return (
           layer && (
             <span className="t-icon" data-icon={slot} key={slot}>
-              <Image
+              <ArtImage
                 key={layer.src}
                 src={layer.src}
                 alt={slots.active === slot ? layer.alt : ''}
                 width={1536}
                 height={1536}
-                unoptimized
+                sizes="(max-width: 980px) 100vw, 920px"
                 priority
               />
             </span>
@@ -340,13 +340,13 @@ function HuntingArt({ bird }: { bird: BirdSpecies }) {
   const source = huntingImages[bird.id] ?? hunt.image;
   if (!source) return null;
   return (
-    <Image
+    <ArtImage
       className="hunting-standalone"
       src={imageSource(source)}
       width={1536}
       height={1536}
       alt={`${bird.name}: ${hunt.title}`}
-      unoptimized
+      displayWidth={440}
     />
   );
 }
@@ -794,12 +794,12 @@ export default function RaptorApp({
                     <div className="habitat-gallery">
                       {bird.ecology.habitatTags.map((id) => (
                         <figure key={id}>
-                          <Image
+                          <ArtImage
                             src={imageSource(habitatImages[id])}
                             alt={landscapes[id].description}
                             width={1536}
                             height={1024}
-                            unoptimized
+                            displayWidth={220}
                           />
                           <figcaption>{landscapes[id].label}</figcaption>
                         </figure>

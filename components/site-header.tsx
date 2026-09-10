@@ -4,7 +4,7 @@
 
 import { TooltipHint } from '@/components/ui/tooltip';
 import { useEffect, useState } from 'react';
-import Image from 'next/image';
+import { ArtImage } from '@/components/art-image';
 import { portraitImages } from '@/lib/portrait-images';
 
 import {
@@ -80,12 +80,12 @@ export function SiteHeader({
       <div className="header-brand">
         <a href="/" className="site-title">
           <span className="site-title-portrait" aria-hidden="true">
-            <Image
+            <ArtImage
               src={portraitImages.steinadler}
               alt=""
               width={48}
               height={48}
-              unoptimized
+              displayWidth={48}
             />
           </span>
           <span>Greifvogelkompass</span>

@@ -1,7 +1,7 @@
 'use client';
 
 import { useState } from 'react';
-import Image from 'next/image';
+import { ArtImage } from '@/components/art-image';
 import { SegmentedControl } from '@/components/segmented-control';
 import {
   Tooltip,
@@ -186,13 +186,13 @@ export default function AnatomyExplorer({
           />
         </div>
         <div className="anatomy-canvas">
-          <Image
+          <ArtImage
             className="anatomy-bird"
             src={images[species]}
             alt={`${name} im Flug, von schräg unten mit ausgebreiteten Flügeln`}
             width={1400}
             height={1400}
-            unoptimized
+            sizes="(max-width: 780px) 100vw, 730px"
             priority
             draggable={false}
           />

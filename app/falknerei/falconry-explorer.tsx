@@ -2,7 +2,7 @@
 
 import { SpeciesName, SpeciesCommonName } from '@/components/species-name';
 import { useState } from 'react';
-import Image from 'next/image';
+import { ArtImage } from '@/components/art-image';
 import { ArrowUpRight } from '@/components/icons';
 import { SiteHeader } from '@/components/site-header';
 import { Tabs, TabsList, TabsTrigger, TabsContent } from '@/components/ui/tabs';
@@ -108,8 +108,8 @@ export default function FalconryExplorer({ species }: { species: Species[] }) {
                 <div
                   className={`falconry-art ${chapter.id === 'beizvoegel' ? 'falconry-flight' : ''}`}
                 >
-                  <Image
-                    unoptimized
+                  <ArtImage
+                    displayWidth={440}
                     src={
                       chapter.id === 'beizvoegel'
                         ? bird.image
@@ -137,8 +137,8 @@ export default function FalconryExplorer({ species }: { species: Species[] }) {
                         aria-pressed={bird.id === item.id}
                         onClick={() => setSelectedBird(item.id)}
                       >
-                        <Image
-                          unoptimized
+                        <ArtImage
+                          displayWidth={52}
                           src={item.portrait}
                           width={52}
                           height={52}

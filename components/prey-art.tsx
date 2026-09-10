@@ -1,5 +1,5 @@
 import { preyCatalog } from '@/lib/diets';
-import Image from 'next/image';
+import { ArtImage } from '@/components/art-image';
 import { Bone, Bug } from '@/components/icons';
 import { preyFraming } from '@/lib/prey-framing';
 import { imageSource } from '@/lib/optimized-images';
@@ -17,6 +17,11 @@ export function PreyArt({ preyKey }: { preyKey: string }) {
       </span>
     );
   const size = Math.max(frame.width, frame.height);
+  // The crop zooms into the source, so the <img> is painted much wider than
+  // the tile that shows it — an atlas cell fills a 130px tile from a 300px
+  // slice of a 1254px sheet. Scale the tile by that factor to ask for the
+  // resolution the crop actually needs.
+  const displayWidth = Math.ceil((130 * frame.imageWidth) / frame.width);
   return (
     <span className="prey-image framed-prey">
       <span
@@ -26,12 +31,12 @@ export function PreyArt({ preyKey }: { preyKey: string }) {
           height: `${(frame.height / size) * 100}%`,
         }}
       >
-        <Image
+        <ArtImage
           src={imageSource(frame.src)}
           alt=""
           width={frame.imageWidth}
           height={frame.imageHeight}
-          unoptimized
+          displayWidth={displayWidth}
           style={{
             width: `${(frame.imageWidth / frame.width) * 100}%`,
             maxWidth: 'none',

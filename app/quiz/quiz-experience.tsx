@@ -15,7 +15,7 @@ import {
   type PointerEvent,
 } from 'react';
 import { createPortal } from 'react-dom';
-import Image from 'next/image';
+import { ArtImage } from '@/components/art-image';
 import {
   ArrowLeft,
   ArrowsLeftRight as ArrowLeftRight,
@@ -126,21 +126,24 @@ function BirdArt({
   priority = false,
   portrait = false,
   alt = bird.name,
+  displayWidth = 350,
 }: {
   bird: QuizBird;
   className?: string;
   priority?: boolean;
   portrait?: boolean;
   alt?: string;
+  /** Widest this bird is painted, in CSS pixels. Defaults to the flying stage. */
+  displayWidth?: number;
 }) {
   return (
-    <Image
+    <ArtImage
       className={className}
       src={portrait ? bird.portrait : bird.image}
       alt={alt}
       width={1000}
       height={1000}
-      unoptimized
+      displayWidth={displayWidth}
       priority={priority}
       draggable={false}
     />
@@ -696,7 +699,7 @@ function WeightQuestion({
                 <Grip size={21} />
               </button>
             </div>
-            <BirdArt bird={birds[id]} className="q-card-bird" />
+            <BirdArt bird={birds[id]} className="q-card-bird" displayWidth={175} />
             <div className="q-card-name">
               <SpeciesName
                 variant="quiz"
@@ -751,7 +754,7 @@ function WeightQuestion({
             style={{ left: drag.x + 14, top: drag.y - 75 }}
             aria-hidden="true"
           >
-            <BirdArt bird={birds[drag.id]} />
+            <BirdArt bird={birds[drag.id]} displayWidth={120} />
             <SpeciesCommonName variant="quiz" as="strong">
               {birds[drag.id].name}
             </SpeciesCommonName>
@@ -900,7 +903,7 @@ function HabitatQuestion({
                 setHover(null);
               }}
             >
-              <BirdArt bird={birds[id]} portrait />
+              <BirdArt bird={birds[id]} portrait displayWidth={60} />
               <span>
                 <SpeciesCommonName variant="quiz" as="strong">
                   {birds[id].name}
@@ -941,13 +944,13 @@ function HabitatQuestion({
               onClick={() => place(selected, habitat.id)}
             >
               <div className="q-landscape">
-                <Image
+                <ArtImage
                   className="q-landscape-image"
                   src={habitat.image}
                   alt={habitat.description}
                   width={640}
                   height={480}
-                  unoptimized
+                  displayWidth={640}
                   draggable={false}
                 />
                 <div className="q-landscape-title">
@@ -969,12 +972,12 @@ function HabitatQuestion({
                         answered && !birds[id].habitats.includes(habitat.id)
                       }
                     >
-                      <Image
+                      <ArtImage
                         src={birds[id].portrait}
                         alt=""
                         width={36}
                         height={36}
-                        unoptimized
+                        displayWidth={36}
                       />
                       <SpeciesCommonName
                         variant="quiz"
@@ -1011,7 +1014,7 @@ function HabitatQuestion({
             style={{ left: drag.x + 14, top: drag.y - 75 }}
             aria-hidden="true"
           >
-            <BirdArt bird={birds[drag.id]} portrait />
+            <BirdArt bird={birds[drag.id]} portrait displayWidth={60} />
             <SpeciesCommonName variant="quiz" as="strong">
               {birds[drag.id].name}
             </SpeciesCommonName>
@@ -1173,12 +1176,12 @@ function QuizResults({
           const mode = modes.find((mode) => mode.id === question.kind)!;
           return (
             <button key={question.id} onClick={() => onReview(index)}>
-              <Image
+              <ArtImage
                 src={bird.portrait}
                 alt=""
                 width={64}
                 height={64}
-                unoptimized
+                displayWidth={64}
               />
               <span>
                 {'birdId' in question ? (

@@ -1,7 +1,7 @@
 'use client';
 
 import { useEffect, useState } from 'react';
-import Image from 'next/image';
+import { ArtImage } from '@/components/art-image';
 import { ArrowUpRight, Info } from '@/components/icons';
 import { Button } from '@/components/ui/button';
 import {
@@ -185,12 +185,12 @@ export default function FalconryWorld({ birds }: { birds: KnowledgeBird[] }) {
                       onClick={() => setSelected(item.id)}
                     >
                       <span className="falconry-pin-portrait">
-                        <Image
+                        <ArtImage
                           src={bird.portrait}
                           alt=""
                           width={52}
                           height={52}
-                          unoptimized
+                          displayWidth={40}
                         />
                       </span>
                       <span className="falconry-pin-label">{item.name}</span>
@@ -254,12 +254,12 @@ export default function FalconryWorld({ birds }: { birds: KnowledgeBird[] }) {
               const bird = birds.find((item) => item.id === id)!;
               return (
                 <a href={bird.href} key={id} className="knowledge-bird">
-                  <Image
+                  <ArtImage
                     src={bird.portrait}
                     alt=""
                     width={52}
                     height={52}
-                    unoptimized
+                    displayWidth={52}
                   />
                   <span className="knowledge-bird-name">
                     <SpeciesName
