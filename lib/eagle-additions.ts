@@ -7,10 +7,10 @@ export const eagleAdditions: AdditionalBird[] = [
     latin: 'Aquila fasciata',
     aliases: ['Bonelli’s Eagle', "Bonelli's Eagle", 'Hieraaetus fasciatus'],
     span: [150, 180],
-    weight: [1400, 3030],
+    weight: [1400, 3000],
     sexes: {
-      male: { span: [150, 160], weight: [1400, 2240] },
-      female: { span: [165, 180], weight: [2100, 3030] },
+      male: { span: [150, 160], weight: [1400, 2200] },
+      female: { span: [165, 180], weight: [2100, 3000] },
     },
     genusLabel: 'Echte Adler',
     intro:
@@ -202,10 +202,10 @@ export const eagleAdditions: AdditionalBird[] = [
     latin: 'Hieraaetus pennatus',
     aliases: ['Booted Eagle', 'Aquila pennata', 'Hieraaetus pennata'],
     span: [110, 135],
-    weight: [630, 1145],
+    weight: [630, 1100],
     sexes: {
       male: { weight: [630, 770] },
-      female: { weight: [845, 1145] },
+      female: { weight: [840, 1100] },
     },
     genusLabel: 'Zwergadler',
     intro:

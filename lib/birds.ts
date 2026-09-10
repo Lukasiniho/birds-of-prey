@@ -62,10 +62,10 @@ export const birds: BirdSpecies[] = [
     group: 'Habichte',
     tile: 0,
     span: [100, 115],
-    weight: [590, 1350],
+    weight: [590, 1400],
     sexes: {
       male: { weight: [590, 870] },
-      female: { weight: [890, 1350] },
+      female: { weight: [890, 1400] },
     },
     intro:
       'Ein wendiger Jäger, der seine Beute zwischen Bäumen und aus der Deckung überrascht.',
@@ -89,10 +89,10 @@ export const birds: BirdSpecies[] = [
     group: 'Bussarde',
     tile: 1,
     span: [110, 140],
-    weight: [427, 1370],
+    weight: [430, 1400],
     sexes: {
-      male: { weight: [427, 1183] },
-      female: { weight: [486, 1370] },
+      male: { weight: [430, 1200] },
+      female: { weight: [490, 1400] },
     },
     intro:
       'Über Wiesen kreisend oder auf einem Zaunpfahl wartend: unser vertrauter Mäusejäger.',
@@ -142,10 +142,10 @@ export const birds: BirdSpecies[] = [
     group: 'Falken',
     tile: 3,
     span: [65, 85],
-    weight: [136, 314],
+    weight: [140, 310],
     sexes: {
-      male: { weight: [136, 252] },
-      female: { weight: [154, 314] },
+      male: { weight: [140, 250] },
+      female: { weight: [150, 310] },
     },
     intro:
       'Im Rüttelflug steht er scheinbar still über dem Feld und sucht den Boden nach Mäusen ab.',
@@ -169,10 +169,10 @@ export const birds: BirdSpecies[] = [
     group: 'Adler',
     tile: 4,
     span: [190, 230],
-    weight: [2870, 6650],
+    weight: [2900, 6600],
     sexes: {
-      male: { weight: [2870, 4550] },
-      female: { weight: [3750, 6650] },
+      male: { weight: [2900, 4600] },
+      female: { weight: [3800, 6600] },
     },
     intro:
       'Mit ausgebreiteten Schwingen gleitet er an Berghängen entlang und nutzt die aufsteigende Luft.',
