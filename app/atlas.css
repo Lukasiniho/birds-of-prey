@@ -1046,14 +1046,14 @@ button.color-dot:not(:disabled) {
   }
 }
 /* Sex and age selection sits with the specimen, content stays in the information rail. */
-.plumage-tabs[data-slot] {
+.plumage-stage {
   display: flex;
   flex-direction: column;
   flex: 1;
   min-height: 0;
   gap: 0;
 }
-.plumage-panel[data-slot] {
+.plumage-panel {
   display: flex;
   flex: 1;
   min-height: 0;
@@ -1061,9 +1061,6 @@ button.color-dot:not(:disabled) {
   justify-content: center;
   outline: none;
   overflow: hidden;
-}
-.plumage-panel[hidden] {
-  display: none;
 }
 .plumage-panel .image-stage {
   width: 100%;
@@ -1532,13 +1529,6 @@ button.color-dot:not(:disabled) {
   }
 }
 
-.specimen-controls fieldset.morph-control {
-  margin: 0;
-  min-width: 0;
-  border-top: 0;
-  border-right: 0;
-  border-bottom: 0;
-}
 /* Both rails scroll vertically only; their contents fit the rail width. */
 .species-panel[data-slot],
 .info-panel {
@@ -1825,7 +1815,6 @@ button.color-dot:not(:disabled) {
   margin: var(--space-32) var(--space-20) 0;
 }
 .control-group,
-.specimen-controls fieldset.morph-control,
 .specimen-controls .morph-control {
   display: flex;
   align-items: center;
@@ -1853,7 +1842,7 @@ button.color-dot:not(:disabled) {
   .specimen-controls {
     margin-top: var(--space-24);
   }
-  .plumage-panel[data-slot],
+  .plumage-panel,
   .plumage-panel .image-stage {
     overflow: visible;
   }

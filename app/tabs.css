@@ -41,7 +41,7 @@
   transition: color var(--tabs-dur) var(--tabs-ease);
 }
 .t-tab:hover,
-.t-tab:is([aria-selected='true'], [aria-pressed='true'], [data-active]) {
+.t-tab:is([aria-selected='true'], [aria-pressed='true'], [aria-checked='true'], [data-active]) {
   color: var(--tabs-text-active);
 }
 /* The library's own underline never shows; the pill or rail marks selection. */
@@ -50,7 +50,12 @@
   content: none;
 }
 /* Width and transform are written inline so the pill tweens between the
-   previous and next measured positions. */
+   previous and next measured positions. Until the first measurement lands the
+   pill is a zero-width sliver with a shadow at the left edge of the bar, so the
+   server-rendered markup keeps it hidden until the hook marks it measured. */
+.t-tabs-pill:not([data-measured]) {
+  opacity: 0;
+}
 .t-tabs-pill {
   position: absolute;
   top: 3px;
@@ -69,7 +74,7 @@
   pointer-events: none;
 }
 .t-tabs:not(:has(> .t-tabs-pill))
-  > .t-tab:is([aria-selected='true'], [aria-pressed='true'], [data-active]) {
+  > .t-tab:is([aria-selected='true'], [aria-pressed='true'], [aria-checked='true'], [data-active]) {
   background: var(--tabs-pill-bg);
   box-shadow: var(--shadow-active-pill);
 }
@@ -102,7 +107,7 @@
   color: var(--foreground);
 }
 .t-tabs-line
-  > .t-tab:is([aria-selected='true'], [aria-pressed='true'], [data-active]) {
+  > .t-tab:is([aria-selected='true'], [aria-pressed='true'], [aria-checked='true'], [data-active]) {
   color: var(--foreground);
   font-weight: var(--weight-medium);
   background: transparent;

@@ -6,6 +6,7 @@ import {
 import { SpeciesName, SpeciesScientificName } from '@/components/species-name';
 import { useEffect, useRef, useState } from 'react';
 import { useSlidingPill } from '@/lib/use-sliding-pill';
+import { SegmentedControl } from '@/components/segmented-control';
 import Image from 'next/image';
 import { BirdAudio, BirdAudioCredit } from '@/components/bird-audio';
 import { birdHref, birdForPath } from '@/lib/bird-routes';
@@ -64,7 +65,9 @@ import {
   getBirdMorphChoice,
   getBirdMorphAppearance,
 } from '@/lib/morphs';
-const wholeNumber = new Intl.NumberFormat('de-DE', { maximumFractionDigits: 0 });
+const wholeNumber = new Intl.NumberFormat('de-DE', {
+  maximumFractionDigits: 0,
+});
 /** Renders a stored [min, max] as display text; weights are always shown in grams. */
 export function formatMeasurement([min, max]: MeasurementRange) {
   return min === max
@@ -410,14 +413,11 @@ export default function RaptorApp({
   const morphConfig = getBirdMorphConfig(bird.id, plumage);
   const morph = getBirdMorphChoice(bird.id, chosenMorphs[bird.id], plumage);
   const appearance = getBirdMorphAppearance(bird.id, morph?.id, plumage);
-  const { barRef: plumageBarRef, pillRef: plumagePillRef } = useSlidingPill(
-    bird.id,
-    plumage,
-  );
-  const { barRef: morphBarRef, pillRef: morphPillRef } = useSlidingPill(
-    bird.id,
-    morph?.id ?? '',
-  );
+  const morphOptions =
+    morphConfig?.choices.map((choice) => ({
+      value: choice.id,
+      label: choice.label,
+    })) ?? [];
   const { barRef: infoBarRef, pillRef: infoPillRef } = useSlidingPill(
     'info',
     infoTab,
@@ -499,7 +499,10 @@ export default function RaptorApp({
                           className="bird-entry"
                           isActive={selected === b.id}
                           aria-current={selected === b.id ? 'page' : undefined}
-                          render={<a href={birdHref(b)} />}
+                          render={
+                            // oxlint-disable-next-line jsx-a11y/anchor-has-content, jsx-a11y/control-has-associated-label -- the sidebar button supplies the link text
+                            <a href={birdHref(b)} />
+                          }
                           onClick={(event) => {
                             if (
                               event.metaKey ||
@@ -559,82 +562,43 @@ export default function RaptorApp({
             <div className="specimen-heading">
               <RevealHeading name={bird.name} latin={bird.latin} />
             </div>
-            <Tabs
-              value={plumage}
-              onValueChange={(v) => setPlumage(v as Plumage)}
-              className="plumage-tabs"
-            >
+            <div className="plumage-stage">
               <div className="specimen-controls">
                 <div className="control-group">
                   <span className="control-label" aria-hidden="true">
                     {availablePlumages.length > 2 ? 'Kleid' : 'Alter'}
                   </span>
-                  <TabsList
-                    className="t-tabs"
-                    aria-label="Geschlecht und Alter"
-                    ref={plumageBarRef}
-                  >
-                    <span
-                      className="t-tabs-pill"
-                      aria-hidden="true"
-                      ref={plumagePillRef}
-                    />
-                    {availablePlumages.map((p) => (
-                      <TabsTrigger
-                        className="t-tab"
-                        key={p.value}
-                        value={p.value}
-                        onPointerEnter={() => warmBird(bird.id, p.value)}
-                        onFocus={() => warmBird(bird.id, p.value)}
-                      >
-                        {p.label}
-                      </TabsTrigger>
-                    ))}
-                  </TabsList>
+                  <SegmentedControl
+                    label="Geschlecht und Alter"
+                    group={bird.id}
+                    value={plumage}
+                    options={availablePlumages}
+                    onChange={setPlumage}
+                    onPreload={(value) => warmBird(bird.id, value)}
+                  />
                 </div>
                 {morphConfig && morph && (
-                  <fieldset
-                    className="morph-control control-group"
-                    aria-label={morphConfig.label}
-                  >
+                  <div className="morph-control control-group">
                     <span className="control-label" aria-hidden="true">
                       {morphConfig.label}
                     </span>
-                    <div className="t-tabs" ref={morphBarRef}>
-                      <span
-                        className="t-tabs-pill"
-                        aria-hidden="true"
-                        ref={morphPillRef}
-                      />
-                      {morphConfig.choices.map((choice) => (
-                        <button
-                          type="button"
-                          key={choice.id}
-                          className="morph-choice t-tab"
-                          aria-pressed={morph.id === choice.id}
-                          onPointerEnter={() =>
-                            warmBird(bird.id, plumage, choice.id)
-                          }
-                          onFocus={() => warmBird(bird.id, plumage, choice.id)}
-                          onClick={() =>
-                            setMorphs((previous) => ({
-                              ...previous,
-                              [bird.id]: choice.id,
-                            }))
-                          }
-                        >
-                          {choice.label}
-                        </button>
-                      ))}
-                    </div>
-                  </fieldset>
+                    <SegmentedControl
+                      label={morphConfig.label}
+                      group={bird.id}
+                      value={morph.id}
+                      options={morphOptions}
+                      onChange={(id) =>
+                        setMorphs((previous) => ({
+                          ...previous,
+                          [bird.id]: id,
+                        }))
+                      }
+                      onPreload={(id) => warmBird(bird.id, plumage, id)}
+                    />
+                  </div>
                 )}
               </div>
-              <TabsContent
-                value={plumage}
-                keepMounted
-                className="plumage-panel"
-              >
+              <div className="plumage-panel">
                 <div className="image-stage">
                   <div className="hero-art">
                     <BirdArt
@@ -644,8 +608,8 @@ export default function RaptorApp({
                     />
                   </div>
                 </div>
-              </TabsContent>
-            </Tabs>
+              </div>
+            </div>
             <section
               className="measurements specimen-measurements"
               aria-label="Größe und Gewicht"

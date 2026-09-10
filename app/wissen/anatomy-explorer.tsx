@@ -2,6 +2,7 @@
 
 import { useState } from 'react';
 import Image from 'next/image';
+import { SegmentedControl } from '@/components/segmented-control';
 import {
   Tooltip,
   TooltipContent,
@@ -132,6 +133,11 @@ const parts: Part[] = [
   },
 ];
 
+const speciesOptions = [
+  { value: '0', label: 'Wanderfalke' },
+  { value: '1', label: 'Mäusebussard' },
+];
+
 export default function AnatomyExplorer({
   images,
 }: {
@@ -141,10 +147,11 @@ export default function AnatomyExplorer({
   const [selected, setSelected] = useState('schnabel');
   const [open, setOpen] = useState<string | null>(null);
   const [pinned, setPinned] = useState<string | null>(null);
-  const name = species === 0 ? 'Wanderfalke' : 'Mäusebussard';
+  const name = speciesOptions[species].label;
 
   return (
     <div className="anatomy-layout">
+      {/* oxlint-disable-next-line jsx-a11y/no-noninteractive-element-interactions -- pointer-down only dismisses the pinned label; buttons stay the interactive controls */}
       <section
         className="anatomy-stage"
         aria-label={`Körperbau des ${name === 'Wanderfalke' ? 'Wanderfalken' : 'Mäusebussards'}`}
@@ -166,27 +173,17 @@ export default function AnatomyExplorer({
             <span className="knowledge-eyebrow">Form & Funktion</span>
             <h2>Jedes Detail hat eine Aufgabe</h2>
           </div>
-          <div
-            className="stage-tabs t-tabs"
-            role="group"
-            aria-label="Beispielvogel wählen"
-          >
-            {(['Wanderfalke', 'Mäusebussard'] as const).map((label, index) => (
-              <button
-                key={label}
-                type="button"
-                className="t-tab"
-                aria-pressed={species === index}
-                onClick={() => {
-                  setSpecies(index as 0 | 1);
-                  setOpen(null);
-                  setPinned(null);
-                }}
-              >
-                {label}
-              </button>
-            ))}
-          </div>
+          <SegmentedControl
+            label="Beispielvogel wählen"
+            group="anatomie"
+            value={String(species)}
+            options={speciesOptions}
+            onChange={(value) => {
+              setSpecies(Number(value) as 0 | 1);
+              setOpen(null);
+              setPinned(null);
+            }}
+          />
         </div>
         <div className="anatomy-canvas">
           <Image

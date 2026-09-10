@@ -12,6 +12,7 @@ import {
 import { TooltipHint } from '@/components/ui/tooltip';
 import { SpeciesName } from '@/components/species-name';
 import { rangeBasemapUrl } from '@/lib/range-maps';
+import { SegmentedControl } from '@/components/segmented-control';
 import {
   createMapLoader,
   parseBasemap,
@@ -50,10 +51,10 @@ const pinLocations: typeof locations = {
 };
 
 const views = [
-  { id: 'karte', label: 'Karte' },
-  { id: 'zeitstrahl', label: 'Zeitstrahl' },
+  { value: 'karte', label: 'Karte' },
+  { value: 'zeitstrahl', label: 'Zeitstrahl' },
 ] as const;
-type View = (typeof views)[number]['id'];
+type View = (typeof views)[number]['value'];
 
 export default function FalconryWorld({ birds }: { birds: KnowledgeBird[] }) {
   const [view, setView] = useState<View>('karte');
@@ -94,23 +95,13 @@ export default function FalconryWorld({ birds }: { birds: KnowledgeBird[] }) {
             <span className="knowledge-eyebrow">Mensch & Greifvogel</span>
             <h2>Eine Kunst, viele Traditionen</h2>
           </div>
-          <div
-            className="stage-tabs t-tabs"
-            role="group"
-            aria-label="Karte oder Zeitstrahl"
-          >
-            {views.map((item) => (
-              <button
-                key={item.id}
-                type="button"
-                className="t-tab"
-                aria-pressed={view === item.id}
-                onClick={() => setView(item.id)}
-              >
-                {item.label}
-              </button>
-            ))}
-          </div>
+          <SegmentedControl
+            label="Karte oder Zeitstrahl"
+            group="falknerei"
+            value={view}
+            options={views}
+            onChange={setView}
+          />
         </header>
         {view === 'zeitstrahl' ? (
           <div className="falconry-timeline-surface">

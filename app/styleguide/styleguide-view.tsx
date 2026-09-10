@@ -6,6 +6,7 @@
 
 import { useState } from 'react';
 import { useSlidingPill } from '@/lib/use-sliding-pill';
+import { SegmentedControl } from '@/components/segmented-control';
 
 const surfaces = [
   ['--background', 'Seite, Kopfzeile, Tab-Pille'],
@@ -236,7 +237,10 @@ export default function StyleguideView() {
               <Swatch key={token} token={token} note={note} />
             ))}
           </div>
-          <div className="sg-specimens" style={{ marginTop: 'var(--space-16)' }}>
+          <div
+            className="sg-specimens"
+            style={{ marginTop: 'var(--space-16)' }}
+          >
             <span
               className="sg-surface"
               style={{
@@ -520,22 +524,16 @@ export default function StyleguideView() {
           intro="Genau zwei Rollen: die Pille für Schalter innerhalb einer Fläche, die Unterstrich-Leiste für Abschnitte einer Seite."
         >
           <div className="sg-specimens">
-            <div className="t-tabs" role="group" aria-label="Pillen-Tabs">
-              {[
-                ['altvogel', 'Altvogel'],
-                ['jungvogel', 'Jungvogel'],
-              ].map(([id, label]) => (
-                <button
-                  key={id}
-                  type="button"
-                  className="t-tab"
-                  aria-pressed={pill === id}
-                  onClick={() => setPill(id)}
-                >
-                  {label}
-                </button>
-              ))}
-            </div>
+            <SegmentedControl
+              label="Pillen-Tabs"
+              group="styleguide"
+              value={pill}
+              options={[
+                { value: 'altvogel', label: 'Altvogel' },
+                { value: 'jungvogel', label: 'Jungvogel' },
+              ]}
+              onChange={setPill}
+            />
             <span className="sg-note">.t-tabs · 30 px, 14 px/500</span>
           </div>
           <div
