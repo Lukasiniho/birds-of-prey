@@ -188,7 +188,7 @@ export const additionalBirds: AdditionalBird[] = [
     latin: 'Geranoaetus melanoleucus',
     group: 'Bussarde',
     span: [150, 200],
-    weight: [1670, 3170],
+    weight: [1700, 3200],
     intro:
       'Mit breiten Flügeln und dunklem Brustschild kreist dieser kräftige Bussard über Südamerikas offenen Landschaften.',
     habitat:
@@ -248,7 +248,7 @@ export const additionalBirds: AdditionalBird[] = [
     weight: [1500, 4200],
     sexes: {
       male: { weight: [1500, 2800] },
-      female: { weight: [1750, 4200] },
+      female: { weight: [1800, 4200] },
     },
     intro:
       'Mit leisen Flügelschlägen zieht die große Eule in der Dämmerung über ihre Jagdflächen.',
@@ -615,10 +615,10 @@ export const additionalBirds: AdditionalBird[] = [
     latin: 'Falco subbuteo',
     group: 'Falken',
     span: [75, 85],
-    weight: [131, 340],
+    weight: [130, 340],
     sexes: {
-      male: { weight: [131, 232] },
-      female: { weight: [141, 340] },
+      male: { weight: [130, 230] },
+      female: { weight: [140, 340] },
     },
     intro:
       'Ein schlanker Flugjäger mit sichelförmigen Flügeln, der Libellen und kleine Vögel in der Luft erbeutet.',
@@ -675,7 +675,7 @@ export const additionalBirds: AdditionalBird[] = [
     latin: 'Daptrius australis',
     group: 'Karakaras',
     span: [115, 125],
-    weight: [1180, 1700],
+    weight: [1200, 1700],
     intro:
       'Ein neugieriger Karakara der südlichsten Inseln Südamerikas, der an Küsten nach sehr unterschiedlicher Nahrung sucht.',
     habitat:
@@ -785,7 +785,7 @@ export const additionalBirds: AdditionalBird[] = [
     latin: 'Buteo regalis',
     group: 'Bussarde',
     span: [120, 160],
-    weight: [977, 2074],
+    weight: [980, 2100],
     intro:
       'Ein großer Bussard der nordamerikanischen Grasländer mit rostfarbenen Schultern und bis zu den Zehen befiederten Läufen.',
     habitat:
@@ -901,7 +901,7 @@ export const additionalBirds: AdditionalBird[] = [
     weight: [2200, 6500],
     sexes: {
       male: { weight: [2200, 3800] },
-      female: { weight: [4450, 6500] },
+      female: { weight: [4400, 6500] },
     },
     intro:
       'Ein mächtiger Segelflieger über Afrikas Savannen, mit dunkler Brust und markant getupftem Bauch.',
@@ -957,10 +957,10 @@ export const additionalBirds: AdditionalBird[] = [
     latin: 'Bubo virginianus',
     group: 'Eulen',
     span: [100, 145],
-    weight: [680, 2503],
+    weight: [680, 2500],
     sexes: {
-      male: { weight: [680, 1588] },
-      female: { weight: [825, 2503] },
+      male: { weight: [680, 1600] },
+      female: { weight: [820, 2500] },
     },
     intro:
       'Gelbe Augen und breite Federohren prägen diese kräftige Eule Amerikas.',
@@ -1070,10 +1070,10 @@ export const additionalBirds: AdditionalBird[] = [
     latin: 'Accipiter nisus',
     group: 'Habichte & Sperber',
     span: [60, 75],
-    weight: [110, 345],
+    weight: [110, 340],
     sexes: {
-      male: { span: [60, 65], weight: [110, 195] },
-      female: { span: [65, 75], weight: [185, 345] },
+      male: { span: [60, 65], weight: [110, 200] },
+      female: { span: [65, 75], weight: [180, 340] },
     },
     intro:
       'Kurze Flügel und ein langer Schwanz machen ihn zum wendigen Jäger kleiner Vögel.',
