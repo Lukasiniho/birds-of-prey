@@ -220,11 +220,9 @@ html {
   color: var(--muted-foreground);
 }
 @media (max-width: 760px) {
-  /* Reserve the same search row on all routes, without adding hidden controls. */
-  .app-shell { --site-header-height: 116px; }
   .topbar.site-header {
     grid-template-columns: minmax(0, 1fr) var(--header-control-height) auto;
-    grid-template-rows: 50px var(--header-control-height);
+    grid-template-rows: 50px;
     row-gap: var(--space-12);
     padding: var(--space-8) var(--atlas-gutter);
     align-content: start;
@@ -240,5 +238,20 @@ html {
   .site-header .topbar-search input {
     /* design-lint-allow: iOS zooms focused inputs whose text is under 16px. */
     font-size: max(16px, var(--text-base));
+  }
+}
+/* Between the two mobile widths the search still rides in the header and needs
+   its own row; on a phone it moves into the species sheet and the row goes. */
+@media (min-width: 641px) and (max-width: 760px) {
+  .app-shell:has(.topbar-search) {
+    --site-header-height: 116px;
+  }
+  .topbar.site-header:has(.topbar-search) {
+    grid-template-rows: 50px var(--header-control-height);
+  }
+}
+@media (max-width: 640px) {
+  .site-header .topbar-search {
+    display: none;
   }
 }

@@ -867,14 +867,17 @@
     grid-template-columns: 1fr;
   }
   .q-bird-space {
-    min-height: 210px;
+    min-height: 180px;
   }
+  /* An auto height lets the box end where the illustration ends: a fixed height
+     would letterbox the wide flight view with dead space above and below. */
   .q-flying-bird {
-    height: 245px;
-    max-width: 360px;
+    height: auto;
+    max-height: 175px;
+    max-width: 300px;
   }
   .q-orbit {
-    max-width: 210px;
+    max-width: 175px;
   }
   .q-measure-line {
     max-width: 330px;
@@ -902,7 +905,7 @@
     gap: var(--space-16);
   }
   .q-card-bird {
-    height: 150px;
+    height: 128px;
   }
   .q-answer-bar {
     padding: var(--space-12)
@@ -951,7 +954,7 @@
 }
 @media (max-width: 390px) {
   .q-card-bird {
-    height: 125px;
+    height: 108px;
   }
   .q-estimate {
     gap: var(--space-12);
@@ -1171,25 +1174,33 @@
   }
 }
 @media (max-width: 760px) {
-  .q-habitat-birds,
+  /* Two columns leave the chips too narrow for a name like Weißkopfseeadler:
+     the birds stack full width so every name keeps one line. */
+  .q-habitat-birds {
+    grid-template-columns: 1fr;
+    gap: var(--space-8);
+  }
   .q-habitat-board {
     grid-template-columns: 1fr 1fr;
     gap: var(--space-12);
   }
   .q-habitat-bird {
-    padding: var(--space-12);
+    padding: var(--space-8) var(--space-12);
     flex-wrap: nowrap;
-    gap: var(--space-8);
+    gap: var(--space-12);
+  }
+  .q-habitat-bird small {
+    margin-top: var(--space-2);
   }
   .q-habitat-bird > img {
     width: 40px;
     height: 45px;
   }
   .q-habitat-zone {
-    min-height: 200px;
+    min-height: 178px;
   }
   .q-landscape-image {
-    height: 120px;
+    height: 100px;
   }
   .q-landscape-title {
     padding: 0 var(--space-12) 7px;
@@ -1266,11 +1277,52 @@
   color: var(--main-color);
 }
 @media (max-width: 760px) {
+  /* Title and round size share the first line, so the select costs no row of
+     its own; the trigger already names itself, so the word can go. */
+  .q-title-controls {
+    flex: 1 1 100%;
+    flex-wrap: nowrap;
+    align-items: center;
+    justify-content: space-between;
+    gap: var(--space-12);
+  }
+  /* Without min-width the title claims its full max-content line and pushes
+     the select onto the next row. */
   .q-heading-row h1 {
     max-width: none;
+    min-width: 0;
   }
+  /* The trigger takes its content, not a desktop column, so the title keeps
+     its line. */
+  .q-round-settings [data-slot='select-trigger'] {
+    width: auto;
+  }
+  .q-round-settings > span {
+    position: absolute;
+    width: 1px;
+    height: 1px;
+    margin: -1px;
+    padding: 0;
+    overflow: hidden;
+    clip-path: inset(50%);
+    white-space: nowrap;
+  }
+  /* The rail takes the second line and tightens its dots to fit: a long round
+     must never widen the page. */
   .q-question-progress {
     min-height: 0;
+    flex: 1 1 100%;
+    min-width: 0;
+  }
+  .q-step-dots {
+    flex: 1 1 auto;
+    min-width: 0;
+  }
+  .q-step-dots > * {
+    flex: 0 1 24px;
+    width: auto;
+    height: auto;
+    aspect-ratio: 1;
   }
 }
 
@@ -1295,6 +1347,16 @@
 .q-prey-task,
 .q-comparison-task {
   padding: var(--panel-padding);
+}
+/* The stage hugs its illustration on a phone: no floor under the picture and a
+   tighter block padding, so the card is not mostly air. */
+@media (max-width: 760px) {
+  .q-specimen {
+    padding-block: var(--space-12);
+  }
+  .q-specimen:not([data-call='true']) .q-bird-space {
+    min-height: 0;
+  }
 }
 @media (max-width: 390px) {
   .q-estimate output {

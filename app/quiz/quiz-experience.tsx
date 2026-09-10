@@ -231,14 +231,12 @@ function EstimateQuestion({
         <QuizQuestionTitle>
           {isWeight ? (
             <>
-              Wie schwer ist
-              <br />
+              Wie schwer ist <br />
               dieser Vogel?
             </>
           ) : (
             <>
-              Wie weit reichen
-              <br />
+              Wie weit reichen <br />
               diese Flügel?
             </>
           )}
@@ -418,20 +416,17 @@ function MultipleChoiceQuestion({
         <QuizQuestionTitle>
           {isCall ? (
             <>
-              Welcher Greifvogel
-              <br />
+              Welcher Greifvogel <br />
               ruft hier?
             </>
           ) : isIdentify ? (
             <>
-              Welcher Greifvogel
-              <br />
+              Welcher Greifvogel <br />
               ist das?
             </>
           ) : (
             <>
-              Wie kommt dieser
-              <br />
+              Wie kommt dieser <br />
               Vogel an seine Beute?
             </>
           )}
@@ -699,7 +694,11 @@ function WeightQuestion({
                 <Grip size={21} />
               </button>
             </div>
-            <BirdArt bird={birds[id]} className="q-card-bird" displayWidth={175} />
+            <BirdArt
+              bird={birds[id]}
+              className="q-card-bird"
+              displayWidth={175}
+            />
             <div className="q-card-name">
               <SpeciesName
                 variant="quiz"
@@ -1350,7 +1349,10 @@ export default function QuizExperience({
               <p className="q-progress-label">Frage 1 von {questionCount}</p>
               <div className="q-step-dots">
                 {Array.from({ length: questionCount }, (_, index) => (
-                  <span key={index} aria-current={index === 0 ? 'step' : undefined}>
+                  <span
+                    key={index}
+                    aria-current={index === 0 ? 'step' : undefined}
+                  >
                     <span />
                   </span>
                 ))}
