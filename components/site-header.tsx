@@ -140,6 +140,7 @@ export function SiteHeader({
               <DropdownMenuItem
                 key={section.id}
                 render={
+                  // oxlint-disable-next-line jsx-a11y/anchor-has-content, jsx-a11y/control-has-associated-label -- the menu item supplies the link text
                   <a
                     href={section.href}
                     aria-current={
@@ -197,6 +198,7 @@ export function SiteHeader({
                 <DropdownMenuItem
                   key={link.href}
                   render={
+                    // oxlint-disable-next-line jsx-a11y/anchor-has-content, jsx-a11y/control-has-associated-label -- the menu item supplies the link text
                     <a href={link.href} target="_blank" rel="noreferrer" />
                   }
                 >
@@ -208,6 +210,7 @@ export function SiteHeader({
             <DropdownMenuSeparator />
             <DropdownMenuItem
               render={
+                // oxlint-disable-next-line jsx-a11y/anchor-has-content, jsx-a11y/control-has-associated-label -- the menu item supplies the link text
                 <a
                   href="https://lukasvonhohnhorst.com/impressum"
                   target="_blank"

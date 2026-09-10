@@ -38,7 +38,6 @@ import {
 import { SiteHeader } from '@/components/site-header';
 import { PreyQuestion } from '@/components/quiz/prey-question';
 import { WingComparison } from '@/components/quiz/wing-comparison';
-import { preyCatalog } from '@/lib/diets';
 import { QuizFeedback } from '@/components/quiz/answer-feedback';
 import { QuizCallInfo, QuizCallPlayer } from '@/components/quiz/call-player';
 import { closestWeightSlot } from '@/lib/quiz-drag';
