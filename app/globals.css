@@ -3434,8 +3434,8 @@ html {
 .header-menu [data-slot='dropdown-menu-label'] {
   padding: var(--space-8) var(--space-12) var(--space-4);
   font-size: var(--type-ui);
-  font-weight: 600;
-  color: var(--foreground);
+  font-weight: 500;
+  color: var(--muted-foreground);
 }
 .header-menu [data-slot='dropdown-menu-item'] > svg {
   margin-left: auto;
