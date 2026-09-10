@@ -39,6 +39,19 @@
 }
 
 :root {
+  /* Font stacks: the only place fallback fonts are spelled out. */
+  --font-stack-body: var(--font-body), Inter, Arial, sans-serif;
+  --font-stack-display: var(--font-display), 'Source Serif 4', Georgia, serif;
+  /* Weights */
+  --weight-regular: 400;
+  --weight-medium: 500;
+  --weight-semibold: 600;
+  --weight-bold: 700;
+  /* Letter-spacing roles: tight for display sizes, caps for uppercase labels. */
+  --tracking-tight: -0.02em;
+  --tracking-normal: 0;
+  --tracking-caps: 0.06em;
+
   --type-caption: var(--text-xs);
   /* Italic scientific names need a larger size than source metadata. */
   --type-scientific: var(--text-base);
@@ -51,7 +64,7 @@
   /* All tooltips share one size (small); no per-variant tooltip sizes. */
   --type-tooltip: var(--text-sm);
   --type-label-heading: var(--text-lg);
-  --weight-label-heading: 700;
+  --weight-label-heading: var(--weight-bold);
   --type-detail-heading: var(--text-2xl);
   --type-feedback-title: var(--text-base);
   --type-quiz-question: var(--text-4xl);
@@ -86,10 +99,10 @@
  * Explicit classes keep typography independent of surrounding heading/button rules. */
 :is(.app-shell, .q-drag-ghost) .species-common-name,
 :is(.app-shell, .q-drag-ghost) .species-scientific-name {
-  font-family: var(--font-display), 'Cormorant Garamond', Georgia, serif;
-  font-weight: 600;
+  font-family: var(--font-stack-display);
+  font-weight: var(--weight-semibold);
   line-height: var(--leading-heading);
-  letter-spacing: normal;
+  letter-spacing: var(--tracking-normal);
   overflow-wrap: anywhere;
 }
 :is(.app-shell, .q-drag-ghost) .species-common-name {
@@ -110,31 +123,31 @@
 :is(.app-shell, .q-drag-ghost)
   .species-common-name[data-name-variant='atlas-title'] {
   font-size: var(--type-hero);
-  font-weight: 700;
+  font-weight: var(--weight-bold);
   line-height: var(--leading-display);
-  letter-spacing: -1.1px;
+  letter-spacing: var(--tracking-tight);
 }
 :is(.app-shell, .q-drag-ghost)
   .species-scientific-name[data-name-variant='atlas-title'] {
   font-size: max(var(--type-scientific), calc(var(--type-hero) * 0.5));
-  font-weight: 400;
+  font-weight: var(--weight-regular);
   line-height: var(--leading-display);
-  letter-spacing: 0.25px;
+  letter-spacing: var(--tracking-normal);
   margin-top: -0.15em;
 }
 :is(.app-shell, .q-drag-ghost)
   .species-common-name[data-name-variant='sidebar'] {
-  font-weight: 700;
+  font-weight: var(--weight-bold);
 }
 :is(.app-shell, .q-drag-ghost)
   .species-scientific-name[data-name-variant='sidebar'] {
   font-size: var(--type-scientific);
-  font-weight: 600;
+  font-weight: var(--weight-semibold);
 }
 
 :is(.app-shell, .q-drag-ghost) .species-common-name[data-name-variant='quiz'] {
   font-size: var(--type-species-quiz);
-  font-weight: 700;
+  font-weight: var(--weight-bold);
 }
 
  :is(.app-shell, .q-drag-ghost) .species-scientific-name[data-name-variant='quiz'] {

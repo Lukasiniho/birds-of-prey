@@ -32,7 +32,7 @@
   box-shadow: none;
   color: var(--tabs-text-muted);
   font:
-    500 var(--type-body) / var(--leading-none) var(--font-body),
+    var(--weight-medium) var(--type-body) / var(--leading-none) var(--font-body),
     Inter,
     sans-serif;
   white-space: nowrap;
@@ -48,11 +48,6 @@
 .t-tab::after {
   display: none;
   content: none;
-}
-.t-tab:focus-visible {
-  outline: 2px solid var(--ring);
-  outline-offset: 2px;
-  box-shadow: none;
 }
 /* Width and transform are written inline so the pill tweens between the
    previous and next measured positions. */
@@ -98,7 +93,7 @@
   border-radius: 0;
   color: var(--muted-foreground);
   font:
-    400 var(--type-tab) / var(--leading-none) var(--font-body),
+    var(--weight-regular) var(--type-tab) / var(--leading-none) var(--font-body),
     Inter,
     sans-serif;
   transition: color var(--duration-quick) var(--ease-smooth-out);
@@ -109,7 +104,7 @@
 .t-tabs-line
   > .t-tab:is([aria-selected='true'], [aria-pressed='true'], [data-active]) {
   color: var(--foreground);
-  font-weight: 500;
+  font-weight: var(--weight-medium);
   background: transparent;
   box-shadow: none;
 }

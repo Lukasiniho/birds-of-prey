@@ -24,11 +24,11 @@
   gap: var(--space-12) var(--space-24);
 }
 .q-results h1 {
-  font-family: var(--font-display), Georgia, serif;
+  font-family: var(--font-stack-display);
   font-size: var(--type-page-title);
   line-height: var(--leading-display);
-  font-weight: 600;
-  letter-spacing: -0.02em;
+  font-weight: var(--weight-semibold);
+  letter-spacing: var(--tracking-tight);
 }
 .q-heading-row h1:focus {
   outline: none;
@@ -137,7 +137,7 @@
 }
 .q-measure-line b {
   font-size: var(--type-ui);
-  font-weight: 500;
+  font-weight: var(--weight-medium);
   font-variant-numeric: tabular-nums;
   white-space: nowrap;
 }
@@ -157,7 +157,7 @@
   align-items: center;
   gap: var(--space-8);
   font-size: var(--type-ui);
-  font-weight: 500;
+  font-weight: var(--weight-medium);
   color: var(--main-color);
   margin-bottom: var(--space-16);
 }
@@ -189,9 +189,9 @@
 }
 .q-estimate output strong {
   font-size: var(--text-5xl);
-  font-weight: 700;
+  font-weight: var(--weight-bold);
   font-variant-numeric: tabular-nums;
-  letter-spacing: -1px;
+  letter-spacing: var(--tracking-tight);
   line-height: var(--leading-none);
 }
 .q-estimate output span {
@@ -235,10 +235,6 @@
   border: 6px solid var(--main-color);
   box-shadow: var(--shadow-subtle);
 }
-.q-slider [data-slot='slider-thumb']:focus-visible {
-  outline: 3px solid var(--main-color);
-  outline-offset: 4px;
-}
 .q-ruler-ticks {
   display: flex;
   justify-content: space-between;
@@ -281,7 +277,7 @@
 }
 .q-range-reveal > strong {
   font-size: var(--text-2xl);
-  font-weight: 700;
+  font-weight: var(--weight-bold);
   line-height: var(--leading-heading);
 }
 .q-options[data-slot] {
@@ -348,11 +344,7 @@
 .quiz-shell .q-call-play[data-slot]:focus-visible > svg {
   box-shadow:
     0 0 0 3px var(--stage),
-    0 0 0 5px var(--selection-border);
-}
-.q-call-credit:focus-visible {
-  outline: 2px solid var(--selection-border);
-  outline-offset: 4px;
+    0 0 0 5px var(--ring);
 }
 .q-call-status,
 .q-call-credit {
@@ -440,8 +432,8 @@
     .q-habitat-zone
   ):focus-visible,
 .q-option:has(:focus-visible) {
-  outline: 2px solid var(--selection-border);
-  outline-offset: 3px;
+  outline: var(--focus-ring);
+  outline-offset: var(--focus-offset);
 }
 .q-option-letter {
   border-radius: var(--radius-small);
@@ -455,7 +447,7 @@
 }
 .q-option strong {
   font-size: var(--type-ui);
-  font-weight: 500;
+  font-weight: var(--weight-medium);
 }
 .q-option [data-slot='radio-group-item'] {
   margin-left: auto;
@@ -594,7 +586,7 @@
   gap: var(--space-8);
   color: var(--foreground);
   font-size: var(--type-ui);
-  font-weight: 500;
+  font-weight: var(--weight-medium);
 }
 .q-card-weight svg {
   color: var(--q-state-color);
@@ -655,7 +647,7 @@
   height: 3rem;
   border-radius: var(--radius-control);
   font-size: var(--type-ui);
-  font-weight: 500;
+  font-weight: var(--weight-medium);
   white-space: nowrap;
   box-shadow: var(--shadow-subtle);
 }
@@ -715,8 +707,8 @@
 }
 .q-result-score strong {
   font-size: var(--text-5xl);
-  font-weight: 700;
-  letter-spacing: -1px;
+  font-weight: var(--weight-bold);
+  letter-spacing: var(--tracking-tight);
   line-height: var(--leading-heading);
 }
 .q-result-score span {
@@ -754,7 +746,7 @@
 }
 .q-result-breakdown small {
   font-size: var(--type-caption);
-  font-weight: 400;
+  font-weight: var(--weight-regular);
   color: var(--muted-foreground);
 }
 .q-result-meter {
@@ -807,26 +799,26 @@
 }
 .q-review-title {
   display: block;
-  font-family: var(--font-display), 'Cormorant Garamond', Georgia, serif;
+  font-family: var(--font-stack-display);
   font-size: var(--type-species-quiz);
-  font-weight: 700;
+  font-weight: var(--weight-bold);
   line-height: var(--leading-heading);
   overflow-wrap: anywhere;
 }
 .q-review-subtitle {
   display: block;
-  font-family: var(--font-body), Inter, Arial, sans-serif;
+  font-family: var(--font-stack-body);
   font-size: var(--text-sm);
-  font-weight: 400;
+  font-weight: var(--weight-regular);
   line-height: var(--leading-heading);
   color: var(--muted-foreground);
   margin-top: var(--space-2);
 }
 .q-review-score {
   flex-shrink: 0;
-  font-family: var(--font-body), Inter, Arial, sans-serif;
+  font-family: var(--font-stack-body);
   font-size: var(--text-sm);
-  font-weight: 600;
+  font-weight: var(--weight-semibold);
   line-height: var(--leading-compact);
   font-variant-numeric: tabular-nums;
   white-space: nowrap;
@@ -834,7 +826,7 @@
 .q-review-score > small {
   display: inline;
   font: inherit;
-  font-weight: 400;
+  font-weight: var(--weight-regular);
   color: var(--muted-foreground);
 }
 .q-review-list svg {
@@ -847,7 +839,7 @@
     overflow: visible;
   }
 }
-@media (max-width: 1100px) {
+@media (max-width: 1190px) {
   .q-result-overview {
     grid-template-columns: 1fr;
     gap: var(--space-16);
@@ -1101,9 +1093,9 @@
   gap: var(--space-8);
   line-height: var(--leading-none);
   color: var(--on-image);
-  font-family: var(--font-display), Georgia, serif;
+  font-family: var(--font-stack-display);
   font-size: var(--type-card-title);
-  font-weight: 600;
+  font-weight: var(--weight-semibold);
   text-shadow: 0 1px 2px var(--scrim-shadow);
 }
 .q-landscape-title svg {
@@ -1128,7 +1120,7 @@
   background: var(--selected);
   color: var(--foreground);
   font-size: var(--type-body);
-  font-weight: 500;
+  font-weight: var(--weight-medium);
   line-height: var(--leading-compact);
   text-align: left;
 }
@@ -1161,7 +1153,7 @@
 .q-habitat-residents > .q-drop-label > svg {
   margin-left: 0;
 }
-@media (max-width: 1100px) {
+@media (max-width: 1190px) {
   .q-habitat-bird {
     flex-wrap: wrap;
     gap: var(--space-8);
@@ -1236,10 +1228,10 @@
   flex-shrink: 0;
 }
 .q-progress-label {
-  font-family: var(--font-body), Inter, Arial, sans-serif;
+  font-family: var(--font-stack-body);
   font-size: var(--type-caption);
   line-height: var(--leading-normal);
-  font-weight: 400;
+  font-weight: var(--weight-regular);
   color: var(--muted-foreground);
   white-space: nowrap;
   font-variant-numeric: tabular-nums;
@@ -1311,11 +1303,11 @@
   }
 }
 .q-question-title {
-  font-family: var(--font-display), Georgia, serif;
+  font-family: var(--font-stack-display);
   font-size: var(--type-quiz-question);
-  font-weight: 700;
+  font-weight: var(--weight-bold);
   line-height: var(--leading-display);
-  letter-spacing: normal;
+  letter-spacing: var(--tracking-normal);
   color: var(--foreground);
 }
 .q-answer-controls {

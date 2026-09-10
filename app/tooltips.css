@@ -7,7 +7,7 @@
   position: relative;
   width: max-content;
   max-width: min(20rem, calc(100vw - 2 * var(--space-16)));
-  font-family: var(--font-body), Inter, sans-serif;
+  font-family: var(--font-stack-body);
   font-size: var(--type-tooltip);
   line-height: var(--leading-normal);
   color: var(--foreground);

@@ -92,7 +92,7 @@
 }
 .falconry-notes dt,
 .falconry-note-block h3 {
-  font-family: var(--font-display), Georgia, serif;
+  font-family: var(--font-stack-display);
   font-size: var(--type-detail-heading);
   line-height: var(--leading-heading);
   font-weight: var(--weight-label-heading);
@@ -177,7 +177,7 @@
   line-height: var(--leading-normal);
   color: var(--muted-foreground);
 }
-@media (max-width: 1050px) {
+@media (max-width: 980px) {
   .falconry-panel[data-slot='tabs-content'] {
     grid-template-columns: minmax(0, 1fr) 320px;
   }

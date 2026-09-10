@@ -29,12 +29,12 @@
 .q-feedback-title {
   margin: 0;
   font-size: var(--type-feedback-title);
-  font-weight: 700;
+  font-weight: var(--weight-bold);
   line-height: var(--leading-compact);
   color: var(--foreground);
 }
 .q-feedback-detail {
-  font-weight: 400;
+  font-weight: var(--weight-regular);
   margin-top: var(--space-4);
   font-size: var(--type-ui);
   line-height: var(--leading-compact);
@@ -52,7 +52,7 @@
 }
 .q-points-earned {
   font-size: var(--type-metric);
-  font-weight: 500;
+  font-weight: var(--weight-medium);
   line-height: var(--leading-display);
   font-variant-numeric: tabular-nums;
   white-space: nowrap;
@@ -63,7 +63,7 @@
   display: block;
   margin-top: var(--space-2);
   font-size: var(--type-ui);
-  font-weight: 400;
+  font-weight: var(--weight-regular);
   line-height: var(--leading-heading);
   color: var(--muted-foreground);
 }
