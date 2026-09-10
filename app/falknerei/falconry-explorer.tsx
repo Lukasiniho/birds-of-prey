@@ -6,6 +6,7 @@ import Image from 'next/image';
 import { ArrowUpRight } from '@/components/icons';
 import { SiteHeader } from '@/components/site-header';
 import { Tabs, TabsList, TabsTrigger, TabsContent } from '@/components/ui/tabs';
+import { useSlidingPill } from '@/lib/use-sliding-pill';
 
 type Species = {
   id: string;
@@ -43,6 +44,8 @@ const sources: Record<string, { href: string; label: string }> = {
 };
 
 export default function FalconryExplorer({ species }: { species: Species[] }) {
+  const [activeChapter, setActiveChapter] = useState(chapters[0].id);
+  const { barRef, pillRef } = useSlidingPill('falknerei', activeChapter);
   const [selectedBird, setSelectedBird] = useState(species[0].id);
   const bird = species.find((item) => item.id === selectedBird) ?? species[0];
 
@@ -54,11 +57,21 @@ export default function FalconryExplorer({ species }: { species: Species[] }) {
           <h1 className="page-title">Falknerei kennenlernen</h1>
           <p>Die Beizjagd, ihre Vögel und das Handwerk dahinter.</p>
         </header>
-        <Tabs defaultValue="grundlagen" className="falconry-explorer">
-          <TabsList className="falconry-tabs" aria-label="Themen der Falknerei">
-            {chapters.map((chapter) => (
-              <TabsTrigger key={chapter.id} value={chapter.id}>
-                {chapter.label}
+        <Tabs
+          value={activeChapter}
+          onValueChange={(value) => setActiveChapter(String(value))}
+          className="falconry-explorer"
+        >
+          <TabsList
+            variant="line"
+            className="t-tabs t-tabs-line falconry-tabs"
+            aria-label="Themen der Falknerei"
+            ref={barRef}
+          >
+            <span className="t-tabs-pill" aria-hidden="true" ref={pillRef} />
+            {chapters.map((item) => (
+              <TabsTrigger key={item.id} value={item.id} className="t-tab">
+                {item.label}
               </TabsTrigger>
             ))}
           </TabsList>

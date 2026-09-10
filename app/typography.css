@@ -44,6 +44,8 @@
   --type-scientific: var(--text-base);
   --type-ui: var(--text-sm);
   --type-button: var(--text-base);
+  /* Underline tabs share the button size; pill tabs use --type-body. */
+  --type-tab: var(--type-button);
   --type-body: var(--text-sm);
   --type-tag: var(--text-sm);
   /* All tooltips share one size (small); no per-variant tooltip sizes. */
@@ -75,6 +77,8 @@
     0.875rem + 3cqi,
     var(--text-4xl)
   );
+  /* Split ♀/♂ measurement rows: smaller than the single figure, same container scaling. */
+  --type-metric-split: clamp(var(--text-base), 0.75rem + 2cqi, var(--text-2xl));
   --type-score: var(--text-7xl);
 }
 

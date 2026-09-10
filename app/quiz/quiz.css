@@ -1,32 +1,7 @@
 .quiz-shell {
-  --q-accent: var(--main-color);
-  --q-accent-soft: color-mix(in srgb, var(--q-accent) 10%, var(--q-surface));
-  --selected: var(--q-accent-soft);
-  --ring: var(--q-accent);
-  --q-ink: #263f50;
-  --q-muted: #617888;
-  --q-surface: #ffffff;
-  --q-stage: #edf3f7;
-  --q-line: #dce6ed;
-  --q-success: #267662;
-  --q-success-soft: #eef8f3;
-  --q-error: #b94f46;
-  --q-error-soft: #fbefed;
   --q-card-border-width: var(--border-selection);
-  background: #f6f9fb;
-  color: var(--q-ink);
-}
-:root[data-theme='dark'] .quiz-shell {
-  --q-ink: #f0f3f5;
-  --q-muted: #b5c0c9;
-  --q-surface: #25313b;
-  --q-stage: #19222b;
-  --q-line: #40505d;
-  --q-success: #8bd5b6;
-  --q-success-soft: #18372e;
-  --q-error: #edaaa2;
-  --q-error-soft: #422725;
-  background: #10161c;
+  background: var(--background);
+  color: var(--foreground);
 }
 .q-main {
   max-width: 1360px;
@@ -59,10 +34,10 @@
   outline: none;
 }
 .q-workspace {
-  border: var(--border-structure) solid var(--q-line);
+  border: var(--border-structure) solid var(--border);
   border-radius: var(--radius-surface);
   overflow: hidden;
-  background: var(--q-surface);
+  background: var(--surface);
   box-shadow: var(--shadow-none);
 }
 .q-question-scene {
@@ -87,7 +62,7 @@
   display: flex;
   position: relative;
   flex-direction: column;
-  background: var(--q-stage);
+  background: var(--stage);
   overflow: hidden;
 }
 .q-specimen-label {
@@ -110,7 +85,7 @@
   width: 85%;
   max-width: 340px;
   aspect-ratio: 1;
-  border: var(--border-structure) solid var(--q-line);
+  border: var(--border-structure) solid var(--border);
   border-radius: 50%;
   opacity: 0.9;
 }
@@ -118,7 +93,7 @@
   content: '';
   position: absolute;
   inset: 15%;
-  border: var(--border-structure) dashed var(--q-line);
+  border: var(--border-structure) dashed var(--border);
   border-radius: 50%;
 }
 .q-flying-bird {
@@ -127,7 +102,7 @@
   height: 350px;
   object-fit: contain;
   z-index: 1;
-  filter: drop-shadow(0 20px 20px #21364b19);
+  filter: drop-shadow(0 20px 20px var(--shadow-color-drop));
 }
 .q-measure-line {
   display: flex;
@@ -136,7 +111,7 @@
   width: var(--measure-width);
   margin: 5px auto 0;
   min-height: 25px;
-  color: var(--q-accent);
+  color: var(--main-color);
   transition: width var(--duration-quick) var(--ease-smooth-out);
 }
 .q-measure-line span {
@@ -170,7 +145,7 @@
   text-align: center;
   margin-top: 14px;
   font-size: var(--type-caption);
-  color: var(--q-muted);
+  color: var(--muted-foreground);
 }
 .q-question-controls {
   display: flex;
@@ -183,13 +158,13 @@
   gap: var(--space-8);
   font-size: var(--type-ui);
   font-weight: 500;
-  color: var(--q-accent);
+  color: var(--main-color);
   margin-bottom: var(--space-16);
 }
 .q-question-controls > p,
 .q-weight-heading p,
 .q-habitat-heading p {
-  color: var(--q-muted);
+  color: var(--muted-foreground);
   font-size: var(--type-body);
   line-height: var(--leading-relaxed);
   margin-top: var(--space-16);
@@ -221,7 +196,7 @@
 }
 .q-estimate output span {
   font-size: var(--type-label-title);
-  color: var(--q-muted);
+  color: var(--muted-foreground);
 }
 .q-measure-slot {
   min-height: 30px;
@@ -233,12 +208,12 @@
   }
 }
 .q-estimate button {
-  border: var(--border-structure) solid var(--q-line);
+  border: var(--border-structure) solid var(--border);
   border-radius: 50%;
   height: 36px;
   width: 36px;
-  background: var(--q-surface);
-  color: var(--q-muted);
+  background: var(--surface);
+  color: var(--muted-foreground);
 }
 .q-slider-wrap {
   padding: 0 10px;
@@ -248,20 +223,20 @@
 }
 .q-slider [data-slot='slider-track'] {
   height: 5px;
-  background: var(--q-line);
+  background: var(--border);
 }
 .q-slider [data-slot='slider-range'] {
-  background: var(--q-accent);
+  background: var(--main-color);
 }
 .q-slider [data-slot='slider-thumb'] {
   width: 24px;
   height: 24px;
-  background: var(--q-surface);
-  border: 6px solid var(--q-accent);
+  background: var(--surface);
+  border: 6px solid var(--main-color);
   box-shadow: var(--shadow-subtle);
 }
 .q-slider [data-slot='slider-thumb']:focus-visible {
-  outline: 3px solid var(--q-accent);
+  outline: 3px solid var(--main-color);
   outline-offset: 4px;
 }
 .q-ruler-ticks {
@@ -272,13 +247,13 @@
 }
 .q-ruler-ticks > span {
   width: 1px;
-  background: var(--q-line);
+  background: var(--border);
 }
 .q-slider-labels {
   position: relative;
   display: flex;
   justify-content: space-between;
-  color: var(--q-muted);
+  color: var(--muted-foreground);
   font-size: var(--type-caption);
 }
 .q-slider-labels > span:nth-child(2) {
@@ -292,7 +267,7 @@
   justify-content: center;
   gap: var(--space-4);
   font-size: var(--type-ui);
-  color: var(--q-success);
+  color: var(--success);
   margin-top: 22px;
 }
 .q-range-reveal[data-revealed='false'] {
@@ -320,7 +295,7 @@
   gap: var(--space-12);
   align-items: center;
   padding: var(--space-12) var(--space-16);
-  border: var(--border-selection) solid var(--q-line);
+  border: var(--border-selection) solid var(--border);
   border-radius: var(--radius-control);
   cursor: pointer;
   transition:
@@ -357,7 +332,7 @@
   font-size: var(--type-button);
 }
 .quiz-shell .q-call-play[data-slot]:hover {
-  color: var(--q-ink);
+  color: var(--foreground);
 }
 .q-call-play > svg {
   box-sizing: content-box;
@@ -368,11 +343,11 @@
   color: var(--primary-foreground);
 }
 .quiz-shell .q-call-play[data-slot]:hover > svg {
-  background: color-mix(in srgb, var(--main-color) 85%, var(--foreground));
+  background: var(--primary-hover);
 }
 .quiz-shell .q-call-play[data-slot]:focus-visible > svg {
   box-shadow:
-    0 0 0 3px var(--q-stage),
+    0 0 0 3px var(--stage),
     0 0 0 5px var(--selection-border);
 }
 .q-call-credit:focus-visible {
@@ -381,7 +356,7 @@
 }
 .q-call-status,
 .q-call-credit {
-  color: var(--q-muted);
+  color: var(--muted-foreground);
   font-size: var(--type-caption);
   line-height: var(--leading-relaxed);
 }
@@ -440,9 +415,9 @@
     .q-habitat-bird,
     .q-habitat-residents > span
   )[data-correct='true'] {
-  --q-state-color: var(--q-success);
+  --q-state-color: var(--success);
   border-color: var(--q-state-color);
-  background: var(--q-success-soft);
+  background: var(--success-soft);
 }
 .quiz-shell
   :is(
@@ -453,9 +428,9 @@
     .q-habitat-bird,
     .q-habitat-residents > span
   )[data-wrong='true'] {
-  --q-state-color: var(--q-error);
+  --q-state-color: var(--danger);
   border-color: var(--q-state-color);
-  background: var(--q-error-soft);
+  background: var(--danger-soft);
 }
 .quiz-shell
   :is(
@@ -474,9 +449,9 @@
   place-items: center;
   width: 26px;
   height: 26px;
-  background: var(--q-stage);
+  background: var(--stage);
   font-size: var(--type-caption);
-  color: var(--q-muted);
+  color: var(--muted-foreground);
 }
 .q-option strong {
   font-size: var(--type-ui);
@@ -491,21 +466,21 @@
   border-color: var(--q-state-color, var(--selection-border));
 }
 .q-option [data-slot='radio-group-indicator'] > span {
-  background: #fff;
+  background: var(--primary-foreground);
 }
 .q-option [data-slot='radio-group-item']:focus-visible {
   outline: none;
   box-shadow: none;
 }
 .q-option-correct {
-  color: var(--q-success);
+  color: var(--success);
 }
 .q-option-wrong {
-  color: var(--q-error);
+  color: var(--danger);
 }
 .q-weight-task,
 .q-habitat-task {
-  background: var(--q-stage);
+  background: var(--stage);
 }
 .q-weight-heading,
 .q-habitat-heading {
@@ -534,10 +509,10 @@
 }
 .q-weight-card {
   position: relative;
-  border: var(--border-structure) solid var(--q-line);
+  border: var(--border-structure) solid var(--border);
   border-radius: var(--radius-card);
   padding: var(--space-16);
-  background: var(--q-surface);
+  background: var(--surface);
   box-shadow: var(--shadow-none);
   min-width: 0;
 }
@@ -560,8 +535,8 @@
   height: 26px;
   border-radius: 50%;
   font-size: var(--type-caption);
-  background: var(--q-stage);
-  color: var(--q-muted);
+  background: var(--stage);
+  color: var(--muted-foreground);
 }
 .q-drag-handle {
   display: grid;
@@ -571,7 +546,7 @@
   margin: -5px -4px -5px 0;
   border: 0;
   background: transparent;
-  color: var(--q-muted);
+  color: var(--muted-foreground);
   cursor: grab;
   touch-action: none;
   border-radius: var(--radius-control);
@@ -603,11 +578,11 @@
   display: flex;
   align-items: center;
   justify-content: space-between;
-  border-top: var(--border-structure) solid var(--q-line);
+  border-top: var(--border-structure) solid var(--border);
   margin-top: var(--space-8);
   padding-top: var(--space-8);
   min-height: 42px;
-  color: var(--q-muted);
+  color: var(--muted-foreground);
   font-size: var(--type-caption);
 }
 .q-card-moves button {
@@ -617,7 +592,7 @@
 .q-card-weight {
   justify-content: center;
   gap: var(--space-8);
-  color: var(--q-ink);
+  color: var(--foreground);
   font-size: var(--type-ui);
   font-weight: 500;
 }
@@ -658,8 +633,8 @@
     max(var(--page-gutter), calc((100vw - 1360px) / 2 + var(--page-gutter)));
   padding-bottom: calc(var(--space-12) + env(safe-area-inset-bottom));
   box-shadow: var(--shadow-floating);
-  border-top: var(--border-structure) solid var(--q-line);
-  background: var(--q-surface);
+  border-top: var(--border-structure) solid var(--border);
+  background: var(--surface);
 }
 .q-answer-bar > .q-primary {
   /* Fixed footer height and action width keep both axes stable. */
@@ -673,8 +648,8 @@
   justify-content: center;
   line-height: var(--leading-compact);
   gap: var(--space-12);
-  background: var(--q-accent);
-  color: #fff;
+  background: var(--main-color);
+  color: var(--primary-foreground);
   padding: 0 var(--space-24);
   min-height: 3rem;
   height: 3rem;
@@ -684,15 +659,12 @@
   white-space: nowrap;
   box-shadow: var(--shadow-subtle);
 }
-:root[data-theme='dark'] .q-primary[data-slot] {
-  color: var(--background);
-}
 .q-primary[data-slot]:hover {
-  background: color-mix(in srgb, var(--q-accent), black 12%);
+  background: var(--primary-hover);
 }
 .q-primary[data-slot]:disabled {
-  background: var(--q-stage);
-  color: var(--q-muted);
+  background: var(--stage);
+  color: var(--muted-foreground);
   box-shadow: none;
   opacity: 0.7;
 }
@@ -700,7 +672,7 @@
   display: block;
   height: 100%;
   border-radius: inherit;
-  background: var(--q-accent);
+  background: var(--main-color);
   transition: width var(--duration-slow) var(--ease-smooth-out);
 }
 .q-results {
@@ -727,13 +699,13 @@
   flex-shrink: 0;
   border-radius: 50%;
   background: conic-gradient(
-    var(--q-accent) var(--score-angle),
-    var(--q-line) 0
+    var(--main-color) var(--score-angle),
+    var(--border) 0
   );
 }
 .q-result-score > div {
-  background: var(--q-surface);
-  border: 8px solid #0000;
+  background: var(--surface);
+  border: 8px solid transparent;
   border-radius: 50%;
   height: 100%;
   display: flex;
@@ -749,7 +721,7 @@
 }
 .q-result-score span {
   font-size: var(--type-caption);
-  color: var(--q-muted);
+  color: var(--muted-foreground);
 }
 .q-result-copy {
   max-width: 590px;
@@ -760,7 +732,7 @@
 .q-result-copy p {
   margin: var(--space-8) 0 var(--space-12);
   line-height: var(--leading-relaxed);
-  color: var(--q-muted);
+  color: var(--muted-foreground);
   font-size: var(--type-body);
 }
 .q-result-breakdown {
@@ -778,17 +750,17 @@
   font-size: var(--type-ui);
 }
 .q-result-breakdown svg {
-  color: var(--q-accent);
+  color: var(--main-color);
 }
 .q-result-breakdown small {
   font-size: var(--type-caption);
   font-weight: 400;
-  color: var(--q-muted);
+  color: var(--muted-foreground);
 }
 .q-result-meter {
   height: 4px;
   border-radius: var(--radius-small);
-  background: var(--q-line);
+  background: var(--border);
   grid-column: 1 / -1;
 }
 .q-review-heading {
@@ -804,7 +776,7 @@
 }
 .q-review-heading > span {
   font-size: var(--type-ui);
-  color: var(--q-muted);
+  color: var(--muted-foreground);
 }
 .q-review-list {
   display: grid;
@@ -813,16 +785,16 @@
 }
 .q-review-list button {
   text-align: left;
-  border: var(--border-structure) solid var(--q-line);
+  border: var(--border-structure) solid var(--border);
   border-radius: var(--radius-card);
-  background: var(--q-surface);
+  background: var(--surface);
   padding: var(--space-12) var(--space-16);
   display: flex;
   align-items: center;
   gap: var(--space-16);
 }
 .q-review-list button:hover {
-  border-color: var(--q-accent);
+  border-color: var(--main-color);
 }
 .q-review-list img {
   width: 50px;
@@ -847,7 +819,7 @@
   font-size: var(--text-sm);
   font-weight: 400;
   line-height: var(--leading-heading);
-  color: var(--q-muted);
+  color: var(--muted-foreground);
   margin-top: var(--space-2);
 }
 .q-review-score {
@@ -863,10 +835,10 @@
   display: inline;
   font: inherit;
   font-weight: 400;
-  color: var(--q-muted);
+  color: var(--muted-foreground);
 }
 .q-review-list svg {
-  color: var(--q-muted);
+  color: var(--muted-foreground);
 }
 @media (min-width: 981px) {
   .quiz-shell {
@@ -1013,8 +985,8 @@
   align-items: center;
   gap: var(--space-8);
   padding: var(--space-12);
-  border: var(--border-structure) solid var(--q-line);
-  background: var(--q-surface);
+  border: var(--border-structure) solid var(--border);
+  background: var(--surface);
   border-radius: var(--radius-card);
   text-align: left;
   cursor: grab;
@@ -1043,12 +1015,12 @@
 .q-habitat-bird small {
   display: block;
   font-size: var(--type-caption);
-  color: var(--q-muted);
+  color: var(--muted-foreground);
   margin-top: var(--space-8);
 }
 .q-habitat-bird > svg {
   flex-shrink: 0;
-  color: var(--q-muted);
+  color: var(--muted-foreground);
   width: 14px;
 }
 .q-habitat-bird:is([data-correct='true'], [data-wrong='true']) > svg {
@@ -1061,7 +1033,7 @@
   gap: var(--space-8);
   min-height: 44px;
   font-size: var(--type-ui);
-  color: var(--q-muted);
+  color: var(--muted-foreground);
   padding-block: 10px;
 }
 .q-habitat-birds + .q-habitat-board {
@@ -1080,10 +1052,10 @@
   min-height: 230px;
   padding: 0;
   overflow: hidden;
-  border: var(--border-structure) solid var(--q-line);
+  border: var(--border-structure) solid var(--border);
   border-radius: var(--radius-card);
-  background: var(--q-surface);
-  color: var(--q-ink);
+  background: var(--surface);
+  color: var(--foreground);
   transition:
     box-shadow var(--duration-quick) var(--ease-smooth-out),
     border-color var(--duration-quick) var(--ease-smooth-out);
@@ -1111,9 +1083,9 @@
   pointer-events: none;
   background: linear-gradient(
     to top,
-    rgb(0 0 0 / 0.74) 0%,
-    rgb(0 0 0 / 0.46) 42%,
-    rgb(0 0 0 / 0) 100%
+    var(--scrim-strong) 0%,
+    var(--scrim) 42%,
+    transparent 100%
   );
 }
 .q-landscape-title {
@@ -1128,14 +1100,14 @@
   justify-content: space-between;
   gap: var(--space-8);
   line-height: var(--leading-none);
-  color: #fff;
+  color: var(--on-image);
   font-family: var(--font-display), Georgia, serif;
   font-size: var(--type-card-title);
   font-weight: 600;
-  text-shadow: 0 1px 2px rgb(0 0 0 / 0.35);
+  text-shadow: 0 1px 2px var(--scrim-shadow);
 }
 .q-landscape-title svg {
-  color: rgb(255 255 255 / 0.85);
+  color: var(--on-image-muted);
   flex-shrink: 0;
 }
 .q-habitat-residents {
@@ -1154,7 +1126,7 @@
   padding: var(--space-8) var(--space-12);
   border: var(--q-card-border-width) solid var(--selection-border);
   background: var(--selected);
-  color: var(--q-ink);
+  color: var(--foreground);
   font-size: var(--type-body);
   font-weight: 500;
   line-height: var(--leading-compact);
@@ -1180,8 +1152,8 @@
 }
 .q-habitat-residents > .q-drop-label {
   background: none;
-  border: var(--q-card-border-width) dashed var(--q-line);
-  color: var(--q-muted);
+  border: var(--q-card-border-width) dashed var(--border);
+  color: var(--muted-foreground);
   justify-content: center;
   height: 34px;
   margin-top: auto;
@@ -1268,7 +1240,7 @@
   font-size: var(--type-caption);
   line-height: var(--leading-normal);
   font-weight: 400;
-  color: var(--q-muted);
+  color: var(--muted-foreground);
   white-space: nowrap;
   font-variant-numeric: tabular-nums;
 }
@@ -1285,7 +1257,7 @@
   border: 0;
   border-radius: 50%;
   background: transparent;
-  color: color-mix(in srgb, var(--q-muted), transparent 60%);
+  color: var(--muted-foreground-faint);
 }
 .q-step-dots > * > span {
   width: 7px;
@@ -1294,12 +1266,12 @@
   background: currentColor;
 }
 .q-step-dots > [data-done='true'] {
-  background: var(--q-success-soft);
-  color: var(--q-success);
+  background: var(--success-soft);
+  color: var(--success);
 }
 .q-step-dots > [aria-current] {
-  background: var(--q-accent-soft);
-  color: var(--q-accent);
+  background: var(--selected);
+  color: var(--main-color);
 }
 @media (max-width: 760px) {
   .q-heading-row h1 {
@@ -1344,7 +1316,7 @@
   font-weight: 700;
   line-height: var(--leading-display);
   letter-spacing: normal;
-  color: var(--q-ink);
+  color: var(--foreground);
 }
 .q-answer-controls {
   margin-top: auto;

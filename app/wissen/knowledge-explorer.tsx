@@ -64,21 +64,19 @@ export default function KnowledgeExplorer({
           }}
           className="knowledge-explorer"
         >
-          <div className="knowledge-tabs-rail">
-            <TabsList
-              variant="line"
-              className="knowledge-tabs t-tabs"
-              aria-label="Wissensbereiche"
-              ref={barRef}
-            >
-              <span className="t-tabs-pill" aria-hidden="true" ref={pillRef} />
-              {sections.map(({ id, label }) => (
-                <TabsTrigger key={id} value={id} className="t-tab">
-                  {label}
-                </TabsTrigger>
-              ))}
-            </TabsList>
-          </div>
+          <TabsList
+            variant="line"
+            className="t-tabs t-tabs-line knowledge-tabs"
+            aria-label="Wissensbereiche"
+            ref={barRef}
+          >
+            <span className="t-tabs-pill" aria-hidden="true" ref={pillRef} />
+            {sections.map(({ id, label }) => (
+              <TabsTrigger key={id} value={id} className="t-tab">
+                {label}
+              </TabsTrigger>
+            ))}
+          </TabsList>
           <TabsContent value="falknerei">
             <FalconryWorld birds={birds} />
           </TabsContent>

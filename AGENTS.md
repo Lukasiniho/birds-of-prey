@@ -6,9 +6,9 @@
 - Inaktive Tab-Texte verwenden durchgängig `--muted-foreground`; keine
   individuellen Farbmischungen oder Opacity-Abschwächungen je Tab-Variante.
 
-- Pill-Switches (`.t-tabs` im Atlas-Gefieder wie `.stage-tabs` im Wissen)
-  verwenden einheitlich `--type-body` (14 px); keine größere Tab-Schrift
-  auf einzelnen Seiten.
+- Tabs verwenden nur die zwei Rollen aus `app/tabs.css`: `.t-tabs` (Pille,
+  `--type-body` 14 px) und `.t-tabs.t-tabs-line` (Unterstrich, `--type-tab`
+  16 px). Keine eigene Tab-Gestaltung pro Seite.
 - Maße in den Artdaten sind Zahlenpaare `[min, max]`: Spannweite in cm (auf 5
   gerundet), Gewicht immer in Gramm — nie in Kilogramm speichern. Keine
   Scheingenauigkeit: Gramm unter 1 kg auf 10 g, darüber auf 100 g runden; erreicht
@@ -34,6 +34,9 @@
 
 ## Design-System
 
+- Farben ausschließlich als Rollen aus `app/colors.css` verwenden; keine Hex-,
+  rgb()- oder freien `color-mix`-Prozentwerte in Seiten-CSS oder JSX. Tönungen
+  nur über `--tint-1` bis `--tint-6`. `npm run lint` prüft das.
 - Vor UI-Änderungen `docs/design-system.md` und `docs/typography.md` lesen.
 - Gemeinsame Rollen aus `app/design-system.css` und vorhandene Komponenten verwenden.
 - Gleiche sichtbare Funktionen erhalten gleiche Rollen; neue lokale Größen oder

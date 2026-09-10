@@ -10,14 +10,6 @@
   margin-bottom: var(--section-gap);
 }
 
-/* Pill switch inside a stage heading, shared by anatomy and the falconry map. */
-.stage-tabs {
-  flex-shrink: 0;
-}
-.stage-tabs.t-tabs .t-tab[aria-pressed='true'] {
-  background: var(--tabs-pill-bg);
-  box-shadow: var(--shadow-active-pill);
-}
 .anatomy-layout {
   display: grid;
   grid-template-columns: minmax(0, 1fr) 350px;
@@ -75,23 +67,23 @@
   place-items: center;
   width: 19px;
   height: 19px;
-  border: 3px solid #fff;
+  border: 3px solid var(--surface);
   border-radius: 50%;
-  background: #284956;
+  background: var(--foreground);
   box-shadow:
-    0 0 0 3px #28495625,
-    0 2px 5px #14232d40;
+    0 0 0 3px var(--line-tint),
+    0 2px 5px var(--shadow-color-subtle);
 }
 
 .anatomy-point[aria-pressed='true'] .anatomy-point-core,
 .anatomy-point:hover .anatomy-point-core,
 .anatomy-point:focus-visible .anatomy-point-core {
-  background: #173744;
-  border-color: #fff;
+  background: var(--main-color);
+  border-color: var(--surface);
   box-shadow:
-    0 0 0 3px #28495640,
-    0 0 0 4px #7da7b9,
-    0 2px 6px #14232d45;
+    0 0 0 3px var(--accent-ring),
+    0 0 0 4px var(--accent-line),
+    0 2px 6px var(--shadow-color-subtle);
 }
 .anatomy-point:focus-visible {
   outline: 2px solid var(--foreground);
@@ -215,70 +207,6 @@
 .knowledge-explorer[data-slot='tabs'] {
   gap: var(--space-24);
 }
-/* Underline tabs: the same 38px rail, label-title type and 2px marker as the atlas information tabs.
-   The rail wrapper carries the border; the list itself scrolls sideways on mobile. */
-.knowledge-tabs-rail {
-  position: relative;
-  width: 100%;
-  border-bottom: var(--border-structure) solid var(--border);
-}
-.knowledge-tabs[data-slot] {
-  display: flex;
-  justify-content: flex-start;
-  gap: var(--space-24);
-  width: 100%;
-  height: 38px;
-  margin-bottom: -1px; /* the pill covers the rail border, as before */
-  padding: 0;
-  border-radius: 0;
-}
-.knowledge-tabs button[data-slot] {
-  height: 38px;
-  flex: 0 1 auto;
-  font-family: var(--font-body), Inter, sans-serif;
-  font-size: var(--type-button);
-  line-height: var(--leading-none);
-  font-weight: 400;
-  padding: 0 0 13px;
-  border: 0;
-  color: var(--muted-foreground);
-  border-radius: 0;
-  background: transparent;
-  box-shadow: none;
-  transition: color var(--duration-quick) var(--ease-smooth-out);
-}
-.knowledge-tabs button[data-active] {
-  color: var(--foreground);
-  font-weight: 500;
-}
-.knowledge-tabs button[data-slot]:after {
-  bottom: -1px;
-  height: 2px;
-  background: var(--foreground);
-}
-.knowledge-tabs button[data-slot]:focus-visible {
-  outline: 1px solid var(--ring);
-  outline-offset: 3px;
-  box-shadow: none;
-}
-/* The underline is the transitions.dev sliding pill, measured like the atlas tabs. */
-.knowledge-tabs.t-tabs {
-  position: relative;
-  padding: 0;
-  border-radius: 0;
-  background: transparent;
-}
-.knowledge-tabs .t-tabs-pill {
-  top: auto;
-  bottom: 0;
-  height: 2px;
-  border-radius: 0;
-  background: var(--foreground);
-}
-.knowledge-tabs .t-tab::after {
-  display: none;
-  content: none;
-}
 /* The side panel swaps like a text swap; tab panels switch without motion. */
 .knowledge-notes-scroll {
   animation: knowledge-swap var(--duration-fast) var(--ease-in-out) both;
@@ -362,8 +290,8 @@
   display: block;
 }
 .falconry-basemap path {
-  fill: color-mix(in srgb, var(--main-color) 13%, var(--stage));
-  stroke: color-mix(in srgb, var(--main-color) 30%, var(--stage));
+  fill: color-mix(in srgb, var(--main-color) var(--tint-3), var(--stage));
+  stroke: color-mix(in srgb, var(--main-color) var(--tint-5), var(--stage));
   stroke-width: 0.55px;
 }
 .falconry-map-callout {
@@ -426,7 +354,7 @@
 }
 .falconry-map-pin[aria-pressed='true'] .falconry-pin-portrait {
   border-color: var(--main-color);
-  box-shadow: 0 0 0 6px color-mix(in srgb, var(--main-color) 16%, transparent);
+  box-shadow: 0 0 0 6px var(--accent-ring);
 }
 .falconry-map-pin:hover .falconry-pin-label,
 .falconry-map-pin:focus-visible .falconry-pin-label,
@@ -473,7 +401,7 @@
 }
 /* Hover and selection follow the tile role: tinted stage, teal frame. */
 .falconry-era:hover {
-  background: color-mix(in srgb, var(--main-color) 9%, var(--stage));
+  background: color-mix(in srgb, var(--main-color) var(--tint-2), var(--stage));
 }
 .falconry-era[aria-pressed='true'] {
   border-color: var(--main-color);
@@ -552,7 +480,7 @@
 .falconry-era[aria-pressed='true'] .falconry-era-marker::after {
   border-color: var(--main-color);
   background: var(--main-color);
-  box-shadow: 0 0 0 4px color-mix(in srgb, var(--main-color) 16%, transparent);
+  box-shadow: 0 0 0 4px var(--accent-ring);
 }
 .knowledge-bird-list {
   display: grid;
@@ -610,20 +538,6 @@
   }
 }
 @media (max-width: 760px) {
-  .knowledge-tabs[data-slot] {
-    overflow-x: auto;
-    overflow-y: hidden;
-    scrollbar-width: none;
-    -webkit-overflow-scrolling: touch;
-    scroll-padding-inline: var(--space-16);
-  }
-  .knowledge-tabs[data-slot]::-webkit-scrollbar {
-    display: none;
-  }
-  .knowledge-tabs button[data-slot] {
-    flex: 0 0 auto;
-    white-space: nowrap;
-  }
   .knowledge-split {
     grid-template-columns: minmax(0, 1fr);
   }
@@ -661,8 +575,7 @@
   .falconry-era,
   .falconry-era-marker::after,
   .knowledge-tile,
-  .knowledge-bird,
-  .knowledge-tabs button[data-slot] {
+  .knowledge-bird {
     transition: none;
   }
   .knowledge-notes-scroll {
@@ -703,10 +616,10 @@
 }
 /* Hover tints the stage itself so the tile never turns into a white card. */
 .knowledge-tile:hover {
-  background: color-mix(in srgb, var(--main-color) 9%, var(--stage));
+  background: color-mix(in srgb, var(--main-color) var(--tint-2), var(--stage));
 }
 .knowledge-tile[data-related='true'] {
-  border-color: color-mix(in srgb, var(--main-color) 45%, transparent);
+  border-color: var(--accent-line);
 }
 .knowledge-tile[aria-pressed='true'] {
   border-color: var(--main-color);

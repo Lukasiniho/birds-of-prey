@@ -10,12 +10,13 @@
   --space-32: 2rem;
   --space-40: 2.5rem;
 
-  --atlas-info-surface: var(--background);
-  --atlas-measurement-surface: color-mix(in srgb, var(--background) 60%, transparent);
   --rail-fade-height: 58px;
   --rail-fade-clear: 10px;
-  --select-background: #fff;
-  --header-control-height: 38px;
+  /* Control heights: compact pills, standard controls and rails, touch targets. */
+  --control-height-compact: 30px;
+  --control-height: 38px;
+  --control-height-touch: 44px;
+  --header-control-height: var(--control-height);
   --page-gutter: var(--space-40);
   --atlas-gutter: var(--space-12);
   --section-gap: var(--space-32);
@@ -28,24 +29,14 @@
   --radius-surface: 20px;
   --radius-pill: 999px;
   --radius-tab-pill: 48px;
-  --shadow-active-pill: 0 1px 2px rgb(0 0 0 / 10%),
-    0 0 0 1px color-mix(in srgb, var(--foreground) 10%, transparent);
+  --shadow-active-pill: 0 1px 2px var(--shadow-color-pill),
+    0 0 0 1px var(--line-tint);
   --border-structure: 1px;
   --border-selection: 2px;
 
   --shadow-none: none;
-  --shadow-subtle: 0 2px 8px
-    color-mix(in srgb, var(--foreground) 8%, transparent);
-  --shadow-floating: 0 8px 28px
-    color-mix(in srgb, var(--foreground) 16%, transparent);
-}
-:root[data-theme='dark'] {
-  --atlas-card-surface: #151e25;
-  --atlas-info-surface: var(--atlas-card-surface);
-  --atlas-measurement-surface: var(--atlas-card-surface);
-  --select-background: var(--background);
-  --shadow-subtle: 0 2px 8px rgb(0 0 0 / 18%);
-  --shadow-floating: 0 8px 28px rgb(0 0 0 / 35%);
+  --shadow-subtle: 0 2px 8px var(--shadow-color-subtle);
+  --shadow-floating: 0 8px 28px var(--shadow-color-floating);
 }
 
 /* Shared shells: feature-specific CSS owns layout, not another padding scale. */

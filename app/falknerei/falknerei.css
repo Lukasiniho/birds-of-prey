@@ -12,49 +12,15 @@
   color: var(--muted-foreground);
 }
 .falconry-explorer[data-slot='tabs'] {
-  gap: 0;
+  gap: var(--space-24);
+}
+/* Each chapter panel is the bordered surface; the tab rail sits above it like in Wissen. */
+.falconry-panel[data-slot='tabs-content'] {
+  display: grid;
   border: var(--border-structure) solid var(--border);
   border-radius: var(--radius-surface);
   overflow: hidden;
   background: var(--background);
-}
-.falconry-tabs[data-slot='tabs-list'] {
-  justify-content: flex-start;
-  gap: var(--space-8);
-  width: 100%;
-  height: auto;
-  padding: var(--space-12) var(--space-16);
-  border-radius: 0;
-  border-bottom: var(--border-structure) solid var(--border);
-  background: var(--background);
-}
-.falconry-tabs [data-slot='tabs-trigger'] {
-  flex: 0 1 auto;
-  min-height: 43px;
-  height: auto;
-  padding: var(--space-8) var(--space-20);
-  font-family: var(--font-display), Georgia, serif;
-  font-size: var(--type-card-title);
-  line-height: var(--leading-heading);
-  font-weight: 600;
-  color: var(--muted-foreground);
-  border-radius: var(--radius-control);
-  transition: none;
-}
-.falconry-tabs [data-slot='tabs-trigger'][data-active] {
-  background: var(--selected);
-  color: var(--foreground);
-  box-shadow: none;
-}
-.falconry-tabs [data-slot='tabs-trigger']:hover {
-  color: var(--foreground);
-}
-.falconry-tabs [data-slot='tabs-trigger']:focus-visible {
-  outline: 2px solid var(--ring);
-  outline-offset: -2px;
-}
-.falconry-panel[data-slot='tabs-content'] {
-  display: grid;
   grid-template-columns: minmax(0, 1fr) 360px;
   margin: 0;
   min-height: 610px;
@@ -235,17 +201,6 @@
   .falconry-heading {
     margin-bottom: var(--section-gap);
   }
-  .falconry-tabs[data-slot='tabs-list'] {
-    gap: var(--space-8);
-    padding: var(--space-12) var(--space-16);
-    flex-wrap: wrap;
-  }
-  .falconry-tabs [data-slot='tabs-trigger'] {
-    flex: 1 1 auto;
-    padding: var(--space-8) var(--space-12);
-    font-size: var(--type-ui);
-    font-family: var(--font-body), Arial, sans-serif;
-  }
   .falconry-panel[data-slot='tabs-content'] {
     grid-template-columns: 1fr;
     min-height: 0;
@@ -279,10 +234,6 @@
   }
 }
 
-.falconry-tabs [data-slot='tabs-trigger'] {
-  border: 0;
-  box-shadow: none;
-}
 @media (min-width: 761px) {
   .falconry-art img {
     height: 560px;

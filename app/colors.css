@@ -1,0 +1,109 @@
+/* Farbrollen für hell und dunkel. Die einzige Datei, die Hex- oder rgb()-Werte
+ * enthalten darf; `npm run lint` prüft das. Neue Farben nur als Rolle hier
+ * ergänzen und in docs/design-system.md (Farben) beschreiben. */
+:root {
+  color-scheme: light;
+
+  /* Flächen */
+  --background: #fafcfd; /* Seite und Kopfzeile */
+  --surface: #fff; /* erhaben: Karten, Menüs, Dropdown-Trigger */
+  --stage: #eaf1f5; /* vertieft: Bild- und Quizbühnen, Kartenwasser */
+  --muted: #e7eef3; /* ruhige Nebenfläche */
+  --hover: #eef3f6; /* Zeilen- und Listen-Hover */
+
+  /* Text und Linien */
+  --foreground: #273c4b;
+  --muted-foreground: #708695;
+  --border: #dce5eb;
+
+  /* Akzent */
+  --main-color: #487878;
+  --primary: var(--main-color);
+  --primary-foreground: #fff;
+  --ring: var(--main-color);
+  --selection-border: var(--main-color);
+
+  /* Status */
+  --success: #267662;
+  --success-soft: #eef8f3;
+  --danger: #b94f46;
+  --danger-soft: #fbefed;
+
+  /* Tönungsstufen: feste Anteile für color-mix, keine freien Prozentwerte. */
+  --tint-1: 6%; /* Hauchdünne Fläche, Tab-Schiene */
+  --tint-2: 10%; /* Auswahl, Tags, Hover auf Bühnen, feine Linien */
+  --tint-3: 16%; /* Leuchtringe um Marker, Karten-Landfläche */
+  --tint-4: 24%; /* Kräftige Auswahl (dunkel), Tag-Hover */
+  --tint-5: 34%; /* Karten-Umriss, Tag-Hover (dunkel) */
+  --tint-6: 45%; /* Verwandtschafts-Rahmen */
+
+  /* Abgeleitete Rollen: nur über die Tönungsstufen bilden. */
+  --selected: color-mix(in srgb, var(--main-color) var(--tint-2), var(--background));
+  --selected-strong: color-mix(in srgb, var(--main-color) var(--tint-4), var(--background));
+  --accent-ring: color-mix(in srgb, var(--main-color) var(--tint-3), transparent);
+  --accent-line: color-mix(in srgb, var(--main-color) var(--tint-6), transparent);
+  --primary-hover: color-mix(in srgb, var(--main-color) 85%, var(--foreground));
+  --line-soft: color-mix(in srgb, var(--foreground) var(--tint-1), transparent);
+  --line-tint: color-mix(in srgb, var(--foreground) var(--tint-2), transparent);
+  --muted-foreground-faint: color-mix(in srgb, var(--muted-foreground) 60%, var(--background));
+  --toolbar: color-mix(in srgb, var(--background) 92%, transparent);
+  --swatch-border: var(--line-tint);
+  --select-background: var(--surface);
+  --atlas-info-surface: var(--background);
+  --atlas-measurement-surface: color-mix(in srgb, var(--background) 60%, transparent);
+
+  /* Tab-Pillen (die transitions.dev-Snippets lesen diese Namen). */
+  --tabs-text-muted: var(--muted-foreground);
+  --tabs-text-active: var(--foreground);
+  --tabs-bar-bg: var(--line-soft);
+  --tabs-pill-bg: var(--background);
+
+  /* Verbreitungskarte */
+  --map-water: var(--stage);
+  --map-land: #dce5e8;
+  --map-border: #afc0c5;
+  --map-range: var(--main-color);
+
+  /* Schattenfarben; die Schattenrollen selbst stehen in design-system.css. */
+  --shadow-color-subtle: color-mix(in srgb, var(--foreground) 8%, transparent);
+  --shadow-color-floating: color-mix(in srgb, var(--foreground) 16%, transparent);
+  --shadow-color-pill: rgb(0 0 0 / 10%);
+  --shadow-color-drop: var(--line-tint);
+
+  /* Bildüberlagerungen liegen auf Fotos und bleiben in beiden Themes gleich. */
+  --scrim-strong: rgb(0 0 0 / 74%);
+  --scrim: rgb(0 0 0 / 46%);
+  --scrim-shadow: rgb(0 0 0 / 35%);
+  --on-image: #fff;
+  --on-image-muted: rgb(255 255 255 / 85%);
+}
+
+:root[data-theme='dark'] {
+  color-scheme: dark;
+  --background: #0b1014;
+  --surface: #151e25;
+  --stage: #070a0d;
+  --muted: #18232b;
+  --hover: #142029;
+  --foreground: #e1e8ed;
+  --muted-foreground: #9aafbc;
+  --border: #26323b;
+  --main-color: #86aaa6;
+  --primary-foreground: var(--background);
+  --success: #8bd5b6;
+  --success-soft: #18372e;
+  --danger: #edaaa2;
+  --danger-soft: #422725;
+
+  /* Dunkle Flächen schlucken die 10-%-Tönung: Auswahl eine Stufe kräftiger. */
+  --selected: color-mix(in srgb, var(--main-color) var(--tint-4), var(--background));
+  --selected-strong: color-mix(in srgb, var(--main-color) var(--tint-5), var(--background));
+  --swatch-border: color-mix(in srgb, var(--foreground) var(--tint-3), transparent);
+  --select-background: var(--background);
+  --atlas-info-surface: var(--surface);
+  --atlas-measurement-surface: var(--surface);
+  --map-land: #233039;
+  --map-border: #42545f;
+  --shadow-color-subtle: rgb(0 0 0 / 18%);
+  --shadow-color-floating: rgb(0 0 0 / 35%);
+}

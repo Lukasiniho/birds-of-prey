@@ -1,0 +1,142 @@
+/* Tab roles. Two looks only: the pill switch (.t-tabs) and the underline rail
+ * (.t-tabs.t-tabs-line). Page CSS positions a tab list; it never restyles the
+ * tabs. The sliding pill (.t-tabs-pill) is measured by lib/use-sliding-pill.ts;
+ * lists without a pill element highlight the pressed tab itself.
+ * See docs/design-system.md → Tabs. */
+
+/* Pill switch (transitions.dev 16 Tabs sliding, on the app palette). */
+.t-tabs {
+  position: relative;
+  display: inline-flex;
+  align-items: center;
+  flex: 0 0 auto;
+  gap: 3px;
+  height: auto;
+  margin: 0;
+  padding: 3px;
+  border: var(--border-structure) solid var(--line-tint);
+  border-radius: var(--radius-tab-pill);
+  background: var(--tabs-bar-bg);
+  box-shadow: none;
+}
+.t-tab {
+  position: relative;
+  flex: 0 0 auto;
+  appearance: none;
+  height: var(--control-height-compact);
+  margin: 0;
+  padding: var(--space-4) 13px;
+  border: 0;
+  border-radius: var(--radius-tab-pill);
+  background: transparent;
+  box-shadow: none;
+  color: var(--tabs-text-muted);
+  font:
+    500 var(--type-body) / var(--leading-none) var(--font-body),
+    Inter,
+    sans-serif;
+  white-space: nowrap;
+  cursor: pointer;
+  z-index: 1;
+  transition: color var(--tabs-dur) var(--tabs-ease);
+}
+.t-tab:hover,
+.t-tab:is([aria-selected='true'], [aria-pressed='true'], [data-active]) {
+  color: var(--tabs-text-active);
+}
+/* The library's own underline never shows; the pill or rail marks selection. */
+.t-tab::after {
+  display: none;
+  content: none;
+}
+.t-tab:focus-visible {
+  outline: 2px solid var(--ring);
+  outline-offset: 2px;
+  box-shadow: none;
+}
+/* Width and transform are written inline so the pill tweens between the
+   previous and next measured positions. */
+.t-tabs-pill {
+  position: absolute;
+  top: 3px;
+  left: 0;
+  width: 0;
+  height: var(--control-height-compact);
+  border-radius: var(--radius-tab-pill);
+  background: var(--tabs-pill-bg);
+  box-shadow: var(--shadow-active-pill);
+  transform: translateX(0);
+  transition:
+    transform var(--tabs-dur) var(--tabs-ease),
+    width var(--tabs-dur) var(--tabs-ease);
+  will-change: transform, width;
+  z-index: 0;
+  pointer-events: none;
+}
+.t-tabs:not(:has(> .t-tabs-pill))
+  > .t-tab:is([aria-selected='true'], [aria-pressed='true'], [data-active]) {
+  background: var(--tabs-pill-bg);
+  box-shadow: var(--shadow-active-pill);
+}
+
+/* Underline rail: section tabs in the atlas panel, Wissen and Falknerei. */
+.t-tabs.t-tabs-line {
+  display: flex;
+  justify-content: flex-start;
+  width: 100%;
+  height: var(--control-height);
+  gap: var(--space-24);
+  padding: 0;
+  border: 0;
+  border-bottom: var(--border-structure) solid var(--border);
+  border-radius: 0;
+  background: transparent;
+}
+.t-tabs-line > .t-tab {
+  height: var(--control-height);
+  padding: 0 0 13px;
+  border-radius: 0;
+  color: var(--muted-foreground);
+  font:
+    400 var(--type-tab) / var(--leading-none) var(--font-body),
+    Inter,
+    sans-serif;
+  transition: color var(--duration-quick) var(--ease-smooth-out);
+}
+.t-tabs-line > .t-tab:hover {
+  color: var(--foreground);
+}
+.t-tabs-line
+  > .t-tab:is([aria-selected='true'], [aria-pressed='true'], [data-active]) {
+  color: var(--foreground);
+  font-weight: 500;
+  background: transparent;
+  box-shadow: none;
+}
+.t-tabs-line > .t-tabs-pill {
+  top: auto;
+  bottom: -1px;
+  height: 2px;
+  border-radius: 0;
+  background: var(--foreground);
+  box-shadow: none;
+}
+/* Narrow screens: the rail scrolls instead of wrapping. */
+@media (max-width: 760px) {
+  .t-tabs.t-tabs-line {
+    overflow-x: auto;
+    overflow-y: hidden;
+    scrollbar-width: none;
+    -webkit-overflow-scrolling: touch;
+    scroll-padding-inline: var(--space-16);
+  }
+  .t-tabs.t-tabs-line::-webkit-scrollbar {
+    display: none;
+  }
+}
+@media (prefers-reduced-motion: reduce) {
+  .t-tabs-pill,
+  .t-tab {
+    transition: none !important;
+  }
+}

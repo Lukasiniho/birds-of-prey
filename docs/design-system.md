@@ -13,8 +13,69 @@ fachliche Ausnahmen zu. Keine automatische Rundung sämtlicher CSS-Zahlen.
 - `app/typography.css`: Schriftgrößen, Zeilenhöhen und Artname-Varianten.
 - `docs/typography.md`: Anwendung und gewünschte typografische Hierarchie.
 - `app/transitions-root.css`: bestehende Animationsparameter.
-- `app/globals.css`: gemeinsame Farben für hell/dunkel und Atlas-Komponenten.
+- `app/colors.css`: alle Farbrollen für hell und dunkel, Tönungsstufen,
+  Status-, Karten- und Schattenfarben. Einzige Datei mit Hex-/rgb()-Werten.
+- `app/globals.css`: Grundregeln, Kopfzeile und Atlas-Komponenten.
 - Seiten-CSS: Anordnung, responsive Umbrüche und fachliche Darstellungen.
+
+## Farben
+
+Alle Farben sind Rollen in `app/colors.css`; `npm run lint` schlägt fehl, wenn
+Hex-, rgb()- oder oklch()-Werte anderswo auftauchen oder `color-mix` freie
+Prozentwerte statt der Tönungsstufen verwendet. Seiten definieren keine eigenen
+Paletten mehr; das Quiz nutzt seit September 2026 dieselben Rollen wie der Atlas.
+
+| Rolle                | Einsatz                                                     |
+| -------------------- | ----------------------------------------------------------- |
+| `--background`       | Seite, Kopfzeile, Tab-Pille                                 |
+| `--surface`          | Erhabene Fläche: Karten, Menüs, Dropdown-Trigger            |
+| `--stage`            | Vertiefte Fläche: Bild- und Quizbühnen, Kartenwasser        |
+| `--muted`            | Ruhige Nebenfläche                                          |
+| `--hover`            | Zeilen- und Listen-Hover                                    |
+| `--foreground`       | Text, Anatomiemarker                                        |
+| `--muted-foreground` | Nebentext, inaktive Tabs, Platzhalter                       |
+| `--muted-foreground-faint` | Bildnachweise, inaktive Schrittpunkte                 |
+| `--border`           | Hairlines und Flächengrenzen                                |
+| `--main-color`       | Akzent; `--primary`, `--ring`, `--selection-border` sind Aliase |
+| `--primary-foreground` | Text und Icons auf gefüllten Akzentflächen                |
+| `--primary-hover`    | Hover gefüllter Akzentbuttons                               |
+| `--selected`         | Aktive Navigation, Tags, gewählte Zeilen                    |
+| `--selected-strong`  | Tag-Hover; im Dunkelmodus eine Stufe kräftiger              |
+| `--accent-ring`      | Leuchtringe um Marker und Pins                              |
+| `--accent-line`      | Akzentrahmen (verwandte Kacheln, aktiver Marker)            |
+| `--line-soft`        | Tab-Schiene                                                 |
+| `--line-tint`        | Feine Rahmen auf Flächen, Farbfeld-Ränder                   |
+| `--success`, `--success-soft` | Richtige Antworten                                 |
+| `--danger`, `--danger-soft`   | Falsche Antworten                                  |
+| `--scrim*`, `--on-image*`     | Verläufe und Text auf Fotos, in beiden Themes gleich |
+| `--map-*`            | Wasser, Land, Umriss und Verbreitung der Karte              |
+| `--shadow-color-*`   | Nur von den Schattenrollen in design-system.css verwendet   |
+
+Tönungen entstehen ausschließlich mit `color-mix` und den Stufen `--tint-1`
+bis `--tint-6` (6, 10, 16, 24, 34, 45 %). Neue Zwischenwerte sind keine Rolle.
+Im Dunkelmodus wird `--selected` eine Stufe kräftiger, weil dunkle Flächen die
+10-%-Tönung schlucken; Aufrufstellen brauchen dafür keine eigenen Regeln.
+
+## Tabs
+
+Es gibt genau zwei Tab-Rollen, beide in `app/tabs.css`; Seiten-CSS positioniert
+eine Tab-Leiste nur, es gestaltet sie nicht um.
+
+| Rolle                   | Einsatz                                            | Maße                                   |
+| ----------------------- | -------------------------------------------------- | -------------------------------------- |
+| `.t-tabs` (Pille)       | Gefieder/Alter, Farbmorphen, Bühnenwahl im Wissen  | 30 px Tab, 3 px Schiene, 14 px/500     |
+| `.t-tabs.t-tabs-line`   | Atlas-Infotabs, Wissensbereiche, Falknerei-Kapitel | 38 px Leiste, 24 px Abstand, `--type-tab` 16 px, 400/500 |
+
+Die gleitende Markierung `.t-tabs-pill` wird von `lib/use-sliding-pill.ts`
+gemessen; Listen ohne Pillenelement (reine Button-Gruppen mit `aria-pressed`)
+heben den gedrückten Tab selbst hervor. Bei der Linienrolle ist die Pille der
+2-px-Unterstrich. Auf schmalen Bildschirmen scrollt die Linienleiste seitlich
+statt umzubrechen. Der Geschlechtsschalter neben dem Gewicht ist die
+icongroße Miniaturform derselben Pille. Fokus: 2 px Ring, 2 px Abstand.
+
+Steuerhöhen: `--control-height-compact` (30 px, Pillen und Schalter),
+`--control-height` (38 px, Kopfzeile, Suche, Linienleiste) und
+`--control-height-touch` (44 px, große Aktionsflächen).
 
 ## Abstände
 

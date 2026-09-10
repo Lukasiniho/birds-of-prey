@@ -33,7 +33,6 @@ import {
   TooltipContent,
 } from '@/components/ui/tooltip';
 import {
-  birds,
   filterBirds,
   groupBirds,
   groupingOptions,
@@ -571,7 +570,7 @@ export default function RaptorApp({
                     {availablePlumages.length > 2 ? 'Kleid' : 'Alter'}
                   </span>
                   <TabsList
-                    className="plumage-list t-tabs"
+                    className="t-tabs"
                     aria-label="Geschlecht und Alter"
                     ref={plumageBarRef}
                   >
@@ -694,7 +693,7 @@ export default function RaptorApp({
             >
               <TabsList
                 variant="line"
-                className="info-tab-list t-tabs"
+                className="t-tabs t-tabs-line info-tab-list"
                 aria-label="Informationen"
                 ref={infoBarRef}
               >

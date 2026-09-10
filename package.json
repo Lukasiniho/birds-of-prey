@@ -12,7 +12,8 @@
     "build": "vinext build",
     "postbuild": "node scripts/compact-deployment-images.mjs",
     "start": "wrangler dev --config dist/server/wrangler.json",
-    "lint": "oxlint",
+    "lint": "node scripts/check-colors.mjs && oxlint",
+    "lint:colors": "node scripts/check-colors.mjs",
     "format": "oxfmt",
     "maps:build": "node scripts/build-range-maps.mjs && node scripts/build-reference-range-maps.mjs"
   },
