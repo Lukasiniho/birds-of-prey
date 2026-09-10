@@ -72,17 +72,25 @@ body {
   --weight-label-heading: var(--weight-bold);
   --type-detail-heading: var(--text-2xl);
   --type-feedback-title: var(--text-base);
-  --type-quiz-question: var(--text-4xl);
+  /* The question title is the widest line in the quiz stage: it steps down on
+   * narrow screens so a two-word species question keeps its line count. */
+  --type-quiz-question: clamp(var(--text-2xl), 1rem + 2.5vw, var(--text-4xl));
   --type-species-common: var(--type-label-heading);
-  --type-scientific-quiz: var(--text-lg);
-  --type-species-quiz: var(--text-2xl);
+  /* Quiz names sit in narrow stage columns; both steps scale with the viewport
+   * so a compound like Weißkopfseeadler keeps its line on a phone. */
+  --type-scientific-quiz: clamp(
+    var(--text-base),
+    0.875rem + 0.75vw,
+    var(--text-lg)
+  );
+  --type-species-quiz: clamp(var(--text-xl), 0.875rem + 1.5vw, var(--text-2xl));
   --type-species-knowledge: var(--text-2xl);
   --type-lead: var(--text-lg);
   --type-label-title: var(--text-xl);
   --type-card-title: clamp(var(--text-xl), 1.125rem + 0.5vw, var(--text-2xl));
   --type-heading: var(--text-3xl);
   --type-section-title: clamp(var(--text-4xl), 1.75rem + 1vw, var(--text-5xl));
-  --type-page-title: clamp(var(--text-3xl), 1.25rem + 1.75vw, var(--text-4xl));
+  --type-page-title: clamp(var(--text-2xl), 1rem + 2vw, var(--text-4xl));
   --type-hero: clamp(var(--text-4xl), 1.5rem + 2vw, var(--text-6xl));
   /* Long species names keep the same hierarchy within the narrow atlas stage. */
   --type-hero-compact: clamp(var(--text-4xl), 1.5rem + 2vw, var(--text-6xl));
@@ -108,6 +116,8 @@ body {
   font-weight: var(--weight-semibold);
   line-height: var(--leading-heading);
   letter-spacing: var(--tracking-normal);
+  /* Hyphenate first; the anywhere break stays as the last resort. */
+  hyphens: auto;
   overflow-wrap: anywhere;
 }
 :is(.app-shell, .q-drag-ghost) .species-common-name {

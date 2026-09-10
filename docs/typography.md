@@ -24,15 +24,16 @@ relative rem-Werte; die Browser-Schriftgröße bleibt frei wählbar.
 | Quiz-Rückmeldung                        | `--type-feedback-title`    | 16 px    |
 | Kompakte Artnamen (Liste, Falknerei)    | `--type-label-heading`     | 18 px    |
 | Einleitung                              | `--type-lead`              | 18 px    |
-| Wissenschaftlicher Artname im Quiz      | `--type-scientific-quiz`   | 18 px    |
+| Wissenschaftlicher Artname im Quiz      | `--type-scientific-quiz`   | 16–18 px |
 | Label-Titel                             | `--type-label-title`       | 20 px    |
 | Marke in der Kopfzeile                  | `--type-brand`             | 20 px    |
 | Karten- und Listentitel                 | `--type-card-title`        | 20–24 px |
 | Detailüberschrift rechts                | `--type-detail-heading`    | 24 px    |
-| Deutscher Artname in Quiz und Wissen    | `--type-species-quiz`, `--type-species-knowledge` | 24 px |
+| Deutscher Artname im Quiz               | `--type-species-quiz`      | 20–24 px |
+| Deutscher Artname in Wissen             | `--type-species-knowledge` | 24 px    |
 | Weitere Überschrift                     | `--type-heading`           | 28 px    |
-| Quiz-Fragentitel                        | `--type-quiz-question`     | 32 px    |
-| Seitentitel                             | `--type-page-title`        | 32–40 px |
+| Quiz-Fragentitel                        | `--type-quiz-question`     | 24–32 px |
+| Seitentitel                             | `--type-page-title`        | 24–32 px |
 | Große Abschnittsüberschrift             | `--type-section-title`     | 32–40 px |
 | Atlas-Titel                             | `--type-hero`              | 32–48 px |
 | Messwert                                | `--type-metric`            | 32 px    |
@@ -64,7 +65,7 @@ Hierarchie:
 | ------------- | ---------------- | -------------------------------- |
 | `standard`    | 18 px / 700      | 16 px / 600, kursiv              |
 | `sidebar`     | 18 px / 700      | 16 px / 600, kursiv              |
-| `quiz`        | 24 px / 700      | 18 px, direkt am deutschen Namen |
+| `quiz`        | 20–24 px / 700   | 16–18 px, direkt am deutschen Namen |
 | `knowledge`   | 24 px / 700      | 16 px / 600, kursiv              |
 | `atlas-title` | 32–48 px / 700   | halb so groß (min. 16 px), 400   |
 
@@ -84,14 +85,19 @@ Fließtext folgen dessen Formatierung.
 - Quiz-Rückmeldungen: Titel 16 px/700, Erklärung 14 px/400 ohne fett
   hervorgehobene Wörter oder Werte. Alle Fragentitel nutzen
   `QuizQuestionTitle` mit `--type-quiz-question` und `--leading-display`,
-  auch mehrzeilig und mobil.
+  auch mehrzeilig. Die Rolle skaliert selbst mit der Viewportbreite
+  (24–32 px); die Frage bekommt auf keiner Seite eine eigene mobile Größe.
 - Tags haben eine einzige gemeinsame CSS-Regel.
 - Bibliothekskomponenten in `components/ui` behalten ihre Vorlage.
 
 ## Regeln für Änderungen
 
 - Dieselbe Funktion bekommt auf jeder Seite dieselbe Rolle. Mobile Ansichten
-  ändern das Layout, nicht die Größe von Fließtext oder Artnamen.
+  ändern das Layout; die Größe ändert nur die Rolle selbst, wenn sie mit der
+  Viewportbreite skaliert (Quiz-Frage und Quiz-Artnamen). Keine mobilen
+  Sondergrößen im Seiten-CSS.
+- Artnamen trennen deutsche Komposita mit `hyphens: auto`; der Bruch an
+  beliebiger Stelle bleibt die letzte Rettung für sehr enge Spalten.
 - Keine lokalen Pixelgrößen, `text-[…]`-Sonderwerte oder eigene `clamp()`-
   Formeln. Neue Rollen nur in `app/typography.css` definieren und hier
   dokumentieren. `npm run lint` meldet rohe Größen mit Fundstelle.
