@@ -8,6 +8,7 @@ import Image from 'next/image';
 import { portraitImages } from '@/lib/portrait-images';
 
 import {
+  ArrowUpRight,
   InfoDuotone,
   List as Menu,
   Moon,
@@ -19,7 +20,9 @@ import {
   DropdownMenu,
   DropdownMenuTrigger,
   DropdownMenuContent,
+  DropdownMenuGroup,
   DropdownMenuItem,
+  DropdownMenuLabel,
   DropdownMenuSeparator,
 } from '@/components/ui/dropdown-menu';
 import { Button } from '@/components/ui/button';
@@ -34,10 +37,10 @@ const sections = [
 export type SiteSection = (typeof sections)[number]['id'] | 'falknerei';
 
 const siteLinks = [
-  { label: 'lukasvonhohnhorst.com', href: 'https://lukasvonhohnhorst.com' },
-  { label: 'weltklugheit.com', href: 'https://weltklugheit.com' },
-  { label: 'athenify.io', href: 'https://athenify.io' },
-  { label: 'katamtka.de', href: 'https://katamtka.de' },
+  { label: 'Meine Webseite', href: 'https://lukasvonhohnhorst.com' },
+  { label: 'Mentale Modelle „Weltklugheit“', href: 'https://weltklugheit.com' },
+  { label: 'Lerntracking-App „Athenify“', href: 'https://athenify.io' },
+  { label: 'Fantasy-Projekt „Katamtka“', href: 'https://katamtka.de' },
 ] as const;
 
 export function SiteHeader({
@@ -188,14 +191,20 @@ export function SiteHeader({
             </DropdownMenuTrigger>
           </TooltipHint>
           <DropdownMenuContent align="end" className="header-menu">
-            {siteLinks.map((link) => (
-              <DropdownMenuItem
-                key={link.href}
-                render={<a href={link.href} target="_blank" rel="noreferrer" />}
-              >
-                {link.label}
-              </DropdownMenuItem>
-            ))}
+            <DropdownMenuGroup>
+              <DropdownMenuLabel>Andere Projekte</DropdownMenuLabel>
+              {siteLinks.map((link) => (
+                <DropdownMenuItem
+                  key={link.href}
+                  render={
+                    <a href={link.href} target="_blank" rel="noreferrer" />
+                  }
+                >
+                  {link.label}
+                  <ArrowUpRight size={16} aria-hidden="true" />
+                </DropdownMenuItem>
+              ))}
+            </DropdownMenuGroup>
             <DropdownMenuSeparator />
             <DropdownMenuItem
               render={
@@ -207,6 +216,7 @@ export function SiteHeader({
               }
             >
               Impressum
+              <ArrowUpRight size={16} aria-hidden="true" />
             </DropdownMenuItem>
           </DropdownMenuContent>
         </DropdownMenu>

@@ -323,8 +323,11 @@ Beide Icon-Buttons rechts teilen `.header-action` (Kontrollhöhe, 18-px-Icon);
 das Info-Menü verwendet die Duotone-Variante `InfoDuotone`, damit es wie der
 Theme-Schalter daneben teal erscheint, während die Info-Trigger der Karten
 regular bleiben. Das Menü (`.header-menu`, geteilt mit der mobilen Navigation)
-listet die weiteren Seiten des Autors und, durch einen Trenner abgesetzt, das
-Impressum; alle Einträge öffnen extern in einem neuen Tab. Die Suche erscheint ausschließlich
+listet unter der Gruppenüberschrift „Andere Projekte“ die weiteren Seiten des
+Autors mit Klartext-Labels statt URLs und, durch einen Trenner abgesetzt, das
+Impressum. Jeder Eintrag trägt rechts `ArrowUpRight` als Extern-Hinweis; das
+Menü wächst mit dem längsten Label (`width: max-content`) und schneidet nichts
+ab. Alle Einträge öffnen in einem neuen Tab. Die Suche erscheint ausschließlich
 im Atlas. Auf anderen Routen bleibt die zweite Zeile frei, ohne unsichtbare
 Eingabefelder. `scrollbar-gutter: stable` verhindert seitliches Springen beim
 Wechsel zwischen Atlas und scrollenden Seiten. Legacy-Header-Regeln entfallen.

@@ -3421,13 +3421,25 @@ html {
 .mobile-navigation { display: none; }
 .header-menu[data-slot] {
   min-width: 160px;
+  width: max-content;
   background: var(--select-background);
   border: var(--border-structure) solid var(--border);
   box-shadow: var(--shadow-floating);
 }
 .header-menu [data-slot='dropdown-menu-item'] {
   font-size: var(--type-ui);
+  font-weight: 500;
   padding: var(--space-8) var(--space-12);
+}
+.header-menu [data-slot='dropdown-menu-label'] {
+  padding: var(--space-8) var(--space-12) var(--space-4);
+  font-size: var(--type-ui);
+  font-weight: 600;
+  color: var(--foreground);
+}
+.header-menu [data-slot='dropdown-menu-item'] > svg {
+  margin-left: auto;
+  color: var(--muted-foreground);
 }
 @media (max-width: 800px) {
   /* Reserve the same search row on all routes, without adding hidden controls. */
