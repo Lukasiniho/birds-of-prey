@@ -318,7 +318,13 @@ der richtigen Art liegt oberhalb der Bereiche aller drei Ablenker. Bilder bleibe
 Kopfleiste: ein gemeinsames Grid ohne routenabhängige Größen. Abstände nach Atlas-Referenz, oben/unten um je 4 px reduziert: Desktop 66 px;
 801–1200 px zwei feste 47-px-Zeilen mit 8 px Außenpadding und 8 px Abstand
 (118 px insgesamt). Bis 800 px überall 116 px mit fest reservierter Suchzeile;
-Titel, Menü und Theme-Schalter stehen in der ersten Zeile. Die Suche erscheint ausschließlich
+Titel, Menü, Theme-Schalter und das Info-Menü stehen in der ersten Zeile.
+Beide Icon-Buttons rechts teilen `.header-action` (Kontrollhöhe, 18-px-Icon);
+das Info-Menü verwendet die Duotone-Variante `InfoDuotone`, damit es wie der
+Theme-Schalter daneben teal erscheint, während die Info-Trigger der Karten
+regular bleiben. Das Menü (`.header-menu`, geteilt mit der mobilen Navigation)
+listet die weiteren Seiten des Autors und, durch einen Trenner abgesetzt, das
+Impressum; alle Einträge öffnen extern in einem neuen Tab. Die Suche erscheint ausschließlich
 im Atlas. Auf anderen Routen bleibt die zweite Zeile frei, ohne unsichtbare
 Eingabefelder. `scrollbar-gutter: stable` verhindert seitliches Springen beim
 Wechsel zwischen Atlas und scrollenden Seiten. Legacy-Header-Regeln entfallen.

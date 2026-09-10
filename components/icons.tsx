@@ -105,6 +105,8 @@ export const HourglassMedium = /*#__PURE__*/ phosphorIcon(
   'duotone',
 );
 export const Info = /*#__PURE__*/ phosphorIcon(InfoIcon);
+/** Header site menu: duotone like the theme toggle beside it. */
+export const InfoDuotone = /*#__PURE__*/ phosphorIcon(InfoIcon, 'duotone');
 export const List = /*#__PURE__*/ phosphorIcon(ListIcon);
 export const MagnifyingGlass = /*#__PURE__*/ phosphorIcon(
   MagnifyingGlassIcon,

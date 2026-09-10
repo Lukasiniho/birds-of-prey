@@ -146,13 +146,14 @@ h2 {
   font-size: var(--type-ui);
   color: var(--muted-foreground);
 }
-.theme-toggle {
+/* Header icon buttons (theme toggle, site info) share one control size. */
+.header-action {
   height: var(--header-control-height) !important;
   width: var(--header-control-height) !important;
   min-width: 38px;
   padding: 0 !important;
 }
-.theme-toggle svg {
+.header-action svg {
   width: 18px !important;
   height: 18px !important;
 }
@@ -3278,7 +3279,7 @@ html {
 }
 .topbar.site-header {
   display: grid;
-  grid-template-columns: minmax(0, 1fr) auto var(--header-control-height);
+  grid-template-columns: minmax(0, 1fr) auto auto;
   grid-template-rows: 66px;
   align-items: center;
   gap: 0 var(--space-8);
@@ -3330,6 +3331,7 @@ html {
   grid-row: 1;
   display: flex;
   align-items: center;
+  gap: var(--space-8);
   justify-self: end;
 }
 .site-header .site-navigation {
@@ -3417,13 +3419,13 @@ html {
   .site-header .header-actions { grid-row: 2; }
 }
 .mobile-navigation { display: none; }
-.mobile-navigation-menu[data-slot] {
+.header-menu[data-slot] {
   min-width: 160px;
   background: var(--select-background);
   border: var(--border-structure) solid var(--border);
   box-shadow: var(--shadow-floating);
 }
-.mobile-navigation-menu [data-slot='dropdown-menu-item'] {
+.header-menu [data-slot='dropdown-menu-item'] {
   font-size: var(--type-ui);
   padding: var(--space-8) var(--space-12);
 }
@@ -3431,7 +3433,7 @@ html {
   /* Reserve the same search row on all routes, without adding hidden controls. */
   .app-shell { --site-header-height: 116px; }
   .topbar.site-header {
-    grid-template-columns: minmax(0, 1fr) repeat(2, var(--header-control-height));
+    grid-template-columns: minmax(0, 1fr) var(--header-control-height) auto;
     grid-template-rows: 50px var(--header-control-height);
     row-gap: var(--space-12);
     padding: var(--space-8) var(--atlas-gutter);

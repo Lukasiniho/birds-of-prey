@@ -52,7 +52,8 @@
   `components/app-select.tsx` sowie die gemeinsamen `app-select`-Stile. Keine
   abweichenden Stile pro Seite; Cluster-Auswahl ist die visuelle Referenz.
 - Wissenschaftliche Quiz-Namen: 18 px, direkt am deutschen Namen (24 px).
-- Suche, Navigationslinks und Theme-Schalter teilen `--header-control-height`.
+- Suche, Navigationslinks, Theme-Schalter und Info-Menü teilen
+  `--header-control-height`; Icon-Buttons der Kopfzeile nutzen `.header-action`.
 
 - Größenklassen werden nach typischem Gewicht bestimmt, nicht nach Flügelspannweite
   oder Quantilen der vorhandenen Arten. Spannweite sortiert nur innerhalb der Klasse.
