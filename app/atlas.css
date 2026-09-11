@@ -2031,8 +2031,14 @@ button.color-dot:not(:disabled) {
     margin-top: 0;
     padding-top: 0;
   }
+  /* Der Ruf-Knopf bekommt links und rechts 15 px Luft: 38 px Knopf in einer
+     68 px breiten Spalte. Spannweite und Gewicht rücken zusammen, die engeren
+     Zellenränder geben den Zahlen den Platz zurück. */
   .specimen-measurements.measurements:has(.bird-audio) {
-    grid-template-columns: repeat(2, minmax(0, 1fr)) 60px;
+    grid-template-columns: repeat(2, minmax(0, 1fr)) 68px;
+  }
+  .specimen-measurements.measurements:has(.bird-audio) > div {
+    padding-inline: var(--space-4);
   }
   .specimen-measurements.measurements:has(.bird-audio) small {
     font-size: var(--type-caption);
