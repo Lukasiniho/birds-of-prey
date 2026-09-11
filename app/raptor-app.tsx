@@ -558,10 +558,16 @@ export default function RaptorApp({
       </nav>
       {filtered.length === 0 && (
         <div className="empty-library">
-          <Feather />
-          <p>Keine Art gefunden.</p>
+          <p>
+            <Feather size={17} aria-hidden="true" />
+            Keine Art gefunden.
+          </p>
           <span>Versuche einen anderen Suchbegriff.</span>
-          <Button variant="link" onClick={() => setQuery('')}>
+          <Button
+            variant="link"
+            className="empty-library-reset"
+            onClick={() => setQuery('')}
+          >
             Alle Arten anzeigen
           </Button>
         </div>

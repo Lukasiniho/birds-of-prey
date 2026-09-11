@@ -106,18 +106,30 @@
   color: var(--foreground);
 }
 .empty-library {
-  padding: var(--space-20) var(--space-12);
+  padding: var(--space-16) var(--space-12);
   display: flex;
   flex-direction: column;
-  gap: var(--space-12);
+  align-items: flex-start;
+  gap: var(--space-4);
 }
+/* The feather sits on the headline rather than above it, so the whole state
+   reads as one short paragraph. */
 .empty-library p {
+  display: flex;
+  align-items: center;
+  gap: var(--space-8);
   font-size: var(--type-body);
 }
 .empty-library span {
   font-size: var(--type-ui);
   color: var(--muted-foreground);
   line-height: var(--leading-relaxed);
+}
+.empty-library .empty-library-reset[data-slot] {
+  height: auto;
+  margin-top: var(--space-8);
+  padding: 0;
+  font-size: var(--type-ui);
 }
 .specimen-panel {
   position: relative;
@@ -583,8 +595,8 @@ button.color-dot:not(:disabled) {
     min-height: 0;
   }
   .empty-library {
-    padding: var(--space-20) var(--space-12);
-    gap: var(--space-12);
+    padding: var(--space-16) var(--space-12);
+    gap: var(--space-4);
   }
 }
 @media (prefers-reduced-motion: reduce) {
