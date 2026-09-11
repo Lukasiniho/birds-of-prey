@@ -1304,61 +1304,34 @@ export default function QuizExperience({
     </div>
   );
 
-  // Static HTML and the first client render must agree. Never show a throwaway
-  // server round before selecting the browser's history-aware round. The
-  // heading row already has its final shape so nothing shifts once it arrives.
-  if (!ready) {
-    return (
-      <div className="app-shell section-shell quiz-shell">
-        <SiteHeader activeSection="quiz" />
-        <main className="q-main page-content" ref={mainRef} aria-busy="true">
-          <div className="q-heading-row">
-            <div className="q-title-controls">
-              <h1 className="page-title">Das Greifvogel-Quiz</h1>
-              {roundSettings}
-            </div>
-            <div className="q-question-progress" aria-hidden="true">
-              <p className="q-progress-label">Frage 1 von {questionCount}</p>
-              <div className="q-step-dots">
-                {Array.from({ length: questionCount }, (_, index) => (
-                  <span
-                    key={index}
-                    aria-current={index === 0 ? 'step' : undefined}
-                  >
-                    <span />
-                  </span>
-                ))}
-              </div>
-            </div>
-          </div>
-        </main>
-      </div>
-    );
-  }
-
-  const question = questions[current];
-  const draft = drafts[question.id] ?? initialDraft(question, birds);
-  const answer = answers[question.id];
-  const bird = 'birdId' in question ? birds[question.birdId] : null;
+  // The round is empty until the browser has picked it, so the question and
+  // its draft stay optional until the guard below has ruled that out.
+  const question: QuizQuestion | undefined = questions[current];
+  const draft = question
+    ? (drafts[question.id] ?? initialDraft(question, birds))
+    : undefined;
+  const answer = question ? answers[question.id] : undefined;
 
   function navigate(index: number) {
     setCurrent(index);
     setShowResults(false);
   }
   const canSubmit =
-    question.kind === 'hunt' ||
-    question.kind === 'compare' ||
-    question.kind === 'identify' ||
-    question.kind === 'call' ||
-    question.kind === 'range'
-      ? Boolean(draft.choice)
-      : question.kind === 'prey'
-        ? draft.food.length > 0
-        : question.kind === 'habitat'
-          ? question.birdIds.every((id) => Boolean(draft.placements[id]))
-          : true;
+    !question || !draft
+      ? false
+      : question.kind === 'hunt' ||
+          question.kind === 'compare' ||
+          question.kind === 'identify' ||
+          question.kind === 'call' ||
+          question.kind === 'range'
+        ? Boolean(draft.choice)
+        : question.kind === 'prey'
+          ? draft.food.length > 0
+          : question.kind === 'habitat'
+            ? question.birdIds.every((id) => Boolean(draft.placements[id]))
+            : true;
   function submit() {
-    if (answer || !canSubmit) return;
+    if (!question || !draft || answer || !canSubmit) return;
     const points =
       question.kind === 'span'
         ? scoreSpan(draft.span, birds[question.birdId].span)
@@ -1408,6 +1381,79 @@ export default function QuizExperience({
         ?.focus({ preventScroll: true }),
     );
   }
+  // Enter works the primary button from anywhere on the question: it checks
+  // the picked answer, then moves on to the next question. The listener sits
+  // on the window because clicking an option often leaves the focus on the
+  // page body.
+  useLayoutEffect(() => {
+    function onKeyDown(event: KeyboardEvent) {
+      if (
+        event.key !== 'Enter' ||
+        event.metaKey ||
+        event.ctrlKey ||
+        event.altKey ||
+        event.isComposing ||
+        showResults ||
+        (!answer && !canSubmit)
+      )
+        return;
+      // Anything that answers to Enter on its own keeps it: buttons, links,
+      // typed fields and an open dropdown. The options themselves are radios,
+      // which ignore Enter, so those hand it on.
+      const target = event.target as HTMLElement | null;
+      const interactive = target?.closest(
+        'button, a[href], select, textarea, [contenteditable]:not([contenteditable="false"]), [role="listbox"], [role="dialog"], [role="menu"]',
+      );
+      const role = interactive?.getAttribute('role');
+      if (
+        (interactive && role !== 'radio' && role !== 'checkbox') ||
+        (target instanceof HTMLInputElement &&
+          !['radio', 'checkbox', 'range'].includes(target.type))
+      )
+        return;
+      event.preventDefault();
+      if (answer) next();
+      else submit();
+    }
+    // Capture, so an option that swallows the key on its own cannot hide it.
+    window.addEventListener('keydown', onKeyDown, true);
+    return () => window.removeEventListener('keydown', onKeyDown, true);
+  });
+
+  // Static HTML and the first client render must agree. Never show a throwaway
+  // server round before selecting the browser's history-aware round. The
+  // heading row already has its final shape so nothing shifts once it arrives.
+  if (!ready || !question || !draft) {
+    return (
+      <div className="app-shell section-shell quiz-shell">
+        <SiteHeader activeSection="quiz" />
+        <main className="q-main page-content" ref={mainRef} aria-busy="true">
+          <div className="q-heading-row">
+            <div className="q-title-controls">
+              <h1 className="page-title">Das Greifvogel-Quiz</h1>
+              {roundSettings}
+            </div>
+            <div className="q-question-progress" aria-hidden="true">
+              <p className="q-progress-label">Frage 1 von {questionCount}</p>
+              <div className="q-step-dots">
+                {Array.from({ length: questionCount }, (_, index) => (
+                  <span
+                    key={index}
+                    aria-current={index === 0 ? 'step' : undefined}
+                  >
+                    <span />
+                  </span>
+                ))}
+              </div>
+            </div>
+          </div>
+        </main>
+      </div>
+    );
+  }
+
+  const bird = 'birdId' in question ? birds[question.birdId] : null;
+
   function restart() {
     setQuestions(freshRound(quizHistory(questions)));
     setCurrent(0);
