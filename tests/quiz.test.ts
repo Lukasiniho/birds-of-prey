@@ -8,6 +8,7 @@ import { speciesById, huntingTypes, preyCategoryById } from '../lib/ecology.ts';
 import { habitatImages } from '../lib/habitat-images.ts';
 import {
   createQuizRound,
+  PREY_OPTION_COUNT,
   quizKinds,
   scorePrey,
   moveBird,
@@ -210,9 +211,9 @@ void test('twelve-question rounds contain answerable tasks across all nine kinds
       }
       if (question.kind === 'prey') {
         const bird = quizBirds[question.birdId];
-        assert.equal(question.options.length, 6);
-        assert.equal(new Set(question.options).size, 6);
-        assert(question.correct.length >= 1 && question.correct.length <= 3);
+        assert.equal(question.options.length, PREY_OPTION_COUNT);
+        assert.equal(new Set(question.options).size, PREY_OPTION_COUNT);
+        assert(question.correct.length >= 1 && question.correct.length <= 2);
         assert.deepEqual(
           question.options.filter((id) => bird.typicalPrey.includes(id)).sort(),
           [...question.correct].sort(),

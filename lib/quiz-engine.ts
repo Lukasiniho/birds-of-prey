@@ -12,6 +12,8 @@ export const quizKinds = [
   'call',
 ] as const;
 export type QuizKind = (typeof quizKinds)[number];
+/** Plates on the prey board - a 2x2 grid the player sees without scrolling. */
+export const PREY_OPTION_COUNT = 4;
 export type QuizHabitat = {
   id: string;
   label: string;
@@ -431,17 +433,23 @@ export function createQuizRound(
 
   const preyTasks = eligible.flatMap(
     (bird): Extract<QuizTask, { kind: 'prey' }>[] => {
+      // Four plates fit the board without scrolling, so at most two of them
+      // are correct and the rest are distractors.
       const correct = shuffled([...new Set(bird.typicalPrey)], random).slice(
         0,
-        3,
+        2,
       );
       const wrong = shuffled(
         [...new Set(bird.preyDistractors)].filter(
           (id) => !bird.typicalPrey.includes(id),
         ),
         random,
-      ).slice(0, 6 - correct.length);
-      if (!correct.length || correct.length + wrong.length !== 6) return [];
+      ).slice(0, PREY_OPTION_COUNT - correct.length);
+      if (
+        !correct.length ||
+        correct.length + wrong.length !== PREY_OPTION_COUNT
+      )
+        return [];
       return [
         {
           kind: 'prey',
