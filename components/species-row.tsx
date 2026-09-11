@@ -6,7 +6,7 @@ import { SpeciesName } from '@/components/species-name';
  * The one size a species portrait is painted at in a row, in CSS pixels.
  * Mirrors `--species-row-portrait`; the image ladder needs it as a number.
  */
-export const SPECIES_ROW_PORTRAIT = 56;
+export const SPECIES_ROW_PORTRAIT = 64;
 
 /** The row portrait as a file: knowledge pages and every list built from art. */
 export function SpeciesRowPortrait({ src }: { src: string }) {

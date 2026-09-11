@@ -78,7 +78,7 @@ Jede Zeile aus Porträt und Namenspaar — Artenleiste im Atlas, Arten-Sheet auf
 dem Telefon, Artenlisten in Wissen — kommt aus `components/species-row.tsx`
 (`SpeciesRowContent` für eigene Bedienelemente, `SpeciesRowLink` für Links).
 Sie trägt `.species-row` und eine einzige Porträtgröße,
-`--species-row-portrait` (56 px), ohne Sondergrößen pro Seite oder
+`--species-row-portrait` (64 px), ohne Sondergrößen pro Seite oder
 Breakpoint. Seiten ergänzen nur Zustände (Auswahlrahmen, Hintergrund).
 
 ## Anwendung
