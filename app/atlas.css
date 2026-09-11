@@ -1330,8 +1330,10 @@ button.color-dot:not(:disabled) {
     scrollbar-width: thin;
     scrollbar-color: var(--border) transparent;
     padding-bottom: calc(var(--panel-padding) + var(--rail-fade-height));
+    /* Der Verlauf läuft bis an die Unterkante aus. Endete er schon darüber,
+       blieb unter dem Ausblenden ein harter Streifen stehen. */
     mask-image: linear-gradient(to bottom, black calc(100% - var(--rail-fade-height)),
-      transparent calc(100% - var(--rail-fade-clear)));
+      transparent 100%);
   }
   .info-panel::after {
     content: '';
