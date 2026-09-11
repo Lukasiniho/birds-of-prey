@@ -689,7 +689,7 @@ export const additionalBirds: AdditionalBird[] = [
     span: [115, 125],
     weight: [1200, 1700],
     sexes: {
-      male: { weight: [1200, 1450] },
+      male: { weight: [1200, 1400] },
       female: { weight: [1400, 1700] },
     },
     intro:
@@ -750,7 +750,7 @@ export const additionalBirds: AdditionalBird[] = [
     weight: [900, 1600],
     sexes: {
       male: { weight: [900, 1300] },
-      female: { weight: [1050, 1600] },
+      female: { weight: [1000, 1600] },
     },
     intro:
       'Dieser langbeinige Verwandte der Falken ist ebenso geschickt zu Fuß wie im Flug und sucht vielseitig nach Nahrung.',
