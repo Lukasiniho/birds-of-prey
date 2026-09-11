@@ -3,7 +3,7 @@
 import { useState } from 'react';
 import { ArtImage } from '@/components/art-image';
 import { ArrowUpRight, Crosshair } from '@/components/icons';
-import { SpeciesName } from '@/components/species-name';
+import { SpeciesRowLink } from '@/components/species-row';
 import type { TechniqueEntry, TechniqueHunter } from './knowledge-data';
 
 function countLabel(count: number) {
@@ -106,33 +106,18 @@ function HunterGroup({
       <h3>{title}</h3>
       <div className="knowledge-bird-list">
         {hunters.map((hunter) => (
-          <a
+          <SpeciesRowLink
             href={hunter.href}
             key={hunter.id}
-            className="knowledge-bird"
+            portrait={hunter.portrait}
+            name={hunter.name}
+            latin={hunter.latin}
+            trailing={<ArrowUpRight size={16} aria-hidden="true" />}
             onMouseEnter={() => onHover(hunter)}
             onMouseLeave={() => onHover(null)}
             onFocus={() => onHover(hunter)}
             onBlur={() => onHover(null)}
-          >
-            <ArtImage
-              src={hunter.portrait}
-              alt=""
-              width={52}
-              height={52}
-              displayWidth={52}
-            />
-            <span className="knowledge-bird-name">
-              <SpeciesName
-                name={hunter.name}
-                latin={hunter.latin}
-                variant="sidebar"
-                commonAs="span"
-                scientificAs="i"
-              />
-            </span>
-            <ArrowUpRight size={16} aria-hidden="true" />
-          </a>
+          />
         ))}
       </div>
     </div>

@@ -1,10 +1,9 @@
 'use client';
 
 import { useState } from 'react';
-import { ArtImage } from '@/components/art-image';
 import { ArrowUpRight, ForkKnife } from '@/components/icons';
 import { PreyArt } from '@/components/prey-art';
-import { SpeciesName } from '@/components/species-name';
+import { SpeciesRowLink } from '@/components/species-row';
 import { TooltipHint } from '@/components/ui/tooltip';
 import type { PreyEntry, PreyHunter } from './knowledge-data';
 
@@ -97,33 +96,18 @@ function HunterGroup({
       <div className="knowledge-bird-list">
         {hunters.map((hunter) => {
           const row = (
-            <a
+            <SpeciesRowLink
               href={hunter.href}
               key={hunter.id}
-              className="knowledge-bird"
+              portrait={hunter.portrait}
+              name={hunter.name}
+              latin={hunter.latin}
+              trailing={<ArrowUpRight size={16} aria-hidden="true" />}
               onMouseEnter={() => onHover(hunter)}
               onMouseLeave={() => onHover(null)}
               onFocus={() => onHover(hunter)}
               onBlur={() => onHover(null)}
-            >
-              <ArtImage
-                src={hunter.portrait}
-                alt=""
-                width={52}
-                height={52}
-                displayWidth={52}
-              />
-              <span className="knowledge-bird-name">
-                <SpeciesName
-                  name={hunter.name}
-                  latin={hunter.latin}
-                  variant="sidebar"
-                  commonAs="span"
-                  scientificAs="i"
-                />
-              </span>
-              <ArrowUpRight size={16} aria-hidden="true" />
-            </a>
+            />
           );
           return hunter.note ? (
             <TooltipHint key={hunter.id} content={hunter.note}>

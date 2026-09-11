@@ -10,7 +10,7 @@ import {
   PopoverTrigger,
 } from '@/components/ui/popover';
 import { TooltipHint } from '@/components/ui/tooltip';
-import { SpeciesName } from '@/components/species-name';
+import { SpeciesRowLink } from '@/components/species-row';
 import { rangeBasemapUrl } from '@/lib/range-maps';
 import { SegmentedControl } from '@/components/segmented-control';
 import {
@@ -26,6 +26,9 @@ import {
 } from './knowledge-data';
 
 const loadBasemap = createMapLoader(parseBasemap);
+// The basemap ships the whole globe; the falconry world sits between Alaska and
+// Japan, so we crop off the empty Pacific and Antarctica and let the rest grow.
+const mapView = [108, 6, 857, 450] as const;
 // Projected through scripts/map-projection.mjs, exactly like the existing map.
 const locations: Record<string, [number, number]> = {
   arabien: [622.47, 192.66],
@@ -133,7 +136,7 @@ export default function FalconryWorld({ birds }: { birds: KnowledgeBird[] }) {
             {base ? (
               <>
                 <svg
-                  viewBox={base.viewBox.join(' ')}
+                  viewBox={mapView.join(' ')}
                   aria-hidden="true"
                   className="falconry-basemap"
                 >
@@ -177,8 +180,8 @@ export default function FalconryWorld({ birds }: { birds: KnowledgeBird[] }) {
                       className="falconry-map-pin"
                       key={item.id}
                       style={{
-                        left: `${((x - base.viewBox[0]) / base.viewBox[2]) * 100}%`,
-                        top: `${((y - base.viewBox[1]) / base.viewBox[3]) * 100}%`,
+                        left: `${((x - mapView[0]) / mapView[2]) * 100}%`,
+                        top: `${((y - mapView[1]) / mapView[3]) * 100}%`,
                       }}
                       aria-label={`${item.name}: ${item.title}`}
                       aria-pressed={selected === item.id}
@@ -253,25 +256,14 @@ export default function FalconryWorld({ birds }: { birds: KnowledgeBird[] }) {
             {chapter.birds.map((id) => {
               const bird = birds.find((item) => item.id === id)!;
               return (
-                <a href={bird.href} key={id} className="knowledge-bird">
-                  <ArtImage
-                    src={bird.portrait}
-                    alt=""
-                    width={52}
-                    height={52}
-                    displayWidth={52}
-                  />
-                  <span className="knowledge-bird-name">
-                    <SpeciesName
-                      name={bird.name}
-                      latin={bird.latin}
-                      variant="sidebar"
-                      commonAs="span"
-                      scientificAs="i"
-                    />
-                  </span>
-                  <ArrowUpRight size={16} aria-hidden="true" />
-                </a>
+                <SpeciesRowLink
+                  href={bird.href}
+                  key={id}
+                  portrait={bird.portrait}
+                  name={bird.name}
+                  latin={bird.latin}
+                  trailing={<ArrowUpRight size={16} aria-hidden="true" />}
+                />
               );
             })}
           </div>

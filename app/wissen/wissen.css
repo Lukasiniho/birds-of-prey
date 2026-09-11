@@ -274,7 +274,7 @@
 .falconry-map {
   position: relative;
   width: 100%;
-  aspect-ratio: 1000 / 540;
+  aspect-ratio: 857 / 450;
 }
 .falconry-basemap {
   width: 100%;
@@ -479,30 +479,6 @@
   gap: var(--space-8);
   margin-top: var(--space-16);
 }
-.knowledge-bird {
-  display: flex;
-  gap: var(--space-12);
-  align-items: center;
-  padding: var(--space-8);
-  border-radius: var(--radius-control);
-}
-.knowledge-bird {
-  transition: background var(--duration-quick) var(--ease-smooth-out);
-}
-.knowledge-bird:hover {
-  background: var(--hover);
-}
-.knowledge-bird > img {
-  width: 52px;
-  height: 52px;
-  object-fit: contain;
-  flex-shrink: 0;
-}
-.knowledge-bird > svg {
-  margin-left: auto;
-  flex-shrink: 0;
-  color: var(--muted-foreground);
-}
 .falconry-map-status {
   display: flex;
   flex-direction: column;
@@ -566,19 +542,12 @@
   .falconry-pin-label,
   .falconry-era,
   .falconry-era-marker::after,
-  .knowledge-tile,
-  .knowledge-bird {
+  .knowledge-tile {
     transition: none;
   }
   .knowledge-notes-scroll {
     animation: none;
   }
-}
-
-.knowledge-bird-name {
-  display: flex;
-  flex-direction: column;
-  min-width: 0;
 }
 
 /* Tile explorers (prey, techniques): illustrated tiles left, species right.
