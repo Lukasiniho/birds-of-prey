@@ -469,9 +469,9 @@ export const additionalBirds: AdditionalBird[] = [
     habitatGroup: 'Tundra & Küsten',
     genusLabel: 'Falken',
     plumageNotes: {
-      male: 'Graue Farbform mit gebänderter Oberseite und gefleckter Unterseite. Männchen sind deutlich kleiner als Weibchen.',
+      male: 'Graue Morphe mit gebänderter Oberseite und gefleckter Unterseite. Männchen sind deutlich kleiner als Weibchen.',
       female:
-        'Gleiche graue Farbform, jedoch kräftigerer Körperbau. Die Gefiederfarbe ist kein verlässliches Geschlechtsmerkmal.',
+        'Gleiche graue Morphe, jedoch kräftigerer Körperbau. Die Gefiederfarbe ist kein verlässliches Geschlechtsmerkmal.',
       juvenile:
         'Graue Jungvögel wirken meist brauner und sind unten längsgestreift. Wachshaut und Füße sind zunächst blaugrau.',
     },
@@ -826,9 +826,9 @@ export const additionalBirds: AdditionalBird[] = [
     habitatGroup: 'Prärien & Grasland',
     genusLabel: 'Bussarde',
     plumageNotes: {
-      male: 'Helle Farbform mit weißer Unterseite, rostrotem Rücken und rostfarbenen Beinfedern. Die Iris wird mit dem Alter braun.',
+      male: 'Helle Morphe mit weißer Unterseite, rostrotem Rücken und rostfarbenen Beinfedern. Die Iris wird mit dem Alter braun.',
       female:
-        'Gleiche helle Farbform, häufig erheblich größer als das Männchen. Eine seltenere dunkle Farbform kommt ebenfalls vor.',
+        'Gleiche helle Morphe, häufig erheblich größer als das Männchen. Eine seltenere dunkle Morphe kommt ebenfalls vor.',
       juvenile:
         'Braunere Oberseite, weißer Bauch und helle Beine mit braunen Flecken. Die Iris ist gelblich; der Schwanz wirkt dunkler als beim Altvogel.',
     },

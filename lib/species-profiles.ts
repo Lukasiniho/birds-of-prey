@@ -76,7 +76,7 @@ export const speciesProfiles: Record<string, SpeciesProfile> = {
     identification:
       'Etwa bussardgroß, mit sechs deutlich gefingerten Handschwingen und relativ langem Schwanz. Die helle Morphe hat einen markanten Hell-Dunkel-Kontrast; die dunkle ist braun.',
     behaviour:
-      'Europäische Brutvögel ziehen meist nach Afrika. Helle und dunkle Vögel können sich miteinander verpaaren; die Farbformen sind keine Unterarten.',
+      'Europäische Brutvögel ziehen meist nach Afrika. Helle und dunkle Vögel können sich miteinander verpaaren; die Morphen sind keine Unterarten.',
     breeding:
       'Er baut den Horst überwiegend in hohen Bäumen. Nach etwa 37–40 Tagen schlüpfen die Jungen; nach rund acht Wochen verlassen sie das Nest.',
     sources: [

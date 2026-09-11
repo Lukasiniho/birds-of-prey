@@ -800,8 +800,7 @@ export default function RaptorApp({
                             <span className="t-acc-chevron" aria-hidden="true">
                               <CaretDown />
                             </span>
-                            {morphConfig.hintLabel ??
-                              'Hinweis zu den Farbformen'}
+                            {morphConfig.hintLabel ?? 'Hinweis zu den Morphen'}
                           </button>
                           <div className="t-acc-panel">
                             <div className="t-acc-panel-inner">

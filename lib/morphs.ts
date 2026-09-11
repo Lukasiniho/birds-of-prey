@@ -38,7 +38,7 @@ export type BirdMorphConfig = {
 
 export const birdMorphs: Record<MorphSpeciesId, BirdMorphConfig> = {
   zwergadler: {
-    label: 'Farbform',
+    label: 'Morphe',
     defaultId: 'hell',
     note: 'Helle und dunkle Zwergadler gehören zur selben Art. Beide Morphen kommen bei beiden Geschlechtern und auch bei Jungvögeln vor; braune Zwischenformen sind möglich.',
     sources: [
@@ -95,7 +95,7 @@ export const birdMorphs: Record<MorphSpeciesId, BirdMorphConfig> = {
     ],
   },
   wespenbussard: {
-    label: 'Farbform',
+    label: 'Morphe',
     defaultId: 'mittel',
     note: 'Wespenbussarde variieren von sehr hell bis fast einfarbig dunkelbraun. Hell, Mittel und Dunkel zeigen Beispiele eines fließenden Spektrums, keine Unterarten. Die Farbvariation kommt auch bei Jungvögeln vor; Irisfarbe und Federzeichnung helfen bei der Altersbestimmung.',
     sources: [
@@ -294,7 +294,7 @@ export const birdMorphs: Record<MorphSpeciesId, BirdMorphConfig> = {
     ],
   },
   maeusebussard: {
-    label: 'Farbform',
+    label: 'Morphe',
     defaultId: 'mittel',
     note: 'Die Übergänge zwischen hellen, mittleren und dunklen Mäusebussarden sind fließend. Die drei Ansichten zeigen Beispiele der natürlichen individuellen Farbvariation, keine getrennten Unterarten oder festen Farbklassen.',
     sources: [
@@ -385,7 +385,7 @@ export const birdMorphs: Record<MorphSpeciesId, BirdMorphConfig> = {
     ],
   },
   gerfalke: {
-    label: 'Farbform',
+    label: 'Morphe',
     defaultId: 'grau',
     note: 'Weiß, Grau und Dunkel bezeichnen Abschnitte eines fließenden Farbspektrums. Männchen und Weibchen haben dieselben Gefiederfarben.',
     sources: [
@@ -466,9 +466,9 @@ export const birdMorphs: Record<MorphSpeciesId, BirdMorphConfig> = {
       'In Nordamerika sind graue Gerfalken häufiger als weiße oder dunkle.',
   },
   koenigsbussard: {
-    label: 'Farbform',
+    label: 'Morphe',
     defaultId: 'hell',
-    note: 'Helle Königsbussarde sind häufig, dunkle selten. Zeichnung und Rostton unterscheiden sich auch innerhalb einer Farbform.',
+    note: 'Helle Königsbussarde sind häufig, dunkle selten. Zeichnung und Rostton unterscheiden sich auch innerhalb einer Morphe.',
     sources: [
       {
         name: 'Cornell Lab – Königsbussard',
@@ -524,7 +524,7 @@ export const birdMorphs: Record<MorphSpeciesId, BirdMorphConfig> = {
     ],
   },
   rotschwanzbussard: {
-    label: 'Farbform',
+    label: 'Morphe',
     defaultId: 'hell',
     note: 'Die dargestellten Farbmorphen orientieren sich an der westlichen Unterart calurus. Sie gehen durch zahlreiche Zwischenformen ineinander über; Harlans Rotschwanzbussard ist eine eigene Unterart und wird hier nicht als dunkle Morphe dargestellt.',
     sources: [
