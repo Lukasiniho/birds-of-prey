@@ -20,8 +20,9 @@ const surfaces = [
 
 const inks = [
   ['--foreground', 'Text, Anatomiemarker'],
-  ['--muted-foreground', 'Nebentext, inaktive Tabs'],
-  ['--muted-foreground-faint', 'Bildnachweise, Schrittpunkte'],
+  ['--muted-foreground', 'Nebentext auf Seite und Karte'],
+  ['--muted-foreground-stage', 'Nebentext auf Bühne und Tab-Schiene'],
+  ['--muted-foreground-faint', 'Nur Nicht-Text: Schrittpunkte'],
   ['--border', 'Hairlines und Flächengrenzen'],
   ['--line-tint', 'Feine Rahmen auf Flächen'],
   ['--line-soft', 'Tab-Schiene'],

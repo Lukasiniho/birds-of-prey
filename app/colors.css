@@ -13,7 +13,9 @@
 
   /* Text und Linien */
   --foreground: #273c4b;
-  --muted-foreground: #708695;
+  /* Zwei Stufen, je nach Fläche darunter; beide so hell wie möglich bei 4,5:1. */
+  --muted-foreground: #647785; /* auf --background und --surface */
+  --muted-foreground-stage: #576974; /* auf Vertieftem */
   --border: #dce5eb;
 
   /* Akzent */
@@ -45,15 +47,18 @@
   --primary-hover: color-mix(in srgb, var(--main-color) 85%, var(--foreground));
   --line-soft: color-mix(in srgb, var(--foreground) var(--tint-1), transparent);
   --line-tint: color-mix(in srgb, var(--foreground) var(--tint-2), transparent);
+  /* Nur Nicht-Text; für Text reicht der Kontrast nicht. */
   --muted-foreground-faint: color-mix(in srgb, var(--muted-foreground) 60%, var(--background));
   --toolbar: color-mix(in srgb, var(--background) 92%, transparent);
   --swatch-border: var(--line-tint);
   --select-background: var(--surface);
   --atlas-info-surface: var(--background);
-  --atlas-measurement-surface: color-mix(in srgb, var(--background) 60%, transparent);
+  /* Deckend wie im dunklen Theme: eine Karte auf der Bühne, kein Schleier. */
+  --atlas-measurement-surface: var(--background);
 
   /* Tab-Pillen (die transitions.dev-Snippets lesen diese Namen). */
-  --tabs-text-muted: var(--muted-foreground);
+  /* Die Schiene ist die dunkelste helle Fläche. */
+  --tabs-text-muted: var(--muted-foreground-stage);
   --tabs-text-active: var(--foreground);
   --tabs-bar-bg: var(--line-soft);
   --tabs-pill-bg: var(--background);
@@ -87,6 +92,8 @@
   --hover: #142029;
   --foreground: #e1e8ed;
   --muted-foreground: #9aafbc;
+  /* Dunkle Flächen liegen nah beieinander: eine Stufe genügt. */
+  --muted-foreground-stage: var(--muted-foreground);
   --border: #26323b;
   --main-color: #86aaa6;
   --primary-foreground: var(--background);

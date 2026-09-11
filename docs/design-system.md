@@ -61,8 +61,9 @@ Rollen wie der Atlas.
 | `--muted`                    | Ruhige Nebenfläche                                     |
 | `--hover`                    | Zeilen- und Listen-Hover                               |
 | `--foreground`               | Text, Anatomiemarker                                   |
-| `--muted-foreground`         | Nebentext, inaktive Tabs, Platzhalter                  |
-| `--muted-foreground-faint`   | Bildnachweise, inaktive Schrittpunkte                  |
+| `--muted-foreground`         | Nebentext und Platzhalter auf `--background`/`--surface` |
+| `--muted-foreground-stage`   | Nebentext auf Vertieftem: Bühne und Tab-Schiene          |
+| `--muted-foreground-faint`   | Nur Nicht-Text: inaktive Schrittpunkte                 |
 | `--border`                   | Hairlines und Flächengrenzen                           |
 | `--main-color`               | Akzent; `--primary`, `--ring`, `--selection-border` sind Aliase |
 | `--primary-foreground`       | Text und Icons auf gefüllten Akzentflächen             |
