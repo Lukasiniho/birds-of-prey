@@ -2011,17 +2011,12 @@ button.color-dot:not(:disabled) {
   max-width: 150px;
   font-size: var(--type-caption);
 }
-.bird-audio-attribution p {
-  font-size: var(--type-body);
-  line-height: var(--leading-normal);
-}
 .bird-audio-attribution a {
   text-decoration: underline;
   text-underline-offset: 3px;
 }
 .bird-audio-attribution small {
   color: var(--muted-foreground);
-  font-size: var(--type-caption);
 }
 
 @media (max-width: 760px) {

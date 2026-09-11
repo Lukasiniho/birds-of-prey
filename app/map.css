@@ -168,18 +168,11 @@
 .range-map-source:focus-visible {
   color: var(--foreground);
 }
-.range-map-source-details[data-slot] {
-  width: max-content;
-  max-width: 260px;
-  padding: var(--space-12) var(--space-16);
-}
 .range-map-source-details .range-map-credits {
   display: grid;
-  gap: 5px;
+  gap: var(--space-8);
   margin: 0;
-  font-size: var(--type-caption);
 }
 .range-map-source-details .range-map-credits small {
-  font-size: var(--type-caption);
   color: var(--muted-foreground);
 }

@@ -49,7 +49,7 @@ export function MovementTooltip({ fact }: { fact: SpeciesFact }) {
       <TooltipContent side="top" align="end" variant="detail">
         <p className="m-0 font-semibold">Zugverhalten</p>
         <ol
-          className="my-3 grid list-none grid-cols-4 gap-1 p-0"
+          className="my-3 grid list-none grid-cols-4 gap-2 p-0"
           aria-label="Skala von Standvogel bis Langstreckenzieher"
         >
           {scale.map(([level, label]) => (
@@ -57,13 +57,13 @@ export function MovementTooltip({ fact }: { fact: SpeciesFact }) {
               key={level}
               aria-current={level === type ? 'step' : undefined}
               aria-label={`${label}${level === type ? ' – aktuelle Einstufung' : ''}`}
-              className="h-1.5 rounded-full"
+              className="h-2.5 rounded-full"
               style={
                 level === type
                   ? {
                       background: 'var(--main-color)',
                       outline: '2px solid var(--main-color)',
-                      outlineOffset: 2,
+                      outlineOffset: 1,
                     }
                   : { background: 'var(--border)' }
               }

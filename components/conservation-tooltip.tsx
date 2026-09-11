@@ -47,7 +47,7 @@ export function ConservationTooltip({
       <TooltipContent side="top" align="end" variant="detail">
         <p className="m-0 font-semibold">Gefährdung weltweit</p>
         <ol
-          className="my-3 grid list-none grid-cols-7 gap-1 p-0"
+          className="my-3 grid list-none grid-cols-7 gap-2 p-0"
           aria-label="IUCN-Skala von nicht gefährdet bis ausgestorben"
         >
           {scale.map(([level, label]) => (
@@ -63,7 +63,7 @@ export function ConservationTooltip({
                       borderColor: 'var(--main-color)',
                       color: 'var(--primary-foreground)',
                       outline: '2px solid var(--main-color)',
-                      outlineOffset: 2,
+                      outlineOffset: 1,
                     }
                   : {
                       borderColor: 'var(--border)',

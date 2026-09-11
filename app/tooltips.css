@@ -1,7 +1,7 @@
 /* Shared by swatches, anatomy, conservation and sidebar tooltips.
    Floating UI measures a stationary popup; only its inner surface scales.
    Every tooltip — compact hints and detail cards alike, including the text
-   inside them — uses one size: --type-tooltip (small, 14px). */
+   inside them — uses one size: --type-tooltip (12px, a step under body). */
 .app-tooltip[data-slot='tooltip-content'] {
   --tooltip-padding: var(--space-8) var(--space-12);
   position: relative;
@@ -75,4 +75,27 @@
   .app-tooltip[data-ending-style] > .app-tooltip-surface {
     transform: none;
   }
+}
+
+/* Source and credit popovers are tooltip cards that click open instead of
+   hovering: they take the detail tooltip's padding, surface and one text
+   size (--type-tooltip), so nothing inside them shrinks. */
+[data-slot='popover-content'] {
+  display: flex;
+  flex-direction: column;
+  gap: var(--space-8);
+  width: max-content;
+  max-width: min(20rem, calc(100vw - 2 * var(--space-16)));
+  padding: var(--space-16);
+  border: var(--border-structure) solid var(--border);
+  border-radius: var(--radius-control);
+  background: var(--background);
+  box-shadow: var(--shadow-floating);
+  font-family: var(--font-stack-body);
+  font-size: var(--type-tooltip);
+  line-height: var(--leading-normal);
+  color: var(--foreground);
+}
+[data-slot='popover-content'] :is(p, li, span, div, small, strong, a) {
+  font-size: inherit;
 }
