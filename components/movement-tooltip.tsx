@@ -1,11 +1,6 @@
 'use client';
 
-import { useState } from 'react';
-import {
-  Tooltip,
-  TooltipContent,
-  TooltipTrigger,
-} from '@/components/ui/tooltip';
+import { FactTooltip } from '@/components/fact-tooltip';
 import type { SpeciesFact } from '@/lib/species-facts';
 
 // Ordered from sedentary to long-distance migration.
@@ -32,61 +27,51 @@ function movementType(value: string): MovementType {
 }
 
 export function MovementTooltip({ fact }: { fact: SpeciesFact }) {
-  const [open, setOpen] = useState(false);
   const type = movementType(fact.value);
   return (
-    <Tooltip open={open} onOpenChange={setOpen}>
-      <TooltipTrigger
-        type="button"
-        closeOnClick={false}
-        onClick={() => setOpen(true)}
-        className="cursor-help rounded-sm border-0 bg-transparent p-0 text-right font-inherit text-inherit underline decoration-dotted decoration-muted-foreground/50 underline-offset-4 focus-visible:outline-2 focus-visible:outline-offset-4 focus-visible:outline-ring"
-        style={{ font: 'inherit', color: 'inherit' }}
-        aria-label={`${fact.value}: Zugverhalten erklären`}
+    <FactTooltip
+      value={fact.value}
+      describe={`${fact.value}: Zugverhalten erklären`}
+    >
+      <p className="m-0 font-semibold">Zugverhalten</p>
+      <ol
+        className="my-3 grid list-none grid-cols-4 gap-2 p-0"
+        aria-label="Skala von Standvogel bis Langstreckenzieher"
       >
-        {fact.value}
-      </TooltipTrigger>
-      <TooltipContent side="top" align="end" variant="detail">
-        <p className="m-0 font-semibold">Zugverhalten</p>
-        <ol
-          className="my-3 grid list-none grid-cols-4 gap-2 p-0"
-          aria-label="Skala von Standvogel bis Langstreckenzieher"
-        >
-          {scale.map(([level, label]) => (
-            <li
-              key={level}
-              aria-current={level === type ? 'step' : undefined}
-              aria-label={`${label}${level === type ? ' – aktuelle Einstufung' : ''}`}
-              className="h-2.5 rounded-full"
-              style={
-                level === type
-                  ? {
-                      background: 'var(--main-color)',
-                      outline: '2px solid var(--main-color)',
-                      outlineOffset: 1,
-                    }
-                  : { background: 'var(--border)' }
-              }
-            />
-          ))}
-        </ol>
-        <div
-          className="mb-3 flex justify-between gap-4 text-muted-foreground"
-          aria-hidden="true"
-        >
-          <span>Standvogel</span>
-          <span>Langstreckenzieher</span>
-        </div>
-        <p className="m-0 font-semibold">{fact.value}</p>
-        <p className="mt-1 mb-0 font-normal leading-normal">
-          {explanations[type]}
+        {scale.map(([level, label]) => (
+          <li
+            key={level}
+            aria-current={level === type ? 'step' : undefined}
+            aria-label={`${label}${level === type ? ' – aktuelle Einstufung' : ''}`}
+            className="h-2.5 rounded-full"
+            style={
+              level === type
+                ? {
+                    background: 'var(--main-color)',
+                    outline: '2px solid var(--main-color)',
+                    outlineOffset: 1,
+                  }
+                : { background: 'var(--border)' }
+            }
+          />
+        ))}
+      </ol>
+      <div
+        className="mb-3 flex justify-between gap-4 text-muted-foreground"
+        aria-hidden="true"
+      >
+        <span>Standvogel</span>
+        <span>Langstreckenzieher</span>
+      </div>
+      <p className="m-0 font-semibold">{fact.value}</p>
+      <p className="mt-1 mb-0 font-normal leading-normal">
+        {explanations[type]}
+      </p>
+      {fact.note && (
+        <p className="mt-2 mb-0 font-normal leading-normal text-muted-foreground">
+          {fact.note}
         </p>
-        {fact.note && (
-          <p className="mt-2 mb-0 font-normal leading-normal text-muted-foreground">
-            {fact.note}
-          </p>
-        )}
-      </TooltipContent>
-    </Tooltip>
+      )}
+    </FactTooltip>
   );
 }

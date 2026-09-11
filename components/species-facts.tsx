@@ -1,4 +1,4 @@
-import { TooltipHint } from '@/components/ui/tooltip';
+import { FactTooltip } from '@/components/fact-tooltip';
 import { ConservationTooltip } from '@/components/conservation-tooltip';
 import { MovementTooltip } from '@/components/movement-tooltip';
 import { conservationLabels, speciesFacts } from '@/lib/species-facts';
@@ -65,15 +65,14 @@ export function SpeciesFacts({ speciesId }: { speciesId: string }) {
               ) : icon === 'compass' ? (
                 <MovementTooltip key={speciesId} fact={facts.movement} />
               ) : context ? (
-                <TooltipHint content={context}>
-                  <button
-                    type="button"
-                    className="cursor-help rounded-sm border-0 bg-transparent p-0 text-right font-inherit text-inherit underline decoration-dotted decoration-muted-foreground/50 underline-offset-4 focus-visible:outline-2 focus-visible:outline-offset-4 focus-visible:outline-ring"
-                    style={{ font: 'inherit', color: 'inherit' }}
-                  >
-                    {value}
-                  </button>
-                </TooltipHint>
+                <FactTooltip
+                  key={speciesId}
+                  value={value}
+                  describe={`${value}: ${label} erklären`}
+                  variant="compact"
+                >
+                  {context}
+                </FactTooltip>
               ) : (
                 value
               )}
