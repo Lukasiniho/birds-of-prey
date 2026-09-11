@@ -1,6 +1,6 @@
 'use client';
 
-import { useState } from 'react';
+import { useEffect, useState } from 'react';
 import { ArtImage } from '@/components/art-image';
 import { ArrowUpRight, Crosshair } from '@/components/icons';
 import { SpeciesRowLink } from '@/components/species-row';
@@ -17,6 +17,22 @@ export default function TechniqueExplorer({
 }) {
   const [selected, setSelected] = useState(techniques[0]?.id ?? '');
   const [hovered, setHovered] = useState<TechniqueHunter | null>(null);
+  // A hunting tag in the atlas links straight to its chapter: ?technik=<id>.
+  useEffect(() => {
+    function syncFromUrl() {
+      const id = new URLSearchParams(window.location.search).get('technik');
+      if (id && techniques.some((item) => item.id === id)) setSelected(id);
+    }
+    syncFromUrl();
+    window.addEventListener('popstate', syncFromUrl);
+    return () => window.removeEventListener('popstate', syncFromUrl);
+  }, [techniques]);
+  function choose(id: string) {
+    setSelected(id);
+    const url = new URL(window.location.href);
+    url.searchParams.set('technik', id);
+    window.history.replaceState(window.history.state, '', url);
+  }
   const entry =
     techniques.find((item) => item.id === selected) ?? techniques[0];
   const typical = entry.hunters.filter((h) => h.importance === 'primary');
@@ -42,7 +58,7 @@ export default function TechniqueExplorer({
               data-related={
                 hovered ? hovered.techniques.includes(item.id) : undefined
               }
-              onClick={() => setSelected(item.id)}
+              onClick={() => choose(item.id)}
             >
               <span className="knowledge-tile-art">
                 <ArtImage

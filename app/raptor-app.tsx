@@ -11,6 +11,7 @@ import { SegmentedControl } from '@/components/segmented-control';
 import { ArtImage } from '@/components/art-image';
 import { BirdAudio, BirdAudioCredit } from '@/components/bird-audio';
 import { birdHref, birdForPath } from '@/lib/bird-routes';
+import { techniqueHref } from '@/lib/knowledge-routes';
 import { SITE_NAME, SITE_URL } from '@/lib/site';
 import {
   Feather,
@@ -836,12 +837,15 @@ export default function RaptorApp({
                   </section>
                   <section className="hunting-section">
                     <h2>Jagdweise</h2>
+                    <HuntingArt bird={bird} />
+                    {/* Each technique has its own chapter under Wissen. */}
                     <div className="ecology-tags">
                       {bird.ecology.huntingTags.map((id) => (
-                        <span key={id}>{huntingTypes[id].label}</span>
+                        <a key={id} href={techniqueHref(id)}>
+                          {huntingTypes[id].label}
+                        </a>
                       ))}
                     </div>
-                    <HuntingArt bird={bird} />
                     <p className="hunting-text">{bird.ecology.hunting.text}</p>
                   </section>
                 </TabsContent>
