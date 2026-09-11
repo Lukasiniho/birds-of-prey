@@ -59,7 +59,7 @@ body {
 
   --type-caption: var(--text-xs);
   /* The scientific name is the quiet second line: one step under the German
-   * name's body size, and never bold. */
+   * name, and never bold. */
   --type-scientific: var(--text-sm);
   --type-ui: var(--text-sm);
   --type-button: var(--text-base);
@@ -113,9 +113,11 @@ body {
  * surrounding heading and button rules; `body` rather than a page shell,
  * because sheets and popovers render through a portal outside the shell and
  * would otherwise fall back to plain body text.
- * The German name is the display serif, the scientific name the body sans. */
+ * Both names stand in the display serif; the scientific one is the quiet
+ * second line: italic, regular weight, one step smaller. */
 body .species-common-name,
 body .species-scientific-name {
+  font-family: var(--font-stack-display);
   line-height: var(--leading-heading);
   letter-spacing: var(--tracking-normal);
   /* Hyphenate first; the anywhere break stays as the last resort. */
@@ -123,7 +125,6 @@ body .species-scientific-name {
   overflow-wrap: anywhere;
 }
 body .species-common-name {
-  font-family: var(--font-stack-display);
   font-size: var(--type-species-common);
   font-weight: var(--weight-label-heading);
   font-style: normal;
@@ -131,7 +132,6 @@ body .species-common-name {
 }
 body .species-scientific-name {
   display: block;
-  font-family: var(--font-stack-body);
   font-size: var(--type-scientific);
   font-weight: var(--weight-regular);
   font-style: italic;

@@ -57,9 +57,9 @@ Keine rohen Zahlen im Seiten-CSS.
 Alle eigenständigen Namenspaare verwenden `SpeciesName` aus
 `components/species-name.tsx`; einzelne Namen `SpeciesCommonName` oder
 `SpeciesScientificName`. Semantische Elemente sind über `commonAs`,
-`scientificAs` beziehungsweise `as` wählbar. Der deutsche Name steht in der
-Display-Serif, der wissenschaftliche in der Body-Sans, kursiv, nie fett. Es
-gibt drei Varianten:
+`scientificAs` beziehungsweise `as` wählbar. Beide Namen stehen in der
+Display-Serif; der wissenschaftliche ist die leise zweite Zeile: kursiv, nie
+fett, eine Stufe kleiner. Es gibt drei Varianten:
 
 | Variante      | Deutscher Name | Wissenschaftlicher Name             |
 | ------------- | -------------- | ----------------------------------- |
