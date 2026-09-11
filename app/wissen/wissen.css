@@ -551,7 +551,7 @@
 }
 
 /* Tile explorers (prey, techniques): illustrated tiles left, species right.
-   Tile art is a 72px geometry exception to the 105px species-page prey frame. */
+   Tile art is a 72px geometry exception to the 88px species-page prey frame. */
 .knowledge-grid {
   display: grid;
   grid-template-columns: repeat(auto-fill, minmax(124px, 1fr));
