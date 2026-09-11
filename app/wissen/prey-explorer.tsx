@@ -97,6 +97,7 @@ function HunterGroup({
         {hunters.map((hunter) => {
           const row = (
             <SpeciesRowLink
+              size="inline"
               href={hunter.href}
               key={hunter.id}
               portrait={hunter.portrait}

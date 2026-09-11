@@ -257,6 +257,7 @@ export default function FalconryWorld({ birds }: { birds: KnowledgeBird[] }) {
               const bird = birds.find((item) => item.id === id)!;
               return (
                 <SpeciesRowLink
+                  size="inline"
                   href={bird.href}
                   key={id}
                   portrait={bird.portrait}

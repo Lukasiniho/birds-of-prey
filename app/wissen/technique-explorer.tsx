@@ -107,6 +107,7 @@ function HunterGroup({
       <div className="knowledge-bird-list">
         {hunters.map((hunter) => (
           <SpeciesRowLink
+            size="inline"
             href={hunter.href}
             key={hunter.id}
             portrait={hunter.portrait}

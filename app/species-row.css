@@ -4,7 +4,13 @@
  * The `[data-slot]` twin is for rows rendered by a library primitive, whose
  * utility classes would otherwise set their own padding, gap and height. */
 :root {
+  /* A rail row is picked from, so its portrait leads; an inline row sits in
+   * prose, where the same portrait at full size would outshout the text. */
   --species-row-portrait: 64px;
+  --species-row-portrait-inline: 48px;
+}
+.species-row[data-size='inline'] {
+  --species-row-portrait: var(--species-row-portrait-inline);
 }
 
 .species-row,

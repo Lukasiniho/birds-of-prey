@@ -77,9 +77,12 @@ Fließtext folgen dessen Formatierung.
 Jede Zeile aus Porträt und Namenspaar — Artenleiste im Atlas, Arten-Sheet auf
 dem Telefon, Artenlisten in Wissen — kommt aus `components/species-row.tsx`
 (`SpeciesRowContent` für eigene Bedienelemente, `SpeciesRowLink` für Links).
-Sie trägt `.species-row` und eine einzige Porträtgröße,
-`--species-row-portrait` (64 px), ohne Sondergrößen pro Seite oder
-Breakpoint. Seiten ergänzen nur Zustände (Auswahlrahmen, Hintergrund).
+Sie trägt `.species-row` und eine von zwei Porträtgrößen: `rail` (64 px) für
+Listen, aus denen ausgewählt wird, `inline` (48 px) für Listen im Fließtext,
+wo das Bild den Text begleitet statt ihn zu überstimmen. Beide stehen in
+`--species-row-portrait` und `--species-row-portrait-inline`; es gibt keine
+dritte Größe, keine pro Seite und keine pro Breakpoint. Seiten ergänzen nur
+Zustände (Auswahlrahmen, Hintergrund).
 
 ## Anwendung
 

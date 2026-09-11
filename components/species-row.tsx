@@ -3,21 +3,35 @@ import { ArtImage } from '@/components/art-image';
 import { SpeciesName } from '@/components/species-name';
 
 /**
- * The one size a species portrait is painted at in a row, in CSS pixels.
- * Mirrors `--species-row-portrait`; the image ladder needs it as a number.
+ * Two sizes, both roles, no third: `rail` is a list the reader is picking
+ * from, where the portrait is the thing being chosen; `inline` is a list
+ * sitting inside prose, where the portrait illustrates a name the text
+ * already introduced. The numbers mirror `--species-row-portrait`, because
+ * the image ladder needs them as numbers.
  */
-export const SPECIES_ROW_PORTRAIT = 64;
+export type SpeciesRowSize = 'rail' | 'inline';
+export const SPECIES_ROW_PORTRAIT: Record<SpeciesRowSize, number> = {
+  rail: 64,
+  inline: 48,
+};
 
 /** The row portrait as a file: knowledge pages and every list built from art. */
-export function SpeciesRowPortrait({ src }: { src: string }) {
+export function SpeciesRowPortrait({
+  src,
+  size = 'rail',
+}: {
+  src: string;
+  size?: SpeciesRowSize;
+}) {
+  const painted = SPECIES_ROW_PORTRAIT[size];
   return (
     <ArtImage
       className="species-row-portrait"
       src={src}
       alt=""
-      width={SPECIES_ROW_PORTRAIT}
-      height={SPECIES_ROW_PORTRAIT}
-      displayWidth={SPECIES_ROW_PORTRAIT}
+      width={painted}
+      height={painted}
+      displayWidth={painted}
     />
   );
 }
@@ -30,6 +44,7 @@ type SpeciesRowProps = {
   latin: ReactNode;
   /** Sits at the row's end: the link arrow, a selection mark. */
   trailing?: ReactNode;
+  size?: SpeciesRowSize;
 };
 
 /**
@@ -42,11 +57,12 @@ export function SpeciesRowContent({
   name,
   latin,
   trailing,
+  size = 'rail',
 }: SpeciesRowProps) {
   return (
     <>
       {typeof portrait === 'string' ? (
-        <SpeciesRowPortrait src={portrait} />
+        <SpeciesRowPortrait src={portrait} size={size} />
       ) : (
         portrait
       )}
@@ -69,16 +85,18 @@ export function SpeciesRowLink({
   name,
   latin,
   trailing,
+  size = 'rail',
   className = '',
   ...props
 }: SpeciesRowProps & AnchorHTMLAttributes<HTMLAnchorElement>) {
   return (
-    <a {...props} className={`species-row ${className}`}>
+    <a {...props} data-size={size} className={`species-row ${className}`}>
       <SpeciesRowContent
         portrait={portrait}
         name={name}
         latin={latin}
         trailing={trailing}
+        size={size}
       />
     </a>
   );
