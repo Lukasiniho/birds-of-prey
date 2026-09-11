@@ -17,7 +17,7 @@ relative rem-Werte; die Browser-Schriftgröße bleibt frei wählbar.
 | Filter und sonstige UI-Texte            | `--type-ui`                | 14 px    |
 | Wissenschaftlicher Artname              | `--type-scientific`        | 16 px    |
 | Fließtext und Aufgabenbeschreibungen    | `--type-body`              | 14 px    |
-| Tags                                    | `--type-tag`               | 14 px    |
+| Tags                                    | `--type-tag`               | 12 px    |
 | Tooltips (alle Varianten, inkl. Inhalt) | `--type-tooltip`           | 12 px    |
 | Buttons und Hauptnavigation             | `--type-button`            | 16 px    |
 | Unterstrich-Tabs                        | `--type-tab`               | 16 px    |

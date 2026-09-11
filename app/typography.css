@@ -67,7 +67,7 @@ body {
   /* Underline tabs share the button size; pill tabs use --type-body. */
   --type-tab: var(--type-button);
   --type-body: var(--text-sm);
-  --type-tag: var(--text-sm);
+  --type-tag: var(--text-xs);
   /* All tooltips share one size, a step under body; no per-variant sizes. */
   --type-tooltip: var(--text-xs);
   --type-label-heading: var(--text-lg);

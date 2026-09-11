@@ -62,7 +62,7 @@ const textRoles = [
   ['--type-caption', 'Quellen und Bildnachweise', '12 px'],
   ['--type-ui', 'Filter und sonstige UI-Texte', '14 px'],
   ['--type-body', 'Fließtext und Aufgabentexte', '14 px'],
-  ['--type-tag', 'Tags', '14 px'],
+  ['--type-tag', 'Tags', '12 px'],
   ['--type-tooltip', 'Tooltips, alle Varianten', '14 px'],
   ['--type-scientific', 'Wissenschaftlicher Artname', '16 px'],
   ['--type-button', 'Buttons und Hauptnavigation', '16 px'],

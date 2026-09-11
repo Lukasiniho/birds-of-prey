@@ -49,34 +49,27 @@
   padding: var(--space-4) var(--space-12);
   border: 0;
   border-radius: var(--radius-pill);
-  background: var(--selected);
+  background: var(--tag-surface);
   color: var(--foreground);
   font-size: var(--type-tag);
   font-weight: var(--weight-medium);
   line-height: var(--leading-normal);
   letter-spacing: var(--tracking-normal);
   text-decoration: none;
-  /* The fill alone is a tint of the page ground, so on a stage it all but
-     disappears; the hairline keeps a tag a tag on every surface. */
-  box-shadow: 0 0 0 1px var(--line-tint);
 }
 .ecology-tags > a,
 .ecology-tags > button {
   cursor: pointer;
-  transition:
-    background var(--duration-quick) var(--ease-out),
-    box-shadow var(--duration-quick) var(--ease-out);
+  transition: background var(--duration-quick) var(--ease-out);
 }
 .ecology-tags > a:hover,
 .ecology-tags > button:hover {
-  background: var(--selected-strong);
-  box-shadow: 0 0 0 1px var(--accent-ring);
+  background: var(--tag-surface-hover);
 }
 .ecology-tags > button[aria-pressed='true'],
 .ecology-tags > button[aria-pressed='true']:hover {
   background: var(--main-color);
   color: var(--primary-foreground);
-  box-shadow: none;
 }
 .info-panel .ecology-status .ecology-tags {
   margin-bottom: 7px;

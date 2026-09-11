@@ -42,6 +42,10 @@
   /* Abgeleitete Rollen: nur über die Tönungsstufen bilden. */
   --selected: color-mix(in srgb, var(--main-color) var(--tint-2), var(--background));
   --selected-strong: color-mix(in srgb, var(--main-color) var(--tint-4), var(--background));
+  /* Tags also sit on the stage, the darkest light surface: tinting the page
+     ground would leave them invisible there, so they tint the stage. */
+  --tag-surface: color-mix(in srgb, var(--main-color) var(--tint-2), var(--stage));
+  --tag-surface-hover: color-mix(in srgb, var(--main-color) var(--tint-4), var(--stage));
   --accent-ring: color-mix(in srgb, var(--main-color) var(--tint-3), transparent);
   --accent-line: color-mix(in srgb, var(--main-color) var(--tint-6), transparent);
   --primary-hover: color-mix(in srgb, var(--main-color) 85%, var(--foreground));
@@ -105,6 +109,9 @@
   /* Dunkle Flächen schlucken die 10-%-Tönung: Auswahl eine Stufe kräftiger. */
   --selected: color-mix(in srgb, var(--main-color) var(--tint-4), var(--background));
   --selected-strong: color-mix(in srgb, var(--main-color) var(--tint-5), var(--background));
+  /* Dark: tags have to beat the lightest surface instead of the darkest. */
+  --tag-surface: color-mix(in srgb, var(--main-color) var(--tint-4), var(--surface));
+  --tag-surface-hover: color-mix(in srgb, var(--main-color) var(--tint-5), var(--surface));
   --swatch-border: color-mix(in srgb, var(--foreground) var(--tint-3), transparent);
   --select-background: var(--background);
   --atlas-info-surface: var(--surface);
