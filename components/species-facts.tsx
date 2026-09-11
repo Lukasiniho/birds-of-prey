@@ -3,8 +3,11 @@ import { ConservationTooltip } from '@/components/conservation-tooltip';
 import { MovementTooltip } from '@/components/movement-tooltip';
 import { ActivityTooltip } from '@/components/activity-tooltip';
 import { conservationLabels, speciesFacts } from '@/lib/species-facts';
+import { falconryBirds } from '@/lib/falconry';
+import { FalconryTooltip } from '@/components/falconry-tooltip';
 
 import {
+  HandFist,
   HourglassMedium,
   Egg,
   WarningCircle,
@@ -22,6 +25,7 @@ const factIcons = {
 
 export function SpeciesFacts({ speciesId }: { speciesId: string }) {
   const facts = speciesFacts[speciesId];
+  const falconry = falconryBirds[speciesId];
   if (!facts) return null;
   const rows = [
     {
@@ -83,6 +87,17 @@ export function SpeciesFacts({ speciesId }: { speciesId: string }) {
           </div>
         );
       })}
+      {falconry && (
+        <div className="species-fact">
+          <dt>
+            <HandFist style={{ color: 'var(--main-color)' }} />
+            <span>Falknerei</span>
+          </dt>
+          <dd>
+            <FalconryTooltip key={speciesId} bird={falconry} />
+          </dd>
+        </div>
+      )}
     </dl>
   );
 }

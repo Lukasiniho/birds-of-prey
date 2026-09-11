@@ -26,6 +26,7 @@ import { ForkKnifeIcon } from '@phosphor-icons/react/dist/ssr/ForkKnife';
 import { GenderFemaleIcon } from '@phosphor-icons/react/dist/ssr/GenderFemale';
 import { GenderMaleIcon } from '@phosphor-icons/react/dist/ssr/GenderMale';
 import { GlobeHemisphereWestIcon } from '@phosphor-icons/react/dist/ssr/GlobeHemisphereWest';
+import { HandFistIcon } from '@phosphor-icons/react/dist/ssr/HandFist';
 import { HourglassMediumIcon } from '@phosphor-icons/react/dist/ssr/HourglassMedium';
 import { InfoIcon } from '@phosphor-icons/react/dist/ssr/Info';
 import { ListIcon } from '@phosphor-icons/react/dist/ssr/List';
@@ -100,6 +101,7 @@ export const GlobeHemisphereWest = /*#__PURE__*/ phosphorIcon(
   GlobeHemisphereWestIcon,
   'duotone',
 );
+export const HandFist = /*#__PURE__*/ phosphorIcon(HandFistIcon, 'duotone');
 export const HourglassMedium = /*#__PURE__*/ phosphorIcon(
   HourglassMediumIcon,
   'duotone',
