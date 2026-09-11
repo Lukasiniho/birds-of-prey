@@ -108,8 +108,9 @@ Bedienelemente, Source Serif 4 für redaktionelle Titel.
   14 px Text (auch Skalen, Legenden und Quellenzeilen) und dasselbe Öffnen.
   Einziger Unterschied: ein Hinweis liegt auf seiner Textbreite, eine
   Detailkarte ist 20 rem breit. Eine Überschrift darin hat die Größe ihres
-  Textes und hebt sich allein durch 700 ab (`.app-tooltip-title`); Abstände
-  kommen aus dem Spalten-Gap, nie aus Margins im Inhalt.
+  Textes und hebt sich allein durch 700 ab (`.app-tooltip-title`) und öffnet
+  einen Block: `--space-8` Luft über sich, darunter nur den Spalten-Gap.
+  Sonstige Abstände kommen aus dem Gap, nie aus Margins im Inhalt.
 - Deutsche Artnamen: Seitenleiste und Falknerei 18 px/700; Quiz und Wissen
   24 px/700 (Varianten `quiz`, `knowledge`); wissenschaftliche Namen 16 px/600
   kursiv, im Quiz 18 px direkt am deutschen Namen. Die Atlas-Titelvariante

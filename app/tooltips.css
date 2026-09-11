@@ -47,8 +47,13 @@
   :is(p, li, span, div, small, strong, a) {
   font-size: inherit;
 }
+/* Eine Überschrift hebt sich durch Gewicht ab — und öffnet einen Block: was
+   unter ihr steht, rückt eng an sie heran, sie selbst bekommt Luft nach oben. */
 .app-tooltip-title {
   font-weight: var(--weight-tooltip-heading);
+}
+.app-tooltip-title:not(:first-child) {
+  margin-top: var(--space-8);
 }
 .app-tooltip[data-starting-style],
 .app-tooltip[data-ending-style],
