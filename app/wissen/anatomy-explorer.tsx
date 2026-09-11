@@ -233,10 +233,8 @@ export default function AnatomyExplorer({
                   <span className="anatomy-point-core" />
                 </TooltipTrigger>
                 <TooltipContent variant="detail" sideOffset={8}>
-                  <span>
-                    <strong className="app-tooltip-title">{part.name}</strong>
-                    <span>{part.text}</span>
-                  </span>
+                  <strong className="app-tooltip-title">{part.name}</strong>
+                  <span>{part.text}</span>
                 </TooltipContent>
               </Tooltip>
             ))}

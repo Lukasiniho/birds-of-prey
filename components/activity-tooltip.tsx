@@ -62,7 +62,7 @@ export function ActivityTooltip({ fact }: { fact: SpeciesFact }) {
            und hat runde Enden, der Rahmen lässt ihm die halbe Strichbreite
            nach außen. */
         viewBox="44 12 112 86"
-        className="mx-auto my-3 block w-[150px] max-w-full"
+        className="mx-auto block w-[150px] max-w-full"
         role="img"
         aria-label={`Tagesbogen: aktiv von etwa ${from} bis ${to} Uhr`}
       >
@@ -110,19 +110,15 @@ export function ActivityTooltip({ fact }: { fact: SpeciesFact }) {
         })}
       </svg>
       <div
-        className="mb-3 flex justify-between gap-4 text-muted-foreground"
+        className="flex justify-between gap-4 text-muted-foreground"
         aria-hidden="true"
       >
         <span>Sonnenaufgang</span>
         <span>Sonnenuntergang</span>
       </div>
       <p className="app-tooltip-title">{fact.value}</p>
-      <p className="m-0 font-normal leading-normal">{explanations[type]}</p>
-      {fact.note && (
-        <p className="mt-2 mb-0 font-normal leading-normal text-muted-foreground">
-          {fact.note}
-        </p>
-      )}
+      <p>{explanations[type]}</p>
+      {fact.note && <p className="text-muted-foreground">{fact.note}</p>}
     </FactTooltip>
   );
 }

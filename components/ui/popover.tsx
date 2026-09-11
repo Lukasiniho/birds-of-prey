@@ -26,10 +26,16 @@ function PopoverTrigger({ render, ...props }: PopoverPrimitive.Trigger.Props) {
   const primitive = usePopoverPrimitive();
   if (primitive)
     return (
-      <primitive.Trigger data-slot="popover-trigger" render={render} {...props} />
+      <primitive.Trigger
+        data-slot="popover-trigger"
+        render={render}
+        {...props}
+      />
     );
   if (isValidElement(render)) return render;
-  return <button type="button" {...(props as React.ComponentProps<'button'>)} />;
+  return (
+    <button type="button" {...(props as React.ComponentProps<'button'>)} />
+  );
 }
 
 function PopoverContent({
@@ -57,10 +63,9 @@ function PopoverContent({
       >
         <primitive.Popup
           data-slot="popover-content"
-          className={cn(
-            'data-open:animate-in data-closed:animate-out data-closed:fade-out-0 data-open:fade-in-0 data-closed:zoom-out-95 data-open:zoom-in-95 data-[side=bottom]:slide-in-from-top-2 data-[side=left]:slide-in-from-right-2 data-[side=right]:slide-in-from-left-2 data-[side=top]:slide-in-from-bottom-2 duration-100 data-[side=inline-start]:slide-in-from-right-2 data-[side=inline-end]:slide-in-from-left-2 z-50 origin-(--transform-origin) outline-hidden',
-            className,
-          )}
+          // Fläche, Typo und Öffnen liegen in tooltips.css: Popover und
+          // Tooltip sind dieselbe schwebende Karte.
+          className={cn('z-50 outline-hidden', className)}
           {...props}
         />
       </primitive.Positioner>

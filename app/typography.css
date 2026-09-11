@@ -68,10 +68,9 @@ body {
   --type-tab: var(--type-button);
   --type-body: var(--text-sm);
   --type-tag: var(--text-xs);
-  /* All tooltips share one size, a step under body; no per-variant sizes.
-   * Only their heading steps up one size and goes bold. */
-  --type-tooltip: var(--text-xs);
-  --type-tooltip-heading: var(--text-sm);
+  /* Floating bubbles have no size of their own: hint, detail card and source
+   * popover all read at --type-body, and a heading in them is the same size
+   * as its text and only carries more weight. */
   --weight-tooltip-heading: var(--weight-bold);
   --type-label-heading: var(--text-lg);
   --weight-label-heading: var(--weight-bold);

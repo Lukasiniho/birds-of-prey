@@ -171,10 +171,9 @@
   background: var(--map-border);
   color: var(--foreground);
 }
+/* In der schwebenden Karte zählt deren Spalte, nicht das eigene Raster. */
 .range-map-source-details .range-map-credits {
-  display: grid;
-  gap: var(--space-8);
-  margin: 0;
+  display: contents;
 }
 .range-map-source-details .range-map-credits small {
   color: var(--muted-foreground);

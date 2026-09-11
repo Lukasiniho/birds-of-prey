@@ -15,7 +15,7 @@ werden zentral definiert und in Seiten-CSS nur verwendet, nicht neu erfunden.
 | `app/design-system.css`    | Abstände, Layoutrollen, Steuerhöhen, Radien, Rahmen, Fokus, Schatten    |
 | `app/transitions-root.css` | Bewegungsskala und die Token-Gruppen der genutzten Snippets             |
 | `app/tabs.css`             | Die zwei Tab-Rollen                                                     |
-| `app/tooltips.css`         | Tooltip-Fläche und -Pfeil                                               |
+| `app/tooltips.css`         | Schwebende Karte (Tooltip und Popover), Pfeil                           |
 | `app/base.css`             | Body, Links, Buttons, Überschriften, Fokusring, App-Shell               |
 | `app/header.css`           | Kopfzeile: Marke, Suche, Navigation, Aktionen, mobile Anordnung         |
 | `app/atlas.css`            | Artenleiste, Bühne, Infobereich, Messwerte, Audio                       |
@@ -101,8 +101,15 @@ Bedienelemente, Source Serif 4 für redaktionelle Titel.
 - Gewichte nur über `--weight-regular/medium/semibold/bold` (400/500/600/700).
 - Laufweite nur über `--tracking-tight` (Display-Größen), `--tracking-normal`
   und `--tracking-caps` (Versal-Labels).
-- Fließtext 14 px, Tags 14 px, Tooltips 14 px (alle Varianten, auch Skalen und
-  Legenden), Quellen 12 px, Buttons und Unterstrich-Tabs 16 px, Pillen 14 px.
+- Fließtext 14 px, Tags 14 px, Quellen 12 px, Buttons und Unterstrich-Tabs
+  16 px, Pillen 14 px.
+- Schwebende Blasen sind ein einziger Körper: Hover-Hinweis, Detailkarte und
+  Klick-Popover teilen Flex-Spalte, `--space-4` Gap, `--space-16` Polster,
+  14 px Text (auch Skalen, Legenden und Quellenzeilen) und dasselbe Öffnen.
+  Einziger Unterschied: ein Hinweis liegt auf seiner Textbreite, eine
+  Detailkarte ist 20 rem breit. Eine Überschrift darin hat die Größe ihres
+  Textes und hebt sich allein durch 700 ab (`.app-tooltip-title`); Abstände
+  kommen aus dem Spalten-Gap, nie aus Margins im Inhalt.
 - Deutsche Artnamen: Seitenleiste und Falknerei 18 px/700; Quiz und Wissen
   24 px/700 (Varianten `quiz`, `knowledge`); wissenschaftliche Namen 16 px/600
   kursiv, im Quiz 18 px direkt am deutschen Namen. Die Atlas-Titelvariante

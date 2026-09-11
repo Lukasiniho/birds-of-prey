@@ -1,64 +1,65 @@
-/* Shared by swatches, anatomy, conservation and sidebar tooltips.
-   Floating UI measures a stationary popup; only its inner surface scales.
-   Every tooltip — compact hints and detail cards alike, including the text
-   inside them — uses one size: --type-tooltip (12px, a step under body).
-   Its heading is the one exception: .app-tooltip-title steps up one size
-   and goes bold. */
+/* Every floating bubble on the site — swatch hints, anatomy, conservation,
+   source popovers, the sidebar — is one card: same padding, same column gap,
+   same text size (--type-body). A hint hugs its text and a detail card is
+   20rem wide; that width is the only difference. Nothing inside a bubble sets
+   its own type or margins. A heading (.app-tooltip-title) stands apart by
+   weight alone.
+   Floating UI measures a stationary popup; only its inner surface scales. */
 .app-tooltip[data-slot='tooltip-content'] {
-  --tooltip-padding: var(--space-8) var(--space-12);
   position: relative;
   width: max-content;
   max-width: min(20rem, calc(100vw - 2 * var(--space-16)));
-  font-family: var(--font-stack-body);
-  font-size: var(--type-tooltip);
-  line-height: var(--leading-normal);
-  color: var(--foreground);
   opacity: 1;
   transition: opacity var(--duration-quick) var(--ease-out);
 }
 .app-tooltip[data-variant='detail'] {
-  --tooltip-padding: var(--space-16);
   width: 20rem;
 }
-/* Nested scales and legends inherit the tooltip size instead of shrinking. */
-.app-tooltip[data-slot='tooltip-content']
-  .app-tooltip-surface
-  :is(p, li, span, div, strong):not(.app-tooltip-title) {
-  font-size: inherit;
-}
-/* The heading of a tooltip card — one size up, bold, wherever it sits. */
-.app-tooltip[data-slot='tooltip-content']
-  .app-tooltip-surface
-  .app-tooltip-title,
-[data-slot='popover-content'] .app-tooltip-title {
-  font-size: var(--type-tooltip-heading);
-  font-weight: var(--weight-tooltip-heading);
-  line-height: var(--leading-normal);
-}
-/* One gap under every heading in a tooltip; the popover card is a flex
-   column and keeps that spacing in its own gap. */
-.app-tooltip[data-slot='tooltip-content']
-  .app-tooltip-surface
-  .app-tooltip-title {
-  display: block;
-  margin: 0 0 var(--space-8);
-}
-.app-tooltip-surface {
-  padding: var(--tooltip-padding);
+/* The card itself: the tooltip's surface and the popover are one body, down
+   to how they grow out of their trigger. */
+.app-tooltip-surface,
+[data-slot='popover-content'] {
+  display: flex;
+  flex-direction: column;
+  /* Knapp, weil die Zeilenhöhe oben und unten schon Vorlauf mitbringt. */
+  gap: var(--space-4);
+  padding: var(--space-16);
   border: var(--border-structure) solid var(--border);
   border-radius: var(--radius-control);
   background: var(--background);
   box-shadow: var(--shadow-floating);
+  font-family: var(--font-stack-body);
+  font-size: var(--type-body);
+  line-height: var(--leading-normal);
+  color: var(--foreground);
   transform-origin: var(--transform-origin);
   transform: scale(1);
-  transition: transform var(--duration-quick) var(--ease-out);
+  transition:
+    opacity var(--duration-quick) var(--ease-out),
+    transform var(--duration-quick) var(--ease-out);
+}
+[data-slot='popover-content'] {
+  width: max-content;
+  max-width: min(20rem, calc(100vw - 2 * var(--space-16)));
+}
+/* Nothing inside a bubble picks its own size. */
+:is(.app-tooltip-surface, [data-slot='popover-content'])
+  :is(p, li, span, div, small, strong, a) {
+  font-size: inherit;
+}
+.app-tooltip-title {
+  font-weight: var(--weight-tooltip-heading);
 }
 .app-tooltip[data-starting-style],
-.app-tooltip[data-ending-style] {
+.app-tooltip[data-ending-style],
+[data-slot='popover-content'][data-starting-style],
+[data-slot='popover-content'][data-ending-style] {
   opacity: 0;
 }
 .app-tooltip[data-starting-style] > .app-tooltip-surface,
-.app-tooltip[data-ending-style] > .app-tooltip-surface {
+.app-tooltip[data-ending-style] > .app-tooltip-surface,
+[data-slot='popover-content'][data-starting-style],
+[data-slot='popover-content'][data-ending-style] {
   transform: scale(var(--scale-small));
 }
 .app-tooltip-arrow {
@@ -89,35 +90,15 @@
 }
 @media (prefers-reduced-motion: reduce) {
   .app-tooltip[data-slot='tooltip-content'],
-  .app-tooltip-surface {
+  .app-tooltip-surface,
+  [data-slot='popover-content'] {
     transition: none;
   }
   .app-tooltip[data-starting-style] > .app-tooltip-surface,
-  .app-tooltip[data-ending-style] > .app-tooltip-surface {
+  .app-tooltip[data-ending-style] > .app-tooltip-surface,
+  [data-slot='popover-content'][data-starting-style],
+  [data-slot='popover-content'][data-ending-style] {
     transform: none;
   }
 }
 
-/* Source and credit popovers are tooltip cards that click open instead of
-   hovering: they take the detail tooltip's padding, surface and one text
-   size (--type-tooltip), so nothing inside them shrinks. */
-[data-slot='popover-content'] {
-  display: flex;
-  flex-direction: column;
-  gap: var(--space-8);
-  width: max-content;
-  max-width: min(20rem, calc(100vw - 2 * var(--space-16)));
-  padding: var(--space-16);
-  border: var(--border-structure) solid var(--border);
-  border-radius: var(--radius-control);
-  background: var(--background);
-  box-shadow: var(--shadow-floating);
-  font-family: var(--font-stack-body);
-  font-size: var(--type-tooltip);
-  line-height: var(--leading-normal);
-  color: var(--foreground);
-}
-[data-slot='popover-content']
-  :is(p, li, span, div, small, strong, a):not(.app-tooltip-title) {
-  font-size: inherit;
-}

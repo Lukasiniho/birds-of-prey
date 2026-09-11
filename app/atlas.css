@@ -1261,11 +1261,7 @@ button.color-dot:not(:disabled) {
   flex-wrap: wrap;
 }
 .swatch-detail {
-  display: block;
   max-width: 220px;
-  font-size: var(--type-caption);
-  line-height: var(--leading-normal);
-  margin-top: 5px;
 }
 
 .body-color-pair {
