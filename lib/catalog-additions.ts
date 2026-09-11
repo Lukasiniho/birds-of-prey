@@ -16,6 +16,7 @@ export const catalogAdditions: AdditionalBird[] = [
     genusLabel: 'Wüstenbussarde',
     tile: null,
     span: [105, 120],
+    length: [46, 59],
     weight: [550, 1600],
     sexes: {
       male: { weight: [550, 850] },
@@ -71,6 +72,7 @@ export const catalogAdditions: AdditionalBird[] = [
     genusLabel: 'Echte Adler',
     tile: null,
     span: [180, 220],
+    length: [68, 84],
     weight: [2400, 4600],
     sexes: {
       male: { weight: [2400, 2800] },
@@ -135,6 +137,7 @@ export const catalogAdditions: AdditionalBird[] = [
     genusLabel: 'Echte Adler',
     tile: null,
     span: [170, 200],
+    length: [62, 81],
     weight: [2000, 3900],
     sexes: {
       male: { weight: [2000, 3000] },
@@ -199,6 +202,7 @@ export const catalogAdditions: AdditionalBird[] = [
     genusLabel: 'Sekretäre',
     tile: null,
     span: [190, 215],
+    length: [125, 150],
     weight: [2300, 4300],
     intro:
       'Ein Greifvogel auf Stelzen: Der Sekretär durchstreift Afrikas Savannen zu Fuß und erlegt Schlangen mit gezielten Tritten.',
@@ -258,6 +262,7 @@ export const catalogAdditions: AdditionalBird[] = [
     genusLabel: 'Neuweltgeier',
     tile: null,
     span: [270, 320],
+    length: [100, 130],
     weight: [8000, 15000],
     sexes: {
       male: { weight: [11000, 15000] },
@@ -320,6 +325,7 @@ export const catalogAdditions: AdditionalBird[] = [
     genusLabel: 'Wespenbussarde',
     tile: null,
     span: [120, 145],
+    length: [52, 60],
     weight: [500, 1000],
     sexes: {
       male: { weight: [500, 950] },
@@ -381,6 +387,7 @@ export const catalogAdditions: AdditionalBird[] = [
     genusLabel: 'Bartgeier',
     tile: null,
     span: [250, 290],
+    length: [100, 115],
     weight: [4500, 7200],
     intro:
       'Der Knochenbrecher der Alpen: Der Bartgeier lebt fast ausschließlich von Knochen und wurde nach seiner Ausrottung erfolgreich wieder angesiedelt.',
@@ -445,6 +452,7 @@ export const catalogAdditions: AdditionalBird[] = [
     genusLabel: 'Kronenadler',
     tile: null,
     span: [150, 180],
+    length: [80, 99],
     weight: [2600, 4700],
     sexes: {
       male: { weight: [2600, 4100] },

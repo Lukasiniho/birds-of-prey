@@ -136,6 +136,9 @@
   display: flex;
   flex-direction: column;
   min-width: 0;
+  /* Die Bühne ist Size-Container: wie breit die Messleiste wird, hängt an ihr
+     und nicht am Fenster — Artenliste und Infopanel liegen dazwischen. */
+  container: atlas-stage / inline-size;
   background: var(--stage);
   min-height: 860px;
   overflow: hidden;
@@ -1645,12 +1648,12 @@ button.color-dot:not(:disabled) {
 /* A modest common portrait frame, with rows tall enough for every feather. */
 .specimen-measurements.measurements {
   display: grid;
-  grid-template-columns: minmax(0, 1fr) minmax(0, 1fr);
+  grid-template-columns: repeat(3, minmax(0, 1fr));
   gap: 0;
   flex-shrink: 0;
   align-self: center;
   width: calc(100% - 56px);
-  max-width: 640px;
+  max-width: 760px;
   margin: var(--space-8) 28px 0;
   padding: calc(var(--space-8) + 5px) var(--space-12);
   border: var(--border-structure) solid var(--line-tint);
@@ -1662,6 +1665,7 @@ button.color-dot:not(:disabled) {
   margin: 0;
   padding: 0 var(--space-16);
   text-align: center;
+  container-type: inline-size;
 }
 .specimen-measurements.measurements > div + div {
   border-left: var(--border-structure) solid var(--border);
@@ -1836,12 +1840,14 @@ button.color-dot:not(:disabled) {
 
 /* Measurements and voice share the same label and value alignment. */
 .specimen-measurements.measurements:has(.bird-audio) {
-  /* Ab 981 px trägt die Ruf-Zelle Knopf und Wellenform und nimmt dafür einen
-     Anteil der Leiste; darunter bleibt sie die alte Knopfspalte. */
-  grid-template-columns: repeat(2, minmax(0, 1fr)) minmax(88px, 0.5fr);
+  /* Die Ruf-Zelle nimmt ein Fünftel der Leiste, damit Knopf und Wellenform
+     nebeneinander passen und der Knopf denselben Luftraum hat wie die Zahlen
+     in ihren Zellen. Ob die Wellenform hineinpasst, entscheidet sie selbst
+     (siehe die Container-Abfrage weiter unten). */
+  --call-column: minmax(88px, 0.75fr);
+  grid-template-columns: repeat(3, minmax(0, 1fr)) var(--call-column);
   padding-inline: 0;
   align-items: stretch;
-  container-type: inline-size;
 }
 .specimen-measurements.measurements:has(.bird-audio) > div {
   display: grid;
@@ -2090,14 +2096,35 @@ button.color-dot:not(:disabled) {
     padding-inline: 7px;
   }
 }
-@media (max-width: 980px) {
-  /* Die Wellenform bleibt der breiten Ansicht vorbehalten; darunter teilen sich
-     die drei Zellen eine Zeile und der Ruf behält nur seinen Knopf. */
+/* Die Wellenform braucht 50 px zum Zeichnen, sonst sind die 16 Striche nur noch
+   Haare. Neben Knopf (38 px) und Abstand heißt das 116 px Spaltenbreite, und die
+   hat die Leiste erst ab 636 px Bühnenbreite. Darunter entfällt die Wellenform,
+   und mit ihr der Platz, den sie beanspruchte: die Ruf-Spalte ist dann der Knopf
+   mit 15 px Luft je Seite, der Rest gehört den Maßen. */
+@container atlas-stage (max-width: 635px) {
   .bird-audio-wave {
     display: none;
   }
   .specimen-measurements.measurements:has(.bird-audio) {
-    grid-template-columns: repeat(2, minmax(0, 1fr)) 88px;
+    --call-column: 68px;
+  }
+}
+/* Eine Maßzelle braucht 112 px: so breit sind "Gewicht" samt ♀/♂-Schalter und
+   der längste Wert der Sammlung ("8.000–15.000 g") bei kleinster Schriftgröße.
+   Für drei Zellen samt Ruf reicht die Leiste dafür erst ab 570 px Bühnenbreite
+   — darunter entfällt die Körperlänge, und Spannweite und Gewicht teilen sich
+   die Leiste wie eh und je. */
+@container atlas-stage (max-width: 570px) {
+  /* Die Zelle liegt sonst unter `> div { display: grid }` weiter oben, darum
+     dieselbe Selektorschärfe. */
+  .specimen-measurements.measurements > div.measurement-optional {
+    display: none;
+  }
+  .specimen-measurements.measurements {
+    grid-template-columns: repeat(2, minmax(0, 1fr));
+  }
+  .specimen-measurements.measurements:has(.bird-audio) {
+    grid-template-columns: repeat(2, minmax(0, 1fr)) var(--call-column);
   }
 }
 @media (max-width: 640px) {
@@ -2107,12 +2134,8 @@ button.color-dot:not(:disabled) {
     margin-top: 0;
     padding-top: 0;
   }
-  /* Der Ruf-Knopf bekommt links und rechts 15 px Luft: 38 px Knopf in einer
-     68 px breiten Spalte. Spannweite und Gewicht rücken zusammen, die engeren
-     Zellenränder geben den Zahlen den Platz zurück. */
-  .specimen-measurements.measurements:has(.bird-audio) {
-    grid-template-columns: repeat(2, minmax(0, 1fr)) 68px;
-  }
+  /* Die engeren Zellenränder geben den Zahlen den Platz zurück. Ruf-Spalte und
+     Zahl der Maße kommen aus den Bühnen-Abfragen weiter oben. */
   .specimen-measurements.measurements:has(.bird-audio) > div {
     padding-inline: var(--space-4);
   }

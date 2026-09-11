@@ -71,6 +71,10 @@ void test('all images exist and eye and leg colours follow the chosen age', asyn
     // Weights are stored in grams as [min, max]; sex ranges lie inside the species range.
     assert(bird.weight[0] > 0 && bird.weight[1] >= bird.weight[0], bird.id);
     assert(bird.span[0] > 0 && bird.span[1] >= bird.span[0], bird.id);
+    // Body length is given to the centimetre and always stays under the wingspan.
+    assert(bird.length[0] > 0 && bird.length[1] >= bird.length[0], bird.id);
+    assert(bird.length[1] < bird.span[0], bird.id);
+    for (const n of bird.length) assert.equal(n % 1, 0, bird.id);
     // No false precision: grams round to 10 below 1 kg and to 100 above. A
     // species that reaches 1 kg rounds all its sub-kilo values to 50 g instead,
     // so a box never reads "690–1.300 g".

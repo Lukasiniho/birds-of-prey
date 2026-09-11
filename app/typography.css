@@ -98,10 +98,14 @@ body {
   --type-brand: var(--text-xl);
   --type-subtitle: var(--type-card-title);
   --type-metric: var(--text-4xl);
-  /* Measurement cells are size containers; the rem term preserves text scaling. */
+  /* Measurement cells are size containers, so the figure is sized from the
+     cell it sits in and every cell of a bar comes out the same. The divisor is
+     the longest range the atlas shows ("8.000–15.000", about 5 em wide) plus
+     its unit, so even that one stays on its line; wider cells cap at the full
+     display size. */
   --type-metric-compact: clamp(
     var(--text-lg),
-    0.875rem + 3cqi,
+    calc((100cqi - 16px) / 5.1),
     var(--text-4xl)
   );
   /* Split ♀/♂ measurement rows: smaller than the single figure, same container scaling. */

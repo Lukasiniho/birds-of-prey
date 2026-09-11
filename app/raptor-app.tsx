@@ -158,6 +158,7 @@ function Measurement({
   unit,
   sex,
   onSexChange,
+  className = '',
 }: {
   label: string;
   range: MeasurementRange;
@@ -165,10 +166,11 @@ function Measurement({
   unit: 'cm' | 'g';
   sex: Sex;
   onSexChange?: (sex: Sex) => void;
+  className?: string;
 }) {
   const shown = (sexes?.male && sexes?.female && sexes[sex]) || range;
   return (
-    <div>
+    <div className={className}>
       <span>
         {label}
         {onSexChange && <SexSwitch value={sex} onChange={onSexChange} />}
@@ -690,6 +692,15 @@ export default function RaptorApp({
               <Measurement
                 label="Spannweite"
                 range={bird.span}
+                unit="cm"
+                sex={sex}
+              />
+              {/* Drops out on a narrow stage, where three labels would
+                  collide; the CSS says at which width. */}
+              <Measurement
+                className="measurement-optional"
+                label="Körperlänge"
+                range={bird.length}
                 unit="cm"
                 sex={sex}
               />
