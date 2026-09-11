@@ -1,6 +1,7 @@
 import { FactTooltip } from '@/components/fact-tooltip';
 import { ConservationTooltip } from '@/components/conservation-tooltip';
 import { MovementTooltip } from '@/components/movement-tooltip';
+import { ActivityTooltip } from '@/components/activity-tooltip';
 import { conservationLabels, speciesFacts } from '@/lib/species-facts';
 
 import {
@@ -64,6 +65,8 @@ export function SpeciesFacts({ speciesId }: { speciesId: string }) {
                 />
               ) : icon === 'compass' ? (
                 <MovementTooltip key={speciesId} fact={facts.movement} />
+              ) : icon === 'sun-horizon' ? (
+                <ActivityTooltip key={speciesId} fact={facts.activity} />
               ) : context ? (
                 <FactTooltip
                   key={speciesId}
