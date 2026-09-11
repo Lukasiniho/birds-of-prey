@@ -134,8 +134,9 @@ Browser-Basisschrift. Rahmen und Radien bleiben geometrische px-Werte.
 `.page-content` teilt Seitenabstände zwischen Quiz, Wissen und Falknerei.
 `.detail-panel` teilt das Padding zwischen Atlas, Anatomie und Falknerei. Im
 Atlas richten sich Kopfleiste, Gruppierung und Gruppentitel mit
-`--atlas-gutter` (12 px) an der Artenleiste aus; Vogelkarten haben 4 px
-Innenabstand und 8 px zwischen Porträt und Name. `--rail-section-gap`,
+`--atlas-gutter` (12 px) an der Artenleiste aus. Artenzeilen (`.species-row`)
+haben überall 8 px Innenabstand, 8 px zwischen Porträt und Name und ein
+56 px großes Porträt (`--species-row-portrait`). `--rail-section-gap`,
 `--rail-content-gap` und `--rail-caption-gap` sind Aliase auf 24/16/12 px.
 Maximale Inhaltsbreiten: Quiz und Wissen 1360 px, Falknerei 1440 px.
 Spannweite und Gewicht teilen die Messwertbox in gleich breite Bereiche mit

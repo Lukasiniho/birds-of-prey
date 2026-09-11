@@ -4,6 +4,7 @@ import {
   AppSelectContent as SelectContent,
 } from '@/components/app-select';
 import { SpeciesName, SpeciesScientificName } from '@/components/species-name';
+import { SpeciesRowContent } from '@/components/species-row';
 import { useEffect, useRef, useState } from 'react';
 import { useSlidingPill } from '@/lib/use-sliding-pill';
 import { SegmentedControl } from '@/components/segmented-control';
@@ -509,7 +510,7 @@ export default function RaptorApp({
               {group.birds.map((b) => (
                 <SidebarMenuItem key={b.id}>
                   <SidebarMenuButton
-                    className="bird-entry"
+                    className="species-row bird-entry"
                     isActive={selected === b.id}
                     aria-current={selected === b.id ? 'page' : undefined}
                     render={
@@ -530,29 +531,24 @@ export default function RaptorApp({
                     onPointerEnter={() => warmBird(b.id)}
                     onFocus={() => warmBird(b.id)}
                   >
-                    <span
-                      className="portrait head-portrait own-portrait"
-                      data-species={b.id}
-                      style={
-                        portraitImages[b.id]
-                          ? {
-                              backgroundImage: `url(${imageSource(portraitImages[b.id])})`,
-                            }
-                          : { backgroundImage: 'none' }
+                    <SpeciesRowContent
+                      portrait={
+                        <span
+                          className="species-row-sprite own-portrait"
+                          data-species={b.id}
+                          style={
+                            portraitImages[b.id]
+                              ? {
+                                  backgroundImage: `url(${imageSource(portraitImages[b.id])})`,
+                                }
+                              : { backgroundImage: 'none' }
+                          }
+                          aria-hidden="true"
+                        />
                       }
-                      aria-hidden="true"
+                      name={b.name}
+                      latin={b.latin}
                     />
-                    <span
-                      className={`bird-label ${b.name.length > 15 ? 'long-label' : ''}`}
-                    >
-                      <SpeciesName
-                        name={b.name}
-                        variant="sidebar"
-                        latin={b.latin}
-                        commonAs="strong"
-                        scientificAs="em"
-                      />
-                    </span>
                   </SidebarMenuButton>
                 </SidebarMenuItem>
               ))}

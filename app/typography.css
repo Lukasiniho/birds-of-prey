@@ -58,8 +58,9 @@ body {
   --tracking-caps: 0.06em;
 
   --type-caption: var(--text-xs);
-  /* Italic scientific names need a larger size than source metadata. */
-  --type-scientific: var(--text-base);
+  /* The scientific name is the quiet second line: one step under the German
+   * name's body size, and never bold. */
+  --type-scientific: var(--text-sm);
   --type-ui: var(--text-sm);
   --type-button: var(--text-base);
   /* Underline tabs share the button size; pill tabs use --type-body. */
@@ -84,7 +85,6 @@ body {
     var(--text-lg)
   );
   --type-species-quiz: clamp(var(--text-xl), 0.875rem + 1.5vw, var(--text-2xl));
-  --type-species-knowledge: var(--text-2xl);
   --type-lead: var(--text-lg);
   --type-label-title: var(--text-xl);
   --type-card-title: clamp(var(--text-xl), 1.125rem + 0.5vw, var(--text-2xl));
@@ -108,70 +108,60 @@ body {
   --type-score: var(--text-7xl);
 }
 
-/* SpeciesName owns all standalone names, including buttons and drag previews.
- * Explicit classes keep typography independent of surrounding heading/button rules. */
-:is(.app-shell, .q-drag-ghost) .species-common-name,
-:is(.app-shell, .q-drag-ghost) .species-scientific-name {
-  font-family: var(--font-stack-display);
-  font-weight: var(--weight-semibold);
+/* SpeciesName owns all standalone names, including buttons, drag previews and
+ * the species sheet. Explicit classes keep typography independent of the
+ * surrounding heading and button rules; `body` rather than a page shell,
+ * because sheets and popovers render through a portal outside the shell and
+ * would otherwise fall back to plain body text.
+ * The German name is the display serif, the scientific name the body sans. */
+body .species-common-name,
+body .species-scientific-name {
   line-height: var(--leading-heading);
   letter-spacing: var(--tracking-normal);
   /* Hyphenate first; the anywhere break stays as the last resort. */
   hyphens: auto;
   overflow-wrap: anywhere;
 }
-:is(.app-shell, .q-drag-ghost) .species-common-name {
+body .species-common-name {
+  font-family: var(--font-stack-display);
   font-size: var(--type-species-common);
   font-weight: var(--weight-label-heading);
   font-style: normal;
   color: var(--foreground);
 }
-:is(.app-shell, .q-drag-ghost) .species-scientific-name {
+body .species-scientific-name {
   display: block;
+  font-family: var(--font-stack-body);
   font-size: var(--type-scientific);
+  font-weight: var(--weight-regular);
   font-style: italic;
   color: var(--muted-foreground);
   margin-top: 2px;
 }
 
-/* Preserve the established atlas title and sidebar hierarchy. */
-:is(.app-shell, .q-drag-ghost)
-  .species-common-name[data-name-variant='atlas-title'] {
+/* Preserve the established atlas title hierarchy. */
+body .species-common-name[data-name-variant='atlas-title'] {
   font-size: var(--type-hero);
   font-weight: var(--weight-bold);
   line-height: var(--leading-display);
   letter-spacing: var(--tracking-tight);
 }
-:is(.app-shell, .q-drag-ghost)
-  .species-scientific-name[data-name-variant='atlas-title'] {
+body .species-scientific-name[data-name-variant='atlas-title'] {
   font-size: max(var(--type-scientific), calc(var(--type-hero) * 0.5));
   font-weight: var(--weight-regular);
   line-height: var(--leading-display);
   letter-spacing: var(--tracking-normal);
   margin-top: -0.15em;
 }
-:is(.app-shell, .q-drag-ghost)
-  .species-common-name[data-name-variant='sidebar'] {
-  font-weight: var(--weight-bold);
-}
-:is(.app-shell, .q-drag-ghost)
-  .species-scientific-name[data-name-variant='sidebar'] {
-  font-size: var(--type-scientific);
-  font-weight: var(--weight-semibold);
-}
 
-:is(.app-shell, .q-drag-ghost) .species-common-name[data-name-variant='quiz'] {
+body .species-common-name[data-name-variant='quiz'] {
   font-size: var(--type-species-quiz);
   font-weight: var(--weight-bold);
 }
 
- :is(.app-shell, .q-drag-ghost) .species-scientific-name[data-name-variant='quiz'] {
+body .species-scientific-name[data-name-variant='quiz'] {
   font-size: var(--type-scientific-quiz);
   margin-top: 0;
-}
-
-.app-shell .species-common-name[data-name-variant='knowledge'] {
-  font-size: var(--type-species-knowledge);
 }
 
 @theme inline {

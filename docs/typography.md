@@ -15,10 +15,10 @@ relative rem-Werte; die Browser-Schriftgröße bleibt frei wählbar.
 | --------------------------------------- | -------------------------- | -------- |
 | Quellen und Bildnachweise               | `--type-caption`           | 12 px    |
 | Filter und sonstige UI-Texte            | `--type-ui`                | 14 px    |
+| Wissenschaftlicher Artname              | `--type-scientific`        | 14 px    |
 | Fließtext und Aufgabenbeschreibungen    | `--type-body`              | 14 px    |
 | Tags                                    | `--type-tag`               | 14 px    |
 | Tooltips (alle Varianten, inkl. Inhalt) | `--type-tooltip`           | 14 px    |
-| Wissenschaftlicher Artname              | `--type-scientific`        | 16 px    |
 | Buttons und Hauptnavigation             | `--type-button`            | 16 px    |
 | Unterstrich-Tabs                        | `--type-tab`               | 16 px    |
 | Quiz-Rückmeldung                        | `--type-feedback-title`    | 16 px    |
@@ -30,7 +30,6 @@ relative rem-Werte; die Browser-Schriftgröße bleibt frei wählbar.
 | Karten- und Listentitel                 | `--type-card-title`        | 20–24 px |
 | Detailüberschrift rechts                | `--type-detail-heading`    | 24 px    |
 | Deutscher Artname im Quiz               | `--type-species-quiz`      | 20–24 px |
-| Deutscher Artname in Wissen             | `--type-species-knowledge` | 24 px    |
 | Weitere Überschrift                     | `--type-heading`           | 28 px    |
 | Quiz-Fragentitel                        | `--type-quiz-question`     | 24–32 px |
 | Seitentitel                             | `--type-page-title`        | 24–32 px |
@@ -58,19 +57,29 @@ Keine rohen Zahlen im Seiten-CSS.
 Alle eigenständigen Namenspaare verwenden `SpeciesName` aus
 `components/species-name.tsx`; einzelne Namen `SpeciesCommonName` oder
 `SpeciesScientificName`. Semantische Elemente sind über `commonAs`,
-`scientificAs` beziehungsweise `as` wählbar. Die Varianten bewahren die
-Hierarchie:
+`scientificAs` beziehungsweise `as` wählbar. Der deutsche Name steht in der
+Display-Serif, der wissenschaftliche in der Body-Sans, kursiv, nie fett. Es
+gibt drei Varianten:
 
-| Variante      | Deutscher Name   | Wissenschaftlicher Name          |
-| ------------- | ---------------- | -------------------------------- |
-| `standard`    | 18 px / 700      | 16 px / 600, kursiv              |
-| `sidebar`     | 18 px / 700      | 16 px / 600, kursiv              |
-| `quiz`        | 20–24 px / 700   | 16–18 px, direkt am deutschen Namen |
-| `knowledge`   | 24 px / 700      | 16 px / 600, kursiv              |
-| `atlas-title` | 32–48 px / 700   | halb so groß (min. 16 px), 400   |
+| Variante      | Deutscher Name | Wissenschaftlicher Name             |
+| ------------- | -------------- | ----------------------------------- |
+| `standard`    | 18 px / 700    | 14 px / 400, kursiv                 |
+| `quiz`        | 20–24 px / 700 | 16–18 px, direkt am deutschen Namen |
+| `atlas-title` | 32–48 px / 700 | halb so groß (min. 14 px), 400      |
 
+Die Regeln hängen an `body`, nicht an `.app-shell`: Sheets und Popover rendern
+durch ein Portal außerhalb der Seitenhülle und behalten so ihre Typografie.
 Die Atlas-Titelanimation nutzt dieselbe Komponente mit `animated`. Namen im
 Fließtext folgen dessen Formatierung.
+
+## Artenzeilen als Komponente
+
+Jede Zeile aus Porträt und Namenspaar — Artenleiste im Atlas, Arten-Sheet auf
+dem Telefon, Artenlisten in Wissen — kommt aus `components/species-row.tsx`
+(`SpeciesRowContent` für eigene Bedienelemente, `SpeciesRowLink` für Links).
+Sie trägt `.species-row` und eine einzige Porträtgröße,
+`--species-row-portrait` (56 px), ohne Sondergrößen pro Seite oder
+Breakpoint. Seiten ergänzen nur Zustände (Auswahlrahmen, Hintergrund).
 
 ## Anwendung
 

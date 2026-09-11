@@ -45,17 +45,11 @@
   gap: var(--space-2);
 }
 .bird-entry[data-slot] {
-  height: 75px;
-  border-radius: var(--radius-control);
   position: relative;
   white-space: normal;
   overflow: hidden;
-  transition: background-color var(--duration-quick) var(--ease-out);
   outline: none;
   box-shadow: none !important;
-  ring: 0;
-  padding: var(--space-4);
-  gap: var(--space-8);
 }
 .bird-entry[data-slot]:hover {
   background: var(--hover);
@@ -69,16 +63,6 @@
   outline: var(--focus-ring);
   outline-offset: -3px;
 }
-.bird-label {
-  display: flex;
-  flex-direction: column;
-  min-width: 0;
-  text-align: left;
-  padding-right: 3px;
-}
-.bird-label strong {
-  white-space: nowrap;
-}
 .selected-dot {
   width: 4px;
   height: 4px;
@@ -87,13 +71,6 @@
   position: absolute;
   right: 7px;
   top: 12px;
-}
-.portrait {
-  display: block;
-  flex-shrink: 0;
-  width: 61px;
-  height: 61px;
-  overflow: hidden;
 }
 .bird-art {
   width: 100%;
@@ -110,14 +87,6 @@
   height: 100%;
   pointer-events: none;
   user-select: none;
-}
-.portrait .bird-art {
-  transform: scale(1.3);
-}
-.portrait .bird-art > img {
-  object-fit: cover;
-  object-position: 43% 42%;
-  transform: scale(1.4);
 }
 .library-bottom {
   display: flex;
@@ -427,18 +396,10 @@ button.color-dot:not(:disabled) {
   .specimen-panel {
     min-height: calc(100dvh - var(--site-header-height));
   }
-  .portrait {
-    width: 65px;
-    height: 65px;
-  }
 }
 @media (max-width: 1190px) {
   .app-columns[data-slot] {
     grid-template-columns: 255px minmax(0, 1fr) 360px;
-  }
-  .portrait {
-    width: 49px;
-    height: 57px;
   }
   .specimen-heading {
     padding-left: 26px;
@@ -543,11 +504,6 @@ button.color-dot:not(:disabled) {
   }
   .bird-entry[data-slot] {
     width: 100%;
-    height: 62px;
-  }
-  .portrait {
-    width: 47px;
-    height: 50px;
   }
   .library-bottom {
     display: none;
@@ -939,9 +895,6 @@ button.color-dot:not(:disabled) {
   margin-bottom: var(--space-8);
   padding: 0;
 }
-.bird-entry[data-slot] {
-  height: 69px;
-}
 .species-panel[data-slot] {
   max-height: calc(100dvh - var(--site-header-height));
   overflow-y: auto;
@@ -1013,19 +966,8 @@ button.color-dot:not(:disabled) {
     padding: 0;
     gap: var(--space-4);
   }
-  .bird-entry[data-slot] {
-    height: 61px;
-  }
 }
 
-.head-portrait {
-  background-image: url('/bird-portraits.png');
-  background-size: 400% 200%;
-  background-repeat: no-repeat;
-  height: 61px;
-  width: 61px;
-  flex-shrink: 0;
-}
 .individual-prey {
   padding: 5px;
 }
@@ -1033,18 +975,6 @@ button.color-dot:not(:disabled) {
   width: 100%;
   height: 100%;
   object-fit: contain;
-}
-@media (max-width: 1190px) {
-  .head-portrait {
-    width: 49px;
-    height: 49px;
-  }
-}
-@media (max-width: 640px) {
-  .head-portrait {
-    width: 47px;
-    height: 47px;
-  }
 }
 /* Sex and age selection sits with the specimen, content stays in the information rail. */
 .plumage-stage {
@@ -1159,13 +1089,12 @@ button.color-dot:not(:disabled) {
   margin-bottom: var(--space-24);
 }
 
+/* The rail paints its portrait as a background so a species swap cannot flash
+ * an empty frame; a few species need their own scale inside the same box. */
 .own-portrait {
+  background-repeat: no-repeat;
   background-size: contain;
   background-position: center;
-}
-.bird-label.long-label strong {
-  white-space: normal;
-  overflow-wrap: anywhere;
 }
 
 .hunting-section {
@@ -1545,14 +1474,6 @@ button.color-dot:not(:disabled) {
   min-width: 0;
   max-width: 100%;
 }
-.bird-label {
-  min-width: 0;
-}
-.bird-label strong,
-.bird-label em {
-  white-space: normal;
-  overflow-wrap: anywhere;
-}
 .info-panel p {
   overflow-wrap: break-word;
 }
@@ -1737,49 +1658,14 @@ button.color-dot:not(:disabled) {
     padding-top: 14px;
   }
 }
-.own-portrait.head-portrait {
-  width: 70px;
-  height: 70px;
-  background-size: contain;
-  background-position: center;
-}
 .own-portrait[data-species='sperber'] {
-  background-size: 87.14% auto;
+  background-size: 87% auto;
 }
 .own-portrait[data-species='gerfalke'] {
   background-size: 114% auto;
 }
 .own-portrait[data-species='steppenadler'] {
   background-size: 90% auto;
-}
-.bird-entry[data-slot] {
-  height: auto;
-  min-height: 72px;
-  align-items: center;
-}
-@media (max-width: 1190px) {
-  .own-portrait.head-portrait {
-    width: 56px;
-    height: 56px;
-  }
-  .own-portrait[data-species='sperber'] {
-    background-size: 87.5% auto;
-  }
-  .bird-entry[data-slot] {
-    min-height: 70px;
-  }
-}
-@media (max-width: 640px) {
-  .own-portrait.head-portrait {
-    width: 54px;
-    height: 54px;
-  }
-  .own-portrait[data-species='sperber'] {
-    background-size: 87.04% auto;
-  }
-  .bird-entry[data-slot] {
-    min-height: 68px;
-  }
 }
 @media (min-width: 1600px) {
   .specimen-heading {

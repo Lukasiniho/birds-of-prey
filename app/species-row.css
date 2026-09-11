@@ -1,0 +1,60 @@
+/* Species rows: the portrait-and-name line shared by the atlas rail, the
+ * species sheet on phones and the lists on Wissen. One portrait size and one
+ * pair of text roles for all of them; pages add state, never geometry.
+ * The `[data-slot]` twin is for rows rendered by a library primitive, whose
+ * utility classes would otherwise set their own padding, gap and height. */
+:root {
+  --species-row-portrait: 56px;
+}
+
+.species-row,
+.species-row[data-slot] {
+  display: flex;
+  align-items: center;
+  gap: var(--space-8);
+  width: 100%;
+  min-width: 0;
+  height: auto;
+  padding: var(--space-8);
+  border-radius: var(--radius-control);
+  text-align: left;
+  transition: background-color var(--duration-quick) var(--ease-out);
+}
+.species-row:hover {
+  background: var(--hover);
+}
+/* Portraits are square and never crop: the art already sits in its frame. */
+.species-row-portrait,
+.species-row-sprite {
+  display: block;
+  flex: 0 0 var(--species-row-portrait);
+  width: var(--species-row-portrait);
+  height: var(--species-row-portrait);
+  object-fit: contain;
+}
+.species-row-name {
+  display: flex;
+  flex-direction: column;
+  min-width: 0;
+}
+/* A library row may truncate its last child; species names wrap and hyphenate
+ * instead, because a clipped German compound is unreadable. */
+.species-row-name,
+.species-row-name > * {
+  overflow: visible;
+  white-space: normal;
+  text-overflow: clip;
+}
+/* The trailing mark (link arrow, selection dot) keeps to the row's end. */
+.species-row > svg {
+  margin-left: auto;
+  flex-shrink: 0;
+  color: var(--muted-foreground);
+}
+
+@media (prefers-reduced-motion: reduce) {
+  .species-row,
+  .species-row[data-slot] {
+    transition: none;
+  }
+}
