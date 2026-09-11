@@ -1,5 +1,5 @@
 import type { Metadata, Viewport } from 'next';
-import { Cormorant_Garamond, Inter } from 'next/font/google';
+import localFont from 'next/font/local';
 import './globals.css';
 import { TooltipProvider } from '@/components/ui/tooltip';
 import {
@@ -9,13 +9,35 @@ import {
   THEME_COLOR_DARK,
   THEME_COLOR_LIGHT,
 } from '@/lib/site';
-const display = Cormorant_Garamond({
+// Selbst gehostet statt über next/font/google: scripts/build-fonts.mjs schneidet
+// Googles Latin-Subset auf den gebrauchten Zeichenvorrat und die Achse 400–700
+// zu, 121 KB → 89 KB. `preload: false` lässt dem Heldenbild die Bandbreite.
+const displayFont = localFont({
   variable: '--font-display',
-  subsets: ['latin'],
-  weight: ['400', '500', '600', '700'],
-  style: ['normal', 'italic'],
+  display: 'swap',
+  preload: false,
+  // Muss hier stehen: sonst setzt der Shim sein eigenes `sans-serif` davor.
+  fallback: ['Cormorant Garamond Fallback', 'Georgia', 'serif'],
+  src: [
+    {
+      path: './fonts/cormorant-garamond-latin.woff2',
+      weight: '400 700',
+      style: 'normal',
+    },
+    {
+      path: './fonts/cormorant-garamond-latin-italic.woff2',
+      weight: '400 700',
+      style: 'italic',
+    },
+  ],
 });
-const body = Inter({ variable: '--font-body', subsets: ['latin'] });
+const bodyFont = localFont({
+  variable: '--font-body',
+  display: 'swap',
+  preload: false,
+  fallback: ['Inter Fallback', 'Arial', 'sans-serif'],
+  src: [{ path: './fonts/inter-latin.woff2', weight: '400 700', style: 'normal' }],
+});
 export const metadata: Metadata = {
   metadataBase: new URL(SITE_URL),
   title: { default: SITE_NAME, template: `%s · ${SITE_NAME}` },
@@ -64,7 +86,7 @@ export default function RootLayout({
 }) {
   return (
     <html lang="de">
-      <body className={`${display.variable} ${body.variable}`}>
+      <body className={`${displayFont.variable} ${bodyFont.variable}`}>
         <script
           type="application/ld+json"
           dangerouslySetInnerHTML={{ __html: JSON.stringify(websiteJsonLd) }}

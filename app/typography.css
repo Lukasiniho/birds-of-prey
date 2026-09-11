@@ -38,12 +38,13 @@
   --leading-relaxed: 1.7;
 }
 
-/* Font stacks: the only place fallback fonts are spelled out.
+/* Font stacks. --font-body and --font-display already carry their fallbacks
+ * (set in app/layout.tsx; the metric-matched faces live in app/fonts.css).
  * Declared on body, not :root: next/font sets --font-body and --font-display on <body>, and a
  * custom property that references an undefined variable is dropped where it is declared. */
 body {
-  --font-stack-body: var(--font-body), Inter, Arial, sans-serif;
-  --font-stack-display: var(--font-display), 'Source Serif 4', Georgia, serif;
+  --font-stack-body: var(--font-body);
+  --font-stack-display: var(--font-display);
 }
 
 :root {
