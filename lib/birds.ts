@@ -312,9 +312,10 @@ export function groupBirds(list: BirdSpecies[], mode: GroupMode) {
   return [...groups.entries()].map(([id, g]) => ({ id, ...g }));
 }
 export type Plumage = 'male' | 'female' | 'juvenile';
+// Weibchen first, so the pair reads the same way as the weight switch below.
 export const plumages = [
-  { value: 'male', label: 'Männchen' },
   { value: 'female', label: 'Weibchen' },
+  { value: 'male', label: 'Männchen' },
   { value: 'juvenile', label: 'Jungvogel' },
 ] as const;
 export function plumagesFor(id: string): { value: Plumage; label: string }[] {

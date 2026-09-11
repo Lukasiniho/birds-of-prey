@@ -442,6 +442,13 @@ export default function RaptorApp({
     'info',
     infoTab,
   );
+  // The weight below belongs to the bird on show: picking Männchen or
+  // Weibchen up here moves the figure with it. The Jungvogel keeps whichever
+  // sex was last chosen, since it has no weight of its own.
+  function choosePlumage(value: Plumage) {
+    setPlumage(value);
+    if (value === 'male' || value === 'female') setSex(value);
+  }
   function select(id: string) {
     setSelected(id);
     setPickerOpen(false);
@@ -639,7 +646,7 @@ export default function RaptorApp({
                     group={bird.id}
                     value={plumage}
                     options={availablePlumages}
-                    onChange={setPlumage}
+                    onChange={choosePlumage}
                     onPreload={(value) => warmBird(bird.id, value)}
                   />
                 </div>
