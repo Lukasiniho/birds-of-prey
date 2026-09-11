@@ -106,11 +106,12 @@
   color: var(--foreground);
 }
 .empty-library {
-  padding: var(--space-16) var(--space-12);
+  padding: var(--space-32) var(--space-12);
   display: flex;
   flex-direction: column;
-  align-items: flex-start;
+  align-items: center;
   gap: var(--space-4);
+  text-align: center;
 }
 /* The feather sits on the headline rather than above it, so the whole state
    reads as one short paragraph. */
@@ -589,7 +590,7 @@ button.color-dot:not(:disabled) {
     min-height: 0;
   }
   .empty-library {
-    padding: var(--space-16) var(--space-12);
+    padding: var(--space-24) var(--space-12);
     gap: var(--space-4);
   }
 }
