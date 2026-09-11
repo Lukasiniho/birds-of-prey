@@ -245,11 +245,15 @@
   font-weight: var(--weight-label-heading);
   line-height: var(--leading-heading);
 }
+/* Eyebrows read as caps labels, like the atlas control labels. */
 .knowledge-eyebrow {
   display: block;
   color: var(--muted-foreground);
-  font-size: var(--type-ui);
-  margin-bottom: var(--space-8);
+  font-size: var(--type-caption);
+  font-weight: var(--weight-medium);
+  letter-spacing: var(--tracking-caps);
+  text-transform: uppercase;
+  margin-bottom: var(--space-4);
 }
 /* The notes scroll inside the map's height instead of stretching the row. */
 .knowledge-notes {

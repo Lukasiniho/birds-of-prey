@@ -40,7 +40,6 @@
 .search-wrap > svg {
   position: absolute;
   left: 11px;
-  color: var(--muted-foreground);
   z-index: 1;
 }
 .search-wrap input {

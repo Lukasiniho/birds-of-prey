@@ -13,14 +13,17 @@ const range = (from, to) =>
   Array.from({ length: to - from + 1 }, (_, i) => String.fromCodePoint(from + i))
     .join('');
 
-// Weit mehr als die Texte heute brauchen, ohne die Dateien aufzublähen.
+// Die Texte benutzen heute 129 Zeichen; das hier ist großzügig darüber, ohne
+// das komplette Latin-1-Supplement mitzuschleppen.
 const CHARSET =
   range(0x20, 0x7e) + // ASCII
-  range(0xa0, 0xff) + // Latin-1: alle westeuropäischen Akzente
+  'ÄÖÜäöüß' + // Deutsch
+  'ÀÁÂÃÅÆÇÈÉÊËÌÍÎÏÑÒÓÔÕØÙÚÛÝŸ' + // west- und südeuropäische Namen
+  'àáâãåæçèéêëìíîïñòóôõøùúûýÿ' +
   'ĀāĒēĪīŌōŪū' + // Makronen aus wissenschaftlichen Namen
-  'ĆćČčĐđĘęŁłŃńŐőŘřŚśŠšŰűŸŹźŻżŽž' +
-  '–—‘’‚“”†‡•…‹›′″' +
-  '€№→←↔≈≤≥×÷♀♂';
+  'ĆćČčŁłŃńŘřŚśŠšŹźŻżŽž' + // ost- und mitteleuropäische Namen
+  '–—‘’‚“”„†•…‹›′″·°' +
+  '€→←↔≈≤≥×÷♀♂';
 
 const AXES = { wght: { min: 400, max: 700 } };
 

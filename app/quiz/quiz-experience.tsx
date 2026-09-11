@@ -468,7 +468,8 @@ function MultipleChoiceQuestion({
                 <span>
                   <strong>{optionLabel}</strong>
                 </span>
-                <RadioGroupItem value={option} aria-label={optionLabel} />
+                {/* The verdict sits left of the radio: the radio stays
+                    pinned to the edge instead of shifting when it appears. */}
                 {isCorrect && (
                   <Check
                     className="q-option-correct"
@@ -483,6 +484,7 @@ function MultipleChoiceQuestion({
                     aria-label="Falsche Antwort"
                   />
                 )}
+                <RadioGroupItem value={option} aria-label={optionLabel} />
               </label>
             );
           })}

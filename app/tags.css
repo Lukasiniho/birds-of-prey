@@ -56,6 +56,9 @@
   line-height: var(--leading-normal);
   letter-spacing: var(--tracking-normal);
   text-decoration: none;
+  /* The fill alone is a tint of the page ground, so on a stage it all but
+     disappears; the hairline keeps a tag a tag on every surface. */
+  box-shadow: 0 0 0 1px var(--line-tint);
 }
 .ecology-tags > a,
 .ecology-tags > button {

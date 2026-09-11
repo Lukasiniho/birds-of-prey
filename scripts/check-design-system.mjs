@@ -7,6 +7,8 @@
 //   3. raw font-size outside app/typography.css
 //   4. raw border-radius outside app/design-system.css
 //   5. media-query widths outside the shared breakpoint set
+//   6. a ui primitive that app/globals.css keeps out of the Tailwind scan but
+//      that something imports again — its utilities would be missing
 //
 // A deliberate exception carries `design-lint-allow` in a comment on the same
 // line or the line above, together with its reason.
@@ -96,6 +98,28 @@ for (const scanRoot of scanRoots) {
         }
       }
     });
+  }
+}
+
+// app/globals.css drops the unused shadcn primitives from Tailwind's scan, which
+// is only safe as long as nothing imports them: their utility classes would not
+// be generated and the component would render unstyled.
+const globals = readFileSync(join(root, 'app/globals.css'), 'utf8');
+const excluded = [
+  ...globals.matchAll(/@source not "\.\.\/components\/ui\/([\w-]+)\.tsx";/g),
+].map(([, name]) => name);
+for (const dir of scanRoots) {
+  for (const path of walk(join(root, dir))) {
+    if (!path.endsWith('.tsx') && !path.endsWith('.ts')) continue;
+    const code = readFileSync(path, 'utf8');
+    for (const name of excluded) {
+      if (!code.includes(`components/ui/${name}'`)) continue;
+      findings.push(
+        `${relative(root, path)}: imports components/ui/${name}, which ` +
+          'app/globals.css keeps out of the Tailwind scan — drop its ' +
+          '`@source not` line there, or the component ships unstyled',
+      );
+    }
   }
 }
 

@@ -16,6 +16,54 @@
 @import './tags.css';
 @import './map.css';
 @import './sections.css';
+
+/* Die shadcn-Primitiven liegen vollständig im Repo, benutzt wird ein knappes
+ * Drittel. Ungenutzte aus dem Tailwind-Scan nehmen, sonst gehen ihre Utilities
+ * mit über die Leitung — sie machen zwei Drittel des Stylesheets aus.
+ * Muss hinter allen @import stehen. `npm run lint` meldet, wenn eine dieser
+ * Dateien wieder benutzt wird und die Zeile hier fehlt. */
+@source not "../components/ui/accordion.tsx";
+@source not "../components/ui/alert.tsx";
+@source not "../components/ui/alert-dialog.tsx";
+@source not "../components/ui/aspect-ratio.tsx";
+@source not "../components/ui/attachment.tsx";
+@source not "../components/ui/avatar.tsx";
+@source not "../components/ui/badge.tsx";
+@source not "../components/ui/breadcrumb.tsx";
+@source not "../components/ui/bubble.tsx";
+@source not "../components/ui/button-group.tsx";
+@source not "../components/ui/calendar.tsx";
+@source not "../components/ui/card.tsx";
+@source not "../components/ui/carousel.tsx";
+@source not "../components/ui/chart.tsx";
+@source not "../components/ui/checkbox.tsx";
+@source not "../components/ui/collapsible.tsx";
+@source not "../components/ui/combobox.tsx";
+@source not "../components/ui/command.tsx";
+@source not "../components/ui/context-menu.tsx";
+@source not "../components/ui/direction.tsx";
+@source not "../components/ui/drawer.tsx";
+@source not "../components/ui/empty.tsx";
+@source not "../components/ui/field.tsx";
+@source not "../components/ui/hover-card.tsx";
+@source not "../components/ui/input-otp.tsx";
+@source not "../components/ui/item.tsx";
+@source not "../components/ui/kbd.tsx";
+@source not "../components/ui/marker.tsx";
+@source not "../components/ui/menubar.tsx";
+@source not "../components/ui/message.tsx";
+@source not "../components/ui/message-scroller.tsx";
+@source not "../components/ui/native-select.tsx";
+@source not "../components/ui/navigation-menu.tsx";
+@source not "../components/ui/pagination.tsx";
+@source not "../components/ui/progress.tsx";
+@source not "../components/ui/resizable.tsx";
+@source not "../components/ui/scroll-area.tsx";
+@source not "../components/ui/spinner.tsx";
+@source not "../components/ui/switch.tsx";
+@source not "../components/ui/table.tsx";
+@source not "../components/ui/toast.tsx";
+@source not "../components/ui/toggle-group.tsx";
 @theme inline {
   --color-background: var(--background);
   --color-foreground: var(--foreground);

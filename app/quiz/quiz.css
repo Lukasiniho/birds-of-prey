@@ -450,8 +450,15 @@
   font-weight: var(--weight-medium);
 }
 .q-option [data-slot='radio-group-item'] {
-  margin-left: auto;
   flex-shrink: 0;
+}
+/* Whichever trailing mark comes first takes the gap, so the radio keeps
+   its place when the verdict icon appears beside it. */
+.q-option-correct,
+.q-option-wrong,
+.q-option:not(:has(.q-option-correct, .q-option-wrong))
+  [data-slot='radio-group-item'] {
+  margin-left: auto;
 }
 .q-option [data-slot='radio-group-item'][data-checked] {
   background: var(--q-state-color, var(--selection-border));
