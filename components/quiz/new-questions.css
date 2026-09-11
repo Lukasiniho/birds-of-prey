@@ -178,15 +178,17 @@
 .q-comparison-card {
   position: relative;
   min-width: 0;
-  padding: var(--panel-padding);
+  /* The art column is as wide as it is tall, so the card hugs the bird
+     instead of padding a half-empty box. */
+  padding: var(--space-16);
   border: var(--border-selection) solid var(--border);
   border-radius: var(--radius-card);
   background: var(--surface);
   color: var(--foreground);
   display: grid;
-  grid-template-columns: minmax(0, 2fr) minmax(0, 3fr);
+  grid-template-columns: minmax(0, 1fr) auto;
   gap: var(--space-12);
-  align-items: start;
+  align-items: center;
   text-align: left;
   cursor: pointer;
 }
@@ -195,6 +197,7 @@
 }
 .q-comparison-name {
   min-width: 0;
+  align-self: start;
 }
 .q-compare-radio {
   position: absolute;
@@ -218,18 +221,17 @@
   color: var(--surface);
 }
 .q-comparison-art {
-  /* The art carries no size information, so it only needs to read as a
-     silhouette - short enough that all four cards fit without scrolling. */
-  height: clamp(112px, 12vw, 160px);
-  width: 100%;
+  height: clamp(150px, 15vw, 200px);
+  aspect-ratio: 1;
+  max-width: 100%;
   display: grid;
   place-items: center;
-  position: relative;
   margin: 0;
+  /* Clear the radio in the card's top corner. */
+  translate: calc(var(--space-24) * -1) 0;
 }
 .q-comparison-art > img {
-  position: absolute;
-  width: 88%;
+  width: 100%;
   height: 100%;
   object-fit: contain;
   pointer-events: none;
@@ -281,15 +283,10 @@
     grid-template-columns: 1fr;
     gap: var(--space-20);
   }
-  /* An even split gives the name the room the art was hoarding. */
-  .q-comparison-card {
-    padding: var(--panel-padding);
-    grid-template-columns: minmax(0, 1fr) minmax(0, 1fr);
-  }
   /* Shorter art keeps the card compact, and the shift left clears the radio
      that sits in the card's top corner. */
   .q-comparison-art {
-    height: 105px;
+    height: 110px;
     translate: calc(var(--space-16) * -1) 0;
   }
   .q-compare-radio {
