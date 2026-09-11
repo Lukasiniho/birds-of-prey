@@ -190,7 +190,7 @@
   /* The name row absorbs the slack, so a two-line name keeps every bird in
      the row on the same baseline. */
   grid-template-rows: 1fr auto;
-  gap: var(--space-8);
+  gap: 0;
   text-align: left;
   cursor: pointer;
 }
@@ -228,7 +228,9 @@
   aspect-ratio: 1;
   display: grid;
   place-items: center;
-  margin: 0;
+  /* Every bird is drawn inside a square with empty corners, so the box may
+     tuck under the name and past the card's floor without clipping a wing. */
+  margin-block: calc(var(--space-24) * -1) calc(var(--space-12) * -1);
 }
 .q-comparison-art > img {
   width: 100%;
@@ -297,6 +299,7 @@
   .q-comparison-art {
     width: auto;
     height: 110px;
+    margin-block: 0;
     translate: calc(var(--space-16) * -1) 0;
   }
   .q-compare-radio {
