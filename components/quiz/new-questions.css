@@ -190,7 +190,7 @@
   /* The name row absorbs the slack, so a two-line name keeps every bird in
      the row on the same baseline. */
   grid-template-rows: 1fr auto;
-  gap: var(--space-12);
+  gap: var(--space-8);
   text-align: left;
   cursor: pointer;
 }
@@ -237,7 +237,7 @@
   pointer-events: none;
 }
 .q-comparison-range {
-  margin-top: var(--space-8);
+  margin-top: var(--space-4);
   font-size: var(--type-body);
 }
 @media (max-width: 980px) {
