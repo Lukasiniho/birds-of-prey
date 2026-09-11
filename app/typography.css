@@ -152,7 +152,9 @@ body .species-common-name[data-name-variant='atlas-title'] {
 body .species-scientific-name[data-name-variant='atlas-title'] {
   /* Der Atlastitel steht auf der Bildbühne. */
   color: var(--muted-foreground-stage);
-  font-size: max(var(--type-scientific), calc(var(--type-hero) * 0.5));
+  /* Halb so groß wie der deutsche Name; auf dem Telefon, wo der Titel seinen
+   * kleinsten Wert hat, hält ein höherer Boden die zweite Zeile lesbar. */
+  font-size: max(var(--text-xl), calc(var(--type-hero) * 0.5));
   font-weight: var(--weight-regular);
   line-height: var(--leading-display);
   letter-spacing: var(--tracking-normal);

@@ -65,7 +65,7 @@ je eine Stufe kleiner und leichter. Es gibt drei Varianten:
 | ------------- | -------------- | ----------------------------------- |
 | `standard`    | 18 px / 700    | 16 px / 500, kursiv                 |
 | `quiz`        | 20–24 px / 700 | 16–18 px, direkt am deutschen Namen |
-| `atlas-title` | 32–48 px / 700 | halb so groß (min. 16 px), 400      |
+| `atlas-title` | 32–48 px / 700 | halb so groß (min. 20 px), 400      |
 
 Die Regeln hängen an `body`, nicht an `.app-shell`: Sheets und Popover rendern
 durch ein Portal außerhalb der Seitenhülle und behalten so ihre Typografie.
