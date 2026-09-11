@@ -1,8 +1,17 @@
 /* Atlas: species rail, specimen stage, information panel, measurements and audio. */
 
+/* Die Seitenspalten gleiten von ihren schmalen Werten (255/340, siehe die
+   Abfrage bei 1190 px) auf ihre breiten (284/390), statt bei 1191 px um 79 px
+   zu springen — sonst wird die Bühne schmaler, während das Fenster wächst,
+   und die Messleiste verliert die Körperlänge, obwohl mehr Platz da ist. Bei
+   1269 px sind die breiten Werte erreicht: dort ist die Bühne wieder so breit
+   wie bei 1190 px, die Leiste wächst also lückenlos durch. */
 .app-columns[data-slot] {
   display: grid;
-  grid-template-columns: 284px minmax(0, 1fr) 390px;
+  grid-template-columns:
+    clamp(255px, calc(255px + (100vw - 1191px) * 29 / 78), 284px)
+    minmax(0, 1fr)
+    clamp(340px, calc(340px + (100vw - 1191px) * 50 / 78), 390px);
   min-height: calc(100dvh - var(--site-header-height));
   align-items: stretch;
 }
