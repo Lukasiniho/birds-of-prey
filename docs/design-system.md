@@ -58,6 +58,7 @@ Rollen wie der Atlas.
 | `--background`               | Seite, Kopfzeile, Tab-Pille                            |
 | `--surface`                  | Erhabene Fläche: Karten, Menüs, Dropdown-Trigger       |
 | `--stage`                    | Vertiefte Fläche: Bild- und Quizbühnen, Kartenwasser   |
+| `--stage-glow`               | Weicher Lichtkegel hinter der Atlas-Illustration       |
 | `--muted`                    | Ruhige Nebenfläche                                     |
 | `--hover`                    | Zeilen- und Listen-Hover                               |
 | `--foreground`               | Text, Anatomiemarker                                   |

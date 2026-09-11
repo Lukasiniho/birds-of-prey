@@ -1013,6 +1013,20 @@ button.color-dot:not(:disabled) {
   align-items: center;
   justify-content: center;
 }
+/* Ohne Grund schwebt der Freisteller im Nichts: ein weicher Lichtkegel gibt der
+   Bühne Tiefe und hält den Blick beim Vogel. Liegt als ::before hinter der
+   Illustration und fängt keine Zeiger ab. */
+.plumage-panel .image-stage::before {
+  content: '';
+  position: absolute;
+  inset: 0;
+  background: radial-gradient(
+    58% 52% at 50% 50%,
+    var(--stage-glow),
+    transparent 70%
+  );
+  pointer-events: none;
+}
 .plumage-note {
   margin-top: var(--space-24);
   padding-top: var(--space-24);

@@ -55,6 +55,9 @@
   /* Nur Nicht-Text; für Text reicht der Kontrast nicht. */
   --muted-foreground-faint: color-mix(in srgb, var(--muted-foreground) 60%, var(--background));
   --toolbar: color-mix(in srgb, var(--background) 92%, transparent);
+  /* Weicher Lichtkegel hinter der Illustration, damit der Freisteller nicht
+     im Nichts schwebt. */
+  --stage-glow: color-mix(in srgb, var(--main-color) var(--tint-1), transparent);
   --swatch-border: var(--line-tint);
   --select-background: var(--surface);
   --atlas-info-surface: var(--background);
@@ -120,6 +123,7 @@
   --select-background: var(--background);
   --atlas-info-surface: var(--surface);
   --atlas-measurement-surface: var(--surface);
+  --stage-glow: color-mix(in srgb, var(--main-color) var(--tint-2), transparent);
   --map-land: #233039;
   --map-border: #42545f;
   --shadow-color-subtle: rgb(0 0 0 / 18%);
