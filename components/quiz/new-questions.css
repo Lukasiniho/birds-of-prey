@@ -309,3 +309,24 @@
     height: 18px;
   }
 }
+/* The map is the specimen here: it gets the stage the illustration usually has. */
+.q-range-space {
+  flex: 1;
+  display: grid;
+  align-content: center;
+  min-height: 280px;
+  margin-top: var(--space-16);
+}
+.q-range-map .range-map-svg {
+  border: var(--border-structure) solid var(--border);
+  border-radius: var(--radius-card);
+}
+.q-range-space .range-map-placeholder {
+  margin: 0;
+}
+@media (max-width: 760px) {
+  .q-range-space {
+    min-height: 0;
+    margin-top: var(--space-12);
+  }
+}

@@ -1,4 +1,5 @@
 import type { BirdRecording } from './bird-recordings.ts';
+import type { DisplayRangeMapEntry } from './range-map-entry.ts';
 
 export const quizKinds = [
   'span',
@@ -10,6 +11,7 @@ export const quizKinds = [
   'compare',
   'identify',
   'call',
+  'range',
 ] as const;
 export type QuizKind = (typeof quizKinds)[number];
 /** Plates on the prey board - a 2x2 grid the player sees without scrolling. */
@@ -27,6 +29,7 @@ export type QuizBird = {
   group: string;
   identification: string;
   recording?: BirdRecording;
+  range?: DisplayRangeMapEntry;
   image: string;
   portrait: string;
   span: [number, number];
@@ -43,6 +46,7 @@ type QuizTask =
   | { kind: 'weight-estimate'; birdId: string }
   | { kind: 'identify'; birdId: string; correct: string; options: string[] }
   | { kind: 'call'; birdId: string; correct: string; options: string[] }
+  | { kind: 'range'; birdId: string; correct: string; options: string[] }
   | {
       kind: 'hunt';
       birdId: string;
@@ -186,6 +190,21 @@ export function scorePrey(
   const hits = selected.filter((id) => correct.includes(id)).length;
   const errors = selected.length - hits;
   return Math.max(0, Math.round((100 * (hits - errors)) / correct.length));
+}
+
+type RangeBounds = DisplayRangeMapEntry['bounds'];
+const rangeOverlapLimit = 0.35;
+
+/** Two ranges read as the same place once their frames largely coincide. */
+export function rangesLookAlike(a: RangeBounds, b: RangeBounds) {
+  const [ax, ay, aWidth, aHeight] = a;
+  const [bx, by, bWidth, bHeight] = b;
+  const shared =
+    Math.max(0, Math.min(ax + aWidth, bx + bWidth) - Math.max(ax, bx)) *
+    Math.max(0, Math.min(ay + aHeight, by + bHeight) - Math.max(ay, by));
+  return (
+    shared / (aWidth * aHeight + bWidth * bHeight - shared) >= rangeOverlapLimit
+  );
 }
 
 export function meanSpan(bird: QuizBird) {
@@ -356,6 +375,44 @@ export function createQuizRound(
       ];
     });
   for (let i = 0; i < counts.call; i++) add(choose(callTasks));
+
+  // Maps only answer one species when the four ranges lie in different places:
+  // two look-alike frames would leave the player guessing between them.
+  type MappedBird = QuizBird & { range: DisplayRangeMapEntry };
+  const withRange = allBirds.filter((bird): bird is MappedBird =>
+    Boolean(bird.range),
+  );
+  const rangeTasks = withRange
+    .filter((bird) => !used.has(bird.id))
+    .flatMap((bird): Extract<QuizTask, { kind: 'range' }>[] => {
+      const wrong: MappedBird[] = [];
+      for (const other of shuffled(withRange, random)) {
+        if (wrong.length === 3) break;
+        if (other.id === bird.id) continue;
+        if (
+          [bird, ...wrong].some(
+            (picked) =>
+              picked.name === other.name ||
+              rangesLookAlike(picked.range.bounds, other.range.bounds),
+          )
+        )
+          continue;
+        wrong.push(other);
+      }
+      if (wrong.length !== 3) return [];
+      return [
+        {
+          kind: 'range',
+          birdId: bird.id,
+          correct: bird.id,
+          options: shuffled(
+            [bird.id, ...wrong.map((other) => other.id)],
+            random,
+          ),
+        },
+      ];
+    });
+  for (let i = 0; i < counts.range; i++) add(choose(rangeTasks));
 
   const eligible = allBirds.filter((bird) => !used.has(bird.id));
   // Enumerate compatible sets from the data: each next range must start above

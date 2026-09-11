@@ -10,6 +10,7 @@ import {
   createQuizRound,
   PREY_OPTION_COUNT,
   quizKinds,
+  rangesLookAlike,
   scorePrey,
   moveBird,
   parseMeasurementRange,
@@ -121,7 +122,7 @@ void test('habitat grading accepts alternative valid destinations and gives part
   assert.equal(scoreHabitats(ids, {}, quizBirds), 0);
 });
 
-void test('twelve-question rounds contain answerable tasks across all nine kinds', () => {
+void test('twelve-question rounds contain answerable tasks across all ten kinds', () => {
   for (let seed = 0; seed < 300; seed++) {
     const round = roundFor(seed);
     assert.equal(round.length, 12);
@@ -129,10 +130,7 @@ void test('twelve-question rounds contain answerable tasks across all nine kinds
     assert.equal(new Set(round.map(quizQuestionKey)).size, 12);
     for (const question of round)
       if ('birdIds' in question)
-        assert.equal(
-          new Set(question.birdIds).size,
-          4,
-        );
+        assert.equal(new Set(question.birdIds).size, 4);
     for (const kind of quizKinds) {
       const count = round.filter((q) => q.kind === kind).length;
       assert(count >= 1 && count <= 2);
@@ -191,6 +189,35 @@ void test('twelve-question rounds contain answerable tasks across all nine kinds
           assert(!namedBirds.includes(question.birdId));
         }
       }
+      if (question.kind === 'range') {
+        assert.equal(question.options.length, 4);
+        assert.equal(new Set(question.options).size, 4);
+        assert.equal(
+          new Set(question.options.map((id) => quizBirds[id].name)).size,
+          4,
+        );
+        assert.equal(question.correct, question.birdId);
+        for (const id of question.options) {
+          const range = quizBirds[id].range;
+          assert(range, id);
+          assert(existsSync(`public${range.url}`), id);
+        }
+        // Four maps, four different places: the answer stays unambiguous.
+        for (const id of question.options)
+          for (const other of question.options)
+            assert(
+              id === other ||
+                !rangesLookAlike(
+                  quizBirds[id].range!.bounds,
+                  quizBirds[other].range!.bounds,
+                ),
+              `${id} and ${other} share a range frame`,
+            );
+        for (const other of round.filter((item) => item !== question)) {
+          const namedBirds = 'birdId' in other ? [other.birdId] : other.birdIds;
+          assert(!namedBirds.includes(question.birdId));
+        }
+      }
       if (question.kind === 'weight-estimate') {
         const bird = quizBirds[question.birdId];
         const scale = weightEstimateScale(bird);
@@ -241,7 +268,9 @@ void test('twelve-question rounds contain answerable tasks across all nine kinds
       if (question.kind === 'compare') {
         assert(question.birdIds.includes(question.correct));
         const winner = quizBirds[question.correct];
-        for (const id of question.birdIds.filter((id) => id !== question.correct)) {
+        for (const id of question.birdIds.filter(
+          (id) => id !== question.correct,
+        )) {
           assert(winner.span[0] > quizBirds[id].span[1]);
         }
       }
@@ -364,6 +393,7 @@ void test('seeded rounds are reproducible, varied, and leave source data unchang
   const correctPositions = new Set<number>();
   const identificationPositions = new Set<number>();
   const callPositions = new Set<number>();
+  const rangePositions = new Set<number>();
   for (let seed = 0; seed < 100; seed++) {
     const round = roundFor(seed);
     sequences.add(round.map((q) => q.kind).join(','));
@@ -374,12 +404,15 @@ void test('seeded rounds are reproducible, varied, and leave source data unchang
         identificationPositions.add(q.options.indexOf(q.correct));
       else if (q.kind === 'call')
         callPositions.add(q.options.indexOf(q.correct));
+      else if (q.kind === 'range')
+        rangePositions.add(q.options.indexOf(q.correct));
   }
   assert(sequences.size > 30);
   assert.equal(species.size, Object.keys(quizBirds).length);
   assert.equal(correctPositions.size, 4);
   assert.equal(identificationPositions.size, 4);
   assert.equal(callPositions.size, 4);
+  assert.equal(rangePositions.size, 4);
   assert.equal(JSON.stringify(quizBirds), original);
 });
 
@@ -426,15 +459,50 @@ void test('food grading gives partial credit without rewarding selecting everyth
 void test('selected round lengths have balanced modes and unique questions', () => {
   for (const count of [5, 8, 12, 16]) {
     for (const seed of [1, 42, 1234]) {
-      const round = createQuizRound(quizBirds, Object.keys(huntingTypes), availableHabitats, { seed, count });
+      const round = createQuizRound(
+        quizBirds,
+        Object.keys(huntingTypes),
+        availableHabitats,
+        { seed, count },
+      );
       assert.equal(round.length, count);
-      assert.equal(new Set(round.map(q => q.id)).size, count);
+      assert.equal(new Set(round.map((q) => q.id)).size, count);
       assert.equal(new Set(round.map(quizQuestionKey)).size, count);
-      const counts = quizKinds.map(kind => round.filter(q => q.kind === kind).length);
+      const counts = quizKinds.map(
+        (kind) => round.filter((q) => q.kind === kind).length,
+      );
       assert(Math.max(...counts) - Math.min(...counts) <= 1);
     }
   }
   for (const count of [0, 17, 2.5, NaN]) {
-    assert.throws(() => createQuizRound(quizBirds, Object.keys(huntingTypes), availableHabitats, { seed: 1, count }), RangeError);
+    assert.throws(
+      () =>
+        createQuizRound(
+          quizBirds,
+          Object.keys(huntingTypes),
+          availableHabitats,
+          { seed: 1, count },
+        ),
+      RangeError,
+    );
   }
+});
+
+void test('range maps count as the same place only when their frames coincide', () => {
+  assert(rangesLookAlike([0, 0, 100, 100], [10, 10, 100, 100]));
+  assert(!rangesLookAlike([0, 0, 100, 100], [200, 0, 100, 100]));
+  // A small range inside a wide one still reads differently on a world map.
+  assert(!rangesLookAlike([0, 0, 400, 400], [10, 10, 80, 80]));
+  assert(
+    rangesLookAlike(
+      quizBirds.habicht.range!.bounds,
+      quizBirds.sperber.range!.bounds,
+    ),
+  );
+  assert(
+    !rangesLookAlike(
+      quizBirds.harpyie.range!.bounds,
+      quizBirds.gerfalke.range!.bounds,
+    ),
+  );
 });

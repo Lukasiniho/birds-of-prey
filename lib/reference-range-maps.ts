@@ -4,6 +4,7 @@ export const referenceRangeMaps: Partial<Record<string, DisplayRangeMapEntry>> =
   {
     habicht: {
       url: '/maps/habicht-reference-19d8f7685823.json',
+      bounds: [438.18, 2.26, 485.09, 262.21],
       label: 'Verbreitung',
       sourceName: 'Nach Alexander Kürthy',
       sourceUrl:
@@ -13,6 +14,7 @@ export const referenceRangeMaps: Partial<Record<string, DisplayRangeMapEntry>> =
     },
     maeusebussard: {
       url: '/maps/maeusebussard-reference-7300e16b188c.json',
+      bounds: [235.5, 34.36, 689.34, 372.61],
       label: 'Verbreitung',
       sourceName: 'Nach Alexander Kürthy',
       sourceUrl:
@@ -22,6 +24,7 @@ export const referenceRangeMaps: Partial<Record<string, DisplayRangeMapEntry>> =
     },
     wanderfalke: {
       url: '/maps/wanderfalke-reference-bccbc1944619.json',
+      bounds: [0, 0, 1000, 540],
       label: 'Verbreitung',
       sourceName: 'Nach MPF',
       sourceUrl:
@@ -31,6 +34,7 @@ export const referenceRangeMaps: Partial<Record<string, DisplayRangeMapEntry>> =
     },
     turmfalke: {
       url: '/maps/turmfalke-reference-d3c888c0424e.json',
+      bounds: [379.91, 31.99, 532.99, 288.1],
       label: 'Verbreitung',
       sourceName: 'Nach Alexander Kürthy',
       sourceUrl:
@@ -40,6 +44,7 @@ export const referenceRangeMaps: Partial<Record<string, DisplayRangeMapEntry>> =
     },
     steinadler: {
       url: '/maps/steinadler-reference-38699ac9d9a9.json',
+      bounds: [21.91, 0, 939.57, 507.88],
       label: 'Verbreitung',
       sourceName: 'Nach Alexander Kürthy',
       sourceUrl:
@@ -49,6 +54,7 @@ export const referenceRangeMaps: Partial<Record<string, DisplayRangeMapEntry>> =
     },
     seeadler: {
       url: '/maps/seeadler-reference-5876789ae15f.json',
+      bounds: [339.82, 0, 609.41, 329.41],
       label: 'Verbreitung',
       sourceName: 'Nach Alexander Kürthy',
       sourceUrl:
@@ -58,6 +64,7 @@ export const referenceRangeMaps: Partial<Record<string, DisplayRangeMapEntry>> =
     },
     fischadler: {
       url: '/maps/fischadler-reference-49bf1f300a55.json',
+      bounds: [79.52, 0, 888.56, 480.3],
       label: 'Verbreitung',
       sourceName: 'Nach Zoologist und chris',
       sourceUrl:
@@ -68,6 +75,7 @@ export const referenceRangeMaps: Partial<Record<string, DisplayRangeMapEntry>> =
     },
     kaiseradler: {
       url: '/maps/kaiseradler-reference-51642391279b.json',
+      bounds: [473.48, 67.41, 427.21, 230.93],
       label: 'Verbreitung',
       sourceName: 'Nach Alexander Kürthy',
       sourceUrl:
@@ -77,6 +85,7 @@ export const referenceRangeMaps: Partial<Record<string, DisplayRangeMapEntry>> =
     },
     wespenbussard: {
       url: '/maps/wespenbussard-reference-4ad83c397435.json',
+      bounds: [239.25, 36.44, 687.21, 371.47],
       label: 'Verbreitung',
       sourceName: 'Nach Alexander Kürthy',
       sourceUrl:
@@ -86,6 +95,7 @@ export const referenceRangeMaps: Partial<Record<string, DisplayRangeMapEntry>> =
     },
     bartgeier: {
       url: '/maps/bartgeier-reference-f50ed991e535.json',
+      bounds: [347.02, 85.92, 565.41, 305.63],
       label: 'Verbreitung',
       sourceName: 'Nach Alexander Kürthy',
       sourceUrl:
@@ -95,6 +105,7 @@ export const referenceRangeMaps: Partial<Record<string, DisplayRangeMapEntry>> =
     },
     uhu: {
       url: '/maps/uhu-reference-b519f3b972e9.json',
+      bounds: [442.27, 4.38, 461.77, 249.61],
       label: 'Verbreitung',
       sourceName: 'Nach Alexander Kürthy',
       sourceUrl: 'https://commons.wikimedia.org/wiki/File:BuboBuboIUCN.svg',
@@ -103,6 +114,7 @@ export const referenceRangeMaps: Partial<Record<string, DisplayRangeMapEntry>> =
     },
     schwarzmilan: {
       url: '/maps/schwarzmilan-reference-423bee8ebf50.json',
+      bounds: [269.04, 27.57, 730.96, 395.11],
       label: 'Verbreitung',
       sourceName: 'Nach Alexander Kürthy',
       sourceUrl:
@@ -113,6 +125,7 @@ export const referenceRangeMaps: Partial<Record<string, DisplayRangeMapEntry>> =
     },
     rotmilan: {
       url: '/maps/rotmilan-reference-ea8d18e69927.json',
+      bounds: [410.72, 55.62, 260, 140.54],
       label: 'Verbreitung',
       sourceName: 'Nach Ulrich prokop',
       sourceUrl:
@@ -122,6 +135,7 @@ export const referenceRangeMaps: Partial<Record<string, DisplayRangeMapEntry>> =
     },
     gerfalke: {
       url: '/maps/gerfalke-reference-ea614d2bf0f9.json',
+      bounds: [48.68, 0, 909.43, 491.58],
       label: 'Verbreitung',
       sourceName: 'Nach Scops',
       sourceUrl:
@@ -131,6 +145,7 @@ export const referenceRangeMaps: Partial<Record<string, DisplayRangeMapEntry>> =
     },
     sakerfalke: {
       url: '/maps/sakerfalke-reference-1256da7abe92.json',
+      bounds: [417.9, 67.41, 428.92, 231.85],
       label: 'Verbreitung',
       sourceName: 'Nach Alexander Kürthy',
       sourceUrl:
@@ -140,6 +155,7 @@ export const referenceRangeMaps: Partial<Record<string, DisplayRangeMapEntry>> =
     },
     lannerfalke: {
       url: '/maps/lannerfalke-reference-4b2ecee0decf.json',
+      bounds: [273.57, 107.58, 544.2, 294.16],
       label: 'Verbreitung',
       sourceName: 'Nach Alexander Kürthy',
       sourceUrl:
@@ -149,6 +165,7 @@ export const referenceRangeMaps: Partial<Record<string, DisplayRangeMapEntry>> =
     },
     baumfalke: {
       url: '/maps/baumfalke-reference-0c3a78bc8468.json',
+      bounds: [319.54, 37.75, 680.46, 367.82],
       label: 'Verbreitung',
       sourceName: 'Nach Alexander Kürthy',
       sourceUrl:
@@ -158,6 +175,7 @@ export const referenceRangeMaps: Partial<Record<string, DisplayRangeMapEntry>> =
     },
     weissstorch: {
       url: '/maps/weissstorch-reference-2b53d2121e52.json',
+      bounds: [268.17, 59.03, 641.47, 346.74],
       label: 'Verbreitung',
       sourceName: 'Nach Shyamal',
       sourceUrl: 'https://commons.wikimedia.org/wiki/File:WhiteStorkMap.svg',
@@ -166,6 +184,7 @@ export const referenceRangeMaps: Partial<Record<string, DisplayRangeMapEntry>> =
     },
     sperber: {
       url: '/maps/sperber-reference-1fa5bb07a35e.json',
+      bounds: [406.81, 34.61, 511.71, 276.6],
       label: 'Verbreitung',
       sourceName: 'Nach Alexander Kürthy',
       sourceUrl:
@@ -175,6 +194,7 @@ export const referenceRangeMaps: Partial<Record<string, DisplayRangeMapEntry>> =
     },
     wuestenbussard: {
       url: '/maps/wuestenbussard-reference-049edd3c8c69.json',
+      bounds: [43.49, 138.67, 519.91, 281.03],
       label: 'Verbreitung',
       sourceName: 'Nach Izvora',
       sourceUrl:
@@ -184,6 +204,7 @@ export const referenceRangeMaps: Partial<Record<string, DisplayRangeMapEntry>> =
     },
     steppenadler: {
       url: '/maps/steppenadler-reference-be7083ceebee.json',
+      bounds: [399.44, 80.21, 555.45, 300.24],
       label: 'Verbreitung',
       sourceName: 'Nach Alexander Kürthy',
       sourceUrl: 'https://commons.wikimedia.org/wiki/File:AquilaNipalensis.png',
@@ -192,6 +213,7 @@ export const referenceRangeMaps: Partial<Record<string, DisplayRangeMapEntry>> =
     },
     sekretaer: {
       url: '/maps/sekretaer-reference-77b30633ff0e.json',
+      bounds: [366.32, 198.67, 359.48, 194.31],
       label: 'Verbreitung',
       sourceName: 'Nach Aa77zz',
       sourceUrl:
@@ -201,6 +223,7 @@ export const referenceRangeMaps: Partial<Record<string, DisplayRangeMapEntry>> =
     },
     andenkondor: {
       url: '/maps/andenkondor-reference-3a7d3100f206.json',
+      bounds: [92.31, 218.41, 448.13, 242.23],
       label: 'Verbreitung',
       sourceName: "Nach Hey jude, don't let me down",
       sourceUrl: 'https://commons.wikimedia.org/wiki/File:AndeanMap.png',
@@ -209,6 +232,7 @@ export const referenceRangeMaps: Partial<Record<string, DisplayRangeMapEntry>> =
     },
     kronenadler: {
       url: '/maps/kronenadler-reference-5394a25567b1.json',
+      bounds: [357.6, 202.57, 351.32, 189.9],
       label: 'Verbreitung',
       sourceName: 'Nach Jonathan Hornung',
       sourceUrl:
@@ -218,6 +242,7 @@ export const referenceRangeMaps: Partial<Record<string, DisplayRangeMapEntry>> =
     },
     riesenseeadler: {
       url: '/maps/riesenseeadler-reference-bf2b34e2d2af.json',
+      bounds: [714.26, 47.38, 260, 140.54],
       label: 'Verbreitung',
       sourceName: 'Nach Ulrich Prokop (Scops)',
       sourceUrl:
@@ -228,6 +253,7 @@ export const referenceRangeMaps: Partial<Record<string, DisplayRangeMapEntry>> =
     },
     gaukler: {
       url: '/maps/gaukler-reference-38c3202f75d9.json',
+      bounds: [375.16, 198.6, 329.74, 178.24],
       label: 'Verbreitung',
       sourceName: 'Nach Jonathan Hornung',
       sourceUrl:
@@ -237,6 +263,7 @@ export const referenceRangeMaps: Partial<Record<string, DisplayRangeMapEntry>> =
     },
     aguja: {
       url: '/maps/aguja-reference-0894d8553d66.json',
+      bounds: [121.43, 222.23, 439.59, 237.62],
       label: 'Verbreitung',
       sourceName: 'Nach Izvora',
       sourceUrl:
@@ -247,6 +274,7 @@ export const referenceRangeMaps: Partial<Record<string, DisplayRangeMapEntry>> =
     },
     falklandkarakara: {
       url: '/maps/falklandkarakara-reference-d888a1d8e8fa.json',
+      bounds: [307.84, 414.91, 80, 43.24],
       label: 'Verbreitung',
       sourceName: 'Nach Cephas',
       sourceUrl:
@@ -256,6 +284,7 @@ export const referenceRangeMaps: Partial<Record<string, DisplayRangeMapEntry>> =
     },
     schopfkarakara: {
       url: '/maps/schopfkarakara-reference-1455396483fa.json',
+      bounds: [6.35, 145.27, 594.16, 321.17],
       label: 'Verbreitung',
       sourceName: 'Nach MPF',
       sourceUrl: 'https://commons.wikimedia.org/wiki/File:Caracara_map.png',
@@ -265,6 +294,7 @@ export const referenceRangeMaps: Partial<Record<string, DisplayRangeMapEntry>> =
     },
     harpyie: {
       url: '/maps/harpyie-reference-79808ad72880.json',
+      bounds: [150.91, 188.28, 344.75, 186.35],
       label: 'Verbreitung',
       sourceName: 'Nach Ninjatacoshell; Cocoloi (Vorlage)',
       sourceUrl:
@@ -275,6 +305,7 @@ export const referenceRangeMaps: Partial<Record<string, DisplayRangeMapEntry>> =
     },
     kampfadler: {
       url: '/maps/kampfadler-reference-4bb8e4f64049.json',
+      bounds: [366.24, 200.11, 357.34, 193.16],
       label: 'Verbreitung',
       sourceName: 'Nach Helmy oved',
       sourceUrl:
@@ -284,6 +315,7 @@ export const referenceRangeMaps: Partial<Record<string, DisplayRangeMapEntry>> =
     },
     virginiauhu: {
       url: '/maps/virginiauhu-reference-d26851ff38d6.json',
+      bounds: [0, 32.3, 702.27, 379.6],
       label: 'Verbreitung',
       sourceName: 'Nach Manedwolf; Achim Raschka (Vorlage)',
       sourceUrl:
@@ -294,6 +326,7 @@ export const referenceRangeMaps: Partial<Record<string, DisplayRangeMapEntry>> =
     },
     habichtsadler: {
       url: '/maps/habichtsadler-reference-09340962b994.json',
+      bounds: [428.68, 93.44, 447.82, 242.06],
       label: 'Verbreitung',
       sourceName: 'Nach R. Altenkamp (Accipiter), Berlin',
       sourceUrl:
@@ -304,6 +337,7 @@ export const referenceRangeMaps: Partial<Record<string, DisplayRangeMapEntry>> =
     },
     zwergadler: {
       url: '/maps/zwergadler-reference-a183312f3920.json',
+      bounds: [306.19, 65.3, 629.33, 340.18],
       label: 'Verbreitung',
       sourceName: 'Nach Alexander Kürthy',
       sourceUrl:
@@ -314,6 +348,7 @@ export const referenceRangeMaps: Partial<Record<string, DisplayRangeMapEntry>> =
     },
     klippenadler: {
       url: '/maps/klippenadler-reference-a94f92ce98d9.json',
+      bounds: [291.22, 126.29, 520.15, 281.16],
       label: 'Verbreitung',
       sourceName: 'Nach Scops',
       sourceUrl:
@@ -324,6 +359,7 @@ export const referenceRangeMaps: Partial<Record<string, DisplayRangeMapEntry>> =
     },
     iberienadler: {
       url: '/maps/iberienadler-reference-ebdccedadab5.json',
+      bounds: [452.38, 124.6, 80, 43.24],
       label: 'Verbreitung',
       sourceName: 'Nach Erfil; überarbeitet von Fobos92',
       sourceUrl:

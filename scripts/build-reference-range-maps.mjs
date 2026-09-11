@@ -26,13 +26,15 @@ const reviewed = await Promise.all(
 );
 const manifest = {};
 for (const { source, geometry } of reviewed) {
-  const body = JSON.stringify(projectRange(geometry, source.focusBounds));
+  const range = projectRange(geometry, source.focusBounds);
+  const body = JSON.stringify(range);
   const hash = createHash('sha256').update(body).digest('hex').slice(0, 12);
   const filename = `${source.id}-reference-${hash}.json`;
   await mkdir(path.join(root, 'public/maps'), { recursive: true });
   await writeFile(path.join(root, 'public/maps', filename), body);
   manifest[source.id] = {
     url: `/maps/${filename}`,
+    bounds: range.viewBox,
     label: 'Verbreitung',
     sourceName: `Nach ${source.author}`,
     sourceUrl: source.sourceUrl,

@@ -2,6 +2,7 @@
 export const rangeBasemapUrl = '/maps/world-6061b211e8c5.json';
 export type RangeMapEntry = {
   url: string;
+  bounds: [number, number, number, number];
   taxonId: number;
   scientificName: string;
   modelVersion: string;
@@ -14,6 +15,7 @@ export type RangeMapEntry = {
 export const rangeMaps: Partial<Record<string, RangeMapEntry>> = {
   rotschwanzbussard: {
     url: '/maps/rotschwanzbussard-97bc9e4d397f.json',
+    bounds: [42.77, 33.28, 451.07, 243.82],
     taxonId: 5212,
     scientificName: 'Buteo jamaicensis',
     modelVersion: '2.33',
@@ -27,6 +29,7 @@ export const rangeMaps: Partial<Record<string, RangeMapEntry>> = {
   },
   weisskopfseeadler: {
     url: '/maps/weisskopfseeadler-d7f3ca237692.json',
+    bounds: [2.17, 0, 995.67, 538.2],
     taxonId: 5305,
     scientificName: 'Haliaeetus leucocephalus',
     modelVersion: '2.33',
@@ -39,6 +42,7 @@ export const rangeMaps: Partial<Record<string, RangeMapEntry>> = {
   },
   koenigsbussard: {
     url: '/maps/koenigsbussard-12d3d08056d0.json',
+    bounds: [101.96, 86.39, 260, 140.54],
     taxonId: 5181,
     scientificName: 'Buteo regalis',
     modelVersion: '2.33',

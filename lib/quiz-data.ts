@@ -6,6 +6,7 @@ import { preyFraming } from './prey-framing.ts';
 import { speciesLandscapes } from './habitats.ts';
 import { quizIdentification } from './quiz-identification.ts';
 import { birdRecordings } from './bird-recordings.ts';
+import { displayRangeMaps } from './range-map-catalog.ts';
 import type { QuizBird } from './quiz-engine.ts';
 
 /** Include species with actual ranges; measurements are stored as [min, max] in cm and grams. */
@@ -32,6 +33,7 @@ export function buildQuizBirds(): Record<string, QuizBird> {
             group: bird.group,
             identification: quizIdentification[bird.id] ?? '',
             recording: birdRecordings[bird.id],
+            range: displayRangeMaps[bird.id],
             image,
             portrait,
             span,

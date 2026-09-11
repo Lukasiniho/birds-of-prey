@@ -12,6 +12,7 @@ export const displayRangeMaps: Partial<Record<string, DisplayRangeMapEntry>> = {
               id,
               {
                 url: entry.url,
+                bounds: entry.bounds,
                 label: 'Geschätztes Vorkommen',
                 sourceName: 'iNaturalist',
                 sourceUrl: entry.datasetUrl,
