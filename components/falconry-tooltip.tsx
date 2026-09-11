@@ -11,8 +11,8 @@ export function FalconryTooltip({ bird }: { bird: FalconryBird }) {
       value="Beizvogel"
       describe="Beizvogel: Einsatz in der Falknerei erklären"
     >
-      <p className="m-0 font-semibold">{bird.subtitle}</p>
-      <p className="mt-1 mb-0 font-normal leading-normal">{bird.text}</p>
+      <p className="app-tooltip-title">{bird.subtitle}</p>
+      <p className="m-0 font-normal leading-normal">{bird.text}</p>
     </FactTooltip>
   );
 }

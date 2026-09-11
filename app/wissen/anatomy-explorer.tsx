@@ -234,9 +234,7 @@ export default function AnatomyExplorer({
                 </TooltipTrigger>
                 <TooltipContent variant="detail" sideOffset={8}>
                   <span>
-                    <strong className="mb-2 block font-semibold">
-                      {part.name}
-                    </strong>
+                    <strong className="app-tooltip-title">{part.name}</strong>
                     <span>{part.text}</span>
                   </span>
                 </TooltipContent>

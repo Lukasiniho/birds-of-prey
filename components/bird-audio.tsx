@@ -153,7 +153,7 @@ export function BirdAudioCredit({
         Quelle & Lizenz
       </PopoverTrigger>
       <PopoverContent side="top" className="bird-audio-attribution">
-        <strong>
+        <strong className="app-tooltip-title">
           {name} · {recording.label}
         </strong>
         <p>Aufnahme: {recording.author}</p>

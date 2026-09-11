@@ -1,7 +1,9 @@
 /* Shared by swatches, anatomy, conservation and sidebar tooltips.
    Floating UI measures a stationary popup; only its inner surface scales.
    Every tooltip — compact hints and detail cards alike, including the text
-   inside them — uses one size: --type-tooltip (12px, a step under body). */
+   inside them — uses one size: --type-tooltip (12px, a step under body).
+   Its heading is the one exception: .app-tooltip-title steps up one size
+   and goes bold. */
 .app-tooltip[data-slot='tooltip-content'] {
   --tooltip-padding: var(--space-8) var(--space-12);
   position: relative;
@@ -19,8 +21,27 @@
   width: 20rem;
 }
 /* Nested scales and legends inherit the tooltip size instead of shrinking. */
-.app-tooltip[data-slot='tooltip-content'] .app-tooltip-surface :is(p, li, span, div, strong) {
+.app-tooltip[data-slot='tooltip-content']
+  .app-tooltip-surface
+  :is(p, li, span, div, strong):not(.app-tooltip-title) {
   font-size: inherit;
+}
+/* The heading of a tooltip card — one size up, bold, wherever it sits. */
+.app-tooltip[data-slot='tooltip-content']
+  .app-tooltip-surface
+  .app-tooltip-title,
+[data-slot='popover-content'] .app-tooltip-title {
+  font-size: var(--type-tooltip-heading);
+  font-weight: var(--weight-tooltip-heading);
+  line-height: var(--leading-normal);
+}
+/* One gap under every heading in a tooltip; the popover card is a flex
+   column and keeps that spacing in its own gap. */
+.app-tooltip[data-slot='tooltip-content']
+  .app-tooltip-surface
+  .app-tooltip-title {
+  display: block;
+  margin: 0 0 var(--space-8);
 }
 .app-tooltip-surface {
   padding: var(--tooltip-padding);
@@ -96,6 +117,7 @@
   line-height: var(--leading-normal);
   color: var(--foreground);
 }
-[data-slot='popover-content'] :is(p, li, span, div, small, strong, a) {
+[data-slot='popover-content']
+  :is(p, li, span, div, small, strong, a):not(.app-tooltip-title) {
   font-size: inherit;
 }

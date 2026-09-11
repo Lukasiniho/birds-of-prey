@@ -68,8 +68,11 @@ body {
   --type-tab: var(--type-button);
   --type-body: var(--text-sm);
   --type-tag: var(--text-xs);
-  /* All tooltips share one size, a step under body; no per-variant sizes. */
+  /* All tooltips share one size, a step under body; no per-variant sizes.
+   * Only their heading steps up one size and goes bold. */
   --type-tooltip: var(--text-xs);
+  --type-tooltip-heading: var(--text-sm);
+  --weight-tooltip-heading: var(--weight-bold);
   --type-label-heading: var(--text-lg);
   --weight-label-heading: var(--weight-bold);
   --type-detail-heading: var(--text-2xl);

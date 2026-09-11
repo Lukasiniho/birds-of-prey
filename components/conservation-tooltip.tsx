@@ -31,7 +31,7 @@ export function ConservationTooltip({
       value={conservationLabels[code]}
       describe={`${conservationLabels[code]}: IUCN-Einstufung erklären`}
     >
-      <p className="m-0 font-semibold">Gefährdung weltweit</p>
+      <p className="app-tooltip-title">Gefährdung weltweit</p>
       <ol
         className="my-3 grid list-none grid-cols-7 gap-2 p-0"
         aria-label="IUCN-Skala von nicht gefährdet bis ausgestorben"
@@ -68,12 +68,10 @@ export function ConservationTooltip({
         <span>Nicht gefährdet</span>
         <span>Ausgestorben</span>
       </div>
-      <p className="m-0 font-semibold">
+      <p className="app-tooltip-title">
         {code} · {conservationLabels[code]}
       </p>
-      <p className="mt-1 mb-0 font-normal leading-normal">
-        {explanations[code]}
-      </p>
+      <p className="m-0 font-normal leading-normal">{explanations[code]}</p>
     </FactTooltip>
   );
 }

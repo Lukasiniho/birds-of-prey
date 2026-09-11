@@ -56,7 +56,7 @@ export function ActivityTooltip({ fact }: { fact: SpeciesFact }) {
       value={fact.value}
       describe={`${fact.value}: Aktivitätszeit erklären`}
     >
-      <p className="m-0 font-semibold">Aktivitätszeit</p>
+      <p className="app-tooltip-title">Aktivitätszeit</p>
       <svg
         /* Zugeschnitten auf Horizontlinie und Ring — der Bogen ist 5 breit
            und hat runde Enden, der Rahmen lässt ihm die halbe Strichbreite
@@ -116,10 +116,8 @@ export function ActivityTooltip({ fact }: { fact: SpeciesFact }) {
         <span>Sonnenaufgang</span>
         <span>Sonnenuntergang</span>
       </div>
-      <p className="m-0 font-semibold">{fact.value}</p>
-      <p className="mt-1 mb-0 font-normal leading-normal">
-        {explanations[type]}
-      </p>
+      <p className="app-tooltip-title">{fact.value}</p>
+      <p className="m-0 font-normal leading-normal">{explanations[type]}</p>
       {fact.note && (
         <p className="mt-2 mb-0 font-normal leading-normal text-muted-foreground">
           {fact.note}

@@ -33,7 +33,7 @@ export function MovementTooltip({ fact }: { fact: SpeciesFact }) {
       value={fact.value}
       describe={`${fact.value}: Zugverhalten erklären`}
     >
-      <p className="m-0 font-semibold">Zugverhalten</p>
+      <p className="app-tooltip-title">Zugverhalten</p>
       <ol
         className="my-3 grid list-none grid-cols-4 gap-2 p-0"
         aria-label="Skala von Standvogel bis Langstreckenzieher"
@@ -63,10 +63,8 @@ export function MovementTooltip({ fact }: { fact: SpeciesFact }) {
         <span>Standvogel</span>
         <span>Langstreckenzieher</span>
       </div>
-      <p className="m-0 font-semibold">{fact.value}</p>
-      <p className="mt-1 mb-0 font-normal leading-normal">
-        {explanations[type]}
-      </p>
+      <p className="app-tooltip-title">{fact.value}</p>
+      <p className="m-0 font-normal leading-normal">{explanations[type]}</p>
       {fact.note && (
         <p className="mt-2 mb-0 font-normal leading-normal text-muted-foreground">
           {fact.note}
