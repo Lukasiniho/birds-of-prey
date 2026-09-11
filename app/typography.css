@@ -58,9 +58,9 @@ body {
   --tracking-caps: 0.06em;
 
   --type-caption: var(--text-xs);
-  /* The scientific name is the quiet second line: one step under the German
-   * name, and never bold. */
-  --type-scientific: var(--text-sm);
+  /* The scientific name is the second line: a step under the German name in
+   * size and weight, never bold. */
+  --type-scientific: var(--text-base);
   --type-ui: var(--text-sm);
   --type-button: var(--text-base);
   /* Underline tabs share the button size; pill tabs use --type-body. */
@@ -113,8 +113,8 @@ body {
  * surrounding heading and button rules; `body` rather than a page shell,
  * because sheets and popovers render through a portal outside the shell and
  * would otherwise fall back to plain body text.
- * Both names stand in the display serif; the scientific one is the quiet
- * second line: italic, regular weight, one step smaller. */
+ * Both names stand in the display serif; the scientific one is the second
+ * line: italic, a step lighter and a step smaller. */
 body .species-common-name,
 body .species-scientific-name {
   font-family: var(--font-stack-display);
@@ -133,7 +133,7 @@ body .species-common-name {
 body .species-scientific-name {
   display: block;
   font-size: var(--type-scientific);
-  font-weight: var(--weight-regular);
+  font-weight: var(--weight-medium);
   font-style: italic;
   color: var(--muted-foreground);
   margin-top: 2px;

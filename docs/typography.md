@@ -15,7 +15,7 @@ relative rem-Werte; die Browser-Schriftgröße bleibt frei wählbar.
 | --------------------------------------- | -------------------------- | -------- |
 | Quellen und Bildnachweise               | `--type-caption`           | 12 px    |
 | Filter und sonstige UI-Texte            | `--type-ui`                | 14 px    |
-| Wissenschaftlicher Artname              | `--type-scientific`        | 14 px    |
+| Wissenschaftlicher Artname              | `--type-scientific`        | 16 px    |
 | Fließtext und Aufgabenbeschreibungen    | `--type-body`              | 14 px    |
 | Tags                                    | `--type-tag`               | 14 px    |
 | Tooltips (alle Varianten, inkl. Inhalt) | `--type-tooltip`           | 14 px    |
@@ -58,14 +58,14 @@ Alle eigenständigen Namenspaare verwenden `SpeciesName` aus
 `components/species-name.tsx`; einzelne Namen `SpeciesCommonName` oder
 `SpeciesScientificName`. Semantische Elemente sind über `commonAs`,
 `scientificAs` beziehungsweise `as` wählbar. Beide Namen stehen in der
-Display-Serif; der wissenschaftliche ist die leise zweite Zeile: kursiv, nie
-fett, eine Stufe kleiner. Es gibt drei Varianten:
+Display-Serif; der wissenschaftliche ist die zweite Zeile: kursiv, nie fett,
+je eine Stufe kleiner und leichter. Es gibt drei Varianten:
 
 | Variante      | Deutscher Name | Wissenschaftlicher Name             |
 | ------------- | -------------- | ----------------------------------- |
-| `standard`    | 18 px / 700    | 14 px / 400, kursiv                 |
+| `standard`    | 18 px / 700    | 16 px / 500, kursiv                 |
 | `quiz`        | 20–24 px / 700 | 16–18 px, direkt am deutschen Namen |
-| `atlas-title` | 32–48 px / 700 | halb so groß (min. 14 px), 400      |
+| `atlas-title` | 32–48 px / 700 | halb so groß (min. 16 px), 400      |
 
 Die Regeln hängen an `body`, nicht an `.app-shell`: Sheets und Popover rendern
 durch ein Portal außerhalb der Seitenhülle und behalten so ihre Typografie.
