@@ -192,7 +192,7 @@ html {
 }
 .site-navigation a[aria-current='page'] {
   color: var(--foreground);
-  background: var(--selected);
+  background: var(--nav-current);
 }
 
 .mobile-navigation { display: none; }

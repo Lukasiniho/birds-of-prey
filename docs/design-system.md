@@ -68,7 +68,8 @@ Rollen wie der Atlas.
 | `--main-color`               | Akzent; `--primary`, `--ring`, `--selection-border` sind Aliase |
 | `--primary-foreground`       | Text und Icons auf gefüllten Akzentflächen             |
 | `--primary-hover`            | Hover gefüllter Akzentbuttons                          |
-| `--selected`                 | Aktive Navigation, gewählte Zeilen                     |
+| `--selected`                 | Gewählte Zeilen und Kacheln                            |
+| `--nav-current`              | Aktuelle Seite in der Kopfnavigation; dunkel dieselbe Fläche wie der Hover |
 | `--selected-strong`          | Kräftige Auswahl; im Dunkelmodus eine Stufe kräftiger  |
 | `--tag-surface`              | Tags; hell auf die Bühne getönt, damit sie überall tragen |
 | `--tag-surface-hover`        | Tag-Hover                                              |

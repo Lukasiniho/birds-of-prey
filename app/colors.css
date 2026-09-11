@@ -42,6 +42,7 @@
   /* Abgeleitete Rollen: nur über die Tönungsstufen bilden. */
   --selected: color-mix(in srgb, var(--main-color) var(--tint-2), var(--background));
   --selected-strong: color-mix(in srgb, var(--main-color) var(--tint-4), var(--background));
+  --nav-current: var(--selected);
   /* Tags also sit on the stage, the darkest light surface: tinting the page
      ground would leave them invisible there, so they tint the stage. */
   --tag-surface: color-mix(in srgb, var(--main-color) var(--tint-2), var(--stage));
@@ -109,6 +110,9 @@
   /* Dunkle Flächen schlucken die 10-%-Tönung: Auswahl eine Stufe kräftiger. */
   --selected: color-mix(in srgb, var(--main-color) var(--tint-4), var(--background));
   --selected-strong: color-mix(in srgb, var(--main-color) var(--tint-5), var(--background));
+  /* Die aktuelle Seite trägt in der Kopfzeile dieselbe kühle Fläche wie der
+     Hover; die Akzent-Tönung der Auswahl wirkte daneben grün. */
+  --nav-current: var(--hover);
   /* Dark: tags have to beat the lightest surface instead of the darkest. */
   --tag-surface: color-mix(in srgb, var(--main-color) var(--tint-4), var(--surface));
   --tag-surface-hover: color-mix(in srgb, var(--main-color) var(--tint-5), var(--surface));
