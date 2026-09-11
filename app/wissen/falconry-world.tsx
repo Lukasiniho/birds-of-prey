@@ -129,7 +129,6 @@ export default function FalconryWorld({ birds }: { birds: KnowledgeBird[] }) {
                 </li>
               ))}
             </ol>
-            <FalconryMapInfo chapter={chapter} basemap={false} />
           </div>
         ) : (
           <div className="falconry-map">
@@ -224,7 +223,6 @@ export default function FalconryWorld({ birds }: { birds: KnowledgeBird[] }) {
                 )}
               </output>
             )}
-            <FalconryMapInfo chapter={chapter} basemap />
           </div>
         )}
         {view === 'karte' && (
@@ -244,6 +242,7 @@ export default function FalconryWorld({ birds }: { birds: KnowledgeBird[] }) {
             ))}
           </fieldset>
         )}
+        <FalconryMapInfo chapter={chapter} basemap={view === 'karte'} />
       </section>
       <aside className="knowledge-notes" aria-live="polite" aria-atomic="true">
         <div

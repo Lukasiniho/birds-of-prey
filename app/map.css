@@ -161,11 +161,14 @@
   width: 26px;
   height: 26px;
   border-radius: 50%;
-  background: var(--background);
-  color: var(--muted-foreground);
+  /* Built from the map's own materials, so the badge reads as part of it
+     instead of a white sticker on the water. */
+  background: var(--map-land);
+  color: var(--muted-foreground-stage);
 }
 .range-map-source:hover,
 .range-map-source:focus-visible {
+  background: var(--map-border);
   color: var(--foreground);
 }
 .range-map-source-details .range-map-credits {

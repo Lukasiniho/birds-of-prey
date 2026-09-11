@@ -231,6 +231,9 @@
   background: var(--stage);
   min-width: 0;
 }
+.falconry-map-surface {
+  position: relative;
+}
 .knowledge-surface-heading {
   display: flex;
   align-items: center;
@@ -360,10 +363,19 @@
 .falconry-map-pin:hover .falconry-pin-portrait {
   border-color: var(--main-color);
 }
+/* The credit badge sits in the panel's bottom right corner, clear of the
+   map and the region tags. */
+.falconry-map-surface > .range-map-source {
+  left: auto;
+  right: var(--panel-padding);
+  bottom: var(--panel-padding);
+}
 /* Region choices are the shared tag role; only the panel padding is local. */
 .falconry-region-choices {
   margin: 0;
-  padding: 0 var(--panel-padding) var(--panel-padding);
+  /* The right gutter keeps the last tag off the credit badge. */
+  padding: 0 calc(var(--panel-padding) + 34px) var(--panel-padding)
+    var(--panel-padding);
 }
 /* The timeline is the map's second axis: one station per turning point,
    the info popover sits bottom-left exactly as on the map. */
