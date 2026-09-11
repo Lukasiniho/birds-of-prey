@@ -305,8 +305,8 @@
 .falconry-map-pin {
   position: absolute;
   transform: translate(-50%, -50%);
-  width: 48px;
-  height: 48px;
+  width: 56px;
+  height: 56px;
   border-radius: 50%;
   z-index: 1;
 }
@@ -323,8 +323,8 @@
     box-shadow var(--duration-fast) var(--ease-smooth-out);
 }
 .falconry-pin-portrait img {
-  width: 40px;
-  height: 40px;
+  width: 46px;
+  height: 46px;
   object-fit: contain;
 }
 .falconry-pin-label {
@@ -336,7 +336,7 @@
   background: var(--background);
   border-radius: var(--radius-small);
   padding: var(--space-2) var(--space-8);
-  font-size: var(--type-caption);
+  font-size: var(--type-ui);
   color: var(--muted-foreground);
   white-space: nowrap;
   transition: color var(--duration-quick) var(--ease-smooth-out);
@@ -497,12 +497,12 @@
     grid-template-columns: minmax(0, 1fr) 310px;
   }
   .falconry-map-pin {
-    width: 40px;
-    height: 40px;
+    width: 48px;
+    height: 48px;
   }
   .falconry-pin-portrait img {
-    width: 34px;
-    height: 34px;
+    width: 40px;
+    height: 40px;
   }
 }
 @media (max-width: 760px) {
@@ -528,12 +528,12 @@
     grid-template-columns: 88px var(--space-16) minmax(0, 1fr);
   }
   .falconry-map-pin {
-    width: 36px;
-    height: 36px;
+    width: 44px;
+    height: 44px;
   }
   .falconry-pin-portrait img {
-    width: 30px;
-    height: 30px;
+    width: 36px;
+    height: 36px;
   }
 }
 @media (prefers-reduced-motion: reduce) {

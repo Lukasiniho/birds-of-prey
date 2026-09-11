@@ -191,9 +191,9 @@ export default function FalconryWorld({ birds }: { birds: KnowledgeBird[] }) {
                         <ArtImage
                           src={bird.portrait}
                           alt=""
-                          width={52}
-                          height={52}
-                          displayWidth={40}
+                          width={46}
+                          height={46}
+                          displayWidth={46}
                         />
                       </span>
                       <span className="falconry-pin-label">{item.name}</span>
