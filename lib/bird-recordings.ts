@@ -1,4 +1,5 @@
 import sources from '../data/audio/sources.json' with { type: 'json' };
+import peaks from '../data/audio/peaks.json' with { type: 'json' };
 
 export type BirdRecording = {
   url: string;
@@ -9,6 +10,8 @@ export type BirdRecording = {
   licenseUrl: string;
   durationSeconds: number;
   note?: string;
+  /** 48 loudness steps measured from the file; see scripts/build-audio-peaks.mjs. */
+  peaks: number[];
 };
 
 // Local 3–10-second call excerpts. The manifest is the single source for
@@ -25,6 +28,7 @@ export const birdRecordings: Partial<Record<string, BirdRecording>> =
         license: source.license,
         licenseUrl: source.licenseUrl,
         durationSeconds: source.durationSeconds,
+        peaks: (peaks as Record<string, number[]>)[source.birdId] ?? [],
         note: [source.description, source.changes].filter(Boolean).join(' '),
       },
     ]),

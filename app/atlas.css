@@ -1834,7 +1834,9 @@ button.color-dot:not(:disabled) {
 
 /* Measurements and voice share the same label and value alignment. */
 .specimen-measurements.measurements:has(.bird-audio) {
-  grid-template-columns: repeat(2, minmax(0, 1fr)) 88px;
+  /* Ab 981 px trägt die Ruf-Zelle Knopf und Wellenform und nimmt dafür einen
+     Anteil der Leiste; darunter bleibt sie die alte Knopfspalte. */
+  grid-template-columns: repeat(2, minmax(0, 1fr)) minmax(88px, 0.5fr);
   padding-inline: 0;
   align-items: stretch;
   container-type: inline-size;
@@ -1974,6 +1976,54 @@ button.color-dot:not(:disabled) {
   row-gap: var(--space-4);
 }
 
+/* Knopf und Wellenform sind ein Instrument: der Knopf startet den Ruf, die
+   Striche rechts daneben sind dessen gemessene Lautstärke und färben sich,
+   während er läuft. Die Striche teilen sich die Restbreite der Zelle — fest
+   gesetzte Breiten liefen bei schmalen Fenstern aus der Leiste heraus. */
+.specimen-measurements.measurements > div.bird-audio {
+  display: flex;
+  flex-wrap: nowrap;
+  align-items: center;
+  justify-content: center;
+  gap: var(--space-12);
+}
+.bird-audio-wave {
+  display: flex;
+  flex: 1;
+  min-width: 0;
+  align-items: center;
+  justify-content: center;
+  gap: 2px;
+  height: 34px;
+  opacity: 1;
+  transition: opacity var(--duration-quick) var(--ease-out);
+}
+.bird-audio-wave[data-state='loading'] {
+  opacity: 0.55;
+}
+.bird-audio-wave > span {
+  position: relative;
+  /* Mitwachsend, aber gedeckelt: in einer breiten Zelle würden aus den
+     Strichen sonst Balken. */
+  flex: 1;
+  min-width: 0;
+  max-width: 4px;
+  min-height: 3px;
+  border-radius: var(--radius-pill);
+  background: var(--border);
+}
+/* Jeder Strich weiß, wo im Ruf er sitzt; die bereits erklungenen wechseln auf
+   den Akzent. Der Faktor macht aus dem winzigen Abstand zweier Striche eine
+   harte Kante, damit die Füllung Strich für Strich läuft statt zu verlaufen. */
+.bird-audio-wave > span::after {
+  content: '';
+  position: absolute;
+  inset: 0;
+  border-radius: inherit;
+  background: var(--primary);
+  opacity: clamp(0, (var(--wave-played) - var(--wave-at)) * 60, 1);
+  transition: opacity var(--duration-quick) linear;
+}
 .bird-audio .bird-audio-play {
   display: inline-flex;
   gap: 7px;
@@ -2036,6 +2086,16 @@ button.color-dot:not(:disabled) {
 
   .specimen-measurements.measurements:has(.bird-audio) > div {
     padding-inline: 7px;
+  }
+}
+@media (max-width: 980px) {
+  /* Die Wellenform bleibt der breiten Ansicht vorbehalten; darunter teilen sich
+     die drei Zellen eine Zeile und der Ruf behält nur seinen Knopf. */
+  .bird-audio-wave {
+    display: none;
+  }
+  .specimen-measurements.measurements:has(.bird-audio) {
+    grid-template-columns: repeat(2, minmax(0, 1fr)) 88px;
   }
 }
 @media (max-width: 640px) {

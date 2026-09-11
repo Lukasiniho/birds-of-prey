@@ -18,6 +18,7 @@
     "images": "node scripts/optimize-images.mjs && npm run sitemap",
     "sitemap": "node --experimental-strip-types --no-warnings scripts/build-sitemap.mjs",
     "format": "oxfmt",
+    "audio:peaks": "node scripts/build-audio-peaks.mjs",
     "maps:build": "node scripts/build-range-maps.mjs && node scripts/build-reference-range-maps.mjs"
   },
   "dependencies": {

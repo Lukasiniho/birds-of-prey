@@ -9,12 +9,27 @@ import {
 } from '@/components/ui/popover';
 import { birdRecordings } from '@/lib/bird-recordings';
 
+// Gemessen werden 48 Stufen, gezeichnet werden 16. Die Ruf-Zelle lässt der
+// Welle rund 100 px: mit mehr Strichen bleibt jeder unter einem Pixel und die
+// Welle verschwindet. Je drei Stufen behalten ihre lauteste — der Mittelwert
+// würde die kurzen Rufspitzen wegbügeln.
+const BARS = 16;
+function drawnPeaks(peaks: number[]) {
+  const step = Math.ceil(peaks.length / BARS);
+  const bars: number[] = [];
+  for (let i = 0; i < peaks.length; i += step)
+    bars.push(Math.max(...peaks.slice(i, i + step)));
+  return bars;
+}
+
 export function BirdAudio({ birdId, name }: { birdId: string; name: string }) {
   const recording = birdRecordings[birdId];
   const audio = useRef<HTMLAudioElement | null>(null);
   const [state, setState] = useState<'idle' | 'loading' | 'playing' | 'error'>(
     'idle',
   );
+  // Wie weit der Ruf gelaufen ist, 0…1, für die bereits erklungenen Striche.
+  const [played, setPlayed] = useState(0);
   useEffect(() => {
     const player = audio.current;
     return () => {
@@ -30,11 +45,14 @@ export function BirdAudio({ birdId, name }: { birdId: string; name: string }) {
     return () => window.clearTimeout(timeout);
   }, [state]);
   if (!recording) return null;
+  const bars = drawnPeaks(recording.peaks);
   async function toggle() {
     const player = audio.current;
     if (!player) return;
     if (state === 'loading' || !player.paused) {
       player.pause();
+      player.currentTime = 0;
+      setPlayed(0);
       setState('idle');
       return;
     }
@@ -64,13 +82,43 @@ export function BirdAudio({ birdId, name }: { birdId: string; name: string }) {
           <Play />
         )}
       </Button>
+      {bars.length > 0 && (
+        /* Die Striche sind die gemessene Lautstärke dieser Aufnahme; sie
+           färben sich, während der Ruf läuft. Rein grafisch — Beschriftung
+           und Zustand trägt der Knopf daneben. */
+        <div
+          className="bird-audio-wave"
+          data-state={state}
+          aria-hidden="true"
+          style={{ '--wave-played': played } as React.CSSProperties}
+        >
+          {bars.map((peak, index) => (
+            <span
+              key={index}
+              style={
+                {
+                  height: `${peak}%`,
+                  '--wave-at': index / (bars.length - 1),
+                } as React.CSSProperties
+              }
+            />
+          ))}
+        </div>
+      )}
       {/* oxlint-disable-next-line jsx-a11y/media-has-caption -- bird calls carry no speech to caption */}
       <audio
         ref={audio}
         preload="none"
         onPlaying={() => setState('playing')}
+        onTimeUpdate={(event) => {
+          const player = event.currentTarget;
+          setPlayed(player.duration ? player.currentTime / player.duration : 0);
+        }}
         onPause={() => setState('idle')}
-        onEnded={() => setState('idle')}
+        onEnded={() => {
+          setPlayed(0);
+          setState('idle');
+        }}
         onError={() => setState('error')}
       >
         <source

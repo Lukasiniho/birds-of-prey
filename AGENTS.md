@@ -49,3 +49,12 @@
   angepasst werden; Verhalten, Layout und Typografie der Primitiven bleiben erhalten.
 - Größen und semantische Farben über vorhandene Rollen bewahren. Keine
   Stroke-/Fill-Overrides für die gefüllten Phosphor-Pfade verwenden.
+
+## Ruf-Aufnahmen
+
+- Die Wellenform neben dem Ruf-Knopf ist gemessen, nicht erfunden:
+  `npm run audio:peaks` liest die Dateien in `public/audio`, rechnet 48
+  Lautstärkestufen je Aufnahme aus und schreibt `data/audio/peaks.json`. Der
+  Stand ist eingecheckt; der Netlify-Build erzeugt ihn nicht neu.
+- Das Skript decodiert mit `afconvert` und läuft daher auf macOS. Nach jeder
+  neuen oder ersetzten Aufnahme einmal ausführen und das Ergebnis mitcommitten.
