@@ -125,12 +125,6 @@
   color: var(--muted-foreground);
   line-height: var(--leading-relaxed);
 }
-.empty-library .empty-library-reset[data-slot] {
-  height: auto;
-  margin-top: var(--space-8);
-  padding: 0;
-  font-size: var(--type-ui);
-}
 .specimen-panel {
   position: relative;
   display: flex;

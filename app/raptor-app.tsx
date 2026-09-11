@@ -28,7 +28,6 @@ import {
   SheetTrigger,
 } from '@/components/ui/sheet';
 import { SiteHeader } from '@/components/site-header';
-import { Button } from '@/components/ui/button';
 import { Select, SelectValue, SelectItem } from '@/components/ui/select';
 import { Tabs, TabsList, TabsTrigger, TabsContent } from '@/components/ui/tabs';
 import {
@@ -563,13 +562,6 @@ export default function RaptorApp({
             Keine Art gefunden.
           </p>
           <span>Versuche einen anderen Suchbegriff.</span>
-          <Button
-            variant="link"
-            className="empty-library-reset"
-            onClick={() => setQuery('')}
-          >
-            Alle Arten anzeigen
-          </Button>
         </div>
       )}
     </>
