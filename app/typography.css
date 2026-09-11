@@ -136,7 +136,9 @@ body .species-scientific-name {
   font-weight: var(--weight-medium);
   font-style: italic;
   color: var(--muted-foreground);
-  margin-top: 2px;
+  /* The pair reads as one block: the second line sits right under the first,
+   * pulled in by the leading both lines already carry. */
+  margin-top: -0.1em;
 }
 
 /* Preserve the established atlas title hierarchy. */
@@ -161,7 +163,6 @@ body .species-common-name[data-name-variant='quiz'] {
 
 body .species-scientific-name[data-name-variant='quiz'] {
   font-size: var(--type-scientific-quiz);
-  margin-top: 0;
 }
 
 @theme inline {
