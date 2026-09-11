@@ -173,7 +173,7 @@
   border: 0;
   display: grid;
   grid-template-columns: repeat(2, minmax(0, 1fr));
-  gap: var(--space-20);
+  gap: var(--space-16);
 }
 .q-comparison-card {
   position: relative;
@@ -218,7 +218,9 @@
   color: var(--surface);
 }
 .q-comparison-art {
-  height: 245px;
+  /* The art carries no size information, so it only needs to read as a
+     silhouette - short enough that all four cards fit without scrolling. */
+  height: clamp(112px, 12vw, 160px);
   width: 100%;
   display: grid;
   place-items: center;
@@ -233,7 +235,7 @@
   pointer-events: none;
 }
 .q-comparison-range {
-  margin-top: var(--space-12);
+  margin-top: var(--space-8);
   font-size: var(--type-body);
 }
 @media (max-width: 980px) {
