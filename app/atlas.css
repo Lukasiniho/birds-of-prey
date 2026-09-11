@@ -2,7 +2,7 @@
 
 .app-columns[data-slot] {
   display: grid;
-  grid-template-columns: 284px minmax(0, 1fr) 410px;
+  grid-template-columns: 284px minmax(0, 1fr) 390px;
   min-height: calc(100dvh - var(--site-header-height));
   align-items: stretch;
 }
@@ -388,7 +388,7 @@ button.color-dot:not(:disabled) {
 }
 @media (min-width: 1600px) {
   .app-columns[data-slot] {
-    grid-template-columns: 310px minmax(0, 1fr) 440px;
+    grid-template-columns: 310px minmax(0, 1fr) 420px;
   }
   .specimen-heading {
     padding: var(--space-40) 48px 0;
@@ -399,7 +399,7 @@ button.color-dot:not(:disabled) {
 }
 @media (max-width: 1190px) {
   .app-columns[data-slot] {
-    grid-template-columns: 255px minmax(0, 1fr) 360px;
+    grid-template-columns: 255px minmax(0, 1fr) 340px;
   }
   .specimen-heading {
     padding-left: 26px;
