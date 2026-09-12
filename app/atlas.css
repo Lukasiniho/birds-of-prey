@@ -843,7 +843,7 @@ button.color-dot:not(:disabled) {
   align-self: center;
   text-align: center;
   margin: 0 28px 22px;
-  font-size: var(--type-caption);
+  font-size: var(--type-credit);
   line-height: var(--leading-normal);
   color: var(--muted-foreground-stage);
 }
@@ -1836,7 +1836,9 @@ button.color-dot:not(:disabled) {
 
 /* The information tabs stay visible above the scrolling panel; tabs.css owns the look. */
 .info-panel .info-tab-list {
-  margin: var(--panel-padding) var(--panel-padding) 0;
+  /* Die Tabs sitzen fünf Pixel höher als der Rand der Karte sonst vorgibt:
+     die Reihe wirkt darunter sonst tiefer eingerückt als sie ist. */
+  margin: calc(var(--panel-padding) - 5px) var(--panel-padding) 0;
   width: calc(100% - 2 * var(--panel-padding));
   z-index: 3;
   flex-shrink: 0;
@@ -2065,7 +2067,8 @@ button.color-dot:not(:disabled) {
   flex-shrink: 0;
   align-self: stretch;
   margin: 0;
-  padding: var(--space-8) var(--space-12);
+  /* Die Zeile sitzt enger unter der Bühne als ein voller Schritt erlaubt. */
+  padding: calc(var(--space-8) - var(--space-2)) var(--space-12);
   display: flex;
   flex-wrap: wrap;
   align-items: baseline;

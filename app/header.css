@@ -107,7 +107,9 @@ html {
 .topbar.site-header {
   display: grid;
   grid-template-columns: minmax(0, 1fr) auto auto;
-  grid-template-rows: 66px;
+  /* Die Reihe ist die Leiste: eine feste Höhe hier würde beim Kürzen der
+     Leiste stehen bleiben und den Inhalt aus der Mitte schieben. */
+  grid-template-rows: var(--site-header-height);
   align-items: center;
   gap: 0 var(--space-8);
   height: var(--site-header-height);

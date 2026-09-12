@@ -13,7 +13,8 @@ relative rem-Werte; die Browser-Schriftgröße bleibt frei wählbar.
 
 | Rolle                                   | CSS-Variable               | Größe    |
 | --------------------------------------- | -------------------------- | -------- |
-| Quellen und Bildnachweise               | `--type-caption`           | 12 px    |
+| Bildnachweis unter der Bühne            | `--type-credit`            | 11 px    |
+| Quellen und Bildunterschriften          | `--type-caption`           | 12 px    |
 | Filter und sonstige UI-Texte            | `--type-ui`                | 14 px    |
 | Wissenschaftlicher Artname              | `--type-scientific`        | 16 px    |
 | Fließtext und Aufgabenbeschreibungen    | `--type-body`              | 14 px    |
