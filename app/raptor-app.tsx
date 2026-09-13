@@ -224,7 +224,7 @@ function RevealHeading({ name, latin }: { name: string; latin: string }) {
 }
 /* transitions.dev tabs sliding: JS writes the active tab's offset and width
    onto the pill, CSS tweens it. A new group (another species) snaps instead. */
-type ArtLayer = { src: string; alt: string };
+type ArtLayer = { src: string; alt: string; size: string };
 type ArtSlots = { a: ArtLayer; b: ArtLayer | null; active: 'a' | 'b' };
 /* transitions.dev icon swap: both illustrations sit in one grid cell and
    data-state picks the visible one. A new image is decoded first, parked in
@@ -240,6 +240,38 @@ function BirdArt({
   morphId?: string;
 }) {
   const morphConfig = getBirdMorphConfig(bird.id, plumage);
+  const artSize = (
+    {
+      habicht: '97%',
+      sperber: '94%',
+      weissstorch: '93%',
+      kampfadler: '97%',
+      schopfkarakara: '98%',
+      steinadler: '97%',
+      kaiseradler: '103%',
+      steppenadler: '104%',
+      habichtsadler: '87.22%',
+      zwergadler: '88.35%',
+      iberienadler: '85.36%',
+      klippenadler: '85.36%',
+      weisskopfseeadler: '95%',
+      seeadler: '95%',
+      riesenseeadler: '108.16%',
+      fischadler: '92.7%',
+      sekretaer: '90%',
+      andenkondor: '95%',
+      wespenbussard: '92%',
+      kronenadler: '92%',
+      aguja: '95%',
+      schwarzmilan: '90%',
+      rotmilan: '90.78%',
+      maeusebussard: '96.9%',
+      rotschwanzbussard: '114.48%',
+      koenigsbussard: '95%',
+    } as Partial<
+      Record<string, string>
+    >
+  )[bird.id] ?? '100%';
   const morph = getBirdMorphChoice(bird.id, morphId, plumage);
   const appearance = getBirdMorphAppearance(bird.id, morphId, plumage);
   const nextSource = imageSource(
@@ -247,7 +279,7 @@ function BirdArt({
   );
   const nextAlt = `${bird.name} – ${plumagesFor(bird.id).find((p) => p.value === plumage)!.label}${morph ? `, ${morphConfig!.label} ${morph.label}` : ''}`;
   const [slots, setSlots] = useState<ArtSlots>({
-    a: { src: nextSource, alt: nextAlt },
+    a: { src: nextSource, alt: nextAlt, size: artSize },
     b: null,
     active: 'a',
   });
@@ -263,7 +295,10 @@ function BirdArt({
         if (cancelled) return;
         setFailedSource(null);
         const next = slots.active === 'a' ? 'b' : 'a';
-        setSlots((s) => ({ ...s, [next]: { src: nextSource, alt: nextAlt } }));
+        setSlots((s) => ({
+          ...s,
+          [next]: { src: nextSource, alt: nextAlt, size: artSize },
+        }));
         frame = requestAnimationFrame(() => {
           frame = requestAnimationFrame(() => {
             if (!cancelled) setSlots((s) => ({ ...s, active: next }));
@@ -277,7 +312,7 @@ function BirdArt({
       cancelled = true;
       cancelAnimationFrame(frame);
     };
-  }, [nextSource, nextAlt, shown.src, slots.active, retry]);
+  }, [nextSource, nextAlt, artSize, shown.src, slots.active, retry]);
   return (
     <div
       className="bird-art t-icon-swap"
@@ -288,7 +323,13 @@ function BirdArt({
         const layer = slots[slot];
         return (
           layer && (
-            <span className="t-icon" data-icon={slot} key={slot}>
+            <span
+              className="t-icon"
+              data-icon={slot}
+              key={slot}
+              // Keep each bird's approved framing throughout the crossfade.
+              style={{ width: layer.size, height: layer.size, maxHeight: layer.size }}
+            >
               <ArtImage
                 key={layer.src}
                 src={layer.src}
