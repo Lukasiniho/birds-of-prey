@@ -41,7 +41,9 @@
 /* Optical artwork corrections, shared by rail, mobile sheet and inline rows.
  * Compare the cranium, not the crest or the full neck silhouette. */
 .species-row-portrait[src*='/portrait-kronenadler-'],
-.species-row-sprite[data-species='kronenadler'] {
+.species-row-sprite[data-species='kronenadler'],
+.species-row-portrait[src*='/portrait-schwarzmilan-'],
+.species-row-sprite[data-species='schwarzmilan'] {
   transform: scale(1.08);
 }
 .species-row-portrait[src*='/portrait-aguja-'],

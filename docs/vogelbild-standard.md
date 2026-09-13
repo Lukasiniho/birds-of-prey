@@ -43,6 +43,7 @@ Naturalistische, fachlich zutreffende Vogelillustrationen mit vergleichbarem Det
 - Größenabgleich vom 13. September: Der erste Screenshot stammte aus Produktion; für weitere Korrekturen den aktuellen lokalen Stand verwenden. Nach der neuesten Nutzerkorrektur (Screenshot 15:07 Uhr) steht der Zwergadler wieder bei 100 % des ursprünglichen Maßstabs; Aguja bei 110 %, Kronenadler weiterhin bei 108 % (`app/species-row.css`). Die 64-/48-px-Layoutrollen bleiben gleich. Der Gaukler verwendet lokal `portrait-gaukler-20260913-v3.png` mit kürzerem, neu gezeichnetem Halsabschluss. Maßgeblich ist die Kopfgröße ohne Haube und Hals, nicht nur die Alpha-Begrenzung.
 - Referenzköpfe anderer Arten nur für Ausschnitt/Stil verwenden. Die Identität und Anatomie stammen aus dem Bild und passenden fachlichen Referenzen der bearbeiteten Art.
 - Weitere Nutzerkorrektur vom 13. September: Bartgeier-Porträt in den gemeinsamen Artenzeilen auf 112 % vergrößert, ohne den Ausschnitt der Bilddatei zu verändern (`app/species-row.css`).
+- Weitere Nutzerkorrektur vom 13. September: Schwarzmilan-Porträt in den gemeinsamen Artenzeilen um 8 % auf 108 % vergrößert (`app/species-row.css`).
 - Optimierte Porträts werden zentral in 160, 280 und 560 px Breite ausgegeben. Die größere Stufe erhält Details bei Browser-Zoom auf hochauflösenden Displays; die Darstellungsgröße der Artenzeilen bleibt unverändert.
 
 ## Transparenz lokal fertigstellen
