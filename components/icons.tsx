@@ -37,6 +37,7 @@ import { MoonIcon } from '@phosphor-icons/react/dist/ssr/Moon';
 import { PauseIcon } from '@phosphor-icons/react/dist/ssr/Pause';
 import { PlayIcon } from '@phosphor-icons/react/dist/ssr/Play';
 import { PlusIcon } from '@phosphor-icons/react/dist/ssr/Plus';
+import { QuestionMarkIcon } from '@phosphor-icons/react/dist/ssr/QuestionMark';
 import { RulerIcon } from '@phosphor-icons/react/dist/ssr/Ruler';
 import { ScalesIcon } from '@phosphor-icons/react/dist/ssr/Scales';
 import { SidebarSimpleIcon } from '@phosphor-icons/react/dist/ssr/SidebarSimple';
@@ -120,6 +121,8 @@ export const Moon = /*#__PURE__*/ phosphorIcon(MoonIcon, 'duotone');
 export const Pause = /*#__PURE__*/ phosphorIcon(PauseIcon, 'duotone');
 export const Play = /*#__PURE__*/ phosphorIcon(PlayIcon, 'duotone');
 export const Plus = /*#__PURE__*/ phosphorIcon(PlusIcon);
+// Plain question mark: the duotone version adds an unwanted rectangular tile.
+export const QuestionMark = /*#__PURE__*/ phosphorIcon(QuestionMarkIcon);
 export const Ruler = /*#__PURE__*/ phosphorIcon(RulerIcon, 'duotone');
 export const Scales = /*#__PURE__*/ phosphorIcon(ScalesIcon, 'duotone');
 export const SidebarSimple = /*#__PURE__*/ phosphorIcon(SidebarSimpleIcon);

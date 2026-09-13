@@ -11,11 +11,21 @@
   --duration-slow: 400ms; /* panel open, content reveal */
   --duration-very-slow: 500ms; /* emphasis moments, number pop-in */
   /* Easings */
-  --ease-smooth-out: cubic-bezier(0.22, 1, 0.36, 1); /* open, close, slide, resize */
+  --ease-smooth-out: cubic-bezier(
+    0.22,
+    1,
+    0.36,
+    1
+  ); /* open, close, slide, resize */
   --ease-in-out: ease-in-out; /* icon swap, text swap, text reveal */
   --ease-out: ease-out; /* hover colour, tooltip open/close */
   --ease-linear: linear; /* shimmer, spinner */
-  --ease-bounce: cubic-bezier(0.34, 1.36, 0.64, 1); /* the one overshoot curve */
+  --ease-bounce: cubic-bezier(
+    0.34,
+    1.36,
+    0.64,
+    1
+  ); /* the one overshoot curve */
   /* Distances */
   --distance-micro: 4px;
   --distance-small: 6px;
@@ -65,6 +75,15 @@
   --acc-collapse: var(--duration-fast);
   --acc-chevron: var(--duration-fast);
   --acc-ease: var(--ease-smooth-out);
+  /* Card resize (mobile quiz feedback) */
+  --resize-dur: var(--duration-fast);
+  --resize-ease: var(--ease-smooth-out);
+  /* Panel reveal (desktop quiz feedback) */
+  --panel-open-dur: var(--duration-slow);
+  --panel-close-dur: var(--duration-medium);
+  --panel-translate-y: var(--distance-medium);
+  --panel-blur: var(--blur-small);
+  --panel-ease: var(--ease-smooth-out);
   /* Stacked cards (quiz drag preview) */
   --stack-peek: 12px;
   --stack-scale: 0.97;

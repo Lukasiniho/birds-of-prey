@@ -4,6 +4,8 @@ import { existsSync } from 'node:fs';
 import { preyCatalog } from '../lib/diets.ts';
 import { preyFraming } from '../lib/prey-framing.ts';
 import { buildQuizBirds } from '../lib/quiz-data.ts';
+import { birdImage, plumagesFor } from '../lib/birds.ts';
+import { getBirdMorphConfig } from '../lib/morphs.ts';
 import { speciesById, huntingTypes, preyCategoryById } from '../lib/ecology.ts';
 import { habitatImages } from '../lib/habitat-images.ts';
 import {
@@ -122,7 +124,10 @@ void test('habitat grading accepts alternative valid destinations and gives part
   assert.equal(scoreHabitats(ids, {}, quizBirds), 0);
 });
 
-void test('twelve-question rounds contain answerable tasks across all ten kinds', () => {
+void test('twelve-question rounds contain answerable tasks across all eleven kinds', () => {
+  const sexOrders = new Set<string>();
+  const sexSpecies = new Set<string>();
+  const morphSpecies = new Set<string>();
   for (let seed = 0; seed < 300; seed++) {
     const round = roundFor(seed);
     assert.equal(round.length, 12);
@@ -137,7 +142,31 @@ void test('twelve-question rounds contain answerable tasks across all ten kinds'
     }
     for (const question of round) {
       if ('birdId' in question) assert(quizBirds[question.birdId]);
+      if (question.kind === 'sex') {
+        const bird = quizBirds[question.birdId];
+        assert(bird.sexImages);
+        assert.notEqual(question.images[0], question.images[1]);
+        const femaleFirst = question.correct === 'female-first';
+        assert.equal(
+          question.images[0],
+          femaleFirst ? bird.sexImages.female : bird.sexImages.male,
+        );
+        assert.equal(
+          question.images[1],
+          femaleFirst ? bird.sexImages.male : bird.sexImages.female,
+        );
+        assert.deepEqual([...question.options].sort(), [
+          'female-first',
+          'male-first',
+        ]);
+        sexOrders.add(question.correct);
+        sexSpecies.add(bird.id);
+      }
       if (question.kind === 'identify') {
+        const bird = quizBirds[question.birdId];
+        assert(bird.identificationImages.includes(question.appearance));
+        assert(existsSync(`public${question.appearance.image.split('?')[0]}`));
+        if (question.appearance.image !== bird.image) morphSpecies.add(bird.id);
         assert.equal(question.options.length, 4);
         assert.equal(new Set(question.options).size, 4);
         assert.equal(
@@ -300,6 +329,18 @@ void test('twelve-question rounds contain answerable tasks across all ten kinds'
       }
     }
   }
+  assert.equal(sexOrders.size, 2);
+  assert.deepEqual(
+    [...sexSpecies].sort(),
+    Object.values(quizBirds)
+      .filter((bird) => bird.sexImages)
+      .map((bird) => bird.id)
+      .sort(),
+  );
+  assert(
+    morphSpecies.size >= 3,
+    'Identification must actually use morph images from several species',
+  );
   assert.notDeepEqual(
     roundFor(0).map((q) => ('birdId' in q ? q.birdId : q.birdIds)),
     roundFor(1).map((q) => ('birdId' in q ? q.birdId : q.birdIds)),
@@ -380,6 +421,34 @@ void test('every puzzle uses existing bird and landscape images', () => {
   for (const bird of Object.values(quizBirds)) {
     assert(existsSync(`public${bird.image.split('?')[0]}`), bird.id);
     assert(existsSync(`public${bird.portrait.split('?')[0]}`), bird.id);
+    for (const appearance of bird.identificationImages) {
+      assert(existsSync(`public${appearance.image.split('?')[0]}`), bird.id);
+      if (bird.identification) assert(appearance.note, bird.id);
+    }
+    const morphs = getBirdMorphConfig(bird.id, 'male');
+    for (const morph of morphs?.choices ?? []) {
+      const image =
+        morph.images?.male ??
+        (morph.id === morphs?.defaultId ? bird.image : undefined);
+      if (image)
+        assert(
+          bird.identificationImages.some(
+            (appearance) =>
+              appearance.image === image && appearance.note === morph.adultNote,
+          ),
+          `${bird.id}: ${morph.id}`,
+        );
+    }
+    const distinctSexes = plumagesFor(bird.id).some(
+      (stage) => stage.value === 'female',
+    );
+    assert.equal(Boolean(bird.sexImages), distinctSexes, bird.id);
+    if (bird.sexImages) {
+      assert.equal(bird.sexImages.male, birdImage(bird.id, 'male'));
+      assert.equal(bird.sexImages.female, birdImage(bird.id, 'female'));
+      assert(existsSync(`public${bird.sexImages.female.split('?')[0]}`));
+      assert(bird.sexImages.maleNote && bird.sexImages.femaleNote);
+    }
   }
   for (const id of availableHabitats)
     assert(existsSync(`public${habitatImages[id]}`), id);

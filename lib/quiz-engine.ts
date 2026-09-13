@@ -12,6 +12,7 @@ export const quizKinds = [
   'identify',
   'call',
   'range',
+  'sex',
 ] as const;
 export type QuizKind = (typeof quizKinds)[number];
 /** Plates on the prey board - a 2x2 grid the player sees without scrolling. */
@@ -28,6 +29,13 @@ export type QuizBird = {
   latin: string;
   group: string;
   identification: string;
+  identificationImages: { image: string; note: string; label: string }[];
+  sexImages?: {
+    male: string;
+    female: string;
+    maleNote: string;
+    femaleNote: string;
+  };
   recording?: BirdRecording;
   range?: DisplayRangeMapEntry;
   image: string;
@@ -44,7 +52,20 @@ export type QuizBird = {
 type QuizTask =
   | { kind: 'span'; birdId: string }
   | { kind: 'weight-estimate'; birdId: string }
-  | { kind: 'identify'; birdId: string; correct: string; options: string[] }
+  | {
+      kind: 'identify';
+      birdId: string;
+      correct: string;
+      options: string[];
+      appearance: QuizBird['identificationImages'][number];
+    }
+  | {
+      kind: 'sex';
+      birdId: string;
+      images: [string, string];
+      correct: 'female-first' | 'male-first';
+      options: string[];
+    }
   | { kind: 'call'; birdId: string; correct: string; options: string[] }
   | { kind: 'range'; birdId: string; correct: string; options: string[] }
   | {
@@ -316,9 +337,34 @@ export function createQuizRound(
   ))
     counts[kind]++;
   const allBirds = Object.values(birds);
+  // Reserve the small pool with distinct adult sex images before mystery tasks.
+  const sexTasks = allBirds.flatMap(
+    (bird): Extract<QuizTask, { kind: 'sex' }>[] => {
+      if (!bird.sexImages || bird.sexImages.male === bird.sexImages.female)
+        return [];
+      const femaleFirst = random() < 0.5;
+      return [
+        {
+          kind: 'sex',
+          birdId: bird.id,
+          images: femaleFirst
+            ? [bird.sexImages.female, bird.sexImages.male]
+            : [bird.sexImages.male, bird.sexImages.female],
+          correct: femaleFirst ? 'female-first' : 'male-first',
+          options: ['female-first', 'male-first'],
+        },
+      ];
+    },
+  );
+  for (let i = 0; i < counts.sex; i++) add(choose(sexTasks));
   // Keep the mystery bird out of the named illustrations in the other tasks.
   const identificationTasks = allBirds
-    .filter((bird) => !used.has(bird.id) && bird.identification)
+    .filter(
+      (bird) =>
+        !used.has(bird.id) &&
+        bird.identification &&
+        bird.identificationImages.length,
+    )
     .flatMap((bird): Extract<QuizTask, { kind: 'identify' }>[] => {
       const alternatives = shuffled(
         allBirds.filter(
@@ -339,6 +385,10 @@ export function createQuizRound(
         {
           kind: 'identify',
           birdId: bird.id,
+          appearance:
+            bird.identificationImages[
+              Math.floor(random() * bird.identificationImages.length)
+            ],
           correct: bird.id,
           options: shuffled([bird.id, ...wrong], random),
         },

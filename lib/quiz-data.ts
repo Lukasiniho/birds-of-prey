@@ -1,4 +1,12 @@
-import { birds, birdImage, hunts } from './birds.ts';
+import {
+  birds,
+  birdImage,
+  hunts,
+  plumagesFor,
+  plumageNoteFor,
+} from './birds.ts';
+import { birdImages } from './bird-images.ts';
+import { getBirdMorphConfig } from './morphs.ts';
 import { portraitImages } from './portrait-images.ts';
 import { speciesById, preyCategoryById } from './ecology.ts';
 import { preyCatalog } from './diets.ts';
@@ -19,6 +27,35 @@ export function buildQuizBirds(): Record<string, QuizBird> {
       const image = birdImage(bird.id, 'male');
       const portrait = portraitImages[bird.id];
       if (!image || !portrait) return [];
+      const morphs = getBirdMorphConfig(bird.id, 'male');
+      const identificationImages = morphs
+        ? morphs.choices.flatMap((morph) => {
+            const src =
+              morph.images?.male ??
+              (morph.id === morphs.defaultId ? image : undefined);
+            return src
+              ? [
+                  {
+                    image: src,
+                    note: morph.adultNote,
+                    label: `${morphs.label}: ${morph.label}`,
+                  },
+                ]
+              : [];
+          })
+        : [{ image, note: quizIdentification[bird.id] ?? '', label: '' }];
+      const femaleImage = birdImages[`female-${bird.id}`];
+      const sexImages =
+        femaleImage &&
+        femaleImage !== image &&
+        plumagesFor(bird.id).some((stage) => stage.value === 'female')
+          ? {
+              male: image,
+              female: femaleImage,
+              maleNote: plumageNoteFor(bird.id, 'male'),
+              femaleNote: plumageNoteFor(bird.id, 'female'),
+            }
+          : undefined;
       const ecology = speciesById[bird.id]?.ecology;
       const illustratedPrey = Object.keys(preyCatalog).filter(
         (id) => preyFraming[id] || preyCatalog[id].icon,
@@ -32,6 +69,8 @@ export function buildQuizBirds(): Record<string, QuizBird> {
             latin: bird.latin,
             group: bird.group,
             identification: quizIdentification[bird.id] ?? '',
+            identificationImages,
+            sexImages,
             recording: birdRecordings[bird.id],
             range: displayRangeMaps[bird.id],
             image,

@@ -1,13 +1,27 @@
-import type { ReactNode } from 'react';
+'use client';
+
+import { useLayoutEffect, useRef } from 'react';
 import { Check, X } from '@/components/icons';
 import './answer-feedback.css';
 
 type QuizFeedbackProps = {
   points: number;
-  children: ReactNode;
+  text: string;
 };
 
-export function QuizFeedback({ points, children }: QuizFeedbackProps) {
+export function QuizFeedback({ points, text }: QuizFeedbackProps) {
+  const panelRef = useRef<HTMLDivElement>(null);
+  useLayoutEffect(() => {
+    const panel = panelRef.current;
+    if (!panel) return;
+    // Record the closed style before opening the newly mounted feedback.
+    // Each question mounts afresh, so the entrance also replays on review.
+    void panel.offsetHeight;
+    const frame = requestAnimationFrame(() => {
+      panel.dataset.open = 'true';
+    });
+    return () => cancelAnimationFrame(frame);
+  }, []);
   const perfect = points === 100;
   const Icon = perfect ? Check : X;
   const title = perfect
@@ -18,7 +32,9 @@ export function QuizFeedback({ points, children }: QuizFeedbackProps) {
 
   return (
     <div
-      className="q-feedback"
+      ref={panelRef}
+      className="q-feedback t-panel-slide"
+      data-open="false"
       data-perfect={perfect}
       aria-live="polite"
       aria-atomic="true"
@@ -28,7 +44,9 @@ export function QuizFeedback({ points, children }: QuizFeedbackProps) {
       </span>
       <div className="q-feedback-copy">
         <p className="q-feedback-title">{title}</p>
-        <div className="q-feedback-detail">{children}</div>
+        <p className="q-feedback-detail" title={text}>
+          {text}
+        </p>
       </div>
       <span className="q-points-earned">
         +{points}

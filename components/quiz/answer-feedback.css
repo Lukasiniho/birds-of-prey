@@ -34,21 +34,14 @@
   color: var(--foreground);
 }
 .q-feedback-detail {
+  white-space: nowrap;
+  overflow: hidden;
+  text-overflow: ellipsis;
   font-weight: var(--weight-regular);
   margin-top: var(--space-4);
   font-size: var(--type-ui);
   line-height: var(--leading-compact);
   color: var(--foreground);
-}
-.q-feedback-detail p {
-  margin: 0;
-  font: inherit;
-  max-width: 85ch;
-}
-.q-feedback-detail p + p,
-.q-feedback-detail ul + p,
-.q-feedback-detail ol + p {
-  margin-top: var(--space-8);
 }
 .q-points-earned {
   font-size: var(--type-metric);
@@ -61,11 +54,11 @@
 }
 .q-points-earned small {
   display: block;
-  margin-top: var(--space-2);
+  margin-top: 0;
   font-size: var(--type-ui);
   font-weight: var(--weight-regular);
-  line-height: var(--leading-heading);
-  color: var(--muted-foreground);
+  line-height: var(--leading-display);
+  color: inherit;
 }
 @media (max-width: 760px) {
   .q-feedback {
@@ -75,4 +68,33 @@
 
 .q-feedback-detail :is(b, strong) {
   font-weight: inherit;
+}
+
+/* transitions.dev panel reveal; mobile uses the answer bar's card resize. */
+@media (min-width: 761px) {
+  .t-panel-slide {
+    transform: translateY(var(--panel-translate-y));
+    opacity: 0;
+    filter: blur(var(--panel-blur));
+    pointer-events: none;
+    transition:
+      transform var(--panel-close-dur) var(--panel-ease),
+      opacity   var(--panel-close-dur) var(--panel-ease),
+      filter    var(--panel-close-dur) var(--panel-ease);
+    will-change: transform, opacity, filter;
+  }
+  .t-panel-slide[data-open="true"] {
+    transform: translateY(0);
+    opacity: 1;
+    filter: blur(0);
+    pointer-events: auto;
+    transition:
+      transform var(--panel-open-dur) var(--panel-ease),
+      opacity   var(--panel-open-dur) var(--panel-ease),
+      filter    var(--panel-open-dur) var(--panel-ease);
+  }
+}
+
+@media (prefers-reduced-motion: reduce) {
+  .t-panel-slide { transition: none !important; }
 }

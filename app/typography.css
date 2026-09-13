@@ -55,6 +55,8 @@ body {
   --weight-medium: 500;
   --weight-semibold: 600;
   --weight-bold: 700;
+  /* Optical emphasis beyond the display font’s maximum weight of 700. */
+  --display-emphasis-stroke: 0.015em;
   /* Letter-spacing roles: tight for display sizes, caps for uppercase labels. */
   --tracking-tight: -0.02em;
   --tracking-normal: 0;

@@ -110,7 +110,7 @@ export function PreyQuestion({
         </p>
       </div>
       <div className="q-prey-layout">
-        <div className="q-prey-options" aria-label="Nahrung zur Auswahl">
+        <div className="q-prey-options" aria-label="Nahrung zur Auswahl" data-quiz-confirm>
           {question.options.map((id) => {
             const picked = selected.includes(id);
             const correct = question.correct.includes(id);

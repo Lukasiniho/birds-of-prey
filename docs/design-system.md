@@ -259,7 +259,8 @@ Stelle bricht, das Layout anpassen, nicht die Skala.
 ## Bewusste Ausnahmen
 
 - Vogelbilder, Ausschnitte, Kartenkoordinaten und die Anatomie-Bühne behalten
-  ihre fachlich abgestimmte Geometrie; Sortierbilder 175 px, mobil 150 px.
+  ihre fachlich abgestimmte Geometrie; Sortierbilder nutzen eine quadratische
+  Bildfläche bis 280 px Höhe, mobil 128 px (bis 390 px: 108 px).
 - Kreise verwenden 50 %. Slider-/Radiopunkte, Anatomiemarker, Farbringe,
   Tooltip-Pfeile und Score-Grafiken behalten konstruktive Ring- und
   Rahmenstärken.
@@ -289,6 +290,17 @@ ARIA erkennbar.
 
 ## Quiz
 
+Der Starttitel nutzt 700 mit der zentralen optischen Display-Betonung
+`--display-emphasis-stroke`. Das dekorative Fragezeichen ist ein freies
+Phosphor-Regular-Symbol ohne Kreis, Schatten oder Duotone-Hinterlegung.
+Die acht Porträts sind asymmetrisch verteilt; die zwei Hintergrundringe bleiben
+exakte, konzentrische Kreise im Mittelpunkt der quadratischen Bildfläche.
+Eine feine Trennlinie mit je 24 px Abstand trennt Beschreibung und Startbereich.
+„Quiz starten“ ist als hervorgehobener Einstieg 64 px hoch
+(`--control-height-touch` plus `--space-20`), mit `--type-lead`, Gewicht 600
+und 24-px-Pfeil. Er füllt den Platz neben der Fragenzahl; bei Platzmangel
+steht er darunter über die volle Breite.
+
 Alle Aufgaben verwenden `QuizFeedback`: Überschrift `--type-feedback-title`
 (16 px, 700), Erklärungstext 14 px/400 ohne fette Hervorhebungen. Ein
 36-px-Kreis trägt das 24-px-Symbol: `--success` auf `--success-soft` bei
@@ -296,7 +308,38 @@ Volltreffern, `--danger` auf `--danger-soft` sonst. Alle Aufgabentypen nutzen
 `QuizQuestionTitle` (32 px, 700, `--leading-display`), auch mehrzeilig und
 mobil. Aufgabenbereiche haben links, rechts und unten `--panel-padding`; in
 zweispaltigen Aufgaben sitzt die Antwortgruppe am unteren Innenrand. Die
-Fragenzahl steht rechts vom Quiz-Titel.
+Fragenzahl wird auf der Startseite vor dem Start gewählt. Während der Runde
+sind Kopfzeile und Seitentitel ausgeblendet. Der Quizbereich nutzt die volle
+Seitenbreite mit 32 px Außenabstand links und rechts (`--section-gap`).
+Die 24 px hohe Fortschrittszeile sitzt mittig über der Fragebox, mit exakt
+8 px Abstand nach oben zum Seitenrand und nach unten zur Box. Mobil ist die
+Zeile 30 px hoch: links sitzt Abbrechen als Zurück-Pfeil, der Fortschritt
+bleibt mittig. Unten nutzt der rahmenlose Antwortbutton mobil die volle Breite.
+Auf Desktop bleibt die Antwortleiste 80 px hoch, zuzüglich Safe Area.
+Zurück- und Antwortbutton sind dort gleich hoch (48 px). „Zurück“ ist nur
+so breit wie Linkspfeil, Text und Innenabstand; der Antwortbutton bleibt 224 px
+breit. „Zurück“ verwendet die neutrale Rahmenvariante. Die Antwortleiste
+nutzt 16 px Seitenabstand (`--space-16`), damit beide Buttons nahe an den
+äußeren Bildschirmkanten stehen.
+Lebensraumangaben unter den Artnamen verwenden die Fließtextrolle
+(`--type-body`) mit nur 2 px Abstand zum Namen (`--space-2`).
+Die Rückmeldung blendet sich mit transitions.dev-Panel-reveal ein: 400 ms,
+12 px von unten und 2 px auslaufende Unschärfe (`--panel-*`). Sie startet bei
+jeder eingeblendeten Antwort neu; reduzierte Bewegung schaltet den Übergang ab.
+Mobil ist sie vor der Antwort nur so hoch wie ihre Buttons samt Innenabstand;
+es wird kein Rückmeldungsplatz reserviert. Beim Prüfen wächst sie mit dem
+transitions.dev-Card-resize um 64 px nach oben (250 ms, `--ease-smooth-out`),
+beim Weitergehen schrumpft sie. Die Rückmeldung sitzt vertikal mittig zwischen
+der oberen Leistenkante und der Oberkante des Buttons. Dieser gesamte Bereich
+bildet eine Grid-Zeile ohne zusätzliches Padding oder Gap. Der Button bleibt am unteren Rand. Die
+`--resize-*`-Tokens liegen zentral; reduzierte Bewegung deaktiviert den Übergang. Unter dem Statustitel steht
+genau eine kompakte Ergebniszeile (maximal 80 Zeichen, keine Merkmalsabsätze).
+Bei Platzmangel kürzt die Anzeige mit Ellipse, ohne Zeilenumbruch oder Scrollen;
+der vollständige Kurztext bleibt im DOM und als Titel erhalten.
+`npm run test:quiz-feedback` prüft die Texte aller Aufgabentypen. „Punkte“
+steht ohne zusätzlichen Abstand unter der Zahl und übernimmt deren grüne Farbe.
+Der Desktop-Button bleibt vertikal zentriert.
+
 
 ## Artenleiste
 

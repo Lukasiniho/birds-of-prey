@@ -35,6 +35,7 @@ export function WingComparison({
       </div>
       <fieldset
         className="q-comparison-options"
+        data-quiz-confirm
         aria-label="Vogel mit der größten Spannweite wählen"
       >
         {question.birdIds.map((id) => {

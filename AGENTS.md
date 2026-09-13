@@ -15,6 +15,24 @@
 - Die Musterseite `/styleguide` zeigt jede Rolle; neue Elemente dort vergleichen.
 - Browser-Zoom niemals über die Viewport-Einstellungen deaktivieren.
 
+## Quiz-Rückmeldungen
+
+- Unter „Volltreffer!“, „Fast richtig.“ oder „Noch nicht ganz.“ steht in der
+  unteren Antwortleiste höchstens eine Zeile Lösungstext. Nur das knappe
+  Ergebnis nennen; keine langen Gefieder-, Morphen- oder Merkmalsbeschreibungen.
+- Rückmeldungen zentral über `lib/quiz-feedback.ts` formulieren: höchstens
+  80 Zeichen, keine Zeilenumbrüche. Die gemeinsame `QuizFeedback`-Komponente
+  verhindert Umbruch auch auf schmalen Bildschirmen und kürzt nötigenfalls
+  mit Ellipse; der vollständige Kurztext bleibt im DOM und als Titel erhalten.
+- Bei neuen oder geänderten Aufgabentypen `npm run test:quiz-feedback`
+  ausführen. Auf Desktop bleiben Leistenhöhe und Buttonposition unverändert.
+  Mobil wird kein Platz für Rückmeldungen reserviert: Die unten verankerte
+  Leiste wächst beim Prüfen mit dem transitions.dev-Card-resize nach oben und
+  schrumpft beim Weitergehen; der Button bleibt am unteren Rand.
+  `prefers-reduced-motion` deaktiviert die Bewegung.
+- „Punkte“ steht ohne zusätzlichen Abstand direkt unter der Zahl und übernimmt
+  deren grüne Farbe.
+
 ## Artdaten
 
 - Maße in den Artdaten sind Zahlenpaare `[min, max]`: Spannweite in cm (auf 5

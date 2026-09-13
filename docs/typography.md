@@ -52,6 +52,11 @@ Fallback-Schriften stehen ausschließlich in `--font-stack-body` (Inter) und
 `--tracking-normal` (Fließtext und UI) und `--tracking-caps` (Versal-Labels).
 Keine rohen Zahlen im Seiten-CSS.
 
+Die zusätzliche Display-Betonung `--display-emphasis-stroke` (0,015 em)
+verstärkt auf ausdrücklichen Wunsch den Quiz-Starttitel über das maximale
+Schriftgewicht 700 hinaus. Die Kontur hat die Textfarbe und liegt hinter der
+Füllung (`paint-order: stroke fill`); Schriftgröße und Laufweite bleiben gleich.
+
 ## Artnamen als Komponente
 
 Alle eigenständigen Namenspaare verwenden `SpeciesName` aus

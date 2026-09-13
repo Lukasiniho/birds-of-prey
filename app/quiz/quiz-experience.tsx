@@ -31,6 +31,7 @@ import {
   MapPin,
   Minus,
   Plus,
+  QuestionMark,
   ArrowCounterClockwise as RotateCcw,
   Ruler,
   Scales as Scale,
@@ -40,10 +41,13 @@ import { SiteHeader } from '@/components/site-header';
 import { PreyQuestion } from '@/components/quiz/prey-question';
 import { WingComparison } from '@/components/quiz/wing-comparison';
 import { QuizFeedback } from '@/components/quiz/answer-feedback';
+import { quizFeedbackText } from '@/lib/quiz-feedback';
 import { QuizCallInfo, QuizCallPlayer } from '@/components/quiz/call-player';
 import { QuizChoices } from '@/components/quiz/choice-options';
 import { RangeQuestion } from '@/components/quiz/range-question';
+import { SexQuestion } from '@/components/quiz/sex-question';
 import { closestWeightSlot } from '@/lib/quiz-drag';
+import { quizEnterAction } from '@/lib/quiz-keyboard';
 import { Button } from '@/components/ui/button';
 import { Select, SelectValue, SelectItem } from '@/components/ui/select';
 import { Slider } from '@/components/ui/slider';
@@ -77,6 +81,7 @@ type Draft = {
 type Answer = Draft & { points: number };
 const modes = [
   { id: 'identify', label: 'Art erkennen', verb: 'Erkennen', Icon: Eye },
+  { id: 'sex', label: 'Geschlechter', verb: 'Zuordnen', Icon: ArrowLeftRight },
   { id: 'call', label: 'Ruf erkennen', verb: 'Erkennen', Icon: Ear },
   {
     id: 'range',
@@ -254,7 +259,7 @@ function EstimateQuestion({
             ? 'Schätze das Körpergewicht des Vogels.'
             : 'Schätze die Spannweite. Gemessen wird von einer Flügelspitze zur anderen.'}
         </p>
-        <div className="q-answer-controls">
+        <div className="q-answer-controls" data-quiz-confirm>
           <div className="q-estimate">
             <Button
               variant="ghost"
@@ -396,7 +401,11 @@ function MultipleChoiceQuestion({
             <>
               <div className="q-orbit" aria-hidden="true" />
               <BirdArt
-                bird={bird}
+                bird={
+                  isIdentify
+                    ? { ...bird, image: question.appearance.image }
+                    : bird
+                }
                 className="q-flying-bird"
                 alt={
                   showName ? bird.name : 'Greifvogel im Flug – bestimme die Art'
@@ -625,6 +634,7 @@ function WeightQuestion({
       <ol
         ref={boardRef}
         className="q-weight-board"
+        data-quiz-confirm
         aria-label="Vögel vom leichtesten zum schwersten"
         onPointerMove={pointerMove}
         onPointerUp={(event) => {
@@ -668,7 +678,7 @@ function WeightQuestion({
             <BirdArt
               bird={birds[id]}
               className="q-card-bird"
-              displayWidth={175}
+              displayWidth={280}
             />
             <div className="q-card-name">
               <SpeciesName
@@ -824,7 +834,11 @@ function HabitatQuestion({
           </p>
         </div>
       </div>
-      <div className="q-habitat-birds" aria-label="Vögel zum Zuordnen">
+      <div
+        className="q-habitat-birds"
+        aria-label="Vögel zum Zuordnen"
+        data-quiz-confirm
+      >
         {question.birdIds.map((id) => {
           const placement = habitats.find(
             (habitat) => habitat.id === draft.placements[id],
@@ -898,7 +912,12 @@ function HabitatQuestion({
           <Check size={15} /> Alle vier Vögel zugeordnet
         </div>
       )}
-      <div ref={boardRef} className="q-habitat-board" aria-label="Landschaften">
+      <div
+        ref={boardRef}
+        className="q-habitat-board"
+        aria-label="Landschaften"
+        data-quiz-confirm
+      >
         {habitats.map((habitat) => {
           const residents = question.birdIds.filter(
             (id) => draft.placements[id] === habitat.id,
@@ -1006,52 +1025,11 @@ function QuestionFeedback({
   birds: BirdMap;
   huntingTypes: HuntingTypes;
 }) {
-  const bird = 'birdId' in question ? birds[question.birdId] : null;
   return (
-    <QuizFeedback points={answer.points}>
-      {question.kind === 'span' && bird && (
-        <p>Spannweite: {formatSpan(bird)}.</p>
-      )}
-      {question.kind === 'weight-estimate' && bird && (
-        <p>Gewicht: {formatWeight(bird)}.</p>
-      )}
-      {question.kind === 'hunt' && (
-        <p>Richtig: {huntingTypes[question.correct].label}.</p>
-      )}
-      {question.kind === 'identify' && bird && (
-        <p>
-          Richtig: {bird.name}. {bird.identification}
-        </p>
-      )}
-      {question.kind === 'call' && bird && (
-        <p>Das ist der Ruf von {bird.name}.</p>
-      )}
-      {question.kind === 'range' && bird && <p>Richtig: {bird.name}.</p>}
-      {question.kind === 'habitat' && (
-        <p>{answer.points / 25} von 4 Vögeln passend zugeordnet.</p>
-      )}
-      {question.kind === 'prey' && (
-        <p>
-          {answer.food.filter((id) => question.correct.includes(id)).length} von{' '}
-          {question.correct.length} passenden Beutetieren gewählt
-          {answer.food.some((id) => !question.correct.includes(id))
-            ? `; ${answer.food.filter((id) => !question.correct.includes(id)).length} unpassend`
-            : ''}
-          .
-        </p>
-      )}
-      {question.kind === 'compare' && (
-        <p>
-          Größte Spannweite: {birds[question.correct].name} (
-          {formatSpan(birds[question.correct])}).
-        </p>
-      )}
-      {question.kind === 'weight' && (
-        <p>
-          Am leichtesten: {birds[weightOrder(question.birdIds, birds)[0]].name}.
-        </p>
-      )}
-    </QuizFeedback>
+    <QuizFeedback
+      points={answer.points}
+      text={quizFeedbackText(question, answer, birds, huntingTypes)}
+    />
   );
 }
 
@@ -1201,7 +1179,6 @@ export default function QuizExperience({
   const [questions, setQuestions] = useState<QuizQuestion[]>([]);
   const ready = questions.length > 0;
   const [questionCount, setQuestionCount] = useState(8);
-  const initialized = useRef(false);
   const historyKey = 'bird-quiz:last-round:v1';
   const freshRound = useCallback(
     (previous?: QuizHistory, count = questionCount) => {
@@ -1227,29 +1204,10 @@ export default function QuizExperience({
     },
     [birds, huntingTypes, habitats, questionCount],
   );
-  useLayoutEffect(() => {
-    if (initialized.current) return;
-    initialized.current = true;
-    let previous: QuizHistory | undefined;
-    try {
-      const saved = JSON.parse(sessionStorage.getItem(historyKey) ?? 'null');
-      if (
-        Array.isArray(saved?.questionKeys) &&
-        saved.questionKeys.every((key: unknown) => typeof key === 'string') &&
-        Array.isArray(saved?.birdIds) &&
-        saved.birdIds.every((id: unknown) => typeof id === 'string')
-      )
-        previous = saved;
-    } catch {
-      /* Ignore obsolete or unavailable browser history. */
-    }
-    setQuestions(freshRound(previous));
-  }, [freshRound]);
   const [current, setCurrent] = useState(0);
   const [drafts, setDrafts] = useState<Record<string, Draft>>({});
   const [answers, setAnswers] = useState<Record<string, Answer>>({});
   const [showResults, setShowResults] = useState(false);
-  const headingRef = useRef<HTMLHeadingElement>(null);
   const mainRef = useRef<HTMLElement>(null);
   const answerBarRef = useRef<HTMLDivElement>(null);
   useLayoutEffect(() => {
@@ -1277,17 +1235,11 @@ export default function QuizExperience({
       <Select
         value={String(questionCount)}
         items={questionCounts}
-        disabled={completed > 0 && !showResults}
         onValueChange={(value) => {
           if (!value) return;
           const count = Number(value);
           if (count === questionCount) return;
           setQuestionCount(count);
-          if (!showResults) {
-            setQuestions(freshRound(quizHistory(questions), count));
-            setCurrent(0);
-            setDrafts({});
-          }
         }}
       >
         <SelectTrigger aria-labelledby="q-count-label">
@@ -1304,8 +1256,7 @@ export default function QuizExperience({
     </div>
   );
 
-  // The round is empty until the browser has picked it, so the question and
-  // its draft stay optional until the guard below has ruled that out.
+  // The round is created only when the user starts the quiz.
   const question: QuizQuestion | undefined = questions[current];
   const draft = question
     ? (drafts[question.id] ?? initialDraft(question, birds))
@@ -1322,6 +1273,7 @@ export default function QuizExperience({
       : question.kind === 'hunt' ||
           question.kind === 'compare' ||
           question.kind === 'identify' ||
+          question.kind === 'sex' ||
           question.kind === 'call' ||
           question.kind === 'range'
         ? Boolean(draft.choice)
@@ -1340,6 +1292,7 @@ export default function QuizExperience({
           : question.kind === 'hunt' ||
               question.kind === 'compare' ||
               question.kind === 'identify' ||
+              question.kind === 'sex' ||
               question.kind === 'call' ||
               question.kind === 'range'
             ? draft.choice === question.correct
@@ -1387,66 +1340,121 @@ export default function QuizExperience({
   // page body.
   useLayoutEffect(() => {
     function onKeyDown(event: KeyboardEvent) {
-      if (
-        event.key !== 'Enter' ||
-        event.metaKey ||
-        event.ctrlKey ||
-        event.altKey ||
-        event.isComposing ||
-        showResults ||
-        (!answer && !canSubmit)
-      )
-        return;
-      // Anything that answers to Enter on its own keeps it: buttons, links,
-      // typed fields and an open dropdown. The options themselves are radios,
-      // which ignore Enter, so those hand it on.
-      const target = event.target as HTMLElement | null;
-      const interactive = target?.closest(
-        'button, a[href], select, textarea, [contenteditable]:not([contenteditable="false"]), [role="listbox"], [role="dialog"], [role="menu"]',
+      const target = event.target instanceof Element ? event.target : null;
+      // Preserve typing, popovers, navigation and audio controls. Answer controls
+      // share Enter with the primary action, including buttons focused by a click.
+      const nativeContext = target?.closest(
+        'a[href], select, textarea, [contenteditable]:not([contenteditable="false"]), [role="combobox"], [role="listbox"], [role="dialog"], [role="menu"]',
       );
-      const role = interactive?.getAttribute('role');
-      if (
-        (interactive && role !== 'radio' && role !== 'checkbox') ||
+      const button = target?.closest('button, [role="button"]');
+      const answerControl = target?.closest(
+        '[data-quiz-confirm], [role="radio"], [role="checkbox"], [role="slider"]',
+      );
+      const nativeControl = Boolean(
+        nativeContext ||
+        (button && !answerControl) ||
         (target instanceof HTMLInputElement &&
-          !['radio', 'checkbox', 'range'].includes(target.type))
-      )
-        return;
+          !['radio', 'checkbox', 'range'].includes(target.type)),
+      );
+      const action = quizEnterAction(event, {
+        active: Boolean(question) && !showResults,
+        answered: Boolean(answer),
+        canSubmit,
+        nativeControl,
+      });
+      if (!action) return;
       event.preventDefault();
-      if (answer) next();
-      else submit();
+      event.stopPropagation();
+      if (action === 'next') next();
+      else if (action === 'submit') submit();
     }
     // Capture, so an option that swallows the key on its own cannot hide it.
     window.addEventListener('keydown', onKeyDown, true);
     return () => window.removeEventListener('keydown', onKeyDown, true);
   });
 
-  // Static HTML and the first client render must agree. Never show a throwaway
-  // server round before selecting the browser's history-aware round. The
-  // heading row already has its final shape so nothing shifts once it arrives.
+  function startRound() {
+    let previous: QuizHistory | undefined;
+    try {
+      const saved = JSON.parse(sessionStorage.getItem(historyKey) ?? 'null');
+      if (
+        Array.isArray(saved?.questionKeys) &&
+        saved.questionKeys.every((key: unknown) => typeof key === 'string') &&
+        Array.isArray(saved?.birdIds) &&
+        saved.birdIds.every((id: unknown) => typeof id === 'string')
+      )
+        previous = saved;
+    } catch {
+      /* Ignore obsolete or unavailable browser history. */
+    }
+    setQuestions(freshRound(previous));
+    setCurrent(0);
+    setDrafts({});
+    setAnswers({});
+    setShowResults(false);
+    focusScreen('q-question-title');
+  }
+
+  function focusScreen(id: string) {
+    window.scrollTo({ top: 0, behavior: 'instant' });
+    window.requestAnimationFrame(() =>
+      document.getElementById(id)?.focus({ preventScroll: true }),
+    );
+  }
+
   if (!ready || !question || !draft) {
     return (
       <div className="app-shell section-shell quiz-shell">
         <SiteHeader activeSection="quiz" />
-        <main className="q-main page-content" ref={mainRef} aria-busy="true">
-          <div className="q-heading-row">
-            <div className="q-title-controls">
-              <h1 className="page-title">Das Greifvogel-Quiz</h1>
-              {roundSettings}
-            </div>
-            <div className="q-question-progress" aria-hidden="true">
-              <p className="q-progress-label">Frage 1 von {questionCount}</p>
-              <div className="q-step-dots">
-                {Array.from({ length: questionCount }, (_, index) => (
-                  <span
-                    key={index}
-                    aria-current={index === 0 ? 'step' : undefined}
-                  >
-                    <span />
+        <main className="q-main page-content q-start-main" ref={mainRef}>
+          <section
+            className="q-start q-workspace q-split"
+            aria-labelledby="q-start-title"
+          >
+            <div className="q-specimen q-start-stage" aria-hidden="true">
+              <div className="q-start-portraits">
+                {[
+                  'habicht',
+                  'turmfalke',
+                  'bartgeier',
+                  'weisskopfseeadler',
+                  'sekretaer',
+                  'fischadler',
+                  'uhu',
+                  'rotmilan',
+                ].map((id) => (
+                  <span className="q-start-portrait" data-bird={id} key={id}>
+                    <BirdArt
+                      bird={birds[id]}
+                      portrait
+                      alt=""
+                      displayWidth={120}
+                      priority
+                    />
                   </span>
                 ))}
+                <span className="q-start-mystery">
+                  <QuestionMark size={32} />
+                </span>
               </div>
             </div>
-          </div>
+            <div className="q-start-content">
+              <span className="q-task-label">Wie gut kennst du sie?</span>
+              <h1 id="q-start-title" className="page-title" tabIndex={-1}>
+                Das Greifvogel-Quiz
+              </h1>
+              <p>
+                Erkenne Greifvögel an Aussehen und Ruf, schätze ihre Spannweite
+                und entdecke, wie sie leben. Jede Runde mischt neue Aufgaben.
+              </p>
+              <div className="q-start-actions">
+                {roundSettings}
+                <Button className="q-primary" onClick={startRound}>
+                  Quiz starten <ArrowRight size={24} className="size-6" />
+                </Button>
+              </div>
+            </div>
+          </section>
         </main>
       </div>
     );
@@ -1460,15 +1468,18 @@ export default function QuizExperience({
     setDrafts({});
     setAnswers({});
     setShowResults(false);
-    window.scrollTo({ top: 0, behavior: 'instant' });
+    focusScreen('q-question-title');
   }
   const onChange = (value: Draft) =>
     setDrafts((previous) => ({ ...previous, [question.id]: value }));
 
   return (
     <div className="app-shell section-shell quiz-shell">
-      <SiteHeader activeSection="quiz" />
-      <main className="q-main page-content" ref={mainRef}>
+      {showResults && <SiteHeader activeSection="quiz" />}
+      <main
+        className={`q-main page-content${showResults ? '' : ' q-main-active'}`}
+        ref={mainRef}
+      >
         {showResults ? (
           <>
             {roundSettings}
@@ -1482,26 +1493,34 @@ export default function QuizExperience({
           </>
         ) : (
           <>
-            <div className="q-heading-row">
-              <div className="q-title-controls">
-                <h1 className="page-title" ref={headingRef} tabIndex={-1}>
-                  Das Greifvogel-Quiz
-                </h1>
-                {roundSettings}
-              </div>
+            <div className="q-round-navigation">
+              <Button
+                className="q-mobile-exit"
+                variant="ghost"
+                size="icon"
+                aria-label="Quiz beenden und zur Startseite zurückkehren"
+                onClick={() => {
+                  setQuestions([]);
+                  setShowResults(false);
+                  focusScreen('q-start-title');
+                }}
+              >
+                <ArrowLeft size={20} />
+              </Button>
               <div className="q-question-progress">
                 <p
                   className="q-progress-label"
                   aria-live="polite"
                   aria-atomic="true"
                 >
-                  Frage {current + 1} von {questions.length}
+                  <span className="sr-only">Frage </span>
+                  {current + 1} / {questions.length}
                 </p>
                 <nav className="q-step-dots" aria-label="Quiz-Fragen">
                   {questions.map((item, index) => (
                     <button
                       key={item.id}
-                      aria-label={`Frage ${index + 1} von ${questions.length}: ${modes.find((mode) => mode.id === item.kind)!.label}${answers[item.id] ? ', beantwortet' : ''}`}
+                      aria-label={`Frage ${index + 1} von ${questions.length}: ${modes.find((mode) => mode.id === item.kind)?.label ?? 'Aufgabe'}${answers[item.id] ? ', beantwortet' : ''}`}
                       aria-current={current === index ? 'step' : undefined}
                       data-done={Boolean(answers[item.id])}
                       onClick={() => navigate(index)}
@@ -1539,6 +1558,15 @@ export default function QuizExperience({
                       birds={birds}
                     />
                   )}
+                {question.kind === 'sex' && bird && (
+                  <SexQuestion
+                    question={question}
+                    bird={bird}
+                    choice={draft.choice}
+                    answered={Boolean(answer)}
+                    onChange={(choice) => onChange({ ...draft, choice })}
+                  />
+                )}
                 {question.kind === 'range' && bird && (
                   <RangeQuestion
                     question={question}
@@ -1590,35 +1618,54 @@ export default function QuizExperience({
               </div>
             </div>
             <div className="q-answer-bar" ref={answerBarRef}>
-              {answer && (
-                <QuestionFeedback
-                  key={`feedback-${question.id}`}
-                  question={question}
-                  answer={answer}
-                  birds={birds}
-                  huntingTypes={huntingTypes}
-                />
-              )}
-              <Button
-                className="q-primary"
-                disabled={!answer && !canSubmit}
-                onClick={answer ? next : submit}
+              <div
+                className="q-answer-content t-resize"
+                data-open={Boolean(answer)}
               >
-                {answer
-                  ? completed === questions.length
-                    ? 'Ergebnis ansehen'
-                    : 'Nächste Aufgabe'
-                  : question.kind === 'span' ||
-                      question.kind === 'weight-estimate'
-                    ? 'Schätzung prüfen'
-                    : question.kind === 'weight'
-                      ? 'Reihenfolge prüfen'
-                      : question.kind === 'habitat'
-                        ? 'Zuordnung prüfen'
-                        : question.kind === 'prey'
-                          ? 'Auswahl prüfen'
-                          : 'Antwort prüfen'}
-              </Button>
+                <Button
+                  className="q-desktop-exit"
+                  variant="outline"
+                  aria-label="Quiz beenden und zur Startseite zurückkehren"
+                  title="Quiz beenden"
+                  onClick={() => {
+                    setQuestions([]);
+                    setShowResults(false);
+                    focusScreen('q-start-title');
+                  }}
+                >
+                  <ArrowLeft size={18} /> Zurück
+                </Button>
+                {answer && (
+                  <QuestionFeedback
+                    key={`feedback-${question.id}`}
+                    question={question}
+                    answer={answer}
+                    birds={birds}
+                    huntingTypes={huntingTypes}
+                  />
+                )}
+                <Button
+                  className="q-primary"
+                  disabled={!answer && !canSubmit}
+                  data-quiz-confirm
+                  onClick={answer ? next : submit}
+                >
+                  {answer
+                    ? completed === questions.length
+                      ? 'Ergebnis ansehen'
+                      : 'Nächste Aufgabe'
+                    : question.kind === 'span' ||
+                        question.kind === 'weight-estimate'
+                      ? 'Schätzung prüfen'
+                      : question.kind === 'weight'
+                        ? 'Reihenfolge prüfen'
+                        : question.kind === 'habitat' || question.kind === 'sex'
+                          ? 'Zuordnung prüfen'
+                          : question.kind === 'prey'
+                            ? 'Auswahl prüfen'
+                            : 'Antwort prüfen'}
+                </Button>
+              </div>
             </div>
           </>
         )}
