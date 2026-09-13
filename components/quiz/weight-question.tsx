@@ -103,7 +103,7 @@ export function WeightQuestion({
     onChange({ ...draft, order: nextOrder });
     setAnnouncement(`${birds[id].name} auf Platz ${index + 1} von 4.`);
   }
-  function startDrag(event: PointerEvent<HTMLButtonElement>, id: string) {
+  function startDrag(event: PointerEvent<HTMLOListElement>, id: string) {
     const board = boardRef.current;
     if (answered || !board || event.button !== 0 || activeDrag.current) return;
     const cards = [
@@ -182,6 +182,14 @@ export function WeightQuestion({
         className="q-weight-board grid grid-cols-4 to-tablet:grid-cols-2 gap-4 list-none p-0 m-0"
         data-quiz-confirm
         aria-label="Vögel vom leichtesten zum schwersten"
+        onPointerDown={(event) => {
+          const target = event.target as HTMLElement;
+          // Arrow buttons keep their click action; the grip belongs to the card.
+          const button = target.closest('button');
+          if (button && !button.classList.contains('q-drag-handle')) return;
+          const card = target.closest<HTMLElement>('[data-weight-card]');
+          if (card) startDrag(event, card.dataset.weightCard!);
+        }}
         onPointerMove={pointerMove}
         onPointerUp={(event) => {
           pointerMove(event);
@@ -194,7 +202,8 @@ export function WeightQuestion({
           <li
             key={id}
             data-weight-card={id}
-            className="q-card q-weight-card rounded-(--radius-card) bg-surface shadow-(--shadow-none) relative p-4 min-w-0"
+            className="q-card q-weight-card data-[answered=false]:touch-none data-[answered=false]:cursor-grab data-[dragging=true]:cursor-grabbing select-none rounded-(--radius-card) bg-surface shadow-(--shadow-none) relative p-4 min-w-0"
+            data-answered={answered}
             data-dragging={drag?.id === id}
             data-correct={answered && correct[index] === id}
             data-wrong={answered && correct[index] !== id}
@@ -207,7 +216,6 @@ export function WeightQuestion({
                 className="q-drag-handle border-0 -my-[5px] -mr-1 ml-0 bg-transparent disabled:opacity-25 text-muted-foreground grid place-items-center size-[35px]"
                 disabled={answered}
                 aria-label={`${birds[id].name} verschieben. Pfeiltasten ändern den Platz.`}
-                onPointerDown={(event) => startDrag(event, id)}
                 onKeyDown={(event) => {
                   const direction = ['ArrowLeft', 'ArrowUp'].includes(event.key)
                     ? -1
