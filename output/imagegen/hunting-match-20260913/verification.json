@@ -1,0 +1,20 @@
+{
+  "kronenadler": {
+    "alphaDifference": 0,
+    "dimensions": {
+      "format": "raw",
+      "width": 1254,
+      "height": 1254,
+      "channels": 4,
+      "depth": "uchar",
+      "premultiplied": false,
+      "size": 6290064
+    }
+  },
+  "andenkondor": {
+    "changedPixels": 5138,
+    "changedOutsideHead": 0
+  },
+  "images": "passed",
+  "lint": "design passed; pre-existing oxlint failures in carousel.tsx:101 and chart.tsx:155,203,302"
+}
