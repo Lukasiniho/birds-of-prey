@@ -12,7 +12,7 @@
     "build": "vinext build",
     "postbuild": "node scripts/compact-deployment-images.mjs && node scripts/deprioritize-hydration-preloads.mjs",
     "start": "wrangler dev --config dist/server/wrangler.json",
-    "lint": "node scripts/check-design-system.mjs && oxlint",
+    "lint": "node scripts/check-css-budget.mjs && node scripts/check-design-system.mjs && oxlint",
     "test:quiz-feedback": "node --experimental-strip-types --no-warnings --test tests/quiz-feedback.test.ts",
     "lint:design": "node scripts/check-design-system.mjs",
     "fonts": "node scripts/build-fonts.mjs",

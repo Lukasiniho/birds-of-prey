@@ -73,6 +73,9 @@
 @custom-variant to-tablet (@media (max-width: 760px));
 @custom-variant to-phone (@media (max-width: 640px));
 @custom-variant to-small (@media (max-width: 390px));
+/* Stage constraints follow viewport variants, matching the original cascade. */
+@custom-variant stage-compact (@container atlas-stage (max-width: 635px));
+@custom-variant stage-small (@container atlas-stage (max-width: 570px));
 
 @theme inline {
   --spacing-half: var(--space-2);

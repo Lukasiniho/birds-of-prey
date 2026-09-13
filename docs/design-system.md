@@ -4,6 +4,9 @@ Stand: 10. September 2026. Dieses Dokument ist die aktuelle Spezifikation, keine
 Änderungshistorie. Gleiche sichtbare Funktionen bekommen dieselbe Rolle; Rollen
 werden zentral definiert und in Seiten-CSS nur verwendet, nicht neu erfunden.
 `npm run lint` prüft Farben, Schriftgrößen, Radien und Breakpoints.
+Für eigene CSS-Dateien in `app/` und `components/` gilt zusätzlich ein gemeinsames
+Limit von 2.000 Zeilen einschließlich Kommentaren und Leerzeilen. Der Lintlauf
+prüft diese Grenze; ungenutzte UI-Komponenten bleiben erhalten.
 
 ## Dateien und Zuständigkeiten
 
@@ -43,9 +46,12 @@ bestehende Quiz-Ausnahme bei 390 px vorgesehen. Ihre Reihenfolge folgt von
 breit nach schmal, damit die kleinere Ansicht bei Überschneidung gewinnt.
 `from-tablet` (ab 761 px), `from-compact` (ab 981 px) und `from-wide`
 (ab 1600 px) bilden die bestehenden größeren Ansichten ab.
+`stage-compact` und `stage-small` bilden die bisherigen Container-Grenzen der
+Atlas-Bühne bei einschließlich 635 und 570 px ab. Sie folgen den Viewport-Regeln,
+damit die Messleiste weiterhin anhand ihres tatsächlich verfügbaren Platzes reagiert.
 
-Die Bild-/Kartenpanels in Wissen und Falknerei teilen `.explorer-layout` und
-`.explorer-notes`. Nur die Breite der Falknerei-Spalte weicht über die beiden
+Die Bild-/Kartenpanels in Wissen und Falknerei teilen `explorerStyles` aus
+`components/explorer-styles.ts`. Nur die Breite der Falknerei-Spalte weicht über die beiden
 `--explorer-aside*`-Variablen ab. Überschriften und Erklärungstexte verwenden
 `DetailHeading` und `DetailCopy` aus `components/detail-text.tsx`; Schriftrollen
 bleiben damit an einer Stelle. Elementvorgaben für Überschriften und Absatzränder
@@ -63,8 +69,17 @@ Die Auswertung gestaltet ihr Raster und ihre Textrollen direkt an der Komponente
 Porträtpositionen auf der Quiz-Startseite gehören zu den jeweiligen Bilddaten.
 
 `AtlasSection` teilt die Abschnittsabstände und Trennlinien im Infobereich.
-Messwertzellen besitzen ihre Textrollen direkt; `.specimen-measurements` regelt
-das Raster, die optionale Ruf-Spalte und die vorhandenen Container-Abfragen.
+`QuizActionButton` teilt die Maße der Quizaktionen.
+`QuizSplit`, `QuizSpecimen` und `QuizBirdSpace` teilen die Bildaufteilung der
+Erkennungsaufgaben. `QuizPrompt` hält Aufgabenlabel, Titel und Anleitung zusammen;
+Schätzaufgaben reservieren auf Desktop zwei Textzeilen. `QuizAnswerBar` besitzt
+das Raster der Antwortleiste, während die mobile Höhenanimation in Quiz-CSS bleibt.
+`BirdSearch` teilt Suche und Löschaktion zwischen Kopfzeile und Artenauswahl.
+`KnowledgeBirdGroup` bildet die gemeinsamen Artenlisten in Nahrung und Jagdweisen.
+`SpeciesName` hält die Textrollen seiner Varianten direkt an den Namenselementen.
+`MeasurementStrip` regelt das Raster und die optionale Ruf-Spalte; die Zellen
+wählen ihre kompakte Darstellung über `withAudio`. `EcologyTag` teilt die
+Geometrie von Statuslabels, Wissenslinks und Regionsauswahl.
 
 ## Checkliste für neue Seiten und Komponenten
 
@@ -235,8 +250,10 @@ dekorative Elevation.
 
 ## Tabs
 
-Es gibt genau zwei Tab-Rollen, beide in `app/tabs.css`; Seiten-CSS positioniert
-eine Tab-Leiste nur, es gestaltet sie nicht um.
+Es gibt genau zwei Tab-Rollen: `components/tab-styles.ts` teilt ihre Layoutklassen,
+`app/tabs.css` hält Farben, Typografie, Zustände und Bewegung. Die Höhe der
+Linienleiste bleibt dort, damit die Orientierungsregeln der Bibliothek sie nicht
+überschreiben. Seiten-CSS positioniert eine Tab-Leiste nur, es gestaltet sie nicht um.
 
 | Rolle                 | Einsatz                                            | Maße                                        |
 | --------------------- | -------------------------------------------------- | ------------------------------------------- |
@@ -251,7 +268,9 @@ Alter und Morphen verwenden dieselbe Komponente und Scroll-Regel.
 
 Die gleitende Markierung `.t-tabs-pill` wird von `lib/use-sliding-pill.ts`
 gemessen; Listen ohne Pillenelement (reine Button-Gruppen mit `aria-pressed`)
-heben den gedrückten Tab selbst hervor. Bei der Linienrolle ist die Pille der
+heben den gedrückten Tab selbst hervor. Alle Tab-Rollen verwenden `data-active`
+für die Darstellung: Base UI setzt es automatisch, native Schalter ergänzen es
+parallel zu ihrem jeweiligen ARIA-Zustand. Bei der Linienrolle ist die Pille der
 2-px-Unterstrich. Auf schmalen Bildschirmen scrollt die Linienleiste seitlich
 statt umzubrechen. Der Geschlechtsschalter neben dem Gewicht ist die
 icongroße Miniaturform derselben Pille. Die drei Atlas-Informationstabs bleiben

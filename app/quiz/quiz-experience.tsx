@@ -1,4 +1,6 @@
 'use client';
+import { QuizAnswerBar } from '@/components/quiz/answer-bar';
+import { QuizSplit, QuizSpecimen } from '@/components/quiz/question-layout';
 import { cn } from '@/lib/utils';
 import { QuizActionButton } from '@/components/quiz/action-button';
 
@@ -284,14 +286,12 @@ export default function QuizExperience({
           className="q-main max-w-[1360px] mx-auto page-content q-start-main grid place-items-center flex-1"
           ref={mainRef}
         >
-          <section
-            className="q-start w-full q-workspace rounded-(--radius-surface) bg-surface shadow-(--shadow-none) overflow-hidden q-split grid min-h-[500px]"
+          <QuizSplit
+            as="section"
+            className="q-start w-full q-workspace rounded-(--radius-surface) bg-surface shadow-(--shadow-none) overflow-hidden"
             aria-labelledby="q-start-title"
           >
-            <div
-              className="q-specimen to-tablet:py-3 bg-stage flex relative flex-col overflow-hidden q-start-stage"
-              aria-hidden="true"
-            >
+            <QuizSpecimen start aria-hidden="true">
               <div className="q-start-portraits to-tablet:max-w-[240px] relative isolate w-full max-w-[420px] aspect-square">
                 {[
                   { id: 'habicht', width: 30, left: 5, top: 14 },
@@ -330,14 +330,14 @@ export default function QuizExperience({
                   />
                 </span>
               </div>
-            </div>
+            </QuizSpecimen>
             <div className="q-start-content to-tablet:p-panel min-w-0 flex flex-col justify-center p-10">
               <span className="q-task-label to-tablet:mb-3 text-(length:--type-ui) font-(--weight-medium) text-(--main-color) flex items-center gap-2 mb-4">
                 Wie gut kennst du sie?
               </span>
               <h1
                 id="q-start-title"
-                className="page-title font-(family-name:--font-stack-display) text-(length:--type-page-title) font-(--weight-semibold) leading-(--leading-display) tracking-(--tracking-tight) font-(--weight-bold)"
+                className="[-webkit-text-stroke:var(--display-emphasis-stroke)_currentColor] [paint-order:stroke_fill] page-title font-(family-name:--font-stack-display) text-(length:--type-page-title) font-(--weight-semibold) leading-(--leading-display) tracking-(--tracking-tight) font-(--weight-bold)"
                 tabIndex={-1}
               >
                 Das Greifvogel-Quiz
@@ -353,7 +353,7 @@ export default function QuizExperience({
                 </QuizActionButton>
               </div>
             </div>
-          </section>
+          </QuizSplit>
         </main>
       </div>
     );
@@ -391,7 +391,7 @@ export default function QuizExperience({
           <>
             <div className="q-round-navigation to-tablet:grid-cols-[var(--control-height-compact)_minmax(0,1fr)_var(--control-height-compact)] to-tablet:grid to-tablet:gap-2 to-tablet:h-(--control-height-compact) flex items-center justify-center h-6 mb-2">
               <Button
-                className="q-mobile-exit"
+                className="q-mobile-exit hidden to-tablet:inline-flex to-tablet:size-(--control-height-compact) to-tablet:border-0 to-tablet:p-0"
                 variant="ghost"
                 size="icon"
                 aria-label="Quiz beenden und zur Startseite zurückkehren"
@@ -516,54 +516,48 @@ export default function QuizExperience({
                 )}
               </div>
             </div>
-            <div
-              className="q-answer-bar inset-x-0 bottom-0 fixed z-40 w-full"
-              ref={answerBarRef}
-            >
-              <div
-                className="q-answer-content shadow-(--shadow-floating) bg-surface grid grid-rows-1 items-center gap-6 py-3 px-4 t-resize"
-                data-open={Boolean(answer)}
+            <QuizAnswerBar ref={answerBarRef} open={Boolean(answer)}>
+              <QuizActionButton
+                appearance="exit"
+                className="[grid-area:exit]"
+                variant="outline"
+                aria-label="Quiz beenden und zur Startseite zurückkehren"
+                title="Quiz beenden"
+                onClick={exitRound}
               >
-                <QuizActionButton
-                  appearance="exit"
-                  variant="outline"
-                  aria-label="Quiz beenden und zur Startseite zurückkehren"
-                  title="Quiz beenden"
-                  onClick={exitRound}
-                >
-                  <ArrowLeft size={18} /> Zurück
-                </QuizActionButton>
-                {answer && (
-                  <QuestionFeedback
-                    key={`feedback-${question.id}`}
-                    question={question}
-                    answer={answer}
-                    birds={birds}
-                    huntingTypes={huntingTypes}
-                  />
-                )}
-                <QuizActionButton
-                  disabled={!answer && !canSubmit}
-                  data-quiz-confirm
-                  onClick={answer ? next : submit}
-                >
-                  {answer
-                    ? completed === questions.length
-                      ? 'Ergebnis ansehen'
-                      : 'Nächste Aufgabe'
-                    : question.kind === 'span' ||
-                        question.kind === 'weight-estimate'
-                      ? 'Schätzung prüfen'
-                      : question.kind === 'weight'
-                        ? 'Reihenfolge prüfen'
-                        : question.kind === 'habitat' || question.kind === 'sex'
-                          ? 'Zuordnung prüfen'
-                          : question.kind === 'prey'
-                            ? 'Auswahl prüfen'
-                            : 'Antwort prüfen'}
-                </QuizActionButton>
-              </div>
-            </div>
+                <ArrowLeft size={18} /> Zurück
+              </QuizActionButton>
+              {answer && (
+                <QuestionFeedback
+                  key={`feedback-${question.id}`}
+                  question={question}
+                  answer={answer}
+                  birds={birds}
+                  huntingTypes={huntingTypes}
+                />
+              )}
+              <QuizActionButton
+                className="[grid-area:action] self-center w-[224px] ml-auto to-tablet:w-full"
+                disabled={!answer && !canSubmit}
+                data-quiz-confirm
+                onClick={answer ? next : submit}
+              >
+                {answer
+                  ? completed === questions.length
+                    ? 'Ergebnis ansehen'
+                    : 'Nächste Aufgabe'
+                  : question.kind === 'span' ||
+                      question.kind === 'weight-estimate'
+                    ? 'Schätzung prüfen'
+                    : question.kind === 'weight'
+                      ? 'Reihenfolge prüfen'
+                      : question.kind === 'habitat' || question.kind === 'sex'
+                        ? 'Zuordnung prüfen'
+                        : question.kind === 'prey'
+                          ? 'Auswahl prüfen'
+                          : 'Antwort prüfen'}
+              </QuizActionButton>
+            </QuizAnswerBar>
           </>
         )}
       </main>

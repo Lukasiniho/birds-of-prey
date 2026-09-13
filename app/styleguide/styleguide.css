@@ -1,34 +1,5 @@
 /* The styleguide only lays out specimens; every value it shows comes from a
  * shared role. Nothing here may define a colour, size or radius of its own. */
-.sg-heading p {
-  font-size: var(--type-body);
-}
-.sg-section > p {
-  font-size: var(--type-body);
-}
-.sg-grid {
-  grid-template-columns: repeat(auto-fill, minmax(210px, 1fr));
-}
-.sg-swatch {
-  border: var(--border-structure) solid var(--border);
-}
 .sg-chip {
   border: var(--border-structure) solid var(--line-tint);
-}
-.sg-row {
-  grid-template-columns: 220px minmax(0, 1fr);
-  align-items: baseline;
-  border-bottom: var(--border-structure) solid var(--border);
-}
-.sg-row:last-child {
-  border-bottom: 0;
-  padding-bottom: 0;
-}
-.sg-box {
-  border: var(--border-structure) solid var(--border);
-}
-@media (max-width: 760px) {
-  .sg-row {
-    grid-template-columns: minmax(0, 1fr);
-  }
 }

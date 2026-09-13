@@ -10,7 +10,12 @@ export function AppSelectTrigger({
   className,
   ...props
 }: WithStringClass<ComponentProps<typeof SelectTrigger>>) {
-  return <SelectTrigger {...props} className={cn('app-select', className)} />;
+  return (
+    <SelectTrigger
+      {...props}
+      className={cn('app-select w-full h-[37px] to-phone:w-[150px]', className)}
+    />
+  );
 }
 
 export function AppSelectContent({
@@ -24,7 +29,10 @@ export function AppSelectContent({
       alignItemWithTrigger={false}
       data-origin="top-left"
       {...props}
-      className={cn('app-select-options t-dropdown', className)}
+      className={cn(
+        'app-select-options t-dropdown origin-top-left data-[origin=top-right]:origin-top-right data-[origin=top-center]:origin-top data-[origin=bottom-left]:origin-bottom-left data-[origin=bottom-center]:origin-bottom data-[origin=bottom-right]:origin-bottom-right',
+        className,
+      )}
     />
   );
 }

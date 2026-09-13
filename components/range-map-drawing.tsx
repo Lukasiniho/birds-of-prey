@@ -65,7 +65,7 @@ export function MapDrawing({
   name: string;
   label: string;
   world?: boolean;
-  framed?: boolean;
+  framed?: boolean | 'card';
 }) {
   const clip = `land-${useId()}`;
   return (
@@ -73,7 +73,9 @@ export function MapDrawing({
       <svg
         className={cn(
           'range-map-svg block w-full h-auto aspect-[1.85] bg-(--map-water)',
-          framed && 'rounded-lg border-(length:--border-structure)',
+          framed && 'border-(length:--border-structure)',
+          framed &&
+            (framed === 'card' ? 'rounded-(--radius-card)' : 'rounded-lg'),
         )}
         viewBox={(world ? data.base.viewBox : data.range.viewBox).join(' ')}
         // SVG needs an explicit image role to expose its accessible name.

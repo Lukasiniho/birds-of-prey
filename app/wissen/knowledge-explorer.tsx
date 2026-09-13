@@ -1,4 +1,5 @@
 'use client';
+import { tabStyles } from '@/components/tab-styles';
 
 import { useEffect, useSyncExternalStore } from 'react';
 import { SiteHeader } from '@/components/site-header';
@@ -64,20 +65,24 @@ export default function KnowledgeExplorer({
             window.history.replaceState(null, '', `#${next}`);
             window.dispatchEvent(new HashChangeEvent('hashchange'));
           }}
-          className="knowledge-explorer"
+          className="knowledge-explorer gap-6"
         >
           <TabsList
             variant="line"
-            className="t-tabs t-tabs-line knowledge-tabs"
+            className={`${tabStyles.lineRail} knowledge-tabs`}
             aria-label="Wissensbereiche"
             ref={barRef}
           >
-            <span className="t-tabs-pill" aria-hidden="true" ref={pillRef} />
+            <span
+              className={tabStyles.lineIndicator}
+              aria-hidden="true"
+              ref={pillRef}
+            />
             {sections.map(({ id, label }) => (
               <TabsTrigger
                 key={id}
                 value={id}
-                className="t-tab"
+                className={tabStyles.lineTrigger}
                 data-label={label}
               >
                 {label}

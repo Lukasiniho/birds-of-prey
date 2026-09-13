@@ -3,7 +3,7 @@
 /* oxlint-disable next/no-html-link-for-pages -- Use document navigation for the static Netlify export. */
 
 import { TooltipHint } from '@/components/ui/tooltip';
-import { useEffect, useState } from 'react';
+import { useEffect, useState, type ComponentProps } from 'react';
 import { ArtImage } from '@/components/art-image';
 import { portraitImages } from '@/lib/portrait-images';
 
@@ -12,9 +12,7 @@ import {
   InfoDuotone,
   List as Menu,
   Moon,
-  MagnifyingGlass as Search,
   Sun,
-  X,
 } from '@/components/icons';
 import {
   DropdownMenu,
@@ -26,7 +24,7 @@ import {
   DropdownMenuSeparator,
 } from '@/components/ui/dropdown-menu';
 import { Button } from '@/components/ui/button';
-import { Input } from '@/components/ui/input';
+import { BirdSearch } from '@/components/bird-search';
 
 const sections = [
   { id: 'birds', label: 'Vögel', href: '/' },
@@ -42,6 +40,15 @@ const siteLinks = [
   { label: 'Lerntracking-App „Athenify“', href: 'https://athenify.io' },
   { label: 'Fantasy-Projekt „Katamtka“', href: 'https://katamtka.de' },
 ] as const;
+
+function SiteMenuItem(props: ComponentProps<typeof DropdownMenuItem>) {
+  return (
+    <DropdownMenuItem
+      {...props}
+      className="text-(length:--type-ui) font-(--weight-medium) py-2 px-3"
+    />
+  );
+}
 
 export function SiteHeader({
   activeSection,
@@ -101,24 +108,12 @@ export function SiteHeader({
           <span>Greifvogelkompass</span>
         </a>
         {activeSection === 'birds' && onQueryChange && (
-          <div className="search-wrap topbar-search relative flex items-center flex-[0_1_220px] min-w-[140px] w-full m-0 to-tablet:col-span-full to-tablet:row-start-2 to-phone:hidden">
-            <Search size={17} />
-            <Input
-              aria-label="Vogelart suchen"
-              placeholder="Vogelart suchen"
-              value={query}
-              onChange={(event) => onQueryChange(event.target.value)}
-            />
-            {query && (
-              <button
-                className="clear-search text-muted-foreground absolute right-[10px]"
-                aria-label="Suche leeren"
-                onClick={() => onQueryChange('')}
-              >
-                <X size={14} />
-              </button>
-            )}
-          </div>
+          <BirdSearch
+            query={query}
+            onQueryChange={onQueryChange}
+            inHeader
+            className="flex-[0_1_220px] min-w-[140px] w-full m-0 to-tablet:col-span-full to-tablet:row-start-2 to-phone:hidden"
+          />
         )}
       </div>
       <nav
@@ -150,9 +145,12 @@ export function SiteHeader({
           >
             <Menu />
           </DropdownMenuTrigger>
-          <DropdownMenuContent align="end" className="header-menu">
+          <DropdownMenuContent
+            align="end"
+            className="header-menu min-w-[160px] w-max"
+          >
             {sections.map((section) => (
-              <DropdownMenuItem
+              <SiteMenuItem
                 key={section.id}
                 render={
                   // oxlint-disable-next-line jsx-a11y/anchor-has-content, jsx-a11y/control-has-associated-label -- the menu item supplies the link text
@@ -165,7 +163,7 @@ export function SiteHeader({
                 }
               >
                 {section.label}
-              </DropdownMenuItem>
+              </SiteMenuItem>
             ))}
           </DropdownMenuContent>
         </DropdownMenu>
@@ -175,18 +173,27 @@ export function SiteHeader({
           <Button
             variant="ghost"
             size="icon"
-            className="header-action min-w-[38px] theme-toggle"
+            className="header-action size-(--header-control-height) p-0 min-w-[38px] theme-toggle"
             onClick={toggleTheme}
             aria-label={
               dark ? 'Hellmodus aktivieren' : 'Dunkelmodus aktivieren'
             }
           >
-            <span className="t-icon-swap" data-state={dark ? 'b' : 'a'}>
-              <span className="t-icon" data-icon="a">
-                <Moon />
+            <span
+              className="t-icon-swap relative inline-grid"
+              data-state={dark ? 'b' : 'a'}
+            >
+              <span
+                className="t-icon [grid-area:1/1] inline-flex"
+                data-icon="a"
+              >
+                <Moon className="size-[18px]" />
               </span>
-              <span className="t-icon" data-icon="b">
-                <Sun />
+              <span
+                className="t-icon [grid-area:1/1] inline-flex"
+                data-icon="b"
+              >
+                <Sun className="size-[18px]" />
               </span>
             </span>
           </Button>
@@ -198,19 +205,24 @@ export function SiteHeader({
                 <Button
                   variant="ghost"
                   size="icon"
-                  className="header-action min-w-[38px]"
+                  className="header-action size-(--header-control-height) p-0 min-w-[38px]"
                   aria-label="Über diese Seite"
                 />
               }
             >
-              <InfoDuotone />
+              <InfoDuotone className="size-[18px]" />
             </DropdownMenuTrigger>
           </TooltipHint>
-          <DropdownMenuContent align="end" className="header-menu">
+          <DropdownMenuContent
+            align="end"
+            className="header-menu min-w-[160px] w-max"
+          >
             <DropdownMenuGroup>
-              <DropdownMenuLabel>Andere Projekte</DropdownMenuLabel>
+              <DropdownMenuLabel className="pt-2 px-3 pb-1 text-(length:--type-ui) font-(--weight-medium) text-muted-foreground">
+                Andere Projekte
+              </DropdownMenuLabel>
               {siteLinks.map((link) => (
-                <DropdownMenuItem
+                <SiteMenuItem
                   key={link.href}
                   render={
                     // oxlint-disable-next-line jsx-a11y/anchor-has-content, jsx-a11y/control-has-associated-label -- the menu item supplies the link text
@@ -218,12 +230,16 @@ export function SiteHeader({
                   }
                 >
                   {link.label}
-                  <ArrowUpRight size={16} aria-hidden="true" />
-                </DropdownMenuItem>
+                  <ArrowUpRight
+                    size={16}
+                    className="ml-auto text-muted-foreground"
+                    aria-hidden="true"
+                  />
+                </SiteMenuItem>
               ))}
             </DropdownMenuGroup>
             <DropdownMenuSeparator />
-            <DropdownMenuItem
+            <SiteMenuItem
               render={
                 // oxlint-disable-next-line jsx-a11y/anchor-has-content, jsx-a11y/control-has-associated-label -- the menu item supplies the link text
                 <a
@@ -234,8 +250,12 @@ export function SiteHeader({
               }
             >
               Impressum
-              <ArrowUpRight size={16} aria-hidden="true" />
-            </DropdownMenuItem>
+              <ArrowUpRight
+                size={16}
+                className="ml-auto text-muted-foreground"
+                aria-hidden="true"
+              />
+            </SiteMenuItem>
           </DropdownMenuContent>
         </DropdownMenu>
       </div>

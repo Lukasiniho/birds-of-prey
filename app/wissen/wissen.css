@@ -1,5 +1,4 @@
 .anatomy-point {
-  transform: translate(-50%, -50%);
   border-radius: 50%;
   background: transparent;
 }
@@ -37,10 +36,6 @@
 .anatomy-part-list button[aria-pressed='true'] .anatomy-list-dot {
   background: var(--foreground);
 }
-/* Knowledge topics share the established surface, typography and Teal tokens. */
-.knowledge-explorer[data-slot='tabs'] {
-  gap: var(--space-24);
-}
 @keyframes knowledge-swap {
   from {
     opacity: 0;
@@ -53,35 +48,14 @@
     filter: blur(0);
   }
 }
-/* Eyebrows read as caps labels, like the atlas control labels. */
 /* The notes scroll inside the map's height instead of stretching the row. */
 .knowledge-notes-scroll {
   animation: knowledge-swap var(--duration-fast) var(--ease-in-out) both;
   scrollbar-width: thin;
   scrollbar-color: var(--border) transparent;
 }
-.falconry-basemap path {
-  fill: color-mix(in srgb, var(--main-color) var(--tint-3), var(--stage));
-  stroke: color-mix(in srgb, var(--main-color) var(--tint-5), var(--stage));
-  stroke-width: 0.55px;
-}
-.falconry-map-callout {
-  transition: color var(--duration-fast) var(--ease-smooth-out);
-}
-.falconry-map-callout line {
-  stroke: currentColor;
-  stroke-width: 1;
-  opacity: 0.5;
-}
-.falconry-map-callout circle {
-  fill: currentColor;
-}
-.falconry-map-callout[data-selected='true'] {
-  color: var(--main-color);
-}
 /* Map marker dimensions and coordinates are cartographic geometry, not spacing roles. */
 .falconry-map-pin {
-  transform: translate(-50%, -50%);
   border-radius: 50%;
 }
 .falconry-pin-portrait {
@@ -90,14 +64,6 @@
   transition:
     border-color var(--duration-fast) var(--ease-smooth-out),
     box-shadow var(--duration-fast) var(--ease-smooth-out);
-}
-.falconry-pin-label {
-  top: calc(100% + var(--space-4));
-  transform: translateX(-50%);
-  transition: color var(--duration-quick) var(--ease-smooth-out);
-}
-.falconry-map-pin[aria-pressed='true'] {
-  z-index: 2;
 }
 .falconry-map-pin[aria-pressed='true'] .falconry-pin-portrait {
   border-color: var(--main-color);
@@ -111,22 +77,6 @@
 .falconry-map-pin:hover .falconry-pin-portrait {
   border-color: var(--main-color);
 }
-/* The credit badge sits in the panel's bottom right corner, clear of the
-   map and the region tags. */
-.falconry-map-surface > .range-map-source {
-  left: auto;
-  right: var(--panel-padding);
-  bottom: var(--panel-padding);
-}
-/* Region choices are the shared tag role; only the panel padding is local. */
-.falconry-region-choices {
-  margin: 0;
-  /* The right gutter keeps the last tag off the credit badge. */
-  padding: 0 calc(var(--panel-padding) + 34px) var(--panel-padding)
-    var(--panel-padding);
-}
-/* The timeline is the map's second axis: one station per turning point,
-   the info popover sits bottom-left exactly as on the map. */
 .falconry-era,
 .knowledge-tile {
   border: var(--border-selection) solid transparent;
@@ -158,33 +108,7 @@
 .falconry-era:focus-visible {
   outline-offset: -2px;
 }
-/* Marker and rail: the rail runs through every station, the dot sits on it. */
-.falconry-era-marker::before {
-  content: '';
-  position: absolute;
-  left: 50%;
-  top: calc(-1 * var(--space-12));
-  bottom: calc(-1 * var(--space-12));
-  width: 1px;
-  transform: translateX(-50%);
-  background: var(--border);
-}
-.falconry-timeline > li:first-child .falconry-era-marker::before {
-  top: 10px;
-}
-.falconry-timeline > li:last-child .falconry-era-marker::before {
-  bottom: auto;
-  height: calc(10px + var(--space-12));
-}
-.falconry-era-marker::after {
-  content: '';
-  position: absolute;
-  left: 50%;
-  top: 5px;
-  width: 10px;
-  height: 10px;
-  border-radius: 50%;
-  transform: translateX(-50%);
+.falconry-era-dot {
   border: 2px solid var(--muted-foreground);
   background: var(--stage);
   transition:
@@ -192,10 +116,10 @@
     background var(--duration-fast) var(--ease-smooth-out),
     box-shadow var(--duration-fast) var(--ease-smooth-out);
 }
-.falconry-era:hover .falconry-era-marker::after {
+.falconry-era:hover .falconry-era-dot {
   border-color: var(--main-color);
 }
-.falconry-era[aria-pressed='true'] .falconry-era-marker::after {
+.falconry-era[aria-pressed='true'] .falconry-era-dot {
   border-color: var(--main-color);
   background: var(--main-color);
   box-shadow: 0 0 0 4px var(--accent-ring);
@@ -208,9 +132,4 @@
   transition:
     background var(--duration-fast) var(--ease-smooth-out),
     border-color var(--duration-fast) var(--ease-smooth-out);
-}
-/* Hover tints the stage itself so the tile never turns into a white card. */
-/* Technique labels are long; five columns keep them on one line. */
-.knowledge-group .knowledge-bird-list {
-  margin-top: var(--space-8);
 }

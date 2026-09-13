@@ -26,7 +26,7 @@ export function WingComparison({
 }) {
   return (
     <div
-      className="q-comparison-task min-w-0 m-0 border-0 bg-stage"
+      className="q-comparison-task p-panel min-w-0 m-0 border-0 bg-stage"
       data-answered={answered}
     >
       <QuizChoiceHeading

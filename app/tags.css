@@ -1,51 +1,16 @@
 /* Species tags and distribution status pills. */
-
-/* Shared species tags and distribution status. */
-.ecology-tags {
-  margin: 10px 0 14px;
-}
-.ecology-status h3 {
-  font-size: var(--type-ui);
-}
-
-.info-panel .ecology-tags {
-  gap: var(--space-8);
-  margin: 10px 0 var(--space-16);
-}
-.ecology-tags > a,
-.ecology-tags > button,
-.ecology-tags > span {
-  display: inline-flex;
-  align-items: center;
-  min-height: 25px;
-  padding: var(--space-4) var(--space-12);
-  border: 0;
+.ecology-tag {
   border-radius: var(--radius-pill);
-  background: var(--tag-surface);
   color: var(--foreground);
   font-size: var(--type-tag);
-  font-weight: var(--weight-medium);
-  line-height: var(--leading-normal);
-  letter-spacing: var(--tracking-normal);
   text-decoration: none;
 }
-.ecology-tags > a,
-.ecology-tags > button {
-  cursor: pointer;
-  transition: background var(--duration-quick) var(--ease-out);
-}
-.ecology-tags > a:hover,
-.ecology-tags > button:hover {
+.ecology-tag:is(a):hover,
+.ecology-tag:is(button):hover {
   background: var(--tag-surface-hover);
 }
-.ecology-tags > button[aria-pressed='true'],
-.ecology-tags > button[aria-pressed='true']:hover {
+.ecology-tag:is(button)[aria-pressed='true'],
+.ecology-tag:is(button)[aria-pressed='true']:hover {
   background: var(--main-color);
   color: var(--primary-foreground);
-}
-.info-panel .ecology-status .ecology-tags {
-  margin-bottom: 7px;
-}
-.info-panel .hunting-section .hunting-text {
-  margin-top: var(--space-12);
 }

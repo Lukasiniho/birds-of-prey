@@ -1,10 +1,15 @@
 'use client';
+import {
+  QuizSplit,
+  QuizSpecimen,
+  QuizBirdSpace,
+  QuizPrompt,
+} from '@/components/quiz/question-layout';
 
 import { ArtImage } from '@/components/art-image';
 import { ArrowsLeftRight } from '@/components/icons';
 import { SpeciesName } from '@/components/species-name';
 import { QuizChoices } from './choice-options';
-import { QuizQuestionTitle } from './question-title';
 import type { QuizBird, QuizQuestion } from '@/lib/quiz-engine';
 import { QUIZ_FLIGHT_FRAME } from './bird-art';
 
@@ -22,8 +27,8 @@ export function SexQuestion({
   onChange: (choice: string) => void;
 }) {
   return (
-    <div className="q-split grid min-h-[500px] q-hunt-split">
-      <div className="q-specimen to-tablet:py-3 bg-stage flex relative flex-col overflow-hidden q-hunt-specimen">
+    <QuizSplit className="q-hunt-split">
+      <QuizSpecimen className="q-hunt-specimen">
         <div className="q-specimen-label flex flex-col items-start gap-0 relative z-1">
           <SpeciesName
             variant="quiz"
@@ -33,7 +38,7 @@ export function SexQuestion({
             scientificAs="i"
           />
         </div>
-        <div className="q-bird-space to-tablet:min-h-[180px] relative flex-1 grid place-items-center min-h-[280px] q-sex-pair grid-cols-2 gap-3">
+        <QuizBirdSpace className="q-sex-pair grid-cols-2 gap-3">
           {question.images.map((image, index) => {
             const female =
               (question.correct === 'female-first') === (index === 0);
@@ -58,16 +63,17 @@ export function SexQuestion({
               </figure>
             );
           })}
-        </div>
-      </div>
-      <div className="q-question-controls flex flex-col items-stretch">
-        <span className="q-task-label to-tablet:mb-3 text-(length:--type-ui) font-(--weight-medium) text-(--main-color) flex items-center gap-2 mb-4">
-          <ArrowsLeftRight size={17} /> Geschlechter zuordnen
-        </span>
-        <QuizQuestionTitle>Weibchen oder Männchen?</QuizQuestionTitle>
-        <p className="text-(--muted-foreground) leading-(--leading-relaxed)">
-          Vergleiche die beiden Altvögel und ordne die Geschlechter zu.
-        </p>
+        </QuizBirdSpace>
+      </QuizSpecimen>
+      <QuizPrompt
+        label={
+          <>
+            <ArrowsLeftRight size={17} /> Geschlechter zuordnen
+          </>
+        }
+        title="Weibchen oder Männchen?"
+        description="Vergleiche die beiden Altvögel und ordne die Geschlechter zu."
+      >
         <QuizChoices
           options={question.options}
           label={(option) =>
@@ -80,7 +86,7 @@ export function SexQuestion({
           answered={answered}
           onChange={onChange}
         />
-      </div>
-    </div>
+      </QuizPrompt>
+    </QuizSplit>
   );
 }

@@ -1,4 +1,7 @@
 'use client';
+import { explorerStyles } from '@/components/explorer-styles';
+import { EcologyTag } from '@/components/ecology-tag';
+import { cn } from '@/lib/utils';
 
 import { DetailHeading, DetailCopy } from '@/components/detail-text';
 
@@ -86,7 +89,7 @@ export default function FalconryWorld({ birds }: { birds: KnowledgeBird[] }) {
   }, [attempt]);
 
   return (
-    <div className="explorer-layout knowledge-split falconry-world">
+    <div className={cn('knowledge-split falconry-world', explorerStyles.panel)}>
       <section
         className="falconry-map-surface bg-stage min-w-0 relative"
         aria-label={
@@ -116,7 +119,7 @@ export default function FalconryWorld({ birds }: { birds: KnowledgeBird[] }) {
               className="falconry-timeline list-none m-0 p-0 grid"
               aria-label="Stationen wählen"
             >
-              {falconryEras.map((item) => (
+              {falconryEras.map((item, index) => (
                 <li key={item.id}>
                   <button
                     type="button"
@@ -127,9 +130,9 @@ export default function FalconryWorld({ birds }: { birds: KnowledgeBird[] }) {
                     <span className="falconry-era-date text-(length:--type-caption) text-muted-foreground leading-(--leading-normal) pt-half text-right">
                       {item.era}
                     </span>
-                    <span
-                      className="falconry-era-marker relative self-stretch block w-4 min-h-full"
-                      aria-hidden="true"
+                    <FalconryTimelineMarker
+                      first={index === 0}
+                      last={index === falconryEras.length - 1}
                     />
                     <span className="falconry-era-text grid gap-half min-w-0">
                       <span className="falconry-era-name text-(length:--type-ui) font-(--weight-medium) leading-(--leading-normal)">
@@ -158,6 +161,9 @@ export default function FalconryWorld({ birds }: { birds: KnowledgeBird[] }) {
                       <path
                         key={index}
                         d={d}
+                        fill="color-mix(in srgb, var(--main-color) var(--tint-3), var(--stage))"
+                        stroke="color-mix(in srgb, var(--main-color) var(--tint-5), var(--stage))"
+                        strokeWidth="0.55px"
                         fillRule="evenodd"
                         vectorEffect="non-scaling-stroke"
                       />
@@ -169,17 +175,20 @@ export default function FalconryWorld({ birds }: { birds: KnowledgeBird[] }) {
                     return (
                       <g
                         key={item.id}
-                        className="falconry-map-callout text-muted-foreground"
+                        className="falconry-map-callout text-muted-foreground data-[selected=true]:text-(--main-color) transition-[color] duration-(--duration-fast) ease-(--ease-smooth-out)"
                         data-selected={selected === item.id}
                       >
                         <line
+                          stroke="currentColor"
+                          strokeWidth={1}
+                          opacity={0.5}
                           x1={x}
                           y1={y}
                           x2={pinX}
                           y2={pinY}
                           vectorEffect="non-scaling-stroke"
                         />
-                        <circle cx={x} cy={y} r={3} />
+                        <circle fill="currentColor" cx={x} cy={y} r={3} />
                       </g>
                     );
                   })}
@@ -190,7 +199,7 @@ export default function FalconryWorld({ birds }: { birds: KnowledgeBird[] }) {
                   return (
                     <button
                       type="button"
-                      className="falconry-map-pin to-compact:size-[48px] to-tablet:size-[44px] absolute size-[56px] z-1"
+                      className="falconry-map-pin -translate-x-1/2 -translate-y-1/2 aria-pressed:z-2 to-compact:size-[48px] to-tablet:size-[44px] absolute size-[56px] z-1"
                       key={item.id}
                       style={{
                         left: `${((x - mapView[0]) / mapView[2]) * 100}%`,
@@ -210,7 +219,7 @@ export default function FalconryWorld({ birds }: { birds: KnowledgeBird[] }) {
                           displayWidth={46}
                         />
                       </span>
-                      <span className="falconry-pin-label bg-background rounded-(--radius-small) text-(length:--type-ui) text-muted-foreground pointer-events-none absolute left-[50%] py-half px-2 whitespace-nowrap">
+                      <span className="falconry-pin-label transition-[color] duration-(--duration-quick) ease-(--ease-smooth-out) top-[calc(100%+var(--space-4))] -translate-x-1/2 bg-background rounded-(--radius-small) text-(length:--type-ui) text-muted-foreground pointer-events-none absolute left-[50%] py-half px-2 whitespace-nowrap">
                         {item.name}
                       </span>
                     </button>
@@ -244,25 +253,29 @@ export default function FalconryWorld({ birds }: { birds: KnowledgeBird[] }) {
         )}
         {view === 'karte' && (
           <fieldset
-            className="ecology-tags flex flex-wrap gap-2 falconry-region-choices"
+            className="ecology-tags flex flex-wrap gap-2 falconry-region-choices m-0 pt-0 pr-[calc(var(--panel-padding)+34px)] pb-panel pl-panel"
             aria-label="Falknereiregion wählen"
           >
             {falconryRegions.map((item) => (
-              <button
+              <EcologyTag
+                as="button"
                 type="button"
                 key={item.id}
                 aria-pressed={selected === item.id}
                 onClick={() => setSelected(item.id)}
               >
                 {item.name}
-              </button>
+              </EcologyTag>
             ))}
           </fieldset>
         )}
         <FalconryMapInfo chapter={chapter} basemap={view === 'karte'} />
       </section>
       <aside
-        className="explorer-notes knowledge-notes bg-(--atlas-info-surface) relative min-w-0"
+        className={cn(
+          'knowledge-notes bg-(--atlas-info-surface) relative min-w-0',
+          explorerStyles.notes,
+        )}
         aria-live="polite"
         aria-atomic="true"
       >
@@ -313,7 +326,7 @@ function FalconryMapInfo({
     <Popover>
       <TooltipHint content={label}>
         <PopoverTrigger
-          className="range-map-source absolute left-[8px] bottom-[8px] grid place-items-center size-[26px]"
+          className="range-map-source absolute right-panel bottom-panel grid place-items-center size-[26px]"
           aria-label={label}
         >
           <Info size={14} aria-hidden="true" />
@@ -362,5 +375,29 @@ function FalconryMapInfo({
         </div>
       </PopoverContent>
     </Popover>
+  );
+}
+
+function FalconryTimelineMarker({
+  first,
+  last,
+}: {
+  first: boolean;
+  last: boolean;
+}) {
+  return (
+    <span
+      className="falconry-era-marker relative self-stretch block w-4 min-h-full"
+      aria-hidden="true"
+    >
+      <span
+        className={cn(
+          'absolute left-1/2 w-px -translate-x-1/2 bg-border',
+          first ? 'top-[10px]' : '-top-3',
+          last ? 'bottom-auto h-[calc(10px+var(--space-12))]' : '-bottom-3',
+        )}
+      />
+      <span className="falconry-era-dot absolute left-1/2 top-[5px] size-[10px] rounded-[50%] -translate-x-1/2" />
+    </span>
   );
 }

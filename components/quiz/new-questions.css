@@ -1,13 +1,3 @@
-.q-prey-option {
-  cursor: grab;
-  touch-action: none;
-}
-.q-prey-option:disabled {
-  cursor: default;
-}
-.q-prey-option[data-dragging='true'] {
-  opacity: 0.45;
-}
 .q-prey-mark {
   color: var(--q-state-color, var(--muted-foreground));
 }
@@ -28,12 +18,6 @@
   background: var(--stage);
   color: var(--foreground);
 }
-.q-comparison-card {
-  cursor: pointer;
-}
-.q-comparison-card:disabled {
-  cursor: default;
-}
 .q-compare-radio {
   border: var(--border-structure) solid var(--border);
   border-radius: 50%;
@@ -47,9 +31,4 @@
   border: 0;
   background: var(--q-state-color);
   color: var(--surface);
-}
-/* The map is the specimen here: it gets the stage the illustration usually has. */
-.q-range-map .range-map-svg {
-  border: var(--border-structure) solid var(--border);
-  border-radius: var(--radius-card);
 }

@@ -5,7 +5,7 @@ import type { QuizBird } from '@/lib/quiz-engine';
 
 /** Shared flight frame for identification, estimates and the sex comparison. */
 export const QUIZ_FLIGHT_FRAME =
-  'q-flying-bird from-tablet:h-[320px] to-tablet:max-h-[175px] to-tablet:max-w-[300px] relative w-full h-auto object-contain z-1';
+  'q-flying-bird drop-shadow-[0_20px_20px_var(--shadow-color-drop)] from-tablet:h-[320px] to-tablet:max-h-[175px] to-tablet:max-w-[300px] relative w-full h-auto object-contain z-1';
 
 export function BirdArt({
   bird,

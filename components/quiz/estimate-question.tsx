@@ -1,6 +1,13 @@
 'use client';
+import {
+  QuizSplit,
+  QuizOrbit,
+  QuizSpecimen,
+  QuizBirdSpace,
+  QuizPrompt,
+} from '@/components/quiz/question-layout';
 
-import type { CSSProperties } from 'react';
+import { QuizSpanGuide } from './span-guide';
 import { SpeciesName } from '@/components/species-name';
 import { Check, Minus, Plus, Ruler, Scales as Scale } from '@/components/icons';
 import { Button } from '@/components/ui/button';
@@ -8,7 +15,6 @@ import { Slider } from '@/components/ui/slider';
 import { weightEstimateScale, type QuizBird } from '@/lib/quiz-engine';
 import type { QuizDraft as Draft } from '@/lib/quiz-answer';
 import { BirdArt, QUIZ_FLIGHT_FRAME } from './bird-art';
-import { QuizQuestionTitle } from './question-title';
 import { formatSpan, formatWeight } from './format-measurement';
 
 const number = new Intl.NumberFormat('de-DE', { maximumFractionDigits: 1 });
@@ -53,8 +59,8 @@ export function EstimateQuestion({
       ),
     });
   return (
-    <div className="q-split grid min-h-[500px] q-estimate-question">
-      <div className="q-specimen to-tablet:py-3 bg-stage flex relative flex-col overflow-hidden q-span-specimen">
+    <QuizSplit className="q-estimate-question">
+      <QuizSpecimen className="q-span-specimen">
         <div className="q-specimen-label flex flex-col items-start gap-0 relative z-1">
           <SpeciesName
             variant="quiz"
@@ -64,42 +70,25 @@ export function EstimateQuestion({
             scientificAs="i"
           />
         </div>
-        <div className="q-bird-space to-tablet:min-h-[180px] relative flex-1 grid place-items-center min-h-[280px]">
-          <div
-            className="q-orbit to-tablet:max-w-[175px] absolute w-[85%] max-w-[340px] aspect-square"
-            aria-hidden="true"
-          />
+        <QuizBirdSpace>
+          <QuizOrbit />
           <BirdArt bird={bird} className={QUIZ_FLIGHT_FRAME} priority />
-        </div>
+        </QuizBirdSpace>
         <div className="q-measure-slot min-h-[30px]">
-          {!isWeight && (
-            <div
-              className="q-measure-line mt-[5px] mx-auto to-tablet:mt-0 to-tablet:max-w-[330px] text-(--main-color) flex items-center gap-[10px] w-(--measure-width) min-h-[25px]"
-              style={
-                {
-                  '--measure-width': `${32 + (draft.span / 350) * 58}%`,
-                } as CSSProperties
-              }
-              aria-hidden="true"
-            >
-              <span className="relative bg-current flex-1 h-[1px]" />
-              <b className="text-(length:--type-ui) font-(--weight-medium) tabular-nums whitespace-nowrap">
-                {draft.span} cm
-              </b>
-              <span className="relative bg-current flex-1 h-[1px]" />
-            </div>
-          )}
+          {!isWeight && <QuizSpanGuide span={draft.span} />}
         </div>
         <p className="q-art-note mt-[14px] text-(length:--type-caption) text-muted-foreground text-center">
           Illustration · nicht maßstabsgetreu
         </p>
-      </div>
-      <div className="q-question-controls flex flex-col items-stretch">
-        <span className="q-task-label to-tablet:mb-3 text-(length:--type-ui) font-(--weight-medium) text-(--main-color) flex items-center gap-2 mb-4">
-          <Icon size={17} /> Dein Augenmaß ist gefragt
-        </span>
-        <QuizQuestionTitle>
-          {isWeight ? (
+      </QuizSpecimen>
+      <QuizPrompt
+        label={
+          <>
+            <Icon size={17} /> Dein Augenmaß ist gefragt
+          </>
+        }
+        title={
+          isWeight ? (
             <>
               Wie schwer ist <br />
               dieser Vogel?
@@ -109,13 +98,15 @@ export function EstimateQuestion({
               Wie weit reichen <br />
               diese Flügel?
             </>
-          )}
-        </QuizQuestionTitle>
-        <p className="text-(--muted-foreground) leading-(--leading-relaxed)">
-          {isWeight
+          )
+        }
+        description={
+          isWeight
             ? 'Schätze das Körpergewicht des Vogels.'
-            : 'Schätze die Spannweite. Gemessen wird von einer Flügelspitze zur anderen.'}
-        </p>
+            : 'Schätze die Spannweite. Gemessen wird von einer Flügelspitze zur anderen.'
+        }
+        reserveLines
+      >
         <div className="q-answer-controls mt-0 pt-6 mb-0" data-quiz-confirm>
           <div className="q-estimate my-[18px] to-tablet:mt-[25px] to-tablet:mb-5 flex items-center justify-center gap-6 to-small:gap-3">
             <Button
@@ -204,7 +195,7 @@ export function EstimateQuestion({
               <span>{formatValue(scale.max)}</span>
             </div>
             <div
-              className="q-range-reveal text-(length:--type-ui) text-success flex flex-col items-center justify-center gap-1 mt-[22px]"
+              className="q-range-reveal data-[revealed=false]:invisible text-(length:--type-ui) text-success flex flex-col items-center justify-center gap-1 mt-[22px]"
               data-revealed={answered}
               aria-hidden={!answered}
             >
@@ -218,7 +209,7 @@ export function EstimateQuestion({
             </div>
           </div>
         </div>
-      </div>
-    </div>
+      </QuizPrompt>
+    </QuizSplit>
   );
 }

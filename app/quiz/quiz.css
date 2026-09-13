@@ -1,12 +1,3 @@
-.q-start-content > h1 {
-  -webkit-text-stroke: var(--display-emphasis-stroke) currentColor;
-  paint-order: stroke fill;
-}
-.q-specimen.q-start-stage {
-  display: grid;
-  place-items: center;
-  padding: var(--space-40);
-}
 .q-start-portraits::before,
 .q-start-portraits::after {
   content: '';
@@ -42,53 +33,6 @@
     translate: 0 0;
   }
 }
-.q-split {
-  grid-template-columns: 1.02fr 1fr;
-}
-.q-orbit {
-  border: var(--border-structure) solid var(--border);
-  border-radius: 50%;
-  opacity: 0.9;
-}
-.q-orbit::before {
-  content: '';
-  position: absolute;
-  inset: 15%;
-  border: var(--border-structure) dashed var(--border);
-  border-radius: 50%;
-}
-.q-flying-bird {
-  filter: drop-shadow(0 20px 20px var(--shadow-color-drop));
-}
-.q-measure-line {
-  transition: width var(--duration-quick) var(--ease-smooth-out);
-}
-.q-measure-line span:first-child::before,
-.q-measure-line span:last-child::after {
-  content: '';
-  position: absolute;
-  height: 12px;
-  width: 1px;
-  background: currentColor;
-  top: -5px;
-}
-.q-measure-line span:first-child::before {
-  left: 0;
-}
-.q-measure-line span:last-child::after {
-  right: 0;
-}
-.q-question-controls > p {
-  font-size: var(--type-body);
-  margin-top: var(--space-16);
-  max-width: 45ch;
-}
-@media (min-width: 761px) {
-  .q-estimate-question .q-question-controls > h2,
-  .q-estimate-question .q-question-controls > p {
-    min-height: 2lh;
-  }
-}
 .q-estimate button {
   border: var(--border-structure) solid var(--border);
   border-radius: 50%;
@@ -111,20 +55,11 @@
   border: 6px solid var(--main-color);
   box-shadow: var(--shadow-subtle);
 }
-.q-range-reveal[data-revealed='false'] {
-  visibility: hidden;
-}
 .q-option {
   cursor: pointer;
   transition:
     border-color var(--duration-quick) var(--ease-smooth-out),
     background var(--duration-quick) var(--ease-smooth-out);
-}
-.q-specimen[data-call='true'] .q-bird-space {
-  display: flex;
-  flex-direction: column;
-  justify-content: center;
-  align-items: center;
 }
 .quiz-shell .q-call-play[data-slot] {
   outline: none;
@@ -151,8 +86,6 @@
   color: var(--muted-foreground);
   font-size: var(--type-caption);
   line-height: var(--leading-relaxed);
-}
-.q-call-credit {
   border: 0;
   cursor: pointer;
 }
@@ -188,14 +121,6 @@
   outline: var(--focus-ring);
   outline-offset: var(--focus-offset);
 }
-/* Whichever trailing mark comes first takes the gap, so the radio keeps
-   its place when the verdict icon appears beside it. */
-.q-option-correct,
-.q-option-wrong,
-.q-option:not(:has(.q-option-correct, .q-option-wrong))
-  [data-slot='radio-group-item'] {
-  margin-left: auto;
-}
 .q-option [data-slot='radio-group-item'][data-checked] {
   background: var(--q-state-color, var(--selection-border));
   border-color: var(--q-state-color, var(--selection-border));
@@ -211,37 +136,11 @@
   opacity: 0.38;
   border-style: dashed;
 }
-.q-drag-handle {
-  border: 0;
-  cursor: grab;
-}
-.q-drag-handle:disabled {
-  cursor: default;
-}
-.q-card-name i {
-  display: block;
-}
 .q-card-weight svg {
   color: var(--q-state-color);
 }
-.q-drag-ghost {
-  transform: rotate(5deg);
-}
 .q-answer-content {
-  grid-template-columns: max-content minmax(0, 1fr) 224px;
-  grid-template-areas: 'exit feedback action';
   height: calc(5rem + env(safe-area-inset-bottom));
-  padding-bottom: calc(var(--space-12) + env(safe-area-inset-bottom));
-  border-top: var(--border-structure) solid var(--border);
-}
-.q-answer-content > :first-child {
-  grid-area: exit;
-}
-.q-answer-content > .q-primary {
-  grid-area: action;
-  align-self: center;
-  width: 224px;
-  margin-left: auto;
 }
 .q-primary[data-slot] {
   background: var(--main-color);
@@ -289,34 +188,14 @@
   font: inherit;
 }
 @media (max-width: 760px) {
-  .q-workspace {
-    border-radius: var(--radius-surface);
-  }
-  .q-split {
-    grid-template-columns: 1fr;
-  }
-  /* An auto height lets the box end where the illustration ends: a fixed height
-     would letterbox the wide flight view with dead space above and below. */
-  .q-question-controls h2 br {
-    display: none;
-  }
-  .q-question-controls > p {
-    max-width: none;
-    margin-top: var(--space-12);
-  }
   .q-answer-content {
     height: calc(
       3rem + var(--space-12) * 2 + var(--border-structure) +
         env(safe-area-inset-bottom)
     );
-    grid-template-columns: minmax(0, 1fr);
-    grid-template-areas: 'feedback' 'action';
-    grid-template-rows: minmax(0, 1fr) 3rem;
-    gap: 0 var(--space-12);
   }
   .q-answer-content[data-open='true'] {
     /* The feedback row spans from the panel's top edge to the button itself. */
-    padding-top: 0;
     height: calc(
       7rem + var(--space-12) * 2 + var(--border-structure) +
         env(safe-area-inset-bottom)
@@ -329,15 +208,6 @@
       height var(--resize-dur) var(--resize-ease);
     will-change: width, height;
   }
-  .q-answer-content > .q-primary {
-    width: 100%;
-  }
-}
-.q-habitat-bird {
-  cursor: grab;
-}
-.q-habitat-bird:disabled {
-  cursor: default;
 }
 .q-habitat-bird > svg {
   color: var(--muted-foreground);
@@ -366,8 +236,6 @@
   );
 }
 .q-landscape-title {
-  /* Optical padding: the text's descender space sits below the baseline, so the
-     bottom inset is smaller than the left one to read as equal. */
   text-shadow: 0 1px 2px var(--scrim-shadow);
 }
 .q-habitat-residents > span {
@@ -380,9 +248,6 @@
 .q-habitat-residents > span > svg {
   color: var(--q-state-color, var(--selection-border));
 }
-.q-resident-name {
-  font-size: var(--type-lead);
-}
 .q-habitat-residents > .q-drop-label {
   background: none;
   border: var(--border-selection) dashed var(--border);
@@ -391,15 +256,6 @@
 .q-workspace h2:focus,
 #q-result-title:focus {
   outline: none;
-}
-@media (min-width: 761px) {
-  .q-split {
-    min-height: 450px;
-  }
-}
-
-.q-mobile-exit[data-slot] {
-  display: none;
 }
 /* A quiet progress strip directly above the question workspace. */
 .q-step-dots > * {
@@ -417,45 +273,12 @@
   box-shadow: 0 0 0 var(--space-4) var(--q-step-ring);
 }
 @media (max-width: 760px) {
-  .q-specimen.q-start-stage {
-    padding: var(--panel-padding);
-  }
   .q-start-actions .q-round-settings [data-slot='select-trigger'] {
     width: 100%;
   }
   .q-mobile-exit[data-slot] {
-    display: inline-flex;
-    width: var(--control-height-compact);
-    height: var(--control-height-compact);
-    border: 0;
-    padding: 0;
     background: transparent;
     box-shadow: none;
-  }
-  /* Keep long rounds inside the single progress strip on narrow screens. */
-}
-
-/* Footer copy stays on one line; the action keeps its fixed position. */
-.q-answer-content > .q-feedback {
-  grid-area: feedback;
-  align-self: center;
-  min-height: 0;
-  max-height: 100%;
-  overflow: hidden;
-}
-.q-question-controls,
-.q-specimen,
-.q-weight-task,
-.q-habitat-task,
-.q-prey-task,
-.q-comparison-task {
-  padding: var(--panel-padding);
-}
-/* The stage hugs its illustration on a phone: no floor under the picture and a
-   tighter block padding, so the card is not mostly air. */
-@media (max-width: 760px) {
-  .q-specimen:not([data-call='true']) .q-bird-space {
-    min-height: 0;
   }
 }
 .q-round-settings [data-slot='select-trigger'] {
@@ -471,8 +294,17 @@
 }
 
 .q-drag-handle,
-.q-habitat-bird {
+.q-habitat-bird,
+.q-prey-option {
+  cursor: grab;
   touch-action: none;
+}
+
+.q-drag-handle:disabled,
+.q-habitat-bird:disabled,
+.q-prey-option:disabled,
+.q-comparison-card:disabled {
+  cursor: default;
 }
 .q-drag-handle:active {
   cursor: grabbing;

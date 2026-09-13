@@ -1,4 +1,5 @@
 'use client';
+import { cn } from '@/lib/utils';
 
 import { Check, X } from '@/components/icons';
 import { RadioGroup, RadioGroupItem } from '@/components/ui/radio-group';
@@ -54,20 +55,20 @@ export function QuizChoices({
                 pinned to the edge instead of shifting when it appears. */}
             {isCorrect && (
               <Check
-                className="q-option-correct text-success"
+                className="q-option-correct ml-auto text-success"
                 size={18}
                 aria-label="Richtige Antwort"
               />
             )}
             {isWrong && (
               <X
-                className="q-option-wrong text-danger"
+                className="q-option-wrong ml-auto text-danger"
                 size={18}
                 aria-label="Falsche Antwort"
               />
             )}
             <RadioGroupItem
-              className="shrink-0"
+              className={cn('shrink-0', !isCorrect && !isWrong && 'ml-auto')}
               value={option}
               aria-label={optionLabel}
             />

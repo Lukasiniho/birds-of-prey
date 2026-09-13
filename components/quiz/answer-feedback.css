@@ -1,40 +1,7 @@
-.q-feedback {
-  --feedback-icon-size: 2.25rem;
-  grid-template-columns: var(--feedback-icon-size) minmax(0, 1fr) auto;
-}
-.q-feedback-icon {
-  border-radius: 50%;
-}
-.q-feedback-icon svg {
-  display: block;
-}
-.q-feedback[data-perfect='true'] .q-feedback-icon {
-  color: var(--success);
-  background: var(--success-soft);
-}
-.q-feedback-title {
-  margin: 0;
-}
 .q-feedback-detail {
   white-space: nowrap;
   overflow: hidden;
   text-overflow: ellipsis;
-  margin-top: var(--space-4);
-  font-size: var(--type-ui);
-  color: var(--foreground);
-}
-.q-points-earned {
-  font-size: var(--type-metric);
-  font-variant-numeric: tabular-nums;
-  color: var(--success);
-}
-.q-points-earned small {
-  font-size: var(--type-ui);
-  color: inherit;
-}
-
-.q-feedback-detail :is(b, strong) {
-  font-weight: inherit;
 }
 
 /* transitions.dev panel reveal; mobile uses the answer bar's card resize. */

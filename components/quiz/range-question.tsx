@@ -1,6 +1,10 @@
 'use client';
+import {
+  QuizSplit,
+  QuizSpecimen,
+  QuizPrompt,
+} from '@/components/quiz/question-layout';
 
-import { QuizQuestionTitle } from '@/components/quiz/question-title';
 import { QuizChoices } from '@/components/quiz/choice-options';
 import { SpeciesName, SpeciesCommonName } from '@/components/species-name';
 import { GlobeHemisphereWest } from '@/components/icons';
@@ -30,8 +34,8 @@ export function RangeQuestion({
   const entry = bird.range;
   const data = useRangeMap(entry);
   return (
-    <div className="q-split grid min-h-[500px]">
-      <div className="q-specimen to-tablet:py-3 bg-stage flex relative flex-col overflow-hidden">
+    <QuizSplit>
+      <QuizSpecimen>
         <div className="q-specimen-label flex flex-col items-start gap-0 relative z-1">
           {answered ? (
             <SpeciesName
@@ -51,6 +55,7 @@ export function RangeQuestion({
           {entry && data ? (
             <div className="range-map-surface relative q-range-map">
               <MapDrawing
+                framed="card"
                 data={data}
                 world
                 label={entry.label}
@@ -65,19 +70,21 @@ export function RangeQuestion({
             </p>
           )}
         </div>
-      </div>
-      <div className="q-question-controls flex flex-col items-stretch">
-        <span className="q-task-label to-tablet:mb-3 text-(length:--type-ui) font-(--weight-medium) text-(--main-color) flex items-center gap-2 mb-4">
-          <GlobeHemisphereWest size={17} /> Verbreitung erkennen
-        </span>
-        <QuizQuestionTitle>
-          Welcher Greifvogel <br />
-          lebt hier?
-        </QuizQuestionTitle>
-        <p className="text-(--muted-foreground) leading-(--leading-relaxed)">
-          Die Karte zeigt das Verbreitungsgebiet einer Art. Wähle aus, zu wem es
-          gehört.
-        </p>
+      </QuizSpecimen>
+      <QuizPrompt
+        label={
+          <>
+            <GlobeHemisphereWest size={17} /> Verbreitung erkennen
+          </>
+        }
+        title={
+          <>
+            Welcher Greifvogel <br />
+            lebt hier?
+          </>
+        }
+        description="Die Karte zeigt das Verbreitungsgebiet einer Art. Wähle aus, zu wem es gehört."
+      >
         <QuizChoices
           options={question.options}
           label={(option) => birds[option].name}
@@ -86,7 +93,7 @@ export function RangeQuestion({
           answered={answered}
           onChange={onChange}
         />
-      </div>
-    </div>
+      </QuizPrompt>
+    </QuizSplit>
   );
 }

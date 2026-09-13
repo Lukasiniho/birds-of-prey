@@ -101,7 +101,7 @@ export function BirdAudio({
            färben sich, während der Ruf läuft. Rein grafisch — Beschriftung
            und Zustand trägt der Knopf daneben. */
         <div
-          className="bird-audio-wave flex flex-1 min-w-0 items-center justify-center gap-[2px] h-[34px]"
+          className="bird-audio-wave opacity-100 data-[state=loading]:opacity-[0.55] transition-opacity duration-(--duration-quick) ease-(--ease-out) stage-compact:hidden flex flex-1 min-w-0 items-center justify-center gap-[2px] h-[34px]"
           data-state={state}
           aria-hidden="true"
           style={{ '--wave-played': played } as React.CSSProperties}

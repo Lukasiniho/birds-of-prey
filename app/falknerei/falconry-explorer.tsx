@@ -1,5 +1,8 @@
 'use client';
+import { explorerStyles } from '@/components/explorer-styles';
+import { tabStyles } from '@/components/tab-styles';
 
+import { cn } from '@/lib/utils';
 import { DetailHeading, DetailCopy } from '@/components/detail-text';
 
 import { SpeciesName, SpeciesCommonName } from '@/components/species-name';
@@ -66,20 +69,24 @@ export default function FalconryExplorer({ species }: { species: Species[] }) {
         <Tabs
           value={activeChapter}
           onValueChange={(value) => setActiveChapter(String(value))}
-          className="falconry-explorer"
+          className="falconry-explorer gap-6"
         >
           <TabsList
             variant="line"
-            className="t-tabs t-tabs-line falconry-tabs"
+            className={`${tabStyles.lineRail} falconry-tabs`}
             aria-label="Themen der Falknerei"
             ref={barRef}
           >
-            <span className="t-tabs-pill" aria-hidden="true" ref={pillRef} />
+            <span
+              className={tabStyles.lineIndicator}
+              aria-hidden="true"
+              ref={pillRef}
+            />
             {chapters.map((item) => (
               <TabsTrigger
                 key={item.id}
                 value={item.id}
-                className="t-tab"
+                className={tabStyles.lineTrigger}
                 data-label={item.label}
               >
                 {item.label}
@@ -90,7 +97,10 @@ export default function FalconryExplorer({ species }: { species: Species[] }) {
             <TabsContent
               key={chapter.id}
               value={chapter.id}
-              className="explorer-layout falconry-panel bg-background m-0 min-h-[610px] to-tablet:min-h-0 text-(length:--type-body)"
+              className={cn(
+                'falconry-panel bg-background m-0 min-h-[610px] to-tablet:min-h-0 text-(length:--type-body)',
+                explorerStyles.panel,
+              )}
             >
               <section
                 className="falconry-stage pt-[26px] px-[28px] pb-[22px] to-compact:px-[22px] to-tablet:pt-[22px] to-tablet:px-[18px] to-tablet:pb-[18px] bg-stage flex flex-col min-w-0 relative"
@@ -120,7 +130,12 @@ export default function FalconryExplorer({ species }: { species: Species[] }) {
                   className={`falconry-art to-tablet:min-h-0 flex-1 grid place-items-center min-h-[350px] ${chapter.id === 'beizvoegel' ? 'falconry-flight' : ''}`}
                 >
                   <ArtImage
-                    className="block w-full object-contain"
+                    className={cn(
+                      'block w-full object-contain to-tablet:h-auto to-tablet:aspect-square',
+                      chapter.id === 'beizvoegel'
+                        ? 'h-[385px] from-tablet:h-[470px] to-tablet:max-h-[360px]'
+                        : 'h-[440px] from-tablet:h-[560px] to-tablet:max-h-[420px]',
+                    )}
                     displayWidth={440}
                     src={
                       chapter.id === 'beizvoegel'
@@ -144,7 +159,7 @@ export default function FalconryExplorer({ species }: { species: Species[] }) {
                   >
                     {species.map((item) => (
                       <button
-                        className="flex items-center leading-(--leading-heading)"
+                        className="flex items-center gap-2 py-1 pl-2 pr-3 leading-(--leading-heading)"
                         type="button"
                         key={item.id}
                         aria-pressed={bird.id === item.id}
@@ -177,7 +192,10 @@ export default function FalconryExplorer({ species }: { species: Species[] }) {
                 )}
               </section>
               <aside
-                className="explorer-notes falconry-notes flex flex-col detail-panel"
+                className={cn(
+                  'falconry-notes flex flex-col detail-panel',
+                  explorerStyles.notes,
+                )}
                 aria-label={chapter.label}
               >
                 {chapter.id === 'grundlagen' && (

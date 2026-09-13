@@ -1,4 +1,7 @@
 'use client';
+import { EcologyTag } from '@/components/ecology-tag';
+import { MeasurementStrip } from '@/components/measurement-strip';
+import { tabStyles } from '@/components/tab-styles';
 import {
   AppSelectTrigger as SelectTrigger,
   AppSelectContent as SelectContent,
@@ -20,10 +23,8 @@ import {
   CaretDown,
   GenderFemale,
   GenderMale,
-  MagnifyingGlass as Search,
-  X,
 } from '@/components/icons';
-import { Input } from '@/components/ui/input';
+import { BirdSearch } from '@/components/bird-search';
 import {
   Sheet,
   SheetContent,
@@ -108,13 +109,16 @@ function MeasurementValue({
   const stagger2 = pieces.length - 1;
   return (
     <>
-      <span className="t-digit-group is-animating" key={value}>
+      <span
+        className="t-digit-group inline-flex items-baseline whitespace-pre is-animating"
+        key={value}
+      >
         {pieces.map((p, i) => (
           <span
             className={cn(
-              't-digit',
+              't-digit inline-block',
               p.ch === '–' &&
-                'measurement-secondary text-muted-foreground measurement-dash',
+                'measurement-secondary text-muted-foreground measurement-dash px-[0.08em]',
             )}
             data-stagger={
               i === stagger1 ? '1' : i === stagger2 ? '2' : undefined
@@ -162,13 +166,13 @@ function SexSwitch({
       onClick={() => onChange(male ? 'female' : 'male')}
     >
       <span
-        className="sex-switch-option rounded-(--radius-tab-pill) text-(--tabs-text-muted) inline-flex items-center justify-center w-[18px] h-[16px]"
+        className="sex-switch-option bg-transparent data-[active=true]:text-(--tabs-text-active) data-[active=true]:bg-(--tabs-pill-bg) data-[active=true]:shadow-(--shadow-active-pill) transition-[color,background] duration-(--tabs-dur) ease-(--tabs-ease) rounded-(--radius-tab-pill) text-(--tabs-text-muted) inline-flex items-center justify-center w-[18px] h-[16px]"
         data-active={!male}
       >
         <GenderFemale size={12} />
       </span>
       <span
-        className="sex-switch-option rounded-(--radius-tab-pill) text-(--tabs-text-muted) inline-flex items-center justify-center w-[18px] h-[16px]"
+        className="sex-switch-option bg-transparent data-[active=true]:text-(--tabs-text-active) data-[active=true]:bg-(--tabs-pill-bg) data-[active=true]:shadow-(--shadow-active-pill) transition-[color,background] duration-(--tabs-dur) ease-(--tabs-ease) rounded-(--radius-tab-pill) text-(--tabs-text-muted) inline-flex items-center justify-center w-[18px] h-[16px]"
         data-active={male}
       >
         <GenderMale size={12} />
@@ -376,7 +380,7 @@ function BirdArt({
   }, [nextSource, nextAlt, artSize, shown.src, slots.active, retry]);
   return (
     <div
-      className="bird-art grid grid-cols-1 grid-rows-1 size-full max-h-full overflow-visible items-center justify-center t-icon-swap"
+      className="bird-art relative grid grid-cols-1 grid-rows-1 size-full max-h-full overflow-visible items-center justify-center t-icon-swap"
       data-state={slots.active}
       aria-busy={nextSource !== shown.src}
     >
@@ -443,7 +447,7 @@ function ColorRow({
         {colors.map(([name, color], index) => (
           <Tooltip key={index}>
             <TooltipTrigger
-              className="color-dot"
+              className="color-dot size-[28px]"
               aria-label={`${label}: ${name}${note ? '. ' + note : ''}`}
               style={{ background: color }}
             />
@@ -728,18 +732,18 @@ export default function RaptorApp({
           query={query}
           onQueryChange={setQuery}
         />
-        <SidebarProvider className="app-columns grid items-stretch min-h-[calc(100dvh-var(--site-header-height))] from-compact:min-h-0 from-compact:h-[calc(100dvh-var(--site-header-height))] from-compact:bg-stage from-compact:pr-(--atlas-gutter) from-compact:overflow-hidden to-phone:flex to-phone:flex-col">
+        <SidebarProvider className="app-columns grid grid-cols-[clamp(255px,calc(255px+(100vw-1191px)*29/78),284px)_minmax(0,1fr)_clamp(340px,calc(340px+(100vw-1191px)*50/78),390px)] from-wide:grid-cols-[310px_minmax(0,1fr)_420px] to-desktop:grid-cols-[255px_minmax(0,1fr)_340px] to-compact:grid-cols-[252px_minmax(0,1fr)] items-stretch min-h-[calc(100dvh-var(--site-header-height))] from-compact:min-h-0 from-compact:h-[calc(100dvh-var(--site-header-height))] from-compact:bg-stage from-compact:pr-(--atlas-gutter) from-compact:overflow-hidden to-phone:flex to-phone:flex-col">
           <Sidebar
             collapsible="none"
-            className="species-panel max-h-[calc(100dvh-var(--site-header-height))] w-full h-auto bg-background p-(--atlas-gutter) border-r-(length:--border-structure) min-w-0 overflow-x-hidden overflow-y-auto from-compact:h-full from-compact:max-h-none from-compact:min-h-0 from-compact:overscroll-contain to-compact:max-h-[830px] to-phone:border-r-0 to-phone:border-b-(length:--border-structure) to-phone:max-h-none to-phone:hidden"
+            className="species-panel [scrollbar-width:thin] [scrollbar-color:var(--border)_transparent] max-h-[calc(100dvh-var(--site-header-height))] w-full h-auto bg-background p-(--atlas-gutter) border-r-(length:--border-structure) min-w-0 overflow-x-hidden overflow-y-auto from-compact:h-full from-compact:max-h-none from-compact:min-h-0 from-compact:overscroll-contain to-compact:max-h-[830px] to-phone:border-r-0 to-phone:border-b-(length:--border-structure) to-phone:max-h-none to-phone:hidden"
           >
             {renderLibraryRail()}
           </Sidebar>
           <main
             id="main-content"
-            className="specimen-panel bg-stage relative flex flex-col min-w-0 min-h-[860px] from-compact:h-full from-compact:min-h-0 to-compact:min-h-[830px] to-phone:min-h-[620px] overflow-hidden"
+            className="specimen-panel [container:atlas-stage/inline-size] bg-stage relative flex flex-col min-w-0 min-h-[860px] from-compact:h-full from-compact:min-h-0 to-compact:min-h-[830px] to-phone:min-h-[620px] overflow-hidden"
           >
-            <div className="specimen-heading pt-[48px] px-[48px] to-desktop:px-[30px] from-compact:pt-5 from-compact:-mt-[2px] from-wide:pt-6 from-wide:px-[50px] from-wide:mt-0 to-phone:pt-5 to-phone:px-4 to-phone:flex to-phone:items-start to-phone:justify-center to-phone:gap-3 justify-between gap-2 items-start z-2 relative block text-center">
+            <div className="specimen-heading to-phone:[--species-picker-size:34px] pt-[48px] px-[48px] to-desktop:px-[30px] from-compact:pt-5 from-compact:-mt-[2px] from-wide:pt-6 from-wide:px-[50px] from-wide:mt-0 to-phone:pt-5 to-phone:px-4 to-phone:flex to-phone:items-start to-phone:justify-center to-phone:gap-3 justify-between gap-2 items-start z-2 relative block text-center">
               <RevealHeading name={bird.name} latin={bird.latin} />
               {/* The rail costs a phone most of its first screen, so there the
                   species list becomes a sheet under the name. */}
@@ -748,7 +752,7 @@ export default function RaptorApp({
                   render={
                     <button
                       type="button"
-                      className="species-picker to-phone:place-items-center to-phone:h-(--species-picker-size) to-phone:p-0 to-phone:bg-surface to-phone:shadow-(--shadow-subtle) to-phone:text-foreground hidden"
+                      className="species-picker to-phone:inline-grid to-phone:flex-[0_0_var(--species-picker-size)] to-phone:mt-[calc(var(--type-hero)*var(--leading-display)/2-var(--species-picker-size)/2)] to-phone:after:content-[''] to-phone:after:absolute to-phone:after:inset-0 to-phone:place-items-center to-phone:h-(--species-picker-size) to-phone:p-0 to-phone:bg-surface to-phone:shadow-(--shadow-subtle) to-phone:text-foreground hidden"
                       aria-label={
                         query
                           ? `Art wechseln, ${filtered.length} Treffer`
@@ -757,7 +761,7 @@ export default function RaptorApp({
                     />
                   }
                 >
-                  <CaretDown />
+                  <CaretDown size={16} />
                 </SheetTrigger>
                 <SheetContent
                   side="bottom"
@@ -768,24 +772,11 @@ export default function RaptorApp({
                   </SheetTitle>
                   {/* The search belongs where the list is: on a phone the
                       header keeps its single row. */}
-                  <div className="search-wrap to-phone:flex-1 to-phone:min-w-[130px] relative flex items-center mb-3 picker-search">
-                    <Search size={17} />
-                    <Input
-                      aria-label="Vogelart suchen"
-                      placeholder="Vogelart suchen"
-                      value={query}
-                      onChange={(event) => setQuery(event.target.value)}
-                    />
-                    {query && (
-                      <button
-                        className="clear-search text-muted-foreground absolute right-[10px]"
-                        aria-label="Suche leeren"
-                        onClick={() => setQuery('')}
-                      >
-                        <X size={14} />
-                      </button>
-                    )}
-                  </div>
+                  <BirdSearch
+                    query={query}
+                    onQueryChange={setQuery}
+                    className="to-phone:flex-1 to-phone:min-w-[130px] mb-3 picker-search"
+                  />
                   {renderLibraryRail(true)}
                 </SheetContent>
               </Sheet>
@@ -794,7 +785,7 @@ export default function RaptorApp({
               <div className="specimen-controls gap-x-[30px] gap-y-[10px] mt-8 mx-5 from-compact:relative from-compact:z-2 from-compact:mt-6 to-phone:mt-4 flex items-center justify-center flex-wrap">
                 <div className="control-group flex items-center justify-center flex-wrap max-w-full gap-[10px] m-0 p-0 border-0">
                   <span
-                    className="control-label tracking-(--tracking-caps) text-(--muted-foreground-stage) uppercase"
+                    className="control-label font-(family-name:--font-stack-body) font-(--weight-medium) text-(length:--type-caption) leading-(--leading-none) tracking-(--tracking-caps) text-(--muted-foreground-stage) uppercase"
                     aria-hidden="true"
                   >
                     {availablePlumages.length > 2 ? 'Kleid' : 'Alter'}
@@ -811,7 +802,7 @@ export default function RaptorApp({
                 {morphConfig && morph && (
                   <div className="morph-control control-group flex items-center justify-center flex-wrap max-w-full gap-[10px] m-0 p-0 border-0">
                     <span
-                      className="control-label tracking-(--tracking-caps) text-(--muted-foreground-stage) uppercase text-(--muted-foreground-stage)"
+                      className="control-label font-(family-name:--font-stack-body) font-(--weight-medium) text-(length:--type-caption) leading-(--leading-none) tracking-(--tracking-caps) text-(--muted-foreground-stage) uppercase text-(--muted-foreground-stage)"
                       aria-hidden="true"
                     >
                       {morphConfig.label}
@@ -844,10 +835,7 @@ export default function RaptorApp({
                 </div>
               </div>
             </div>
-            <section
-              className="measurements specimen-measurements grid gap-0 shrink-0 self-center max-w-[760px] rounded-(--radius-surface)"
-              aria-label="Größe und Gewicht"
-            >
+            <MeasurementStrip withAudio={withAudio}>
               <Measurement
                 withAudio={withAudio}
                 label="Spannweite"
@@ -859,7 +847,7 @@ export default function RaptorApp({
                   collide; the CSS says at which width. */}
               <Measurement
                 withAudio={withAudio}
-                className="measurement-optional"
+                className="measurement-optional stage-small:hidden"
                 label="Körperlänge"
                 range={bird.length}
                 unit="cm"
@@ -887,7 +875,7 @@ export default function RaptorApp({
                 birdId={bird.id}
                 name={bird.name}
               />
-            </section>
+            </MeasurementStrip>
             <div className="image-credit text-(length:--type-credit) text-(--muted-foreground-stage) leading-(--leading-normal) text-center shrink-0 self-stretch py-[calc(var(--space-8)-var(--space-2))] px-3 flex flex-wrap items-baseline justify-center gap-x-3 gap-y-1">
               <span>KI-generierte Illustration</span>
               <BirdAudioCredit
@@ -908,38 +896,38 @@ export default function RaptorApp({
             >
               <TabsList
                 variant="line"
-                className="t-tabs t-tabs-line info-tab-list z-3"
+                className={`${tabStyles.lineRail} info-tab-list z-3 mt-[calc(var(--panel-padding)-5px)] mx-panel mb-0 w-[calc(100%-2*var(--panel-padding))]`}
                 aria-label="Informationen"
                 ref={infoBarRef}
               >
                 <span
-                  className="t-tabs-pill"
+                  className={tabStyles.lineIndicator}
                   aria-hidden="true"
                   ref={infoPillRef}
                 />
                 <TabsTrigger
-                  className="t-tab"
+                  className={tabStyles.lineTrigger}
                   value="profil"
                   data-label="Steckbrief"
                 >
                   Steckbrief
                 </TabsTrigger>
                 <TabsTrigger
-                  className="t-tab"
+                  className={tabStyles.lineTrigger}
                   value="nahrung"
                   data-label="Nahrung"
                 >
                   Nahrung
                 </TabsTrigger>
                 <TabsTrigger
-                  className="t-tab"
+                  className={tabStyles.lineTrigger}
                   value="lebensraum"
                   data-label="Lebensraum"
                 >
                   Lebensraum
                 </TabsTrigger>
               </TabsList>
-              <div className="info-scroll p-panel from-compact:min-h-0 from-compact:flex-1 from-compact:overflow-y-auto from-compact:overscroll-contain from-compact:pb-[calc(var(--panel-padding)+var(--rail-fade-height))]">
+              <div className="info-scroll p-panel from-compact:[scrollbar-width:thin] from-compact:[scrollbar-color:var(--border)_transparent] from-compact:min-h-0 from-compact:flex-1 from-compact:overflow-y-auto from-compact:overscroll-contain from-compact:pb-[calc(var(--panel-padding)+var(--rail-fade-height))]">
                 <TabsContent
                   value="profil"
                   className="info-tab-content min-w-0 max-w-full text-(length:--type-body) leading-(--leading-relaxed) outline-none"
@@ -1056,11 +1044,11 @@ export default function RaptorApp({
                     </DetailHeading>
                     <HuntingArt bird={bird} />
                     {/* Each technique has its own chapter under Wissen. */}
-                    <div className="ecology-tags flex flex-wrap gap-2">
+                    <div className="ecology-tags flex flex-wrap gap-2 mt-[10px] mx-0 mb-4">
                       {bird.ecology.huntingTags.map((id) => (
-                        <a key={id} href={techniqueHref(id)}>
+                        <EcologyTag as="a" key={id} href={techniqueHref(id)}>
                           {huntingTypes[id].label}
-                        </a>
+                        </EcologyTag>
                       ))}
                     </div>
                     <p className="hunting-text mt-3 text-(length:--type-body) leading-(--leading-relaxed)">
@@ -1084,12 +1072,16 @@ export default function RaptorApp({
                         (id) => id !== 'ausserhalb',
                       ) && (
                         <div className="ecology-status my-[14px] mx-0">
-                          <h3>Status in Deutschland</h3>
-                          <div className="ecology-tags flex flex-wrap gap-2">
+                          <h3 className="text-(length:--type-ui)">
+                            Status in Deutschland
+                          </h3>
+                          <div className="ecology-tags flex flex-wrap gap-2 mt-[10px] mx-0 mb-[7px]">
                             {bird.ecology.status.tags
                               .filter((id) => id !== 'ausserhalb')
                               .map((id) => (
-                                <span key={id}>{statusLabels[id]}</span>
+                                <EcologyTag key={id}>
+                                  {statusLabels[id]}
+                                </EcologyTag>
                               ))}
                           </div>
                         </div>

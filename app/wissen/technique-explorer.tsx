@@ -1,11 +1,13 @@
 'use client';
+import { cn } from '@/lib/utils';
+import { explorerStyles } from '@/components/explorer-styles';
+import { KnowledgeBirdGroup as HunterGroup } from '@/components/knowledge-bird-group';
 
 import { DetailHeading, DetailCopy } from '@/components/detail-text';
 
 import { useEffect, useState } from 'react';
 import { ArtImage } from '@/components/art-image';
-import { ArrowUpRight, Crosshair } from '@/components/icons';
-import { SpeciesRowLink } from '@/components/species-row';
+import { Crosshair } from '@/components/icons';
 import type { TechniqueEntry, TechniqueHunter } from './knowledge-data';
 
 function countLabel(count: number) {
@@ -41,7 +43,9 @@ export default function TechniqueExplorer({
   const additional = entry.hunters.filter((h) => h.importance !== 'primary');
 
   return (
-    <div className="explorer-layout knowledge-split technique-explorer">
+    <div
+      className={cn('knowledge-split technique-explorer', explorerStyles.panel)}
+    >
       <section
         className="knowledge-surface bg-stage min-w-0"
         aria-label="Jagdtechniken"
@@ -91,7 +95,10 @@ export default function TechniqueExplorer({
         </fieldset>
       </section>
       <aside
-        className="explorer-notes knowledge-notes bg-(--atlas-info-surface) relative min-w-0"
+        className={cn(
+          'knowledge-notes bg-(--atlas-info-surface) relative min-w-0',
+          explorerStyles.notes,
+        )}
         aria-live="polite"
         aria-atomic="true"
       >
@@ -124,41 +131,6 @@ export default function TechniqueExplorer({
           </DetailCopy>
         </div>
       </aside>
-    </div>
-  );
-}
-
-function HunterGroup({
-  title,
-  hunters,
-  onHover,
-}: {
-  title: string;
-  hunters: TechniqueHunter[];
-  onHover: (hunter: TechniqueHunter | null) => void;
-}) {
-  return (
-    <div className="knowledge-group">
-      <h3 className="mt-(--space-24) text-(length:--type-ui) font-(--weight-medium) text-(--muted-foreground)">
-        {title}
-      </h3>
-      <div className="knowledge-bird-list grid gap-2 mt-4">
-        {hunters.map((hunter) => (
-          <SpeciesRowLink
-            size="inline"
-            href={hunter.href}
-            key={hunter.id}
-            portrait={hunter.portrait}
-            name={hunter.name}
-            latin={hunter.latin}
-            trailing={<ArrowUpRight size={16} aria-hidden="true" />}
-            onMouseEnter={() => onHover(hunter)}
-            onMouseLeave={() => onHover(null)}
-            onFocus={() => onHover(hunter)}
-            onBlur={() => onHover(null)}
-          />
-        ))}
-      </div>
     </div>
   );
 }

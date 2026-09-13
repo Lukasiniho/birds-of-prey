@@ -31,10 +31,6 @@ button {
   font-size: var(--type-button);
   border-radius: var(--radius-control);
 }
-button[data-slot='button'] {
-  font-size: var(--type-button);
-  border-radius: var(--radius-control);
-}
 a {
   color: inherit;
   text-decoration: none;

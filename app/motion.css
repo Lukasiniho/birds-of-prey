@@ -107,13 +107,7 @@
     filter: blur(0);
   }
 }
-
-.t-digit-group {
-  display: inline-flex;
-  align-items: baseline;
-}
 .t-digit {
-  display: inline-block;
   will-change: transform, opacity, filter;
 }
 .t-digit-group.is-animating .t-digit {
@@ -127,12 +121,7 @@
 }
 
 /* transitions.dev — 09 Icon swap (verbatim snippet). */
-.t-icon-swap {
-  position: relative;
-  display: inline-grid;
-}
 .t-icon-swap .t-icon {
-  grid-area: 1 / 1;
   transition:
     opacity var(--icon-swap-dur) var(--icon-swap-ease),
     filter var(--icon-swap-dur) var(--icon-swap-ease),
@@ -152,17 +141,8 @@
   transform: scale(var(--icon-swap-start-scale));
 }
 
-/* The theme toggle's two icons share one grid cell; measurement rows stay inline. */
-.theme-toggle .t-icon {
-  display: inline-flex;
-}
-.measurements .t-digit-group {
-  white-space: pre;
-}
-
 /* transitions.dev — 05 Menu dropdown (verbatim snippet). */
 .t-dropdown {
-  transform-origin: top left;
   transform: scale(var(--dropdown-pre-scale));
   opacity: 0;
   pointer-events: none;
@@ -170,21 +150,6 @@
     transform var(--dropdown-open-dur) var(--dropdown-ease),
     opacity var(--dropdown-open-dur) var(--dropdown-ease);
   will-change: transform, opacity;
-}
-.t-dropdown[data-origin='top-right'] {
-  transform-origin: top right;
-}
-.t-dropdown[data-origin='top-center'] {
-  transform-origin: top center;
-}
-.t-dropdown[data-origin='bottom-left'] {
-  transform-origin: bottom left;
-}
-.t-dropdown[data-origin='bottom-center'] {
-  transform-origin: bottom center;
-}
-.t-dropdown[data-origin='bottom-right'] {
-  transform-origin: bottom right;
 }
 
 /* Base UI drives the select popup with data-starting-style on its first

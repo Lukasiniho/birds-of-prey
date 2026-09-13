@@ -1,4 +1,5 @@
 'use client';
+import { tabStyles } from '@/components/tab-styles';
 
 import { cn } from '@/lib/utils';
 import { useSlidingPill } from '@/lib/use-sliding-pill';
@@ -39,21 +40,26 @@ export function SegmentedControl<T extends string>({
 }: SegmentedControlProps<T>) {
   const { barRef, pillRef } = useSlidingPill(group, value);
   return (
-    <div className="t-tabs-scroll">
+    <div className={tabStyles.scroll}>
       <div
-        className={cn('t-tabs', className)}
+        className={cn(tabStyles.pillRail, className)}
         role="radiogroup"
         aria-label={label}
         ref={barRef}
       >
-        <span className="t-tabs-pill" aria-hidden="true" ref={pillRef} />
+        <span
+          className={tabStyles.pillIndicator}
+          aria-hidden="true"
+          ref={pillRef}
+        />
         {options.map((option) => (
           <button
             type="button"
             key={option.value}
             role="radio"
-            className="t-tab"
+            className={tabStyles.pillTrigger}
             aria-checked={value === option.value}
+            data-active={value === option.value ? '' : undefined}
             onPointerEnter={() => onPreload?.(option.value)}
             onFocus={() => onPreload?.(option.value)}
             onClick={() => onChange(option.value)}

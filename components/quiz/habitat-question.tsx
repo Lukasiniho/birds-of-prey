@@ -86,7 +86,7 @@ export function HabitatQuestion({
     setHover(null);
   }
   return (
-    <div className="q-habitat-task bg-stage">
+    <div className="q-habitat-task p-panel bg-stage">
       <QuizTaskHeading
         className="q-habitat-heading"
         label={

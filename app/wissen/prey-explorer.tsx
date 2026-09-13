@@ -1,12 +1,13 @@
 'use client';
+import { cn } from '@/lib/utils';
+import { explorerStyles } from '@/components/explorer-styles';
+import { KnowledgeBirdGroup as HunterGroup } from '@/components/knowledge-bird-group';
 
 import { DetailHeading, DetailCopy } from '@/components/detail-text';
 
 import { useState } from 'react';
-import { ArrowUpRight, ForkKnife } from '@/components/icons';
+import { ForkKnife } from '@/components/icons';
 import { PreyArt } from '@/components/prey-art';
-import { SpeciesRowLink } from '@/components/species-row';
-import { TooltipHint } from '@/components/ui/tooltip';
 import type { PreyEntry, PreyHunter } from './knowledge-data';
 
 function countLabel(count: number) {
@@ -21,7 +22,7 @@ export default function PreyExplorer({ prey }: { prey: PreyEntry[] }) {
   const occasional = entry.hunters.filter((h) => h.importance !== 'primary');
 
   return (
-    <div className="explorer-layout knowledge-split prey-explorer">
+    <div className={cn('knowledge-split prey-explorer', explorerStyles.panel)}>
       <section
         className="knowledge-surface bg-stage min-w-0"
         aria-label="Beutetiere"
@@ -64,7 +65,10 @@ export default function PreyExplorer({ prey }: { prey: PreyEntry[] }) {
         </fieldset>
       </section>
       <aside
-        className="explorer-notes knowledge-notes bg-(--atlas-info-surface) relative min-w-0"
+        className={cn(
+          'knowledge-notes bg-(--atlas-info-surface) relative min-w-0',
+          explorerStyles.notes,
+        )}
         aria-live="polite"
         aria-atomic="true"
       >
@@ -96,50 +100,6 @@ export default function PreyExplorer({ prey }: { prey: PreyEntry[] }) {
           </DetailCopy>
         </div>
       </aside>
-    </div>
-  );
-}
-
-function HunterGroup({
-  title,
-  hunters,
-  onHover,
-}: {
-  title: string;
-  hunters: PreyHunter[];
-  onHover: (hunter: PreyHunter | null) => void;
-}) {
-  return (
-    <div className="knowledge-group">
-      <h3 className="mt-(--space-24) text-(length:--type-ui) font-(--weight-medium) text-(--muted-foreground)">
-        {title}
-      </h3>
-      <div className="knowledge-bird-list grid gap-2 mt-4">
-        {hunters.map((hunter) => {
-          const row = (
-            <SpeciesRowLink
-              size="inline"
-              href={hunter.href}
-              key={hunter.id}
-              portrait={hunter.portrait}
-              name={hunter.name}
-              latin={hunter.latin}
-              trailing={<ArrowUpRight size={16} aria-hidden="true" />}
-              onMouseEnter={() => onHover(hunter)}
-              onMouseLeave={() => onHover(null)}
-              onFocus={() => onHover(hunter)}
-              onBlur={() => onHover(null)}
-            />
-          );
-          return hunter.note ? (
-            <TooltipHint key={hunter.id} content={hunter.note}>
-              {row}
-            </TooltipHint>
-          ) : (
-            row
-          );
-        })}
-      </div>
     </div>
   );
 }

@@ -72,7 +72,7 @@ export function PreyQuestion({
     <fieldset
       ref={root}
       aria-label="Typische Nahrung zusammenstellen"
-      className="q-prey-task min-w-0 m-0 border-0 bg-stage"
+      className="q-prey-task p-panel min-w-0 m-0 border-0 bg-stage"
       onPointerMove={(event) => {
         const current = active.current;
         if (!current || current.pointerId !== event.pointerId) return;
@@ -127,7 +127,7 @@ export function PreyQuestion({
               <button
                 key={id}
                 type="button"
-                className="q-card q-prey-option pt-6 px-3 pb-4 bg-surface text-foreground relative flex flex-col items-center justify-center gap-3 min-w-0 select-none"
+                className="q-card q-prey-option data-[dragging=true]:opacity-[0.45] pt-6 px-3 pb-4 bg-surface text-foreground relative flex flex-col items-center justify-center gap-3 min-w-0 select-none"
                 aria-label={preyCatalog[id].name}
                 aria-pressed={picked}
                 disabled={answered}

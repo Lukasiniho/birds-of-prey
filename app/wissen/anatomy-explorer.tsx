@@ -1,4 +1,6 @@
 'use client';
+import { cn } from '@/lib/utils';
+import { explorerStyles } from '@/components/explorer-styles';
 
 import { DetailHeading, DetailCopy } from '@/components/detail-text';
 
@@ -152,7 +154,7 @@ export default function AnatomyExplorer({
   const name = speciesOptions[species].label;
 
   return (
-    <div className="explorer-layout anatomy-layout">
+    <div className={cn('anatomy-layout', explorerStyles.panel)}>
       {/* oxlint-disable-next-line jsx-a11y/no-noninteractive-element-interactions -- pointer-down only dismisses the pinned label; buttons stay the interactive controls */}
       <section
         className="anatomy-stage pt-6 px-[22px] pb-[44px] to-compact:px-[6px] to-tablet:pt-[22px] to-tablet:px-3 bg-stage relative flex flex-col justify-start min-w-0"
@@ -221,7 +223,7 @@ export default function AnatomyExplorer({
                 <TooltipTrigger
                   id={`anatomy-${species}-${part.id}`}
                   closeOnClick={false}
-                  className="anatomy-point to-tablet:size-[28px] absolute z-1 size-[44px] grid place-items-center p-0"
+                  className="anatomy-point -translate-x-1/2 -translate-y-1/2 to-tablet:size-[28px] absolute z-1 size-[44px] grid place-items-center p-0"
                   style={{
                     left: `${part.positions[species][0]}%`,
                     top: `${part.positions[species][1]}%`,
@@ -246,7 +248,10 @@ export default function AnatomyExplorer({
         </div>
       </section>
       <aside
-        className="explorer-notes anatomy-notes bg-(--atlas-info-surface) detail-panel"
+        className={cn(
+          'anatomy-notes bg-(--atlas-info-surface) detail-panel',
+          explorerStyles.notes,
+        )}
         aria-label="Körperteile entdecken"
       >
         <div className="anatomy-notes-heading flex items-center gap-3">

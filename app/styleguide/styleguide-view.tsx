@@ -1,10 +1,11 @@
 'use client';
+import { tabStyles } from '@/components/tab-styles';
 
 /* Reference page for the design system. Every specimen below is rendered with a
  * shared role, so a new element can be compared against it by eye. If something
  * here looks wrong after a change, the role changed — not this page. */
 
-import { useState } from 'react';
+import { useState, type ComponentProps } from 'react';
 import { useSlidingPill } from '@/lib/use-sliding-pill';
 import { SegmentedControl } from '@/components/segmented-control';
 
@@ -151,7 +152,7 @@ const breakpoints = [
 
 function Swatch({ token, note }: { token: string; note: string }) {
   return (
-    <div className="sg-swatch rounded-(--radius-card) bg-surface grid gap-2 p-3">
+    <div className="sg-swatch rounded-(--radius-card) bg-surface grid gap-2 p-3 border-(length:--border-structure)">
       <div
         className="sg-chip rounded-(--radius-small) h-[46px]"
         style={{ background: `var(${token})` }}
@@ -178,7 +179,7 @@ function Section({
   return (
     <section className="sg-section mb-10">
       <h2 className="mb-(--space-8)">{title}</h2>
-      <p className="mb-(--space-20) leading-(--leading-relaxed) text-(--muted-foreground) max-w-[85ch]">
+      <p className="mb-(--space-20) leading-(--leading-relaxed) text-(--muted-foreground) max-w-[85ch] text-(length:--type-body)">
         {intro}
       </p>
       {children}
@@ -198,7 +199,7 @@ export default function StyleguideView() {
           <h1 className="page-title font-(family-name:--font-stack-display) text-(length:--type-page-title) font-(--weight-semibold) leading-(--leading-display) tracking-(--tracking-tight)">
             Design-System
           </h1>
-          <p className="mt-(--space-12) leading-(--leading-normal) text-(--muted-foreground)">
+          <p className="mt-(--space-12) leading-(--leading-normal) text-(--muted-foreground) text-(length:--type-body)">
             Jede Rolle einmal, so wie sie in der Anwendung aussieht. Diese Seite
             definiert nichts eigenes: Wenn hier etwas falsch wirkt, hat sich die
             Rolle geändert. Zum Prüfen den Hell-Dunkel-Schalter der Anwendung
@@ -210,44 +211,44 @@ export default function StyleguideView() {
           title="Flächen"
           intro="Von der Seite nach vorn: Hintergrund, erhabene Fläche, vertiefte Bühne. Auswahl und Hover sind getönte Varianten, keine eigenen Farben."
         >
-          <div className="sg-grid grid gap-4">
+          <SpecimenGrid>
             {surfaces.map(([token, note]) => (
               <Swatch key={token} token={token} note={note} />
             ))}
-          </div>
+          </SpecimenGrid>
         </Section>
 
         <Section
           title="Text und Linien"
           intro="Nebentext und Hairlines haben je eine Rolle; abgeschwächte Varianten sind eigene Rollen, keine Opazität am Einsatzort."
         >
-          <div className="sg-grid grid gap-4">
+          <SpecimenGrid>
             {inks.map(([token, note]) => (
               <Swatch key={token} token={token} note={note} />
             ))}
-          </div>
+          </SpecimenGrid>
         </Section>
 
         <Section
           title="Akzent"
           intro="Ein Teal für alles: Auswahl, Fokus, Duotone-Icons und gefüllte Buttons."
         >
-          <div className="sg-grid grid gap-4">
+          <SpecimenGrid>
             {accents.map(([token, note]) => (
               <Swatch key={token} token={token} note={note} />
             ))}
-          </div>
+          </SpecimenGrid>
         </Section>
 
         <Section
           title="Status"
           intro="Richtig und falsch, jeweils als Text- und Flächenfarbe. Sie stammen aus dem Quiz und stehen jeder Seite zur Verfügung."
         >
-          <div className="sg-grid grid gap-4">
+          <SpecimenGrid>
             {states.map(([token, note]) => (
               <Swatch key={token} token={token} note={note} />
             ))}
-          </div>
+          </SpecimenGrid>
           <div
             className="sg-specimens flex flex-wrap items-center gap-4"
             style={{ marginTop: 'var(--space-16)' }}
@@ -279,10 +280,10 @@ export default function StyleguideView() {
           title="Tönungsstufen"
           intro="Getönte Flächen entstehen nur mit diesen sechs Anteilen. Jede andere Prozentzahl lässt den Lint-Lauf fehlschlagen."
         >
-          <div className="sg-grid grid gap-4">
+          <SpecimenGrid>
             {tints.map(([token, value, note]) => (
               <div
-                className="sg-swatch rounded-(--radius-card) bg-surface grid gap-2 p-3"
+                className="sg-swatch rounded-(--radius-card) bg-surface grid gap-2 p-3 border-(length:--border-structure)"
                 key={token}
               >
                 <div
@@ -299,18 +300,18 @@ export default function StyleguideView() {
                 </span>
               </div>
             ))}
-          </div>
+          </SpecimenGrid>
         </Section>
 
         <Section
           title="Verbreitungskarte"
           intro="Die Karte hat eigene Flächenfarben, weil Wasser und Land nicht dieselbe Bedeutung haben wie Oberflächen der Anwendung."
         >
-          <div className="sg-grid grid gap-4">
+          <SpecimenGrid>
             {mapColors.map(([token, note]) => (
               <Swatch key={token} token={token} note={note} />
             ))}
-          </div>
+          </SpecimenGrid>
         </Section>
 
         <Section
@@ -319,10 +320,7 @@ export default function StyleguideView() {
         >
           <dl className="sg-rows grid gap-4">
             {textRoles.map(([token, note, size]) => (
-              <div
-                className="sg-row to-tablet:gap-1 grid gap-4 pb-4"
-                key={token}
-              >
+              <SpecimenRow key={token}>
                 <dt className="text-(length:--type-caption) text-(--muted-foreground) font-(family-name:--font-stack-body)">
                   {token} · {size}
                 </dt>
@@ -332,7 +330,7 @@ export default function StyleguideView() {
                 >
                   {note}
                 </dd>
-              </div>
+              </SpecimenRow>
             ))}
           </dl>
         </Section>
@@ -342,7 +340,7 @@ export default function StyleguideView() {
           intro="Inter für Fließtext und Bedienelemente, Source Serif 4 für redaktionelle Titel. Fallback-Fonts stehen nur in den beiden Stapel-Rollen."
         >
           <dl className="sg-rows grid gap-4">
-            <div className="sg-row to-tablet:gap-1 grid gap-4 pb-4">
+            <SpecimenRow>
               <dt className="text-(length:--type-caption) text-(--muted-foreground) font-(family-name:--font-stack-body)">
                 --font-stack-body
               </dt>
@@ -352,8 +350,8 @@ export default function StyleguideView() {
               >
                 Der Wanderfalke stößt im Sturzflug auf seine Beute herab.
               </dd>
-            </div>
-            <div className="sg-row to-tablet:gap-1 grid gap-4 pb-4">
+            </SpecimenRow>
+            <SpecimenRow>
               <dt className="text-(length:--type-caption) text-(--muted-foreground) font-(family-name:--font-stack-body)">
                 --font-stack-display
               </dt>
@@ -366,12 +364,9 @@ export default function StyleguideView() {
               >
                 Erkennungsmerkmale
               </dd>
-            </div>
+            </SpecimenRow>
             {weights.map(([token, value]) => (
-              <div
-                className="sg-row to-tablet:gap-1 grid gap-4 pb-4"
-                key={token}
-              >
+              <SpecimenRow key={token}>
                 <dt className="text-(length:--type-caption) text-(--muted-foreground) font-(family-name:--font-stack-body)">
                   {token} · {value}
                 </dt>
@@ -381,13 +376,10 @@ export default function StyleguideView() {
                 >
                   Mäusebussard, Rotmilan, Habicht
                 </dd>
-              </div>
+              </SpecimenRow>
             ))}
             {trackings.map(([token, note]) => (
-              <div
-                className="sg-row to-tablet:gap-1 grid gap-4 pb-4"
-                key={token}
-              >
+              <SpecimenRow key={token}>
                 <dt className="text-(length:--type-caption) text-(--muted-foreground) font-(family-name:--font-stack-body)">
                   {token}
                 </dt>
@@ -402,7 +394,7 @@ export default function StyleguideView() {
                 >
                   {note}
                 </dd>
-              </div>
+              </SpecimenRow>
             ))}
           </dl>
         </Section>
@@ -413,10 +405,7 @@ export default function StyleguideView() {
         >
           <dl className="sg-rows grid gap-4">
             {spaces.map((value) => (
-              <div
-                className="sg-row to-tablet:gap-1 grid gap-4 pb-4"
-                key={value}
-              >
+              <SpecimenRow key={value}>
                 <dt className="text-(length:--type-caption) text-(--muted-foreground) font-(family-name:--font-stack-body)">
                   --space-{value} · {value} px
                 </dt>
@@ -432,20 +421,17 @@ export default function StyleguideView() {
                     }}
                   />
                 </dd>
-              </div>
+              </SpecimenRow>
             ))}
             {layoutRoles.map(([token, note, value]) => (
-              <div
-                className="sg-row to-tablet:gap-1 grid gap-4 pb-4"
-                key={token}
-              >
+              <SpecimenRow key={token}>
                 <dt className="text-(length:--type-caption) text-(--muted-foreground) font-(family-name:--font-stack-body)">
                   {token}
                 </dt>
                 <dd className="sg-note text-(length:--type-caption) leading-(--leading-normal) text-muted-foreground m-0 min-w-0">
                   {note} · {value}
                 </dd>
-              </div>
+              </SpecimenRow>
             ))}
           </dl>
         </Section>
@@ -457,7 +443,7 @@ export default function StyleguideView() {
           <div className="sg-specimens flex flex-wrap items-center gap-4">
             {radii.map(([token, note]) => (
               <div
-                className="sg-swatch rounded-(--radius-card) bg-surface grid gap-2 p-3"
+                className="sg-swatch rounded-(--radius-card) bg-surface grid gap-2 p-3 border-(length:--border-structure)"
                 key={token}
                 style={{ width: '210px' }}
               >
@@ -482,10 +468,7 @@ export default function StyleguideView() {
             style={{ marginTop: 'var(--space-24)' }}
           >
             {heights.map(([token, value, note]) => (
-              <div
-                className="sg-row to-tablet:gap-1 grid gap-4 pb-4"
-                key={token}
-              >
+              <SpecimenRow key={token}>
                 <dt className="text-(length:--type-caption) text-(--muted-foreground) font-(family-name:--font-stack-body)">
                   {token} · {value}
                 </dt>
@@ -505,15 +488,15 @@ export default function StyleguideView() {
                     {note}
                   </span>
                 </dd>
-              </div>
+              </SpecimenRow>
             ))}
-            <div className="sg-row to-tablet:gap-1 grid gap-4 pb-4">
+            <SpecimenRow>
               <dt className="text-(length:--type-caption) text-(--muted-foreground) font-(family-name:--font-stack-body)">
                 --border-structure · 1 px
               </dt>
               <dd className="m-0 min-w-0">
                 <span
-                  className="sg-box bg-surface text-(length:--type-caption) text-muted-foreground grid place-items-center w-[96px] h-[64px]"
+                  className="sg-box bg-surface text-(length:--type-caption) text-muted-foreground grid place-items-center w-[96px] h-[64px] border-(length:--border-structure)"
                   style={{
                     borderWidth: 'var(--border-structure)',
                     borderRadius: 'var(--radius-card)',
@@ -522,14 +505,14 @@ export default function StyleguideView() {
                   Fläche
                 </span>
               </dd>
-            </div>
-            <div className="sg-row to-tablet:gap-1 grid gap-4 pb-4">
+            </SpecimenRow>
+            <SpecimenRow>
               <dt className="text-(length:--type-caption) text-(--muted-foreground) font-(family-name:--font-stack-body)">
                 --border-selection · 2 px
               </dt>
               <dd className="m-0 min-w-0">
                 <span
-                  className="sg-box bg-surface text-(length:--type-caption) text-muted-foreground grid place-items-center w-[96px] h-[64px]"
+                  className="sg-box bg-surface text-(length:--type-caption) text-muted-foreground grid place-items-center w-[96px] h-[64px] border-(length:--border-structure)"
                   style={{
                     borderWidth: 'var(--border-selection)',
                     borderColor: 'var(--selection-border)',
@@ -539,7 +522,7 @@ export default function StyleguideView() {
                   Auswahl
                 </span>
               </dd>
-            </div>
+            </SpecimenRow>
           </dl>
         </Section>
 
@@ -609,13 +592,17 @@ export default function StyleguideView() {
             </span>
           </div>
           <div
-            className="t-tabs t-tabs-line"
+            className={tabStyles.lineRail}
             role="group"
             aria-label="Unterstrich-Tabs"
             ref={barRef}
             style={{ marginTop: 'var(--space-24)' }}
           >
-            <span className="t-tabs-pill" aria-hidden="true" ref={pillRef} />
+            <span
+              className={tabStyles.lineIndicator}
+              aria-hidden="true"
+              ref={pillRef}
+            />
             {[
               ['steckbrief', 'Steckbrief'],
               ['nahrung', 'Nahrung'],
@@ -624,9 +611,10 @@ export default function StyleguideView() {
               <button
                 key={id}
                 type="button"
-                className="t-tab"
+                className={tabStyles.lineTrigger}
                 data-label={label}
                 aria-pressed={line === id}
+                data-active={line === id ? '' : undefined}
                 onClick={() => setLine(id)}
               >
                 {label}
@@ -647,30 +635,24 @@ export default function StyleguideView() {
         >
           <dl className="sg-rows grid gap-4">
             {durations.map(([token, value, note]) => (
-              <div
-                className="sg-row to-tablet:gap-1 grid gap-4 pb-4"
-                key={token}
-              >
+              <SpecimenRow key={token}>
                 <dt className="text-(length:--type-caption) text-(--muted-foreground) font-(family-name:--font-stack-body)">
                   {token} · {value}
                 </dt>
                 <dd className="sg-note text-(length:--type-caption) leading-(--leading-normal) text-muted-foreground m-0 min-w-0">
                   {note}
                 </dd>
-              </div>
+              </SpecimenRow>
             ))}
             {easings.map(([token, note]) => (
-              <div
-                className="sg-row to-tablet:gap-1 grid gap-4 pb-4"
-                key={token}
-              >
+              <SpecimenRow key={token}>
                 <dt className="text-(length:--type-caption) text-(--muted-foreground) font-(family-name:--font-stack-body)">
                   {token}
                 </dt>
                 <dd className="sg-note text-(length:--type-caption) leading-(--leading-normal) text-muted-foreground m-0 min-w-0">
                   {note}
                 </dd>
-              </div>
+              </SpecimenRow>
             ))}
           </dl>
         </Section>
@@ -681,21 +663,36 @@ export default function StyleguideView() {
         >
           <dl className="sg-rows grid gap-4">
             {breakpoints.map(([value, note]) => (
-              <div
-                className="sg-row to-tablet:gap-1 grid gap-4 pb-4"
-                key={value}
-              >
+              <SpecimenRow key={value}>
                 <dt className="text-(length:--type-caption) text-(--muted-foreground) font-(family-name:--font-stack-body)">
                   {value}
                 </dt>
                 <dd className="sg-note text-(length:--type-caption) leading-(--leading-normal) text-muted-foreground m-0 min-w-0">
                   {note}
                 </dd>
-              </div>
+              </SpecimenRow>
             ))}
           </dl>
         </Section>
       </main>
     </div>
+  );
+}
+
+function SpecimenRow(props: ComponentProps<'div'>) {
+  return (
+    <div
+      {...props}
+      className="sg-row grid grid-cols-[220px_minmax(0,1fr)] items-baseline gap-4 pb-4 border-b-(length:--border-structure) last:border-b-0 last:pb-0 to-tablet:grid-cols-[minmax(0,1fr)] to-tablet:gap-1"
+    />
+  );
+}
+
+function SpecimenGrid(props: ComponentProps<'div'>) {
+  return (
+    <div
+      {...props}
+      className="sg-grid grid grid-cols-[repeat(auto-fill,minmax(210px,1fr))] gap-4"
+    />
   );
 }

@@ -1,21 +1,4 @@
 /* Atlas: species rail, specimen stage, information panel, measurements and audio. */
-
-/* Die Seitenspalten gleiten von ihren schmalen Werten (255/340, siehe die
-   Abfrage bei 1190 px) auf ihre breiten (284/390), statt bei 1191 px um 79 px
-   zu springen — sonst wird die Bühne schmaler, während das Fenster wächst,
-   und die Messleiste verliert die Körperlänge, obwohl mehr Platz da ist. Bei
-   1269 px sind die breiten Werte erreicht: dort ist die Bühne wieder so breit
-   wie bei 1190 px, die Leiste wächst also lückenlos durch. */
-.app-columns[data-slot] {
-  grid-template-columns:
-    clamp(255px, calc(255px + (100vw - 1191px) * 29 / 78), 284px)
-    minmax(0, 1fr)
-    clamp(340px, calc(340px + (100vw - 1191px) * 50 / 78), 390px);
-}
-.species-panel[data-slot] {
-  scrollbar-width: thin;
-  scrollbar-color: var(--border) transparent;
-}
 .bird-entry[data-slot] {
   position: relative;
   white-space: normal;
@@ -37,12 +20,6 @@
   outline: var(--focus-ring);
   outline-offset: -3px;
 }
-
-.specimen-panel {
-  /* Die Bühne ist Size-Container: wie breit die Messleiste wird, hängt an ihr
-     und nicht am Fenster — Artenliste und Infopanel liegen dazwischen. */
-  container: atlas-stage / inline-size;
-}
 .image-stage {
   outline: none;
 }
@@ -57,8 +34,6 @@
 }
 .color-dot,
 button.color-dot:not(:disabled) {
-  width: 28px;
-  height: 28px;
   border-radius: 50%;
   cursor: default;
   border: var(--border-structure) solid var(--swatch-border);
@@ -74,34 +49,11 @@ button.color-dot:not(:disabled) {
 .color-dot:focus-visible {
   transform: translateY(-2px);
 }
-@media (min-width: 1600px) {
-  .app-columns[data-slot] {
-    grid-template-columns: 310px minmax(0, 1fr) 420px;
-  }
-}
-@media (max-width: 1190px) {
-  .app-columns[data-slot] {
-    grid-template-columns: 255px minmax(0, 1fr) 340px;
-  }
-}
-@media (max-width: 980px) {
-  .app-columns[data-slot] {
-    grid-template-columns: 252px minmax(0, 1fr);
-  }
-}
 .info-tab-content[hidden] {
   display: none;
 }
-/* Species title: centered, optically balanced, with a quieter scientific name. */
-.specimen-heading h1 {
-  text-wrap: balance;
-  overflow-wrap: normal;
-  hyphens: auto;
-}
 .app-select[data-slot] {
   background: var(--select-background);
-  width: 100%;
-  height: 37px;
   border: var(--border-structure) solid var(--border);
   border-radius: var(--radius-control);
   font-size: var(--type-ui);
@@ -125,11 +77,6 @@ button.color-dot:not(:disabled) {
 .app-select-options [data-selected] {
   color: var(--main-color);
 }
-@media (max-width: 640px) {
-  .app-select[data-slot] {
-    width: 150px;
-  }
-}
 
 /* Ohne Grund schwebt der Freisteller im Nichts: ein weicher Lichtkegel gibt der
    Bühne Tiefe und hält den Blick beim Vogel. Liegt als ::before hinter der
@@ -146,20 +93,12 @@ button.color-dot:not(:disabled) {
   pointer-events: none;
 }
 
-/* Von-bis-Angaben: Halbgeviertstrich mit einem schmalen Abstand (Haarspatium)
-   auf beiden Seiten. */
-.measurement-dash {
-  padding-inline: 0.08em;
-}
-
 /* Each desktop rail uses the full viewport and scrolls independently. */
 @media (min-width: 981px) {
   .hero-art {
     transform: scale(1.06);
   }
   .info-scroll {
-    scrollbar-width: thin;
-    scrollbar-color: var(--border) transparent;
     /* Der Verlauf läuft bis an die Unterkante aus. Endete er schon darüber,
        blieb unter dem Ausblenden ein harter Streifen stehen. */
     mask-image: linear-gradient(
@@ -193,7 +132,6 @@ button.color-dot:not(:disabled) {
 /* transitions.dev icon swap on the illustration: both layers fill the art
    box and the hero tunes the swap softer than an icon would. */
 .bird-art.t-icon-swap {
-  display: grid;
   --icon-swap-dur: 350ms;
   --icon-swap-start-scale: 0.965;
 }
@@ -224,12 +162,6 @@ button.color-dot:not(:disabled) {
 .own-portrait[data-species='harpyie'] {
   background-size: 107% auto;
 }
-
-/* Age and colour form read as two labelled segmented controls. */
-.control-label {
-  font: var(--weight-medium) var(--type-caption) / var(--leading-none)
-    var(--font-stack-body);
-}
 /* Duotone motifs use the main colour. Unlayered component rules may override it. */
 :where(svg[data-icon-weight='duotone']) {
   color: var(--main-color);
@@ -237,10 +169,6 @@ button.color-dot:not(:disabled) {
 
 /* The information tabs stay visible above the scrolling panel; tabs.css owns the look. */
 .info-panel .info-tab-list {
-  /* Die Tabs sitzen fünf Pixel höher als der Rand der Karte sonst vorgibt:
-     die Reihe wirkt darunter sonst tiefer eingerückt als sie ist. */
-  margin: calc(var(--panel-padding) - 5px) var(--panel-padding) 0;
-  width: calc(100% - 2 * var(--panel-padding));
   background: var(--atlas-info-surface);
 }
 
@@ -255,17 +183,6 @@ button.color-dot:not(:disabled) {
   cursor: pointer;
   font: inherit;
 }
-.sex-switch-option {
-  background: transparent;
-  transition:
-    color var(--tabs-dur) var(--tabs-ease),
-    background var(--tabs-dur) var(--tabs-ease);
-}
-.sex-switch-option[data-active='true'] {
-  color: var(--tabs-text-active);
-  background: var(--tabs-pill-bg);
-  box-shadow: var(--shadow-active-pill);
-}
 .sex-switch-option svg {
   color: currentColor;
 }
@@ -274,13 +191,6 @@ button.color-dot:not(:disabled) {
    Striche rechts daneben sind dessen gemessene Lautstärke und färben sich,
    während er läuft. Die Striche teilen sich die Restbreite der Zelle — fest
    gesetzte Breiten liefen bei schmalen Fenstern aus der Leiste heraus. */
-.bird-audio-wave {
-  opacity: 1;
-  transition: opacity var(--duration-quick) var(--ease-out);
-}
-.bird-audio-wave[data-state='loading'] {
-  opacity: 0.55;
-}
 /* Jeder Strich weiß, wo im Ruf er sitzt; die bereits erklungenen wechseln auf
    den Akzent. Der Faktor macht aus dem winzigen Abstand zweier Striche eine
    harte Kante, damit die Füllung Strich für Strich läuft statt zu verlaufen. */
@@ -301,8 +211,6 @@ button.color-dot:not(:disabled) {
     var(--font-stack-body);
 }
 .bird-audio .bird-audio-play svg {
-  width: 16px;
-  height: 16px;
   color: var(--primary-foreground);
 }
 .image-credit .bird-audio-credit {
@@ -320,16 +228,6 @@ button.color-dot:not(:disabled) {
   text-decoration: underline;
   text-underline-offset: 3px;
 }
-/* Die Wellenform braucht 50 px zum Zeichnen, sonst sind die 16 Striche nur noch
-   Haare. Neben Knopf (38 px) und Abstand heißt das 116 px Spaltenbreite, und die
-   hat die Leiste erst ab 636 px Bühnenbreite. Darunter entfällt die Wellenform,
-   und mit ihr der Platz, den sie beanspruchte: die Ruf-Spalte ist dann der Knopf
-   mit 15 px Luft je Seite, der Rest gehört den Maßen. */
-@container atlas-stage (max-width: 635px) {
-  .bird-audio-wave {
-    display: none;
-  }
-}
 
 @starting-style {
   .body-color-row .color-dot {
@@ -343,28 +241,9 @@ button.color-dot:not(:disabled) {
   /* The name is the control: a chevron sits beside it and the button stretches
      over the whole heading, so tapping the title opens the list. Name and
      chevron centre together as one block. */
-  .specimen-heading {
-    --species-picker-size: 34px;
-  }
   .species-picker {
-    display: inline-grid;
-    flex: 0 0 var(--species-picker-size);
-    /* Ride the name's own line rather than the middle of the whole block. */
-    margin-top: calc(
-      var(--type-hero) * var(--leading-display) / 2 -
-        var(--species-picker-size) / 2
-    );
     border: var(--border-structure) solid var(--border);
     border-radius: 50%;
-  }
-  .species-picker > svg {
-    width: 16px;
-    height: 16px;
-  }
-  .species-picker::after {
-    content: '';
-    position: absolute;
-    inset: 0;
   }
   /* The name swaps in place beside the chevron; the reveal would fade the text
      out and let the button hop while it does. */
@@ -377,66 +256,8 @@ button.color-dot:not(:disabled) {
     transition: none;
   }
 }
-/* The list, not the sheet, is what scrolls. */
-
-/* One measurement layout, with an optional audio column. Each value owns its
-   typography; only the arrangement and container-dependent sizing vary. */
 .specimen-measurements {
-  grid-template-columns: repeat(3, minmax(0, 1fr));
-  width: calc(100% - 56px);
-  margin: var(--space-8) 28px 0;
-  padding: calc(var(--space-8) + 5px) var(--space-12);
   border: var(--border-structure) solid var(--line-tint);
-  background: var(--atlas-measurement-surface);
-}
-.specimen-measurements > div + div {
-  border-left: var(--border-structure) solid var(--border);
-}
-@media (max-width: 640px) {
-  .specimen-measurements {
-    grid-template-columns: 1fr;
-    width: calc(100% - 40px);
-    margin-inline: var(--space-20);
-    padding: var(--space-16) var(--space-24);
-  }
-  .specimen-measurements > div + div {
-    border-left: 0;
-    border-top: var(--border-structure) solid var(--border);
-    margin-top: 14px;
-    padding-top: 14px;
-  }
-}
-.specimen-measurements:has(.bird-audio) {
-  --call-column: minmax(88px, 0.75fr);
-  grid-template-columns: repeat(3, minmax(0, 1fr)) var(--call-column);
-  padding-inline: 0;
-  align-items: stretch;
-}
-/* Below 635px the audio cell cannot fit the measured waveform beside its 38px
-   button. Below 570px the third measurement would crowd the other two. */
-@container atlas-stage (max-width: 635px) {
-  .specimen-measurements:has(.bird-audio) {
-    --call-column: 68px;
-  }
-}
-@container atlas-stage (max-width: 570px) {
-  .specimen-measurements > .measurement-cell.measurement-optional {
-    display: none;
-  }
-  .specimen-measurements {
-    grid-template-columns: repeat(2, minmax(0, 1fr));
-  }
-  .specimen-measurements:has(.bird-audio) {
-    grid-template-columns: repeat(2, minmax(0, 1fr)) var(--call-column);
-  }
-}
-@media (max-width: 640px) {
-  .specimen-measurements:has(.bird-audio) > div + div {
-    border-top: 0;
-    border-left: var(--border-structure) solid var(--border);
-    margin-top: 0;
-    padding-top: 0;
-  }
 }
 
 .info-tab-content[data-slot] {

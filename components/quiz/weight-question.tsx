@@ -165,7 +165,7 @@ export function WeightQuestion({
   }
 
   return (
-    <div className="q-weight-task bg-stage">
+    <div className="q-weight-task p-panel bg-stage">
       <QuizTaskHeading
         className="q-weight-heading"
         label={
@@ -204,7 +204,7 @@ export function WeightQuestion({
                 {index + 1}
               </span>
               <button
-                className="q-drag-handle -my-[5px] -mr-1 ml-0 bg-transparent disabled:opacity-25 text-muted-foreground grid place-items-center size-[35px]"
+                className="q-drag-handle border-0 -my-[5px] -mr-1 ml-0 bg-transparent disabled:opacity-25 text-muted-foreground grid place-items-center size-[35px]"
                 disabled={answered}
                 aria-label={`${birds[id].name} verschieben. Pfeiltasten ändern den Platz.`}
                 onPointerDown={(event) => startDrag(event, id)}
@@ -280,7 +280,7 @@ export function WeightQuestion({
       {drag &&
         createPortal(
           <div
-            className="q-drag-ghost border-(length:--border-structure) text-foreground rounded-(--radius-card) bg-background shadow-(--shadow-floating) fixed z-1000 w-[170px] py-3 px-4 pointer-events-none text-center"
+            className="q-drag-ghost rotate-[5deg] border-(length:--border-structure) text-foreground rounded-(--radius-card) bg-background shadow-(--shadow-floating) fixed z-1000 w-[170px] py-3 px-4 pointer-events-none text-center"
             style={{ left: drag.x + 14, top: drag.y - 75 }}
             aria-hidden="true"
           >
