@@ -347,6 +347,8 @@ ARIA erkennbar.
 
 ## Quiz
 
+Die Startkarte hat oben denselben Seitenabstand wie links und rechts:
+`--page-gutter` (40 px auf Desktop, 20 px bis 760 px).
 Der Starttitel nutzt 700 mit der zentralen optischen Display-Betonung
 `--display-emphasis-stroke`. Das dekorative Fragezeichen ist ein freies
 Phosphor-Regular-Symbol ohne Kreis, Schatten oder Duotone-Hinterlegung.

@@ -283,7 +283,7 @@ export default function QuizExperience({
       <div className="app-shell section-shell quiz-shell bg-background text-foreground">
         <SiteHeader activeSection="quiz" />
         <main
-          className="q-main max-w-[1360px] mx-auto page-content q-start-main grid place-items-center flex-1"
+          className="q-main max-w-[1360px] mx-auto px-page pt-page pb-section q-start-main grid items-start justify-items-center flex-1"
           ref={mainRef}
         >
           <QuizSplit
@@ -342,7 +342,7 @@ export default function QuizExperience({
               >
                 Das Greifvogel-Quiz
               </h1>
-              <p className="text-(length:--type-lead) mt-5 max-w-[45ch] text-(--muted-foreground) leading-(--leading-normal)">
+              <p className="text-(length:--type-lead) to-tablet:text-(length:--type-body) mt-5 max-w-[45ch] text-(--muted-foreground) leading-(--leading-normal)">
                 Erkenne Greifvögel an Aussehen und Ruf, schätze ihre Spannweite
                 und entdecke, wie sie leben. Jede Runde mischt neue Aufgaben.
               </p>

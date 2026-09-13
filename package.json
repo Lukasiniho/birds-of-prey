@@ -17,6 +17,7 @@
     "lint:design": "node scripts/check-design-system.mjs",
     "fonts": "node scripts/build-fonts.mjs",
     "images": "node scripts/optimize-images.mjs && npm run sitemap",
+    "images:lossless": "node scripts/compress-source-images.mjs",
     "sitemap": "node --experimental-strip-types --no-warnings scripts/build-sitemap.mjs",
     "format": "oxfmt",
     "audio:peaks": "node scripts/build-audio-peaks.mjs",

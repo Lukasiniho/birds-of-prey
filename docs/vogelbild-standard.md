@@ -48,6 +48,19 @@ Naturalistische, fachlich zutreffende Vogelillustrationen mit vergleichbarem Det
 
 ## Transparenz lokal fertigstellen
 
+### Verlustfreie Dateikompression
+
+`npm run images:lossless` prüft lokal das Einsparpotenzial der PNG-Originale;
+`npm run images:lossless -- --write` übernimmt ausschließlich kleinere Dateien
+mit exakt identischen decodierten Pixeln, einschließlich Alpha-Kanal. Auflösung,
+Geometrie und Farbwerte bleiben erhalten. Höhere Bittiefen und animierte PNGs
+werden übersprungen. Der Prüfbericht mit Datei- und Pixelprüfsummen liegt unter
+`outputs/lossless-compression.json`. Danach mit `npm run images` die abgeleiteten
+WebP-Dateien und ihre Zuordnung aktualisieren. Diese bestehenden WebP-Ausgaben
+verwenden verlustbehaftete Kompression; die PNG-Kompression dagegen ist verlustfrei.
+
+### Freistellung
+
 1. Bei der Bildgenerierung einen wirklich transparenten Hintergrund anfordern.
 2. Alpha-Kanal und Bild visuell prüfen: Ein vorhandener Alpha-Kanal allein beweist keine saubere Freistellung. Auch innerhalb sichtbarer Pixel kann ein Schachbrett eingebrannt sein.
 3. Bei Schachbrett- oder sonstigem eingebrannten Hintergrund lokal freistellen. Dieser lokale Bearbeitungsschritt ist ausdrücklich vom Nutzer gewünscht. Eine Segmentierungsmaske mit kontrollierten Kanten verwenden; nicht pauschal helle Farben löschen, da diese auch zum Gefieder gehören.
