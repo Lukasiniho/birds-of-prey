@@ -46,6 +46,6 @@ html {
     --site-header-height: 116px;
   }
   .topbar.site-header:has(.topbar-search) {
-    grid-template-rows: 50px var(--header-control-height);
+    grid-template-rows: minmax(0, 1fr) var(--header-control-height);
   }
 }

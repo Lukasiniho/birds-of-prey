@@ -84,7 +84,7 @@ export function SiteHeader({
 
   return (
     <header
-      className="topbar site-header grid grid-cols-[minmax(0,1fr)_auto_auto] grid-rows-(--site-header-height) items-center gap-x-2 gap-y-0 h-(--site-header-height) px-(--atlas-gutter) py-0 border-b-(length:--border-structure) border-border bg-background to-tablet:grid-cols-[minmax(0,1fr)_var(--header-control-height)_auto] to-tablet:grid-rows-[50px] to-tablet:gap-y-3 to-tablet:py-2 to-tablet:content-start"
+      className="topbar site-header grid grid-cols-[minmax(0,1fr)_auto_auto] grid-rows-[minmax(0,1fr)] items-center gap-x-2 gap-y-0 h-(--site-header-height) px-(--atlas-gutter) py-0 border-b-(length:--border-structure) border-border bg-background to-tablet:grid-cols-[minmax(0,1fr)_var(--header-control-height)_auto] to-tablet:gap-y-3 to-tablet:py-2"
       data-section={activeSection}
     >
       <div className="header-brand col-start-1 row-start-1 flex items-center gap-3 min-w-0 to-tablet:contents">
@@ -131,7 +131,7 @@ export function SiteHeader({
           </a>
         ))}
       </nav>
-      <div className="mobile-navigation hidden to-tablet:block to-tablet:col-start-3 to-tablet:row-start-1">
+      <div className="mobile-navigation hidden to-tablet:flex to-tablet:items-center to-tablet:col-start-3 to-tablet:row-start-1">
         <DropdownMenu modal={false}>
           <DropdownMenuTrigger
             render={
