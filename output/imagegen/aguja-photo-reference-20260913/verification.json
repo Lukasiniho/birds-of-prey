@@ -1,0 +1,39 @@
+{
+  "original": "public/birds/portrait-aguja-20260913-v2.png",
+  "matte": "/Users/lukasvonhohnhorst/.codex/generated_images/01a099ef-de8d-7712-bd8a-c8942ee0ec43/exec-965c83ce-8c4c-4b54-b6fd-edabd9913d61.png",
+  "output": "public/birds/portrait-aguja-20260913-v3.png",
+  "sourceBounds": {
+    "left": 98,
+    "top": 121,
+    "width": 1113,
+    "height": 1075
+  },
+  "targetBounds": {
+    "left": 113,
+    "top": 116,
+    "width": 1028,
+    "height": 1022
+  },
+  "placement": {
+    "scale": 0.9236298292902066,
+    "left": 113,
+    "top": 116,
+    "width": 1028,
+    "height": 993
+  },
+  "canvas": [
+    1254,
+    1254
+  ],
+  "localFinish": "Explicit green-matte extraction with connected foreground mask and spill cleanup. Uniform placement in existing portrait frame; no anisotropic scaling. Own alpha for corrected anatomy, no restoration of rejected old bill/eye or feather texture.",
+  "originalSha256": "23f539401ab8ef155208b9900d5f8a9f9fbf26e69316b9bab3ddda2ef5f5c752",
+  "matteSha256": "2033c3ab71105be1b46b5bbaee88248ed118c0df6f4a3a48ea93689e1abf6da4",
+  "outputSha256": "883c6d0782ef81345069ac3097a745f7628a2aa56c2fa882cb6f6903477d6acb",
+  "validation": {
+    "transparent": 878806,
+    "opaque": 670491,
+    "opaqueCanvasEdgePixels": 0,
+    "visualReview": "Before/after on light, dark and colored backgrounds; updated optimized portrait confirmed in localhost species rail at unchanged 64 px frame and background-size contain.",
+    "build": "passed"
+  }
+}

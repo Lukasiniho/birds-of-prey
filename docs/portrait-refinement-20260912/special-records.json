@@ -1,0 +1,65 @@
+[
+  {
+    "id": "gerfalke",
+    "original": "public/birds/portrait-gerfalke.png",
+    "reference": "public/birds/portrait-habicht-20260912.png",
+    "generated": "/Users/lukasvonhohnhorst/.codex/generated_images/01a0976f-755f-7be3-bea4-157be9d1dc69/exec-3c1fcdc9-a348-470a-a94e-59cb64720e36.png",
+    "prompt": "Precise portrait edit. IMAGE 1 is the existing Gyrfalcon and sole identity/anatomy source. IMAGE 2 approved goshawk is ONLY the series' short-neck composition and fine naturalistic feather illustration style reference; never transfer goshawk anatomy or colors. Shorten only lowest neck by about 40 pixels on the 1254 canvas and replace its unnaturally horizontal straight cutoff with natural irregular overlapping pointed feather tips. Keep head size, crown, bill and eye position exactly unchanged. No dramatic neck reduction. Maintain naturalistic detailed illustration consistent with the source and reference. No stretching or squashing any part. Square canvas, leftward view, real RGBA transparency, no painted checkerboard, shadows on background, halo, text or labels. Output one edited Gyrfalcon.",
+    "output": "public/birds/portrait-gerfalke-20260913.png",
+    "status": "generated-pending-qa"
+  },
+  {
+    "id": "sekretaer",
+    "original": "public/birds/portrait-sekretaer-20260907.png",
+    "reference": "public/birds/portrait-habicht-20260912.png",
+    "generated": "/Users/lukasvonhohnhorst/.codex/generated_images/01a0976f-755f-7be3-bea4-157be9d1dc69/exec-21fe88a0-0ced-4727-917a-866e97c24220.png",
+    "prompt": "Precise portrait edit. IMAGE 1 is the existing Secretarybird and sole identity/anatomy source. IMAGE 2 approved goshawk is ONLY the series' short-neck composition and fine naturalistic feather illustration style reference; never transfer goshawk anatomy or colors. Remove the pale haze and faint rectangular background below the feathered neck. Render a clean organic lower edge of individual silver-gray feather tips, at approximately the present neck length. Preserve all elongated black crest feathers, the complete bill, orange skin, head size, eye location and pose. No white fog or semitransparent pedestal. Maintain naturalistic detailed illustration consistent with the source and reference. No stretching or squashing any part. Square canvas, leftward view, real RGBA transparency, no painted checkerboard, shadows on background, halo, text or labels. Output one edited Secretarybird.",
+    "output": "public/birds/portrait-sekretaer-20260913.png",
+    "status": "generated-pending-qa"
+  },
+  {
+    "id": "andenkondor",
+    "original": "public/birds/portrait-andenkondor-20260907.png",
+    "reference": "public/birds/portrait-habicht-20260912.png",
+    "generated": "/Users/lukasvonhohnhorst/.codex/generated_images/01a0976f-755f-7be3-bea4-157be9d1dc69/exec-d0e8d927-a107-4403-9f6e-85587709582b.png",
+    "prompt": "Precise portrait edit. IMAGE 1 is the existing adult male Andean Condor and sole identity/anatomy source. IMAGE 2 approved goshawk is ONLY the series' short-neck composition and fine naturalistic feather illustration style reference; never transfer goshawk anatomy or colors. Replace ONLY the artificial gray oval pedestal below the bare neck with the species' natural compact white down-feather neck ruff. Make its contour visibly feathered and irregular, not an ellipse, ring-shaped base, stand or fog. Keep the complete bare wrinkled reddish head, comb, long hooked bill, eye, scale, position and existing pose unchanged. Ruff is dense white/cream down with gentle gray feather shadows, pure transparent surrounding background; it is part of the bird. Maintain naturalistic detailed illustration consistent with the source and reference. No stretching or squashing any part. Square canvas, leftward view, real RGBA transparency, no painted checkerboard, shadows on background, halo, text or labels. Output one edited adult male Andean Condor.",
+    "output": "public/birds/portrait-andenkondor-20260913.png",
+    "status": "generated-pending-qa"
+  },
+  {
+    "id": "kronenadler",
+    "original": "public/birds/portrait-kronenadler.png",
+    "reference": "public/birds/portrait-habicht-20260912.png",
+    "generated": "/Users/lukasvonhohnhorst/.codex/generated_images/01a0976f-755f-7be3-bea4-157be9d1dc69/exec-475b930b-9bc5-49d9-9aa3-4e45236ed887.png",
+    "prompt": "Precise portrait edit. IMAGE 1 is the existing Crowned Eagle and sole identity/anatomy source. IMAGE 2 approved goshawk is ONLY the series' short-neck composition and fine naturalistic feather illustration style reference; never transfer goshawk anatomy or colors. Clean the external pale halo around the crest and all feathers, retaining the genuine light-tipped feathers themselves. Preserve the complete pointed crest, current head/neck anatomy, brown colors, pale eye, bill, pose, optical size and framing unchanged. Keep fine natural feather texture and an irregular lower edge. Maintain naturalistic detailed illustration consistent with the source and reference. No stretching or squashing any part. Square canvas, leftward view, real RGBA transparency, no painted checkerboard, shadows on background, halo, text or labels. Output one edited Crowned Eagle.",
+    "output": "public/birds/portrait-kronenadler-20260913.png",
+    "status": "generated-pending-qa"
+  },
+  {
+    "id": "sperber",
+    "original": "public/birds/portrait-sperber.png",
+    "reference": "public/birds/portrait-habicht-20260912.png",
+    "generated": "/Users/lukasvonhohnhorst/.codex/generated_images/01a0976f-755f-7be3-bea4-157be9d1dc69/exec-c63b677a-2ada-4776-b664-7157333c6f41.png",
+    "prompt": "Precise portrait edit. IMAGE 1 is the existing adult male Eurasian Sparrowhawk and sole identity/anatomy source. IMAGE 2 approved goshawk is ONLY the series' short-neck composition and fine naturalistic feather illustration style reference; never transfer goshawk anatomy or colors. Refine only the lowest feather edge of the barred neck: clear individual small pointed feathers instead of a soft fuzzy straight-ish fringe. Extend only a few feather tips by at most 20 pixels on the 1254 canvas; this is NOT a longer bust. Preserve the whole gray head, orange cheeks/iris, beak, existing head size and eye position. Maintain naturalistic detailed illustration consistent with the source and reference. No stretching or squashing any part. Square canvas, leftward view, real RGBA transparency, no painted checkerboard, shadows on background, halo, text or labels. Output one edited adult male Eurasian Sparrowhawk.",
+    "output": "public/birds/portrait-sperber-20260913.png",
+    "status": "generated-pending-qa"
+  },
+  {
+    "id": "harpyie",
+    "original": "public/birds/portrait-harpyie.png",
+    "reference": "public/birds/portrait-habicht-20260912.png",
+    "generated": "/Users/lukasvonhohnhorst/.codex/generated_images/01a0976f-755f-7be3-bea4-157be9d1dc69/exec-87531bc4-ab5b-4464-a6bb-83a19154d133.png",
+    "prompt": "Precise portrait edit. IMAGE 1 is the existing Harpy Eagle and sole identity/anatomy source. IMAGE 2 approved goshawk is ONLY the series' short-neck composition and fine naturalistic feather illustration style reference; never transfer goshawk anatomy or colors. Make the complete existing bird illustration only about 8 percent larger optically by proportional overall placement on the same square canvas. Preserve exactly its characteristic whole raised crest, head, bill, eye, short neck and feather geometry. Move slightly left if needed so ALL crest tips and bill fit with visible transparent padding at every edge. Never crop, enlarge the eye separately or alter the facial anatomy. No longer neck. Maintain naturalistic detailed illustration consistent with the source and reference. No stretching or squashing any part. Square canvas, leftward view, real RGBA transparency, no painted checkerboard, shadows on background, halo, text or labels. Output one edited Harpy Eagle.",
+    "output": "public/birds/portrait-harpyie-20260913.png",
+    "status": "generated-pending-qa"
+  },
+  {
+    "id": "weissstorch",
+    "original": "public/birds/portrait-weissstorch.png",
+    "reference": "public/birds/portrait-habicht-20260912.png",
+    "generated": "/Users/lukasvonhohnhorst/.codex/generated_images/01a0976f-755f-7be3-bea4-157be9d1dc69/exec-e7ae50ce-5b88-4786-bce2-7e369d412f9a.png",
+    "prompt": "Precise portrait edit. IMAGE 1 is the existing White Stork and sole identity/anatomy source. IMAGE 2 approved goshawk is ONLY the series' short-neck composition and fine naturalistic feather illustration style reference; never transfer goshawk anatomy or colors. Improve portrait balance: make its actual white head about 10 percent larger optically, keeping the ENTIRE natural long red pointed bill in frame. Use a subtly more three-quarter leftward view so the long bill fits through natural perspective, never truncate or physically shorten it. Keep the species' elegant white head and neck anatomy. Shorten only the lowest visible feathered neck modestly, keeping a short natural neck with irregular individual feather tips, not a bust. No raptor face. Complete bill, head and all feathers with transparent margin. Maintain naturalistic detailed illustration consistent with the source and reference. No stretching or squashing any part. Square canvas, leftward view, real RGBA transparency, no painted checkerboard, shadows on background, halo, text or labels. Output one edited White Stork.",
+    "output": "public/birds/portrait-weissstorch-20260913.png",
+    "status": "generated-pending-qa"
+  }
+]

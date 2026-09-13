@@ -1,0 +1,122 @@
+[
+  {
+    "id": "maeusebussard",
+    "scale": 1.05,
+    "path": "public/birds/portrait-maeusebussard-20260912-v3.png",
+    "bounds": [
+      184,
+      145,
+      1173,
+      1133
+    ],
+    "noClipping": true
+  },
+  {
+    "id": "rotschwanzbussard",
+    "scale": 1.05,
+    "path": "public/birds/portrait-rotschwanzbussard-20260912-v3.png",
+    "bounds": [
+      112,
+      144,
+      1168,
+      1119
+    ],
+    "noClipping": true
+  },
+  {
+    "id": "baumfalke",
+    "scale": 1.07,
+    "path": "public/birds/portrait-baumfalke-20260913-v3.png",
+    "bounds": [
+      160,
+      112,
+      1105,
+      962
+    ],
+    "noClipping": true
+  },
+  {
+    "id": "kaiseradler",
+    "scale": 1.06,
+    "path": "public/birds/portrait-kaiseradler-20260913-v2.png",
+    "bounds": [
+      105,
+      130,
+      1176,
+      1091
+    ],
+    "noClipping": true
+  },
+  {
+    "id": "steppenadler",
+    "scale": 0.954,
+    "path": "public/birds/portrait-steppenadler-20260913-v2.png",
+    "bounds": [
+      79,
+      130,
+      1172,
+      1187
+    ],
+    "noClipping": true
+  },
+  {
+    "id": "habichtsadler",
+    "scale": 1.04,
+    "path": "public/birds/portrait-habichtsadler-20260913-v2.png",
+    "bounds": [
+      140,
+      191,
+      1137,
+      1137
+    ],
+    "noClipping": true
+  },
+  {
+    "id": "iberienadler",
+    "scale": 1.04,
+    "path": "public/birds/portrait-iberienadler-20260913-v2.png",
+    "bounds": [
+      118,
+      118,
+      1191,
+      1108
+    ],
+    "noClipping": true
+  },
+  {
+    "id": "fischadler",
+    "scale": 1.05,
+    "path": "public/birds/portrait-fischadler-20260913-v3.png",
+    "bounds": [
+      119,
+      110,
+      1145,
+      1182
+    ],
+    "noClipping": true
+  },
+  {
+    "id": "uhu",
+    "scale": 1.07,
+    "path": "public/birds/portrait-uhu.png",
+    "bounds": [
+      182,
+      116,
+      1036,
+      1139
+    ],
+    "noClipping": true
+  },
+  {
+    "id": "virginiauhu",
+    "scale": 1.07,
+    "path": "public/birds/portrait-virginiauhu.png",
+    "bounds": [
+      162,
+      115,
+      1093,
+      1130
+    ],
+    "noClipping": true
+  }
+]

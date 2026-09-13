@@ -1,0 +1,1459 @@
+{
+  "records": [
+    {
+      "id": "turmfalke",
+      "original": "public/birds/portrait-turmfalke-20260912-v2.png",
+      "reference": "public/birds/portrait-habicht-20260912.png",
+      "generated": "/Users/lukasvonhohnhorst/.codex/generated_images/01a0976f-755f-7be3-bea4-157be9d1dc69/exec-5de34f60-1579-430f-9402-054fd2126ee9.png",
+      "prompt": "Edit/composite a middle-length male kestrel portrait. IMAGE 1 has a neck that is slightly TOO SHORT. IMAGE 2 has a neck that is slightly TOO LONG. Produce the SAME kestrel with the orange feathered neck ending HALFWAY between these two bottom edges, around y1060 of the 1254 square canvas. Only the LOWEST ORANGE NECK FEATHERS change. Keep identical head position, identical head scale, entire grey head, bill, eye and cheek as in both images. IMAGE 3 is an approved goshawk for the series crop balance only; do not transfer anatomy or feathers. Same square canvas and naturalistic detailed texture. No stretching feathers; draw natural small feather tips at the intermediate edge. No shoulder/wing or long bust. Genuine transparency, no checkerboard, no halo, no text. Output one edited kestrel of intermediate neck length.",
+      "output": "public/birds/portrait-turmfalke-20260912-v3.png",
+      "status": "local-preview",
+      "originalSha256": "d80d7069cd83b07bdb2dd62a90933cefdab61d8f57c99b4519107470e4648569",
+      "referenceSha256": "537c94c4750ddfc37eba64e5e6e568af39418355cd0b0053bb59a76f4d3a285c",
+      "generatedSha256": "445b112bfe5f8de8d6cf85a91bcf5889b4754edd4262ca3c0dc8fd9f1019f047",
+      "outputSha256": "da89b0381b4c6a958b77c72d9e48484d5ba1967381dba0f854f085a8b92552f9",
+      "alphaCheck": {
+        "bbox": [
+          191,
+          140,
+          1112,
+          1066
+        ],
+        "transparentPixels": 948451,
+        "opaquePixels": 616335
+      },
+      "localFinish": "Protected interior GrabCut and 2px edge-color decontamination only. No resize, crop or geometry change.",
+      "visualReview": "Original/revised comparison against unchanged Habicht at 196, 64 and 48px on light, dark and muted green backgrounds. Head, bill, crest, lower feather edge and framing visually inspected. User approval remains distinct.",
+      "finalAlphaCheck": {
+        "id": "turmfalke",
+        "path": "public/birds/portrait-turmfalke-20260912-v3.png",
+        "sha256": "da89b0381b4c6a958b77c72d9e48484d5ba1967381dba0f854f085a8b92552f9",
+        "size": [
+          1254,
+          1254
+        ],
+        "transparentPixels": 948451,
+        "opaqueEdgePixels": 0,
+        "bbox": [
+          191,
+          140,
+          1112,
+          1066
+        ]
+      }
+    },
+    {
+      "id": "wanderfalke",
+      "original": "public/birds/portrait-wanderfalke-20260912-v2.png",
+      "reference": "public/birds/portrait-habicht-20260912.png",
+      "generated": "/Users/lukasvonhohnhorst/.codex/generated_images/01a0976f-755f-7be3-bea4-157be9d1dc69/exec-397ecef4-8e71-44a4-ad29-e0ef981b7b5b.png",
+      "prompt": "Precise-object-edit. Edit IMAGE 1, the Peregrine Falcon. IMAGE 2 is the approved Northern Goshawk, composition reference ONLY. Extend ONLY the cream spotted lower neck by 100 pixels (8% of canvas height). Current lowest tips at y970 should reach y1070. Add ONE modest row of naturally overlapping feathers. Do not create a long breast, wings or shoulders. This is a VERY SMALL local feather-edge correction after earlier edits overshot. Retain every existing pixel above y750: entire head, complete beak, eye position/size, crown, cheek, natural anatomy, colors, lighting, leftward three-quarter view and illustration texture. Keep the SAME 1254-square canvas, SAME head scale and location. Do not zoom or recenter to fill canvas. The goshawk demonstrates a complete head with a moderate short neck, not a bust and not a cropped floating head. Keep species anatomy from image 1, never copy goshawk feathers. Smoothly join new lower feather tips with existing plumage, no flat horizontal crop, no stretching or squashing feathers. True transparent background with RGBA alpha, absolutely no checkerboard, haze, pedestal or text. Return only edited Peregrine Falcon.",
+      "output": "public/birds/portrait-wanderfalke-20260912-v3.png",
+      "status": "local-preview",
+      "originalSha256": "4cb48bab716b41dba6f2af3de2f5786a77a9028680703229f777b628fcb8fe69",
+      "referenceSha256": "537c94c4750ddfc37eba64e5e6e568af39418355cd0b0053bb59a76f4d3a285c",
+      "generatedSha256": "86fddc9d004d25b5bcf5490287eca206fd3c4523bc08aac6ff8134d510ab1951",
+      "outputSha256": "a0507ca91d27dde63c64c513dbc6f15d4c75e6e13ce7db50ab58bc8f818c407c",
+      "alphaCheck": {
+        "bbox": [
+          170,
+          121,
+          1164,
+          1077
+        ],
+        "transparentPixels": 911700,
+        "opaquePixels": 652791
+      },
+      "localFinish": "Protected interior GrabCut and 2px edge-color decontamination only. No resize, crop or geometry change.",
+      "visualReview": "Original/revised comparison against unchanged Habicht at 196, 64 and 48px on light, dark and muted green backgrounds. Head, bill, crest, lower feather edge and framing visually inspected. User approval remains distinct.",
+      "finalAlphaCheck": {
+        "id": "wanderfalke",
+        "path": "public/birds/portrait-wanderfalke-20260912-v3.png",
+        "sha256": "a0507ca91d27dde63c64c513dbc6f15d4c75e6e13ce7db50ab58bc8f818c407c",
+        "size": [
+          1254,
+          1254
+        ],
+        "transparentPixels": 911700,
+        "opaqueEdgePixels": 0,
+        "bbox": [
+          170,
+          121,
+          1164,
+          1077
+        ]
+      }
+    },
+    {
+      "id": "rotschwanzbussard",
+      "original": "public/birds/portrait-rotschwanzbussard-20260912-v2.png",
+      "reference": "public/birds/portrait-habicht-20260912.png",
+      "generated": "/Users/lukasvonhohnhorst/.codex/generated_images/01a0976f-755f-7be3-bea4-157be9d1dc69/exec-8316dd73-922f-42e9-bb4c-0c034dd1a54a.png",
+      "prompt": "Precise-object-edit. Edit IMAGE 1, the Red-tailed Hawk. IMAGE 2 is the approved Northern Goshawk, composition reference ONLY. Extend ONLY the short lower feathered neck by 100 pixels (8% of canvas height). Current lowest tips at y980 should reach y1080. Add ONE modest row of naturally overlapping white and chestnut feathers. Do not create a long breast, wings or shoulders. This is a VERY SMALL local feather-edge correction after earlier edits overshot. Retain every existing pixel above y750: entire head, complete beak, eye position/size, crown, cheek, natural anatomy, colors, lighting, leftward three-quarter view and illustration texture. Keep the SAME 1254-square canvas, SAME head scale and location. Do not zoom or recenter to fill canvas. The goshawk demonstrates a complete head with a moderate short neck, not a bust and not a cropped floating head. Keep species anatomy from image 1, never copy goshawk feathers. Smoothly join new lower feather tips with existing plumage, no flat horizontal crop, no stretching or squashing feathers. True transparent background with RGBA alpha, absolutely no checkerboard, haze, pedestal or text. Return only edited Red-tailed Hawk.",
+      "output": "public/birds/portrait-rotschwanzbussard-20260912-v3.png",
+      "status": "local-preview",
+      "originalSha256": "b6fab800b86899073d6d513c4eb8e15b24c70ca1052f1a102aaafb88906b1780",
+      "referenceSha256": "537c94c4750ddfc37eba64e5e6e568af39418355cd0b0053bb59a76f4d3a285c",
+      "generatedSha256": "a7c130f17da069abc02810284ab16514a5b022fd343b362274bedf8fe5ae612c",
+      "outputSha256": "7caa11556d60df7976cf622efb6ab552a17aa1d902f2762fc72a6e7122c57a0f",
+      "alphaCheck": {
+        "bbox": [
+          113,
+          145,
+          1167,
+          1118
+        ],
+        "transparentPixels": 883317,
+        "opaquePixels": 679198
+      },
+      "localFinish": "Protected interior GrabCut and 2px edge-color decontamination only. No resize, crop or geometry change.",
+      "visualReview": "Original/revised comparison against unchanged Habicht at 196, 64 and 48px on light, dark and muted green backgrounds. Head, bill, crest, lower feather edge and framing visually inspected. User approval remains distinct.",
+      "finalAlphaCheck": {
+        "id": "rotschwanzbussard",
+        "path": "public/birds/portrait-rotschwanzbussard-20260912-v3.png",
+        "sha256": "7caa11556d60df7976cf622efb6ab552a17aa1d902f2762fc72a6e7122c57a0f",
+        "size": [
+          1254,
+          1254
+        ],
+        "transparentPixels": 883317,
+        "opaqueEdgePixels": 0,
+        "bbox": [
+          113,
+          145,
+          1167,
+          1118
+        ]
+      }
+    },
+    {
+      "id": "maeusebussard",
+      "original": "public/birds/portrait-maeusebussard-20260912-v2.png",
+      "reference": "public/birds/portrait-habicht-20260912.png",
+      "generated": "/Users/lukasvonhohnhorst/.codex/generated_images/01a0976f-755f-7be3-bea4-157be9d1dc69/exec-8fa7121d-e25c-4ef2-bf9f-94a93a6c7904.png",
+      "prompt": "Precise-object-edit. Edit IMAGE 1, the Common Buzzard. IMAGE 2 is the approved Northern Goshawk, composition reference ONLY. Extend ONLY the short lower feathered neck by 110 pixels (about 8% of the canvas height): current lowest feather tips at y960 should reach y1070. Add ONE modest row of naturally overlapping neck feathers. Do not create a long breast, wings or shoulders. This is a SMALL local correction after earlier edits overshot. Retain every existing pixel above y750: entire head, complete beak, eye position/size, crown, cheek, species anatomy, colors, lighting, leftward three-quarter view and illustration texture. Keep the SAME 1254-square canvas, SAME head scale and location. Do not zoom or recenter. The goshawk demonstrates the balanced short neck needed, not a bust or a floating head. Keep species anatomy from image 1, never copy goshawk feathers. Smoothly join new lower feather tips with existing plumage, no flat horizontal crop, no stretching or squashing feathers. True transparent background with RGBA alpha, absolutely no checkerboard, haze, pedestal or text. Return only edited Common Buzzard.",
+      "output": "public/birds/portrait-maeusebussard-20260912-v3.png",
+      "status": "local-preview",
+      "originalSha256": "dfc758767e2308d332dfc0cb61cb394e3d05e8a5784c98ab68252c334d8923ac",
+      "referenceSha256": "537c94c4750ddfc37eba64e5e6e568af39418355cd0b0053bb59a76f4d3a285c",
+      "generatedSha256": "96d938afe1df831406ede64a9511495dd8d6301598d6ebddd64679a7afd6257d",
+      "outputSha256": "6d54415a4262bf0da7741274fadadc0cef50e839f301f5106396ab6209dee133",
+      "alphaCheck": {
+        "bbox": [
+          185,
+          146,
+          1172,
+          1132
+        ],
+        "transparentPixels": 894715,
+        "opaquePixels": 667794
+      },
+      "localFinish": "Protected interior GrabCut and 2px edge-color decontamination only. No resize, crop or geometry change.",
+      "visualReview": "Original/revised comparison against unchanged Habicht at 196, 64 and 48px on light, dark and muted green backgrounds. Head, bill, crest, lower feather edge and framing visually inspected. User approval remains distinct.",
+      "finalAlphaCheck": {
+        "id": "maeusebussard",
+        "path": "public/birds/portrait-maeusebussard-20260912-v3.png",
+        "sha256": "6d54415a4262bf0da7741274fadadc0cef50e839f301f5106396ab6209dee133",
+        "size": [
+          1254,
+          1254
+        ],
+        "transparentPixels": 894715,
+        "opaqueEdgePixels": 0,
+        "bbox": [
+          185,
+          146,
+          1172,
+          1132
+        ]
+      }
+    },
+    {
+      "id": "koenigsbussard",
+      "original": "public/birds/portrait-koenigsbussard-20260912-v2.png",
+      "reference": "public/birds/portrait-habicht-20260912.png",
+      "generated": "/Users/lukasvonhohnhorst/.codex/generated_images/01a0976f-755f-7be3-bea4-157be9d1dc69/exec-2d592efc-24cd-4c9d-a09e-b235a44ed58f.png",
+      "prompt": "Precise-object-edit. Edit IMAGE 1, the Ferruginous Hawk. IMAGE 2 is the approved Northern Goshawk, composition reference ONLY. Extend ONLY the short lower feathered neck by 100 pixels (about 8% of the canvas height): current lowest feather tips at y980 should reach y1080. Add ONE modest row of naturally overlapping neck feathers. Do not create a long breast, wings or shoulders. This is a SMALL local correction after earlier edits overshot. Retain every existing pixel above y750: entire head, complete beak, eye position/size, crown, cheek, species anatomy, colors, lighting, leftward three-quarter view and illustration texture. Keep the SAME 1254-square canvas, SAME head scale and location. Do not zoom or recenter. The goshawk demonstrates the balanced short neck needed, not a bust or a floating head. Keep species anatomy from image 1, never copy goshawk feathers. Smoothly join new lower feather tips with existing plumage, no flat horizontal crop, no stretching or squashing feathers. True transparent background with RGBA alpha, absolutely no checkerboard, haze, pedestal or text. Return only edited Ferruginous Hawk.",
+      "output": "public/birds/portrait-koenigsbussard-20260912-v3.png",
+      "status": "local-preview",
+      "originalSha256": "de4ef1170bc78c0e64987967ac535ce6011e5f257ab649f91b0ddc65ba57fe17",
+      "referenceSha256": "537c94c4750ddfc37eba64e5e6e568af39418355cd0b0053bb59a76f4d3a285c",
+      "generatedSha256": "8b86f97a269b309b5b6eb6d096ee69a9398a91abfd17d98d0fce71c7544e7010",
+      "outputSha256": "70d5978a2d83f451b7cde40aa5cde5b0b12503d8ebcd482f2d6acede9c045b7e",
+      "alphaCheck": {
+        "bbox": [
+          100,
+          126,
+          1178,
+          1128
+        ],
+        "transparentPixels": 821691,
+        "opaquePixels": 741568
+      },
+      "localFinish": "Protected interior GrabCut and 2px edge-color decontamination only. No resize, crop or geometry change.",
+      "visualReview": "Original/revised comparison against unchanged Habicht at 196, 64 and 48px on light, dark and muted green backgrounds. Head, bill, crest, lower feather edge and framing visually inspected. User approval remains distinct.",
+      "finalAlphaCheck": {
+        "id": "koenigsbussard",
+        "path": "public/birds/portrait-koenigsbussard-20260912-v3.png",
+        "sha256": "70d5978a2d83f451b7cde40aa5cde5b0b12503d8ebcd482f2d6acede9c045b7e",
+        "size": [
+          1254,
+          1254
+        ],
+        "transparentPixels": 821691,
+        "opaqueEdgePixels": 0,
+        "bbox": [
+          100,
+          126,
+          1178,
+          1128
+        ]
+      }
+    },
+    {
+      "id": "lannerfalke",
+      "original": "public/birds/portrait-lannerfalke.png",
+      "reference": "public/birds/portrait-habicht-20260912.png",
+      "generated": "/Users/lukasvonhohnhorst/.codex/generated_images/01a0976f-755f-7be3-bea4-157be9d1dc69/exec-1477cdf3-0fef-46f7-85a8-26c490963dd6.png",
+      "prompt": "Precise-object-edit. IMAGE 1 is the existing Lanner Falcon, the sole anatomy and identity source. IMAGE 2 is the approved goshawk, ONLY a series composition and feather-edge reference. The user says this portrait is almost perfect. Make ONLY a very slight shortening of the lowest pale spotted neck feathers, about 30 pixels on the 1254 square canvas (2.5% canvas height). Keep the visible neck almost entirely intact. Preserve head and every feature at the same position/scale. Do not exaggerate the change. Retain species anatomy, colors, fine naturalistic illustration, leftward three-quarter view. Complete head including bill and crown. Square canvas 1254x1254, no global recentering or zoom. No stretching/squashing neck or feathers. Genuine RGBA transparency, no painted checkerboard, text, haze or cast shadow. Output only the edited Lanner Falcon.",
+      "output": "public/birds/portrait-lannerfalke-20260913.png",
+      "status": "local-preview",
+      "originalSha256": "4f891496638c3e35bfc4b9fc73f40b06e0b6ee890075ac19685c5a691a39ff32",
+      "referenceSha256": "537c94c4750ddfc37eba64e5e6e568af39418355cd0b0053bb59a76f4d3a285c",
+      "generatedSha256": "60b47fa7cc3dea5463f65d6e0a5bb578aa52e1180073d3f0734f727259ecad9c",
+      "outputSha256": "609af2ac0b57975e288f46f7288b648df1c970e38bfdb7af223959a631eb9c11",
+      "alphaCheck": {
+        "bbox": [
+          133,
+          110,
+          1167,
+          1128
+        ],
+        "transparentPixels": 827390,
+        "opaquePixels": 737127
+      },
+      "localFinish": "Protected interior GrabCut and 2px edge-color decontamination only. No resize, crop or geometry change.",
+      "visualReview": "Original/revised comparison against unchanged Habicht at 196, 64 and 48px on light, dark and muted green backgrounds. Head, bill, crest, lower feather edge and framing visually inspected. User approval remains distinct.",
+      "finalAlphaCheck": {
+        "id": "lannerfalke",
+        "path": "public/birds/portrait-lannerfalke-20260913.png",
+        "sha256": "609af2ac0b57975e288f46f7288b648df1c970e38bfdb7af223959a631eb9c11",
+        "size": [
+          1254,
+          1254
+        ],
+        "transparentPixels": 827390,
+        "opaqueEdgePixels": 0,
+        "bbox": [
+          133,
+          110,
+          1167,
+          1128
+        ]
+      }
+    },
+    {
+      "id": "sakerfalke",
+      "original": "public/birds/portrait-sakerfalke.png",
+      "reference": "public/birds/portrait-habicht-20260912.png",
+      "generated": "/Users/lukasvonhohnhorst/.codex/generated_images/01a0976f-755f-7be3-bea4-157be9d1dc69/exec-b222d483-5f8e-405c-a955-e84470e25450.png",
+      "prompt": "Precise-object-edit. IMAGE 1 is the existing Saker Falcon, the sole anatomy and identity source. IMAGE 2 is the approved goshawk, ONLY a series composition and feather-edge reference. The user says the actual head looks too small in the shared series. Increase the optical head size modestly, about 8%, keeping the eye near x520,y350 and the crown inside the canvas. Adjust the adjoining short neck naturally to that head scale, with natural feather tips ending near y1100. The head should have comparable optical weight to the approved goshawk, while keeping the actual Saker's distinct pale streaked head, subtle moustache and brown eye. Do not enlarge the entire long bust to fill the canvas or clip the bill/crown. Retain species anatomy, colors, fine naturalistic illustration, leftward three-quarter view. Complete head including bill and crown. Square canvas 1254x1254, no global recentering or zoom. No stretching/squashing neck or feathers. Genuine RGBA transparency, no painted checkerboard, text, haze or cast shadow. Output only the edited Saker Falcon.",
+      "output": "public/birds/portrait-sakerfalke-20260913.png",
+      "status": "local-preview",
+      "originalSha256": "3c5cf8a1fa7d64a21c5408cf63020d61f3aa8b5e836e29910b29dae00f490fbe",
+      "referenceSha256": "537c94c4750ddfc37eba64e5e6e568af39418355cd0b0053bb59a76f4d3a285c",
+      "generatedSha256": "3a01b4ec52acd5170076f62e97e0322f3fe5d341e155cc3cd120e33bbf5009d0",
+      "outputSha256": "421befd1df6e253bf50b2b2a6d5b51d9775818c63536ff164349ea25cc935bf7",
+      "alphaCheck": {
+        "bbox": [
+          116,
+          56,
+          1164,
+          1242
+        ],
+        "transparentPixels": 648199,
+        "opaquePixels": 915582
+      },
+      "localFinish": "Protected interior GrabCut and 2px edge-color decontamination only. No resize, crop or geometry change.",
+      "uniformPlacement": {
+        "scale": 0.8596491228070176,
+        "left": 88,
+        "top": 70,
+        "reason": "Generated head enlarged as requested; whole generated bird placed proportionally back into shared canvas to preserve margins and eye height. No neck-only deformation."
+      },
+      "visualReview": "Original/revised comparison against unchanged Habicht at 196, 64 and 48px on light, dark and muted green backgrounds. Head, bill, crest, lower feather edge and framing visually inspected. User approval remains distinct.",
+      "finalAlphaCheck": {
+        "id": "sakerfalke",
+        "path": "public/birds/portrait-sakerfalke-20260913.png",
+        "sha256": "421befd1df6e253bf50b2b2a6d5b51d9775818c63536ff164349ea25cc935bf7",
+        "size": [
+          1254,
+          1254
+        ],
+        "transparentPixels": 885454,
+        "opaqueEdgePixels": 0,
+        "bbox": [
+          188,
+          118,
+          1088,
+          1137
+        ]
+      }
+    },
+    {
+      "id": "baumfalke",
+      "original": "public/birds/portrait-baumfalke.png",
+      "reference": "public/birds/portrait-habicht-20260912.png",
+      "generated": "/Users/lukasvonhohnhorst/.codex/generated_images/01a0976f-755f-7be3-bea4-157be9d1dc69/exec-09f59c49-3242-4062-8e99-91e730386bf8.png",
+      "prompt": "Precise-object-edit. IMAGE 1 is the existing Eurasian Hobby, the sole anatomy and identity source. IMAGE 2 is the approved goshawk, ONLY a series composition and feather-edge reference. Repair ONLY the unnaturally smooth rounded bottom cut of the neck into a natural, detailed irregular feather-tip silhouette. The individual neck feathers must overlap and taper naturally, no stamped oval edge, flat baseline, pedestal or blurry fade. Keep approximately the same neck depth, with tips near y1100. Preserve entire head at its exact existing scale and position and all species plumage. Keep all head, eye, bill, cheek, crown pixels above y750 unchanged. Retain species anatomy, colors, fine naturalistic illustration, leftward three-quarter view. Complete head including bill and crown. Square canvas 1254x1254, no global recentering or zoom. No stretching/squashing neck or feathers. Genuine RGBA transparency, no painted checkerboard, text, haze or cast shadow. Output only the edited Eurasian Hobby.",
+      "output": "public/birds/portrait-baumfalke-20260913.png",
+      "status": "local-preview",
+      "originalSha256": "ca3f418c102b77e4629acedc135de0d06da22c62aa6e047299c4fc9f59b09fa3",
+      "referenceSha256": "537c94c4750ddfc37eba64e5e6e568af39418355cd0b0053bb59a76f4d3a285c",
+      "generatedSha256": "bbbbd0efb4f6691df58c75f9326f65a89c7a5794fbf073aef76f8b07880fff70",
+      "outputSha256": "62e790a6459b56f56cab7e24ed436a3dfaf335047453868ce6efbaf1d5f9d8c5",
+      "alphaCheck": {
+        "bbox": [
+          161,
+          113,
+          1089,
+          1160
+        ],
+        "transparentPixels": 888906,
+        "opaquePixels": 674724
+      },
+      "localFinish": "Protected interior GrabCut and 2px edge-color decontamination only. No resize, crop or geometry change.",
+      "visualReview": "Original/revised comparison against unchanged Habicht at 196, 64 and 48px on light, dark and muted green backgrounds. Head, bill, crest, lower feather edge and framing visually inspected. User approval remains distinct.",
+      "finalAlphaCheck": {
+        "id": "baumfalke",
+        "path": "public/birds/portrait-baumfalke-20260913.png",
+        "sha256": "62e790a6459b56f56cab7e24ed436a3dfaf335047453868ce6efbaf1d5f9d8c5",
+        "size": [
+          1254,
+          1254
+        ],
+        "transparentPixels": 888906,
+        "opaqueEdgePixels": 0,
+        "bbox": [
+          161,
+          113,
+          1089,
+          1160
+        ]
+      }
+    },
+    {
+      "id": "steinadler",
+      "original": "public/birds/portrait-steinadler.png",
+      "reference": "public/birds/portrait-habicht-20260912.png",
+      "generated": "/Users/lukasvonhohnhorst/.codex/generated_images/01a0976f-755f-7be3-bea4-157be9d1dc69/exec-dce3692b-fc8b-4ce6-b129-82ecc773cc3f.png",
+      "prompt": "Precise-object-edit of IMAGE 1: Golden Eagle. IMAGE 2 is approved goshawk, ONLY shared composition/edge reference. User says ALMOST PERFECT. Make only a tiny shortening of the lowest dark neck feathers by about 30 pixels (2.5% of square canvas height). Keep practically all of the existing neck and preserve all golden nape plumage. Preserve species anatomy, original fine naturalistic illustration texture, colors, head shape and position, eye, beak, lighting and leftward slight three-quarter pose. Change only lowest neck feather area, keep head and upper neck above y750 exactly as supplied. SAME 1254x1254 canvas and head scale, no zoom/recenter, no stretching/squashing feathers. Natural individual feather-tip bottom, no flat crop, pedestal, haze. True RGBA transparency with no checkerboard, text or shadow. Output only edited Golden Eagle.",
+      "output": "public/birds/portrait-steinadler-20260913.png",
+      "status": "local-preview",
+      "originalSha256": "c7c05d9804cdf1737ed062247b86a309c39ff43145841d851b567547673448c6",
+      "referenceSha256": "537c94c4750ddfc37eba64e5e6e568af39418355cd0b0053bb59a76f4d3a285c",
+      "generatedSha256": "3c26ef87135c4aa0520fd259ef515c8fa80f4c89ec5cd255c27ff42339109191",
+      "outputSha256": "9e89d0011bfe5d2668316257fa2b540e11aa250ae4b7338f31f9fa69ebebdbe2",
+      "alphaCheck": {
+        "bbox": [
+          113,
+          126,
+          1150,
+          1057
+        ],
+        "transparentPixels": 833985,
+        "opaquePixels": 729567
+      },
+      "localFinish": "Protected interior GrabCut and 2px edge-color decontamination only. No resize, crop or geometry change.",
+      "visualReview": "Original/revised comparison against unchanged Habicht at 196, 64 and 48px on light, dark and muted green backgrounds. Head, bill, crest, lower feather edge and framing visually inspected. User approval remains distinct.",
+      "finalAlphaCheck": {
+        "id": "steinadler",
+        "path": "public/birds/portrait-steinadler-20260913.png",
+        "sha256": "9e89d0011bfe5d2668316257fa2b540e11aa250ae4b7338f31f9fa69ebebdbe2",
+        "size": [
+          1254,
+          1254
+        ],
+        "transparentPixels": 833985,
+        "opaqueEdgePixels": 0,
+        "bbox": [
+          113,
+          126,
+          1150,
+          1057
+        ]
+      }
+    },
+    {
+      "id": "riesenseeadler",
+      "original": "public/birds/portrait-riesenseeadler.png",
+      "reference": "public/birds/portrait-habicht-20260912.png",
+      "generated": "/Users/lukasvonhohnhorst/.codex/generated_images/01a0976f-755f-7be3-bea4-157be9d1dc69/exec-ac8731e9-f1da-4800-ac78-c93fedb3a815.png",
+      "prompt": "Precise-object-edit of IMAGE 1: Steller's Sea Eagle. IMAGE 2 is approved goshawk, ONLY shared composition/edge reference. Slightly shorten the lower black neck by about 65 pixels (5% of square canvas height), removing the lowermost row of feathers. Keep the natural feathered neck, enormous orange beak and white forehead intact. Preserve species anatomy, original fine naturalistic illustration texture, colors, head shape and position, eye, beak, lighting and leftward slight three-quarter pose. Change only lowest neck feather area, keep head and upper neck above y750 exactly as supplied. SAME 1254x1254 canvas and head scale, no zoom/recenter, no stretching/squashing feathers. Natural individual feather-tip bottom, no flat crop, pedestal, haze. True RGBA transparency with no checkerboard, text or shadow. Output only edited Steller's Sea Eagle.",
+      "output": "public/birds/portrait-riesenseeadler-20260913.png",
+      "status": "local-preview",
+      "originalSha256": "409a2db5a50727bd518f27aff855393c297b451c3ff8826c915ba618cbc4851c",
+      "referenceSha256": "537c94c4750ddfc37eba64e5e6e568af39418355cd0b0053bb59a76f4d3a285c",
+      "generatedSha256": "80ad738c7c4522938e8b075def8228265386b871a2ebde18b610fbf7239eef63",
+      "outputSha256": "3549427b35c4fd2f6ee45844f3104ca2b8693fd8bf2373709a6a102254e794eb",
+      "alphaCheck": {
+        "bbox": [
+          92,
+          112,
+          1138,
+          1094
+        ],
+        "transparentPixels": 877240,
+        "opaquePixels": 683354
+      },
+      "localFinish": "Protected interior GrabCut and 2px edge-color decontamination only. No resize, crop or geometry change.",
+      "visualReview": "Original/revised comparison against unchanged Habicht at 196, 64 and 48px on light, dark and muted green backgrounds. Head, bill, crest, lower feather edge and framing visually inspected. User approval remains distinct.",
+      "finalAlphaCheck": {
+        "id": "riesenseeadler",
+        "path": "public/birds/portrait-riesenseeadler-20260913.png",
+        "sha256": "3549427b35c4fd2f6ee45844f3104ca2b8693fd8bf2373709a6a102254e794eb",
+        "size": [
+          1254,
+          1254
+        ],
+        "transparentPixels": 877240,
+        "opaqueEdgePixels": 0,
+        "bbox": [
+          92,
+          112,
+          1138,
+          1094
+        ]
+      }
+    },
+    {
+      "id": "zwergadler",
+      "original": "public/birds/portrait-zwergadler.png",
+      "reference": "public/birds/portrait-habicht-20260912.png",
+      "generated": "/Users/lukasvonhohnhorst/.codex/generated_images/01a0976f-755f-7be3-bea4-157be9d1dc69/exec-f2e3c508-e84b-4209-ab6c-940ae7555865.png",
+      "prompt": "Precise-object-edit of IMAGE 1: Booted Eagle. IMAGE 2 is approved goshawk, ONLY shared composition/edge reference. Add a MINIMAL amount of visible neck: just a narrow row of small cream and brown feather tips extending the current lower edge by about 25 pixels (2% of canvas height). Keep almost exactly the current crop; do not add a long breast or make the head any bigger. All feather tips must remain inside the square canvas. Preserve species anatomy, original fine naturalistic illustration texture, colors, head shape and position, eye, beak, lighting and leftward slight three-quarter pose. Change only lowest neck feather area, keep head and upper neck above y750 exactly as supplied. SAME 1254x1254 canvas and head scale, no zoom/recenter, no stretching/squashing feathers. Natural individual feather-tip bottom, no flat crop, pedestal, haze. True RGBA transparency with no checkerboard, text or shadow. Output only edited Booted Eagle.",
+      "output": "public/birds/portrait-zwergadler-20260913.png",
+      "status": "local-preview",
+      "originalSha256": "89c4f450f81ffc417ed50f11c4608290edbc9082674576024616d615792359b7",
+      "referenceSha256": "537c94c4750ddfc37eba64e5e6e568af39418355cd0b0053bb59a76f4d3a285c",
+      "generatedSha256": "5b3c033fe6d5726afb67a3688d1d5b4eb88978f5fa7fbbfc9e30531ae8e7fede",
+      "outputSha256": "52b5cb77f93ce254522b14bec148ef7cdc7e61828926c2c3803f1b4d350cf8e1",
+      "alphaCheck": {
+        "bbox": [
+          97,
+          93,
+          1198,
+          1189
+        ],
+        "transparentPixels": 704745,
+        "opaquePixels": 858454
+      },
+      "localFinish": "Protected interior GrabCut and 2px edge-color decontamination only. No resize, crop or geometry change.",
+      "visualReview": "Original/revised comparison against unchanged Habicht at 196, 64 and 48px on light, dark and muted green backgrounds. Head, bill, crest, lower feather edge and framing visually inspected. User approval remains distinct.",
+      "finalAlphaCheck": {
+        "id": "zwergadler",
+        "path": "public/birds/portrait-zwergadler-20260913.png",
+        "sha256": "52b5cb77f93ce254522b14bec148ef7cdc7e61828926c2c3803f1b4d350cf8e1",
+        "size": [
+          1254,
+          1254
+        ],
+        "transparentPixels": 704745,
+        "opaqueEdgePixels": 0,
+        "bbox": [
+          97,
+          93,
+          1198,
+          1189
+        ]
+      }
+    },
+    {
+      "id": "gaukler",
+      "original": "public/birds/portrait-gaukler.png",
+      "reference": "public/birds/portrait-habicht-20260912.png",
+      "generated": "/Users/lukasvonhohnhorst/.codex/generated_images/01a0976f-755f-7be3-bea4-157be9d1dc69/exec-a92d1b2b-2bdb-49a1-8cba-71c30af01934.png",
+      "prompt": "Localized edit, extremely high fidelity: IMAGE 1 is the existing Bateleur portrait. Edit ONLY the lowest neck edge, below y900. Shorten the lowest black feather tips by about 60 pixels. Everything ABOVE y850 must remain EXACTLY as in IMAGE 1: no larger head, no repositioning, same eye at x580 y340, same beak with leftmost tip at x270, same crown and red face. Do not change the crop or zoom to fill the vacated space. Keep the same 1254 square canvas. Keep head plus natural short neck; new bottom ends about y1070 rather than y1130. Natural individual feather-tip edge, no straight cut or compressing feathers. Image 2 is approved goshawk for fine naturalistic feather style only. Real transparent alpha background, no checkerboard, text, haze or shadow. Return only the edited Bateleur.",
+      "output": "public/birds/portrait-gaukler-20260913.png",
+      "status": "local-preview",
+      "rejectedGeneration": {
+        "generated": "/Users/lukasvonhohnhorst/.codex/generated_images/01a0976f-755f-7be3-bea4-157be9d1dc69/exec-50fa640b-6b10-4bac-b002-6fe8c352c1d2.png",
+        "prompt": "Precise-object-edit of IMAGE 1: Bateleur. IMAGE 2 is approved goshawk, ONLY shared composition/edge reference. Shorten the lower feathered black neck modestly by around 80 pixels (6% of square canvas height). Eliminate protruding lower shoulder/wing pieces so the portrait reads as a head and short neck. Preserve natural black feather structure and complete crown. Do not change red bare face or eye. Preserve species anatomy, original fine naturalistic illustration texture, colors, head shape and position, eye, beak, lighting and leftward slight three-quarter pose. Change only lowest neck feather area, keep head and upper neck above y750 exactly as supplied. SAME 1254x1254 canvas and head scale, no zoom/recenter, no stretching/squashing feathers. Natural individual feather-tip bottom, no flat crop, pedestal, haze. True RGBA transparency with no checkerboard, text or shadow. Output only edited Bateleur.",
+        "reason": "Head enlarged and eye moved; requested only shorter neck."
+      },
+      "originalSha256": "7bfe53bd86ad3282d3ca58f8f7d2d9762e1e6e6775059f36a85e6a5b2cd9c6f3",
+      "referenceSha256": "537c94c4750ddfc37eba64e5e6e568af39418355cd0b0053bb59a76f4d3a285c",
+      "generatedSha256": "1dec719e3e6ece0467ac0aa3a64fd15d210a2054edf472948b74ffc3ee07479c",
+      "outputSha256": "b4dfc1af61bf9ef5c0703d20d607b4d9270a0aa4c5d7fdefd11fa25c583ee3c3",
+      "alphaCheck": {
+        "bbox": [
+          200,
+          114,
+          1054,
+          1028
+        ],
+        "transparentPixels": 1002552,
+        "opaquePixels": 559981
+      },
+      "localFinish": "Protected interior GrabCut and 2px edge-color decontamination only. No resize, crop or geometry change.",
+      "visualReview": "Original/revised comparison against unchanged Habicht at 196, 64 and 48px on light, dark and muted green backgrounds. Head, bill, crest, lower feather edge and framing visually inspected. User approval remains distinct.",
+      "finalAlphaCheck": {
+        "id": "gaukler",
+        "path": "public/birds/portrait-gaukler-20260913.png",
+        "sha256": "b4dfc1af61bf9ef5c0703d20d607b4d9270a0aa4c5d7fdefd11fa25c583ee3c3",
+        "size": [
+          1254,
+          1254
+        ],
+        "transparentPixels": 1002552,
+        "opaqueEdgePixels": 0,
+        "bbox": [
+          200,
+          114,
+          1054,
+          1028
+        ]
+      }
+    },
+    {
+      "id": "habichtsadler",
+      "original": "public/birds/portrait-habichtsadler.png",
+      "reference": "public/birds/portrait-habicht-20260912.png",
+      "anatomyReference": {
+        "path": "/tmp/portrait-anatomy-habichtsadler.jpg",
+        "url": "https://www.grefa.org/noticias/otros-articulos/proyectos/red-boneli/noticias-aguila-perdicera/aguilas-de-bonelli-en-la-comunidad-de-madrid-recolonizan-territorios-de-provincias-cercanas.html",
+        "role": "Photographic observation of species head proportions only; illustration newly generated in shared style.",
+        "sha256": "8e89e4bd4bed3f3cb0b9d2e2bfbab41a30e7dc61020dcfe00fa0ef55aba86e1b"
+      },
+      "generated": "/Users/lukasvonhohnhorst/.codex/generated_images/01a0976f-755f-7be3-bea4-157be9d1dc69/exec-93475fa1-0770-4c67-9b09-2ea93f277c0c.png",
+      "prompt": "Create a REPLACEMENT naturalistic illustration portrait for adult Bonelli's Eagle (Aquila fasciata). IMAGE 1 is a REAL PHOTOGRAPH OF THIS SPECIES: use it only to understand genuine skull, brow, cheek, bill proportions and feather direction. IMAGE 2 is the USER-APPROVED GOSHAWK: use ONLY its naturalistic ILLUSTRATION style, head-to-short-neck crop balance and canvas positioning. Do not copy goshawk anatomy or eye color. Do not recreate the old round generic eagle artwork. Athletic head with relatively modest beak, flattened crown, real pale iris, brown-grey head and clear white throat with dark fine streaks. Close the beak in the final pose. Do not draw a massive imperial-eagle bill. Render a LEFT-FACING, closed-beak slight three-quarter profile. Not the photograph's original direction or framing. Full head and a SHORT neck, no wings, shoulders, torso, hand, straps or background. Optical head weight and eye height comparable to image 2; square canvas, crown around y140, eye around x490 y370, lower cheek around y650, natural feather tips ending around y1080 on a1254 canvas. Adequate clear space around complete bill and crown. Fine layered realistic feather illustration with gentle daylight and true species colors, not a photo cutout or plastic cartoon. Natural tapering irregular feather-edge bottom, no flat crop or pedestal. Genuine transparent RGBA background, no checkerboard, haze, shadow, signature or text. One illustrated adult Bonelli's Eagle (Aquila fasciata) only.",
+      "output": "public/birds/portrait-habichtsadler-20260913.png",
+      "status": "local-preview",
+      "rejectedGeneration": {
+        "generated": "/Users/lukasvonhohnhorst/.codex/generated_images/01a0976f-755f-7be3-bea4-157be9d1dc69/exec-9223f40e-1833-4326-b9df-641fcf82a40d.png",
+        "prompt": "Portrait correction, naturalistic educational illustration. IMAGE 1 is the currently mapped adult Bonelli's Eagle (Aquila fasciata); correct its unnatural generic round head while preserving species identity. IMAGE 2 is the USER-APPROVED goshawk, composition and fine feather rendering reference ONLY, NEVER anatomy. Correct the generic round inflated eagle head into an athletically proportioned Bonelli's Eagle: firm lower forehead and pronounced brow, narrower cheek, dark grey-brown crown and ear coverts, paler subtly streaked nape, white throat and short neck with fine dark longitudinal streaks, pale yellow iris. Keep its moderately strong bill appropriate to Bonelli's, not the massive bill of an imperial eagle. These features follow Blasco-Zumeta & Heinze's adult head identification. Use the same left-facing slight three-quarter pose as the series. Head with MODERATELY SHORT neck, full bill and crown, no shoulders or torso. Match image 2's optical head size and visible neck balance; on square 1254 canvas crown near y140, eye near x490/y365, lower cheek near y660 and lowest neck feather tips near y1090. Keep natural species-specific beak length rather than copying goshawk skull shape. Natural irregular feather tips at base, no circle/oval stamp, smooth pedestal or straight crop. Fine realistic feather texture, soft daylight. Genuine RGBA transparency, no painted checkerboard, haze, shadow, labels or text. Output one corrected adult Bonelli's Eagle (Aquila fasciata) portrait only.",
+        "reason": "Kept the old round head structure too strongly; replaced using real species anatomy."
+      },
+      "originalSha256": "66274418c6ef294725576ce862cecb8dbd7cf6d7f1e06e64426fa28e8549a703",
+      "referenceSha256": "537c94c4750ddfc37eba64e5e6e568af39418355cd0b0053bb59a76f4d3a285c",
+      "generatedSha256": "f3561c7ae5ebe0713866de96787450ff10ed199d45ec59834f8beeca8115f80f",
+      "outputSha256": "8e32c2270af680cbb0ee23d849fc45b852b69c573795603e1d18b69c82dd0986",
+      "alphaCheck": {
+        "bbox": [
+          117,
+          148,
+          1185,
+          1203
+        ],
+        "transparentPixels": 777844,
+        "opaquePixels": 785996
+      },
+      "localFinish": "Protected interior GrabCut and 2px edge-color decontamination only. No resize, crop or geometry change.",
+      "uniformPlacement": {
+        "scale": 0.9202551834130781,
+        "left": 50,
+        "top": 10,
+        "reason": "Common proportional placement of four new eagle illustrations into shared 1254 canvas, preserving all anatomy and feather proportions. No neck-only deformation."
+      },
+      "visualReview": "Original/revised comparison against unchanged Habicht at 196, 64 and 48px on light, dark and muted green backgrounds. Head, bill, crest, lower feather edge and framing visually inspected. User approval remains distinct.",
+      "finalAlphaCheck": {
+        "id": "habichtsadler",
+        "path": "public/birds/portrait-habichtsadler-20260913.png",
+        "sha256": "8e32c2270af680cbb0ee23d849fc45b852b69c573795603e1d18b69c82dd0986",
+        "size": [
+          1254,
+          1254
+        ],
+        "transparentPixels": 895569,
+        "opaqueEdgePixels": 0,
+        "bbox": [
+          158,
+          146,
+          1140,
+          1117
+        ]
+      }
+    },
+    {
+      "id": "kaiseradler",
+      "original": "public/birds/portrait-kaiseradler.png",
+      "reference": "public/birds/portrait-habicht-20260912.png",
+      "anatomyReference": {
+        "path": "/tmp/portrait-anatomy-kaiseradler.jpg",
+        "url": "https://commons.wikimedia.org/wiki/File:Kaiseradler_Aquila_heliaca_6_amk.jpg",
+        "role": "Photographic observation of species head proportions only; illustration newly generated in shared style.",
+        "sha256": "2d0f1da78c7036ec43847ff507f51a4f5dc74cfaab79fd089b8c6a89b94210b9"
+      },
+      "generated": "/Users/lukasvonhohnhorst/.codex/generated_images/01a0976f-755f-7be3-bea4-157be9d1dc69/exec-6be66850-844b-461b-a6d1-2a0bde6254f4.png",
+      "prompt": "Create a REPLACEMENT naturalistic illustration portrait for adult Eastern Imperial Eagle (Aquila heliaca). IMAGE 1 is a REAL PHOTOGRAPH OF THIS SPECIES: use it only to understand genuine skull, brow, cheek, bill proportions and feather direction. IMAGE 2 is the USER-APPROVED GOSHAWK: use ONLY its naturalistic ILLUSTRATION style, head-to-short-neck crop balance and canvas positioning. Do not copy goshawk anatomy or eye color. Do not recreate the old round generic eagle artwork. Low elongated crown/forehead, strong brow over realistically small pale-yellow iris, powerful bill, pale cream-buff rear head and nape, dark brown throat. Observe the REAL bill/head ratio and forehead slope from the photograph; avoid the old caricature's giant eye and circular skull. Render a LEFT-FACING, closed-beak slight three-quarter profile. Not the photograph's original direction or framing. Full head and a SHORT neck, no wings, shoulders, torso, hand, straps or background. Optical head weight and eye height comparable to image 2; square canvas, crown around y140, eye around x490 y370, lower cheek around y650, natural feather tips ending around y1080 on a1254 canvas. Adequate clear space around complete bill and crown. Fine layered realistic feather illustration with gentle daylight and true species colors, not a photo cutout or plastic cartoon. Natural tapering irregular feather-edge bottom, no flat crop or pedestal. Genuine transparent RGBA background, no checkerboard, haze, shadow, signature or text. One illustrated adult Eastern Imperial Eagle (Aquila heliaca) only.",
+      "output": "public/birds/portrait-kaiseradler-20260913.png",
+      "status": "local-preview",
+      "rejectedGeneration": {
+        "generated": "/Users/lukasvonhohnhorst/.codex/generated_images/01a0976f-755f-7be3-bea4-157be9d1dc69/exec-6d3e1860-a342-4486-b66e-4804633e72d8.png",
+        "prompt": "Portrait correction, naturalistic educational illustration. IMAGE 1 is the currently mapped adult Eastern Imperial Eagle (Aquila heliaca); correct its unnatural generic round head while preserving species identity. IMAGE 2 is the USER-APPROVED goshawk, composition and fine feather rendering reference ONLY, NEVER anatomy. Replace the balloon-like circular dome and round cheek by the natural sturdy angular profile of an adult Eastern Imperial Eagle: broad low forehead, strong supraorbital brow, robust deep grey-black hooked bill with yellow cere, golden-buff crown/nape, dark chocolate-brown cheek and short neck, pale yellow-brown iris. Nape feathers are fine lanceolate feathers, not a smooth spherical cap. Keep the species' naturally substantial head and bill, no exaggerated aggressive cartoon expression. Use the same left-facing slight three-quarter pose as the series. Head with MODERATELY SHORT neck, full bill and crown, no shoulders or torso. Match image 2's optical head size and visible neck balance; on square 1254 canvas crown near y140, eye near x490/y365, lower cheek near y660 and lowest neck feather tips near y1090. Keep natural species-specific beak length rather than copying goshawk skull shape. Natural irregular feather tips at base, no circle/oval stamp, smooth pedestal or straight crop. Fine realistic feather texture, soft daylight. Genuine RGBA transparency, no painted checkerboard, haze, shadow, labels or text. Output one corrected adult Eastern Imperial Eagle (Aquila heliaca) portrait only.",
+        "reason": "Kept the old round head structure too strongly; replaced using real species anatomy."
+      },
+      "originalSha256": "84dc6567eb1eb5f66a86909344b3b065dadb6f40309cb67f6184180cc8c4bf3c",
+      "referenceSha256": "537c94c4750ddfc37eba64e5e6e568af39418355cd0b0053bb59a76f4d3a285c",
+      "generatedSha256": "4664da8ecc739bbb739084a5e7f56a9c3bedc207434332b457a109bc065c9d1e",
+      "outputSha256": "28119065eab28b87749a5c82c7fb2d9aa855c9c619b92e59d000667e5d696992",
+      "alphaCheck": {
+        "bbox": [
+          62,
+          131,
+          1221,
+          1173
+        ],
+        "transparentPixels": 759327,
+        "opaquePixels": 799219
+      },
+      "localFinish": "Protected interior GrabCut and 2px edge-color decontamination only. No resize, crop or geometry change.",
+      "uniformPlacement": {
+        "scale": 0.9202551834130781,
+        "left": 50,
+        "top": 10,
+        "reason": "Common proportional placement of four new eagle illustrations into shared 1254 canvas, preserving all anatomy and feather proportions. No neck-only deformation."
+      },
+      "visualReview": "Original/revised comparison against unchanged Habicht at 196, 64 and 48px on light, dark and muted green backgrounds. Head, bill, crest, lower feather edge and framing visually inspected. User approval remains distinct.",
+      "finalAlphaCheck": {
+        "id": "kaiseradler",
+        "path": "public/birds/portrait-kaiseradler-20260913.png",
+        "sha256": "28119065eab28b87749a5c82c7fb2d9aa855c9c619b92e59d000667e5d696992",
+        "size": [
+          1254,
+          1254
+        ],
+        "transparentPixels": 878701,
+        "opaqueEdgePixels": 0,
+        "bbox": [
+          107,
+          131,
+          1174,
+          1089
+        ]
+      }
+    },
+    {
+      "id": "iberienadler",
+      "original": "public/birds/portrait-iberienadler.png",
+      "reference": "public/birds/portrait-habicht-20260912.png",
+      "anatomyReference": {
+        "path": "/tmp/portrait-anatomy-iberienadler.jpg",
+        "url": "https://wwf.panda.org/wwf_news/?213750/Donana-fifty-years-since-WWFs-first-major-conservation-achievement",
+        "role": "Photographic observation of species head proportions only; illustration newly generated in shared style.",
+        "sha256": "2aa9d5f694cdd47635a4e006513f13047bf3c33640fd18a95be4c4d269a9dae6"
+      },
+      "generated": "/Users/lukasvonhohnhorst/.codex/generated_images/01a0976f-755f-7be3-bea4-157be9d1dc69/exec-3f99b5fa-2989-47bc-9e00-877998292bee.png",
+      "prompt": "Create a REPLACEMENT naturalistic illustration portrait for adult Spanish Imperial Eagle (Aquila adalberti). IMAGE 1 is a REAL PHOTOGRAPH OF THIS SPECIES: use it only to understand genuine skull, brow, cheek, bill proportions and feather direction. IMAGE 2 is the USER-APPROVED GOSHAWK: use ONLY its naturalistic ILLUSTRATION style, head-to-short-neck crop balance and canvas positioning. Do not copy goshawk anatomy or eye color. Do not recreate the old round generic eagle artwork. Natural elongated, substantial eagle head and tapering cheek, realistically sized amber-brown adult eye under a firm brow, powerful grey-black bill and yellow cere. Adult very dark brown face/throat with lighter tawny rear head and nape. The photograph is for actual facial structure; keep the natural close relation to Eastern Imperial Eagle, but no generic identical circular head. Render a LEFT-FACING, closed-beak slight three-quarter profile. Not the photograph's original direction or framing. Full head and a SHORT neck, no wings, shoulders, torso, hand, straps or background. Optical head weight and eye height comparable to image 2; square canvas, crown around y140, eye around x490 y370, lower cheek around y650, natural feather tips ending around y1080 on a1254 canvas. Adequate clear space around complete bill and crown. Fine layered realistic feather illustration with gentle daylight and true species colors, not a photo cutout or plastic cartoon. Natural tapering irregular feather-edge bottom, no flat crop or pedestal. Genuine transparent RGBA background, no checkerboard, haze, shadow, signature or text. One illustrated adult Spanish Imperial Eagle (Aquila adalberti) only.",
+      "output": "public/birds/portrait-iberienadler-20260913.png",
+      "status": "local-preview",
+      "rejectedGeneration": {
+        "generated": "/Users/lukasvonhohnhorst/.codex/generated_images/01a0976f-755f-7be3-bea4-157be9d1dc69/exec-7345812e-c103-481a-9977-0d5b978c3cfc.png",
+        "prompt": "Portrait correction, naturalistic educational illustration. IMAGE 1 is the currently mapped adult Spanish Imperial Eagle (Aquila adalberti); correct its unnatural generic round head while preserving species identity. IMAGE 2 is the USER-APPROVED goshawk, composition and fine feather rendering reference ONLY, NEVER anatomy. Replace the generic circular inflated head/cheek with a natural adult Spanish Imperial Eagle head: a strong but flatter crown-to-brow profile, sculpted cheek, powerful grey-black hooked bill/yellow cere, very dark chocolate to blackish-brown face and short neck, contrasting pale tawny nape and rear crown, yellowish adult iris. Preserve the real close similarity to Eastern Imperial Eagle; do not invent diagnostic face patches or change anatomy merely to distinguish it. Use natural feather directions and a modestly darker overall adult plumage. Use the same left-facing slight three-quarter pose as the series. Head with MODERATELY SHORT neck, full bill and crown, no shoulders or torso. Match image 2's optical head size and visible neck balance; on square 1254 canvas crown near y140, eye near x490/y365, lower cheek near y660 and lowest neck feather tips near y1090. Keep natural species-specific beak length rather than copying goshawk skull shape. Natural irregular feather tips at base, no circle/oval stamp, smooth pedestal or straight crop. Fine realistic feather texture, soft daylight. Genuine RGBA transparency, no painted checkerboard, haze, shadow, labels or text. Output one corrected adult Spanish Imperial Eagle (Aquila adalberti) portrait only.",
+        "reason": "Kept the old round head structure too strongly; replaced using real species anatomy."
+      },
+      "originalSha256": "819d3344762dbcc1d22bc182badd94f6c246c87b743facf1fa195d106b137560",
+      "referenceSha256": "537c94c4750ddfc37eba64e5e6e568af39418355cd0b0053bb59a76f4d3a285c",
+      "generatedSha256": "e2074dc0e9e3666482426fffbe681c732b35732fe419497825046984b3c975a4",
+      "outputSha256": "537310ec4e717b949a006665c96ec1657b11f9a94eeefd7d38f0f66bcbb2f413",
+      "alphaCheck": {
+        "bbox": [
+          76,
+          119,
+          1232,
+          1187
+        ],
+        "transparentPixels": 732620,
+        "opaquePixels": 825748
+      },
+      "localFinish": "Protected interior GrabCut and 2px edge-color decontamination only. No resize, crop or geometry change.",
+      "uniformPlacement": {
+        "scale": 0.9202551834130781,
+        "left": 50,
+        "top": 10,
+        "reason": "Common proportional placement of four new eagle illustrations into shared 1254 canvas, preserving all anatomy and feather proportions. No neck-only deformation."
+      },
+      "visualReview": "Original/revised comparison against unchanged Habicht at 196, 64 and 48px on light, dark and muted green backgrounds. Head, bill, crest, lower feather edge and framing visually inspected. User approval remains distinct.",
+      "finalAlphaCheck": {
+        "id": "iberienadler",
+        "path": "public/birds/portrait-iberienadler-20260913.png",
+        "sha256": "537310ec4e717b949a006665c96ec1657b11f9a94eeefd7d38f0f66bcbb2f413",
+        "size": [
+          1254,
+          1254
+        ],
+        "transparentPixels": 855596,
+        "opaqueEdgePixels": 0,
+        "bbox": [
+          120,
+          119,
+          1183,
+          1102
+        ]
+      }
+    },
+    {
+      "id": "klippenadler",
+      "original": "public/birds/portrait-klippenadler.png",
+      "reference": "public/birds/portrait-habicht-20260912.png",
+      "anatomyReference": {
+        "path": "/tmp/portrait-anatomy-klippenadler.jpg",
+        "url": "https://sciencephotogallery.com/featured/verreauxs-eagle-linda-wright.html",
+        "role": "Photographic observation of species head proportions only; illustration newly generated in shared style.",
+        "sha256": "62e64dd752a9abc695205ccf24deb1e89a09482633d8048d2f27fbfe6bb81cd3"
+      },
+      "generated": "/Users/lukasvonhohnhorst/.codex/generated_images/01a0976f-755f-7be3-bea4-157be9d1dc69/exec-01ea5445-be15-4d1e-b11c-8b42c4e6e408.png",
+      "prompt": "Create a replacement naturalistic illustration portrait of an ADULT VERREAUX'S EAGLE (Aquila verreauxii). IMAGE 1 is a real photo of this species, anatomical reference ONLY: observe its LOW FLAT forehead, firm sweeping brow, horizontally elongated head, proportionate pale-grey-to-dark hooked bill with yellow cere, rich dark brown iris and sleek black plumage. The actual head is not a circular puffball. IMAGE 2 is the approved goshawk, ONLY the detailed naturalistic illustration style and shared composition reference, never anatomy or colors. Make a left-facing closed-bill slight three-quarter HALF PORTRAIT, full head with a short feathered neck, same head-to-neck visual balance as image 2. Square canvas 1254, crown near y140, eye near x490/y370, cheek near y650, bottom natural feather tips near y1080. Keep entire bill and crown with clear margin. Recreate all plumage as a fine naturalistic illustration, soft even daylight, black feathers with subtle charcoal detail. No white patches on visible head/neck, no golden nape, no giant caricature eye or bill, no inflated circular cheek, no shoulders/torso. Natural irregular feather bottom, no oval stamp or pedestal. Genuine transparent RGBA background, no painted checkerboard, haze, text or shadow. Output only the illustrated Verreaux's Eagle.",
+      "output": "public/birds/portrait-klippenadler-20260913.png",
+      "status": "local-preview",
+      "rejectedGeneration": {
+        "generated": "/Users/lukasvonhohnhorst/.codex/generated_images/01a0976f-755f-7be3-bea4-157be9d1dc69/exec-569c2448-7f1f-49f7-957e-4b801ec0b229.png",
+        "prompt": "Portrait correction, naturalistic educational illustration. IMAGE 1 is the currently mapped adult Verreaux's Eagle (Aquila verreauxii); correct its unnatural generic round head while preserving species identity. IMAGE 2 is the USER-APPROVED goshawk, composition and fine feather rendering reference ONLY, NEVER anatomy. Replace the generic round circular eagle head and balloon cheek with a natural, more angular Verreaux's Eagle profile: elongated low crown, firm brow, sculpted cheek, powerful arched grey-black bill with yellow cere, adult brown iris. Keep head and entire visible short neck black with subtle charcoal feather highlights, NO golden nape, white head patches or brown eagle coloration. This is a black Verreaux's Eagle, not a recolored imperial eagle. Use the same left-facing slight three-quarter pose as the series. Head with MODERATELY SHORT neck, full bill and crown, no shoulders or torso. Match image 2's optical head size and visible neck balance; on square 1254 canvas crown near y140, eye near x490/y365, lower cheek near y660 and lowest neck feather tips near y1090. Keep natural species-specific beak length rather than copying goshawk skull shape. Natural irregular feather tips at base, no circle/oval stamp, smooth pedestal or straight crop. Fine realistic feather texture, soft daylight. Genuine RGBA transparency, no painted checkerboard, haze, shadow, labels or text. Output one corrected adult Verreaux's Eagle (Aquila verreauxii) portrait only.",
+        "reason": "Kept the old round head structure too strongly; replaced using real species anatomy."
+      },
+      "originalSha256": "08b84b4909759ebffb7398d7be71daa461667283aa805eca972f4f686f8c3b7b",
+      "referenceSha256": "537c94c4750ddfc37eba64e5e6e568af39418355cd0b0053bb59a76f4d3a285c",
+      "generatedSha256": "70148354afcf856e6a4d91ca557011490f73527c67d77635660044a70dc7d7b5",
+      "outputSha256": "6798d6c08031685452de794d056f8414a737b6c7cd7ba3a12971eaa4659344d3",
+      "alphaCheck": {
+        "bbox": [
+          66,
+          121,
+          1220,
+          1193
+        ],
+        "transparentPixels": 718340,
+        "opaquePixels": 838955
+      },
+      "localFinish": "Protected interior GrabCut and 2px edge-color decontamination only. No resize, crop or geometry change.",
+      "uniformPlacement": {
+        "scale": 0.9202551834130781,
+        "left": 50,
+        "top": 10,
+        "reason": "Common proportional placement of four new eagle illustrations into shared 1254 canvas, preserving all anatomy and feather proportions. No neck-only deformation."
+      },
+      "visualReview": "Original/revised comparison against unchanged Habicht at 196, 64 and 48px on light, dark and muted green backgrounds. Head, bill, crest, lower feather edge and framing visually inspected. User approval remains distinct.",
+      "finalAlphaCheck": {
+        "id": "klippenadler",
+        "path": "public/birds/portrait-klippenadler-20260913.png",
+        "sha256": "6798d6c08031685452de794d056f8414a737b6c7cd7ba3a12971eaa4659344d3",
+        "size": [
+          1254,
+          1254
+        ],
+        "transparentPixels": 843713,
+        "opaqueEdgePixels": 0,
+        "bbox": [
+          111,
+          121,
+          1173,
+          1108
+        ]
+      }
+    },
+    {
+      "id": "falklandkarakara",
+      "original": "public/birds/portrait-falklandkarakara.png",
+      "reference": "public/birds/portrait-habicht-20260912.png",
+      "generated": "/Users/lukasvonhohnhorst/.codex/generated_images/01a0976f-755f-7be3-bea4-157be9d1dc69/exec-3370ddbd-e6e5-45ee-9a29-c0707fbc05cb.png",
+      "prompt": "Precise-object-edit of IMAGE 1: Striated Caracara. IMAGE 2 approved goshawk is ONLY short-neck composition and natural feather-edge reference. Modestly shorten the long lower striped neck by about 60 pixels, keeping the entire head at exactly its existing scale and location. Maintain a natural short neck, no wing/shoulder. All changes confined to the lowest neck, roughly below y850 on the original 1254 square canvas. Preserve naturalistic fine illustration style and species anatomy. Do not enlarge the head, eye or bill, do not zoom/recenter to fill removed space, do not stretch or squash feathers. Preserve whole head including complete beak and crown feathers. Small local change, no dramatic reduction. Natural individual overlapping feather tips at bottom, no straight cut, circle, pedestal, haze. Genuine RGBA transparency, no painted checkerboard or text. Output only edited Striated Caracara.",
+      "output": "public/birds/portrait-falklandkarakara-20260913.png",
+      "status": "local-preview",
+      "originalSha256": "add0d454c0534f42600a160244e3f154c301ef80b24e311ef0ea4538f5398266",
+      "referenceSha256": "537c94c4750ddfc37eba64e5e6e568af39418355cd0b0053bb59a76f4d3a285c",
+      "generatedSha256": "5b57bf3243e385cf4d492ada8cc18b4384f6a64568b64decedef83e0fa701f46",
+      "outputSha256": "0525135b67e9a44187318c6ec1286955b7a14bba0ca901fbd3c9f07ce8848723",
+      "alphaCheck": {
+        "bbox": [
+          177,
+          146,
+          1088,
+          1080
+        ],
+        "transparentPixels": 983699,
+        "opaquePixels": 579532
+      },
+      "localFinish": "Protected interior GrabCut and 2px edge-color decontamination only. No resize, crop or geometry change.",
+      "finalAlphaCheck": {
+        "id": "falklandkarakara",
+        "path": "public/birds/portrait-falklandkarakara-20260913.png",
+        "sha256": "0525135b67e9a44187318c6ec1286955b7a14bba0ca901fbd3c9f07ce8848723",
+        "size": [
+          1254,
+          1254
+        ],
+        "transparentPixels": 983699,
+        "opaqueEdgePixels": 0,
+        "bbox": [
+          177,
+          146,
+          1088,
+          1080
+        ]
+      },
+      "visualReview": "Original/revised comparison against unchanged Habicht at 196, 64 and 48px on light, dark and muted green backgrounds. Head, bill, crest, lower feather edge and framing visually inspected. User approval remains distinct."
+    },
+    {
+      "id": "weisskopfseeadler",
+      "original": "public/birds/portrait-weisskopfseeadler.png",
+      "reference": "public/birds/portrait-habicht-20260912.png",
+      "generated": "/Users/lukasvonhohnhorst/.codex/generated_images/01a0976f-755f-7be3-bea4-157be9d1dc69/exec-607134ef-735f-4259-a7cf-11bd202802f1.png",
+      "prompt": "Precise-object-edit of IMAGE 1: adult Bald Eagle. IMAGE 2 approved goshawk is ONLY short-neck composition and natural feather-edge reference. Slightly shorten only the bottom dark-brown neck collar by about 40 pixels. Keep all white head feathers, yellow bill and eye exactly unchanged at their existing size/location. Preserve a small natural dark neck transition. All changes confined to the lowest neck, roughly below y850 on the original 1254 square canvas. Preserve naturalistic fine illustration style and species anatomy. Do not enlarge the head, eye or bill, do not zoom/recenter to fill removed space, do not stretch or squash feathers. Preserve whole head including complete beak and crown feathers. Small local change, no dramatic reduction. Natural individual overlapping feather tips at bottom, no straight cut, circle, pedestal, haze. Genuine RGBA transparency, no painted checkerboard or text. Output only edited adult Bald Eagle.",
+      "output": "public/birds/portrait-weisskopfseeadler-20260913.png",
+      "status": "local-preview",
+      "originalSha256": "51a0fe35125a0f702f27b1ec51b3c4406c144eed5f69a98683f56b550fec7baf",
+      "referenceSha256": "537c94c4750ddfc37eba64e5e6e568af39418355cd0b0053bb59a76f4d3a285c",
+      "generatedSha256": "cb1751d7fdd85b9b542a076dde78fe256ed559b0bfa1391cbc9bf31d75af6d70",
+      "outputSha256": "4e7e5d313eea0a816f75dd18c969ae2ef80164ec7fa5b493721d115abf9de648",
+      "alphaCheck": {
+        "bbox": [
+          158,
+          129,
+          1099,
+          1132
+        ],
+        "transparentPixels": 902027,
+        "opaquePixels": 662188
+      },
+      "localFinish": "Protected interior GrabCut and 2px edge-color decontamination only. No resize, crop or geometry change.",
+      "finalAlphaCheck": {
+        "id": "weisskopfseeadler",
+        "path": "public/birds/portrait-weisskopfseeadler-20260913.png",
+        "sha256": "4e7e5d313eea0a816f75dd18c969ae2ef80164ec7fa5b493721d115abf9de648",
+        "size": [
+          1254,
+          1254
+        ],
+        "transparentPixels": 902027,
+        "opaqueEdgePixels": 0,
+        "bbox": [
+          158,
+          129,
+          1099,
+          1132
+        ]
+      },
+      "visualReview": "Original/revised comparison against unchanged Habicht at 196, 64 and 48px on light, dark and muted green backgrounds. Head, bill, crest, lower feather edge and framing visually inspected. User approval remains distinct."
+    },
+    {
+      "id": "rotmilan",
+      "original": "public/birds/portrait-rotmilan.png",
+      "reference": "public/birds/portrait-habicht-20260912.png",
+      "generated": "/Users/lukasvonhohnhorst/.codex/generated_images/01a0976f-755f-7be3-bea4-157be9d1dc69/exec-8233bf28-a08e-4d4e-87bb-c2e4121a0413.png",
+      "prompt": "Precise-object-edit of IMAGE 1: Red Kite. IMAGE 2 approved goshawk is ONLY short-neck composition and natural feather-edge reference. Modestly shorten the long triangular lower rufous streaked neck by about 60 pixels. Preserve the grey head and complete bill in exact current size/location. Natural feathery base, no long bust. All changes confined to the lowest neck, roughly below y850 on the original 1254 square canvas. Preserve naturalistic fine illustration style and species anatomy. Do not enlarge the head, eye or bill, do not zoom/recenter to fill removed space, do not stretch or squash feathers. Preserve whole head including complete beak and crown feathers. Small local change, no dramatic reduction. Natural individual overlapping feather tips at bottom, no straight cut, circle, pedestal, haze. Genuine RGBA transparency, no painted checkerboard or text. Output only edited Red Kite.",
+      "output": "public/birds/portrait-rotmilan-20260913.png",
+      "status": "local-preview",
+      "originalSha256": "6b964e34685d0e2fa4fc27ce3d43bc9e3ceaeb75ab1a3a682038b05ee7d3c45e",
+      "referenceSha256": "537c94c4750ddfc37eba64e5e6e568af39418355cd0b0053bb59a76f4d3a285c",
+      "generatedSha256": "bfb9aec3980273517cf20db34ec4d2203a97fa645c8dca7045f083ab47f6529b",
+      "outputSha256": "6cbcae067b73c20ab98c9dfe71a1e3663851aea10b9638077eac847629e60ff4",
+      "alphaCheck": {
+        "bbox": [
+          160,
+          122,
+          1147,
+          1105
+        ],
+        "transparentPixels": 899067,
+        "opaquePixels": 664092
+      },
+      "localFinish": "Protected interior GrabCut and 2px edge-color decontamination only. No resize, crop or geometry change.",
+      "finalAlphaCheck": {
+        "id": "rotmilan",
+        "path": "public/birds/portrait-rotmilan-20260913.png",
+        "sha256": "6cbcae067b73c20ab98c9dfe71a1e3663851aea10b9638077eac847629e60ff4",
+        "size": [
+          1254,
+          1254
+        ],
+        "transparentPixels": 899067,
+        "opaqueEdgePixels": 0,
+        "bbox": [
+          160,
+          122,
+          1147,
+          1105
+        ]
+      },
+      "visualReview": "Original/revised comparison against unchanged Habicht at 196, 64 and 48px on light, dark and muted green backgrounds. Head, bill, crest, lower feather edge and framing visually inspected. User approval remains distinct."
+    },
+    {
+      "id": "schwarzmilan",
+      "original": "public/birds/portrait-schwarzmilan.png",
+      "reference": "public/birds/portrait-habicht-20260912.png",
+      "generated": "/Users/lukasvonhohnhorst/.codex/generated_images/01a0976f-755f-7be3-bea4-157be9d1dc69/exec-bb830774-549e-4a16-83ac-f4695c6d35e4.png",
+      "prompt": "Precise-object-edit of IMAGE 1: Black Kite. IMAGE 2 approved goshawk is ONLY short-neck composition and natural feather-edge reference. Slightly shorten the lower dark-brown feathered neck by about 50 pixels. Keep head size, eye and bill location and species colors unchanged. Natural small feather tips. All changes confined to the lowest neck, roughly below y850 on the original 1254 square canvas. Preserve naturalistic fine illustration style and species anatomy. Do not enlarge the head, eye or bill, do not zoom/recenter to fill removed space, do not stretch or squash feathers. Preserve whole head including complete beak and crown feathers. Small local change, no dramatic reduction. Natural individual overlapping feather tips at bottom, no straight cut, circle, pedestal, haze. Genuine RGBA transparency, no painted checkerboard or text. Output only edited Black Kite.",
+      "output": "public/birds/portrait-schwarzmilan-20260913.png",
+      "status": "local-preview",
+      "originalSha256": "66625bb86a61de294a17bbad3e6506eba750463a43837422836da746c1684e40",
+      "referenceSha256": "537c94c4750ddfc37eba64e5e6e568af39418355cd0b0053bb59a76f4d3a285c",
+      "generatedSha256": "60dbdea454e3094124bcd10f814df6d80afe69272cae980d1e49aa2da3e4c5ba",
+      "outputSha256": "43dc743d778af39c4c59c18dfc6f7536766b2e2a8d516a815408fc0fb5ef08cd",
+      "alphaCheck": {
+        "bbox": [
+          171,
+          113,
+          1139,
+          1058
+        ],
+        "transparentPixels": 896427,
+        "opaquePixels": 667018
+      },
+      "localFinish": "Protected interior GrabCut and 2px edge-color decontamination only. No resize, crop or geometry change.",
+      "finalAlphaCheck": {
+        "id": "schwarzmilan",
+        "path": "public/birds/portrait-schwarzmilan-20260913.png",
+        "sha256": "43dc743d778af39c4c59c18dfc6f7536766b2e2a8d516a815408fc0fb5ef08cd",
+        "size": [
+          1254,
+          1254
+        ],
+        "transparentPixels": 896427,
+        "opaqueEdgePixels": 0,
+        "bbox": [
+          171,
+          113,
+          1139,
+          1058
+        ]
+      },
+      "visualReview": "Original/revised comparison against unchanged Habicht at 196, 64 and 48px on light, dark and muted green backgrounds. Head, bill, crest, lower feather edge and framing visually inspected. User approval remains distinct."
+    },
+    {
+      "id": "schopfkarakara",
+      "original": "public/birds/portrait-schopfkarakara.png",
+      "reference": "public/birds/portrait-habicht-20260912.png",
+      "generated": "/Users/lukasvonhohnhorst/.codex/generated_images/01a0976f-755f-7be3-bea4-157be9d1dc69/exec-ed55d51b-6c5f-4f9a-a2d4-1b4cfd710426.png",
+      "prompt": "Precise-object-edit of IMAGE 1: Crested Caracara. IMAGE 2 approved goshawk is ONLY short-neck composition and natural feather-edge reference. Modestly shorten the bottom black-and-cream barred neck by about 60 pixels, preserving the head and pale upper neck exactly as they are. Keep the crest, red bare face and beak at existing scale/location. No broad chest or shoulder. All changes confined to the lowest neck, roughly below y850 on the original 1254 square canvas. Preserve naturalistic fine illustration style and species anatomy. Do not enlarge the head, eye or bill, do not zoom/recenter to fill removed space, do not stretch or squash feathers. Preserve whole head including complete beak and crown feathers. Small local change, no dramatic reduction. Natural individual overlapping feather tips at bottom, no straight cut, circle, pedestal, haze. Genuine RGBA transparency, no painted checkerboard or text. Output only edited Crested Caracara.",
+      "output": "public/birds/portrait-schopfkarakara-20260913.png",
+      "status": "local-preview",
+      "originalSha256": "845402a4bc5bf50295d760e7e6006cb8baf189b202764c6fa91e180890d64ddc",
+      "referenceSha256": "537c94c4750ddfc37eba64e5e6e568af39418355cd0b0053bb59a76f4d3a285c",
+      "generatedSha256": "57f499076ce451e9f88be599bf5b0de1d499a62bae952d63cea55bc6645eaad6",
+      "outputSha256": "366e156cb1a40428b796c0e725dba537bf5407a5d99ab39822a6046815083d2d",
+      "alphaCheck": {
+        "bbox": [
+          148,
+          131,
+          1147,
+          1113
+        ],
+        "transparentPixels": 877848,
+        "opaquePixels": 684264
+      },
+      "localFinish": "Generated flat green background matte; excess-green alpha and background unmixing. No neutral/white feather pixels keyed; no geometry change.",
+      "mattePass": {
+        "id": "schopfkarakara",
+        "source": "/Users/lukasvonhohnhorst/.codex/generated_images/01a0976f-755f-7be3-bea4-157be9d1dc69/exec-ed55d51b-6c5f-4f9a-a2d4-1b4cfd710426.png",
+        "prompt": "BACKGROUND REPLACEMENT ONLY. Keep the entire existing bird illustration exactly unchanged: identical pixels/texture, identical anatomy, size, location, bill, feathers, crest and lower edge. Replace ONLY the gray-white checkerboard background with a perfectly flat uniform pure vivid GREEN background RGB(0,255,0), hexadecimal #00FF00. No gradient, no texture, no green reflected light or cast on the bird. Green goes between fine feather tips and outside the entire silhouette. Do not use transparency, do not draw any checkerboard. Same square canvas, no zoom, no recentering, no crop, no added or removed feathers. This is a technical matte pass; output the identical bird on solid bright green.",
+        "generated": "/Users/lukasvonhohnhorst/.codex/generated_images/01a0976f-755f-7be3-bea4-157be9d1dc69/exec-137ec2b5-34d7-404d-a552-eab857419d2a.png",
+        "generatedSha256": "8849ffd64789fdbeaac83ca700bff539679bd96240956eaf83419720d7efc985",
+        "sourceSha256": "57f499076ce451e9f88be599bf5b0de1d499a62bae952d63cea55bc6645eaad6",
+        "backgroundRgb": [
+          6,
+          249,
+          6
+        ]
+      },
+      "finalAlphaCheck": {
+        "id": "schopfkarakara",
+        "path": "public/birds/portrait-schopfkarakara-20260913.png",
+        "sha256": "366e156cb1a40428b796c0e725dba537bf5407a5d99ab39822a6046815083d2d",
+        "size": [
+          1254,
+          1254
+        ],
+        "transparentPixels": 869962,
+        "opaqueEdgePixels": 0,
+        "bbox": [
+          148,
+          130,
+          1147,
+          1120
+        ]
+      },
+      "visualReview": "Original/revised comparison against unchanged Habicht at 196, 64 and 48px on light, dark and muted green backgrounds. Head, bill, crest, lower feather edge and framing visually inspected. User approval remains distinct."
+    },
+    {
+      "id": "kampfadler",
+      "original": "public/birds/portrait-kampfadler.png",
+      "reference": "public/birds/portrait-habicht-20260912.png",
+      "generated": "/Users/lukasvonhohnhorst/.codex/generated_images/01a0976f-755f-7be3-bea4-157be9d1dc69/exec-6b51071f-76cf-4c1c-8e2e-a8e86bb19d6a.png",
+      "prompt": "Precise-object-edit of IMAGE 1: Martial Eagle. IMAGE 2 approved goshawk is ONLY short-neck composition and natural feather-edge reference. Slightly shorten the lowest dark neck feathers by about 40 pixels. Keep entire head, small crest, bill, eye, pose and head size exactly unchanged. All changes confined to the lowest neck, roughly below y850 on the original 1254 square canvas. Preserve naturalistic fine illustration style and species anatomy. Do not enlarge the head, eye or bill, do not zoom/recenter to fill removed space, do not stretch or squash feathers. Preserve whole head including complete beak and crown feathers. Small local change, no dramatic reduction. Natural individual overlapping feather tips at bottom, no straight cut, circle, pedestal, haze. Genuine RGBA transparency, no painted checkerboard or text. Output only edited Martial Eagle.",
+      "output": "public/birds/portrait-kampfadler-20260913.png",
+      "status": "local-preview",
+      "originalSha256": "30b282363af9e7380d6fa3799919db6682deed26eecd4aa04a43900e92401daa",
+      "referenceSha256": "537c94c4750ddfc37eba64e5e6e568af39418355cd0b0053bb59a76f4d3a285c",
+      "generatedSha256": "19e3c8e20c0621dbd2f11ed5b3db350614de65eaf42734d22e0c1ff39228782f",
+      "outputSha256": "464c04692cc524e20882e1368aa697dfe521f5dc5983498963a9e16903c479ee",
+      "alphaCheck": {
+        "bbox": [
+          119,
+          111,
+          1136,
+          1073
+        ],
+        "transparentPixels": 893102,
+        "opaquePixels": 669262
+      },
+      "localFinish": "Protected interior GrabCut and 2px edge-color decontamination only. No resize, crop or geometry change.",
+      "finalAlphaCheck": {
+        "id": "kampfadler",
+        "path": "public/birds/portrait-kampfadler-20260913.png",
+        "sha256": "464c04692cc524e20882e1368aa697dfe521f5dc5983498963a9e16903c479ee",
+        "size": [
+          1254,
+          1254
+        ],
+        "transparentPixels": 893102,
+        "opaqueEdgePixels": 0,
+        "bbox": [
+          119,
+          111,
+          1136,
+          1073
+        ]
+      },
+      "visualReview": "Original/revised comparison against unchanged Habicht at 196, 64 and 48px on light, dark and muted green backgrounds. Head, bill, crest, lower feather edge and framing visually inspected. User approval remains distinct."
+    },
+    {
+      "id": "steppenadler",
+      "original": "public/birds/portrait-steppenadler.png",
+      "reference": "public/birds/portrait-habicht-20260912.png",
+      "generated": "/Users/lukasvonhohnhorst/.codex/generated_images/01a0976f-755f-7be3-bea4-157be9d1dc69/exec-183e23d0-6a03-4dc2-bc71-17ef08bc19e3.png",
+      "prompt": "Precise-object-edit of IMAGE 1: Steppe Eagle. IMAGE 2 approved goshawk is ONLY short-neck composition and natural feather-edge reference. Slightly shorten only the lowest dark-brown neck feathers by about 45 pixels. Keep entire head, bill and distinctive gape line, eye, pose and head size exactly unchanged. All changes confined to the lowest neck, roughly below y850 on the original 1254 square canvas. Preserve naturalistic fine illustration style and species anatomy. Do not enlarge the head, eye or bill, do not zoom/recenter to fill removed space, do not stretch or squash feathers. Preserve whole head including complete beak and crown feathers. Small local change, no dramatic reduction. Natural individual overlapping feather tips at bottom, no straight cut, circle, pedestal, haze. Genuine RGBA transparency, no painted checkerboard or text. Output only edited Steppe Eagle.",
+      "output": "public/birds/portrait-steppenadler-20260913.png",
+      "status": "local-preview",
+      "originalSha256": "99d2f86658ba024331282834f2420f1e2a6a631985b81cb5c9d5fbc99e1f0600",
+      "referenceSha256": "537c94c4750ddfc37eba64e5e6e568af39418355cd0b0053bb59a76f4d3a285c",
+      "generatedSha256": "3ed560bc1bf92437704e59ba788214119c39024432d365922d3263056091b71a",
+      "outputSha256": "802bfbb08514eb1bc600a7e08c419bdce5c72d5a06c404641484230c13c6e3cb",
+      "alphaCheck": {
+        "bbox": [
+          65,
+          62,
+          1186,
+          1146
+        ],
+        "transparentPixels": 732803,
+        "opaquePixels": 827491
+      },
+      "localFinish": "Protected interior GrabCut and 2px edge-color decontamination only. No resize, crop or geometry change.",
+      "uniformPlacement": {
+        "size": 1141,
+        "left": 56,
+        "top": 90,
+        "reason": "Proportional whole-bird placement restores common optical scale and complete margins; no neck deformation."
+      },
+      "finalAlphaCheck": {
+        "id": "steppenadler",
+        "path": "public/birds/portrait-steppenadler-20260913.png",
+        "sha256": "802bfbb08514eb1bc600a7e08c419bdce5c72d5a06c404641484230c13c6e3cb",
+        "size": [
+          1254,
+          1254
+        ],
+        "transparentPixels": 872477,
+        "opaqueEdgePixels": 0,
+        "bbox": [
+          115,
+          146,
+          1135,
+          1133
+        ]
+      },
+      "visualReview": "Original/revised comparison against unchanged Habicht at 196, 64 and 48px on light, dark and muted green backgrounds. Head, bill, crest, lower feather edge and framing visually inspected. User approval remains distinct."
+    },
+    {
+      "id": "bartgeier",
+      "original": "public/birds/portrait-bartgeier-20260907.png",
+      "reference": "public/birds/portrait-habicht-20260912.png",
+      "generated": "/Users/lukasvonhohnhorst/.codex/generated_images/01a0976f-755f-7be3-bea4-157be9d1dc69/exec-7d1617f3-b8a3-42c1-88e0-889291a676b1.png",
+      "prompt": "Precise-object-edit of IMAGE 1: Bearded Vulture. IMAGE 2 approved goshawk is ONLY short-neck composition and natural feather-edge reference. Slightly shorten only the bottom orange neck feathers by about 45 pixels. Keep the entire head, eye ring, bill, black beard and nape unchanged at existing size and position. Keep a natural feathered short neck. All changes confined to the lowest neck, roughly below y850 on the original 1254 square canvas. Preserve naturalistic fine illustration style and species anatomy. Do not enlarge the head, eye or bill, do not zoom/recenter to fill removed space, do not stretch or squash feathers. Preserve whole head including complete beak and crown feathers. Small local change, no dramatic reduction. Natural individual overlapping feather tips at bottom, no straight cut, circle, pedestal, haze. Genuine RGBA transparency, no painted checkerboard or text. Output only edited Bearded Vulture.",
+      "output": "public/birds/portrait-bartgeier-20260913.png",
+      "status": "local-preview",
+      "originalSha256": "e30cc6c4fd017fa59aa8992fdaf8f9c5b35b064c54b85f8c51e32241f866475a",
+      "referenceSha256": "537c94c4750ddfc37eba64e5e6e568af39418355cd0b0053bb59a76f4d3a285c",
+      "generatedSha256": "550770c2f554a83cf1331f743b96b80fd2179f8b2fff2415fe0d0bbd97f4ed83",
+      "outputSha256": "2079c59c45af3afcd3fd62156fac8e57d150efc4997cfdc83d83d169e78c0d73",
+      "alphaCheck": {
+        "bbox": [
+          123,
+          96,
+          1134,
+          1073
+        ],
+        "transparentPixels": 880787,
+        "opaquePixels": 682678
+      },
+      "localFinish": "Protected interior GrabCut and 2px edge-color decontamination only. No resize, crop or geometry change.",
+      "finalAlphaCheck": {
+        "id": "bartgeier",
+        "path": "public/birds/portrait-bartgeier-20260913.png",
+        "sha256": "2079c59c45af3afcd3fd62156fac8e57d150efc4997cfdc83d83d169e78c0d73",
+        "size": [
+          1254,
+          1254
+        ],
+        "transparentPixels": 880787,
+        "opaqueEdgePixels": 0,
+        "bbox": [
+          123,
+          96,
+          1134,
+          1073
+        ]
+      },
+      "visualReview": "Original/revised comparison against unchanged Habicht at 196, 64 and 48px on light, dark and muted green backgrounds. Head, bill, crest, lower feather edge and framing visually inspected. User approval remains distinct."
+    },
+    {
+      "id": "gerfalke",
+      "original": "public/birds/portrait-gerfalke.png",
+      "reference": "public/birds/portrait-habicht-20260912.png",
+      "generated": "/Users/lukasvonhohnhorst/.codex/generated_images/01a0976f-755f-7be3-bea4-157be9d1dc69/exec-3c1fcdc9-a348-470a-a94e-59cb64720e36.png",
+      "prompt": "Precise portrait edit. IMAGE 1 is the existing Gyrfalcon and sole identity/anatomy source. IMAGE 2 approved goshawk is ONLY the series' short-neck composition and fine naturalistic feather illustration style reference; never transfer goshawk anatomy or colors. Shorten only lowest neck by about 40 pixels on the 1254 canvas and replace its unnaturally horizontal straight cutoff with natural irregular overlapping pointed feather tips. Keep head size, crown, bill and eye position exactly unchanged. No dramatic neck reduction. Maintain naturalistic detailed illustration consistent with the source and reference. No stretching or squashing any part. Square canvas, leftward view, real RGBA transparency, no painted checkerboard, shadows on background, halo, text or labels. Output one edited Gyrfalcon.",
+      "output": "public/birds/portrait-gerfalke-20260913.png",
+      "status": "local-preview",
+      "originalSha256": "adab9ee0f29ac11a138228fe28f5626144ba15a8d78c6a5e173c6877a04c4093",
+      "referenceSha256": "537c94c4750ddfc37eba64e5e6e568af39418355cd0b0053bb59a76f4d3a285c",
+      "generatedSha256": "be3a848f393443ada7915cbd1261b18dca0c8430a780d9b4ff31806c99e750bd",
+      "outputSha256": "3aec23755cca01f921509edd1ecf2b066a4ed5d81f89cb3c52e131f1a03478ba",
+      "alphaCheck": {
+        "bbox": [
+          138,
+          156,
+          1141,
+          1102
+        ],
+        "transparentPixels": 852687,
+        "opaquePixels": 711112
+      },
+      "localFinish": "Protected interior GrabCut and 2px edge-color decontamination only. No resize, crop or geometry change.",
+      "finalAlphaCheck": {
+        "id": "gerfalke",
+        "path": "public/birds/portrait-gerfalke-20260913.png",
+        "sha256": "3aec23755cca01f921509edd1ecf2b066a4ed5d81f89cb3c52e131f1a03478ba",
+        "size": [
+          1254,
+          1254
+        ],
+        "transparentPixels": 852687,
+        "opaqueEdgePixels": 0,
+        "bbox": [
+          138,
+          156,
+          1141,
+          1102
+        ]
+      },
+      "visualReview": "Original/revised comparison against unchanged Habicht at 196, 64 and 48px on light, dark and muted green backgrounds. Head, bill, crest, lower feather edge and framing visually inspected. User approval remains distinct."
+    },
+    {
+      "id": "sekretaer",
+      "original": "public/birds/portrait-sekretaer-20260907.png",
+      "reference": "public/birds/portrait-habicht-20260912.png",
+      "generated": "/Users/lukasvonhohnhorst/.codex/generated_images/01a0976f-755f-7be3-bea4-157be9d1dc69/exec-21fe88a0-0ced-4727-917a-866e97c24220.png",
+      "prompt": "Precise portrait edit. IMAGE 1 is the existing Secretarybird and sole identity/anatomy source. IMAGE 2 approved goshawk is ONLY the series' short-neck composition and fine naturalistic feather illustration style reference; never transfer goshawk anatomy or colors. Remove the pale haze and faint rectangular background below the feathered neck. Render a clean organic lower edge of individual silver-gray feather tips, at approximately the present neck length. Preserve all elongated black crest feathers, the complete bill, orange skin, head size, eye location and pose. No white fog or semitransparent pedestal. Maintain naturalistic detailed illustration consistent with the source and reference. No stretching or squashing any part. Square canvas, leftward view, real RGBA transparency, no painted checkerboard, shadows on background, halo, text or labels. Output one edited Secretarybird.",
+      "output": "public/birds/portrait-sekretaer-20260913.png",
+      "status": "local-preview",
+      "originalSha256": "922b12fb68d221acf43144218e54b1ade68575dc1bae83bdf2396579a73ee439",
+      "referenceSha256": "537c94c4750ddfc37eba64e5e6e568af39418355cd0b0053bb59a76f4d3a285c",
+      "generatedSha256": "1b8c730bcf0ed85ef83877edd042151614ebe7b088cb4665e45ce9b643271fc0",
+      "outputSha256": "a7d0a92b8af1352dda7599f2b7f3e44f9ccb6a8d80eb839e5876b575bddd38ac",
+      "alphaCheck": {
+        "bbox": [
+          46,
+          97,
+          1210,
+          1144
+        ],
+        "transparentPixels": 817030,
+        "opaquePixels": 739884
+      },
+      "localFinish": "Generated flat green background matte; excess-green alpha and background unmixing. No neutral/white feather pixels keyed; no geometry change.",
+      "mattePass": {
+        "id": "sekretaer",
+        "source": "/Users/lukasvonhohnhorst/.codex/generated_images/01a0976f-755f-7be3-bea4-157be9d1dc69/exec-21fe88a0-0ced-4727-917a-866e97c24220.png",
+        "prompt": "BACKGROUND REPLACEMENT ONLY. Keep the entire existing bird illustration exactly unchanged: identical pixels/texture, identical anatomy, size, location, bill, feathers, crest and lower edge. Replace ONLY the gray-white checkerboard background with a perfectly flat uniform pure vivid GREEN background RGB(0,255,0), hexadecimal #00FF00. No gradient, no texture, no green reflected light or cast on the bird. Green goes between fine feather tips and outside the entire silhouette. Do not use transparency, do not draw any checkerboard. Same square canvas, no zoom, no recentering, no crop, no added or removed feathers. This is a technical matte pass; output the identical bird on solid bright green.",
+        "generated": "/Users/lukasvonhohnhorst/.codex/generated_images/01a0976f-755f-7be3-bea4-157be9d1dc69/exec-5d38f5d4-53bf-4db8-82ea-85ec6eb718d6.png",
+        "generatedSha256": "f45ae776ce3ebfac5d984fca396dcb584a563608cfe1491f697eedd8b39865a0",
+        "sourceSha256": "1b8c730bcf0ed85ef83877edd042151614ebe7b088cb4665e45ce9b643271fc0",
+        "backgroundRgb": [
+          5,
+          248,
+          7
+        ]
+      },
+      "uniformPlacement": {
+        "size": 1128,
+        "left": 63,
+        "top": 40,
+        "reason": "Proportional whole-bird placement restores common optical scale and complete margins; no neck deformation."
+      },
+      "finalAlphaCheck": {
+        "id": "sekretaer",
+        "path": "public/birds/portrait-sekretaer-20260913.png",
+        "sha256": "a7d0a92b8af1352dda7599f2b7f3e44f9ccb6a8d80eb839e5876b575bddd38ac",
+        "size": [
+          1254,
+          1254
+        ],
+        "transparentPixels": 944960,
+        "opaqueEdgePixels": 0,
+        "bbox": [
+          105,
+          128,
+          1151,
+          1067
+        ]
+      },
+      "visualReview": "Original/revised comparison against unchanged Habicht at 196, 64 and 48px on light, dark and muted green backgrounds. Head, bill, crest, lower feather edge and framing visually inspected. User approval remains distinct."
+    },
+    {
+      "id": "andenkondor",
+      "original": "public/birds/portrait-andenkondor-20260907.png",
+      "reference": "public/birds/portrait-habicht-20260912.png",
+      "generated": "/Users/lukasvonhohnhorst/.codex/generated_images/01a0976f-755f-7be3-bea4-157be9d1dc69/exec-d0e8d927-a107-4403-9f6e-85587709582b.png",
+      "prompt": "Precise portrait edit. IMAGE 1 is the existing adult male Andean Condor and sole identity/anatomy source. IMAGE 2 approved goshawk is ONLY the series' short-neck composition and fine naturalistic feather illustration style reference; never transfer goshawk anatomy or colors. Replace ONLY the artificial gray oval pedestal below the bare neck with the species' natural compact white down-feather neck ruff. Make its contour visibly feathered and irregular, not an ellipse, ring-shaped base, stand or fog. Keep the complete bare wrinkled reddish head, comb, long hooked bill, eye, scale, position and existing pose unchanged. Ruff is dense white/cream down with gentle gray feather shadows, pure transparent surrounding background; it is part of the bird. Maintain naturalistic detailed illustration consistent with the source and reference. No stretching or squashing any part. Square canvas, leftward view, real RGBA transparency, no painted checkerboard, shadows on background, halo, text or labels. Output one edited adult male Andean Condor.",
+      "output": "public/birds/portrait-andenkondor-20260913.png",
+      "status": "local-preview",
+      "originalSha256": "48971b7c99200a0091fdda2c7d3e14c7f2a40b9754304473fa851b001ead720c",
+      "referenceSha256": "537c94c4750ddfc37eba64e5e6e568af39418355cd0b0053bb59a76f4d3a285c",
+      "generatedSha256": "58e4e87bc11f54eb098964ca0cd98b66512b5ad45ba7e0031056a844e674466e",
+      "outputSha256": "11e3c21cb5f890eecdd81a160df7ff2d988fe85dbb56b9e260c01ae2ff714b66",
+      "alphaCheck": {
+        "bbox": [
+          159,
+          56,
+          1175,
+          1228
+        ],
+        "transparentPixels": 864115,
+        "opaquePixels": 699266
+      },
+      "localFinish": "Protected interior GrabCut and 2px edge-color decontamination only. No resize, crop or geometry change.",
+      "uniformPlacement": {
+        "size": 1078,
+        "left": 88,
+        "top": 70,
+        "reason": "Proportional whole-bird placement restores common optical scale and complete margins; no neck deformation."
+      },
+      "finalAlphaCheck": {
+        "id": "andenkondor",
+        "path": "public/birds/portrait-andenkondor-20260913.png",
+        "sha256": "11e3c21cb5f890eecdd81a160df7ff2d988fe85dbb56b9e260c01ae2ff714b66",
+        "size": [
+          1254,
+          1254
+        ],
+        "transparentPixels": 1044947,
+        "opaqueEdgePixels": 0,
+        "bbox": [
+          225,
+          118,
+          1098,
+          1125
+        ]
+      },
+      "visualReview": "Original/revised comparison against unchanged Habicht at 196, 64 and 48px on light, dark and muted green backgrounds. Head, bill, crest, lower feather edge and framing visually inspected. User approval remains distinct."
+    },
+    {
+      "id": "kronenadler",
+      "original": "public/birds/portrait-kronenadler.png",
+      "reference": "public/birds/portrait-habicht-20260912.png",
+      "generated": "/Users/lukasvonhohnhorst/.codex/generated_images/01a0976f-755f-7be3-bea4-157be9d1dc69/exec-475b930b-9bc5-49d9-9aa3-4e45236ed887.png",
+      "prompt": "Precise portrait edit. IMAGE 1 is the existing Crowned Eagle and sole identity/anatomy source. IMAGE 2 approved goshawk is ONLY the series' short-neck composition and fine naturalistic feather illustration style reference; never transfer goshawk anatomy or colors. Clean the external pale halo around the crest and all feathers, retaining the genuine light-tipped feathers themselves. Preserve the complete pointed crest, current head/neck anatomy, brown colors, pale eye, bill, pose, optical size and framing unchanged. Keep fine natural feather texture and an irregular lower edge. Maintain naturalistic detailed illustration consistent with the source and reference. No stretching or squashing any part. Square canvas, leftward view, real RGBA transparency, no painted checkerboard, shadows on background, halo, text or labels. Output one edited Crowned Eagle.",
+      "output": "public/birds/portrait-kronenadler-20260913.png",
+      "status": "local-preview",
+      "originalSha256": "d675a84eb9f5cbc9535fe8ca47e39b51eb2824d9eb2484e0a227371941628c7a",
+      "referenceSha256": "537c94c4750ddfc37eba64e5e6e568af39418355cd0b0053bb59a76f4d3a285c",
+      "generatedSha256": "de1fc1aa8cb0b1c51260de239f48de4b0d12d7518e371f2ca0961ad05cde533f",
+      "outputSha256": "2eb82760f1c99a9282f74f3ff360d0d0a7f9f13c4f255ccc048df1ccb0d5bb9a",
+      "alphaCheck": {
+        "bbox": [
+          68,
+          40,
+          1185,
+          1216
+        ],
+        "transparentPixels": 732657,
+        "opaquePixels": 829154
+      },
+      "localFinish": "Protected interior GrabCut and 2px edge-color decontamination only. No resize, crop or geometry change.",
+      "uniformPlacement": {
+        "size": 1066,
+        "left": 94,
+        "top": 105,
+        "reason": "Proportional whole-bird placement restores common optical scale and complete margins; no neck deformation."
+      },
+      "finalAlphaCheck": {
+        "id": "kronenadler",
+        "path": "public/birds/portrait-kronenadler-20260913.png",
+        "sha256": "2eb82760f1c99a9282f74f3ff360d0d0a7f9f13c4f255ccc048df1ccb0d5bb9a",
+        "size": [
+          1254,
+          1254
+        ],
+        "transparentPixels": 960850,
+        "opaqueEdgePixels": 0,
+        "bbox": [
+          152,
+          139,
+          1101,
+          1139
+        ]
+      },
+      "visualReview": "Original/revised comparison against unchanged Habicht at 196, 64 and 48px on light, dark and muted green backgrounds. Head, bill, crest, lower feather edge and framing visually inspected. User approval remains distinct."
+    },
+    {
+      "id": "sperber",
+      "original": "public/birds/portrait-sperber.png",
+      "reference": "public/birds/portrait-habicht-20260912.png",
+      "generated": "/Users/lukasvonhohnhorst/.codex/generated_images/01a0976f-755f-7be3-bea4-157be9d1dc69/exec-c63b677a-2ada-4776-b664-7157333c6f41.png",
+      "prompt": "Precise portrait edit. IMAGE 1 is the existing adult male Eurasian Sparrowhawk and sole identity/anatomy source. IMAGE 2 approved goshawk is ONLY the series' short-neck composition and fine naturalistic feather illustration style reference; never transfer goshawk anatomy or colors. Refine only the lowest feather edge of the barred neck: clear individual small pointed feathers instead of a soft fuzzy straight-ish fringe. Extend only a few feather tips by at most 20 pixels on the 1254 canvas; this is NOT a longer bust. Preserve the whole gray head, orange cheeks/iris, beak, existing head size and eye position. Maintain naturalistic detailed illustration consistent with the source and reference. No stretching or squashing any part. Square canvas, leftward view, real RGBA transparency, no painted checkerboard, shadows on background, halo, text or labels. Output one edited adult male Eurasian Sparrowhawk.",
+      "output": "public/birds/portrait-sperber-20260913.png",
+      "status": "local-preview",
+      "originalSha256": "badf1e43adce1279f54b27e1c9c5dc4a1ebf58fc95717e7112f15104b065d926",
+      "referenceSha256": "537c94c4750ddfc37eba64e5e6e568af39418355cd0b0053bb59a76f4d3a285c",
+      "generatedSha256": "8ad4cd79459e19ba584c9328a9a42a4d2f572f0bce471184797f55c527e3bed5",
+      "outputSha256": "026b30b945c50827fdf027dea4e0a7b6ac7cf5ba28a853d1b1317adb4adc427e",
+      "alphaCheck": {
+        "bbox": [
+          121,
+          112,
+          1150,
+          1157
+        ],
+        "transparentPixels": 780620,
+        "opaquePixels": 781382
+      },
+      "localFinish": "Protected interior GrabCut and 2px edge-color decontamination only. No resize, crop or geometry change.",
+      "finalAlphaCheck": {
+        "id": "sperber",
+        "path": "public/birds/portrait-sperber-20260913.png",
+        "sha256": "026b30b945c50827fdf027dea4e0a7b6ac7cf5ba28a853d1b1317adb4adc427e",
+        "size": [
+          1254,
+          1254
+        ],
+        "transparentPixels": 780620,
+        "opaqueEdgePixels": 0,
+        "bbox": [
+          121,
+          112,
+          1150,
+          1157
+        ]
+      },
+      "visualReview": "Original/revised comparison against unchanged Habicht at 196, 64 and 48px on light, dark and muted green backgrounds. Head, bill, crest, lower feather edge and framing visually inspected. User approval remains distinct."
+    },
+    {
+      "id": "harpyie",
+      "original": "public/birds/portrait-harpyie.png",
+      "reference": "public/birds/portrait-habicht-20260912.png",
+      "generated": "/Users/lukasvonhohnhorst/.codex/generated_images/01a0976f-755f-7be3-bea4-157be9d1dc69/exec-fab228d0-e3f6-4848-a216-0855c0c79d45.png",
+      "prompt": "Edit IMAGE 1, the existing Harpy Eagle portrait. It already has correct anatomy, entire crest, beak and short neck. IMAGE 2 goshawk is composition reference ONLY. Make an EXTREMELY SUBTLE refinement to overall apparent size, maximum 5 percent increase from image1, preserve entire bird with at least 85 pixels transparent margin on all four sides of the 1254x1254 canvas. This margin is mandatory, including above all tall crest tips and below all black neck feathers. The head face should not be dramatically enlarged, no zoom to fill canvas. Preserve original pose, crest arrangement and fine naturalistic feather illustration style. Keep every feather and full bill. Real RGBA transparent background, no checkerboard, halo, text. One full uncropped portrait, short neck.",
+      "output": "public/birds/portrait-harpyie-20260913.png",
+      "status": "local-preview",
+      "rejectedGeneration": {
+        "generated": "/Users/lukasvonhohnhorst/.codex/generated_images/01a0976f-755f-7be3-bea4-157be9d1dc69/exec-87531bc4-ab5b-4464-a6bb-83a19154d133.png",
+        "prompt": "Precise portrait edit. IMAGE 1 is the existing Harpy Eagle and sole identity/anatomy source. IMAGE 2 approved goshawk is ONLY the series' short-neck composition and fine naturalistic feather illustration style reference; never transfer goshawk anatomy or colors. Make the complete existing bird illustration only about 8 percent larger optically by proportional overall placement on the same square canvas. Preserve exactly its characteristic whole raised crest, head, bill, eye, short neck and feather geometry. Move slightly left if needed so ALL crest tips and bill fit with visible transparent padding at every edge. Never crop, enlarge the eye separately or alter the facial anatomy. No longer neck. Maintain naturalistic detailed illustration consistent with the source and reference. No stretching or squashing any part. Square canvas, leftward view, real RGBA transparency, no painted checkerboard, shadows on background, halo, text or labels. Output one edited Harpy Eagle.",
+        "reason": "Excessive enlargement, insufficient margin and clipped lower feathers."
+      },
+      "originalSha256": "67acef2ec5dc3dccc4af3156c86b5a30b587f9087cb109e23f02becc6264ffa2",
+      "referenceSha256": "537c94c4750ddfc37eba64e5e6e568af39418355cd0b0053bb59a76f4d3a285c",
+      "generatedSha256": "c17a8c97658cfe49b0e5fdf6278eb002db78204f8e1e9dff5dd2d94f50721a68",
+      "outputSha256": "f427e3c7eddd2818a0a87462926fd09c83906d673e7b8b93684ccedc6cb8a7da",
+      "alphaCheck": {
+        "bbox": [
+          160,
+          85,
+          1109,
+          1170
+        ],
+        "transparentPixels": 870959,
+        "opaquePixels": 691342
+      },
+      "localFinish": "Protected interior GrabCut and 2px edge-color decontamination only. No resize, crop or geometry change.",
+      "finalAlphaCheck": {
+        "id": "harpyie",
+        "path": "public/birds/portrait-harpyie-20260913.png",
+        "sha256": "f427e3c7eddd2818a0a87462926fd09c83906d673e7b8b93684ccedc6cb8a7da",
+        "size": [
+          1254,
+          1254
+        ],
+        "transparentPixels": 870959,
+        "opaqueEdgePixels": 0,
+        "bbox": [
+          160,
+          85,
+          1109,
+          1170
+        ]
+      },
+      "visualReview": "Original/revised comparison against unchanged Habicht at 196, 64 and 48px on light, dark and muted green backgrounds. Head, bill, crest, lower feather edge and framing visually inspected. User approval remains distinct."
+    },
+    {
+      "id": "weissstorch",
+      "original": "public/birds/portrait-weissstorch.png",
+      "reference": "public/birds/portrait-habicht-20260912.png",
+      "generated": "/Users/lukasvonhohnhorst/.codex/generated_images/01a0976f-755f-7be3-bea4-157be9d1dc69/exec-e7ae50ce-5b88-4786-bce2-7e369d412f9a.png",
+      "prompt": "Precise portrait edit. IMAGE 1 is the existing White Stork and sole identity/anatomy source. IMAGE 2 approved goshawk is ONLY the series' short-neck composition and fine naturalistic feather illustration style reference; never transfer goshawk anatomy or colors. Improve portrait balance: make its actual white head about 10 percent larger optically, keeping the ENTIRE natural long red pointed bill in frame. Use a subtly more three-quarter leftward view so the long bill fits through natural perspective, never truncate or physically shorten it. Keep the species' elegant white head and neck anatomy. Shorten only the lowest visible feathered neck modestly, keeping a short natural neck with irregular individual feather tips, not a bust. No raptor face. Complete bill, head and all feathers with transparent margin. Maintain naturalistic detailed illustration consistent with the source and reference. No stretching or squashing any part. Square canvas, leftward view, real RGBA transparency, no painted checkerboard, shadows on background, halo, text or labels. Output one edited White Stork.",
+      "output": "public/birds/portrait-weissstorch-20260913.png",
+      "status": "local-preview",
+      "originalSha256": "e233621f0f64750128d088b2672d81cea6d935f22a1472ddeb043c7ea345454b",
+      "referenceSha256": "537c94c4750ddfc37eba64e5e6e568af39418355cd0b0053bb59a76f4d3a285c",
+      "generatedSha256": "37dcc0b0267e601b4c240f6ce29309704237af471340ace1b362e81cd8cfd03c",
+      "outputSha256": "ae94be04eedc959197845b7580c85e5e78a37569bc8bc8de3fc6856512fe3ca7",
+      "alphaCheck": {
+        "bbox": [
+          64,
+          88,
+          1163,
+          1187
+        ],
+        "transparentPixels": 987384,
+        "opaquePixels": 575614
+      },
+      "localFinish": "Generated flat green background matte; excess-green alpha and background unmixing. No neutral/white feather pixels keyed; no geometry change.",
+      "mattePass": {
+        "id": "weissstorch",
+        "source": "/Users/lukasvonhohnhorst/.codex/generated_images/01a0976f-755f-7be3-bea4-157be9d1dc69/exec-e7ae50ce-5b88-4786-bce2-7e369d412f9a.png",
+        "prompt": "BACKGROUND REPLACEMENT ONLY. Keep the entire existing bird illustration exactly unchanged: identical pixels/texture, identical anatomy, size, location, bill, feathers, crest and lower edge. Replace ONLY the gray-white checkerboard background with a perfectly flat uniform pure vivid GREEN background RGB(0,255,0), hexadecimal #00FF00. No gradient, no texture, no green reflected light or cast on the bird. Green goes between fine feather tips and outside the entire silhouette. Do not use transparency, do not draw any checkerboard. Same square canvas, no zoom, no recentering, no crop, no added or removed feathers. This is a technical matte pass; output the identical bird on solid bright green.",
+        "generated": "/Users/lukasvonhohnhorst/.codex/generated_images/01a0976f-755f-7be3-bea4-157be9d1dc69/exec-c2becfca-7c6b-4de0-b95b-79bc8b348a4c.png",
+        "generatedSha256": "25086d125a5ba20eebf056f181ef4c09a94f39c13789bd71ce21749315ccab6d",
+        "sourceSha256": "37dcc0b0267e601b4c240f6ce29309704237af471340ace1b362e81cd8cfd03c",
+        "backgroundRgb": [
+          5,
+          248,
+          5
+        ]
+      },
+      "uniformPlacement": {
+        "size": 1128,
+        "left": 63,
+        "top": 70,
+        "reason": "Proportional whole-bird placement restores common optical scale and complete margins; no neck deformation."
+      },
+      "finalAlphaCheck": {
+        "id": "weissstorch",
+        "path": "public/birds/portrait-weissstorch-20260913.png",
+        "sha256": "ae94be04eedc959197845b7580c85e5e78a37569bc8bc8de3fc6856512fe3ca7",
+        "size": [
+          1254,
+          1254
+        ],
+        "transparentPixels": 1092889,
+        "opaqueEdgePixels": 0,
+        "bbox": [
+          87,
+          149,
+          1109,
+          1136
+        ]
+      },
+      "visualReview": "Original/revised comparison against unchanged Habicht at 196, 64 and 48px on light, dark and muted green backgrounds. Head, bill, crest, lower feather edge and framing visually inspected. User approval remains distinct."
+    }
+  ]
+}

@@ -1,0 +1,14 @@
+{
+  "original": "public/birds/portrait-aguja.png",
+  "generated": "/Users/lukasvonhohnhorst/.codex/generated_images/01a099ef-de8d-7712-bd8a-c8942ee0ec43/exec-dc752405-e057-4662-8f8b-24a48253d6db.png",
+  "output": "public/birds/portrait-aguja-20260913-v2.png",
+  "canvas": [
+    1254,
+    1254
+  ],
+  "alphaIdentical": true,
+  "edgeGeometry": "Original alpha and outer 20 px retained, smooth interior surface transition over the next 30 px. No scaling, cropping, translation or neck distortion.",
+  "originalSha256": "25ffd480ca0a2e59d61b8feb09997607cee10c41e1f9f5014470b842f8010314",
+  "generatedSha256": "5d7fc96dfc4b70391a4d2c9a16346ca971ae3105cdc8727bb5865bb88a72195a",
+  "outputSha256": "23f539401ab8ef155208b9900d5f8a9f9fbf26e69316b9bab3ddda2ef5f5c752"
+}

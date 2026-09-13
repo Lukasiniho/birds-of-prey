@@ -1,0 +1,38 @@
+[
+  {
+    "id": "turmfalke",
+    "source": "/Users/lukasvonhohnhorst/.codex/generated_images/01a0976f-755f-7be3-bea4-157be9d1dc69/exec-3faf8f34-440f-4798-a6a6-2901e41a08aa.png",
+    "prompt": "TECHNICAL BACKGROUND-ONLY MATTE EDIT. Keep this entire bird exactly unchanged: same anatomy, complete beak, every feather, head/eye size, neck length, pose, optical scale and pixel placement on the square canvas. Replace ONLY the checkerboard with uniform pure bright green RGB(0,255,0), #00FF00. No checkerboard anywhere, no gradient, no green tint or light reflected on the bird. Green visible between feather tips. Do not resize, recenter, crop or redesign the bird. Output identical bird on flat green for local alpha extraction.",
+    "generated": "/Users/lukasvonhohnhorst/.codex/generated_images/01a0976f-755f-7be3-bea4-157be9d1dc69/exec-3721dbcb-eca9-45ff-9d99-8dfe3928aa6d.png"
+  },
+  {
+    "id": "baumfalke",
+    "source": "/Users/lukasvonhohnhorst/.codex/generated_images/01a0976f-755f-7be3-bea4-157be9d1dc69/exec-4013f4aa-d4f9-49f9-9161-c52c4eaeba07.png",
+    "prompt": "TECHNICAL BACKGROUND-ONLY MATTE EDIT. Keep this entire bird exactly unchanged: same anatomy, complete beak, every feather, head/eye size, neck length, pose, optical scale and pixel placement on the square canvas. Replace ONLY the checkerboard with uniform pure bright green RGB(0,255,0), #00FF00. No checkerboard anywhere, no gradient, no green tint or light reflected on the bird. Green visible between feather tips. Do not resize, recenter, crop or redesign the bird. Output identical bird on flat green for local alpha extraction.",
+    "generated": "/Users/lukasvonhohnhorst/.codex/generated_images/01a0976f-755f-7be3-bea4-157be9d1dc69/exec-bed42161-4f7c-40ee-a71d-987f7e4c674b.png"
+  },
+  {
+    "id": "fischadler",
+    "source": "/Users/lukasvonhohnhorst/.codex/generated_images/01a0976f-755f-7be3-bea4-157be9d1dc69/exec-8054bbe0-ffce-44aa-af57-0b5aaadd9201.png",
+    "prompt": "TECHNICAL BACKGROUND-ONLY MATTE EDIT. Keep this entire bird exactly unchanged: same anatomy, complete beak, every feather, head/eye size, neck length, pose, optical scale and pixel placement on the square canvas. Replace ONLY the checkerboard with uniform pure bright green RGB(0,255,0), #00FF00. No checkerboard anywhere, no gradient, no green tint or light reflected on the bird. Green visible between feather tips. Do not resize, recenter, crop or redesign the bird. Output identical bird on flat green for local alpha extraction.",
+    "generated": "/Users/lukasvonhohnhorst/.codex/generated_images/01a0976f-755f-7be3-bea4-157be9d1dc69/exec-75b299ab-b174-45a5-b156-6e95ded8fcb3.png"
+  },
+  {
+    "id": "habichtsadler",
+    "source": "/Users/lukasvonhohnhorst/.codex/generated_images/01a0976f-755f-7be3-bea4-157be9d1dc69/exec-0bc1fb2d-298f-4575-a90b-43bc8e504e0d.png",
+    "prompt": "TECHNICAL BACKGROUND-ONLY MATTE EDIT. Keep this entire bird exactly unchanged: same anatomy, complete beak, every feather, head/eye size, neck length, pose, optical scale and pixel placement on the square canvas. Replace ONLY the checkerboard with uniform pure bright green RGB(0,255,0), #00FF00. No checkerboard anywhere, no gradient, no green tint or light reflected on the bird. Green visible between feather tips. Do not resize, recenter, crop or redesign the bird. Output identical bird on flat green for local alpha extraction.",
+    "generated": "/Users/lukasvonhohnhorst/.codex/generated_images/01a0976f-755f-7be3-bea4-157be9d1dc69/exec-7270029c-0288-4940-98c6-21c32bc47507.png"
+  },
+  {
+    "id": "kaiseradler",
+    "source": "/Users/lukasvonhohnhorst/.codex/generated_images/01a0976f-755f-7be3-bea4-157be9d1dc69/exec-841b9197-9986-4147-a9e0-2f2ef89184d0.png",
+    "prompt": "TECHNICAL BACKGROUND-ONLY MATTE EDIT. Keep this entire bird exactly unchanged: same anatomy, complete beak, every feather, head/eye size, neck length, pose, optical scale and pixel placement on the square canvas. Replace ONLY the checkerboard with uniform pure bright green RGB(0,255,0), #00FF00. No checkerboard anywhere, no gradient, no green tint or light reflected on the bird. Green visible between feather tips. Do not resize, recenter, crop or redesign the bird. Output identical bird on flat green for local alpha extraction.",
+    "generated": "/Users/lukasvonhohnhorst/.codex/generated_images/01a0976f-755f-7be3-bea4-157be9d1dc69/exec-260287c2-e5c8-4b14-b7ae-86593efa8083.png"
+  },
+  {
+    "id": "iberienadler",
+    "source": "/Users/lukasvonhohnhorst/.codex/generated_images/01a0976f-755f-7be3-bea4-157be9d1dc69/exec-2c8eab0c-5c43-4610-b7ee-0c97ffba719d.png",
+    "prompt": "TECHNICAL BACKGROUND-ONLY MATTE EDIT. Keep this entire bird exactly unchanged: same anatomy, complete beak, every feather, head/eye size, neck length, pose, optical scale and pixel placement on the square canvas. Replace ONLY the checkerboard with uniform pure bright green RGB(0,255,0), #00FF00. No checkerboard anywhere, no gradient, no green tint or light reflected on the bird. Green visible between feather tips. Do not resize, recenter, crop or redesign the bird. Output identical bird on flat green for local alpha extraction.",
+    "generated": "/Users/lukasvonhohnhorst/.codex/generated_images/01a0976f-755f-7be3-bea4-157be9d1dc69/exec-93613b47-43a5-4ea0-ae94-210ee30b2380.png"
+  }
+]

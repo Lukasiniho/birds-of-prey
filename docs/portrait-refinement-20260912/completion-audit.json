@@ -1,0 +1,322 @@
+{
+  "checkedAt": "2026-09-12T22:47:22.292Z",
+  "scope": "All existing portraits, user corrections, source integrity and localhost delivery",
+  "species": 39,
+  "revised": 31,
+  "approvedUnchanged": [
+    "habicht",
+    "seeadler",
+    "aguja",
+    "wuestenbussard"
+  ],
+  "visualEvidence": "All three audit sheets and original/revised comparisons inspected; unchanged source hashes revalidated here. Actual browser rail checked separately.",
+  "images": [
+    {
+      "id": "rotschwanzbussard",
+      "source": "/birds/portrait-rotschwanzbussard-20260912-v3.png?v=7caa11556d60",
+      "sha256": "7caa11556d60df7976cf622efb6ab552a17aa1d902f2762fc72a6e7122c57a0f",
+      "optimizedUrl": "/optimized/portrait-rotschwanzbussard-20260912-v3-b5ddf3e25235a5e5-280.webp",
+      "httpStatus": 200
+    },
+    {
+      "id": "habicht",
+      "source": "/birds/portrait-habicht-20260912.png?v=537c94c4750d",
+      "sha256": "537c94c4750ddfc37eba64e5e6e568af39418355cd0b0053bb59a76f4d3a285c",
+      "optimizedUrl": "/optimized/portrait-habicht-20260912-10a3661e4b0918e7-280.webp",
+      "httpStatus": 200
+    },
+    {
+      "id": "maeusebussard",
+      "source": "/birds/portrait-maeusebussard-20260912-v3.png?v=6d54415a4262",
+      "sha256": "6d54415a4262bf0da7741274fadadc0cef50e839f301f5106396ab6209dee133",
+      "optimizedUrl": "/optimized/portrait-maeusebussard-20260912-v3-adcb809606ed279d-280.webp",
+      "httpStatus": 200
+    },
+    {
+      "id": "wanderfalke",
+      "source": "/birds/portrait-wanderfalke-20260912-v3.png?v=a0507ca91d27",
+      "sha256": "a0507ca91d27dde63c64c513dbc6f15d4c75e6e13ce7db50ab58bc8f818c407c",
+      "optimizedUrl": "/optimized/portrait-wanderfalke-20260912-v3-1ad770924e04d881-280.webp",
+      "httpStatus": 200
+    },
+    {
+      "id": "turmfalke",
+      "source": "/birds/portrait-turmfalke-20260912-v3.png?v=da89b0381b4c",
+      "sha256": "da89b0381b4c6a958b77c72d9e48484d5ba1967381dba0f854f085a8b92552f9",
+      "optimizedUrl": "/optimized/portrait-turmfalke-20260912-v3-a547adcaed70b797-280.webp",
+      "httpStatus": 200
+    },
+    {
+      "id": "steinadler",
+      "source": "/birds/portrait-steinadler-20260913.png?v=9e89d0011bfe",
+      "sha256": "9e89d0011bfe5d2668316257fa2b540e11aa250ae4b7338f31f9fa69ebebdbe2",
+      "optimizedUrl": "/optimized/portrait-steinadler-20260913-3802ef90bd08a184-280.webp",
+      "httpStatus": 200
+    },
+    {
+      "id": "seeadler",
+      "source": "/birds/portrait-seeadler.png?v=a5aee8028f73",
+      "sha256": "a5aee8028f731587cb2d3cac0bc1e51f82484ddcdeac0e5023e9d4e0a3f8990b",
+      "optimizedUrl": "/optimized/portrait-seeadler-faf0fb20b0d11998-280.webp",
+      "httpStatus": 200
+    },
+    {
+      "id": "fischadler",
+      "source": "/birds/portrait-fischadler-20260912.png?v=5cabde23c0f3",
+      "sha256": "5cabde23c0f3d49a42d263f5690e68779687a8356fd9628754c444464e9d69e8",
+      "optimizedUrl": "/optimized/portrait-fischadler-20260912-df2b17ba20448b87-280.webp",
+      "httpStatus": 200
+    },
+    {
+      "id": "wuestenbussard",
+      "source": "/birds/portrait-wuestenbussard-20260912.png?v=6f4f19d1ad76",
+      "sha256": "6f4f19d1ad76f1413e69962dd85f537db8a94249cf4e5445341c7934a5ef9eeb",
+      "optimizedUrl": "/optimized/portrait-wuestenbussard-20260912-b815459312de4de6-280.webp",
+      "httpStatus": 200
+    },
+    {
+      "id": "kaiseradler",
+      "source": "/birds/portrait-kaiseradler-20260913.png?v=28119065eab2",
+      "sha256": "28119065eab28b87749a5c82c7fb2d9aa855c9c619b92e59d000667e5d696992",
+      "optimizedUrl": "/optimized/portrait-kaiseradler-20260913-9faef1325cc8f6fd-280.webp",
+      "httpStatus": 200
+    },
+    {
+      "id": "steppenadler",
+      "source": "/birds/portrait-steppenadler-20260913.png?v=802bfbb08514",
+      "sha256": "802bfbb08514eb1bc600a7e08c419bdce5c72d5a06c404641484230c13c6e3cb",
+      "optimizedUrl": "/optimized/portrait-steppenadler-20260913-dae98700cd18e60f-280.webp",
+      "httpStatus": 200
+    },
+    {
+      "id": "sekretaer",
+      "source": "/birds/portrait-sekretaer-20260913.png?v=a7d0a92b8af1",
+      "sha256": "a7d0a92b8af1352dda7599f2b7f3e44f9ccb6a8d80eb839e5876b575bddd38ac",
+      "optimizedUrl": "/optimized/portrait-sekretaer-20260913-a00e4aa62661b90a-280.webp",
+      "httpStatus": 200
+    },
+    {
+      "id": "andenkondor",
+      "source": "/birds/portrait-andenkondor-20260913.png?v=11e3c21cb5f8",
+      "sha256": "11e3c21cb5f890eecdd81a160df7ff2d988fe85dbb56b9e260c01ae2ff714b66",
+      "optimizedUrl": "/optimized/portrait-andenkondor-20260913-de5d48890dafd580-280.webp",
+      "httpStatus": 200
+    },
+    {
+      "id": "wespenbussard",
+      "source": "/birds/portrait-wespenbussard-20260912.png?v=3b107a093aa7",
+      "sha256": "3b107a093aa76dc78ba8772f23dc1028c9725e94481f695b050d125ea4f07646",
+      "optimizedUrl": "/optimized/portrait-wespenbussard-20260912-962cccec46356658-280.webp",
+      "httpStatus": 200
+    },
+    {
+      "id": "bartgeier",
+      "source": "/birds/portrait-bartgeier-20260913.png?v=2079c59c45af",
+      "sha256": "2079c59c45af3afcd3fd62156fac8e57d150efc4997cfdc83d83d169e78c0d73",
+      "optimizedUrl": "/optimized/portrait-bartgeier-20260913-f61732480a1e565c-280.webp",
+      "httpStatus": 200
+    },
+    {
+      "id": "kronenadler",
+      "source": "/birds/portrait-kronenadler-20260913.png?v=2eb82760f1c9",
+      "sha256": "2eb82760f1c99a9282f74f3ff360d0d0a7f9f13c4f255ccc048df1ccb0d5bb9a",
+      "optimizedUrl": "/optimized/portrait-kronenadler-20260913-b0622445fced343f-280.webp",
+      "httpStatus": 200
+    },
+    {
+      "id": "habichtsadler",
+      "source": "/birds/portrait-habichtsadler-20260913.png?v=8e32c2270af6",
+      "sha256": "8e32c2270af680cbb0ee23d849fc45b852b69c573795603e1d18b69c82dd0986",
+      "optimizedUrl": "/optimized/portrait-habichtsadler-20260913-8dbf20572d533c96-280.webp",
+      "httpStatus": 200
+    },
+    {
+      "id": "iberienadler",
+      "source": "/birds/portrait-iberienadler-20260913.png?v=537310ec4e71",
+      "sha256": "537310ec4e717b949a006665c96ec1657b11f9a94eeefd7d38f0f66bcbb2f413",
+      "optimizedUrl": "/optimized/portrait-iberienadler-20260913-e7d24bf0705d3290-280.webp",
+      "httpStatus": 200
+    },
+    {
+      "id": "klippenadler",
+      "source": "/birds/portrait-klippenadler-20260913.png?v=6798d6c08031",
+      "sha256": "6798d6c08031685452de794d056f8414a737b6c7cd7ba3a12971eaa4659344d3",
+      "optimizedUrl": "/optimized/portrait-klippenadler-20260913-a7491d9f3ba8f85d-280.webp",
+      "httpStatus": 200
+    },
+    {
+      "id": "zwergadler",
+      "source": "/birds/portrait-zwergadler-20260913.png?v=52b5cb77f93c",
+      "sha256": "52b5cb77f93ce254522b14bec148ef7cdc7e61828926c2c3803f1b4d350cf8e1",
+      "optimizedUrl": "/optimized/portrait-zwergadler-20260913-52b41d58f1a81c3a-280.webp",
+      "httpStatus": 200
+    },
+    {
+      "id": "weisskopfseeadler",
+      "source": "/birds/portrait-weisskopfseeadler-20260913.png?v=4e7e5d313eea",
+      "sha256": "4e7e5d313eea0a816f75dd18c969ae2ef80164ec7fa5b493721d115abf9de648",
+      "optimizedUrl": "/optimized/portrait-weisskopfseeadler-20260913-6dcab218f396e8a8-280.webp",
+      "httpStatus": 200
+    },
+    {
+      "id": "riesenseeadler",
+      "source": "/birds/portrait-riesenseeadler-20260913.png?v=3549427b35c4",
+      "sha256": "3549427b35c4fd2f6ee45844f3104ca2b8693fd8bf2373709a6a102254e794eb",
+      "optimizedUrl": "/optimized/portrait-riesenseeadler-20260913-88f0166cc3ba353f-280.webp",
+      "httpStatus": 200
+    },
+    {
+      "id": "gaukler",
+      "source": "/birds/portrait-gaukler-20260913.png?v=b4dfc1af61bf",
+      "sha256": "b4dfc1af61bf9ef5c0703d20d607b4d9270a0aa4c5d7fdefd11fa25c583ee3c3",
+      "optimizedUrl": "/optimized/portrait-gaukler-20260913-a511be0ba756b53d-280.webp",
+      "httpStatus": 200
+    },
+    {
+      "id": "aguja",
+      "source": "/birds/portrait-aguja.png?v=25ffd480ca0a",
+      "sha256": "25ffd480ca0a2e59d61b8feb09997607cee10c41e1f9f5014470b842f8010314",
+      "optimizedUrl": "/optimized/portrait-aguja-f40f23768ed4c45e-280.webp",
+      "httpStatus": 200
+    },
+    {
+      "id": "uhu",
+      "source": "/birds/portrait-uhu.png?v=a8048da008bc",
+      "sha256": "a8048da008bc33814c62a3c9341b74c26f31f2b8cf82f2045e82af5e426736bb",
+      "optimizedUrl": "/optimized/portrait-uhu-8148bd801ed93f59-280.webp",
+      "httpStatus": 200
+    },
+    {
+      "id": "schwarzmilan",
+      "source": "/birds/portrait-schwarzmilan-20260913.png?v=43dc743d778a",
+      "sha256": "43dc743d778af39c4c59c18dfc6f7536766b2e2a8d516a815408fc0fb5ef08cd",
+      "optimizedUrl": "/optimized/portrait-schwarzmilan-20260913-e36284a1bbeef81b-280.webp",
+      "httpStatus": 200
+    },
+    {
+      "id": "rotmilan",
+      "source": "/birds/portrait-rotmilan-20260913.png?v=6cbcae067b73",
+      "sha256": "6cbcae067b73c20ab98c9dfe71a1e3663851aea10b9638077eac847629e60ff4",
+      "optimizedUrl": "/optimized/portrait-rotmilan-20260913-f056dc690d9d294d-280.webp",
+      "httpStatus": 200
+    },
+    {
+      "id": "gerfalke",
+      "source": "/birds/portrait-gerfalke-20260913.png?v=3aec23755cca",
+      "sha256": "3aec23755cca01f921509edd1ecf2b066a4ed5d81f89cb3c52e131f1a03478ba",
+      "optimizedUrl": "/optimized/portrait-gerfalke-20260913-ea430eb39e7fa912-280.webp",
+      "httpStatus": 200
+    },
+    {
+      "id": "sakerfalke",
+      "source": "/birds/portrait-sakerfalke-20260913.png?v=421befd1df6e",
+      "sha256": "421befd1df6e253bf50b2b2a6d5b51d9775818c63536ff164349ea25cc935bf7",
+      "optimizedUrl": "/optimized/portrait-sakerfalke-20260913-072cab612f2e8336-280.webp",
+      "httpStatus": 200
+    },
+    {
+      "id": "lannerfalke",
+      "source": "/birds/portrait-lannerfalke-20260913.png?v=609af2ac0b57",
+      "sha256": "609af2ac0b57975e288f46f7288b648df1c970e38bfdb7af223959a631eb9c11",
+      "optimizedUrl": "/optimized/portrait-lannerfalke-20260913-77a3f243549acd41-280.webp",
+      "httpStatus": 200
+    },
+    {
+      "id": "baumfalke",
+      "source": "/birds/portrait-baumfalke-20260913.png?v=62e790a6459b",
+      "sha256": "62e790a6459b56f56cab7e24ed436a3dfaf335047453868ce6efbaf1d5f9d8c5",
+      "optimizedUrl": "/optimized/portrait-baumfalke-20260913-3751ed9dd1207f8a-280.webp",
+      "httpStatus": 200
+    },
+    {
+      "id": "falklandkarakara",
+      "source": "/birds/portrait-falklandkarakara-20260913.png?v=0525135b67e9",
+      "sha256": "0525135b67e9a44187318c6ec1286955b7a14bba0ca901fbd3c9f07ce8848723",
+      "optimizedUrl": "/optimized/portrait-falklandkarakara-20260913-975fe79ffe995ba0-280.webp",
+      "httpStatus": 200
+    },
+    {
+      "id": "schopfkarakara",
+      "source": "/birds/portrait-schopfkarakara-20260913.png?v=366e156cb1a4",
+      "sha256": "366e156cb1a40428b796c0e725dba537bf5407a5d99ab39822a6046815083d2d",
+      "optimizedUrl": "/optimized/portrait-schopfkarakara-20260913-a9a9f509b2f52d30-280.webp",
+      "httpStatus": 200
+    },
+    {
+      "id": "koenigsbussard",
+      "source": "/birds/portrait-koenigsbussard-20260912-v3.png?v=70d5978a2d83",
+      "sha256": "70d5978a2d83f451b7cde40aa5cde5b0b12503d8ebcd482f2d6acede9c045b7e",
+      "optimizedUrl": "/optimized/portrait-koenigsbussard-20260912-v3-56755c4e2e984552-280.webp",
+      "httpStatus": 200
+    },
+    {
+      "id": "harpyie",
+      "source": "/birds/portrait-harpyie-20260913.png?v=f427e3c7eddd",
+      "sha256": "f427e3c7eddd2818a0a87462926fd09c83906d673e7b8b93684ccedc6cb8a7da",
+      "optimizedUrl": "/optimized/portrait-harpyie-20260913-8e078b1ac67d773e-280.webp",
+      "httpStatus": 200
+    },
+    {
+      "id": "kampfadler",
+      "source": "/birds/portrait-kampfadler-20260913.png?v=464c04692cc5",
+      "sha256": "464c04692cc524e20882e1368aa697dfe521f5dc5983498963a9e16903c479ee",
+      "optimizedUrl": "/optimized/portrait-kampfadler-20260913-3ad04e30ffee7937-280.webp",
+      "httpStatus": 200
+    },
+    {
+      "id": "virginiauhu",
+      "source": "/birds/portrait-virginiauhu.png?v=e20159d6e5e4",
+      "sha256": "e20159d6e5e4c2816fc39e99c991264a89d62daaac1d054219252809a4321ae2",
+      "optimizedUrl": "/optimized/portrait-virginiauhu-209ffc918e1b854b-280.webp",
+      "httpStatus": 200
+    },
+    {
+      "id": "weissstorch",
+      "source": "/birds/portrait-weissstorch-20260913.png?v=ae94be04eedc",
+      "sha256": "ae94be04eedc959197845b7580c85e5e78a37569bc8bc8de3fc6856512fe3ca7",
+      "optimizedUrl": "/optimized/portrait-weissstorch-20260913-6034856fb4c0eb06-280.webp",
+      "httpStatus": 200
+    },
+    {
+      "id": "sperber",
+      "source": "/birds/portrait-sperber-20260913.png?v=026b30b945c5",
+      "sha256": "026b30b945c50827fdf027dea4e0a7b6ac7cf5ba28a853d1b1317adb4adc427e",
+      "optimizedUrl": "/optimized/portrait-sperber-20260913-85c00ccc54cc744b-280.webp",
+      "httpStatus": 200
+    }
+  ],
+  "browser": {
+    "url": "http://localhost:3000/falco-tinnunculus",
+    "renderedPortraits": 39,
+    "revisedPortraits": 31,
+    "displaySize": "64×64",
+    "visualCheck": "Current screenshot reviewed; same source hashes as the fully reviewed 39-portrait light/dark and 64/48px contact sheets."
+  },
+  "requirements": [
+    {
+      "requirement": "Alle vorhandenen Arten prüfen",
+      "evidence": "39 lib/birds.ts species; identical portrait mapping and reviewed inventory, no missing or extra ids.",
+      "result": "passed"
+    },
+    {
+      "requirement": "Konkrete Nutzerkorrekturen berücksichtigen",
+      "evidence": "audit.md includes each named correction; manifest.json and comparison-1.webp through comparison-7.webp document the final edited assets and original comparisons.",
+      "result": "passed"
+    },
+    {
+      "requirement": "Bestätigte Porträts erhalten",
+      "evidence": "SHA-256 matches earlier inventory for Habicht, Seeadler, Aguja and Wüstenbussard.",
+      "result": "passed"
+    },
+    {
+      "requirement": "Nach Generierung Regeln prüfen",
+      "evidence": "Original/revised and all-species contact sheets inspected for composition, anatomy, complete bills/crests and feather edges on light/dark/colored backgrounds. Final RGBA and optimized transparency verified.",
+      "result": "passed"
+    },
+    {
+      "requirement": "Auf localhost zur Prüfung einbinden",
+      "evidence": "39/39 optimized images served HTTP 200 and byte-equal to current local outputs. Current browser renders all 39 with 31 revised assets.",
+      "result": "passed"
+    }
+  ]
+}

@@ -1,0 +1,577 @@
+{
+  "records": [
+    {
+      "id": "gerfalke",
+      "original": "public/birds/portrait-gerfalke-20260913.png",
+      "reference": "public/birds/portrait-habicht-20260912.png",
+      "references": [],
+      "prompt": "Precise local edit of the attached EXISTING bird portrait. This Gyrfalcon is too wide and too large. Reduce the whole bird uniformly by about 8 percent on the same 1254 square canvas, centered near the same optical eye position. Its width should fall from about1000px to920px. Preserve the exact original head shape, eye/bill size RELATIVE to the bird, fine feather pattern, grey/white colors, pose, neck proportion and natural feather bottom. No independent eye enlargement. No wider neck or dramatic shrink. Keep its naturalistic illustration style and species identity. Do not stretch or squash feathers. Real transparent RGBA background, no checkerboard, halo or text. Output the one corrected full bird portrait on the same square canvas.",
+      "generated": "/Users/lukasvonhohnhorst/.codex/generated_images/01a0976f-755f-7be3-bea4-157be9d1dc69/exec-9338dda7-3942-4091-8022-20240e650ea4.png",
+      "output": "public/birds/portrait-gerfalke-20260913-v2.png",
+      "status": "local-preview",
+      "uniformScale": 0.88,
+      "localFinish": "Imagegen composition draft reviewed; final requested uniform placement uses original RGBA pixels to preserve anatomy, feather pattern and neck ratio exactly. No separate neck scaling.",
+      "placement": {
+        "scale": 0.8803827751196173,
+        "x": 75,
+        "y": 44,
+        "anchor": [
+          627,
+          370
+        ]
+      },
+      "originalSha256": "3aec23755cca01f921509edd1ecf2b066a4ed5d81f89cb3c52e131f1a03478ba",
+      "referenceSha256": "537c94c4750ddfc37eba64e5e6e568af39418355cd0b0053bb59a76f4d3a285c",
+      "generatedSha256": "08db88d1b15d47fd1b99a81a23a8602f926ccdd611e4222aac6d6cb9bdb69f9b",
+      "outputSha256": "d70b0851f95194d44192731f6767eb3075e0be2b10bb0e2e9c61450176fb1a30",
+      "visualReview": "Final portrait inspected at128px,64px,48px on light,dark and muted green backgrounds. Size-only edits preserve neck/head ratio. Final source and alpha checked; user approval remains separate.",
+      "userCorrection": "Gerfalke insgesamt12% kleiner statt8%; Ausgangsfassung portrait-gerfalke-20260913.png."
+    },
+    {
+      "id": "sakerfalke",
+      "original": "public/birds/portrait-sakerfalke-20260913.png",
+      "reference": "public/birds/portrait-habicht-20260912.png",
+      "references": [],
+      "prompt": "Precise local edit of the attached EXISTING bird portrait. This Saker Falcon is slightly too small. Increase the whole bird uniformly by only5 percent on the same1254 square canvas. Preserve anatomy, pose, eye/bill proportions, exact feather colors/pattern, neck ratio and natural bottom edge. Full bill and feathers with at least60px margin all around; no cropping. No dramatic zoom or independent eye enlargement. Keep its naturalistic illustration style and species identity. Do not stretch or squash feathers. Real transparent RGBA background, no checkerboard, halo or text. Output the one corrected full bird portrait on the same square canvas.",
+      "generated": "/Users/lukasvonhohnhorst/.codex/generated_images/01a0976f-755f-7be3-bea4-157be9d1dc69/exec-ca5c4d02-3294-4905-94f4-7766cbbb82cf.png",
+      "output": "public/birds/portrait-sakerfalke-20260913-v2.png",
+      "status": "local-preview",
+      "uniformScale": 1.05,
+      "localFinish": "Imagegen composition draft reviewed; final requested uniform placement uses original RGBA pixels to preserve anatomy, feather pattern and neck ratio exactly. No separate neck scaling.",
+      "placement": {
+        "scale": 1.0502392344497609,
+        "x": -31,
+        "y": -19,
+        "anchor": [
+          627,
+          370
+        ]
+      },
+      "originalSha256": "421befd1df6e253bf50b2b2a6d5b51d9775818c63536ff164349ea25cc935bf7",
+      "referenceSha256": "537c94c4750ddfc37eba64e5e6e568af39418355cd0b0053bb59a76f4d3a285c",
+      "generatedSha256": "77d2f135726ed801eba92f9afb6436904b1c2f0525fc9debe92e2789f5b091aa",
+      "outputSha256": "303f6c20818edd52137dbe564b3f26fb13a3b8eb15cafacb029a137d5bfc9d45",
+      "visualReview": "Final portrait inspected at128px,64px,48px on light,dark and muted green backgrounds. Size-only edits preserve neck/head ratio. Final source and alpha checked; user approval remains separate."
+    },
+    {
+      "id": "weisskopfseeadler",
+      "original": "public/birds/portrait-weisskopfseeadler-20260913.png",
+      "reference": "public/birds/portrait-habicht-20260912.png",
+      "references": [],
+      "prompt": "Edit the existing weisskopfseeadler portrait. COMPOSITION/PLACEMENT ONLY: make the entire existing bird larger by exactly about 7 percent on the same1254x1254 square canvas. Preserve its existing head, eye/bill relative sizes, anatomy, neck length ratio, colors, feathers, pose, silhouette. Scale the whole bird uniformly, no stretching or squashing. Full bill/crest/feather tips and transparent margin. No invented feathers or change of crop. Preserve detailed naturalistic illustration style. True transparent RGBA background, no checkerboard, halo, text. Output one bird only.",
+      "generated": "/Users/lukasvonhohnhorst/.codex/generated_images/01a0976f-755f-7be3-bea4-157be9d1dc69/exec-745c17ce-20d6-46cf-8c99-edd4879d1212.png",
+      "output": "public/birds/portrait-weisskopfseeadler-20260913-v2.png",
+      "status": "local-preview",
+      "uniformScale": 1.07,
+      "localFinish": "Imagegen composition draft reviewed; final requested uniform placement uses original RGBA pixels to preserve anatomy, feather pattern and neck ratio exactly. No separate neck scaling.",
+      "placement": {
+        "scale": 1.0701754385964912,
+        "x": -44,
+        "y": -26,
+        "anchor": [
+          627,
+          370
+        ]
+      },
+      "originalSha256": "4e7e5d313eea0a816f75dd18c969ae2ef80164ec7fa5b493721d115abf9de648",
+      "referenceSha256": "537c94c4750ddfc37eba64e5e6e568af39418355cd0b0053bb59a76f4d3a285c",
+      "generatedSha256": "482cd417254651fe0fd3e69a538f765bb7a36e8102621988dc880ab2776c84bb",
+      "outputSha256": "dab61d6475c2481130f266875a37b576b274577082c3a1076957fbc834747857",
+      "visualReview": "Final portrait inspected at128px,64px,48px on light,dark and muted green backgrounds. Size-only edits preserve neck/head ratio. Final source and alpha checked; user approval remains separate."
+    },
+    {
+      "id": "zwergadler",
+      "original": "public/birds/portrait-zwergadler-20260913.png",
+      "reference": "public/birds/portrait-habicht-20260912.png",
+      "references": [],
+      "prompt": "Edit the existing zwergadler portrait. COMPOSITION/PLACEMENT ONLY: make the entire existing bird smaller by exactly about 8 percent on the same1254x1254 square canvas. Preserve its existing head, eye/bill relative sizes, anatomy, neck length ratio, colors, feathers, pose, silhouette. Scale the whole bird uniformly, no stretching or squashing. Full bill/crest/feather tips and transparent margin. No invented feathers or change of crop. Preserve detailed naturalistic illustration style. True transparent RGBA background, no checkerboard, halo, text. Output one bird only.",
+      "generated": "/Users/lukasvonhohnhorst/.codex/generated_images/01a0976f-755f-7be3-bea4-157be9d1dc69/exec-52a5b722-1a1c-4c26-8de8-c695bd970554.png",
+      "output": "public/birds/portrait-zwergadler-20260913-v2.png",
+      "status": "local-preview",
+      "uniformScale": 0.92,
+      "localFinish": "Imagegen composition draft reviewed; final requested uniform placement uses original RGBA pixels to preserve anatomy, feather pattern and neck ratio exactly. No separate neck scaling.",
+      "placement": {
+        "scale": 0.9202551834130781,
+        "x": 50,
+        "y": 30,
+        "anchor": [
+          627,
+          370
+        ]
+      },
+      "originalSha256": "52b5cb77f93ce254522b14bec148ef7cdc7e61828926c2c3803f1b4d350cf8e1",
+      "referenceSha256": "537c94c4750ddfc37eba64e5e6e568af39418355cd0b0053bb59a76f4d3a285c",
+      "generatedSha256": "18083631e312e994828d435a5642e4c4ba950c421a60d4959752698327c6546d",
+      "outputSha256": "12d9c43cc093f06fba14848ba50f2a6422552c9038223604b435dd62ac75023a",
+      "visualReview": "Final portrait inspected at128px,64px,48px on light,dark and muted green backgrounds. Size-only edits preserve neck/head ratio. Final source and alpha checked; user approval remains separate."
+    },
+    {
+      "id": "gaukler",
+      "original": "public/birds/portrait-gaukler-20260913.png",
+      "reference": "public/birds/portrait-habicht-20260912.png",
+      "references": [],
+      "prompt": "Edit the existing gaukler portrait. COMPOSITION/PLACEMENT ONLY: make the entire existing bird larger by exactly about 10 percent on the same1254x1254 square canvas. Preserve its existing head, eye/bill relative sizes, anatomy, neck length ratio, colors, feathers, pose, silhouette. Scale the whole bird uniformly, no stretching or squashing. Full bill/crest/feather tips and transparent margin. No invented feathers or change of crop. Preserve detailed naturalistic illustration style. True transparent RGBA background, no checkerboard, halo, text. Output one bird only.",
+      "generated": "/Users/lukasvonhohnhorst/.codex/generated_images/01a0976f-755f-7be3-bea4-157be9d1dc69/exec-4eebd7c6-fe7f-480f-b61c-e52c3b39f7e8.png",
+      "output": "public/birds/portrait-gaukler-20260913-v2.png",
+      "status": "local-preview",
+      "uniformScale": 1.1,
+      "localFinish": "Imagegen composition draft reviewed; final requested uniform placement uses original RGBA pixels to preserve anatomy, feather pattern and neck ratio exactly. No separate neck scaling.",
+      "placement": {
+        "scale": 1.0996810207336523,
+        "x": -63,
+        "y": -37,
+        "anchor": [
+          627,
+          370
+        ]
+      },
+      "originalSha256": "b4dfc1af61bf9ef5c0703d20d607b4d9270a0aa4c5d7fdefd11fa25c583ee3c3",
+      "referenceSha256": "537c94c4750ddfc37eba64e5e6e568af39418355cd0b0053bb59a76f4d3a285c",
+      "generatedSha256": "ce447e79fee5abd6d532266db3dba8f35569d278823b7c99fe3a13302800bf11",
+      "outputSha256": "190b49b9c715692cb686c0805a8a9961ca0192099739afcc6536920357c6e627",
+      "visualReview": "Final portrait inspected at128px,64px,48px on light,dark and muted green backgrounds. Size-only edits preserve neck/head ratio. Final source and alpha checked; user approval remains separate."
+    },
+    {
+      "id": "kronenadler",
+      "original": "public/birds/portrait-kronenadler-20260913.png",
+      "reference": "public/birds/portrait-habicht-20260912.png",
+      "references": [],
+      "prompt": "Edit the existing kronenadler portrait. COMPOSITION/PLACEMENT ONLY: make the entire existing bird larger by exactly about 8 percent on the same1254x1254 square canvas. Preserve its existing head, eye/bill relative sizes, anatomy, neck length ratio, colors, feathers, pose, silhouette. Scale the whole bird uniformly, no stretching or squashing. Full bill/crest/feather tips and transparent margin. No invented feathers or change of crop. Preserve detailed naturalistic illustration style. True transparent RGBA background, no checkerboard, halo, text. Output one bird only.",
+      "generated": "/Users/lukasvonhohnhorst/.codex/generated_images/01a0976f-755f-7be3-bea4-157be9d1dc69/exec-12e70de9-914a-46c9-b23e-4bb625be66d4.png",
+      "output": "public/birds/portrait-kronenadler-20260913-v2.png",
+      "status": "local-preview",
+      "uniformScale": 1.08,
+      "localFinish": "Imagegen composition draft reviewed; final requested uniform placement uses original RGBA pixels to preserve anatomy, feather pattern and neck ratio exactly. No separate neck scaling.",
+      "placement": {
+        "scale": 1.079744816586922,
+        "x": -50,
+        "y": -30,
+        "anchor": [
+          627,
+          370
+        ]
+      },
+      "originalSha256": "2eb82760f1c99a9282f74f3ff360d0d0a7f9f13c4f255ccc048df1ccb0d5bb9a",
+      "referenceSha256": "537c94c4750ddfc37eba64e5e6e568af39418355cd0b0053bb59a76f4d3a285c",
+      "generatedSha256": "064701718d31d0d2f890e400390a86d1e2380c7f5d6fe25d54a399133aa971b3",
+      "outputSha256": "108824431713a6ce35763896031e670e33f88329c805a150e450a8fb45e9e6b0",
+      "visualReview": "Final portrait inspected at128px,64px,48px on light,dark and muted green backgrounds. Size-only edits preserve neck/head ratio. Final source and alpha checked; user approval remains separate."
+    },
+    {
+      "id": "falklandkarakara",
+      "original": "public/birds/portrait-falklandkarakara-20260913.png",
+      "reference": "public/birds/portrait-habicht-20260912.png",
+      "references": [],
+      "prompt": "Edit the existing falklandkarakara portrait. COMPOSITION/PLACEMENT ONLY: make the entire existing bird larger by exactly about 8 percent on the same1254x1254 square canvas. Preserve its existing head, eye/bill relative sizes, anatomy, neck length ratio, colors, feathers, pose, silhouette. Scale the whole bird uniformly, no stretching or squashing. Full bill/crest/feather tips and transparent margin. No invented feathers or change of crop. Preserve detailed naturalistic illustration style. True transparent RGBA background, no checkerboard, halo, text. Output one bird only.",
+      "generated": "/Users/lukasvonhohnhorst/.codex/generated_images/01a0976f-755f-7be3-bea4-157be9d1dc69/exec-5fe1c6df-085f-4059-9242-802088ef9f80.png",
+      "output": "public/birds/portrait-falklandkarakara-20260913-v2.png",
+      "status": "local-preview",
+      "uniformScale": 1.08,
+      "localFinish": "Imagegen composition draft reviewed; final requested uniform placement uses original RGBA pixels to preserve anatomy, feather pattern and neck ratio exactly. No separate neck scaling.",
+      "placement": {
+        "scale": 1.079744816586922,
+        "x": -50,
+        "y": -30,
+        "anchor": [
+          627,
+          370
+        ]
+      },
+      "originalSha256": "0525135b67e9a44187318c6ec1286955b7a14bba0ca901fbd3c9f07ce8848723",
+      "referenceSha256": "537c94c4750ddfc37eba64e5e6e568af39418355cd0b0053bb59a76f4d3a285c",
+      "generatedSha256": "e48555fffa3e8ee92c843f3fc034701f501c74918355b903cbe558ddaf25799f",
+      "outputSha256": "d581db093e79313bb61101a06e3f32fde99a27bb4dadfedf2bd6fa5cbe255165",
+      "visualReview": "Final portrait inspected at128px,64px,48px on light,dark and muted green backgrounds. Size-only edits preserve neck/head ratio. Final source and alpha checked; user approval remains separate."
+    },
+    {
+      "id": "andenkondor",
+      "original": "public/birds/portrait-andenkondor-20260913.png",
+      "reference": "public/birds/portrait-habicht-20260912.png",
+      "references": [],
+      "prompt": "Edit the existing andenkondor portrait. COMPOSITION/PLACEMENT ONLY: make the entire existing bird larger by exactly about 9 percent on the same1254x1254 square canvas. Preserve its existing head, eye/bill relative sizes, anatomy, neck length ratio, colors, feathers, pose, silhouette. Scale the whole bird uniformly, no stretching or squashing. Full bill/crest/feather tips and transparent margin. No invented feathers or change of crop. Preserve detailed naturalistic illustration style. True transparent RGBA background, no checkerboard, halo, text. Output one bird only.",
+      "generated": "/Users/lukasvonhohnhorst/.codex/generated_images/01a0976f-755f-7be3-bea4-157be9d1dc69/exec-023dbd52-50ee-4107-8a83-7f16261974c5.png",
+      "output": "public/birds/portrait-andenkondor-20260913-v2.png",
+      "status": "local-preview",
+      "uniformScale": 1.09,
+      "localFinish": "Imagegen composition draft reviewed; final requested uniform placement uses original RGBA pixels to preserve anatomy, feather pattern and neck ratio exactly. No separate neck scaling.",
+      "placement": {
+        "scale": 1.0901116427432216,
+        "x": -56,
+        "y": -33,
+        "anchor": [
+          627,
+          370
+        ]
+      },
+      "originalSha256": "11e3c21cb5f890eecdd81a160df7ff2d988fe85dbb56b9e260c01ae2ff714b66",
+      "referenceSha256": "537c94c4750ddfc37eba64e5e6e568af39418355cd0b0053bb59a76f4d3a285c",
+      "generatedSha256": "24561351c0c1b69e0f2a8dfc66d967a9a9d04d1ec58eb27972d44820e47218e2",
+      "outputSha256": "74ec4974bb84c3243113c8c26cfebdd85688effcd70f83ff30fe754900bb580d",
+      "visualReview": "Final portrait inspected at128px,64px,48px on light,dark and muted green backgrounds. Size-only edits preserve neck/head ratio. Final source and alpha checked; user approval remains separate."
+    },
+    {
+      "id": "steppenadler",
+      "original": "public/birds/portrait-steppenadler-20260913.png",
+      "reference": "public/birds/portrait-habicht-20260912.png",
+      "references": [],
+      "prompt": "Composition-only edit of existing Steppe Eagle portrait. Enlarge the ENTIRE bird by only7 percent uniformly on the same1254 square canvas. Keep all anatomy, head/bill/eye proportions, pose, exact feathers, colors, short neck ratio, feather-edge contour unchanged. Full bill and all feathers with transparent margins. No longer neck, no new anatomy, no separate eye enlargement. Preserve naturalistic illustration. True RGBA transparency, no checkerboard or text.",
+      "generated": "/Users/lukasvonhohnhorst/.codex/generated_images/01a0976f-755f-7be3-bea4-157be9d1dc69/exec-afdf949b-e332-47b6-9128-9d9ef902c401.png",
+      "output": "public/birds/portrait-steppenadler-20260913-v2.png",
+      "status": "local-preview",
+      "uniformScale": 1.07,
+      "localFinish": "Imagegen composition draft reviewed; final requested uniform placement uses original RGBA pixels to preserve anatomy, feather pattern and neck ratio exactly. No separate neck scaling.",
+      "placement": {
+        "scale": 1.0701754385964912,
+        "x": -44,
+        "y": -26,
+        "anchor": [
+          627,
+          370
+        ]
+      },
+      "originalSha256": "802bfbb08514eb1bc600a7e08c419bdce5c72d5a06c404641484230c13c6e3cb",
+      "referenceSha256": "537c94c4750ddfc37eba64e5e6e568af39418355cd0b0053bb59a76f4d3a285c",
+      "generatedSha256": "affeaabb6e48205c5a226d7fe5e20902d6e69b2e44d9e1703945b13d4f87c4c5",
+      "outputSha256": "1eb9bb41086ba333bfc5df03770a39efb49b5c1530936822eca03fb410f80193",
+      "visualReview": "Final portrait inspected at128px,64px,48px on light,dark and muted green backgrounds. Size-only edits preserve neck/head ratio. Final source and alpha checked; user approval remains separate."
+    },
+    {
+      "id": "turmfalke",
+      "original": "public/birds/portrait-turmfalke.png",
+      "reference": "public/birds/portrait-habicht-20260912.png",
+      "references": [],
+      "prompt": "Edit the existing turmfalke portrait. Use THIS old male Common Kestrel head and neck anatomy exactly. User rejected the previous edit for STILL TOO MUCH NECK. Shorten only the lower buff/orange breast: move the lowest edge from y1110 to about y955, about155px shorter on1254 square canvas. Keep all head, eye, bill, face, grey crown, cheek feathers above y760 exactly the same size and position. The orange spotted back/shoulder is still visible but its lower part must end naturally near y940 too. Keep a SHORT neck, no long chest, preserve a small part of the grey lower-right stripe. Natural individual fine feather tips, gentle uneven bottom, not a straight cut. Absolutely no enlarged head, no zoom, no recentering. Same bird with distinctly less lower neck. Preserve detailed naturalistic illustration style. True transparent RGBA background, no checkerboard, halo, text. Output one bird only.",
+      "generated": "/Users/lukasvonhohnhorst/.codex/generated_images/01a0976f-755f-7be3-bea4-157be9d1dc69/exec-3faf8f34-440f-4798-a6a6-2901e41a08aa.png",
+      "output": "public/birds/portrait-turmfalke-20260913-v5.png",
+      "status": "local-preview",
+      "mattePass": {
+        "id": "turmfalke",
+        "source": "/Users/lukasvonhohnhorst/.codex/generated_images/01a0976f-755f-7be3-bea4-157be9d1dc69/exec-3faf8f34-440f-4798-a6a6-2901e41a08aa.png",
+        "prompt": "TECHNICAL BACKGROUND-ONLY MATTE EDIT. Keep this entire bird exactly unchanged: same anatomy, complete beak, every feather, head/eye size, neck length, pose, optical scale and pixel placement on the square canvas. Replace ONLY the checkerboard with uniform pure bright green RGB(0,255,0), #00FF00. No checkerboard anywhere, no gradient, no green tint or light reflected on the bird. Green visible between feather tips. Do not resize, recenter, crop or redesign the bird. Output identical bird on flat green for local alpha extraction.",
+        "generated": "/Users/lukasvonhohnhorst/.codex/generated_images/01a0976f-755f-7be3-bea4-157be9d1dc69/exec-3721dbcb-eca9-45ff-9d99-8dfe3928aa6d.png",
+        "backgroundRgb": [
+          5,
+          248,
+          6
+        ],
+        "generatedSha256": "262d32bbec63f3ae13a22fe980991d0433328bed8c0ed110e77422fe7da4494a"
+      },
+      "localFinish": "Separate green-background matte, excess-green alpha with background unmixing, isolated matte-noise removal. No neutral/white color key.",
+      "originalSha256": "79efac9042baf797e5a30972b1c7931a4d3467d059539674f4544360863cd2f6",
+      "referenceSha256": "537c94c4750ddfc37eba64e5e6e568af39418355cd0b0053bb59a76f4d3a285c",
+      "generatedSha256": "02d7b6b817c7ca922251e0663098924934571d1991815c72c8046a65fb97d53c",
+      "outputSha256": "00d2ead3e8b5031ada16166219033a0c2de477e2230eae94dd7c9b5d7d47e7b2",
+      "headAlignmentEstimate": {
+        "matrix": [
+          [
+            1.0008071505247695,
+            0.00021259408473406057,
+            -0.655845159264686
+          ],
+          [
+            -0.00021259408473406057,
+            1.0008071505247695,
+            0.5259914479958521
+          ]
+        ],
+        "matches": 148,
+        "inliers": 104
+      },
+      "neckFinish": {
+        "rawCutout": "/Users/lukasvonhohnhorst/Coding/birds-of-prey/docs/portrait-user-refinements-20260913/raw-cutouts/turmfalke.png",
+        "patchVerticalTranslation": 0,
+        "blendRows": [
+          780,
+          850
+        ],
+        "targetBottom": null,
+        "unchangedHeadThroughRow": 779,
+        "method": "Original head and upper neck retained; generated lower feather-edge patch translated without any stretching and blended only within lower neck."
+      },
+      "headPixelCheck": {
+        "changedInteriorPixelsAbove650": 0,
+        "scope": "Before final user-requested uniform +7% placement; comparison applies to v4 neck edit."
+      },
+      "postPlacement": {
+        "source": "public/birds/portrait-turmfalke-20260913-v4.png",
+        "sourceSha256": "bef644c8c7d847a1c7b32179f33c81621178321c443c1537e6643a97611ce670",
+        "requestedScale": 1.07,
+        "actualScale": 1.0701754385964912,
+        "x": -44,
+        "y": -26,
+        "anchor": [
+          627,
+          370
+        ],
+        "method": "User-requested uniform whole portrait resize; head and neck proportions unchanged."
+      },
+      "visualReview": "Final portrait inspected at128px,64px,48px on light,dark and muted green backgrounds. Size-only edits preserve neck/head ratio. Final source and alpha checked; user approval remains separate."
+    },
+    {
+      "id": "baumfalke",
+      "original": "public/birds/portrait-baumfalke-20260913.png",
+      "reference": "public/birds/portrait-habicht-20260912.png",
+      "references": [],
+      "prompt": "Precise local edit of the attached EXISTING bird portrait. This Eurasian Hobby shows too much neck. Change ONLY the lower streaked neck below y900: bring the lowest feather edge from about y1150 to y1060 on the1254 square canvas. Natural overlapping small feather tips, no flat horizontal cut or round pedestal. Preserve every head pixel, whole bill, eye, cheek, grey-black head size and its location above y850; keep the whole existing bird at the same scale. No zoom or recenter after shortening. Keep its naturalistic illustration style and species identity. Do not stretch or squash feathers. Real transparent RGBA background, no checkerboard, halo or text. Output the one corrected full bird portrait on the same square canvas.",
+      "generated": "/Users/lukasvonhohnhorst/.codex/generated_images/01a0976f-755f-7be3-bea4-157be9d1dc69/exec-4013f4aa-d4f9-49f9-9161-c52c4eaeba07.png",
+      "output": "public/birds/portrait-baumfalke-20260913-v2.png",
+      "status": "local-preview",
+      "mattePass": {
+        "id": "baumfalke",
+        "source": "/Users/lukasvonhohnhorst/.codex/generated_images/01a0976f-755f-7be3-bea4-157be9d1dc69/exec-4013f4aa-d4f9-49f9-9161-c52c4eaeba07.png",
+        "prompt": "TECHNICAL BACKGROUND-ONLY MATTE EDIT. Keep this entire bird exactly unchanged: same anatomy, complete beak, every feather, head/eye size, neck length, pose, optical scale and pixel placement on the square canvas. Replace ONLY the checkerboard with uniform pure bright green RGB(0,255,0), #00FF00. No checkerboard anywhere, no gradient, no green tint or light reflected on the bird. Green visible between feather tips. Do not resize, recenter, crop or redesign the bird. Output identical bird on flat green for local alpha extraction.",
+        "generated": "/Users/lukasvonhohnhorst/.codex/generated_images/01a0976f-755f-7be3-bea4-157be9d1dc69/exec-bed42161-4f7c-40ee-a71d-987f7e4c674b.png",
+        "backgroundRgb": [
+          5,
+          248,
+          7
+        ],
+        "generatedSha256": "5fd14686184f974d2e8778da7c9d0cf0fa53a519fae8d53ced61f235da9ef433"
+      },
+      "localFinish": "Separate green-background matte, excess-green alpha with background unmixing, isolated matte-noise removal. No neutral/white color key.",
+      "originalSha256": "62e790a6459b56f56cab7e24ed436a3dfaf335047453868ce6efbaf1d5f9d8c5",
+      "referenceSha256": "537c94c4750ddfc37eba64e5e6e568af39418355cd0b0053bb59a76f4d3a285c",
+      "generatedSha256": "5682f77f45d116d486e6af2279553278a93e865bcf8cb5efbf3e982cd88c4616",
+      "outputSha256": "c2986402af088f71190d7331f4e598a9591612f255c340f24cf181ec5098f597",
+      "headAlignmentEstimate": {
+        "matrix": [
+          [
+            0.9989213873529496,
+            -0.001966385351359359,
+            1.415074343229251
+          ],
+          [
+            0.001966385351359359,
+            0.9989213873529496,
+            0.034031759692017306
+          ]
+        ],
+        "matches": 225,
+        "inliers": 167
+      },
+      "neckFinish": {
+        "rawCutout": "/Users/lukasvonhohnhorst/Coding/birds-of-prey/docs/portrait-user-refinements-20260913/raw-cutouts/baumfalke.png",
+        "patchVerticalTranslation": 87,
+        "blendRows": [
+          800,
+          915
+        ],
+        "targetBottom": 1060,
+        "unchangedHeadThroughRow": 799,
+        "method": "Original head and upper neck retained; generated lower feather-edge patch translated without any stretching and blended only within lower neck."
+      },
+      "headPixelCheck": {
+        "changedInteriorPixelsAbove650": 0
+      },
+      "visualReview": "Final portrait inspected at128px,64px,48px on light,dark and muted green backgrounds. Size-only edits preserve neck/head ratio. Final source and alpha checked; user approval remains separate."
+    },
+    {
+      "id": "fischadler",
+      "original": "public/birds/portrait-fischadler-20260912.png",
+      "reference": "public/birds/portrait-habicht-20260912.png",
+      "references": [],
+      "prompt": "Edit the existing fischadler portrait. Add about65 pixels of natural white throat and brown side-neck feathers ONLY below the existing short neck on the1254 square canvas. The neck is too short. Preserve head, eye, bill, pose, head size and location exactly. Only the lowest feathered neck may extend, no chest/wing or long bust. Natural overlapping pointed feather tips, no flat/round pedestal. Preserve detailed naturalistic illustration style. True transparent RGBA background, no checkerboard, halo, text. Output one bird only.",
+      "generated": "/Users/lukasvonhohnhorst/.codex/generated_images/01a0976f-755f-7be3-bea4-157be9d1dc69/exec-8054bbe0-ffce-44aa-af57-0b5aaadd9201.png",
+      "output": "public/birds/portrait-fischadler-20260913-v2.png",
+      "status": "local-preview",
+      "mattePass": {
+        "id": "fischadler",
+        "source": "/Users/lukasvonhohnhorst/.codex/generated_images/01a0976f-755f-7be3-bea4-157be9d1dc69/exec-8054bbe0-ffce-44aa-af57-0b5aaadd9201.png",
+        "prompt": "TECHNICAL BACKGROUND-ONLY MATTE EDIT. Keep this entire bird exactly unchanged: same anatomy, complete beak, every feather, head/eye size, neck length, pose, optical scale and pixel placement on the square canvas. Replace ONLY the checkerboard with uniform pure bright green RGB(0,255,0), #00FF00. No checkerboard anywhere, no gradient, no green tint or light reflected on the bird. Green visible between feather tips. Do not resize, recenter, crop or redesign the bird. Output identical bird on flat green for local alpha extraction.",
+        "generated": "/Users/lukasvonhohnhorst/.codex/generated_images/01a0976f-755f-7be3-bea4-157be9d1dc69/exec-75b299ab-b174-45a5-b156-6e95ded8fcb3.png",
+        "backgroundRgb": [
+          5,
+          248,
+          5
+        ],
+        "generatedSha256": "a21654e7a5268ee59c7b8b2af48185115445cc07ce7f73a3b12ab2ecd0b032e9"
+      },
+      "localFinish": "Separate green-background matte, excess-green alpha with background unmixing, isolated matte-noise removal. No neutral/white color key.",
+      "originalSha256": "5cabde23c0f3d49a42d263f5690e68779687a8356fd9628754c444464e9d69e8",
+      "referenceSha256": "537c94c4750ddfc37eba64e5e6e568af39418355cd0b0053bb59a76f4d3a285c",
+      "generatedSha256": "4dd85e4ed8c3ca695c44fac2dd05b6a1c8275054fec3732469ed35c1db9d8f32",
+      "outputSha256": "ec37289a793586526200b4c291dce426dc6c2b8230b4eacd88bd403b9f89545d",
+      "headAlignmentEstimate": {
+        "matrix": [
+          [
+            0.9994109222023597,
+            0.0007310553700694104,
+            0.033988946461082414
+          ],
+          [
+            -0.0007310553700694104,
+            0.9994109222023597,
+            20.822966221764464
+          ]
+        ],
+        "matches": 294,
+        "inliers": 190
+      },
+      "neckFinish": {
+        "rawCutout": "/Users/lukasvonhohnhorst/Coding/birds-of-prey/docs/portrait-user-refinements-20260913/raw-cutouts/fischadler.png",
+        "patchVerticalTranslation": -136,
+        "blendRows": [
+          750,
+          900
+        ],
+        "targetBottom": 1097,
+        "unchangedHeadThroughRow": 749,
+        "method": "Original head and upper neck retained; generated lower feather-edge patch translated without any stretching and blended only within lower neck."
+      },
+      "headPixelCheck": {
+        "changedInteriorPixelsAbove650": 0
+      },
+      "visualReview": "Final portrait inspected at128px,64px,48px on light,dark and muted green backgrounds. Size-only edits preserve neck/head ratio. Final source and alpha checked; user approval remains separate."
+    },
+    {
+      "id": "habichtsadler",
+      "original": "public/birds/portrait-habichtsadler-20260913.png",
+      "reference": "public/birds/portrait-habicht-20260912.png",
+      "references": [
+        "/tmp/habichtsadler-flight-head.png",
+        "/Users/lukasvonhohnhorst/Coding/birds-of-prey/public/birds/portrait-habichtsadler-20260913.png",
+        "/tmp/portrait-anatomy-habichtsadler.jpg"
+      ],
+      "prompt": "Create a corrected adult Bonelli's Eagle (Aquila fasciata) head-and-short-neck portrait. IMAGE1 is a head crop of this project's accepted adult flight illustration: match THIS bird's eagle face, flatter elongated forehead, prominent brow, moderate natural eye size, longer bill/cere and dark brown ear-coverts. IMAGE2 is the rejected portrait, use ONLY its square canvas, placement and approximate head/neck framing, NOT its round eye, short hawklike head or pale mixed cheek. IMAGE3 is a real Bonelli's Eagle anatomy reference; use it to check actual species identity, not handling pose or fluffed neck. Adult dark grey-brown crown and ear coverts, pale golden iris of natural proportion, gray bill with yellow cere, white throat and SHORT white neck with fairly fine dark longitudinal streaks. Feather texture detailed naturalistic. Stronger eagle head matched to IMAGE1, not a goshawk/buzzard hybrid. Keep left slight three-quarter portrait, no flight body/wings. Full bill, crown and natural short feather edge, no long bust. Same1254 square canvas with visible margins ~120px, eye near y350. True RGBA transparent background, no checkerboard, halo or text.",
+      "generated": "/Users/lukasvonhohnhorst/.codex/generated_images/01a0976f-755f-7be3-bea4-157be9d1dc69/exec-0bc1fb2d-298f-4575-a90b-43bc8e504e0d.png",
+      "output": "public/birds/portrait-habichtsadler-20260913-v2.png",
+      "status": "local-preview",
+      "mattePass": {
+        "id": "habichtsadler",
+        "source": "/Users/lukasvonhohnhorst/.codex/generated_images/01a0976f-755f-7be3-bea4-157be9d1dc69/exec-0bc1fb2d-298f-4575-a90b-43bc8e504e0d.png",
+        "prompt": "TECHNICAL BACKGROUND-ONLY MATTE EDIT. Keep this entire bird exactly unchanged: same anatomy, complete beak, every feather, head/eye size, neck length, pose, optical scale and pixel placement on the square canvas. Replace ONLY the checkerboard with uniform pure bright green RGB(0,255,0), #00FF00. No checkerboard anywhere, no gradient, no green tint or light reflected on the bird. Green visible between feather tips. Do not resize, recenter, crop or redesign the bird. Output identical bird on flat green for local alpha extraction.",
+        "generated": "/Users/lukasvonhohnhorst/.codex/generated_images/01a0976f-755f-7be3-bea4-157be9d1dc69/exec-7270029c-0288-4940-98c6-21c32bc47507.png",
+        "backgroundRgb": [
+          5,
+          248,
+          5
+        ],
+        "generatedSha256": "269849ddd98473a145470d5a0ca1e43e860265eba454ee42124fc5e2c3dcb63e"
+      },
+      "localFinish": "Separate green-background matte, excess-green alpha with background unmixing, isolated matte-noise removal. No neutral/white color key.",
+      "originalSha256": "8e32c2270af680cbb0ee23d849fc45b852b69c573795603e1d18b69c82dd0986",
+      "referenceSha256": "537c94c4750ddfc37eba64e5e6e568af39418355cd0b0053bb59a76f4d3a285c",
+      "generatedSha256": "d51dcb4881572d2c19bf0a0fcee1f88a9fed45b4c3923b9cabfacde4429fe11d",
+      "outputSha256": "524b4838ce2c8458d0df53b1304ec43f49623df3e95ecf2d8c03c7a347e47677",
+      "visualReview": "Final portrait inspected at128px,64px,48px on light,dark and muted green backgrounds. Size-only edits preserve neck/head ratio. Final source and alpha checked; user approval remains separate."
+    },
+    {
+      "id": "kaiseradler",
+      "original": "public/birds/portrait-kaiseradler-20260913.png",
+      "reference": "public/birds/portrait-habicht-20260912.png",
+      "references": [
+        "/Users/lukasvonhohnhorst/Coding/birds-of-prey/public/birds/portrait-kaiseradler-20260913.png",
+        "/tmp/kaiseradler-flight-head.png"
+      ],
+      "prompt": "Precise color-only edit of IMAGE1 adult Eastern Imperial Eagle portrait. Its head is too uniformly pale blond. IMAGE2 is the exact head of this project's active flight illustration, the COLOR REFERENCE: dark grey-brown face, forehead/eye-mask and throat, tawny cream-gold feather tips mostly on crown/rear nape. Make the portrait match that dark-faced bird, reduce bright pale blond area across cheeks and forehead. Keep some natural warm pale golden nape highlights, not all-black. Preserve IMAGE1 pose, head/bill/eye shape and exact size/location, short neck contour and canvas unchanged. Fine naturalistic feather texture, no global loss of feather detail. True transparent RGBA, no checkerboard, halo, text. One portrait.",
+      "generated": "/Users/lukasvonhohnhorst/.codex/generated_images/01a0976f-755f-7be3-bea4-157be9d1dc69/exec-841b9197-9986-4147-a9e0-2f2ef89184d0.png",
+      "output": "public/birds/portrait-kaiseradler-20260913-v2.png",
+      "status": "local-preview",
+      "mattePass": {
+        "id": "kaiseradler",
+        "source": "/Users/lukasvonhohnhorst/.codex/generated_images/01a0976f-755f-7be3-bea4-157be9d1dc69/exec-841b9197-9986-4147-a9e0-2f2ef89184d0.png",
+        "prompt": "TECHNICAL BACKGROUND-ONLY MATTE EDIT. Keep this entire bird exactly unchanged: same anatomy, complete beak, every feather, head/eye size, neck length, pose, optical scale and pixel placement on the square canvas. Replace ONLY the checkerboard with uniform pure bright green RGB(0,255,0), #00FF00. No checkerboard anywhere, no gradient, no green tint or light reflected on the bird. Green visible between feather tips. Do not resize, recenter, crop or redesign the bird. Output identical bird on flat green for local alpha extraction.",
+        "generated": "/Users/lukasvonhohnhorst/.codex/generated_images/01a0976f-755f-7be3-bea4-157be9d1dc69/exec-260287c2-e5c8-4b14-b7ae-86593efa8083.png",
+        "backgroundRgb": [
+          6,
+          248,
+          7
+        ],
+        "generatedSha256": "8f9dcd29dc9410fb0cfd21c89d76d7e032c78a6954e7e8bdbd9d663cd14cf3c4"
+      },
+      "localFinish": "Separate green-background matte, excess-green alpha with background unmixing, isolated matte-noise removal. No neutral/white color key.",
+      "originalSha256": "28119065eab28b87749a5c82c7fb2d9aa855c9c619b92e59d000667e5d696992",
+      "referenceSha256": "537c94c4750ddfc37eba64e5e6e568af39418355cd0b0053bb59a76f4d3a285c",
+      "generatedSha256": "ac82c2822fa0087750ddbc0e89e7e313a7195de2c326a2e4f85dbfdc6b7db99d",
+      "outputSha256": "ab0c8aca62783332b35623d760c3052e7cfd43005f701ba2ccf602a30f2b2f47",
+      "headAlignmentEstimate": {
+        "matrix": [
+          [
+            0.9986826019398091,
+            -0.0003789231380294951,
+            0.2715955105610574
+          ],
+          [
+            0.0003789231380294951,
+            0.9986826019398091,
+            0.8880506724501558
+          ]
+        ],
+        "matches": 73,
+        "inliers": 55
+      },
+      "visualReview": "Final portrait inspected at128px,64px,48px on light,dark and muted green backgrounds. Size-only edits preserve neck/head ratio. Final source and alpha checked; user approval remains separate."
+    },
+    {
+      "id": "iberienadler",
+      "original": "public/birds/portrait-iberienadler-20260913.png",
+      "reference": "public/birds/portrait-habicht-20260912.png",
+      "references": [
+        "/Users/lukasvonhohnhorst/Coding/birds-of-prey/public/birds/portrait-iberienadler-20260913.png",
+        "/tmp/iberienadler-flight-head.png"
+      ],
+      "prompt": "Precise color and feather-marking edit of IMAGE1 adult Spanish Imperial Eagle portrait. IMAGE2 is a crop of the exact active flight illustration for this species and must be the head COLOR/PATTERN reference. Match its dark chocolate-brown face and throat, clearly distinct warm pale buff crown/rear nape patch with swept-back pale neck feathers. The current portrait is too uniformly streaky brown around crown and nape; it must depict the same bird as IMAGE2. Keep IMAGE1 leftward slight three-quarter portrait pose, head/bill/eye anatomy and sizes, existing optical head scale and position, square canvas and SHORT neck length. No wings or shoulder patches in this portrait. Naturalistic fine texture, clean natural feather tips at bottom. True RGBA transparency, no checkerboard, halo or text.",
+      "generated": "/Users/lukasvonhohnhorst/.codex/generated_images/01a0976f-755f-7be3-bea4-157be9d1dc69/exec-2c8eab0c-5c43-4610-b7ee-0c97ffba719d.png",
+      "output": "public/birds/portrait-iberienadler-20260913-v2.png",
+      "status": "local-preview",
+      "mattePass": {
+        "id": "iberienadler",
+        "source": "/Users/lukasvonhohnhorst/.codex/generated_images/01a0976f-755f-7be3-bea4-157be9d1dc69/exec-2c8eab0c-5c43-4610-b7ee-0c97ffba719d.png",
+        "prompt": "TECHNICAL BACKGROUND-ONLY MATTE EDIT. Keep this entire bird exactly unchanged: same anatomy, complete beak, every feather, head/eye size, neck length, pose, optical scale and pixel placement on the square canvas. Replace ONLY the checkerboard with uniform pure bright green RGB(0,255,0), #00FF00. No checkerboard anywhere, no gradient, no green tint or light reflected on the bird. Green visible between feather tips. Do not resize, recenter, crop or redesign the bird. Output identical bird on flat green for local alpha extraction.",
+        "generated": "/Users/lukasvonhohnhorst/.codex/generated_images/01a0976f-755f-7be3-bea4-157be9d1dc69/exec-93613b47-43a5-4ea0-ae94-210ee30b2380.png",
+        "backgroundRgb": [
+          5,
+          248,
+          6
+        ],
+        "generatedSha256": "a18516675e8529ead3177e041c4e8e810334c8715c14c2da560c1df2ec85d586"
+      },
+      "localFinish": "Separate green-background matte, excess-green alpha with background unmixing, isolated matte-noise removal. No neutral/white color key.",
+      "originalSha256": "537310ec4e717b949a006665c96ec1657b11f9a94eeefd7d38f0f66bcbb2f413",
+      "referenceSha256": "537c94c4750ddfc37eba64e5e6e568af39418355cd0b0053bb59a76f4d3a285c",
+      "generatedSha256": "34b7dcd307ff7aa0f5c954bb80ea637b8971c6210b57ca413cc8352a3c49f35b",
+      "outputSha256": "c72a0912003fa4e871b3bde52f2e746652e3c59816ca316e51b58de6d7f44adc",
+      "headAlignmentEstimate": {
+        "matrix": [
+          [
+            0.999838830566858,
+            0.003000920555832844,
+            -0.9851621079593236
+          ],
+          [
+            -0.003000920555832844,
+            0.999838830566858,
+            1.9959494300288305
+          ]
+        ],
+        "matches": 48,
+        "inliers": 28
+      },
+      "visualReview": "Final portrait inspected at128px,64px,48px on light,dark and muted green backgrounds. Size-only edits preserve neck/head ratio. Final source and alpha checked; user approval remains separate."
+    },
+    {
+      "id": "lannerfalke",
+      "original": "public/birds/portrait-lannerfalke-20260913.png",
+      "originalSha256": "609af2ac0b57975e288f46f7288b648df1c970e38bfdb7af223959a631eb9c11",
+      "reference": "public/birds/portrait-habicht-20260912.png",
+      "status": "local-preview",
+      "postPlacement": {
+        "source": "public/birds/portrait-lannerfalke-20260913.png",
+        "sourceSha256": "609af2ac0b57975e288f46f7288b648df1c970e38bfdb7af223959a631eb9c11",
+        "requestedScale": 0.93,
+        "actualScale": 0.9298245614035088,
+        "x": 44,
+        "y": 26,
+        "anchor": [
+          627,
+          370
+        ],
+        "method": "User-requested uniform whole portrait resize; head and neck proportions unchanged."
+      },
+      "output": "public/birds/portrait-lannerfalke-20260913-v2.png",
+      "outputSha256": "9aee7587b3de0520cb57b2f19aaf90674b42096dbc463d360863f1de2d25fd4c",
+      "visualReview": "Final portrait inspected at128px,64px,48px on light,dark and muted green backgrounds. Size-only edits preserve neck/head ratio. Final source and alpha checked; user approval remains separate."
+    }
+  ],
+  "reviewNotes": "Latest user refinements supersede corresponding conclusions of portrait-refinement-20260912. Gerfalke -12%, Turmfalke +7% of v4, Lannerfalke -7% of prior active portrait. No independent neck scaling."
+}

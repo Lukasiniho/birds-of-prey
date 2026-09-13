@@ -1,0 +1,235 @@
+{
+  "date": "2026-09-12",
+  "method": "Built-in image_gen",
+  "reference": "Seeadler: composition and illustration; species identity from each active original.",
+  "grid": "1254 x 1254 px; reference clear margins about 9%; eye height around 29%, species anatomy preserved. Peregrine and Harris’s Hawk retain existing head geometry.",
+  "records": [
+    {
+      "id": "habicht",
+      "original": "public/birds/portrait-habicht.png",
+      "generated": "/Users/lukasvonhohnhorst/.codex/generated_images/01a0976f-755f-7be3-bea4-157be9d1dc69/exec-0ed10abc-6fb6-40a9-9e1b-f94a17ce1106.png",
+      "prompt": "Use case: precise-object-edit. Scientific educational portrait asset. Image 1 is the EDIT TARGET: current adult Northern Goshawk (Habicht). Image 2 is ONLY the composition, lighting and naturalistic illustration reference: White-tailed Eagle (Seeadler); never transfer eagle anatomy or colors. Edit the goshawk into the same compact head-with-short-neck portrait family. Preserve the goshawk identity, gray plumage, white eyebrow, orange-red iris, dark hooked bill, existing fine feather detail and leftward slight three-quarter head direction. Enlarge the actual head within the square to the reference's optical head scale. Remove the long breast and shoulder; only a short natural neck feather finish below the cheek, no body or wings. Square canvas; crown near 10% height, eye center near x=42%, y=29%, complete bill starts near 9% width, rear head near 90% width, shortest natural feather tips at bottom about 86-90% height. Match reference short neck relative to head, not its anatomical proportions. Soft natural feather contour at bottom, never a horizontal crop or pedestal. Complete head and bill, 8-10% clear margins. Crisp premium naturalistic illustration, restrained soft light, no exaggerated glossy eye. Genuine transparent RGBA background with alpha 0 outside bird. No checkerboard, white haze, shadows, text or border. Output one edited goshawk portrait only.",
+      "output": "public/birds/portrait-habicht-20260912.png",
+      "reference": "public/birds/portrait-seeadler.png",
+      "originalSha256": "7abe254ea6ddfc708de75bd38c76fa3c6bfc223f1f93e2b7c3e833eec80241d8",
+      "referenceSha256": "a5aee8028f731587cb2d3cac0bc1e51f82484ddcdeac0e5023e9d4e0a3f8990b",
+      "canvasFit": {
+        "sourceBounds": [
+          91,
+          90,
+          1209,
+          1152
+        ],
+        "scale": 0.9087656529516994,
+        "visibleExtent": 1016
+      },
+      "localFinish": "Own manually traced trimap; GrabCut in boundary band with protected interior; largest connected bird and filled internal holes; subpixel edge and 2px color decontamination. Shared canvas fit except unchanged peregrine framing.",
+      "outputSha256": "537c94c4750ddfc37eba64e5e6e568af39418355cd0b0053bb59a76f4d3a285c",
+      "verification": {
+        "canvas": [
+          1254,
+          1254
+        ],
+        "alpha": {
+          "clear": 862232,
+          "solid": 692139,
+          "partial": 18145
+        },
+        "bounds": [
+          119,
+          144,
+          1135,
+          1109
+        ],
+        "visual": "Checked on warm white, dark blue and green backgrounds, full size and 64/48 px; no checkerboard, clipping, holes, pedestal or white haze visible."
+      }
+    },
+    {
+      "id": "turmfalke",
+      "original": "public/birds/portrait-turmfalke.png",
+      "generated": "/Users/lukasvonhohnhorst/.codex/generated_images/01a0976f-755f-7be3-bea4-157be9d1dc69/exec-e9bf0c62-9707-4e9a-ba43-7b7bd1d3dac6.png",
+      "prompt": "Precise-object-edit. Image 1 is the ORIGINAL male Common Kestrel portrait to edit. Image 2 is the ACCEPTED Peregrine Falcon composition reference. Make kestrel neck length and actual head size comparable to image 2, with slightly less neck than image 2. Keep kestrel anatomy, gray crown/cheek, dark moustache, eye size and beak proportions from image 1. The last attempts failed in opposite directions: a giant floating head, then a long full breast. Aim between them: HEAD WITH A MODERATE SHORT NECK. On the 1254 square keep the existing kestrel crown near y125 and eye near y340. Keep the entire existing head down to y680 essentially unchanged. REPLACE EVERYTHING BELOW y680 with a short continuation of buff neck feathers ending around y950 at center and y885 at sides. Remove ALL wing and shoulder (especially the orange wing at lower right); rear edge is nape feathers, not a visible wing. The bottom should be a naturally rounded subtly uneven feather boundary, not a horizontal crop. No feathered chest column, no torso. DO NOT enlarge or zoom the head to fill the newly empty lower space: retain transparent space below. The compact neck is about HALF the visible neck/breast length of image 1. Preserve adult naturalistic illustration, original head shape and expression, no larger eye, no eagle anatomy. All bill and crown tips complete. Genuine transparent RGBA background, no painted checkerboard, shadow, pedestal, fog, text or frame. One corrected kestrel only.",
+      "output": "public/birds/portrait-turmfalke-20260912.png",
+      "reference": "public/birds/portrait-wanderfalke.png",
+      "originalSha256": "79efac9042baf797e5a30972b1c7931a4d3467d059539674f4544360863cd2f6",
+      "referenceSha256": "7dc67a897c63a6e135ce93858d49ce9ece5f9e9797bab5e01fb4de713bea0ef3",
+      "localFinish": "Own manually traced trimap; GrabCut in boundary band with protected interior; largest connected bird and filled internal holes; subpixel edge and 2px color decontamination. Shared canvas fit except preserved peregrine/kestrel framing; osprey eye-height alignment.",
+      "outputSha256": "b64f61c22b512b40a887f9914b2304355681f8987bd1e63376dcf9d8022636b9",
+      "correction": "Moderate short neck; original head scale; no wing. Accepted peregrine supplements Seeadler as explicit same-family composition reference.",
+      "rejectedAttempts": [
+        {
+          "generated": "/Users/lukasvonhohnhorst/.codex/generated_images/01a0976f-755f-7be3-bea4-157be9d1dc69/exec-b54b69c9-8883-459e-8dff-ee4ad84f253f.png",
+          "prompt": "Use case: precise-object-edit. Image 1 is EDIT TARGET adult male Common Kestrel (Turmfalke); image 2 white-tailed eagle is ONLY shared composition and naturalistic illustration reference. Produce one edited kestrel portrait. Preserve its species identity, blue-gray crown and cheek, dark moustache stripe, dark brown eye with yellow orbital ring, short falcon bill, cream throat and warm buff sparse-spotted plumage. Keep leftward slight three-quarter head direction. Main edit: eliminate the long breast and orange shoulder/body and enlarge actual HEAD, leaving only a short feathered neck below cheek. No wing, no orange shoulder patch. Match reference optical head scale and eye height, NOT eagle anatomy or massive beak. Square canvas 1254x1254, head crown about 10% down, eye center x42% y29%, full bill left near 10%, rear head about 90%, natural feather tips finish around y88%. Large recognizable head and a short neck stump; rounded subtly irregular feather finish, NO flat horizontal cutoff, pedestal or haze. Match softly lit detailed naturalistic wildlife illustration of reference. Entire bill and crown preserved, clear margin all around. Genuine transparent RGBA background alpha zero outside bird, not painted checkerboard. No text border or shadow.",
+          "reason": "User rejected: too little neck, oversized head."
+        },
+        {
+          "generated": "/Users/lukasvonhohnhorst/.codex/generated_images/01a0976f-755f-7be3-bea4-157be9d1dc69/exec-1d24d21a-d549-4bd5-bade-be34f889f363.png",
+          "prompt": "Use case: precise-object-edit. Edit IMAGE 1, the existing adult male Common Kestrel portrait. IMAGE 2 (white-tailed eagle) is composition and relative head/neck balance reference ONLY, never anatomy. User explicitly rejected an earlier head-only version: its neck was too short and the head was far too large. Produce a restrained correction of ORIGINAL image 1. Keep its head at essentially ORIGINAL SIZE and ORIGINAL POSITION on the square canvas; keep crown height, eye size, beak size and eye location unchanged. Preserve exact original head proportions, fine gray feathers, dark moustache, brown iris, yellow orbital ring, leftward slight three-quarter pose. Retain a substantial short NECK below the cheek, with the buff spotted throat and neck clearly visible, comparable head-to-neck ratio to the eagle reference. Only shorten the lowest breast by about 8 percent of total visible bird height and reduce the orange shoulder patch to a small rear-neck edge. Do NOT zoom in. Do NOT turn into a floating head or make the eye bigger. Full subject occupies roughly original 80% canvas height with transparent margins, upper crown y10%, eye center about y28%, naturally feathered bottom y86%. Smooth natural feather boundary along bottom instead of horizontal crop; no long full torso. Naturalistic illustration and existing species colors remain. Genuinely transparent RGBA alpha background; no painted checkerboard, text, pedestal, haze or cast shadow. One corrected kestrel portrait.",
+          "reason": "User rejected: overcorrection, far too much neck/breast."
+        }
+      ],
+      "verification": {
+        "canvas": [
+          1254,
+          1254
+        ],
+        "alpha": {
+          "clear": 1000984,
+          "solid": 564617,
+          "partial": 6915
+        },
+        "bounds": [
+          191,
+          144,
+          1091,
+          1017
+        ],
+        "visual": "Checked on warm white, dark blue and green backgrounds, full size and 64/48 px; no checkerboard, clipping, holes, pedestal or white haze visible."
+      }
+    },
+    {
+      "id": "fischadler",
+      "original": "public/birds/portrait-fischadler.png",
+      "generated": "/Users/lukasvonhohnhorst/.codex/generated_images/01a0976f-755f-7be3-bea4-157be9d1dc69/exec-7794047d-4db2-4331-a75f-9fca732756ed.png",
+      "prompt": "Use case: precise-object-edit. Scientific atlas portrait. Image 1 EDIT TARGET adult Osprey (Fischadler). Image 2 white-tailed eagle is ONLY composition/style reference. Make the osprey a compact head portrait with SHORT neck feather finish; remove the current shoulder wing and long white breast. Preserve osprey-specific slender hooked dark bill, yellow iris, white crown, dark brown eye stripe, white cheek/throat, swept rear crown feathers, existing left-facing slight three-quarter angle. Do not substitute eagle anatomy. Match reference optical head size and eye height, premium detailed naturalistic illustration, clear readable feather texture and gentle directional light. Square canvas, crown around y10%, eye center x42% y29%, complete bill near x10%, rear head x90%, lower feather tips around y88%. The enlarged head dominates, with only short throat/neck under cheek; no body or shoulder. Natural irregular soft feather lower edge, not a straight cut, pedestal, white fog or fade. All bill and crown tips intact with clear margin. GENUINELY TRANSPARENT alpha background, no painted checkerboard or scenery, no text or shadow. Output one edited osprey only.",
+      "output": "public/birds/portrait-fischadler-20260912.png",
+      "reference": "public/birds/portrait-seeadler.png",
+      "originalSha256": "582eaccfbe5a6a9f6bc4b94c7def27f366bb5e36f0db9572d236709ba7535cad",
+      "referenceSha256": "a5aee8028f731587cb2d3cac0bc1e51f82484ddcdeac0e5023e9d4e0a3f8990b",
+      "canvasFit": {
+        "sourceBounds": [
+          18,
+          66,
+          1244,
+          1181
+        ],
+        "scale": 0.8287112561174551,
+        "visibleExtent": 1016,
+        "top": 110
+      },
+      "localFinish": "Own manually traced trimap; GrabCut in boundary band with protected interior; largest connected bird and filled internal holes; subpixel edge and 2px color decontamination. Shared canvas fit except preserved peregrine/kestrel framing; osprey eye-height alignment.",
+      "outputSha256": "5cabde23c0f3d49a42d263f5690e68779687a8356fd9628754c444464e9d69e8",
+      "verification": {
+        "canvas": [
+          1254,
+          1254
+        ],
+        "alpha": {
+          "clear": 922896,
+          "solid": 630968,
+          "partial": 18652
+        },
+        "bounds": [
+          119,
+          110,
+          1135,
+          1034
+        ],
+        "visual": "Checked on warm white, dark blue and green backgrounds, full size and 64/48 px; no checkerboard, clipping, holes, pedestal or white haze visible."
+      }
+    },
+    {
+      "id": "wespenbussard",
+      "original": "public/birds/portrait-wespenbussard.png",
+      "generated": "/Users/lukasvonhohnhorst/.codex/generated_images/01a0976f-755f-7be3-bea4-157be9d1dc69/exec-571895bf-b6f2-4813-bf92-7938ec573642.png",
+      "prompt": "Use case: precise-object-edit. Scientific educational atlas. Image 1 EDIT TARGET existing adult European Honey-buzzard (Wespenbussard). Image 2 white-tailed eagle ONLY establishes compact head portrait composition and soft detailed naturalistic illustration style. Preserve honey-buzzard anatomy and species identity: its relatively small slender pigeon-like gray head, fine facial plumage, modest slender dark hooked bill, yellow iris, gray cheek and brown nape. Do not turn it into an eagle, do not enlarge its bill or broaden its head anatomically. Change the FRAMING: remove long barred breast and shoulders, show head and a SHORT natural neck feather finish. Enlarge the whole head optically on the canvas to match the reference series while retaining all real anatomical proportions. Square canvas, clear 9% margins, crown around y10%, eye center around x42% y29%, lower short neck feathers around y88%, complete bill and head. Slight left-facing three-quarter view matching current identity. Improve clarity of fine feather illustration and gentle light to reference quality without inventing markings. Natural soft feather edge at bottom, no flat cutoff, no pedestal or fog. Genuinely transparent RGBA background alpha zero outside bird, no painted checkerboard, shadow, text, border. One edited honey-buzzard portrait only.",
+      "output": "public/birds/portrait-wespenbussard-20260912.png",
+      "reference": "public/birds/portrait-seeadler.png",
+      "originalSha256": "e6946d396bb1263c0081c477d78b9642ebc31bf9f1ac6d466d0c3b1afaf95651",
+      "referenceSha256": "a5aee8028f731587cb2d3cac0bc1e51f82484ddcdeac0e5023e9d4e0a3f8990b",
+      "canvasFit": {
+        "sourceBounds": [
+          25,
+          87,
+          1238,
+          1191
+        ],
+        "scale": 0.8375927452596867,
+        "visibleExtent": 1016
+      },
+      "localFinish": "Own manually traced trimap; GrabCut in boundary band with protected interior; largest connected bird and filled internal holes; subpixel edge and 2px color decontamination. Shared canvas fit except unchanged peregrine framing.",
+      "outputSha256": "3b107a093aa76dc78ba8772f23dc1028c9725e94481f695b050d125ea4f07646",
+      "verification": {
+        "canvas": [
+          1254,
+          1254
+        ],
+        "alpha": {
+          "clear": 950392,
+          "solid": 603077,
+          "partial": 19047
+        },
+        "bounds": [
+          119,
+          164,
+          1135,
+          1089
+        ],
+        "visual": "Checked on warm white, dark blue and green backgrounds, full size and 64/48 px; no checkerboard, clipping, holes, pedestal or white haze visible."
+      }
+    },
+    {
+      "id": "wanderfalke",
+      "original": "public/birds/portrait-wanderfalke.png",
+      "generated": "/Users/lukasvonhohnhorst/.codex/generated_images/01a0976f-755f-7be3-bea4-157be9d1dc69/exec-e3eb1909-1e68-41dd-bcbd-969b78faa6d6.png",
+      "prompt": "Use case: precise-object-edit. Image 1 is existing Peregrine Falcon portrait and ONLY edit target. User already likes it. Make ONLY a small reduction to the visible lower neck/breast: shorten the lower feather region by roughly 10% of its present total visible height, reducing the shoulder at bottom left and creating a softly irregular natural feather finish. Preserve existing head, eye, bill, crown, cheek markings, coloration, fine naturalistic illustration, expression, leftward pose, pixel scale and placement of all head features exactly as in original. Do NOT zoom or enlarge head, do NOT reinterpret anatomy, do NOT change eye size. Keep original square canvas and head position. Complete bill and crown, generous transparent margin. Genuinely transparent background with alpha zero, no checkerboard, white haze, cast shadow, pedestal or horizontal cutoff. Output one minimally edited peregrine portrait only.",
+      "output": "public/birds/portrait-wanderfalke-20260912.png",
+      "reference": null,
+      "originalSha256": "7dc67a897c63a6e135ce93858d49ce9ece5f9e9797bab5e01fb4de713bea0ef3",
+      "localFinish": "Own manually traced trimap; GrabCut in boundary band with protected interior; largest connected bird and filled internal holes; subpixel edge and 2px color decontamination. Shared canvas fit except unchanged peregrine framing.",
+      "outputSha256": "5e47ecbf8892e8534833a28d8d176d74916ba3f22f99191bfbffd398ddc4072c",
+      "verification": {
+        "canvas": [
+          1254,
+          1254
+        ],
+        "alpha": {
+          "clear": 861467,
+          "solid": 703342,
+          "partial": 7707
+        },
+        "bounds": [
+          118,
+          122,
+          1151,
+          1073
+        ],
+        "visual": "Checked on warm white, dark blue and green backgrounds, full size and 64/48 px; no checkerboard, clipping, holes, pedestal or white haze visible."
+      }
+    },
+    {
+      "id": "wuestenbussard",
+      "original": "public/birds/portrait-wuestenbussard-20260907.png",
+      "generated": "/Users/lukasvonhohnhorst/.codex/generated_images/01a0976f-755f-7be3-bea4-157be9d1dc69/exec-25c5481c-e97d-49eb-a752-fa20e909e5c0.png",
+      "prompt": "Use case: lighting-weather. EDIT ONLY the provided existing Harris's Hawk (Wuestenbussard) portrait. The user likes this exact image and requests ONLY that it be slightly brighter overall. Apply a subtle exposure lift about +0.35 stop concentrated in dark feather midtones, opening shadow feather detail without washing out black points or the yellow cere. Retain natural rich dark brown plumage; do not turn it pale or orange. Preserve every anatomical detail, exact existing silhouette, feather geometry, head scale, pose, eye size, eye position, bill, expression, canvas size, framing, color hues, lower neck shape and illustration style unchanged. No redesign, no crop, no added feathers or altered markings. Keep genuine transparent RGBA alpha outside the exact existing bird silhouette. No checkerboard, haze, background, shadow, border, text. One subtly brightened otherwise identical portrait.",
+      "output": "public/birds/portrait-wuestenbussard-20260912.png",
+      "reference": null,
+      "originalSha256": "67c61e76a5680c417ea1db518fb0a5820bc018b81847068339cf82bf65e501c1",
+      "outputSha256": "6f4f19d1ad76f1413e69962dd85f537db8a94249cf4e5445341c7934a5ef9eeb",
+      "verification": {
+        "canvas": [
+          1254,
+          1254
+        ],
+        "alpha": {
+          "clear": 766953,
+          "solid": 736,
+          "partial": 804827
+        },
+        "bounds": [
+          96,
+          94,
+          1157,
+          1160
+        ],
+        "visual": "Checked on warm white, dark blue and green backgrounds, full size and 64/48 px; no checkerboard, clipping, holes, pedestal or white haze visible.",
+        "originalAlphaDifferences": 0,
+        "meanOpaqueLuma": {
+          "before": 78.73405570652174,
+          "after": 91.26335326086947
+        }
+      },
+      "localFinish": "Exact original alpha restored with scripts/restore-bird-alpha.mjs; narrow edge colors decontaminated. Canvas and silhouette unchanged."
+    }
+  ]
+}

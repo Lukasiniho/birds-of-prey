@@ -1,0 +1,47 @@
+{
+  "mode": "built-in image_gen",
+  "records": [
+    {
+      "id": "baumfalke",
+      "original": "public/birds/portrait-baumfalke-20260913-v2.png",
+      "reference": "public/birds/portrait-habicht-20260912.png",
+      "generated": "/Users/lukasvonhohnhorst/.codex/generated_images/01a099ef-de8d-7712-bd8a-c8942ee0ec43/exec-62a1d5ce-5f46-42df-aed8-cd33b49f00a6.png",
+      "matte": "/Users/lukasvonhohnhorst/.codex/generated_images/01a099ef-de8d-7712-bd8a-c8942ee0ec43/exec-26121280-179f-4f67-8bf1-c929f6d76db2.png",
+      "prompt": "Use case: precise-object-edit. Asset: transparent naturalistic bird portrait for a species sidebar. Image 1 is the ONLY edit target: existing Eurasian hobby (Falco subbuteo / Baumfalke). Image 2 (goshawk) is composition reference only, never species anatomy or colors. Edit image 1 minimally: show a little less lower neck/chest, shortening the visible neck feather area by about 15%, removing the lowest chest fringe and redrawing a natural soft irregular feather-tip boundary a little higher. Do not squash or stretch the neck. Keep the complete head, crown, eye, beak, face markings, pose facing left, viewing angle, color, light, naturalistic illustration style, and head size/position exactly unchanged. Keep the same square canvas and transparent margins. This is NOT a zoom: head scaling will be done separately in CSS. Do not enlarge the head within the file. Preserve species anatomy and the cream throat, dark moustache and dark-streaked upper breast. Genuine transparent PNG background with alpha, no rendered checkerboard, white matte, glow, text, pedestal or hard crop line. Only reduce the amount of lower neck visible; everything else remains as in image 1.",
+      "mattePrompt": "Use case: background-extraction. TECHNICAL BACKGROUND-ONLY MATTE EDIT. Keep this entire Eurasian hobby portrait exactly unchanged: identical head anatomy, complete beak, every feather, eye size, newly shortened neck length, pose, optical scale and pixel placement on square canvas. Replace ONLY the checkerboard background with uniform pure bright green RGB(0,255,0), #00FF00, for subsequent local alpha extraction. No checkerboard anywhere, no gradient, no green tint or light reflected on the bird. Green visible between feather tips. Do not resize, recenter, crop, extend the neck or redesign any part of the bird. Same square dimensions, identical bird on flat green.",
+      "blend": [
+        690,
+        850
+      ],
+      "output": "public/birds/portrait-baumfalke-20260913-v3.png",
+      "originalSha256": "c2986402af088f71190d7331f4e598a9591612f255c340f24cf181ec5098f597",
+      "referenceSha256": "537c94c4750ddfc37eba64e5e6e568af39418355cd0b0053bb59a76f4d3a285c",
+      "generatedSha256": "cd83a1d8cf56ac103f080921d6caa657b525e830e923c62faf1b64c5274745a9",
+      "matteSha256": "77eb31f4e8bb81fd82bbeb0d272ffea3b6bc27156c0b5ca4309b621d56fcebef",
+      "outputSha256": "1976a90335cee6cc50060dd09a319c13a50a7fb03207a911fab6d1036fb9ca6a",
+      "localFinish": "Explicit green matte extraction with background unmixing; original head pixels retained exactly, lower neck patch blended in premultiplied alpha without stretching or squashing.",
+      "headUnchanged": true
+    },
+    {
+      "id": "fischadler",
+      "original": "public/birds/portrait-fischadler-20260913-v2.png",
+      "reference": "public/birds/portrait-habicht-20260912.png",
+      "generated": "/Users/lukasvonhohnhorst/.codex/generated_images/01a099ef-de8d-7712-bd8a-c8942ee0ec43/exec-df0f1573-985d-4092-a0d3-c19b869af407.png",
+      "matte": "/Users/lukasvonhohnhorst/.codex/generated_images/01a099ef-de8d-7712-bd8a-c8942ee0ec43/exec-c5e7480a-0cc1-4db8-b245-e1b5e73348a0.png",
+      "prompt": "Use case: precise-object-edit. Asset: naturalistic transparent bird portrait for species sidebar. Image 1 is edit target: existing osprey (Pandion haliaetus / Fischadler). Image 2 is goshawk COMPOSITION reference only, never anatomy/colors. Minimally edit image 1: extend the visible lower neck down a little, approximately 6% of total current bird height (about 55 pixels on this 1254 square canvas). Continue existing white throat and brown side neck feathers naturally, with an irregular soft feather-tip lower boundary. Keep full head, crown, eye, beak, face, pose facing left, perspective, anatomy, plumage, illustration style, light and colors unchanged. Keep head size and exact position on the same square canvas; no zoom, stretching, squashing, recentering. The 5% requested overall increase will be applied separately in CSS. Leave full transparent margin around beak, crown and feathers, with no cutoffs. True transparent alpha PNG, no checkerboard, white matte, halo, text or hard bottom edge. Short half portrait, only slightly more neck, no shoulders or torso.",
+      "mattePrompt": "Use case: background-extraction. TECHNICAL BACKGROUND-ONLY MATTE EDIT. Preserve the osprey portrait exactly as provided: same complete head, beak, crest feathers, yellow eye, white throat, extended lower neck and feather tips, size, pose, style, color and position. Replace ONLY the rendered checkerboard with perfectly uniform pure bright green RGB(0,255,0), #00FF00, for local alpha extraction. No green tint/reflections on bird, no gradient, no checkerboard anywhere, no resizing or recentering, no anatomical edit. Same square canvas. Do not extend or shorten anything. Keep all white feathers.",
+      "blend": [
+        750,
+        950
+      ],
+      "output": "public/birds/portrait-fischadler-20260913-v3.png",
+      "originalSha256": "ec37289a793586526200b4c291dce426dc6c2b8230b4eacd88bd403b9f89545d",
+      "referenceSha256": "537c94c4750ddfc37eba64e5e6e568af39418355cd0b0053bb59a76f4d3a285c",
+      "generatedSha256": "b6379046eb55852b8bd3a8807292e3e4240baf4fe217089207b10b75fe232e82",
+      "matteSha256": "35fa16fd1e682d55784c3eb1e7a2e95832ae07cf087c1219adfc10b05904cf4a",
+      "outputSha256": "1e4f7bbdbe1b27ce97c9469a2f45d434d4c5e6ff1d2d83860a4d61cd86453377",
+      "localFinish": "Explicit green matte extraction with background unmixing; original head pixels retained exactly, lower neck patch blended in premultiplied alpha without stretching or squashing.",
+      "headUnchanged": true
+    }
+  ]
+}

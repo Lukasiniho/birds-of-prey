@@ -1,0 +1,665 @@
+[
+  {
+    "id": "habichtsadler",
+    "path": "public/birds/portrait-habichtsadler-20260913.png",
+    "sha256": "8e32c2270af680cbb0ee23d849fc45b852b69c573795603e1d18b69c82dd0986",
+    "size": [
+      1254,
+      1254
+    ],
+    "transparentPixels": 895569,
+    "opaqueEdgePixels": 0,
+    "bbox": [
+      158,
+      146,
+      1140,
+      1117
+    ]
+  },
+  {
+    "id": "iberienadler",
+    "path": "public/birds/portrait-iberienadler-20260913.png",
+    "sha256": "537310ec4e717b949a006665c96ec1657b11f9a94eeefd7d38f0f66bcbb2f413",
+    "size": [
+      1254,
+      1254
+    ],
+    "transparentPixels": 855596,
+    "opaqueEdgePixels": 0,
+    "bbox": [
+      120,
+      119,
+      1183,
+      1102
+    ]
+  },
+  {
+    "id": "klippenadler",
+    "path": "public/birds/portrait-klippenadler-20260913.png",
+    "sha256": "6798d6c08031685452de794d056f8414a737b6c7cd7ba3a12971eaa4659344d3",
+    "size": [
+      1254,
+      1254
+    ],
+    "transparentPixels": 843713,
+    "opaqueEdgePixels": 0,
+    "bbox": [
+      111,
+      121,
+      1173,
+      1108
+    ]
+  },
+  {
+    "id": "zwergadler",
+    "path": "public/birds/portrait-zwergadler-20260913.png",
+    "sha256": "52b5cb77f93ce254522b14bec148ef7cdc7e61828926c2c3803f1b4d350cf8e1",
+    "size": [
+      1254,
+      1254
+    ],
+    "transparentPixels": 704745,
+    "opaqueEdgePixels": 0,
+    "bbox": [
+      97,
+      93,
+      1198,
+      1189
+    ]
+  },
+  {
+    "id": "rotschwanzbussard",
+    "path": "public/birds/portrait-rotschwanzbussard-20260912-v3.png",
+    "sha256": "7caa11556d60df7976cf622efb6ab552a17aa1d902f2762fc72a6e7122c57a0f",
+    "size": [
+      1254,
+      1254
+    ],
+    "transparentPixels": 883317,
+    "opaqueEdgePixels": 0,
+    "bbox": [
+      113,
+      145,
+      1167,
+      1118
+    ]
+  },
+  {
+    "id": "falklandkarakara",
+    "path": "public/birds/portrait-falklandkarakara-20260913.png",
+    "sha256": "0525135b67e9a44187318c6ec1286955b7a14bba0ca901fbd3c9f07ce8848723",
+    "size": [
+      1254,
+      1254
+    ],
+    "transparentPixels": 983699,
+    "opaqueEdgePixels": 0,
+    "bbox": [
+      177,
+      146,
+      1088,
+      1080
+    ]
+  },
+  {
+    "id": "aguja",
+    "path": "public/birds/portrait-aguja.png",
+    "sha256": "25ffd480ca0a2e59d61b8feb09997607cee10c41e1f9f5014470b842f8010314",
+    "size": [
+      1254,
+      1254
+    ],
+    "transparentPixels": 819388,
+    "opaqueEdgePixels": 0,
+    "bbox": [
+      114,
+      116,
+      1138,
+      1136
+    ]
+  },
+  {
+    "id": "steinadler",
+    "path": "public/birds/portrait-steinadler-20260913.png",
+    "sha256": "9e89d0011bfe5d2668316257fa2b540e11aa250ae4b7338f31f9fa69ebebdbe2",
+    "size": [
+      1254,
+      1254
+    ],
+    "transparentPixels": 833985,
+    "opaqueEdgePixels": 0,
+    "bbox": [
+      113,
+      126,
+      1150,
+      1057
+    ]
+  },
+  {
+    "id": "weissstorch",
+    "path": "public/birds/portrait-weissstorch-20260913.png",
+    "sha256": "ae94be04eedc959197845b7580c85e5e78a37569bc8bc8de3fc6856512fe3ca7",
+    "size": [
+      1254,
+      1254
+    ],
+    "transparentPixels": 1092889,
+    "opaqueEdgePixels": 0,
+    "bbox": [
+      87,
+      149,
+      1109,
+      1136
+    ]
+  },
+  {
+    "id": "koenigsbussard",
+    "path": "public/birds/portrait-koenigsbussard-20260912-v3.png",
+    "sha256": "70d5978a2d83f451b7cde40aa5cde5b0b12503d8ebcd482f2d6acede9c045b7e",
+    "size": [
+      1254,
+      1254
+    ],
+    "transparentPixels": 821691,
+    "opaqueEdgePixels": 0,
+    "bbox": [
+      100,
+      126,
+      1178,
+      1128
+    ]
+  },
+  {
+    "id": "weisskopfseeadler",
+    "path": "public/birds/portrait-weisskopfseeadler-20260913.png",
+    "sha256": "4e7e5d313eea0a816f75dd18c969ae2ef80164ec7fa5b493721d115abf9de648",
+    "size": [
+      1254,
+      1254
+    ],
+    "transparentPixels": 902027,
+    "opaqueEdgePixels": 0,
+    "bbox": [
+      158,
+      129,
+      1099,
+      1132
+    ]
+  },
+  {
+    "id": "rotmilan",
+    "path": "public/birds/portrait-rotmilan-20260913.png",
+    "sha256": "6cbcae067b73c20ab98c9dfe71a1e3663851aea10b9638077eac847629e60ff4",
+    "size": [
+      1254,
+      1254
+    ],
+    "transparentPixels": 899067,
+    "opaqueEdgePixels": 0,
+    "bbox": [
+      160,
+      122,
+      1147,
+      1105
+    ]
+  },
+  {
+    "id": "gaukler",
+    "path": "public/birds/portrait-gaukler-20260913.png",
+    "sha256": "b4dfc1af61bf9ef5c0703d20d607b4d9270a0aa4c5d7fdefd11fa25c583ee3c3",
+    "size": [
+      1254,
+      1254
+    ],
+    "transparentPixels": 1002552,
+    "opaqueEdgePixels": 0,
+    "bbox": [
+      200,
+      114,
+      1054,
+      1028
+    ]
+  },
+  {
+    "id": "uhu",
+    "path": "public/birds/portrait-uhu.png",
+    "sha256": "a8048da008bc33814c62a3c9341b74c26f31f2b8cf82f2045e82af5e426736bb",
+    "size": [
+      1254,
+      1254
+    ],
+    "transparentPixels": 943956,
+    "opaqueEdgePixels": 0,
+    "bbox": [
+      184,
+      118,
+      1034,
+      1137
+    ]
+  },
+  {
+    "id": "seeadler",
+    "path": "public/birds/portrait-seeadler.png",
+    "sha256": "a5aee8028f731587cb2d3cac0bc1e51f82484ddcdeac0e5023e9d4e0a3f8990b",
+    "size": [
+      1254,
+      1254
+    ],
+    "transparentPixels": 744978,
+    "opaqueEdgePixels": 0,
+    "bbox": [
+      118,
+      119,
+      1128,
+      1137
+    ]
+  },
+  {
+    "id": "wanderfalke",
+    "path": "public/birds/portrait-wanderfalke-20260912-v3.png",
+    "sha256": "a0507ca91d27dde63c64c513dbc6f15d4c75e6e13ce7db50ab58bc8f818c407c",
+    "size": [
+      1254,
+      1254
+    ],
+    "transparentPixels": 911700,
+    "opaqueEdgePixels": 0,
+    "bbox": [
+      170,
+      121,
+      1164,
+      1077
+    ]
+  },
+  {
+    "id": "lannerfalke",
+    "path": "public/birds/portrait-lannerfalke-20260913.png",
+    "sha256": "609af2ac0b57975e288f46f7288b648df1c970e38bfdb7af223959a631eb9c11",
+    "size": [
+      1254,
+      1254
+    ],
+    "transparentPixels": 827390,
+    "opaqueEdgePixels": 0,
+    "bbox": [
+      133,
+      110,
+      1167,
+      1128
+    ]
+  },
+  {
+    "id": "maeusebussard",
+    "path": "public/birds/portrait-maeusebussard-20260912-v3.png",
+    "sha256": "6d54415a4262bf0da7741274fadadc0cef50e839f301f5106396ab6209dee133",
+    "size": [
+      1254,
+      1254
+    ],
+    "transparentPixels": 894715,
+    "opaqueEdgePixels": 0,
+    "bbox": [
+      185,
+      146,
+      1172,
+      1132
+    ]
+  },
+  {
+    "id": "riesenseeadler",
+    "path": "public/birds/portrait-riesenseeadler-20260913.png",
+    "sha256": "3549427b35c4fd2f6ee45844f3104ca2b8693fd8bf2373709a6a102254e794eb",
+    "size": [
+      1254,
+      1254
+    ],
+    "transparentPixels": 877240,
+    "opaqueEdgePixels": 0,
+    "bbox": [
+      92,
+      112,
+      1138,
+      1094
+    ]
+  },
+  {
+    "id": "schwarzmilan",
+    "path": "public/birds/portrait-schwarzmilan-20260913.png",
+    "sha256": "43dc743d778af39c4c59c18dfc6f7536766b2e2a8d516a815408fc0fb5ef08cd",
+    "size": [
+      1254,
+      1254
+    ],
+    "transparentPixels": 896427,
+    "opaqueEdgePixels": 0,
+    "bbox": [
+      171,
+      113,
+      1139,
+      1058
+    ]
+  },
+  {
+    "id": "sperber",
+    "path": "public/birds/portrait-sperber-20260913.png",
+    "sha256": "026b30b945c50827fdf027dea4e0a7b6ac7cf5ba28a853d1b1317adb4adc427e",
+    "size": [
+      1254,
+      1254
+    ],
+    "transparentPixels": 780620,
+    "opaqueEdgePixels": 0,
+    "bbox": [
+      121,
+      112,
+      1150,
+      1157
+    ]
+  },
+  {
+    "id": "sakerfalke",
+    "path": "public/birds/portrait-sakerfalke-20260913.png",
+    "sha256": "421befd1df6e253bf50b2b2a6d5b51d9775818c63536ff164349ea25cc935bf7",
+    "size": [
+      1254,
+      1254
+    ],
+    "transparentPixels": 885454,
+    "opaqueEdgePixels": 0,
+    "bbox": [
+      188,
+      118,
+      1088,
+      1137
+    ]
+  },
+  {
+    "id": "virginiauhu",
+    "path": "public/birds/portrait-virginiauhu.png",
+    "sha256": "e20159d6e5e4c2816fc39e99c991264a89d62daaac1d054219252809a4321ae2",
+    "size": [
+      1254,
+      1254
+    ],
+    "transparentPixels": 886018,
+    "opaqueEdgePixels": 0,
+    "bbox": [
+      163,
+      117,
+      1091,
+      1128
+    ]
+  },
+  {
+    "id": "harpyie",
+    "path": "public/birds/portrait-harpyie-20260913.png",
+    "sha256": "f427e3c7eddd2818a0a87462926fd09c83906d673e7b8b93684ccedc6cb8a7da",
+    "size": [
+      1254,
+      1254
+    ],
+    "transparentPixels": 870959,
+    "opaqueEdgePixels": 0,
+    "bbox": [
+      160,
+      85,
+      1109,
+      1170
+    ]
+  },
+  {
+    "id": "gerfalke",
+    "path": "public/birds/portrait-gerfalke-20260913.png",
+    "sha256": "3aec23755cca01f921509edd1ecf2b066a4ed5d81f89cb3c52e131f1a03478ba",
+    "size": [
+      1254,
+      1254
+    ],
+    "transparentPixels": 852687,
+    "opaqueEdgePixels": 0,
+    "bbox": [
+      138,
+      156,
+      1141,
+      1102
+    ]
+  },
+  {
+    "id": "fischadler",
+    "path": "public/birds/portrait-fischadler-20260912.png",
+    "sha256": "5cabde23c0f3d49a42d263f5690e68779687a8356fd9628754c444464e9d69e8",
+    "size": [
+      1254,
+      1254
+    ],
+    "transparentPixels": 922896,
+    "opaqueEdgePixels": 0,
+    "bbox": [
+      120,
+      111,
+      1133,
+      1032
+    ]
+  },
+  {
+    "id": "schopfkarakara",
+    "path": "public/birds/portrait-schopfkarakara-20260913.png",
+    "sha256": "366e156cb1a40428b796c0e725dba537bf5407a5d99ab39822a6046815083d2d",
+    "size": [
+      1254,
+      1254
+    ],
+    "transparentPixels": 869962,
+    "opaqueEdgePixels": 0,
+    "bbox": [
+      148,
+      130,
+      1147,
+      1120
+    ]
+  },
+  {
+    "id": "kampfadler",
+    "path": "public/birds/portrait-kampfadler-20260913.png",
+    "sha256": "464c04692cc524e20882e1368aa697dfe521f5dc5983498963a9e16903c479ee",
+    "size": [
+      1254,
+      1254
+    ],
+    "transparentPixels": 893102,
+    "opaqueEdgePixels": 0,
+    "bbox": [
+      119,
+      111,
+      1136,
+      1073
+    ]
+  },
+  {
+    "id": "baumfalke",
+    "path": "public/birds/portrait-baumfalke-20260913.png",
+    "sha256": "62e790a6459b56f56cab7e24ed436a3dfaf335047453868ce6efbaf1d5f9d8c5",
+    "size": [
+      1254,
+      1254
+    ],
+    "transparentPixels": 888906,
+    "opaqueEdgePixels": 0,
+    "bbox": [
+      161,
+      113,
+      1089,
+      1160
+    ]
+  },
+  {
+    "id": "habicht",
+    "path": "public/birds/portrait-habicht-20260912.png",
+    "sha256": "537c94c4750ddfc37eba64e5e6e568af39418355cd0b0053bb59a76f4d3a285c",
+    "size": [
+      1254,
+      1254
+    ],
+    "transparentPixels": 862232,
+    "opaqueEdgePixels": 0,
+    "bbox": [
+      120,
+      145,
+      1133,
+      1107
+    ]
+  },
+  {
+    "id": "turmfalke",
+    "path": "public/birds/portrait-turmfalke-20260912-v3.png",
+    "sha256": "da89b0381b4c6a958b77c72d9e48484d5ba1967381dba0f854f085a8b92552f9",
+    "size": [
+      1254,
+      1254
+    ],
+    "transparentPixels": 948451,
+    "opaqueEdgePixels": 0,
+    "bbox": [
+      191,
+      140,
+      1112,
+      1066
+    ]
+  },
+  {
+    "id": "wuestenbussard",
+    "path": "public/birds/portrait-wuestenbussard-20260912.png",
+    "sha256": "6f4f19d1ad76f1413e69962dd85f537db8a94249cf4e5445341c7934a5ef9eeb",
+    "size": [
+      1254,
+      1254
+    ],
+    "transparentPixels": 766953,
+    "opaqueEdgePixels": 0,
+    "bbox": [
+      97,
+      95,
+      1154,
+      1156
+    ]
+  },
+  {
+    "id": "kronenadler",
+    "path": "public/birds/portrait-kronenadler-20260913.png",
+    "sha256": "2eb82760f1c99a9282f74f3ff360d0d0a7f9f13c4f255ccc048df1ccb0d5bb9a",
+    "size": [
+      1254,
+      1254
+    ],
+    "transparentPixels": 960850,
+    "opaqueEdgePixels": 0,
+    "bbox": [
+      152,
+      139,
+      1101,
+      1139
+    ]
+  },
+  {
+    "id": "kaiseradler",
+    "path": "public/birds/portrait-kaiseradler-20260913.png",
+    "sha256": "28119065eab28b87749a5c82c7fb2d9aa855c9c619b92e59d000667e5d696992",
+    "size": [
+      1254,
+      1254
+    ],
+    "transparentPixels": 878701,
+    "opaqueEdgePixels": 0,
+    "bbox": [
+      107,
+      131,
+      1174,
+      1089
+    ]
+  },
+  {
+    "id": "steppenadler",
+    "path": "public/birds/portrait-steppenadler-20260913.png",
+    "sha256": "802bfbb08514eb1bc600a7e08c419bdce5c72d5a06c404641484230c13c6e3cb",
+    "size": [
+      1254,
+      1254
+    ],
+    "transparentPixels": 872477,
+    "opaqueEdgePixels": 0,
+    "bbox": [
+      115,
+      146,
+      1135,
+      1133
+    ]
+  },
+  {
+    "id": "sekretaer",
+    "path": "public/birds/portrait-sekretaer-20260913.png",
+    "sha256": "a7d0a92b8af1352dda7599f2b7f3e44f9ccb6a8d80eb839e5876b575bddd38ac",
+    "size": [
+      1254,
+      1254
+    ],
+    "transparentPixels": 944960,
+    "opaqueEdgePixels": 0,
+    "bbox": [
+      105,
+      128,
+      1151,
+      1067
+    ]
+  },
+  {
+    "id": "bartgeier",
+    "path": "public/birds/portrait-bartgeier-20260913.png",
+    "sha256": "2079c59c45af3afcd3fd62156fac8e57d150efc4997cfdc83d83d169e78c0d73",
+    "size": [
+      1254,
+      1254
+    ],
+    "transparentPixels": 880787,
+    "opaqueEdgePixels": 0,
+    "bbox": [
+      123,
+      96,
+      1134,
+      1073
+    ]
+  },
+  {
+    "id": "andenkondor",
+    "path": "public/birds/portrait-andenkondor-20260913.png",
+    "sha256": "11e3c21cb5f890eecdd81a160df7ff2d988fe85dbb56b9e260c01ae2ff714b66",
+    "size": [
+      1254,
+      1254
+    ],
+    "transparentPixels": 1044947,
+    "opaqueEdgePixels": 0,
+    "bbox": [
+      225,
+      118,
+      1098,
+      1125
+    ]
+  },
+  {
+    "id": "wespenbussard",
+    "path": "public/birds/portrait-wespenbussard-20260912.png",
+    "sha256": "3b107a093aa76dc78ba8772f23dc1028c9725e94481f695b050d125ea4f07646",
+    "size": [
+      1254,
+      1254
+    ],
+    "transparentPixels": 950392,
+    "opaqueEdgePixels": 0,
+    "bbox": [
+      120,
+      165,
+      1133,
+      1087
+    ]
+  }
+]

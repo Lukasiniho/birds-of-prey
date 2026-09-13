@@ -1710,7 +1710,25 @@ button.color-dot:not(:disabled) {
   background-size: 114% auto;
 }
 .own-portrait[data-species='steppenadler'] {
-  background-size: 90% auto;
+  background-size: 95.4% auto;
+}
+.own-portrait[data-species='maeusebussard'],
+.own-portrait[data-species='rotschwanzbussard'],
+.own-portrait[data-species='fischadler'] {
+  background-size: 105% auto;
+}
+.own-portrait[data-species='kaiseradler'] {
+  background-size: 106% auto;
+}
+.own-portrait[data-species='habichtsadler'],
+.own-portrait[data-species='iberienadler'] {
+  background-size: 104% auto;
+}
+.own-portrait[data-species='baumfalke'],
+.own-portrait[data-species='uhu'],
+.own-portrait[data-species='virginiauhu'],
+.own-portrait[data-species='harpyie'] {
+  background-size: 107% auto;
 }
 @media (min-width: 1600px) {
   .specimen-heading {

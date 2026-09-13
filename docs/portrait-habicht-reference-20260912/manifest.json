@@ -1,0 +1,123 @@
+{
+  "referenceDecision": "User explicitly approved Habicht as perfect. All portraits compared to this fixed composition reference.",
+  "records": [
+    {
+      "id": "turmfalke",
+      "original": "public/birds/portrait-turmfalke-20260912.png",
+      "generated": "/Users/lukasvonhohnhorst/.codex/generated_images/01a0976f-755f-7be3-bea4-157be9d1dc69/exec-a9d71d79-6aaf-486e-ae43-a4eda7f61ca2.png",
+      "prompt": "Precise edit of IMAGE 1: current male Common Kestrel portrait. IMAGE 2: the USER-APPROVED PERFECT GOSHAWK, composition reference only, NOT anatomy. The user says kestrel shows TOO LITTLE neck. Add a SMALL amount of buff spotted NECK BELOW the current lower edge, about 90 pixels on this 1254x1254 canvas, extending center lowest feather tips from y1017 to about y1100. Keep every part of the existing kestrel above y800, including entire head, eye, bill, crown and cheek, unchanged at EXACT current scale and location. Do not zoom, recenter or enlarge head. Maintain a modest short neck, not full breast: only 90px extra at bottom, side feather tips taper naturally into current neck edges. Match the head-to-visible-neck balance of approved goshawk image 2. Do not add wing, shoulder, orange wing panel or torso. Keep adult male kestrel species colors, proportions, fine feather texture and leftward slight three-quarter pose. Natural feathery lower border, no flat crop or pedestal. Same square canvas. True transparent RGBA alpha outside bird, no checkerboard, haze, background, text, cast shadow. Output edited kestrel only.",
+      "reference": "public/birds/portrait-habicht-20260912.png",
+      "output": "public/birds/portrait-turmfalke-20260912-v2.png",
+      "originalSha256": "b64f61c22b512b40a887f9914b2304355681f8987bd1e63376dcf9d8022636b9",
+      "referenceSha256": "537c94c4750ddfc37eba64e5e6e568af39418355cd0b0053bb59a76f4d3a285c",
+      "outputSha256": "d80d7069cd83b07bdb2dd62a90933cefdab61d8f57c99b4519107470e4648569",
+      "localFinish": {
+        "segmentation": "Own protected-interior trimap; GrabCut edge segmentation and 2px edge-color cleanup. No global white/gray removal.",
+        "neckPlacement": {
+          "sourceStart": 740,
+          "sourceEnd": 1210,
+          "targetStart": 740,
+          "targetEnd": 1120,
+          "blend": 60,
+          "preserveHead": true
+        },
+        "description": "Generated lower neck fitted to the prescribed depth. Falcon head pixels copied unchanged above the blend band; no head rescaling.",
+        "headPixelDifferencesAboveSeam": 0
+      }
+    },
+    {
+      "id": "wanderfalke",
+      "original": "public/birds/portrait-wanderfalke-20260912.png",
+      "generated": "/Users/lukasvonhohnhorst/.codex/generated_images/01a0976f-755f-7be3-bea4-157be9d1dc69/exec-b87ec08d-ec92-461c-ae32-d24becafb4d4.png",
+      "prompt": "Edit image 1, current peregrine falcon portrait. Image 2 is the user's PERFECT GOSHAWK and ONLY shared crop/neck-balance reference. Current peregrine shows TOO MUCH lower neck/breast and a visible shoulder at lower left. Remove the shoulder completely, shorten lower spotted breast by about 120px on its 1254 canvas, and replace its flat bottom by a rounded natural FEATHER edge. Keep the complete existing falcon HEAD ABOVE y680 unchanged at exact scale/position: no head enlargement, no eye changes, no beak changes, no altered pose. Only the region below the cheek is editable. The resulting feather tips should end near y950 rather than current y1070; sides taper into neck naturally. The approved goshawk demonstrates the correct visual head-to-neck balance, but do not transfer its anatomy or gray markings. Keep peregrine dark cap, dark moustache, pale cheek, softly spotted cream neck. Naturalistic detailed illustration; entire bill and crown in frame, same square canvas, genuine transparent RGBA alpha background, no checkerboard pattern, haze, pedestal or shadow. One edited peregrine portrait only.",
+      "reference": "public/birds/portrait-habicht-20260912.png",
+      "output": "public/birds/portrait-wanderfalke-20260912-v2.png",
+      "originalSha256": "5e47ecbf8892e8534833a28d8d176d74916ba3f22f99191bfbffd398ddc4072c",
+      "referenceSha256": "537c94c4750ddfc37eba64e5e6e568af39418355cd0b0053bb59a76f4d3a285c",
+      "outputSha256": "4cb48bab716b41dba6f2af3de2f5786a77a9028680703229f777b628fcb8fe69",
+      "localFinish": {
+        "segmentation": "Own protected-interior trimap; GrabCut edge segmentation and 2px edge-color cleanup. No global white/gray removal.",
+        "neckPlacement": {
+          "sourceStart": 680,
+          "sourceEnd": 1130,
+          "targetStart": 680,
+          "targetEnd": 970,
+          "blend": 65,
+          "preserveHead": true
+        },
+        "description": "Generated lower neck fitted to the prescribed depth. Falcon head pixels copied unchanged above the blend band; no head rescaling.",
+        "headPixelDifferencesAboveSeam": 0
+      }
+    },
+    {
+      "id": "rotschwanzbussard",
+      "original": "public/birds/portrait-rotschwanzbussard.png",
+      "generated": "/Users/lukasvonhohnhorst/.codex/generated_images/01a0976f-755f-7be3-bea4-157be9d1dc69/exec-71a388bb-0901-4602-9b27-23be661839c2.png",
+      "prompt": "Precise portrait edit. IMAGE 1 is the existing Red-tailed Hawk, retain chestnut-brown crown and cheeks, warm brown eye and pale throat. IMAGE 2 is the user-approved PERFECT GOSHAWK: use ONLY its head-to-neck crop balance, natural feather bottom and consistent illustration style, never its species anatomy. User specifically asks for LESS NECK in image 1. Keep existing head, bill, eye, expression, feather colors and left-facing slight three-quarter pose. Remove roughly the bottom quarter of the existing neck/breast, including shoulder if visible. Show a moderate SHORT feathered neck, not a full bust, not a floating head. Natural rounded irregular feather tips at bottom, no horizontal crop or pedestal. Do not increase eye or beak size. Same square canvas and current head placement; do not zoom to fill the space created at bottom. Preserve complete crown and bill. Fine naturalistic illustration, matching approved goshawk level of detail. True transparent RGBA alpha background, no painted checkerboard, haze, cast shadow or text. One edited portrait of the species in image 1 only.",
+      "reference": "public/birds/portrait-habicht-20260912.png",
+      "output": "public/birds/portrait-rotschwanzbussard-20260912-v2.png",
+      "originalSha256": "e9022360ffb0ee2b0f30f369af3b490390ad898f421f74c4cf0e9621d19bdb9a",
+      "referenceSha256": "537c94c4750ddfc37eba64e5e6e568af39418355cd0b0053bb59a76f4d3a285c",
+      "outputSha256": "b6fab800b86899073d6d513c4eb8e15b24c70ca1052f1a102aaafb88906b1780",
+      "localFinish": {
+        "segmentation": "Own protected-interior trimap; GrabCut edge segmentation and 2px edge-color cleanup. No global white/gray removal.",
+        "neckPlacement": {
+          "sourceStart": 650,
+          "sourceEnd": 1070,
+          "targetStart": 650,
+          "targetEnd": 985,
+          "blend": 0
+        },
+        "description": "Generated lower neck fitted to the prescribed depth. Falcon head pixels copied unchanged above the blend band; no head rescaling.",
+        "headPixelDifferencesAboveSeam": null
+      }
+    },
+    {
+      "id": "maeusebussard",
+      "original": "public/birds/portrait-maeusebussard.png",
+      "generated": "/Users/lukasvonhohnhorst/.codex/generated_images/01a0976f-755f-7be3-bea4-157be9d1dc69/exec-6414c5cf-deb2-4fbd-9458-e3bf82b9f7c1.png",
+      "prompt": "Precise portrait edit. IMAGE 1 is the existing Common Buzzard, retain brown crown, brown eye and brown/white mottled throat. IMAGE 2 is the user-approved PERFECT GOSHAWK: use ONLY its head-to-neck crop balance, natural feather bottom and consistent illustration style, never its species anatomy. User specifically asks for LESS NECK in image 1. Keep existing head, bill, eye, expression, feather colors and left-facing slight three-quarter pose. Remove roughly the bottom quarter of the existing neck/breast, including shoulder if visible. Show a moderate SHORT feathered neck, not a full bust, not a floating head. Natural rounded irregular feather tips at bottom, no horizontal crop or pedestal. Do not increase eye or beak size. Same square canvas and current head placement; do not zoom to fill the space created at bottom. Preserve complete crown and bill. Fine naturalistic illustration, matching approved goshawk level of detail. True transparent RGBA alpha background, no painted checkerboard, haze, cast shadow or text. One edited portrait of the species in image 1 only.",
+      "reference": "public/birds/portrait-habicht-20260912.png",
+      "output": "public/birds/portrait-maeusebussard-20260912-v2.png",
+      "originalSha256": "aba4a32980534cd1a49fc4dfe8a70d725408b2f8ee964f47acc53d54f47ba4a3",
+      "referenceSha256": "537c94c4750ddfc37eba64e5e6e568af39418355cd0b0053bb59a76f4d3a285c",
+      "outputSha256": "dfc758767e2308d332dfc0cb61cb394e3d05e8a5784c98ab68252c334d8923ac",
+      "localFinish": {
+        "segmentation": "Own protected-interior trimap; GrabCut edge segmentation and 2px edge-color cleanup. No global white/gray removal.",
+        "neckPlacement": {
+          "sourceStart": 650,
+          "sourceEnd": 1070,
+          "targetStart": 650,
+          "targetEnd": 1010,
+          "blend": 0,
+          "offsetY": -45
+        },
+        "description": "Generated lower neck fitted to the prescribed depth. Falcon head pixels copied unchanged above the blend band; no head rescaling.",
+        "headPixelDifferencesAboveSeam": null
+      }
+    },
+    {
+      "id": "koenigsbussard",
+      "original": "public/birds/portrait-koenigsbussard.png",
+      "generated": "/Users/lukasvonhohnhorst/.codex/generated_images/01a0976f-755f-7be3-bea4-157be9d1dc69/exec-e8357f35-77ee-4ec5-8f57-b431aad8eafc.png",
+      "prompt": "Precise portrait edit. IMAGE 1 is the existing Ferruginous Hawk, retain pale cream-white crown with rust streaks, brown iris and pale throat with rust markings. IMAGE 2 is the user-approved PERFECT GOSHAWK: use ONLY its head-to-neck crop balance, natural feather bottom and consistent illustration style, never its species anatomy. User specifically asks for LESS NECK in image 1. Keep existing head, bill, eye, expression, feather colors and left-facing slight three-quarter pose. Remove roughly the bottom quarter of the existing neck/breast, including shoulder if visible. Show a moderate SHORT feathered neck, not a full bust, not a floating head. Natural rounded irregular feather tips at bottom, no horizontal crop or pedestal. Do not increase eye or beak size. Same square canvas and current head placement; do not zoom to fill the space created at bottom. Preserve complete crown and bill. Fine naturalistic illustration, matching approved goshawk level of detail. True transparent RGBA alpha background, no painted checkerboard, haze, cast shadow or text. One edited portrait of the species in image 1 only.",
+      "reference": "public/birds/portrait-habicht-20260912.png",
+      "output": "public/birds/portrait-koenigsbussard-20260912-v2.png",
+      "originalSha256": "49dbf7fe78d1ab3d7547127852c7647ee4382ab1fa73e70d0e600436d195d09e",
+      "referenceSha256": "537c94c4750ddfc37eba64e5e6e568af39418355cd0b0053bb59a76f4d3a285c",
+      "outputSha256": "de4ef1170bc78c0e64987967ac535ce6011e5f257ab649f91b0ddc65ba57fe17",
+      "localFinish": {
+        "segmentation": "Own protected-interior trimap; GrabCut edge segmentation and 2px edge-color cleanup. No global white/gray removal.",
+        "neckPlacement": {
+          "sourceStart": 650,
+          "sourceEnd": 1070,
+          "targetStart": 650,
+          "targetEnd": 985,
+          "blend": 0
+        },
+        "description": "Generated lower neck fitted to the prescribed depth. Falcon head pixels copied unchanged above the blend band; no head rescaling.",
+        "headPixelDifferencesAboveSeam": null
+      }
+    }
+  ]
+}

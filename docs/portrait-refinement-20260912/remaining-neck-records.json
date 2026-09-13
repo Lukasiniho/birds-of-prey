@@ -1,0 +1,74 @@
+[
+  {
+    "id": "falklandkarakara",
+    "original": "public/birds/portrait-falklandkarakara.png",
+    "reference": "public/birds/portrait-habicht-20260912.png",
+    "generated": "/Users/lukasvonhohnhorst/.codex/generated_images/01a0976f-755f-7be3-bea4-157be9d1dc69/exec-3370ddbd-e6e5-45ee-9a29-c0707fbc05cb.png",
+    "prompt": "Precise-object-edit of IMAGE 1: Striated Caracara. IMAGE 2 approved goshawk is ONLY short-neck composition and natural feather-edge reference. Modestly shorten the long lower striped neck by about 60 pixels, keeping the entire head at exactly its existing scale and location. Maintain a natural short neck, no wing/shoulder. All changes confined to the lowest neck, roughly below y850 on the original 1254 square canvas. Preserve naturalistic fine illustration style and species anatomy. Do not enlarge the head, eye or bill, do not zoom/recenter to fill removed space, do not stretch or squash feathers. Preserve whole head including complete beak and crown feathers. Small local change, no dramatic reduction. Natural individual overlapping feather tips at bottom, no straight cut, circle, pedestal, haze. Genuine RGBA transparency, no painted checkerboard or text. Output only edited Striated Caracara.",
+    "output": "public/birds/portrait-falklandkarakara-20260913.png",
+    "status": "generated-pending-qa"
+  },
+  {
+    "id": "weisskopfseeadler",
+    "original": "public/birds/portrait-weisskopfseeadler.png",
+    "reference": "public/birds/portrait-habicht-20260912.png",
+    "generated": "/Users/lukasvonhohnhorst/.codex/generated_images/01a0976f-755f-7be3-bea4-157be9d1dc69/exec-607134ef-735f-4259-a7cf-11bd202802f1.png",
+    "prompt": "Precise-object-edit of IMAGE 1: adult Bald Eagle. IMAGE 2 approved goshawk is ONLY short-neck composition and natural feather-edge reference. Slightly shorten only the bottom dark-brown neck collar by about 40 pixels. Keep all white head feathers, yellow bill and eye exactly unchanged at their existing size/location. Preserve a small natural dark neck transition. All changes confined to the lowest neck, roughly below y850 on the original 1254 square canvas. Preserve naturalistic fine illustration style and species anatomy. Do not enlarge the head, eye or bill, do not zoom/recenter to fill removed space, do not stretch or squash feathers. Preserve whole head including complete beak and crown feathers. Small local change, no dramatic reduction. Natural individual overlapping feather tips at bottom, no straight cut, circle, pedestal, haze. Genuine RGBA transparency, no painted checkerboard or text. Output only edited adult Bald Eagle.",
+    "output": "public/birds/portrait-weisskopfseeadler-20260913.png",
+    "status": "generated-pending-qa"
+  },
+  {
+    "id": "rotmilan",
+    "original": "public/birds/portrait-rotmilan.png",
+    "reference": "public/birds/portrait-habicht-20260912.png",
+    "generated": "/Users/lukasvonhohnhorst/.codex/generated_images/01a0976f-755f-7be3-bea4-157be9d1dc69/exec-8233bf28-a08e-4d4e-87bb-c2e4121a0413.png",
+    "prompt": "Precise-object-edit of IMAGE 1: Red Kite. IMAGE 2 approved goshawk is ONLY short-neck composition and natural feather-edge reference. Modestly shorten the long triangular lower rufous streaked neck by about 60 pixels. Preserve the grey head and complete bill in exact current size/location. Natural feathery base, no long bust. All changes confined to the lowest neck, roughly below y850 on the original 1254 square canvas. Preserve naturalistic fine illustration style and species anatomy. Do not enlarge the head, eye or bill, do not zoom/recenter to fill removed space, do not stretch or squash feathers. Preserve whole head including complete beak and crown feathers. Small local change, no dramatic reduction. Natural individual overlapping feather tips at bottom, no straight cut, circle, pedestal, haze. Genuine RGBA transparency, no painted checkerboard or text. Output only edited Red Kite.",
+    "output": "public/birds/portrait-rotmilan-20260913.png",
+    "status": "generated-pending-qa"
+  },
+  {
+    "id": "schwarzmilan",
+    "original": "public/birds/portrait-schwarzmilan.png",
+    "reference": "public/birds/portrait-habicht-20260912.png",
+    "generated": "/Users/lukasvonhohnhorst/.codex/generated_images/01a0976f-755f-7be3-bea4-157be9d1dc69/exec-bb830774-549e-4a16-83ac-f4695c6d35e4.png",
+    "prompt": "Precise-object-edit of IMAGE 1: Black Kite. IMAGE 2 approved goshawk is ONLY short-neck composition and natural feather-edge reference. Slightly shorten the lower dark-brown feathered neck by about 50 pixels. Keep head size, eye and bill location and species colors unchanged. Natural small feather tips. All changes confined to the lowest neck, roughly below y850 on the original 1254 square canvas. Preserve naturalistic fine illustration style and species anatomy. Do not enlarge the head, eye or bill, do not zoom/recenter to fill removed space, do not stretch or squash feathers. Preserve whole head including complete beak and crown feathers. Small local change, no dramatic reduction. Natural individual overlapping feather tips at bottom, no straight cut, circle, pedestal, haze. Genuine RGBA transparency, no painted checkerboard or text. Output only edited Black Kite.",
+    "output": "public/birds/portrait-schwarzmilan-20260913.png",
+    "status": "generated-pending-qa"
+  },
+  {
+    "id": "schopfkarakara",
+    "original": "public/birds/portrait-schopfkarakara.png",
+    "reference": "public/birds/portrait-habicht-20260912.png",
+    "generated": "/Users/lukasvonhohnhorst/.codex/generated_images/01a0976f-755f-7be3-bea4-157be9d1dc69/exec-ed55d51b-6c5f-4f9a-a2d4-1b4cfd710426.png",
+    "prompt": "Precise-object-edit of IMAGE 1: Crested Caracara. IMAGE 2 approved goshawk is ONLY short-neck composition and natural feather-edge reference. Modestly shorten the bottom black-and-cream barred neck by about 60 pixels, preserving the head and pale upper neck exactly as they are. Keep the crest, red bare face and beak at existing scale/location. No broad chest or shoulder. All changes confined to the lowest neck, roughly below y850 on the original 1254 square canvas. Preserve naturalistic fine illustration style and species anatomy. Do not enlarge the head, eye or bill, do not zoom/recenter to fill removed space, do not stretch or squash feathers. Preserve whole head including complete beak and crown feathers. Small local change, no dramatic reduction. Natural individual overlapping feather tips at bottom, no straight cut, circle, pedestal, haze. Genuine RGBA transparency, no painted checkerboard or text. Output only edited Crested Caracara.",
+    "output": "public/birds/portrait-schopfkarakara-20260913.png",
+    "status": "generated-pending-qa"
+  },
+  {
+    "id": "kampfadler",
+    "original": "public/birds/portrait-kampfadler.png",
+    "reference": "public/birds/portrait-habicht-20260912.png",
+    "generated": "/Users/lukasvonhohnhorst/.codex/generated_images/01a0976f-755f-7be3-bea4-157be9d1dc69/exec-6b51071f-76cf-4c1c-8e2e-a8e86bb19d6a.png",
+    "prompt": "Precise-object-edit of IMAGE 1: Martial Eagle. IMAGE 2 approved goshawk is ONLY short-neck composition and natural feather-edge reference. Slightly shorten the lowest dark neck feathers by about 40 pixels. Keep entire head, small crest, bill, eye, pose and head size exactly unchanged. All changes confined to the lowest neck, roughly below y850 on the original 1254 square canvas. Preserve naturalistic fine illustration style and species anatomy. Do not enlarge the head, eye or bill, do not zoom/recenter to fill removed space, do not stretch or squash feathers. Preserve whole head including complete beak and crown feathers. Small local change, no dramatic reduction. Natural individual overlapping feather tips at bottom, no straight cut, circle, pedestal, haze. Genuine RGBA transparency, no painted checkerboard or text. Output only edited Martial Eagle.",
+    "output": "public/birds/portrait-kampfadler-20260913.png",
+    "status": "generated-pending-qa"
+  },
+  {
+    "id": "steppenadler",
+    "original": "public/birds/portrait-steppenadler.png",
+    "reference": "public/birds/portrait-habicht-20260912.png",
+    "generated": "/Users/lukasvonhohnhorst/.codex/generated_images/01a0976f-755f-7be3-bea4-157be9d1dc69/exec-183e23d0-6a03-4dc2-bc71-17ef08bc19e3.png",
+    "prompt": "Precise-object-edit of IMAGE 1: Steppe Eagle. IMAGE 2 approved goshawk is ONLY short-neck composition and natural feather-edge reference. Slightly shorten only the lowest dark-brown neck feathers by about 45 pixels. Keep entire head, bill and distinctive gape line, eye, pose and head size exactly unchanged. All changes confined to the lowest neck, roughly below y850 on the original 1254 square canvas. Preserve naturalistic fine illustration style and species anatomy. Do not enlarge the head, eye or bill, do not zoom/recenter to fill removed space, do not stretch or squash feathers. Preserve whole head including complete beak and crown feathers. Small local change, no dramatic reduction. Natural individual overlapping feather tips at bottom, no straight cut, circle, pedestal, haze. Genuine RGBA transparency, no painted checkerboard or text. Output only edited Steppe Eagle.",
+    "output": "public/birds/portrait-steppenadler-20260913.png",
+    "status": "generated-pending-qa"
+  },
+  {
+    "id": "bartgeier",
+    "original": "public/birds/portrait-bartgeier-20260907.png",
+    "reference": "public/birds/portrait-habicht-20260912.png",
+    "generated": "/Users/lukasvonhohnhorst/.codex/generated_images/01a0976f-755f-7be3-bea4-157be9d1dc69/exec-7d1617f3-b8a3-42c1-88e0-889291a676b1.png",
+    "prompt": "Precise-object-edit of IMAGE 1: Bearded Vulture. IMAGE 2 approved goshawk is ONLY short-neck composition and natural feather-edge reference. Slightly shorten only the bottom orange neck feathers by about 45 pixels. Keep the entire head, eye ring, bill, black beard and nape unchanged at existing size and position. Keep a natural feathered short neck. All changes confined to the lowest neck, roughly below y850 on the original 1254 square canvas. Preserve naturalistic fine illustration style and species anatomy. Do not enlarge the head, eye or bill, do not zoom/recenter to fill removed space, do not stretch or squash feathers. Preserve whole head including complete beak and crown feathers. Small local change, no dramatic reduction. Natural individual overlapping feather tips at bottom, no straight cut, circle, pedestal, haze. Genuine RGBA transparency, no painted checkerboard or text. Output only edited Bearded Vulture.",
+    "output": "public/birds/portrait-bartgeier-20260913.png",
+    "status": "generated-pending-qa"
+  }
+]

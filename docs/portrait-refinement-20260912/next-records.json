@@ -1,0 +1,65 @@
+[
+  {
+    "id": "lannerfalke",
+    "original": "public/birds/portrait-lannerfalke.png",
+    "reference": "public/birds/portrait-habicht-20260912.png",
+    "generated": "/Users/lukasvonhohnhorst/.codex/generated_images/01a0976f-755f-7be3-bea4-157be9d1dc69/exec-1477cdf3-0fef-46f7-85a8-26c490963dd6.png",
+    "prompt": "Precise-object-edit. IMAGE 1 is the existing Lanner Falcon, the sole anatomy and identity source. IMAGE 2 is the approved goshawk, ONLY a series composition and feather-edge reference. The user says this portrait is almost perfect. Make ONLY a very slight shortening of the lowest pale spotted neck feathers, about 30 pixels on the 1254 square canvas (2.5% canvas height). Keep the visible neck almost entirely intact. Preserve head and every feature at the same position/scale. Do not exaggerate the change. Retain species anatomy, colors, fine naturalistic illustration, leftward three-quarter view. Complete head including bill and crown. Square canvas 1254x1254, no global recentering or zoom. No stretching/squashing neck or feathers. Genuine RGBA transparency, no painted checkerboard, text, haze or cast shadow. Output only the edited Lanner Falcon.",
+    "output": "public/birds/portrait-lannerfalke-20260913.png",
+    "status": "candidate"
+  },
+  {
+    "id": "sakerfalke",
+    "original": "public/birds/portrait-sakerfalke.png",
+    "reference": "public/birds/portrait-habicht-20260912.png",
+    "generated": "/Users/lukasvonhohnhorst/.codex/generated_images/01a0976f-755f-7be3-bea4-157be9d1dc69/exec-b222d483-5f8e-405c-a955-e84470e25450.png",
+    "prompt": "Precise-object-edit. IMAGE 1 is the existing Saker Falcon, the sole anatomy and identity source. IMAGE 2 is the approved goshawk, ONLY a series composition and feather-edge reference. The user says the actual head looks too small in the shared series. Increase the optical head size modestly, about 8%, keeping the eye near x520,y350 and the crown inside the canvas. Adjust the adjoining short neck naturally to that head scale, with natural feather tips ending near y1100. The head should have comparable optical weight to the approved goshawk, while keeping the actual Saker's distinct pale streaked head, subtle moustache and brown eye. Do not enlarge the entire long bust to fill the canvas or clip the bill/crown. Retain species anatomy, colors, fine naturalistic illustration, leftward three-quarter view. Complete head including bill and crown. Square canvas 1254x1254, no global recentering or zoom. No stretching/squashing neck or feathers. Genuine RGBA transparency, no painted checkerboard, text, haze or cast shadow. Output only the edited Saker Falcon.",
+    "output": "public/birds/portrait-sakerfalke-20260913.png",
+    "status": "candidate"
+  },
+  {
+    "id": "baumfalke",
+    "original": "public/birds/portrait-baumfalke.png",
+    "reference": "public/birds/portrait-habicht-20260912.png",
+    "generated": "/Users/lukasvonhohnhorst/.codex/generated_images/01a0976f-755f-7be3-bea4-157be9d1dc69/exec-09f59c49-3242-4062-8e99-91e730386bf8.png",
+    "prompt": "Precise-object-edit. IMAGE 1 is the existing Eurasian Hobby, the sole anatomy and identity source. IMAGE 2 is the approved goshawk, ONLY a series composition and feather-edge reference. Repair ONLY the unnaturally smooth rounded bottom cut of the neck into a natural, detailed irregular feather-tip silhouette. The individual neck feathers must overlap and taper naturally, no stamped oval edge, flat baseline, pedestal or blurry fade. Keep approximately the same neck depth, with tips near y1100. Preserve entire head at its exact existing scale and position and all species plumage. Keep all head, eye, bill, cheek, crown pixels above y750 unchanged. Retain species anatomy, colors, fine naturalistic illustration, leftward three-quarter view. Complete head including bill and crown. Square canvas 1254x1254, no global recentering or zoom. No stretching/squashing neck or feathers. Genuine RGBA transparency, no painted checkerboard, text, haze or cast shadow. Output only the edited Eurasian Hobby.",
+    "output": "public/birds/portrait-baumfalke-20260913.png",
+    "status": "candidate"
+  },
+  {
+    "id": "steinadler",
+    "original": "public/birds/portrait-steinadler.png",
+    "reference": "public/birds/portrait-habicht-20260912.png",
+    "generated": "/Users/lukasvonhohnhorst/.codex/generated_images/01a0976f-755f-7be3-bea4-157be9d1dc69/exec-dce3692b-fc8b-4ce6-b129-82ecc773cc3f.png",
+    "prompt": "Precise-object-edit of IMAGE 1: Golden Eagle. IMAGE 2 is approved goshawk, ONLY shared composition/edge reference. User says ALMOST PERFECT. Make only a tiny shortening of the lowest dark neck feathers by about 30 pixels (2.5% of square canvas height). Keep practically all of the existing neck and preserve all golden nape plumage. Preserve species anatomy, original fine naturalistic illustration texture, colors, head shape and position, eye, beak, lighting and leftward slight three-quarter pose. Change only lowest neck feather area, keep head and upper neck above y750 exactly as supplied. SAME 1254x1254 canvas and head scale, no zoom/recenter, no stretching/squashing feathers. Natural individual feather-tip bottom, no flat crop, pedestal, haze. True RGBA transparency with no checkerboard, text or shadow. Output only edited Golden Eagle.",
+    "output": "public/birds/portrait-steinadler-20260913.png",
+    "status": "candidate"
+  },
+  {
+    "id": "riesenseeadler",
+    "original": "public/birds/portrait-riesenseeadler.png",
+    "reference": "public/birds/portrait-habicht-20260912.png",
+    "generated": "/Users/lukasvonhohnhorst/.codex/generated_images/01a0976f-755f-7be3-bea4-157be9d1dc69/exec-ac8731e9-f1da-4800-ac78-c93fedb3a815.png",
+    "prompt": "Precise-object-edit of IMAGE 1: Steller's Sea Eagle. IMAGE 2 is approved goshawk, ONLY shared composition/edge reference. Slightly shorten the lower black neck by about 65 pixels (5% of square canvas height), removing the lowermost row of feathers. Keep the natural feathered neck, enormous orange beak and white forehead intact. Preserve species anatomy, original fine naturalistic illustration texture, colors, head shape and position, eye, beak, lighting and leftward slight three-quarter pose. Change only lowest neck feather area, keep head and upper neck above y750 exactly as supplied. SAME 1254x1254 canvas and head scale, no zoom/recenter, no stretching/squashing feathers. Natural individual feather-tip bottom, no flat crop, pedestal, haze. True RGBA transparency with no checkerboard, text or shadow. Output only edited Steller's Sea Eagle.",
+    "output": "public/birds/portrait-riesenseeadler-20260913.png",
+    "status": "candidate"
+  },
+  {
+    "id": "zwergadler",
+    "original": "public/birds/portrait-zwergadler.png",
+    "reference": "public/birds/portrait-habicht-20260912.png",
+    "generated": "/Users/lukasvonhohnhorst/.codex/generated_images/01a0976f-755f-7be3-bea4-157be9d1dc69/exec-f2e3c508-e84b-4209-ab6c-940ae7555865.png",
+    "prompt": "Precise-object-edit of IMAGE 1: Booted Eagle. IMAGE 2 is approved goshawk, ONLY shared composition/edge reference. Add a MINIMAL amount of visible neck: just a narrow row of small cream and brown feather tips extending the current lower edge by about 25 pixels (2% of canvas height). Keep almost exactly the current crop; do not add a long breast or make the head any bigger. All feather tips must remain inside the square canvas. Preserve species anatomy, original fine naturalistic illustration texture, colors, head shape and position, eye, beak, lighting and leftward slight three-quarter pose. Change only lowest neck feather area, keep head and upper neck above y750 exactly as supplied. SAME 1254x1254 canvas and head scale, no zoom/recenter, no stretching/squashing feathers. Natural individual feather-tip bottom, no flat crop, pedestal, haze. True RGBA transparency with no checkerboard, text or shadow. Output only edited Booted Eagle.",
+    "output": "public/birds/portrait-zwergadler-20260913.png",
+    "status": "candidate"
+  },
+  {
+    "id": "gaukler",
+    "original": "public/birds/portrait-gaukler.png",
+    "reference": "public/birds/portrait-habicht-20260912.png",
+    "generated": "/Users/lukasvonhohnhorst/.codex/generated_images/01a0976f-755f-7be3-bea4-157be9d1dc69/exec-50fa640b-6b10-4bac-b002-6fe8c352c1d2.png",
+    "prompt": "Precise-object-edit of IMAGE 1: Bateleur. IMAGE 2 is approved goshawk, ONLY shared composition/edge reference. Shorten the lower feathered black neck modestly by around 80 pixels (6% of square canvas height). Eliminate protruding lower shoulder/wing pieces so the portrait reads as a head and short neck. Preserve natural black feather structure and complete crown. Do not change red bare face or eye. Preserve species anatomy, original fine naturalistic illustration texture, colors, head shape and position, eye, beak, lighting and leftward slight three-quarter pose. Change only lowest neck feather area, keep head and upper neck above y750 exactly as supplied. SAME 1254x1254 canvas and head scale, no zoom/recenter, no stretching/squashing feathers. Natural individual feather-tip bottom, no flat crop, pedestal, haze. True RGBA transparency with no checkerboard, text or shadow. Output only edited Bateleur.",
+    "output": "public/birds/portrait-gaukler-20260913.png",
+    "status": "candidate"
+  }
+]

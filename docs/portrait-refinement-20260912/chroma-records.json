@@ -1,0 +1,20 @@
+[
+  {
+    "id": "schopfkarakara",
+    "source": "/Users/lukasvonhohnhorst/.codex/generated_images/01a0976f-755f-7be3-bea4-157be9d1dc69/exec-ed55d51b-6c5f-4f9a-a2d4-1b4cfd710426.png",
+    "prompt": "BACKGROUND REPLACEMENT ONLY. Keep the entire existing bird illustration exactly unchanged: identical pixels/texture, identical anatomy, size, location, bill, feathers, crest and lower edge. Replace ONLY the gray-white checkerboard background with a perfectly flat uniform pure vivid GREEN background RGB(0,255,0), hexadecimal #00FF00. No gradient, no texture, no green reflected light or cast on the bird. Green goes between fine feather tips and outside the entire silhouette. Do not use transparency, do not draw any checkerboard. Same square canvas, no zoom, no recentering, no crop, no added or removed feathers. This is a technical matte pass; output the identical bird on solid bright green.",
+    "generated": "/Users/lukasvonhohnhorst/.codex/generated_images/01a0976f-755f-7be3-bea4-157be9d1dc69/exec-137ec2b5-34d7-404d-a552-eab857419d2a.png"
+  },
+  {
+    "id": "sekretaer",
+    "source": "/Users/lukasvonhohnhorst/.codex/generated_images/01a0976f-755f-7be3-bea4-157be9d1dc69/exec-21fe88a0-0ced-4727-917a-866e97c24220.png",
+    "prompt": "BACKGROUND REPLACEMENT ONLY. Keep the entire existing bird illustration exactly unchanged: identical pixels/texture, identical anatomy, size, location, bill, feathers, crest and lower edge. Replace ONLY the gray-white checkerboard background with a perfectly flat uniform pure vivid GREEN background RGB(0,255,0), hexadecimal #00FF00. No gradient, no texture, no green reflected light or cast on the bird. Green goes between fine feather tips and outside the entire silhouette. Do not use transparency, do not draw any checkerboard. Same square canvas, no zoom, no recentering, no crop, no added or removed feathers. This is a technical matte pass; output the identical bird on solid bright green.",
+    "generated": "/Users/lukasvonhohnhorst/.codex/generated_images/01a0976f-755f-7be3-bea4-157be9d1dc69/exec-5d38f5d4-53bf-4db8-82ea-85ec6eb718d6.png"
+  },
+  {
+    "id": "weissstorch",
+    "source": "/Users/lukasvonhohnhorst/.codex/generated_images/01a0976f-755f-7be3-bea4-157be9d1dc69/exec-e7ae50ce-5b88-4786-bce2-7e369d412f9a.png",
+    "prompt": "BACKGROUND REPLACEMENT ONLY. Keep the entire existing bird illustration exactly unchanged: identical pixels/texture, identical anatomy, size, location, bill, feathers, crest and lower edge. Replace ONLY the gray-white checkerboard background with a perfectly flat uniform pure vivid GREEN background RGB(0,255,0), hexadecimal #00FF00. No gradient, no texture, no green reflected light or cast on the bird. Green goes between fine feather tips and outside the entire silhouette. Do not use transparency, do not draw any checkerboard. Same square canvas, no zoom, no recentering, no crop, no added or removed feathers. This is a technical matte pass; output the identical bird on solid bright green.",
+    "generated": "/Users/lukasvonhohnhorst/.codex/generated_images/01a0976f-755f-7be3-bea4-157be9d1dc69/exec-c2becfca-7c6b-4de0-b95b-79bc8b348a4c.png"
+  }
+]
