@@ -7,6 +7,7 @@ import { SpeciesCommonName } from '@/components/species-name';
 import { Check, DotsSix as Grip, MapPin, Plus, X } from '@/components/icons';
 import type { QuizHabitat, QuizQuestion } from '@/lib/quiz-engine';
 import type { BirdMap, QuizDraft as Draft } from '@/lib/quiz-answer';
+import { quizHabitatCorrections } from '@/lib/quiz-feedback';
 import { BirdArt } from './bird-art';
 import { QuizTaskHeading } from './task-heading';
 
@@ -37,6 +38,9 @@ export function HabitatQuestion({
   const startPoint = useRef({ x: 0, y: 0 });
   const dragged = useRef(false);
   const boardRef = useRef<HTMLDivElement>(null);
+  const corrections = answered
+    ? quizHabitatCorrections(question, draft.placements, birds)
+    : [];
 
   function place(id: string, habitatId: string) {
     if (answered || !question.habitatIds.includes(habitatId)) return;
@@ -109,6 +113,10 @@ export function HabitatQuestion({
           );
           const correct =
             answered && birds[id].habitats.includes(draft.placements[id]);
+          const correction = corrections.find((item) => item.birdId === id);
+          const habitatLabel = correction
+            ? `Richtig: ${correction.habitats.join(' / ')}`
+            : (placement?.label ?? 'Noch auf der Suche');
           return (
             <button
               key={id}
@@ -119,7 +127,7 @@ export function HabitatQuestion({
               data-correct={correct}
               data-wrong={answered && !correct}
               data-dragging={drag?.moved && drag.id === id}
-              aria-label={`${birds[id].name}${placement ? `, zugeordnet zu ${placement.label}` : ', noch nicht zugeordnet'}`}
+              aria-label={`${birds[id].name}${placement ? `, zugeordnet zu ${placement.label}` : ', noch nicht zugeordnet'}${correction ? `. ${habitatLabel}` : ''}`}
               onClick={() => {
                 if (dragged.current) {
                   dragged.current = false;
@@ -166,7 +174,7 @@ export function HabitatQuestion({
                   {birds[id].name}
                 </SpeciesCommonName>
                 <small className="text-(length:--type-body) mt-half block leading-(--leading-compact) text-(--muted-foreground)">
-                  {placement ? placement.label : 'Noch auf der Suche'}
+                  {habitatLabel}
                 </small>
               </span>
               {correct ? (
@@ -191,14 +199,6 @@ export function HabitatQuestion({
           );
         })}
       </div>
-      {answered && (
-        <div
-          className="q-habitat-selection to-tablet:leading-(--leading-normal) text-(length:--type-ui) text-muted-foreground flex justify-center items-center gap-2 min-h-[44px] py-[10px]"
-          aria-live="polite"
-        >
-          <Check size={15} /> Alle vier Vögel zugeordnet
-        </div>
-      )}
       <div
         ref={boardRef}
         className="q-habitat-board [&:is(.q-habitat-birds+*)]:mt-5 grid grid-cols-4 gap-4 to-tablet:grid-cols-[1fr_1fr] to-tablet:gap-3"

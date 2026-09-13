@@ -3,14 +3,32 @@ import {
   type QuizBird,
   type QuizQuestion,
 } from './quiz-engine.ts';
+import { landscapes } from './habitats.ts';
+import type { QuizAnswer } from './quiz-answer.ts';
 
 const number = new Intl.NumberFormat('de-DE');
 const span = (bird: QuizBird) => `${bird.span[0]}–${bird.span[1]} cm`;
 
+/** Only offer habitats that are available on this question's board. */
+export function quizHabitatCorrections(
+  question: Extract<QuizQuestion, { kind: 'habitat' }>,
+  placements: Record<string, string>,
+  birds: Record<string, QuizBird>,
+) {
+  return question.birdIds
+    .filter((id) => !birds[id].habitats.includes(placements[id]))
+    .map((id) => ({
+      birdId: id,
+      habitats: question.habitatIds
+        .filter((habitat) => birds[id].habitats.includes(habitat))
+        .map((habitat) => landscapes[habitat].label),
+    }));
+}
+
 /** Footer copy contains only the result, never an appearance description. */
 export function quizFeedbackText(
   question: QuizQuestion,
-  answer: { points: number; food: string[] },
+  answer: Pick<QuizAnswer, 'points' | 'food' | 'placements'>,
   birds: Record<string, QuizBird>,
   huntingTypes: Record<string, { label: string }>,
 ): string {
@@ -32,8 +50,25 @@ export function quizFeedbackText(
         : 'Bild 1: Männchen; Bild 2: Weibchen.';
     case 'call':
       return `Ruf: ${birds[question.birdId].name}.`;
-    case 'habitat':
-      return `${answer.points / 25} von 4 Vögeln passend zugeordnet.`;
+    case 'habitat': {
+      const corrections = quizHabitatCorrections(
+        question,
+        answer.placements,
+        birds,
+      );
+      if (!corrections.length)
+        return `${question.birdIds.length} von ${question.birdIds.length} Vögeln passend zugeordnet.`;
+      const results = corrections.map(
+        ({ birdId, habitats }) => `${birds[birdId].name}: ${habitats[0]}`,
+      );
+      // Keep whole corrections; the cards show every wrong bird's solution.
+      for (let count = results.length; count > 0; count--) {
+        const remaining = results.length - count;
+        const text = `${results.slice(0, count).join('; ')}${remaining ? `; +${remaining} weitere` : ''}.`;
+        if (text.length <= 80) return text;
+      }
+      return 'Die passenden Lebensräume stehen bei den falsch zugeordneten Vögeln.';
+    }
     case 'prey': {
       const correct = answer.food.filter((id) =>
         question.correct.includes(id),

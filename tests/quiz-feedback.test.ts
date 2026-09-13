@@ -4,11 +4,88 @@ import { readFileSync } from 'node:fs';
 import { buildQuizBirds } from '../lib/quiz-data.ts';
 import { huntingTypes } from '../lib/ecology.ts';
 import { habitatImages } from '../lib/habitat-images.ts';
-import { createQuizRound, quizKinds } from '../lib/quiz-engine.ts';
-import { quizFeedbackText } from '../lib/quiz-feedback.ts';
+import {
+  createQuizRound,
+  quizKinds,
+  type QuizQuestion,
+} from '../lib/quiz-engine.ts';
+import {
+  quizFeedbackText,
+  quizHabitatCorrections,
+} from '../lib/quiz-feedback.ts';
 
 const birds = buildQuizBirds();
-const answer = { points: 100, food: [] as string[] };
+const answer = { points: 100, food: [] as string[], placements: {} };
+
+const habitatQuestion: Extract<QuizQuestion, { kind: 'habitat' }> = {
+  id: 'habitat-feedback',
+  kind: 'habitat',
+  birdIds: ['iberienadler', 'harpyie', 'zwergadler', 'klippenadler'],
+  habitatIds: ['regenwald', 'wald', 'felsen', 'gebirge'],
+};
+
+void test('wrong habitat feedback gives the correction instead of just the score', () => {
+  const placements = {
+    iberienadler: 'gebirge',
+    harpyie: 'regenwald',
+    zwergadler: 'wald',
+    klippenadler: 'gebirge',
+  };
+  assert.equal(
+    quizFeedbackText(
+      habitatQuestion,
+      { ...answer, points: 75, placements },
+      birds,
+      huntingTypes,
+    ),
+    'Iberienadler: Wälder.',
+  );
+  assert.deepEqual(quizHabitatCorrections(habitatQuestion, placements, birds), [
+    { birdId: 'iberienadler', habitats: ['Wälder'] },
+  ]);
+  // Both rock landscapes and mountains are valid for the cliff eagle.
+  for (const habitat of ['felsen', 'gebirge']) {
+    const correct = {
+      ...placements,
+      iberienadler: 'wald',
+      klippenadler: habitat,
+    };
+    assert.equal(
+      quizFeedbackText(
+        habitatQuestion,
+        { ...answer, placements: correct },
+        birds,
+        huntingTypes,
+      ),
+      '4 von 4 Vögeln passend zugeordnet.',
+    );
+  }
+});
+
+void test('multiple habitat mistakes retain all card corrections and a bounded footer', () => {
+  const placements = Object.fromEntries(
+    habitatQuestion.birdIds.map((id) => [id, 'unassigned']),
+  );
+  const corrections = quizHabitatCorrections(
+    habitatQuestion,
+    placements,
+    birds,
+  );
+  assert.equal(corrections.length, 4);
+  assert.deepEqual(corrections[3], {
+    birdId: 'klippenadler',
+    habitats: ['Felslandschaften', 'Gebirge'],
+  });
+  const text = quizFeedbackText(
+    habitatQuestion,
+    { ...answer, points: 0, placements },
+    birds,
+    huntingTypes,
+  );
+  assert.match(text, /^Iberienadler: Wälder;/);
+  assert.match(text, /\+\d weitere\.$/);
+  assert(text.length <= 80, text);
+});
 
 void test('every species and appearance has a short identification result without descriptive paragraphs', () => {
   for (const bird of Object.values(birds)) {
@@ -68,9 +145,22 @@ void test('all question types keep feedback within 80 characters, including wron
       seen.add(question.kind);
       for (const points of [0, 50, 100]) {
         const food = question.kind === 'prey' ? question.options : [];
+        const placements =
+          question.kind === 'habitat'
+            ? Object.fromEntries(
+                question.birdIds.map((id, index) => [
+                  id,
+                  question.habitatIds.find(
+                    (habitat) =>
+                      birds[id].habitats.includes(habitat) ===
+                      index < points / 25,
+                  ) ?? '',
+                ]),
+              )
+            : {};
         const text = quizFeedbackText(
           question,
-          { points, food },
+          { points, food, placements },
           birds,
           huntingTypes,
         );
