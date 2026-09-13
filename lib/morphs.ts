@@ -169,8 +169,8 @@ export const birdMorphs: Record<MorphSpeciesId, BirdMorphConfig> = {
           ['Graubraun', '#908371'],
         ],
         images: {
-          male: '/birds/morph-zwergadler-dark.png',
-          juvenile: '/birds/morph-juvenile-zwergadler-dark.png',
+          male: '/birds/morph-zwergadler-dark-adult-20260913-v2.png',
+          juvenile: '/birds/morph-zwergadler-dark-juvenile-20260913-v2.png',
         },
       },
     ],
@@ -212,8 +212,8 @@ export const birdMorphs: Record<MorphSpeciesId, BirdMorphConfig> = {
           ['Dunkelbraun', '#40352A'],
         ],
         images: {
-          male: '/birds/morph-wespenbussard-hell-male.png',
-          juvenile: '/birds/morph-wespenbussard-hell-juvenile.png',
+          male: '/birds/morph-wespenbussard-hell-male-20260913-v3.png',
+          juvenile: '/birds/morph-wespenbussard-hell-juvenile-20260913-v3.png',
         },
       },
       {
@@ -233,7 +233,7 @@ export const birdMorphs: Record<MorphSpeciesId, BirdMorphConfig> = {
           ['Braun', '#80664A'],
           ['Dunkelbraun', '#40352A'],
         ],
-        images: { juvenile: '/birds/morph-wespenbussard-mittel-juvenile.png' },
+        images: { juvenile: '/birds/juvenile-wespenbussard-20260913-v3.png' },
       },
       {
         id: 'dunkel',
@@ -253,8 +253,9 @@ export const birdMorphs: Record<MorphSpeciesId, BirdMorphConfig> = {
           ['Graubeige', '#AD9D83'],
         ],
         images: {
-          male: '/birds/morph-wespenbussard-dunkel-male.png',
-          juvenile: '/birds/morph-wespenbussard-dunkel-juvenile.png',
+          male: '/birds/morph-wespenbussard-dunkel-male-20260913-v3.png',
+          juvenile:
+            '/birds/morph-wespenbussard-dunkel-juvenile-20260913-v3.png',
         },
       },
     ],
@@ -397,7 +398,7 @@ export const birdMorphs: Record<MorphSpeciesId, BirdMorphConfig> = {
         id: 'hell',
         label: 'Hell',
         adultNote:
-          'Fast weißer Kopf und helle Unterseite mit wenigen braunen Zeichnungen; dunklere Spitzen und Bänder bleiben an den Schwungfedern sichtbar.',
+          'Cremefarbener Kopf und helle Unterseite mit wenigen braunen Zeichnungen; dunklere Spitzen und Bänder bleiben an den Schwungfedern sichtbar.',
         juvenileNote:
           'Ebenfalls sehr hell, mit wenigen feinen Längsstrichen und einer helleren graubraunen Iris. Junge Bussarde sind nicht grundsätzlich heller als Altvögel.',
         adultColors: [
@@ -413,9 +414,8 @@ export const birdMorphs: Record<MorphSpeciesId, BirdMorphConfig> = {
           ['Dunkelbraun', '#4A3D2F'],
         ],
         images: {
-          male: '/birds/morph-maeusebussard-hell-male.png?v=d0073d5783e4',
-          juvenile:
-            '/birds/morph-maeusebussard-hell-juvenile.png?v=f20c054d3ee5',
+          male: '/birds/morph-maeusebussard-hell-20260912.png',
+          juvenile: '/birds/morph-maeusebussard-hell-juvenile-20260912.png',
         },
       },
       {
@@ -458,9 +458,8 @@ export const birdMorphs: Record<MorphSpeciesId, BirdMorphConfig> = {
           ['Hellgraubeige', '#BEB6A5'],
         ],
         images: {
-          male: '/birds/morph-maeusebussard-dunkel-male.png?v=c903f325f18f',
-          juvenile:
-            '/birds/morph-maeusebussard-dunkel-juvenile.png?v=c9b7e4fb1fb8',
+          male: '/birds/morph-maeusebussard-dunkel-20260912.png',
+          juvenile: '/birds/morph-maeusebussard-dunkel-juvenile-20260912.png',
         },
       },
     ],
@@ -597,9 +596,9 @@ export const birdMorphs: Record<MorphSpeciesId, BirdMorphConfig> = {
           ['Brauner Schwanz', '#786049'],
         ],
         images: {
-          male: '/birds/morph-koenigsbussard-dunkel-male.png?v=d9eed7bbfa7d',
+          male: '/birds/morph-koenigsbussard-dunkel-20260912-v3.png',
           juvenile:
-            '/birds/morph-koenigsbussard-dunkel-juvenile.png?v=4c62d179c1f5',
+            '/birds/morph-koenigsbussard-dunkel-juvenile-20260912-v3.png',
         },
       },
     ],
@@ -661,9 +660,9 @@ export const birdMorphs: Record<MorphSpeciesId, BirdMorphConfig> = {
         rangeNote:
           'Zwischenformen vor allem im westlichen Nordamerika, bei calurus von British Columbia bis Nordmexiko.',
         images: {
-          male: '/birds/morph-rotschwanzbussard-rostbraun-male.png?v=de383baa409c',
+          male: '/birds/morph-rotschwanzbussard-rostbraun-20260912.png',
           juvenile:
-            '/birds/morph-rotschwanzbussard-rostbraun-juvenile.png?v=7a9a0f1399df',
+            '/birds/morph-rotschwanzbussard-rostbraun-juvenile-20260912.png',
         },
       },
       {
@@ -686,9 +685,9 @@ export const birdMorphs: Record<MorphSpeciesId, BirdMorphConfig> = {
         rangeNote:
           'Seltenere Farbmorphe westlicher Populationen; die Darstellung folgt calurus.',
         images: {
-          male: '/birds/morph-rotschwanzbussard-dunkel-male.png?v=8f28a7e54190',
+          male: '/birds/morph-rotschwanzbussard-dunkel-20260912.png',
           juvenile:
-            '/birds/morph-rotschwanzbussard-dunkel-juvenile.png?v=f902be4f6724',
+            '/birds/morph-rotschwanzbussard-dunkel-juvenile-20260912.png',
         },
       },
     ],
