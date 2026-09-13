@@ -4,15 +4,15 @@ import { birds, filterBirds, groupBirds, plumagesFor } from '../lib/birds.ts';
 void test('German and scientific searches return the right species', () => {
   assert.equal(filterBirds('mäuse')[0]?.id, 'maeusebussard');
   assert.equal(filterBirds('FALCO').length, 6);
-  assert.equal(filterBirds('   ').length, 39);
+  assert.equal(filterBirds('   ').length, 42);
   assert.equal(filterBirds('unbekannt').length, 0);
 });
 void test('genus grouping preserves every bird exactly once', () => {
   const groups = groupBirds(birds, 'genus');
-  assert.equal(groups.length, 23);
+  assert.equal(groups.length, 26);
   const all = groups.flatMap((g) => g.birds.map((b) => b.id));
-  assert.equal(all.length, 39);
-  assert.equal(new Set(all).size, 39);
+  assert.equal(all.length, 42);
+  assert.equal(new Set(all).size, 42);
   assert.equal(groups.find((g) => g.id === 'Falco')?.birds.length, 6);
 });
 void test('all grouping modes retain every matching species and no extras', () => {
@@ -177,11 +177,11 @@ void test('all species have reviewed diets, valid prey and illustrated habitats'
   assert(!diets.fischadler.examples.some((p) => p.key === 'aas'));
   assert.deepEqual(
     plumagesFor('gaukler').map((p) => p.value),
-    ['male', 'female', 'juvenile'],
+    ['female', 'male', 'juvenile'],
   );
   assert.deepEqual(
     plumagesFor('sperber').map((p) => p.value),
-    ['male', 'female', 'juvenile'],
+    ['female', 'male', 'juvenile'],
   );
   assert.deepEqual(
     plumagesFor('seeadler').map((p) => p.label),

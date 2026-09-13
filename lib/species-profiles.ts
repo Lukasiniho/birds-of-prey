@@ -30,6 +30,24 @@ const fund = (name: string) => [
 ];
 
 export const speciesProfiles: Record<string, SpeciesProfile> = {
+  schleiereule: {
+    identification: 'Der herzförmige Gesichtsschleier und die dunklen Augen sind unverwechselbar. Lange Flügel, ein kurzer Schwanz und das helle Untergefieder kennzeichnen den Flug; Federohren fehlen.',
+    behaviour: 'Jagt überwiegend nachts und in der Dämmerung. Ihr feines Gehör hilft beim Orten versteckter Kleinsäuger. Tagsüber ruht sie oft in Gebäuden; ihr Ruf ist ein raues Kreischen.',
+    breeding: 'Brütet in geschützten Gebäudenischen, Baumhöhlen und Nistkästen. Das Weibchen beginnt früh zu brüten, sodass unterschiedlich alte Junge zusammen aufwachsen. Nach etwa acht Wochen werden sie flügge.',
+    sources: [{ name: 'Landesverband Eulenschutz', url: 'https://www.eulen.de/unsere-eulen/schleiereule' }, { name: 'BTO', url: 'https://www.bto.org/learn/about-birds/birdfacts/barn-owl' }],
+  },
+  gaensegeier: {
+    identification: 'Sehr breite Flügel mit hellen Decken und dunklen Schwungfedern; kurzer Schwanz und kleiner, im Flug eingezogener Kopf. Altvögel tragen eine helle, Jungvögel eine braune Halskrause.',
+    behaviour: 'Er nutzt Aufwinde für ausgedehnte Suchflüge. An Kadavern versammeln sich oft viele Geier, die ihre Plätze mit Drohgesten und rauen Lauten aushandeln.',
+    breeding: 'Brütet meist in Kolonien auf geschützten Felsvorsprüngen. Beide Eltern brüten etwa 52–58 Tage und versorgen das Junge mehrere Monate lang.',
+    sources: [{ name: 'SEO/BirdLife', url: 'https://seo.org/ave/buitre-leonado/' }, { name: 'Wilhelma', url: 'https://www.wilhelma.de/entdecken/tiere/tierart/gaensegeier' }],
+  },
+  schreiseeadler: {
+    identification: 'Der weiße Kopf setzt sich über Hals und obere Brust fort. Dazu kommen ein kastanienbrauner Bauch, dunkle Schwingen und ein kurzer weißer Schwanz. Jungvögel sind braun und hell gefleckt.',
+    behaviour: 'Paare halten sich häufig gemeinsam an Gewässern auf. Beim weithin hörbaren Rufen werfen sie den Kopf zurück; Altvögel sind überwiegend reviertreu.',
+    breeding: 'Das Paar baut einen großen Asthorst in einem Baum nahe am Wasser und nutzt ihn oft über Jahre. Nach etwa 45 Tagen schlüpfen die Jungen; beide Eltern beteiligen sich an ihrer Versorgung.',
+    sources: [{ name: 'Animal Diversity Web', url: 'https://animaldiversity.org/accounts/Haliaeetus_vocifer/' }, { name: 'Los Angeles Zoo', url: 'https://lazoo.org/explore-your-zoo/our-animals/birds/african-fish-eagle/' }],
+  },
   habichtsadler: {
     identification:
       'Breite Flügel, langer Schwanz und ein heller Körper zwischen dunklen Unterflügeldecken. Die Schwanzendbinde ist beim Altvogel breit, beim Jungvogel noch undeutlich.',

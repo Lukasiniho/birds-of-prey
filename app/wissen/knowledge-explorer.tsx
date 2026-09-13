@@ -51,9 +51,11 @@ export default function KnowledgeExplorer({
   return (
     <div className="app-shell section-shell knowledge-shell">
       <SiteHeader activeSection="wissen" />
-      <main className="knowledge-main page-content">
-        <header className="knowledge-heading">
-          <h1 className="page-title">Greifvögel verstehen</h1>
+      <main className="knowledge-main max-w-[1360px] my-0 mx-auto page-content">
+        <header className="knowledge-heading to-compact:items-start to-compact:flex-col to-compact:gap-5 to-compact:mb-section flex justify-between items-center gap-[28px] mb-section">
+          <h1 className="page-title font-(family-name:--font-stack-display) text-(length:--type-page-title) font-(--weight-semibold) leading-(--leading-display) tracking-(--tracking-tight)">
+            Greifvögel verstehen
+          </h1>
         </header>
         <Tabs
           value={section}

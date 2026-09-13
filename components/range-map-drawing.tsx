@@ -1,6 +1,7 @@
 'use client';
 
 import { useEffect, useId, useState } from 'react';
+import { cn } from '@/lib/utils';
 import { Info } from '@/components/icons';
 import {
   Popover,
@@ -43,8 +44,12 @@ export function useRangeMap(entry: RangeMapEntry | undefined) {
 
 function MapLegend({ label }: { label: string }) {
   return (
-    <div className="range-map-legend">
-      <span aria-hidden="true" /> {label}
+    <div className="range-map-legend rounded-(--radius-control) text-(length:--type-caption) leading-(--leading-heading) bg-background text-foreground absolute top-[8px] right-[8px] flex items-center gap-[6px] py-1 px-2 pointer-events-none">
+      <span
+        className="size-[10px] rounded-md bg-(--map-range) flex-none"
+        aria-hidden="true"
+      />{' '}
+      {label}
     </div>
   );
 }
@@ -54,17 +59,22 @@ export function MapDrawing({
   name,
   label,
   world = false,
+  framed = false,
 }: {
   data: MapData;
   name: string;
   label: string;
   world?: boolean;
+  framed?: boolean;
 }) {
   const clip = `land-${useId()}`;
   return (
-    <div className="range-map-frame">
+    <div className="range-map-frame relative">
       <svg
-        className="range-map-svg"
+        className={cn(
+          'range-map-svg block w-full h-auto aspect-[1.85] bg-(--map-water)',
+          framed && 'rounded-lg border-(length:--border-structure)',
+        )}
         viewBox={(world ? data.base.viewBox : data.range.viewBox).join(' ')}
         // SVG needs an explicit image role to expose its accessible name.
         role="img"
@@ -77,18 +87,25 @@ export function MapDrawing({
             ))}
           </clipPath>
         </defs>
-        <g className="range-map-land">
+        <g className="range-map-land" fill="var(--map-land)">
           {data.base.paths.map((d, i) => (
             <path key={i} d={d} fillRule="evenodd" />
           ))}
         </g>
         <path
           className="range-map-overlay"
+          fill="var(--map-range)"
+          fillOpacity={0.82}
           d={data.range.path}
           fillRule="evenodd"
           clipPath={`url(#${clip})`}
         />
-        <g className="range-map-borders" fill="none">
+        <g
+          className="range-map-borders"
+          fill="none"
+          stroke="var(--map-border)"
+          strokeWidth={0.45}
+        >
           {data.base.paths.map((d, i) => (
             <path key={i} d={d} vectorEffect="non-scaling-stroke" />
           ))}
@@ -101,7 +118,7 @@ export function MapDrawing({
 
 export function MapCredits({ entry }: { entry: RangeMapEntry }) {
   return (
-    <div className="range-map-credits">
+    <div className="range-map-credits text-muted-foreground text-(length:--type-caption) leading-(--leading-normal) flex flex-wrap gap-[5px] mt-[6px]">
       <div>
         <a href={entry.sourceUrl} target="_blank" rel="noreferrer">
           {entry.sourceName}
@@ -130,7 +147,7 @@ export function MapSourceInfo({ entry }: { entry: RangeMapEntry }) {
   return (
     <Popover>
       <PopoverTrigger
-        className="range-map-source"
+        className="range-map-source absolute left-[8px] bottom-[8px] grid place-items-center size-[26px]"
         aria-label="Kartenquellen und Lizenz"
       >
         <Info size={14} aria-hidden="true" />

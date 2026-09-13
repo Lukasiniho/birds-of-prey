@@ -61,6 +61,9 @@ export const landscapes: Record<
   },
 };
 export const speciesLandscapes: Record<string, string[]> = {
+  schleiereule: ['feldflur'],
+  gaensegeier: ['gebirge', 'felsen', 'feldflur'],
+  schreiseeadler: ['gewaesser', 'kueste'],
   habichtsadler: ['felsen', 'wald', 'feldflur'],
   iberienadler: ['wald', 'feldflur'],
   klippenadler: ['felsen', 'gebirge'],

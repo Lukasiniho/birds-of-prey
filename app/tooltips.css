@@ -94,11 +94,6 @@
   border-bottom: var(--border-structure) solid var(--border);
 }
 @media (prefers-reduced-motion: reduce) {
-  .app-tooltip[data-slot='tooltip-content'],
-  .app-tooltip-surface,
-  [data-slot='popover-content'] {
-    transition: none;
-  }
   .app-tooltip[data-starting-style] > .app-tooltip-surface,
   .app-tooltip[data-ending-style] > .app-tooltip-surface,
   [data-slot='popover-content'][data-starting-style],
@@ -106,4 +101,3 @@
     transform: none;
   }
 }
-

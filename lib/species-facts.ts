@@ -15,6 +15,27 @@ export type SpeciesFactsData = {
   movement: SpeciesFact;
 };
 export const speciesFacts: Record<string, SpeciesFactsData> = {
+  schleiereule: {
+    lifespan: { value: 'ca. 4 Jahre', context: 'Ab Brutreife · Wildbahn', note: 'BTO-Schätzung für Vögel, die das Brutalter erreichen; keine Lebensdauer ab Schlupf.', sources: ['https://www.bto.org/learn/about-birds/birdfacts/barn-owl'] },
+    clutch: { value: 'Meist 4–6 Eier', sources: ['https://www.bto.org/learn/about-birds/birdfacts/barn-owl'] },
+    conservation: { code: 'LC', sources: ['https://www.bto.org/learn/about-birds/birdfacts/barn-owl'] },
+    activity: { value: 'Dämmerungs- & nachtaktiv', sources: ['https://www.eulen.de/unsere-eulen/schleiereule'] },
+    movement: { value: 'Standvogel', note: 'Jungvögel verlassen das Elternrevier; bei Nahrungsmangel sind weitere Wanderungen möglich.', sources: ['https://www.bto.org/learn/about-birds/birdfacts/barn-owl'] },
+  },
+  gaensegeier: {
+    lifespan: { value: 'über 41 Jahre', context: 'Höchstalter · Tierhaltung', sources: ['https://genomics.senescence.info/species/entry.php?species=Gyps_fulvus'] },
+    clutch: { value: '1 Ei', sources: ['https://www.wilhelma.de/entdecken/tiere/tierart/gaensegeier'] },
+    conservation: { code: 'LC', sources: ['https://4vultures.org/vultures/griffon-vulture/'] },
+    activity: { value: 'Tagaktiv', sources: ['https://www.bartgeier.ch/gaensegeier'] },
+    movement: { value: 'Überwiegend Standvogel', note: 'Jungvögel streifen weit umher; auch Altvögel unternehmen ausgedehnte Nahrungsflüge.', sources: ['https://seo.org/ave/buitre-leonado/'] },
+  },
+  schreiseeadler: {
+    lifespan: { value: '16–24 Jahre', context: 'Lebensspanne · laut Los Angeles Zoo', sources: ['https://lazoo.org/explore-your-zoo/our-animals/birds/african-fish-eagle/'] },
+    clutch: { value: 'Meist 2 Eier', sources: ['https://lazoo.org/explore-your-zoo/our-animals/birds/african-fish-eagle/'] },
+    conservation: { code: 'LC', sources: ['https://lazoo.org/explore-your-zoo/our-animals/birds/african-fish-eagle/'] },
+    activity: { value: 'Tagaktiv', sources: ['https://animaldiversity.org/accounts/Haliaeetus_vocifer/'] },
+    movement: { value: 'Standvogel', note: 'Örtliche Wanderungen bei Trockenheit, Hochwasser oder wechselndem Nahrungsangebot.', sources: ['https://animaldiversity.org/accounts/Haliaeetus_vocifer/'] },
+  },
   habichtsadler: {
     lifespan: {
       value: '20 Jahre',

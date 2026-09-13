@@ -1,5 +1,7 @@
 'use client';
 
+import { DetailHeading, DetailCopy } from '@/components/detail-text';
+
 import { useState } from 'react';
 import { ArrowUpRight, ForkKnife } from '@/components/icons';
 import { PreyArt } from '@/components/prey-art';
@@ -19,21 +21,29 @@ export default function PreyExplorer({ prey }: { prey: PreyEntry[] }) {
   const occasional = entry.hunters.filter((h) => h.importance !== 'primary');
 
   return (
-    <div className="knowledge-split prey-explorer">
-      <section className="knowledge-surface" aria-label="Beutetiere">
-        <header className="knowledge-surface-heading">
+    <div className="explorer-layout knowledge-split prey-explorer">
+      <section
+        className="knowledge-surface bg-stage min-w-0"
+        aria-label="Beutetiere"
+      >
+        <header className="knowledge-surface-heading to-tablet:items-start to-tablet:flex-wrap flex items-center justify-between gap-4 p-panel">
           <div>
-            <span className="knowledge-eyebrow">Beute & Jäger</span>
-            <h2>Wer jagt was?</h2>
+            <span className="knowledge-eyebrow text-muted-foreground text-(length:--type-caption) font-(--weight-medium) tracking-(--tracking-caps) block uppercase mb-1">
+              Beute & Jäger
+            </span>
+            <DetailHeading>Wer jagt was?</DetailHeading>
           </div>
           <ForkKnife size={24} aria-hidden="true" />
         </header>
-        <fieldset className="knowledge-grid" aria-label="Beutetier wählen">
+        <fieldset
+          className="knowledge-grid grid grid-cols-[repeat(auto-fill,minmax(124px,1fr))] to-tablet:grid-cols-[repeat(auto-fill,minmax(104px,1fr))] px-panel pb-panel gap-2"
+          aria-label="Beutetier wählen"
+        >
           {prey.map((item) => (
             <button
               type="button"
               key={item.key}
-              className="knowledge-tile"
+              className="knowledge-tile flex flex-col items-center gap-half py-3 px-2 text-center"
               aria-pressed={item.key === entry.key}
               data-related={
                 hoveredHunter
@@ -42,21 +52,30 @@ export default function PreyExplorer({ prey }: { prey: PreyEntry[] }) {
               }
               onClick={() => setSelected(item.key)}
             >
-              <PreyArt preyKey={item.key} />
-              <span className="knowledge-tile-name">{item.name}</span>
-              <span className="knowledge-tile-count">
+              <PreyArt preyKey={item.key} variant="tile" />
+              <span className="knowledge-tile-name font-(--weight-medium) leading-(--leading-compact)">
+                {item.name}
+              </span>
+              <span className="knowledge-tile-count text-(length:--type-caption) text-muted-foreground">
                 {countLabel(item.hunters.length)}
               </span>
             </button>
           ))}
         </fieldset>
       </section>
-      <aside className="knowledge-notes" aria-live="polite" aria-atomic="true">
-        <div className="knowledge-notes-scroll detail-panel" key={entry.key}>
-          <span className="knowledge-eyebrow">
+      <aside
+        className="explorer-notes knowledge-notes bg-(--atlas-info-surface) relative min-w-0"
+        aria-live="polite"
+        aria-atomic="true"
+      >
+        <div
+          className="knowledge-notes-scroll to-tablet:static to-tablet:overflow-visible absolute inset-0 overflow-y-auto detail-panel"
+          key={entry.key}
+        >
+          <span className="knowledge-eyebrow text-muted-foreground text-(length:--type-caption) font-(--weight-medium) tracking-(--tracking-caps) block uppercase mb-1">
             Beutetier · {countLabel(entry.hunters.length)}
           </span>
-          <h2>{entry.name}</h2>
+          <DetailHeading>{entry.name}</DetailHeading>
           {primary.length > 0 && (
             <HunterGroup
               title="Hauptbeute"
@@ -71,10 +90,10 @@ export default function PreyExplorer({ prey }: { prey: PreyEntry[] }) {
               onHover={setHoveredHunter}
             />
           )}
-          <p>
+          <DetailCopy className="mt-3">
             Beim Überfahren eines Greifvogels leuchten links alle Beutetiere
             auf, die er ebenfalls jagt.
-          </p>
+          </DetailCopy>
         </div>
       </aside>
     </div>
@@ -92,8 +111,10 @@ function HunterGroup({
 }) {
   return (
     <div className="knowledge-group">
-      <h3>{title}</h3>
-      <div className="knowledge-bird-list">
+      <h3 className="mt-(--space-24) text-(length:--type-ui) font-(--weight-medium) text-(--muted-foreground)">
+        {title}
+      </h3>
+      <div className="knowledge-bird-list grid gap-2 mt-4">
         {hunters.map((hunter) => {
           const row = (
             <SpeciesRowLink

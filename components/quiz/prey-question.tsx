@@ -1,6 +1,6 @@
 'use client';
 
-import { QuizQuestionTitle } from '@/components/quiz/question-title';
+import { QuizChoiceHeading } from '@/components/quiz/task-heading';
 import { SpeciesName } from '@/components/species-name';
 import { useRef, useState, type PointerEvent } from 'react';
 import { createPortal } from 'react-dom';
@@ -72,7 +72,7 @@ export function PreyQuestion({
     <fieldset
       ref={root}
       aria-label="Typische Nahrung zusammenstellen"
-      className="q-prey-task"
+      className="q-prey-task min-w-0 m-0 border-0 bg-stage"
       onPointerMove={(event) => {
         const current = active.current;
         if (!current || current.pointerId !== event.pointerId) return;
@@ -99,18 +99,27 @@ export function PreyQuestion({
       onPointerCancel={cancel}
       onLostPointerCapture={cancel}
     >
-      <div className="q-new-heading">
-        <span className="q-task-label">
-          <Utensils size={17} /> Speiseplan zusammenstellen
-        </span>
-        <QuizQuestionTitle>Was frisst dieser Vogel?</QuizQuestionTitle>
-        <p>
-          Ziehe die typische Nahrung zum Vogel oder tippe sie an. Mehrere
-          Antworten sind möglich.
-        </p>
-      </div>
-      <div className="q-prey-layout">
-        <div className="q-prey-options" aria-label="Nahrung zur Auswahl" data-quiz-confirm>
+      <QuizChoiceHeading
+        label={
+          <>
+            <Utensils size={17} /> Speiseplan zusammenstellen
+          </>
+        }
+        description={
+          <>
+            Ziehe die typische Nahrung zum Vogel oder tippe sie an. Mehrere
+            Antworten sind möglich.
+          </>
+        }
+      >
+        Was frisst dieser Vogel?
+      </QuizChoiceHeading>
+      <div className="q-prey-layout grid grid-cols-[1.15fr_1fr] to-compact:grid-cols-[1fr] gap-6 items-stretch">
+        <div
+          className="q-prey-options grid grid-cols-2 gap-3"
+          aria-label="Nahrung zur Auswahl"
+          data-quiz-confirm
+        >
           {question.options.map((id) => {
             const picked = selected.includes(id);
             const correct = question.correct.includes(id);
@@ -118,7 +127,7 @@ export function PreyQuestion({
               <button
                 key={id}
                 type="button"
-                className="q-prey-option"
+                className="q-card q-prey-option pt-6 px-3 pb-4 bg-surface text-foreground relative flex flex-col items-center justify-center gap-3 min-w-0 select-none"
                 aria-label={preyCatalog[id].name}
                 aria-pressed={picked}
                 disabled={answered}
@@ -157,7 +166,10 @@ export function PreyQuestion({
                   select(id, true);
                 }}
               >
-                <span className="q-prey-mark" aria-hidden="true">
+                <span
+                  className="q-prey-mark absolute top-[10px] right-[10px]"
+                  aria-hidden="true"
+                >
                   {answered ? (
                     correct ? (
                       <Check size={17} />
@@ -170,22 +182,24 @@ export function PreyQuestion({
                     <Grip size={17} />
                   )}
                 </span>
-                <span className="q-prey-art">
-                  <PreyArt preyKey={id} />
+                <span className="q-prey-art to-phone:size-[64px] to-phone:min-h-[64px] grid place-items-center size-[100px] max-w-full min-h-[100px] overflow-hidden pointer-events-none">
+                  <PreyArt preyKey={id} variant="choice" />
                 </span>
-                <strong>{preyCatalog[id].name}</strong>
+                <strong className="text-(length:--type-ui) font-(--weight-medium) leading-(--leading-compact)">
+                  {preyCatalog[id].name}
+                </strong>
               </button>
             );
           })}
         </div>
         <div
           ref={target}
-          className="q-prey-target"
+          className="q-card q-prey-target to-compact:grid to-compact:grid-cols-[1fr_120px] to-compact:gap-[10px] to-compact:p-panel to-phone:p-panel to-phone:grid-cols-[1fr_76px] rounded-(--radius-card) bg-surface min-w-0 flex flex-col items-center p-panel"
           data-over={over}
           data-answered={answered}
           aria-label={`Nahrung für ${bird.name}`}
         >
-          <div className="q-specimen-label">
+          <div className="q-specimen-label self-stretch p-0 flex flex-col items-start gap-0 relative z-1">
             <SpeciesName
               variant="quiz"
               name={bird.name}
@@ -195,7 +209,7 @@ export function PreyQuestion({
             />
           </div>
           <ArtImage
-            className="q-prey-bird"
+            className="q-prey-bird to-compact:col-start-2 to-compact:row-[1/3] to-compact:h-[98px] to-compact:m-0 w-full h-[190px] object-contain my-3 mx-0 pointer-events-none"
             src={bird.portrait}
             alt={bird.name}
             width={300}
@@ -203,23 +217,26 @@ export function PreyQuestion({
             displayWidth={190}
             draggable={false}
           />
-          <div className="q-prey-plate">
+          <div className="q-prey-plate to-compact:justify-start flex flex-wrap items-center justify-center gap-2 min-h-[48px] mt-auto">
             {selected.length ? (
               selected.map((id) => (
                 <button
+                  className="flex items-center gap-(--space-8) py-(--space-8) px-(--space-12)"
                   type="button"
                   key={id}
                   disabled={answered}
                   aria-label={`${preyCatalog[id].name} entfernen`}
                   onClick={() => select(id, true)}
                 >
-                  <PreyArt preyKey={id} />
+                  <PreyArt preyKey={id} variant="placed" />
                   <span>{preyCatalog[id].name}</span>
                   {!answered && <X size={14} aria-hidden="true" />}
                 </button>
               ))
             ) : (
-              <span className="q-prey-empty">Nahrung hier ablegen</span>
+              <span className="q-prey-empty text-(length:--type-ui) text-muted-foreground">
+                Nahrung hier ablegen
+              </span>
             )}
           </div>
         </div>
@@ -230,12 +247,14 @@ export function PreyQuestion({
       {drag &&
         createPortal(
           <div
-            className="q-prey-drag"
+            className="q-prey-drag border-(length:--border-structure) text-foreground rounded-(--radius-card) bg-background shadow-(--shadow-floating) fixed z-1000 pointer-events-none w-[130px] p-3 text-center"
             style={{ left: drag.x + 12, top: drag.y - 65 }}
             aria-hidden="true"
           >
-            <PreyArt preyKey={drag.id} />
-            <strong>{preyCatalog[drag.id].name}</strong>
+            <PreyArt preyKey={drag.id} variant="drag" />
+            <strong className="block mt-2 text-(length:--type-ui)">
+              {preyCatalog[drag.id].name}
+            </strong>
           </div>,
           document.body,
         )}

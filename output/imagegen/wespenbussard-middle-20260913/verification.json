@@ -1,0 +1,19 @@
+{
+  "original": "public/birds/portrait-wespenbussard.png",
+  "otherEndpoint": "public/birds/portrait-wespenbussard-20260912.png",
+  "compositionReference": "public/birds/portrait-habicht-20260912.png",
+  "generated": "/Users/lukasvonhohnhorst/.codex/generated_images/01a09ad9-bc2d-7391-aa5e-7947c87962a6/exec-f590262d-a7c2-44bb-b394-aaed09942bfc.png",
+  "output": "public/birds/portrait-wespenbussard-20260913-middle.png",
+  "method": "Built-in imagegen edit, local GrabCut segmentation with manually guided silhouette, protected pale plumage, border-connected background detection, hole fill and edge decontamination. No geometric distortion.",
+  "canvas": [
+    1254,
+    1254
+  ],
+  "transparentPixels": 864913,
+  "originalSha256": "e6946d396bb1263c0081c477d78b9642ebc31bf9f1ac6d466d0c3b1afaf95651",
+  "otherEndpointSha256": "3b107a093aa76dc78ba8772f23dc1028c9725e94481f695b050d125ea4f07646",
+  "compositionReferenceSha256": "537c94c4750ddfc37eba64e5e6e568af39418355cd0b0053bb59a76f4d3a285c",
+  "generatedSha256": "0c63ff79578fb2fe48c7421d130dfb24edab2cd3ea7731384a458460408fde5a",
+  "outputSha256": "a8ea539d02e6ab67e4b425abe3babbbf27530367b69582e3c3e9fb65e2943194",
+  "validation": "Full head/beak retained, no checkerboard or holes; visually checked on light, dark and green backgrounds."
+}

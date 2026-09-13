@@ -144,6 +144,9 @@ body .species-common-name {
   font-style: normal;
   color: var(--foreground);
 }
+body .species-common-name[data-name-variant='detail'] {
+  font-size: var(--type-detail-heading);
+}
 body .species-scientific-name {
   display: block;
   font-size: var(--type-scientific);

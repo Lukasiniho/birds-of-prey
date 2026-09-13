@@ -1,0 +1,272 @@
+{
+  "method": "built-in image_gen; local protected-interior GrabCut/checker extraction or blue-matte unmixing; uniform placement without neck distortion",
+  "records": [
+    {
+      "id": "fischadler",
+      "prompt": "Use case: style-transfer / precise-object-edit.\nCreate one final transparent PNG portrait for an existing natural-history bird identification app.\nImage 1 is the EDIT TARGET, the current OSPREY (Pandion haliaetus) portrait. Image 2 is a GOSHAWK used ONLY as a composition and rendering-style reference, never as the subject/anatomy.\nEdit the osprey to harmonize with that reference: a compact left-facing head-and-short-neck half portrait. Make the visible neck noticeably shorter, with a naturally fuller compact base and gently rounded, softly feathered lower termination. Remove the long pointed white beard and long spiky tassels. Do not squash or stretch the neck pixels. Redraw anatomically plausible short neck plumage.\nMake the rendering calmer and naturalistic like reference 2: fine soft feathers with natural volume, subdued edge contrast, restrained highlights, no etched brown-and-white strokes, no wirelike feather spikes. Preserve the osprey's recognizable white crown, strong dark brown eye stripe, yellow iris, dark hooked beak, and its species-specific head and bill proportions. Preserve left-facing slight three-quarter view.\nComposition: square canvas with comfortable transparent margins on every side; align apparent head size, eye height and visible neck depth with reference 2. The eye should sit approximately 32% down the canvas, the compact feathered neck should end around 87% down the canvas. Keep entire beak, head feathers, and short neck visible. Head should not appear smaller than the reference. One bird only.\nSoft even natural light, realistic detailed illustration, no graphic outline. Clean authentic alpha transparency around every feather. No white or gray halo, no cyan/green edge contamination, no checkerboard painted into pixels, no background color, no shadow, no text. Actual transparent background required. Output only the corrected osprey.",
+      "generated": "/Users/lukasvonhohnhorst/.codex/generated_images/01a09a94-5834-7373-b69d-17476a072171/exec-fff41ae1-5b28-43dc-9aed-59faef0d50ac.png",
+      "references": [
+        {
+          "path": "public/birds/portrait-habicht-20260912.png",
+          "role": "composition and rendering style",
+          "sha256": "537c94c4750ddfc37eba64e5e6e568af39418355cd0b0053bb59a76f4d3a285c"
+        }
+      ],
+      "original": "public/birds/portrait-fischadler-20260913-v3.png",
+      "originalSha256": "1e4f7bbdbe1b27ce97c9469a2f45d434d4c5e6ff1d2d83860a4d61cd86453377",
+      "output": "public/birds/portrait-fischadler-20260913-v4.png",
+      "outputSha256": "8b7e303f66e71a0afe41d8fada75b4da7c878be3ab56706ed48fbdeae03fbf1d",
+      "originalBounds": [
+        120,
+        111,
+        1135,
+        1182
+      ],
+      "generatedBounds": [
+        106,
+        107,
+        1193,
+        1180
+      ],
+      "placement": {
+        "uniformScale": 0.9412861136999068,
+        "offset": [
+          115,
+          115
+        ],
+        "canvas": [
+          1254,
+          1254
+        ]
+      },
+      "finalBounds": [
+        115,
+        115,
+        1138,
+        1125
+      ],
+      "generatedSha256": "0d803660c236977e1da11a50184f2ab9ab0b244e3d23b6fec10affaee00b761e",
+      "alphaMethod": "Hand-guided protected-interior GrabCut; only outside-connected checker pixels in uncertain edge band removed, filled interior, 2px edge color cleanup"
+    },
+    {
+      "id": "kronenadler",
+      "prompt": "Create a NEW naturalistic portrait illustration of an adult African crowned eagle (Stephanoaetus coronatus) for a bird field guide. The first input is a real photograph of the target species, for ANATOMY and naturally soft feather texture only. The other two inputs are illustrations of different birds, for the clean LEFT-FACING head-and-short-neck COMPOSITION and softly realistic ILLUSTRATION STYLE only.\nDo NOT reproduce the frontal pose or the background of the photograph. Draw a left-facing slight three-quarter portrait with a closed beak, the whole head and a short compact neck. Natural matte feathers, fine down and soft overlapping feather strands, subtle shading, lifelike anatomy. It should feel like a very high quality realistic natural-history painting based on a living bird, not a sharpened engraving. Absolutely no etched feather outlines, scalloped scale patterns, metal embossing, white edge tracing, crunchy high frequency texture or plastic eyes.\nPreserve authentic adult crowned eagle gray-brown/dark brown head, a recognizable raised rear crest made of loose soft tapered feathers, yellow iris, subtle grayish/yellowish cere as in a real adult, powerful charcoal hooked bill. Avoid the unnaturally golden feather margins and yellow plastic bill base of stylized eagle art. Use the correct African species, not a South American crowned solitary eagle.\nOne isolated head and short neck only, no shoulders/body/feet, no branch. Square canvas with roughly 8–10% margins. Comparable actual optical head size and short neck crop to composition references. For the crest, keep all tips visible with sufficient top margin; do not shrink the face to a tiny dot. Gaze to LEFT. Soft diffuse daylight.\nOutput on perfectly uniform saturated blue RGB(0,96,255) for precise local alpha extraction. NO checkerboard, no gradient, no cast blue light, no shadows on background. No text, labels or watermark. Full high-resolution fine detail.",
+      "references": [
+        {
+          "role": "species anatomy and natural plumage from real photograph",
+          "url": "https://animals.sandiegozoo.org/animals/crowned-eagle",
+          "path": "/tmp/portrait-natural-20260913/crowned-photo.jpg",
+          "sha256": "a501fc726878baf328e7488fc7391a0512cd6d0dc7263a1d18efc367567bd63a"
+        },
+        {
+          "path": "public/birds/portrait-zwergadler-20260913-v2.png",
+          "role": "rendering style",
+          "sha256": "12d9c43cc093f06fba14848ba50f2a6422552c9038223604b435dd62ac75023a"
+        },
+        {
+          "path": "public/birds/portrait-habicht-20260912.png",
+          "role": "composition",
+          "sha256": "537c94c4750ddfc37eba64e5e6e568af39418355cd0b0053bb59a76f4d3a285c"
+        }
+      ],
+      "generated": "/Users/lukasvonhohnhorst/.codex/generated_images/01a09a94-5834-7373-b69d-17476a072171/exec-7be51125-6419-4a48-9587-5786ba938a3f.png",
+      "original": "public/birds/portrait-kronenadler-20260913-v2.png",
+      "originalSha256": "108824431713a6ce35763896031e670e33f88329c805a150e450a8fb45e9e6b0",
+      "output": "public/birds/portrait-kronenadler-20260913-v3.png",
+      "outputSha256": "ba4a6ae69fb4d531b259e1e17bc61ccf16cf4671170255a0ac810507d9f19564",
+      "originalBounds": [
+        114,
+        121,
+        1141,
+        1201
+      ],
+      "generatedBounds": [
+        111,
+        87,
+        1186,
+        1211
+      ],
+      "placement": {
+        "uniformScale": 0.9553488372093023,
+        "offset": [
+          114,
+          124
+        ],
+        "canvas": [
+          1254,
+          1254
+        ]
+      },
+      "finalBounds": [
+        114,
+        124,
+        1141,
+        1198
+      ],
+      "generatedSha256": "17ee684f6cf11a63c21bc5be876db95d02218e3ee8cd95649095b37d2a4cb310",
+      "alphaMethod": "Blue background contribution removed with partial-alpha color unmixing; neutral feathers preserved"
+    },
+    {
+      "id": "aguja",
+      "prompt": "Use case: style-transfer. One high-quality naturalistic bird portrait replacement for a bird-identification app.\nInput 1 is the exact CURRENT PORTRAIT / edit target. Input 2 is only the user's preferred RENDERING STYLE reference; input 3 is only the common portrait COMPOSITION reference. Preserve species identity.\nBlack-chested buzzard-eagle / AGUJA (Geranoaetus melanoleucus). User says current portrait looks low-resolution. Re-render its feather detail naturally and cleanly at full resolution, matching the soft volumetric detail of image 2. Preserve this confirmed head shape, eye position, short neck crop, gray plumage, brown iris, pale yellow cere and dark hooked bill. Keep the existing composition closely. Crisp eyes and bill with softly layered feathers, not a blurry upscale and not excessive sharpening. No purple cast, metallic strokes or colored edge fringes.\nUse detailed, lifelike natural-history illustration, soft diffuse daylight, fine continuous feather strands and subtle shading. No excessive microcontrast, crunchy sharpening, drawn outlines, repeated scale-like feathers or plastic eye highlights.\nSquare canvas, left-facing slight three-quarter half portrait. Comparable optical head size and eye height to composition reference, naturally short neck with softly feathered lower termination. No geometric squashing or stretching. Keep full beak and all crest/head feathers, consistent comfortable margin. For crested species retain room for the crest without making the actual head tiny. Output ONLY the target species, no collage, labels or text.\nBACKGROUND: genuine transparent alpha if possible. If actual alpha output is unavailable, use a perfectly uniform pure saturated BLUE background RGB(0,96,255) everywhere outside the bird, so it can be locally extracted. Never draw checkerboard. No blue reflections or blue light on the bird, no shadow, no ground. Preserve all pale and gray feather surfaces.",
+      "references": [
+        {
+          "path": "public/birds/portrait-zwergadler-20260913-v2.png",
+          "role": "rendering style",
+          "sha256": "12d9c43cc093f06fba14848ba50f2a6422552c9038223604b435dd62ac75023a"
+        },
+        {
+          "path": "public/birds/portrait-habicht-20260912.png",
+          "role": "composition",
+          "sha256": "537c94c4750ddfc37eba64e5e6e568af39418355cd0b0053bb59a76f4d3a285c"
+        }
+      ],
+      "generated": "/Users/lukasvonhohnhorst/.codex/generated_images/01a09a94-5834-7373-b69d-17476a072171/exec-3da70ce1-84b4-44e8-8eb1-bbf5a3add16a.png",
+      "original": "public/birds/portrait-aguja-20260913-v3.png",
+      "originalSha256": "883c6d0782ef81345069ac3097a745f7628a2aa56c2fa882cb6f6903477d6acb",
+      "output": "public/birds/portrait-aguja-20260913-v4.png",
+      "outputSha256": "09193db393e0ae91fc7caea6faf5882158df40652bfde90391f476758ddcc504",
+      "originalBounds": [
+        114,
+        117,
+        1140,
+        1108
+      ],
+      "generatedBounds": [
+        51,
+        40,
+        1253,
+        1231
+      ],
+      "placement": {
+        "uniformScale": 0.8320738874895046,
+        "offset": [
+          127,
+          117
+        ],
+        "canvas": [
+          1254,
+          1254
+        ]
+      },
+      "finalBounds": [
+        127,
+        117,
+        1127,
+        1108
+      ],
+      "generatedSha256": "1f2fd37b0e8610717b9cf2fe189e7af5332f6968cff6e637278558e0ab16622d",
+      "alphaMethod": "Hand-guided protected-interior GrabCut; only outside-connected checker pixels in uncertain edge band removed, filled interior, 2px edge color cleanup"
+    },
+    {
+      "id": "schwarzmilan",
+      "prompt": "Use case: style-transfer. One high-quality naturalistic bird portrait replacement for a bird-identification app.\nInput 1 is the exact CURRENT PORTRAIT / edit target. Input 2 is only the user's preferred RENDERING STYLE reference; input 3 is only the common portrait COMPOSITION reference. Preserve species identity.\nBLACK KITE (Milvus migrans). User wants it to harmonize with the RED KITE in image 2, which is a rendering-style reference only. Preserve black kite identity, dark brown warm plumage and subtly streaked slightly lighter crown, tan-brown iris, yellow cere and dark hooked bill; do not adopt the red kite's pale gray head, pale yellow eye or orange plumage. Calm the strongly etched linear feather strokes into soft natural feather texture with convincing volume. Maintain compact short-neck portrait, eye level and scale of the source.\nUse detailed, lifelike natural-history illustration, soft diffuse daylight, fine continuous feather strands and subtle shading. No excessive microcontrast, crunchy sharpening, drawn outlines, repeated scale-like feathers or plastic eye highlights.\nSquare canvas, left-facing slight three-quarter half portrait. Comparable optical head size and eye height to composition reference, naturally short neck with softly feathered lower termination. No geometric squashing or stretching. Keep full beak and all crest/head feathers, consistent comfortable margin. For crested species retain room for the crest without making the actual head tiny. Output ONLY the target species, no collage, labels or text.\nBACKGROUND: genuine transparent alpha if possible. If actual alpha output is unavailable, use a perfectly uniform pure saturated BLUE background RGB(0,96,255) everywhere outside the bird, so it can be locally extracted. Never draw checkerboard. No blue reflections or blue light on the bird, no shadow, no ground. Preserve all pale and gray feather surfaces.",
+      "references": [
+        {
+          "path": "public/birds/portrait-rotmilan-20260913.png",
+          "role": "rendering style",
+          "sha256": "6cbcae067b73c20ab98c9dfe71a1e3663851aea10b9638077eac847629e60ff4"
+        },
+        {
+          "path": "public/birds/portrait-habicht-20260912.png",
+          "role": "composition",
+          "sha256": "537c94c4750ddfc37eba64e5e6e568af39418355cd0b0053bb59a76f4d3a285c"
+        }
+      ],
+      "generated": "/Users/lukasvonhohnhorst/.codex/generated_images/01a09a94-5834-7373-b69d-17476a072171/exec-62e39fb3-c207-4b01-83c2-e05d73339470.png",
+      "original": "public/birds/portrait-schwarzmilan-20260913.png",
+      "originalSha256": "43dc743d778af39c4c59c18dfc6f7536766b2e2a8d516a815408fc0fb5ef08cd",
+      "output": "public/birds/portrait-schwarzmilan-20260913-v2.png",
+      "outputSha256": "eb6e87defc108147c8c17b34d96561b1c9b3171e6387ba9c608b6c627d8b2bc0",
+      "originalBounds": [
+        171,
+        113,
+        1140,
+        1059
+      ],
+      "generatedBounds": [
+        107,
+        67,
+        1235,
+        1225
+      ],
+      "placement": {
+        "uniformScale": 0.8169257340241797,
+        "offset": [
+          195,
+          113
+        ],
+        "canvas": [
+          1254,
+          1254
+        ]
+      },
+      "finalBounds": [
+        195,
+        113,
+        1116,
+        1059
+      ],
+      "generatedSha256": "ce96c08d6def3a614e80e1fc240f3f275393afa71930aba3937c6c350e7b1eb3",
+      "alphaMethod": "Hand-guided protected-interior GrabCut; only outside-connected checker pixels in uncertain edge band removed, filled interior, 2px edge color cleanup"
+    },
+    {
+      "id": "harpyie",
+      "prompt": "Create a NEW naturalistic portrait illustration of an adult Harpy eagle (Harpia harpyja) for a bird field guide. The first input is a real photograph of the target species, for ANATOMY and naturally soft feather texture only. The other two inputs are illustrations of different birds, for the clean LEFT-FACING head-and-short-neck COMPOSITION and softly realistic ILLUSTRATION STYLE only.\nDo NOT reproduce the frontal pose or the background of the photograph. Draw a left-facing slight three-quarter portrait with a closed beak, the whole head and a short compact neck. Natural matte feathers, fine down and soft overlapping feather strands, subtle shading, lifelike anatomy. It should feel like a very high quality realistic natural-history painting based on a living bird, not a sharpened engraving. Absolutely no etched feather outlines, scalloped scale patterns, metal embossing, white edge tracing, crunchy high frequency texture or plastic eyes.\nPreserve authentic harpy eagle anatomy: broad pale cool-gray face with fine soft down, dark brown eye, powerful black hooked bill, a broad natural facial ruff, dark collar at base of short neck, and complete double crest with flexible rounded gray feathers, organically layered as in photo. Crest naturally fans above and behind head, with no harsh white edging and no spoon-shaped metal plates.\nOne isolated head and short neck only, no shoulders/body/feet, no branch. Square canvas with roughly 8–10% margins. Comparable actual optical head size and short neck crop to composition references. For the crest, keep all tips visible with sufficient top margin; do not shrink the face to a tiny dot. Gaze to LEFT. Soft diffuse daylight.\nOutput on perfectly uniform saturated blue RGB(0,96,255) for precise local alpha extraction. NO checkerboard, no gradient, no cast blue light, no shadows on background. No text, labels or watermark. Full high-resolution fine detail.",
+      "references": [
+        {
+          "role": "species anatomy and natural plumage from real photograph",
+          "url": "https://www.flickr.com/photos/luismanati/336635138/",
+          "path": "/tmp/portrait-natural-20260913/harpy-photo.jpg",
+          "sha256": "dd41f41f26b0c3870e348ae213280b42fef09586c976e95fd3488b39acdde59f"
+        },
+        {
+          "path": "public/birds/portrait-zwergadler-20260913-v2.png",
+          "role": "rendering style",
+          "sha256": "12d9c43cc093f06fba14848ba50f2a6422552c9038223604b435dd62ac75023a"
+        },
+        {
+          "path": "public/birds/portrait-habicht-20260912.png",
+          "role": "composition",
+          "sha256": "537c94c4750ddfc37eba64e5e6e568af39418355cd0b0053bb59a76f4d3a285c"
+        }
+      ],
+      "generated": "/Users/lukasvonhohnhorst/.codex/generated_images/01a09a94-5834-7373-b69d-17476a072171/exec-496f2fbc-1e93-4f43-aabc-d55dfb1b27fb.png",
+      "original": "public/birds/portrait-harpyie-20260913.png",
+      "originalSha256": "f427e3c7eddd2818a0a87462926fd09c83906d673e7b8b93684ccedc6cb8a7da",
+      "output": "public/birds/portrait-harpyie-20260913-v2.png",
+      "outputSha256": "b74a6fa095b03a0c6f385ebda20f844bbaf14ddfd8706a444f3f3158da3249cf",
+      "originalBounds": [
+        160,
+        85,
+        1110,
+        1171
+      ],
+      "generatedBounds": [
+        163,
+        25,
+        1174,
+        1228
+      ],
+      "placement": {
+        "uniformScale": 0.9027431421446384,
+        "offset": [
+          178,
+          85
+        ],
+        "canvas": [
+          1254,
+          1254
+        ]
+      },
+      "finalBounds": [
+        178,
+        85,
+        1091,
+        1171
+      ],
+      "generatedSha256": "1734bb5cebcfbe3518eadd439008fcc0f982d77dc4fc8e20c2f5f0370c696cf8",
+      "alphaMethod": "Blue background contribution removed with partial-alpha color unmixing; neutral feathers preserved"
+    }
+  ]
+}

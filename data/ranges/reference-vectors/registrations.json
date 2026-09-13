@@ -4394,5 +4394,240 @@
       }
     ],
     "annotation_exclusion_notes": "Only saturated #177a1b current range included; pale #89998b historical range excluded by saturation >=90. Existing white province boundaries rejoined with documented 3px closing."
+  },
+  "schreiseeadler": {
+    "proj_string": "+proj=eqc +R=1 +lon_0=0",
+    "parameters_1000px": [
+      720.2513822234529,
+      -730.8999978541278,
+      250.91241612263275,
+      519.4051743147256
+    ],
+    "coast_rmse_capped15_px": 2.2728769779205322,
+    "coast_median_px": 0.15456685423851013,
+    "coast_p90_px": 2.017989158630371,
+    "sample_count": 2080,
+    "image_width": 1161,
+    "image_height": 1161,
+    "pixel_transform_native": [
+      836.2118547614288,
+      -848.5748975086424,
+      291.3093151183766,
+      603.0294073793964
+    ],
+    "transform_definition": "pixel_x=sx*projected_x+tx; pixel_y=sy*projected_y+ty",
+    "validation": "Odd coastline samples withheld from affine fit. Normalized to 1000px width.",
+    "controls": [
+      [
+        -17.5,
+        14.7,
+        40,
+        383
+      ],
+      [
+        -5.6,
+        36,
+        218,
+        70
+      ],
+      [
+        51.3,
+        12,
+        1034,
+        421
+      ],
+      [
+        18.5,
+        -34.3,
+        568,
+        1118
+      ],
+      [
+        45.15,
+        -25.6,
+        974,
+        980
+      ]
+    ],
+    "review_bounds": [
+      -19,
+      -36,
+      54,
+      38
+    ]
+  },
+  "gaensegeier": {
+    "proj_string": "+proj=robin +R=1 +lon_0=10",
+    "parameters_1000px": [
+      485.3110410139552,
+      -467.436663743422,
+      220.49191825282958,
+      625.3713953081199
+    ],
+    "coast_rmse_capped15_px": 3.667585611343384,
+    "coast_median_px": 0.5794557332992554,
+    "coast_p90_px": 5.008862495422363,
+    "sample_count": 6558,
+    "image_width": 579,
+    "image_height": 403,
+    "pixel_transform_native": [
+      280.9950927470801,
+      -270.6458283074413,
+      127.66482066838833,
+      362.0900378834014
+    ],
+    "transform_definition": "pixel_x=sx*projected_x+tx; pixel_y=sy*projected_y+ty",
+    "validation": "Odd coastline samples withheld from affine fit. Normalized to 1000px width.",
+    "controls": [
+      [
+        -5.6,
+        36,
+        78,
+        194
+      ],
+      [
+        10.6,
+        57.7,
+        161,
+        85
+      ],
+      [
+        77.55,
+        8.08,
+        438,
+        379
+      ],
+      [
+        51.3,
+        12,
+        310,
+        321
+      ],
+      [
+        -17.5,
+        14.7,
+        19,
+        293
+      ]
+    ],
+    "review_bounds": [
+      -20,
+      -10,
+      110,
+      70
+    ],
+    "excluded_pixel_rectangles": [
+      [
+        63,
+        202,
+        73,
+        219
+      ]
+    ]
+  },
+  "schleiereule": {
+    "proj_string": "+proj=robin +R=1 +lon_0=10",
+    "parameters_1000px": [
+      725.7462828689701,
+      -725.6923947634468,
+      431.0185497360881,
+      886.2655608209336
+    ],
+    "coast_rmse_capped15_px": 1.7509031295776367,
+    "coast_median_px": 0.0025970954447984695,
+    "coast_p90_px": 1.8188402652740479,
+    "sample_count": 5878,
+    "image_width": 1280,
+    "image_height": 1800,
+    "pixel_transform_native": [
+      928.9552420722816,
+      -928.8862652972119,
+      551.7037436621928,
+      1134.419917850795
+    ],
+    "transform_definition": "pixel_x=sx*projected_x+tx; pixel_y=sy*projected_y+ty",
+    "validation": "Odd coastline samples withheld from affine fit. Normalized to 1000px width.",
+    "controls": [
+      [
+        -5.6,
+        36,
+        359,
+        577
+      ],
+      [
+        7.05,
+        57.98,
+        557,
+        250
+      ],
+      [
+        20,
+        -34.8,
+        758,
+        1674
+      ],
+      [
+        51.3,
+        12,
+        1243,
+        950
+      ],
+      [
+        -17.5,
+        14.7,
+        181,
+        910
+      ]
+    ],
+    "review_bounds": [
+      -30,
+      -38,
+      62,
+      70
+    ],
+    "excluded_pixel_rectangles": [
+      [
+        153,
+        615,
+        188,
+        634
+      ],
+      [
+        141,
+        687,
+        176,
+        706
+      ],
+      [
+        32,
+        872,
+        68,
+        891
+      ],
+      [
+        462,
+        1121,
+        496,
+        1141
+      ],
+      [
+        961,
+        1220,
+        998,
+        1240
+      ],
+      [
+        1180,
+        1197,
+        1218,
+        1218
+      ],
+      [
+        1027,
+        1308,
+        1065,
+        1329
+      ]
+    ]
   }
 }

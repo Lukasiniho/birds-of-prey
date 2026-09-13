@@ -64,7 +64,30 @@
 @source not "../components/ui/table.tsx";
 @source not "../components/ui/toast.tsx";
 @source not "../components/ui/toggle-group.tsx";
+/* Shared breakpoints; inclusive bounds preserve the existing layouts. */
+@custom-variant from-tablet (@media (min-width: 761px));
+@custom-variant from-compact (@media (min-width: 981px));
+@custom-variant from-wide (@media (min-width: 1600px));
+@custom-variant to-desktop (@media (max-width: 1190px));
+@custom-variant to-compact (@media (max-width: 980px));
+@custom-variant to-tablet (@media (max-width: 760px));
+@custom-variant to-phone (@media (max-width: 640px));
+@custom-variant to-small (@media (max-width: 390px));
+
 @theme inline {
+  --spacing-half: var(--space-2);
+  --spacing-1: var(--space-4);
+  --spacing-2: var(--space-8);
+  --spacing-3: var(--space-12);
+  --spacing-4: var(--space-16);
+  --spacing-5: var(--space-20);
+  --spacing-6: var(--space-24);
+  --spacing-8: var(--space-32);
+  --spacing-10: var(--space-40);
+  --spacing-panel: var(--panel-padding);
+  --spacing-panel-compact: var(--panel-padding-compact);
+  --spacing-page: var(--page-gutter);
+  --spacing-section: var(--section-gap);
   --color-background: var(--background);
   --color-foreground: var(--foreground);
   --font-sans: var(--font-body);

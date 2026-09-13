@@ -1688,5 +1688,141 @@
     "downloadedOn": "2026-09-09",
     "adaptedOn": "2026-09-09",
     "note": "Aus lizenzierter Referenzillustration abgeleitet; Kartenrevision 2024; historische, blass markierte Gebiete ausgeschlossen. Generalisierte Grenzen, keine aktuelle Bestandserhebung."
+  },
+  {
+    "id": "schreiseeadler",
+    "author": "T45614631 (WiTo7946); basemap: Master Uegly",
+    "sourceUrl": "https://commons.wikimedia.org/wiki/File:Icthyophaga_vocifer_distribution_map.svg",
+    "license": "CC BY-SA 4.0",
+    "licenseUrl": "https://creativecommons.org/licenses/by-sa/4.0/",
+    "sha256": "a0830a95812d579fe13a73a03905559ab6264297f0f6e3218d7de4bdfd80e0d3",
+    "downloadedOn": "2026-09-13",
+    "adaptedOn": "2026-09-13",
+    "review": {
+      "status": "approved",
+      "reviewedOn": "2026-09-13",
+      "registrationErrorPx1000": 2.017989158630371,
+      "notes": "Full-source coastline overlay and enlarged contour extraction visually compared. Global inverse projection without local warping; source range colors combined. Explicit pixel masks remove island arrows (Tyto alba) or the Moroccan question mark (Gyps fulvus); extinct orange range excluded. Small source components below four pixels omitted. Generalized illustration, not live occurrence data.",
+      "inside": [
+        [
+          30,
+          -20
+        ],
+        [
+          15,
+          5
+        ],
+        [
+          35,
+          -10
+        ]
+      ],
+      "outside": [
+        [
+          47,
+          -20
+        ],
+        [
+          10,
+          30
+        ],
+        [
+          -55,
+          -10
+        ]
+      ]
+    }
+  },
+  {
+    "id": "gaensegeier",
+    "author": "The Engineer; revisions by Wikimedia Commons contributors",
+    "sourceUrl": "https://commons.wikimedia.org/wiki/File:Gyps_fulvus_distribution_map.png",
+    "license": "CC BY-SA 3.0",
+    "licenseUrl": "https://creativecommons.org/licenses/by-sa/3.0/",
+    "sha256": "48ff908040f58157226db4b1d9805d8a056b435c2240c11baa4debe84134efde",
+    "downloadedOn": "2026-09-13",
+    "adaptedOn": "2026-09-13",
+    "review": {
+      "status": "approved",
+      "reviewedOn": "2026-09-13",
+      "registrationErrorPx1000": 5.008862495422363,
+      "notes": "Full-source coastline overlay and enlarged contour extraction visually compared. Global inverse projection without local warping; source range colors combined. Explicit pixel masks remove island arrows (Tyto alba) or the Moroccan question mark (Gyps fulvus); extinct orange range excluded. Small source components below four pixels omitted. Generalized illustration, not live occurrence data.",
+      "inside": [
+        [
+          -5,
+          40
+        ],
+        [
+          33,
+          39
+        ],
+        [
+          70,
+          32
+        ]
+      ],
+      "outside": [
+        [
+          13,
+          53
+        ],
+        [
+          25,
+          -25
+        ],
+        [
+          47,
+          -20
+        ]
+      ]
+    }
+  },
+  {
+    "id": "schleiereule",
+    "author": "Jonathan Hornung",
+    "sourceUrl": "https://commons.wikimedia.org/wiki/File:Schleiereule-Tyto_alba-World.png",
+    "license": "Public domain",
+    "licenseUrl": "https://creativecommons.org/publicdomain/mark/1.0/",
+    "sha256": "fc329f3c369c0362f3936db48642baffc9140e89c89cb9d9201925bdc5a02332",
+    "downloadedOn": "2026-09-13",
+    "adaptedOn": "2026-09-13",
+    "review": {
+      "status": "approved",
+      "reviewedOn": "2026-09-13",
+      "registrationErrorPx1000": 1.8188402652740479,
+      "notes": "Full-source coastline overlay and enlarged contour extraction visually compared. Global inverse projection without local warping; source range colors combined. Explicit pixel masks remove island arrows (Tyto alba) or the Moroccan question mark (Gyps fulvus); extinct orange range excluded. Small source components below four pixels omitted. Generalized illustration, not live occurrence data.",
+      "inside": [
+        [
+          10,
+          50
+        ],
+        [
+          25,
+          -25
+        ],
+        [
+          47,
+          -20
+        ]
+      ],
+      "outside": [
+        [
+          -100,
+          35
+        ],
+        [
+          135,
+          -25
+        ],
+        [
+          15,
+          65
+        ],
+        [
+          20,
+          23
+        ]
+      ]
+    }
   }
 ]

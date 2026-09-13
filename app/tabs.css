@@ -44,17 +44,20 @@
   background: transparent;
   box-shadow: none;
   color: var(--tabs-text-muted);
-  font:
-    var(--weight-medium) var(--type-body) / var(--leading-none) var(--font-body),
-    Inter,
-    sans-serif;
+  font: var(--weight-medium) var(--type-body) / var(--leading-none)
+    var(--font-stack-body);
   white-space: nowrap;
   cursor: pointer;
   z-index: 1;
   transition: color var(--tabs-dur) var(--tabs-ease);
 }
 .t-tab:hover,
-.t-tab:is([aria-selected='true'], [aria-pressed='true'], [aria-checked='true'], [data-active]) {
+.t-tab:is(
+  [aria-selected='true'],
+  [aria-pressed='true'],
+  [aria-checked='true'],
+  [data-active]
+) {
   color: var(--tabs-text-active);
 }
 /* The library's own underline never shows; the pill or rail marks selection. */
@@ -87,7 +90,12 @@
   pointer-events: none;
 }
 .t-tabs:not(:has(> .t-tabs-pill))
-  > .t-tab:is([aria-selected='true'], [aria-pressed='true'], [aria-checked='true'], [data-active]) {
+  > .t-tab:is(
+    [aria-selected='true'],
+    [aria-pressed='true'],
+    [aria-checked='true'],
+    [data-active]
+  ) {
   background: var(--tabs-pill-bg);
   box-shadow: var(--shadow-active-pill);
 }
@@ -110,17 +118,20 @@
   padding: 0 0 13px;
   border-radius: 0;
   color: var(--muted-foreground);
-  font:
-    var(--weight-regular) var(--type-tab) / var(--leading-none) var(--font-body),
-    Inter,
-    sans-serif;
+  font: var(--weight-regular) var(--type-tab) / var(--leading-none)
+    var(--font-stack-body);
   transition: color var(--duration-quick) var(--ease-smooth-out);
 }
 .t-tabs-line > .t-tab:hover {
   color: var(--foreground);
 }
 .t-tabs-line
-  > .t-tab:is([aria-selected='true'], [aria-pressed='true'], [aria-checked='true'], [data-active]) {
+  > .t-tab:is(
+    [aria-selected='true'],
+    [aria-pressed='true'],
+    [aria-checked='true'],
+    [data-active]
+  ) {
   color: var(--foreground);
   font-weight: var(--weight-medium);
   background: transparent;
@@ -161,11 +172,5 @@
   }
   .t-tabs.t-tabs-line::-webkit-scrollbar {
     display: none;
-  }
-}
-@media (prefers-reduced-motion: reduce) {
-  .t-tabs-pill,
-  .t-tab {
-    transition: none !important;
   }
 }

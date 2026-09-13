@@ -1,20 +1,9 @@
 .q-feedback {
   --feedback-icon-size: 2.25rem;
-  flex: 1;
-  min-width: 0;
-  display: grid;
   grid-template-columns: var(--feedback-icon-size) minmax(0, 1fr) auto;
-  align-items: center;
-  gap: var(--space-12);
 }
 .q-feedback-icon {
-  display: grid;
-  place-items: center;
-  width: var(--feedback-icon-size);
-  height: var(--feedback-icon-size);
   border-radius: 50%;
-  color: var(--danger);
-  background: var(--danger-soft);
 }
 .q-feedback-icon svg {
   display: block;
@@ -23,47 +12,25 @@
   color: var(--success);
   background: var(--success-soft);
 }
-.q-feedback-copy {
-  min-width: 0;
-}
 .q-feedback-title {
   margin: 0;
-  font-size: var(--type-feedback-title);
-  font-weight: var(--weight-bold);
-  line-height: var(--leading-compact);
-  color: var(--foreground);
 }
 .q-feedback-detail {
   white-space: nowrap;
   overflow: hidden;
   text-overflow: ellipsis;
-  font-weight: var(--weight-regular);
   margin-top: var(--space-4);
   font-size: var(--type-ui);
-  line-height: var(--leading-compact);
   color: var(--foreground);
 }
 .q-points-earned {
   font-size: var(--type-metric);
-  font-weight: var(--weight-medium);
-  line-height: var(--leading-display);
   font-variant-numeric: tabular-nums;
-  white-space: nowrap;
   color: var(--success);
-  text-align: right;
 }
 .q-points-earned small {
-  display: block;
-  margin-top: 0;
   font-size: var(--type-ui);
-  font-weight: var(--weight-regular);
-  line-height: var(--leading-display);
   color: inherit;
-}
-@media (max-width: 760px) {
-  .q-feedback {
-    gap: var(--space-12);
-  }
 }
 
 .q-feedback-detail :is(b, strong) {
@@ -79,22 +46,18 @@
     pointer-events: none;
     transition:
       transform var(--panel-close-dur) var(--panel-ease),
-      opacity   var(--panel-close-dur) var(--panel-ease),
-      filter    var(--panel-close-dur) var(--panel-ease);
+      opacity var(--panel-close-dur) var(--panel-ease),
+      filter var(--panel-close-dur) var(--panel-ease);
     will-change: transform, opacity, filter;
   }
-  .t-panel-slide[data-open="true"] {
+  .t-panel-slide[data-open='true'] {
     transform: translateY(0);
     opacity: 1;
     filter: blur(0);
     pointer-events: auto;
     transition:
       transform var(--panel-open-dur) var(--panel-ease),
-      opacity   var(--panel-open-dur) var(--panel-ease),
-      filter    var(--panel-open-dur) var(--panel-ease);
+      opacity var(--panel-open-dur) var(--panel-ease),
+      filter var(--panel-open-dur) var(--panel-ease);
   }
-}
-
-@media (prefers-reduced-motion: reduce) {
-  .t-panel-slide { transition: none !important; }
 }

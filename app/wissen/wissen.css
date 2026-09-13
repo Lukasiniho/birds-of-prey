@@ -1,72 +1,9 @@
-.knowledge-main {
-  max-width: 1360px;
-  margin: 0 auto;
-}
-.knowledge-heading {
-  display: flex;
-  justify-content: space-between;
-  align-items: center;
-  gap: 28px;
-  margin-bottom: var(--section-gap);
-}
-
-.anatomy-layout {
-  display: grid;
-  grid-template-columns: minmax(0, 1fr) 350px;
-  border: var(--border-structure) solid var(--border);
-  border-radius: var(--radius-surface);
-  overflow: hidden;
-}
-.anatomy-stage {
-  position: relative;
-  display: flex;
-  flex-direction: column;
-  justify-content: flex-start;
-  padding: var(--space-24) 22px 44px;
-  background: var(--stage);
-  min-width: 0;
-}
-.anatomy-stage-heading {
-  display: flex;
-  align-items: center;
-  justify-content: space-between;
-  flex-wrap: wrap;
-  gap: var(--space-16);
-  padding: 0 6px;
-  margin-bottom: var(--space-12);
-}
-.anatomy-canvas {
-  position: relative;
-  width: 100%;
-  max-width: 730px;
-  aspect-ratio: 1;
-  margin: 0 auto;
-}
-.anatomy-bird {
-  display: block;
-  width: 100%;
-  height: 100%;
-  object-fit: contain;
-  user-select: none;
-}
 .anatomy-point {
-  position: absolute;
-  z-index: 1;
-  width: 44px;
-  height: 44px;
-  display: grid;
-  place-items: center;
   transform: translate(-50%, -50%);
   border-radius: 50%;
-  padding: 0;
   background: transparent;
 }
 .anatomy-point-core {
-  position: relative;
-  display: grid;
-  place-items: center;
-  width: 19px;
-  height: 19px;
   border: 3px solid var(--surface);
   border-radius: 50%;
   background: var(--foreground);
@@ -85,52 +22,10 @@
     0 0 0 4px var(--accent-line),
     0 2px 6px var(--shadow-color-subtle);
 }
-.anatomy-hint {
-  display: flex;
-  align-items: center;
-  justify-content: center;
-  gap: var(--space-8);
-  position: absolute;
-  bottom: 22px;
-  left: 12px;
-  right: 12px;
-  color: var(--muted-foreground);
-  font-size: var(--type-ui);
-}
-.anatomy-notes {
-  border-left: var(--border-structure) solid var(--border);
-  background: var(--atlas-info-surface);
-}
-.anatomy-notes-heading {
-  display: flex;
-  align-items: center;
-  gap: var(--space-12);
-}
-.anatomy-notes-heading h2 {
-  font-size: var(--type-detail-heading);
-  font-weight: var(--weight-label-heading);
-}
-.anatomy-notes-intro {
-  margin-top: var(--space-12);
-  font-size: var(--type-body);
-  color: var(--muted-foreground);
-}
-.anatomy-part-list {
-  display: grid;
-  grid-template-columns: minmax(0, 1fr);
-  gap: var(--space-8);
-  margin: var(--space-24) 0 0;
-}
 .anatomy-part-list button {
-  display: flex;
-  align-items: center;
-  gap: var(--space-8);
-  min-height: 38px;
-  padding: var(--space-8) var(--space-12);
   border: var(--border-selection) solid transparent;
   border-radius: var(--radius-control);
   font-size: var(--type-ui);
-  text-align: left;
 }
 .anatomy-part-list button:hover {
   background: var(--hover);
@@ -139,73 +34,12 @@
   background: var(--selected);
   border-color: var(--border);
 }
-.anatomy-list-dot {
-  width: 5px;
-  height: 5px;
-  flex-shrink: 0;
-  border-radius: 50%;
-  background: var(--muted-foreground);
-}
 .anatomy-part-list button[aria-pressed='true'] .anatomy-list-dot {
   background: var(--foreground);
-}
-.anatomy-species-note {
-  margin-top: var(--space-24);
-  padding-left: 14px;
-  border-left: var(--border-selection) solid var(--ring);
-}
-.anatomy-species-note strong {
-  font-weight: var(--weight-medium);
-  font-size: var(--type-ui);
-}
-.anatomy-species-note p {
-  margin-top: var(--space-8);
-  font-size: var(--type-body);
-  line-height: var(--leading-relaxed);
-  color: var(--muted-foreground);
-}
-
-@media (max-width: 980px) {
-  .knowledge-heading {
-    align-items: flex-start;
-    flex-direction: column;
-    gap: var(--space-20);
-    margin-bottom: var(--section-gap);
-  }
-  .anatomy-layout {
-    grid-template-columns: minmax(0, 1fr) 310px;
-  }
-  .anatomy-stage {
-    padding-inline: 6px;
-  }
-}
-@media (max-width: 760px) {
-  .anatomy-layout {
-    grid-template-columns: minmax(0, 1fr);
-  }
-  .anatomy-stage {
-    padding: 22px var(--space-12) 44px;
-  }
-  .anatomy-notes {
-    border-left: 0;
-    border-top: var(--border-structure) solid var(--border);
-  }
-  .anatomy-point {
-    width: 28px;
-    height: 28px;
-  }
-  .anatomy-point-core {
-    width: 17px;
-    height: 17px;
-  }
 }
 /* Knowledge topics share the established surface, typography and Teal tokens. */
 .knowledge-explorer[data-slot='tabs'] {
   gap: var(--space-24);
-}
-/* The side panel swaps like a text swap; tab panels switch without motion. */
-.knowledge-notes-scroll {
-  animation: knowledge-swap var(--duration-fast) var(--ease-in-out) both;
 }
 @keyframes knowledge-swap {
   from {
@@ -219,74 +53,12 @@
     filter: blur(0);
   }
 }
-.knowledge-split {
-  display: grid;
-  grid-template-columns: minmax(0, 1fr) 350px;
-  border: var(--border-structure) solid var(--border);
-  border-radius: var(--radius-surface);
-  overflow: hidden;
-}
-.falconry-map-surface,
-.knowledge-surface {
-  background: var(--stage);
-  min-width: 0;
-}
-.falconry-map-surface {
-  position: relative;
-}
-.knowledge-surface-heading {
-  display: flex;
-  align-items: center;
-  justify-content: space-between;
-  gap: var(--space-16);
-  padding: var(--panel-padding);
-}
-.knowledge-surface-heading h2,
-.anatomy-stage-heading h2,
-.knowledge-notes h2 {
-  font-size: var(--type-detail-heading);
-  font-weight: var(--weight-label-heading);
-  line-height: var(--leading-heading);
-}
 /* Eyebrows read as caps labels, like the atlas control labels. */
-.knowledge-eyebrow {
-  display: block;
-  color: var(--muted-foreground);
-  font-size: var(--type-caption);
-  font-weight: var(--weight-medium);
-  letter-spacing: var(--tracking-caps);
-  text-transform: uppercase;
-  margin-bottom: var(--space-4);
-}
 /* The notes scroll inside the map's height instead of stretching the row. */
-.knowledge-notes {
-  position: relative;
-  border-left: var(--border-structure) solid var(--border);
-  background: var(--atlas-info-surface);
-  min-width: 0;
-}
 .knowledge-notes-scroll {
-  position: absolute;
-  inset: 0;
-  overflow-y: auto;
+  animation: knowledge-swap var(--duration-fast) var(--ease-in-out) both;
   scrollbar-width: thin;
   scrollbar-color: var(--border) transparent;
-}
-.knowledge-notes p {
-  font-size: var(--type-body);
-  color: var(--muted-foreground);
-  line-height: var(--leading-relaxed);
-  margin-top: var(--space-12);
-}
-.falconry-map {
-  position: relative;
-  width: 100%;
-  aspect-ratio: 857 / 450;
-}
-.falconry-basemap {
-  width: 100%;
-  height: 100%;
-  display: block;
 }
 .falconry-basemap path {
   fill: color-mix(in srgb, var(--main-color) var(--tint-3), var(--stage));
@@ -294,7 +66,6 @@
   stroke-width: 0.55px;
 }
 .falconry-map-callout {
-  color: var(--muted-foreground);
   transition: color var(--duration-fast) var(--ease-smooth-out);
 }
 .falconry-map-callout line {
@@ -310,42 +81,19 @@
 }
 /* Map marker dimensions and coordinates are cartographic geometry, not spacing roles. */
 .falconry-map-pin {
-  position: absolute;
   transform: translate(-50%, -50%);
-  width: 56px;
-  height: 56px;
   border-radius: 50%;
-  z-index: 1;
 }
 .falconry-pin-portrait {
-  display: grid;
-  place-items: center;
-  width: 100%;
-  height: 100%;
   border: 2px solid var(--border);
   border-radius: 50%;
-  background: var(--background);
   transition:
     border-color var(--duration-fast) var(--ease-smooth-out),
     box-shadow var(--duration-fast) var(--ease-smooth-out);
 }
-.falconry-pin-portrait img {
-  width: 46px;
-  height: 46px;
-  object-fit: contain;
-}
 .falconry-pin-label {
-  pointer-events: none;
-  position: absolute;
   top: calc(100% + var(--space-4));
-  left: 50%;
   transform: translateX(-50%);
-  background: var(--background);
-  border-radius: var(--radius-small);
-  padding: var(--space-2) var(--space-8);
-  font-size: var(--type-ui);
-  color: var(--muted-foreground);
-  white-space: nowrap;
   transition: color var(--duration-quick) var(--ease-smooth-out);
 }
 .falconry-map-pin[aria-pressed='true'] {
@@ -379,39 +127,30 @@
 }
 /* The timeline is the map's second axis: one station per turning point,
    the info popover sits bottom-left exactly as on the map. */
-.falconry-timeline-surface {
-  position: relative;
-  padding: 0 var(--panel-padding) calc(var(--panel-padding) + 26px);
-}
-.falconry-timeline {
-  list-style: none;
-  margin: 0;
-  padding: 0;
-  display: grid;
-}
-.falconry-era {
-  display: grid;
-  grid-template-columns: 132px var(--space-16) minmax(0, 1fr);
-  column-gap: var(--space-12);
-  align-items: start;
-  width: 100%;
-  padding: var(--space-12) var(--space-8);
+.falconry-era,
+.knowledge-tile {
   border: var(--border-selection) solid transparent;
   border-radius: var(--radius-control);
   background: transparent;
   color: var(--foreground);
-  font: inherit;
-  text-align: left;
   cursor: pointer;
+}
+.falconry-era {
+  font: inherit;
   transition:
     background var(--duration-quick) var(--ease-smooth-out),
     border-color var(--duration-fast) var(--ease-smooth-out);
 }
 /* Hover and selection follow the tile role: tinted stage, teal frame. */
-.falconry-era:hover {
+.falconry-era:hover,
+.knowledge-tile:hover {
   background: color-mix(in srgb, var(--main-color) var(--tint-2), var(--stage));
 }
-.falconry-era[aria-pressed='true'] {
+.knowledge-tile[data-related='true'] {
+  border-color: var(--accent-line);
+}
+.falconry-era[aria-pressed='true'],
+.knowledge-tile[aria-pressed='true'] {
   border-color: var(--main-color);
   background: var(--selected);
 }
@@ -419,21 +158,7 @@
 .falconry-era:focus-visible {
   outline-offset: -2px;
 }
-.falconry-era-date {
-  padding-top: var(--space-2);
-  font-size: var(--type-caption);
-  line-height: var(--leading-normal);
-  color: var(--muted-foreground);
-  text-align: right;
-}
 /* Marker and rail: the rail runs through every station, the dot sits on it. */
-.falconry-era-marker {
-  position: relative;
-  align-self: stretch;
-  display: block;
-  width: var(--space-16);
-  min-height: 100%;
-}
 .falconry-era-marker::before {
   content: '';
   position: absolute;
@@ -467,21 +192,6 @@
     background var(--duration-fast) var(--ease-smooth-out),
     box-shadow var(--duration-fast) var(--ease-smooth-out);
 }
-.falconry-era-text {
-  display: grid;
-  gap: var(--space-2);
-  min-width: 0;
-}
-.falconry-era-name {
-  font-size: var(--type-ui);
-  font-weight: var(--weight-medium);
-  line-height: var(--leading-normal);
-}
-.falconry-era-summary {
-  font-size: var(--type-body);
-  line-height: var(--leading-relaxed);
-  color: var(--muted-foreground);
-}
 .falconry-era:hover .falconry-era-marker::after {
   border-color: var(--main-color);
 }
@@ -490,161 +200,17 @@
   background: var(--main-color);
   box-shadow: 0 0 0 4px var(--accent-ring);
 }
-.knowledge-bird-list {
-  display: grid;
-  gap: var(--space-8);
-  margin-top: var(--space-16);
-}
-.falconry-map-status {
-  display: flex;
-  flex-direction: column;
-  gap: var(--space-12);
-  align-items: center;
-  justify-content: center;
-  position: absolute;
-  inset: 0;
-  padding: var(--panel-padding);
-  text-align: center;
-  color: var(--muted-foreground);
-  font-size: var(--type-body);
-}
-@media (max-width: 980px) {
-  .knowledge-split {
-    grid-template-columns: minmax(0, 1fr) 310px;
-  }
-  .falconry-map-pin {
-    width: 48px;
-    height: 48px;
-  }
-  .falconry-pin-portrait img {
-    width: 40px;
-    height: 40px;
-  }
-}
-@media (max-width: 760px) {
-  .knowledge-split {
-    grid-template-columns: minmax(0, 1fr);
-  }
-  .knowledge-notes {
-    border-left: 0;
-    border-top: var(--border-structure) solid var(--border);
-  }
-  .knowledge-notes-scroll {
-    position: static;
-    overflow: visible;
-  }
-  .knowledge-surface-heading {
-    align-items: flex-start;
-    flex-wrap: wrap;
-  }
-  .falconry-map {
-    margin: var(--space-24) 0;
-  }
-  .falconry-era {
-    grid-template-columns: 88px var(--space-16) minmax(0, 1fr);
-  }
-  .falconry-map-pin {
-    width: 44px;
-    height: 44px;
-  }
-  .falconry-pin-portrait img {
-    width: 36px;
-    height: 36px;
-  }
-}
-@media (prefers-reduced-motion: reduce) {
-  .falconry-pin-portrait,
-  .falconry-map-callout,
-  .falconry-pin-label,
-  .falconry-era,
-  .falconry-era-marker::after,
-  .knowledge-tile {
-    transition: none;
-  }
-  .knowledge-notes-scroll {
-    animation: none;
-  }
-}
 
 /* Tile explorers (prey, techniques): illustrated tiles left, species right.
    Tile art is a 72px geometry exception to the 88px species-page prey frame. */
-.knowledge-grid {
-  display: grid;
-  grid-template-columns: repeat(auto-fill, minmax(124px, 1fr));
-  gap: var(--space-8);
-  padding: 0 var(--panel-padding) var(--panel-padding);
-}
 .knowledge-tile {
-  display: flex;
-  flex-direction: column;
-  align-items: center;
-  gap: var(--space-2);
-  padding: var(--space-12) var(--space-8);
-  border: var(--border-selection) solid transparent;
-  border-radius: var(--radius-control);
-  background: transparent;
-  color: var(--foreground);
   font-size: var(--type-ui);
-  text-align: center;
-  cursor: pointer;
   transition:
     background var(--duration-fast) var(--ease-smooth-out),
     border-color var(--duration-fast) var(--ease-smooth-out);
 }
 /* Hover tints the stage itself so the tile never turns into a white card. */
-.knowledge-tile:hover {
-  background: color-mix(in srgb, var(--main-color) var(--tint-2), var(--stage));
-}
-.knowledge-tile[data-related='true'] {
-  border-color: var(--accent-line);
-}
-.knowledge-tile[aria-pressed='true'] {
-  border-color: var(--main-color);
-  background: var(--selected);
-}
 /* Technique labels are long; five columns keep them on one line. */
-.technique-explorer .knowledge-grid {
-  grid-template-columns: repeat(5, minmax(0, 1fr));
-}
-.knowledge-tile .prey-image.framed-prey,
-.knowledge-tile .prey-symbol,
-.knowledge-tile-art {
-  width: 72px;
-  height: 72px;
-  min-height: 0;
-  margin: 0 0 var(--space-8);
-}
-.knowledge-tile-art {
-  display: grid;
-  place-items: center;
-}
-.knowledge-tile-art img {
-  width: 100%;
-  height: 100%;
-  object-fit: contain;
-}
-.knowledge-tile-name {
-  font-weight: var(--weight-medium);
-  line-height: var(--leading-compact);
-}
-.knowledge-tile-count {
-  font-size: var(--type-caption);
-  color: var(--muted-foreground);
-}
-.knowledge-group h3 {
-  margin-top: var(--space-24);
-  font-size: var(--type-ui);
-  font-weight: var(--weight-medium);
-  color: var(--muted-foreground);
-}
 .knowledge-group .knowledge-bird-list {
   margin-top: var(--space-8);
-}
-@media (max-width: 760px) {
-  .knowledge-grid {
-    grid-template-columns: repeat(auto-fill, minmax(104px, 1fr));
-  }
-  .technique-explorer .knowledge-grid {
-    grid-template-columns: repeat(3, minmax(0, 1fr));
-  }
 }

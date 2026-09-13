@@ -1,5 +1,7 @@
 'use client';
 
+import { DetailHeading, DetailCopy } from '@/components/detail-text';
+
 import { useState } from 'react';
 import { ArtImage } from '@/components/art-image';
 import { SegmentedControl } from '@/components/segmented-control';
@@ -150,10 +152,10 @@ export default function AnatomyExplorer({
   const name = speciesOptions[species].label;
 
   return (
-    <div className="anatomy-layout">
+    <div className="explorer-layout anatomy-layout">
       {/* oxlint-disable-next-line jsx-a11y/no-noninteractive-element-interactions -- pointer-down only dismisses the pinned label; buttons stay the interactive controls */}
       <section
-        className="anatomy-stage"
+        className="anatomy-stage pt-6 px-[22px] pb-[44px] to-compact:px-[6px] to-tablet:pt-[22px] to-tablet:px-3 bg-stage relative flex flex-col justify-start min-w-0"
         aria-label={`Körperbau des ${name === 'Wanderfalke' ? 'Wanderfalken' : 'Mäusebussards'}`}
         onPointerDown={(event) => {
           if (!(event.target as HTMLElement).closest('button')) {
@@ -168,10 +170,12 @@ export default function AnatomyExplorer({
           }
         }}
       >
-        <div className="anatomy-stage-heading">
+        <div className="anatomy-stage-heading flex items-center justify-between flex-wrap gap-4 py-0 px-[6px] mb-3">
           <div>
-            <span className="knowledge-eyebrow">Form & Funktion</span>
-            <h2>Jedes Detail hat eine Aufgabe</h2>
+            <span className="knowledge-eyebrow text-muted-foreground text-(length:--type-caption) font-(--weight-medium) tracking-(--tracking-caps) block uppercase mb-1">
+              Form & Funktion
+            </span>
+            <DetailHeading>Jedes Detail hat eine Aufgabe</DetailHeading>
           </div>
           <SegmentedControl
             label="Beispielvogel wählen"
@@ -185,9 +189,9 @@ export default function AnatomyExplorer({
             }}
           />
         </div>
-        <div className="anatomy-canvas">
+        <div className="anatomy-canvas relative w-full max-w-[730px] aspect-square my-0 mx-auto">
           <ArtImage
-            className="anatomy-bird"
+            className="anatomy-bird block size-full object-contain select-none"
             src={images[species]}
             alt={`${name} im Flug, von schräg unten mit ausgebreiteten Flügeln`}
             width={1400}
@@ -217,7 +221,7 @@ export default function AnatomyExplorer({
                 <TooltipTrigger
                   id={`anatomy-${species}-${part.id}`}
                   closeOnClick={false}
-                  className="anatomy-point"
+                  className="anatomy-point to-tablet:size-[28px] absolute z-1 size-[44px] grid place-items-center p-0"
                   style={{
                     left: `${part.positions[species][0]}%`,
                     top: `${part.positions[species][1]}%`,
@@ -230,7 +234,7 @@ export default function AnatomyExplorer({
                     setOpen(null);
                   }}
                 >
-                  <span className="anatomy-point-core" />
+                  <span className="anatomy-point-core to-tablet:size-[17px] relative grid place-items-center size-[19px]" />
                 </TooltipTrigger>
                 <TooltipContent variant="detail" sideOffset={8}>
                   <strong className="app-tooltip-title">{part.name}</strong>
@@ -242,22 +246,26 @@ export default function AnatomyExplorer({
         </div>
       </section>
       <aside
-        className="anatomy-notes detail-panel"
+        className="explorer-notes anatomy-notes bg-(--atlas-info-surface) detail-panel"
         aria-label="Körperteile entdecken"
       >
-        <div className="anatomy-notes-heading">
-          <h2>Der Körperbau</h2>
+        <div className="anatomy-notes-heading flex items-center gap-3">
+          <DetailHeading leading="display">Der Körperbau</DetailHeading>
         </div>
-        <p className="anatomy-notes-intro">
+        <DetailCopy
+          leading="normal"
+          className="anatomy-notes-intro text-(length:--type-body) text-muted-foreground mt-3"
+        >
           Wähle ein Körperteil und sieh, wofür es gebaut ist.
-        </p>
+        </DetailCopy>
         <div
-          className="anatomy-part-list"
+          className="anatomy-part-list mt-6 grid grid-cols-1 gap-2"
           role="group"
           aria-label="Körperteil wählen"
         >
           {parts.map((part) => (
             <button
+              className="flex items-center gap-(--space-8) min-h-[38px] py-(--space-8) px-(--space-12) text-left"
               type="button"
               key={part.id}
               aria-pressed={selected === part.id}
@@ -267,7 +275,7 @@ export default function AnatomyExplorer({
                 setOpen(null);
               }}
             >
-              <span className="anatomy-list-dot" />
+              <span className="anatomy-list-dot rounded-[50%] bg-muted-foreground size-[5px] shrink-0" />
               {part.name}
             </button>
           ))}

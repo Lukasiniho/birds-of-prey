@@ -1,4 +1,7 @@
 export const huntingImages: Record<string, string> = {
+  gaensegeier: '/birds/hunting-gaensegeier-20260913.png',
+  schreiseeadler: '/birds/hunting-schreiseeadler-20260913.png',
+  schleiereule: '/birds/hunting-schleiereule-20260913.png',
   habichtsadler: '/birds/hunting-habichtsadler.png',
   iberienadler: '/birds/hunting-iberienadler.png',
   klippenadler: '/birds/hunting-klippenadler.png',

@@ -30,7 +30,7 @@ export function FactTooltip({
         type="button"
         closeOnClick={false}
         onClick={() => setOpen(true)}
-        className="cursor-help rounded-sm border-0 bg-transparent p-0 text-right font-inherit text-inherit underline decoration-dotted decoration-muted-foreground/50 underline-offset-4 focus-visible:outline-2 focus-visible:outline-offset-4 focus-visible:outline-ring"
+        className="cursor-help rounded-sm border-0 bg-transparent p-0 text-right text-inherit underline decoration-dotted decoration-muted-foreground/50 underline-offset-4 focus-visible:outline-2 focus-visible:outline-offset-4 focus-visible:outline-ring"
         style={{ font: 'inherit', color: 'inherit' }}
         aria-label={describe}
       >

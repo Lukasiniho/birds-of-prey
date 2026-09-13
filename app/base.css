@@ -45,19 +45,33 @@ a {
   outline-offset: var(--focus-offset);
   box-shadow: none;
 }
-h1,
-h2,
-h3,
-p {
-  margin: 0;
-}
-h2 {
-  font-family: var(--font-stack-display);
-  font-size: var(--type-heading);
-  line-height: var(--leading-display);
-  font-weight: var(--weight-semibold);
+/* Element defaults yield to explicit text and spacing utilities. */
+@layer base {
+  h1,
+  h2,
+  h3,
+  p {
+    margin: 0;
+  }
+  h2 {
+    font-family: var(--font-stack-display);
+    font-size: var(--type-heading);
+    line-height: var(--leading-display);
+    font-weight: var(--weight-semibold);
+  }
 }
 .app-shell {
   min-height: 100dvh;
   --site-header-height: 58px;
+}
+
+/* Reduced motion applies across every route, including portals and pseudo-elements. */
+@media (prefers-reduced-motion: reduce) {
+  *,
+  *:before,
+  *:after {
+    animation: none !important;
+    transition: none !important;
+    scroll-behavior: auto !important;
+  }
 }

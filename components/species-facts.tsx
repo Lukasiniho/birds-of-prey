@@ -52,16 +52,25 @@ export function SpeciesFacts({ speciesId }: { speciesId: string }) {
     },
   ];
   return (
-    <dl className="species-facts" aria-label="Wesentliche Artinformationen">
+    <dl
+      className="species-facts font-(family-name:--font-stack-body) text-(length:--type-body) leading-(--leading-compact) grid gap-3 m-0"
+      aria-label="Wesentliche Artinformationen"
+    >
       {rows.map(({ label, icon, value, context }) => {
         const Icon = factIcons[icon];
         return (
-          <div className="species-fact" key={label}>
-            <dt>
-              <Icon style={{ color: 'var(--main-color)' }} />
+          <div
+            className="species-fact grid grid-cols-2 items-baseline gap-3"
+            key={label}
+          >
+            <dt className="flex items-baseline gap-2 text-muted-foreground">
+              <Icon
+                className="size-4 flex-none self-start mt-half"
+                style={{ color: 'var(--main-color)' }}
+              />
               <span>{label}</span>
             </dt>
-            <dd>
+            <dd className="min-w-0 m-0 text-right font-(--weight-semibold) wrap-anywhere">
               {icon === 'warning-circle' ? (
                 <ConservationTooltip
                   key={speciesId}
@@ -88,12 +97,15 @@ export function SpeciesFacts({ speciesId }: { speciesId: string }) {
         );
       })}
       {falconry && (
-        <div className="species-fact">
-          <dt>
-            <HandFist style={{ color: 'var(--main-color)' }} />
+        <div className="species-fact grid grid-cols-2 items-baseline gap-3">
+          <dt className="flex items-baseline gap-2 text-muted-foreground">
+            <HandFist
+              className="size-4 flex-none self-start mt-half"
+              style={{ color: 'var(--main-color)' }}
+            />
             <span>Falknerei</span>
           </dt>
-          <dd>
+          <dd className="min-w-0 m-0 text-right font-(--weight-semibold) wrap-anywhere">
             <FalconryTooltip key={speciesId} bird={falconry} />
           </dd>
         </div>

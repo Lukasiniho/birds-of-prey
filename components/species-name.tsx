@@ -1,6 +1,6 @@
 import type { HTMLAttributes, ReactNode } from 'react';
 
-type NameVariant = 'standard' | 'atlas-title' | 'quiz';
+type NameVariant = 'standard' | 'atlas-title' | 'quiz' | 'detail';
 
 type NameProps = HTMLAttributes<HTMLElement> & {
   variant?: NameVariant;

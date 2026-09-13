@@ -1,4 +1,5 @@
 'use client';
+import { cn } from '@/lib/utils';
 import { useEffect, useRef, useState } from 'react';
 import { Play, Pause, SpinnerGap as LoaderCircle } from '@/components/icons';
 import { Button } from '@/components/ui/button';
@@ -22,7 +23,15 @@ function drawnPeaks(peaks: number[]) {
   return bars;
 }
 
-export function BirdAudio({ birdId, name }: { birdId: string; name: string }) {
+export function BirdAudio({
+  birdId,
+  name,
+  className,
+}: {
+  birdId: string;
+  name: string;
+  className?: string;
+}) {
   const recording = birdRecordings[birdId];
   const audio = useRef<HTMLAudioElement | null>(null);
   const [state, setState] = useState<'idle' | 'loading' | 'playing' | 'error'>(
@@ -65,10 +74,15 @@ export function BirdAudio({ birdId, name }: { birdId: string; name: string }) {
     }
   }
   return (
-    <div className="bird-audio">
+    <div
+      className={cn(
+        'bird-audio min-w-0 m-0 text-center [container-type:inline-size] flex flex-nowrap items-center justify-center gap-3 self-stretch',
+        className,
+      )}
+    >
       <Button
         variant="ghost"
-        className="bird-audio-play"
+        className="bird-audio-play inline-flex gap-[7px] p-0 size-[38px] min-w-[38px] row-[1/-1] self-center justify-center bg-primary text-primary-foreground"
         onClick={toggle}
         aria-label={`${name}: ${state === 'playing' ? 'Ruf pausieren' : 'Ruf abspielen'}`}
         aria-pressed={state === 'playing'}
@@ -87,13 +101,14 @@ export function BirdAudio({ birdId, name }: { birdId: string; name: string }) {
            färben sich, während der Ruf läuft. Rein grafisch — Beschriftung
            und Zustand trägt der Knopf daneben. */
         <div
-          className="bird-audio-wave"
+          className="bird-audio-wave flex flex-1 min-w-0 items-center justify-center gap-[2px] h-[34px]"
           data-state={state}
           aria-hidden="true"
           style={{ '--wave-played': played } as React.CSSProperties}
         >
           {bars.map((peak, index) => (
             <span
+              className="relative rounded-(--radius-pill) bg-border flex-1 min-w-0 max-w-[4px] min-h-[3px]"
               key={index}
               style={
                 {
@@ -127,7 +142,10 @@ export function BirdAudio({ birdId, name }: { birdId: string; name: string }) {
         />
       </audio>
       {state === 'error' && (
-        <small role="status">
+        <small
+          className="text-(length:--type-caption) max-w-[150px] font-(family-name:--font-stack-body) font-(--weight-regular) tracking-(--tracking-normal) leading-(--leading-normal) ml-[6px] to-phone:ml-1 text-muted-foreground"
+          role="status"
+        >
           Ton nicht verfügbar.{' '}
           <a href={recording.sourceUrl} target="_blank" rel="noreferrer">
             Quelle öffnen
@@ -166,7 +184,9 @@ export function BirdAudioCredit({
             {recording.license}
           </a>
         </p>
-        <small>{recording.note ?? 'Unveränderte Aufnahme.'}</small>
+        <small className="text-(--muted-foreground)">
+          {recording.note ?? 'Unveränderte Aufnahme.'}
+        </small>
       </PopoverContent>
     </Popover>
   );

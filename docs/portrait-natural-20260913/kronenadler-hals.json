@@ -1,0 +1,32 @@
+{
+  "generator": "built-in image_gen",
+  "prompt": "kronenadler-hals-prompt.txt",
+  "original": "public/birds/portrait-kronenadler-20260913-v3.png",
+  "originalSha256": "ba4a6ae69fb4d531b259e1e17bc61ccf16cf4671170255a0ac810507d9f19564",
+  "compositionReference": "public/birds/portrait-habicht-20260912.png",
+  "generatedSource": "/Users/lukasvonhohnhorst/.codex/generated_images/01a09a94-5834-7373-b69d-17476a072171/exec-51ebcdb9-b493-4386-82ad-412f6f5697bf.png",
+  "output": "public/birds/portrait-kronenadler-20260913-v4.png",
+  "outputSha256": "35297810477ee9eb787bc0f7dd68cfeffc5d6dad88e89fb7f3abc2e75ad17742",
+  "generatedBounds": [
+    112,
+    39,
+    1162,
+    1237
+  ],
+  "uniformScale": 0.9549248747913188,
+  "offset": [
+    125,
+    55
+  ],
+  "finalBounds": [
+    125,
+    55,
+    1128,
+    1199
+  ],
+  "canvas": [
+    1254,
+    1254
+  ],
+  "processing": "Protected-interior GrabCut, outside-connected checker removal, 2px edge decontamination, uniform placement; no anatomical pixel stretching."
+}

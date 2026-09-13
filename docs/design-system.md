@@ -7,27 +7,64 @@ werden zentral definiert und in Seiten-CSS nur verwendet, nicht neu erfunden.
 
 ## Dateien und Zuständigkeiten
 
-| Datei                      | Inhalt                                                                  |
-| -------------------------- | ----------------------------------------------------------------------- |
-| `app/globals.css`          | Nur Imports und die Tailwind-`@theme`-Zuordnung                         |
-| `app/typography.css`       | Schriftskala, Textrollen, Schriftstapel, Gewichte, Laufweiten, Artnamen |
-| `app/colors.css`           | Alle Farbrollen hell/dunkel, Tönungsstufen, Status, Karte, Schatten     |
-| `app/design-system.css`    | Abstände, Layoutrollen, Steuerhöhen, Radien, Rahmen, Fokus, Schatten    |
-| `app/transitions-root.css` | Bewegungsskala und die Token-Gruppen der genutzten Snippets             |
-| `app/tabs.css`             | Die zwei Tab-Rollen                                                     |
-| `app/tooltips.css`         | Schwebende Karte (Tooltip und Popover), Pfeil                           |
-| `app/base.css`             | Body, Links, Buttons, Überschriften, Fokusring, App-Shell               |
-| `app/header.css`           | Kopfzeile: Marke, Suche, Navigation, Aktionen, mobile Anordnung         |
-| `app/atlas.css`            | Artenleiste, Bühne, Infobereich, Messwerte, Audio                       |
+| Datei                      | Inhalt                                                                   |
+| -------------------------- | ------------------------------------------------------------------------ |
+| `app/globals.css`          | Nur Imports und die Tailwind-`@theme`-Zuordnung                          |
+| `app/typography.css`       | Schriftskala, Textrollen, Schriftstapel, Gewichte, Laufweiten, Artnamen  |
+| `app/colors.css`           | Alle Farbrollen hell/dunkel, Tönungsstufen, Status, Karte, Schatten      |
+| `app/design-system.css`    | Abstände, Layoutrollen, Steuerhöhen, Radien, Rahmen, Fokus, Schatten     |
+| `app/transitions-root.css` | Bewegungsskala und die Token-Gruppen der genutzten Snippets              |
+| `app/tabs.css`             | Die zwei Tab-Rollen                                                      |
+| `app/tooltips.css`         | Schwebende Karte (Tooltip und Popover), Pfeil                            |
+| `app/base.css`             | Body, Links, Buttons, Überschriften, Fokusring, App-Shell                |
+| `app/header.css`           | Kopfzeile: Marke, Suche, Navigation, Aktionen, mobile Anordnung          |
+| `app/atlas.css`            | Artenleiste, Bühne, Infobereich, Messwerte, Audio                        |
 | `app/motion.css`           | transitions.dev-Snippets: Akkordeon, Textreveal, Zahlen, Icon-Swap, Menü |
-| `app/tags.css`             | Art-Tags und Verbreitungsstatus                                         |
-| `app/map.css`              | Verbreitungskarte                                                       |
-| `app/sections.css`         | Seitenrahmen und Titel für Quiz, Wissen und Falknerei                   |
-| Seiten-CSS                 | Anordnung, Umbrüche und fachliche Darstellung einer Seite               |
+| `app/tags.css`             | Art-Tags und Verbreitungsstatus                                          |
+| `app/map.css`              | Verbreitungskarte                                                        |
+| `app/sections.css`         | Seitenrahmen und Titel für Quiz, Wissen und Falknerei                    |
+| Seiten-CSS                 | Anordnung, Umbrüche und fachliche Darstellung einer Seite                |
 
 Die Bibliotheksdateien in `components/ui` werden nicht umgestaltet; nur die
-Icon-Imports dürfen angepasst werden. Nicht verwendete Primitive sind entfernt;
-neue nur ergänzen, wenn sie tatsächlich importiert werden.
+Icon-Imports dürfen angepasst werden. Ungenutzte Primitive bleiben im Repo;
+`@source not` in `app/globals.css` nimmt ihre Utilities aus dem Tailwind-Scan.
+Wird eine solche Komponente eingebunden, muss ihre Ausnahme dort entfallen.
+
+Einfache Layouts verwenden Tailwind direkt an der Komponente. Die Utilities
+`gap-2`, `p-4`, `p-panel` und `gap-section` verweisen über `globals.css` auf die
+bestehenden Abstandsrollen. Farben bleiben Rollen (`bg-stage`,
+`text-muted-foreground`). Eigenes CSS bleibt für gemeinsame Gestaltung,
+Zustände und aufwendigere Geometrie. Die Quizkarten teilen `.q-card` für
+Auswahlrahmen, Bewertung und Fokus.
+
+Die responsiven Varianten `to-desktop`, `to-compact`, `to-tablet` und `to-phone`
+gelten bis einschließlich 1190, 980, 760 und 640 px. `to-small` ist nur für die
+bestehende Quiz-Ausnahme bei 390 px vorgesehen. Ihre Reihenfolge folgt von
+breit nach schmal, damit die kleinere Ansicht bei Überschneidung gewinnt.
+`from-tablet` (ab 761 px), `from-compact` (ab 981 px) und `from-wide`
+(ab 1600 px) bilden die bestehenden größeren Ansichten ab.
+
+Die Bild-/Kartenpanels in Wissen und Falknerei teilen `.explorer-layout` und
+`.explorer-notes`. Nur die Breite der Falknerei-Spalte weicht über die beiden
+`--explorer-aside*`-Variablen ab. Überschriften und Erklärungstexte verwenden
+`DetailHeading` und `DetailCopy` aus `components/detail-text.tsx`; Schriftrollen
+bleiben damit an einer Stelle. Elementvorgaben für Überschriften und Absatzränder
+liegen in der Basis-Ebene, damit explizite Text- und Abstands-Utilities greifen.
+
+`PreyArt` kapselt Zuschnitt und Größenvarianten: `atlas` (88 px), `tile` (72 px),
+`choice` (füllt die Quizfläche), `placed` (28 px) und `drag` (80 px). Aufrufstellen
+wählen eine Variante, statt Bild und Ersatzsymbol über Elternselektoren separat
+zu überschreiben.
+
+Sortier- und Lebensraumaufgaben verwenden `QuizTaskHeading` für ihre Einleitung;
+Nahrungs- und Flügelvergleichsaufgaben teilen `QuizChoiceHeading`.
+`QuizCardFooter` hält Sortiersteuerung und aufgedecktes Gewicht gleich hoch.
+Die Auswertung gestaltet ihr Raster und ihre Textrollen direkt an der Komponente.
+Porträtpositionen auf der Quiz-Startseite gehören zu den jeweiligen Bilddaten.
+
+`AtlasSection` teilt die Abschnittsabstände und Trennlinien im Infobereich.
+Messwertzellen besitzen ihre Textrollen direkt; `.specimen-measurements` regelt
+das Raster, die optionale Ruf-Spalte und die vorhandenen Container-Abfragen.
 
 ## Checkliste für neue Seiten und Komponenten
 
@@ -53,36 +90,36 @@ Alle Farben sind Rollen in `app/colors.css`, der einzigen Datei mit Hex- oder
 rgb()-Werten. Seiten definieren keine eigenen Paletten; das Quiz nutzt dieselben
 Rollen wie der Atlas.
 
-| Rolle                        | Einsatz                                                |
-| ---------------------------- | ------------------------------------------------------ |
-| `--background`               | Seite, Kopfzeile, Tab-Pille                            |
-| `--surface`                  | Erhabene Fläche: Karten, Menüs, Dropdown-Trigger       |
-| `--stage`                    | Vertiefte Fläche: Bild- und Quizbühnen, Kartenwasser   |
-| `--stage-glow`               | Weicher Lichtkegel hinter der Atlas-Illustration       |
-| `--muted`                    | Ruhige Nebenfläche                                     |
-| `--hover`                    | Zeilen- und Listen-Hover                               |
-| `--foreground`               | Text, Anatomiemarker                                   |
-| `--muted-foreground`         | Nebentext und Platzhalter auf `--background`/`--surface` |
-| `--muted-foreground-stage`   | Nebentext auf Vertieftem: Bühne und Tab-Schiene          |
-| `--muted-foreground-faint`   | Nur Nicht-Text: inaktive Schrittpunkte                 |
-| `--border`                   | Hairlines und Flächengrenzen                           |
-| `--main-color`               | Akzent; `--primary`, `--ring`, `--selection-border` sind Aliase |
-| `--primary-foreground`       | Text und Icons auf gefüllten Akzentflächen             |
-| `--primary-hover`            | Hover gefüllter Akzentbuttons                          |
-| `--selected`                 | Gewählte Zeilen und Kacheln                            |
-| `--nav-current`              | Aktuelle Seite in der Kopfnavigation; dunkel dieselbe Fläche wie der Hover |
-| `--selected-strong`          | Kräftige Auswahl; im Dunkelmodus eine Stufe kräftiger  |
-| `--tag-surface`              | Tags; hell auf die Bühne getönt, damit sie überall tragen |
-| `--tag-surface-hover`        | Tag-Hover                                              |
-| `--accent-ring`              | Leuchtringe um Marker und Pins                         |
-| `--accent-line`              | Akzentrahmen (verwandte Kacheln, aktiver Marker)       |
-| `--line-soft`                | Tab-Schiene                                            |
-| `--line-tint`                | Feine Rahmen auf Flächen, Farbfeld-Ränder              |
-| `--success`, `--success-soft` | Richtige Antworten                                    |
-| `--danger`, `--danger-soft`  | Falsche Antworten                                      |
-| `--scrim*`, `--on-image*`    | Verläufe und Text auf Fotos, in beiden Themes gleich   |
-| `--map-*`                    | Wasser, Land, Umriss und Verbreitung der Karte         |
-| `--shadow-color-*`           | Nur von den Schattenrollen verwendet                   |
+| Rolle                         | Einsatz                                                                    |
+| ----------------------------- | -------------------------------------------------------------------------- |
+| `--background`                | Seite, Kopfzeile, Tab-Pille                                                |
+| `--surface`                   | Erhabene Fläche: Karten, Menüs, Dropdown-Trigger                           |
+| `--stage`                     | Vertiefte Fläche: Bild- und Quizbühnen, Kartenwasser                       |
+| `--stage-glow`                | Weicher Lichtkegel hinter der Atlas-Illustration                           |
+| `--muted`                     | Ruhige Nebenfläche                                                         |
+| `--hover`                     | Zeilen- und Listen-Hover                                                   |
+| `--foreground`                | Text, Anatomiemarker                                                       |
+| `--muted-foreground`          | Nebentext und Platzhalter auf `--background`/`--surface`                   |
+| `--muted-foreground-stage`    | Nebentext auf Vertieftem: Bühne und Tab-Schiene                            |
+| `--muted-foreground-faint`    | Nur Nicht-Text: inaktive Schrittpunkte                                     |
+| `--border`                    | Hairlines und Flächengrenzen                                               |
+| `--main-color`                | Akzent; `--primary`, `--ring`, `--selection-border` sind Aliase            |
+| `--primary-foreground`        | Text und Icons auf gefüllten Akzentflächen                                 |
+| `--primary-hover`             | Hover gefüllter Akzentbuttons                                              |
+| `--selected`                  | Gewählte Zeilen und Kacheln                                                |
+| `--nav-current`               | Aktuelle Seite in der Kopfnavigation; dunkel dieselbe Fläche wie der Hover |
+| `--selected-strong`           | Kräftige Auswahl; im Dunkelmodus eine Stufe kräftiger                      |
+| `--tag-surface`               | Tags; hell auf die Bühne getönt, damit sie überall tragen                  |
+| `--tag-surface-hover`         | Tag-Hover                                                                  |
+| `--accent-ring`               | Leuchtringe um Marker und Pins                                             |
+| `--accent-line`               | Akzentrahmen (verwandte Kacheln, aktiver Marker)                           |
+| `--line-soft`                 | Tab-Schiene                                                                |
+| `--line-tint`                 | Feine Rahmen auf Flächen, Farbfeld-Ränder                                  |
+| `--success`, `--success-soft` | Richtige Antworten                                                         |
+| `--danger`, `--danger-soft`   | Falsche Antworten                                                          |
+| `--scrim*`, `--on-image*`     | Verläufe und Text auf Fotos, in beiden Themes gleich                       |
+| `--map-*`                     | Wasser, Land, Umriss und Verbreitung der Karte                             |
+| `--shadow-color-*`            | Nur von den Schattenrollen verwendet                                       |
 
 Tönungen entstehen ausschließlich mit `color-mix` und den Stufen `--tint-1`
 bis `--tint-6` (6, 10, 16, 24, 34, 45 %). Im Dunkelmodus wird `--selected`
@@ -115,7 +152,8 @@ Bedienelemente, Source Serif 4 für redaktionelle Titel.
   24 px/700 (Varianten `quiz`, `knowledge`); wissenschaftliche Namen 16 px/600
   kursiv, im Quiz 18 px direkt am deutschen Namen. Die Atlas-Titelvariante
   bleibt 32–48 px/700 mit halb so großem wissenschaftlichen Namen (min. 16 px,
-  400). Rechte Detailüberschriften 24 px/700, unabhängig von der Seitenleiste.
+  400). Rechte Detailüberschriften 24 px/700, unabhängig von der Seitenleiste;
+  Artnamen an dieser Stelle verwenden `variant="detail"`.
 - Die große Atlas-Überschrift und die Gewichte der Artenliste (700/600) bleiben.
 - Spannweite und Gewicht: bei Von-bis-Spannen entfällt „ca.“ in der Anzeige;
   Einzelwerte behalten die Näherungsangabe. Gewicht immer in Gramm.
@@ -158,20 +196,20 @@ identischem Innenabstand; die Audio-Spalte ist separat, auch mobil.
 
 ## Steuerhöhen, Radien, Rahmen, Fokus
 
-| Rolle                      |   Wert | Einsatz                                       |
-| -------------------------- | -----: | --------------------------------------------- |
-| `--control-height-compact` |  30 px | Pillen-Tabs, Schalter                         |
-| `--control-height`         |  38 px | Kopfzeile, Suche, Selects, Unterstrich-Leiste |
-| `--control-height-touch`   |  44 px | Große Aktionsflächen                          |
-| `--radius-small`           |   6 px | Kleine Kennzeichnungen, Bildausschnitte       |
-| `--radius-control`         |  12 px | Buttons, Eingaben, Auswahlsteuerung           |
-| `--radius-card`            |  12 px | Quizkarten, Karten-Vorschauen, Drag-Vorschau  |
-| `--radius-surface`         |  20 px | Große Arbeitsflächen und Dialoge              |
-| `--radius-pill`            | 999 px | Tags                                          |
-| `--radius-tab-pill`        |  48 px | Pillen-Tabs                                   |
-| `--border-structure`       |   1 px | Flächengrenzen, Trennlinien                   |
-| `--border-selection`       |   2 px | Interaktive Auswahl und Drop-Ziele            |
-| `--focus-ring`             |   2 px | `solid var(--ring)`, für alle Controls        |
+| Rolle                      |   Wert | Einsatz                                           |
+| -------------------------- | -----: | ------------------------------------------------- |
+| `--control-height-compact` |  30 px | Pillen-Tabs, Schalter                             |
+| `--control-height`         |  38 px | Kopfzeile, Suche, Selects, Unterstrich-Leiste     |
+| `--control-height-touch`   |  44 px | Große Aktionsflächen                              |
+| `--radius-small`           |   6 px | Kleine Kennzeichnungen, Bildausschnitte           |
+| `--radius-control`         |  12 px | Buttons, Eingaben, Auswahlsteuerung               |
+| `--radius-card`            |  12 px | Quizkarten, Karten-Vorschauen, Drag-Vorschau      |
+| `--radius-surface`         |  20 px | Große Arbeitsflächen und Dialoge                  |
+| `--radius-pill`            | 999 px | Tags                                              |
+| `--radius-tab-pill`        |  48 px | Pillen-Tabs                                       |
+| `--border-structure`       |   1 px | Flächengrenzen, Trennlinien                       |
+| `--border-selection`       |   2 px | Interaktive Auswahl und Drop-Ziele                |
+| `--focus-ring`             |   2 px | `solid var(--ring)`, für alle Controls            |
 | `--focus-offset`           |   2 px | Außen; Ausnahmen setzen nur den Offset nach innen |
 
 Auswahlrahmen reservieren bereits im inaktiven Zustand 2 px; ein Wechsel ändert
@@ -184,12 +222,12 @@ Auswahlrahmen. Suche, Navigationslinks, Theme-Schalter und Info-Menü teilen
 
 ## Schatten
 
-| Rolle                  | Verwendung                                                         |
-| ---------------------- | ------------------------------------------------------------------ |
-| `--shadow-none`        | Normale Karten und große Arbeitsflächen                            |
-| `--shadow-subtle`      | Leicht angehobene Controls                                         |
+| Rolle                  | Verwendung                                                           |
+| ---------------------- | -------------------------------------------------------------------- |
+| `--shadow-none`        | Normale Karten und große Arbeitsflächen                              |
+| `--shadow-subtle`      | Leicht angehobene Controls                                           |
 | `--shadow-floating`    | Tooltip, Menü, Drag-Vorschau, schwebende Toolbar, fixe Antwortleiste |
-| `--shadow-active-pill` | Aktive Tab-Pille und Geschlechtsschalter                           |
+| `--shadow-active-pill` | Aktive Tab-Pille und Geschlechtsschalter                             |
 
 Schattenfarben kommen aus `--shadow-color-*` in `colors.css`. Keine neuen
 individuellen Kartenschatten; Ringe für Farbe, Fokus oder Markierung sind keine
@@ -200,10 +238,10 @@ dekorative Elevation.
 Es gibt genau zwei Tab-Rollen, beide in `app/tabs.css`; Seiten-CSS positioniert
 eine Tab-Leiste nur, es gestaltet sie nicht um.
 
-| Rolle                 | Einsatz                                            | Maße                                         |
-| --------------------- | -------------------------------------------------- | -------------------------------------------- |
-| `.t-tabs` (Pille)     | Gefieder/Alter, Farbmorphen, Bühnenwahl im Wissen  | 30 px Tab, 3 px Schiene, 4/13 px, 14 px/500  |
-| `.t-tabs.t-tabs-line` | Atlas-Infotabs, Wissensbereiche, Falknerei-Kapitel | 38 px Leiste, 24 px Abstand, 16 px, 400/500  |
+| Rolle                 | Einsatz                                            | Maße                                        |
+| --------------------- | -------------------------------------------------- | ------------------------------------------- |
+| `.t-tabs` (Pille)     | Gefieder/Alter, Farbmorphen, Bühnenwahl im Wissen  | 30 px Tab, 3 px Schiene, 4/13 px, 14 px/500 |
+| `.t-tabs.t-tabs-line` | Atlas-Infotabs, Wissensbereiche, Falknerei-Kapitel | 38 px Leiste, 24 px Abstand, 16 px, 400/500 |
 
 `SegmentedControl` legt die Pillenschiene in `.t-tabs-scroll`. Nur diese
 rechteckige Hülle scrollt bei Platzmangel; 4 px Polster mit ausgleichendem
@@ -225,10 +263,10 @@ beim Scrollen mit deckendem Hintergrund sichtbar. Inaktive Tab-Texte verwenden
 Die Skala in `app/transitions-root.css` ist die einzige Quelle für Dauern,
 Kurven, Distanzen, Skalierungen und Unschärfe.
 
-| Dauer                  |  Wert | Einsatz                                     |
-| ---------------------- | ----: | ------------------------------------------- |
-| `--duration-stagger`   | 40 ms | Versatz je Element                          |
-| `--duration-micro`     | 80 ms | Kurze Verzögerungen                         |
+| Dauer                  |   Wert | Einsatz                                      |
+| ---------------------- | -----: | -------------------------------------------- |
+| `--duration-stagger`   |  40 ms | Versatz je Element                           |
+| `--duration-micro`     |  80 ms | Kurze Verzögerungen                          |
 | `--duration-quick`     | 150 ms | Hover-Farbe, Schließen, Textwechsel, Tooltip |
 | `--duration-fast`      | 250 ms | Icon-Swap, Öffnen, Tab-Pille                 |
 | `--duration-medium`    | 350 ms | Panel und Toast schließen                    |
@@ -244,13 +282,13 @@ messen ihre Position dynamisch; `prefers-reduced-motion` schaltet Übergänge ab
 
 ## Breakpoints
 
-| Wert    | Bedeutung                                              |
-| ------- | ------------------------------------------------------ |
-| 640 px  | Telefon: einspaltig, Messwerte gestapelt               |
-| 760 px  | Tablet hochkant: mobile Kopfzeile, Seitenrand 20 px    |
-| 980 px  | Atlas wird einspaltig, Seitenspalten schmaler          |
-| 1190 px | Breite Layouts werden kompakter                        |
-| 1600 px | Sehr breite Bildschirme: Atlas-Spalten wachsen         |
+| Wert    | Bedeutung                                           |
+| ------- | --------------------------------------------------- |
+| 640 px  | Telefon: einspaltig, Messwerte gestapelt            |
+| 760 px  | Tablet hochkant: mobile Kopfzeile, Seitenrand 20 px |
+| 980 px  | Atlas wird einspaltig, Seitenspalten schmaler       |
+| 1190 px | Breite Layouts werden kompakter                     |
+| 1600 px | Sehr breite Bildschirme: Atlas-Spalten wachsen      |
 
 Zwei Regeln für die kleinsten Telefone (390 px) im Quiz sind eine dokumentierte
 Ausnahme. Neue Zwischenwerte sind keine Option; wenn ein Layout an anderer
@@ -340,7 +378,6 @@ der vollständige Kurztext bleibt im DOM und als Titel erhalten.
 steht ohne zusätzlichen Abstand unter der Zahl und übernimmt deren grüne Farbe.
 Der Desktop-Button bleibt vertikal zentriert.
 
-
 ## Artenleiste
 
 Die Gruppierung bietet Gattung, Verbreitung, Lebensraum und Größe. Verbreitung
@@ -365,6 +402,8 @@ mit Vorkommensangaben; der Wert `ausserhalb` wird ausgeblendet.
 
 1. Bestehende Rolle oder Komponente suchen und wiederverwenden.
 2. Gleiche Elemente gemeinsam ändern; keine weitere Override-Schicht anhängen.
+   Regeln für denselben Selektor und Gültigkeitsbereich zusammenführen;
+   bei überlappenden Media Queries die Reihenfolge der Ausnahmen erhalten.
 3. Neue Rolle nur bei wiederkehrendem Bedarf zentral definieren und hier
    ergänzen.
 4. Schriftgrößen und Gewichte nicht im Rahmen einer Abstandsbereinigung ändern.

@@ -66,7 +66,7 @@ export function SpeciesRowContent({
       ) : (
         portrait
       )}
-      <span className="species-row-name">
+      <span className="species-row-name flex flex-col min-w-0">
         <SpeciesName
           name={name}
           latin={latin}

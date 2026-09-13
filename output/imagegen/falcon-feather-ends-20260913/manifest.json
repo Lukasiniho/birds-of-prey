@@ -1,0 +1,59 @@
+[
+  {
+    "species": "lannerfalke",
+    "original": "public/birds/portrait-lannerfalke-20260913-v2.png",
+    "generated": "/Users/lukasvonhohnhorst/.codex/generated_images/01a09ad9-bc2d-7391-aa5e-7947c87962a6/exec-97b2d052-2b6b-45c8-b3f4-654cd46496f2.png",
+    "output": "public/birds/portrait-lannerfalke-20260913-feather-ends.png",
+    "prompt": "output/imagegen/falcon-feather-ends-20260913/lannerfalke-prompt.txt",
+    "method": "Built-in imagegen edit of lower contour feathers; local GrabCut with original-derived coarse seed, protected interior, independent new silhouette, edge decontamination. No reframing or scaling.",
+    "size": [
+      1254,
+      1254
+    ],
+    "transparent_pixels": 900926,
+    "originalSha256": "9aee7587b3de0520cb57b2f19aaf90674b42096dbc463d360863f1de2d25fd4c",
+    "generatedSha256": "7188b5f5d8b7b2307150871c3b72468f8e7ede072d369cf3fffbdb632987239a",
+    "outputSha256": "0787bf2419c7ee4146aa5d63c392022e960cb71d95f0676f522c0387a687ce87",
+    "featherReferenceHobbySha256": "1976a90335cee6cc50060dd09a319c13a50a7fb03207a911fab6d1036fb9ca6a",
+    "featherReferenceGyrfalconSha256": "d70b0851f95194d44192731f6767eb3075e0be2b10bb0e2e9c61450176fb1a30",
+    "validation": "Compared with original and approved Hobby/Gyrfalcon feather ends. Entire head and beak preserved. Crisp lower feather tips, no blur or checkerboard. Visually checked on light, dark and green backgrounds."
+  },
+  {
+    "species": "sakerfalke",
+    "original": "public/birds/portrait-sakerfalke-20260913-v2.png",
+    "generated": "/Users/lukasvonhohnhorst/.codex/generated_images/01a09ad9-bc2d-7391-aa5e-7947c87962a6/exec-bc4a4a1f-37c5-4159-9196-67f48470c988.png",
+    "output": "public/birds/portrait-sakerfalke-20260913-feather-ends.png",
+    "prompt": "output/imagegen/falcon-feather-ends-20260913/sakerfalke-prompt.txt",
+    "method": "Built-in imagegen edit of lower contour feathers; local GrabCut with original-derived coarse seed, protected interior, independent new silhouette, edge decontamination. No reframing or scaling.",
+    "size": [
+      1254,
+      1254
+    ],
+    "transparent_pixels": 823836,
+    "originalSha256": "303f6c20818edd52137dbe564b3f26fb13a3b8eb15cafacb029a137d5bfc9d45",
+    "generatedSha256": "313963e7a38d151cb7f715cb8b8adae5710c2ad5f206a44a3b819ed50c20835e",
+    "outputSha256": "2f2e59d1b2e9d812797069cdbc7347e423f5f15a67e24af48dc24d67795a6f3e",
+    "featherReferenceHobbySha256": "1976a90335cee6cc50060dd09a319c13a50a7fb03207a911fab6d1036fb9ca6a",
+    "featherReferenceGyrfalconSha256": "d70b0851f95194d44192731f6767eb3075e0be2b10bb0e2e9c61450176fb1a30",
+    "validation": "Compared with original and approved Hobby/Gyrfalcon feather ends. Entire head and beak preserved. Crisp lower feather tips, no blur or checkerboard. Visually checked on light, dark and green backgrounds."
+  },
+  {
+    "species": "turmfalke",
+    "original": "public/birds/portrait-turmfalke-20260913-v5.png",
+    "generated": "/Users/lukasvonhohnhorst/.codex/generated_images/01a09ad9-bc2d-7391-aa5e-7947c87962a6/exec-8f3d76fe-aff9-4908-a872-298401ee4c55.png",
+    "output": "public/birds/portrait-turmfalke-20260913-feather-ends.png",
+    "prompt": "output/imagegen/falcon-feather-ends-20260913/turmfalke-prompt.txt",
+    "method": "Built-in imagegen edit of lower contour feathers; local GrabCut with original-derived coarse seed, protected interior, independent new silhouette, edge decontamination. No reframing or scaling.",
+    "size": [
+      1254,
+      1254
+    ],
+    "transparent_pixels": 911592,
+    "originalSha256": "00d2ead3e8b5031ada16166219033a0c2de477e2230eae94dd7c9b5d7d47e7b2",
+    "generatedSha256": "8f15d25b671d7a290145c02d45e6f84a3578cd0068a004f157358ba494bd46a2",
+    "outputSha256": "c19d6c0e1eff49ebe307853333c2060d3d90d3d8af08658631a6c0b497fafb7f",
+    "featherReferenceHobbySha256": "1976a90335cee6cc50060dd09a319c13a50a7fb03207a911fab6d1036fb9ca6a",
+    "featherReferenceGyrfalconSha256": "d70b0851f95194d44192731f6767eb3075e0be2b10bb0e2e9c61450176fb1a30",
+    "validation": "Compared with original and approved Hobby/Gyrfalcon feather ends. Entire head and beak preserved. Crisp lower feather tips, no blur or checkerboard. Visually checked on light, dark and green backgrounds."
+  }
+]

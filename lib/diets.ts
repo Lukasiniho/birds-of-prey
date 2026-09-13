@@ -146,6 +146,33 @@ export const preyCatalog: Record<
   },
 };
 export const diets: Record<string, Diet> = {
+  schleiereule: {
+    summary: 'Kleinsäuger, vor allem Wühlmäuse, bilden die Hauptnahrung. Auch andere Mäuse und Spitzmäuse werden erbeutet; kleine Vögel ergänzen den Speiseplan nur gelegentlich.',
+    primary: ['wuhlmause', 'mause', 'kleinsauger'],
+    occasional: ['singvogel'],
+    carrion: false,
+    sources: ['https://www.eulen.de/unsere-eulen/schleiereule'],
+    examples: [{ key: 'wuehlmaus' }, { key: 'maus' }],
+    occasionalExamples: [{ key: 'singvogel' }],
+  },
+  gaensegeier: {
+    summary: 'Er frisst vor allem Fleisch und Innereien verendeter großer Säugetiere. Kadaver von Weidetieren und wildlebenden Huftieren liefern die Hauptnahrung.',
+    primary: ['aas-von-rindern-und-schafen', 'aas'],
+    occasional: [],
+    carrion: true,
+    sources: ['https://seo.org/ave/buitre-leonado/', 'https://www.wilhelma.de/entdecken/tiere/tierart/gaensegeier'],
+    examples: [{ key: 'aas' }],
+    occasionalExamples: [],
+  },
+  schreiseeadler: {
+    summary: 'Fische bilden die Hauptnahrung. Je nach Angebot nimmt er auch Wasservögel, kleinere Wirbeltiere und Aas; manchmal stiehlt er anderen Vögeln ihren Fang.',
+    primary: ['fische'],
+    occasional: ['wasservogel', 'amphibien', 'kleinsauger', 'aas'],
+    carrion: true,
+    sources: ['https://lazoo.org/explore-your-zoo/our-animals/birds/african-fish-eagle/'],
+    examples: [{ key: 'fisch' }],
+    occasionalExamples: [{ key: 'ente' }, { key: 'aas' }],
+  },
   habichtsadler: {
     summary:
       'Kaninchen und mittelgroße Vögel, insbesondere Tauben und Hühnervögel, bilden die Hauptnahrung. Regional kommen Eidechsen hinzu.',

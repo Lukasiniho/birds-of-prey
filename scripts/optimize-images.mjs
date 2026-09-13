@@ -23,8 +23,8 @@ await mkdir(output, { recursive: true });
 // matches what shipped before, so nothing ever loses detail: a bird drawn
 // full-bleed on a dense screen still gets the full-resolution encode.
 const widthLadder = [320, 560, 800, 1100, 1400];
-// Head portraits are never drawn larger than a small avatar.
-const portraitLadder = [160, 280];
+// Keep small avatars light, with enough detail for browser zoom on dense screens.
+const portraitLadder = [160, 280, 560];
 // Colour quality stays where it was: these illustrations are the point of the
 // site. The alpha channel is the exception — at 80 it costs 17% of the bytes
 // for a pixel error of 0.18/255, which no eye resolves.

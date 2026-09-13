@@ -105,6 +105,9 @@ export const huntingTypes = {
 } as const;
 export type HuntingType = keyof typeof huntingTypes;
 const techniques: Record<string, HuntingType[]> = {
+  schleiereule: ['lautlos', 'suchflug', 'ansitz'],
+  gaensegeier: ['aas', 'suchflug'],
+  schreiseeadler: ['wasser', 'ansitz', 'suchflug', 'beuteraub'],
   habichtsadler: ['deckung', 'luftjagd', 'kooperativ'],
   iberienadler: ['ansitz', 'suchflug'],
   klippenadler: ['suchflug', 'deckung', 'kooperativ'],
@@ -156,6 +159,8 @@ export const statusLabels = {
 export type SeasonStatus = keyof typeof statusLabels;
 // Geographic scope is essential: these tags describe Germany, not the global range.
 const germany: Record<string, SeasonStatus[]> = {
+  schleiereule: ['brut', 'winter'],
+  gaensegeier: ['selten'],
   habichtsadler: ['selten'],
   zwergadler: ['selten'],
   habicht: ['brut', 'winter'],
@@ -189,6 +194,8 @@ export type RelativeSize = keyof typeof relativeSizeLabels;
 // Editorial, qualitative body-mass comparison for the illustrated prey examples.
 // Never infer size from the display image or apply a category-wide size to every species.
 const sizeBySpecies: Record<string, Partial<Record<string, RelativeSize>>> = {
+  schleiereule: { wuehlmaus: 'kleiner', maus: 'kleiner', singvogel: 'kleiner' },
+  schreiseeadler: { fisch: 'variabel', ente: 'kleiner' },
   habichtsadler: { kaninchen: 'aehnlich', taube: 'kleiner', echse: 'kleiner' },
   iberienadler: { kaninchen: 'kleiner', taube: 'kleiner', ente: 'kleiner' },
   klippenadler: {

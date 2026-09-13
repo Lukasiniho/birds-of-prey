@@ -1,5 +1,7 @@
 'use client';
 
+import { DetailHeading, DetailCopy } from '@/components/detail-text';
+
 import { useEffect, useState } from 'react';
 import { ArtImage } from '@/components/art-image';
 import { ArrowUpRight, Crosshair } from '@/components/icons';
@@ -39,29 +41,38 @@ export default function TechniqueExplorer({
   const additional = entry.hunters.filter((h) => h.importance !== 'primary');
 
   return (
-    <div className="knowledge-split technique-explorer">
-      <section className="knowledge-surface" aria-label="Jagdtechniken">
-        <header className="knowledge-surface-heading">
+    <div className="explorer-layout knowledge-split technique-explorer">
+      <section
+        className="knowledge-surface bg-stage min-w-0"
+        aria-label="Jagdtechniken"
+      >
+        <header className="knowledge-surface-heading to-tablet:items-start to-tablet:flex-wrap flex items-center justify-between gap-4 p-panel">
           <div>
-            <span className="knowledge-eyebrow">Strategie & Beute</span>
-            <h2>Wie Greifvögel jagen</h2>
+            <span className="knowledge-eyebrow text-muted-foreground text-(length:--type-caption) font-(--weight-medium) tracking-(--tracking-caps) block uppercase mb-1">
+              Strategie & Beute
+            </span>
+            <DetailHeading>Wie Greifvögel jagen</DetailHeading>
           </div>
           <Crosshair size={24} aria-hidden="true" />
         </header>
-        <fieldset className="knowledge-grid" aria-label="Jagdtechnik wählen">
+        <fieldset
+          className="knowledge-grid grid grid-cols-5 to-tablet:grid-cols-3 px-panel pb-panel gap-2"
+          aria-label="Jagdtechnik wählen"
+        >
           {techniques.map((item) => (
             <button
               type="button"
               key={item.id}
-              className="knowledge-tile"
+              className="knowledge-tile flex flex-col items-center gap-half py-3 px-2 text-center"
               aria-pressed={item.id === entry.id}
               data-related={
                 hovered ? hovered.techniques.includes(item.id) : undefined
               }
               onClick={() => choose(item.id)}
             >
-              <span className="knowledge-tile-art">
+              <span className="knowledge-tile-art size-[72px] min-h-0 mb-2 grid place-items-center">
                 <ArtImage
+                  className="size-full object-contain"
                   src={item.image}
                   alt=""
                   width={72}
@@ -69,21 +80,30 @@ export default function TechniqueExplorer({
                   displayWidth={72}
                 />
               </span>
-              <span className="knowledge-tile-name">{item.label}</span>
-              <span className="knowledge-tile-count">
+              <span className="knowledge-tile-name font-(--weight-medium) leading-(--leading-compact)">
+                {item.label}
+              </span>
+              <span className="knowledge-tile-count text-(length:--type-caption) text-muted-foreground">
                 {countLabel(item.hunters.length)}
               </span>
             </button>
           ))}
         </fieldset>
       </section>
-      <aside className="knowledge-notes" aria-live="polite" aria-atomic="true">
-        <div className="knowledge-notes-scroll detail-panel" key={entry.id}>
-          <span className="knowledge-eyebrow">
+      <aside
+        className="explorer-notes knowledge-notes bg-(--atlas-info-surface) relative min-w-0"
+        aria-live="polite"
+        aria-atomic="true"
+      >
+        <div
+          className="knowledge-notes-scroll to-tablet:static to-tablet:overflow-visible absolute inset-0 overflow-y-auto detail-panel"
+          key={entry.id}
+        >
+          <span className="knowledge-eyebrow text-muted-foreground text-(length:--type-caption) font-(--weight-medium) tracking-(--tracking-caps) block uppercase mb-1">
             Jagdtechnik · {countLabel(entry.hunters.length)}
           </span>
-          <h2>{entry.label}</h2>
-          <p>{entry.text}</p>
+          <DetailHeading>{entry.label}</DetailHeading>
+          <DetailCopy className="mt-3">{entry.text}</DetailCopy>
           {typical.length > 0 && (
             <HunterGroup
               title="Typische Technik"
@@ -98,10 +118,10 @@ export default function TechniqueExplorer({
               onHover={setHovered}
             />
           )}
-          <p>
+          <DetailCopy className="mt-3">
             Beim Überfahren einer Art leuchten links alle Techniken auf, die sie
             ebenfalls nutzt.
-          </p>
+          </DetailCopy>
         </div>
       </aside>
     </div>
@@ -119,8 +139,10 @@ function HunterGroup({
 }) {
   return (
     <div className="knowledge-group">
-      <h3>{title}</h3>
-      <div className="knowledge-bird-list">
+      <h3 className="mt-(--space-24) text-(length:--type-ui) font-(--weight-medium) text-(--muted-foreground)">
+        {title}
+      </h3>
+      <div className="knowledge-bird-list grid gap-2 mt-4">
         {hunters.map((hunter) => (
           <SpeciesRowLink
             size="inline"

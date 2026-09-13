@@ -61,7 +61,7 @@ void test('Osprey offers sexes instead of invented colour morphs', () => {
   assert.equal(getBirdMorphConfig('fischadler'), undefined);
   assert.deepEqual(
     plumagesFor('fischadler').map(({ value }) => value),
-    ['male', 'female', 'juvenile'],
+    ['female', 'male', 'juvenile'],
   );
   assert.notEqual(
     birdImage('fischadler', 'male'),

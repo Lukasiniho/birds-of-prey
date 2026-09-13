@@ -76,11 +76,21 @@ export function SiteHeader({
   }
 
   return (
-    <header className="topbar site-header" data-section={activeSection}>
-      <div className="header-brand">
-        <a href="/" className="site-title">
-          <span className="site-title-portrait" aria-hidden="true">
+    <header
+      className="topbar site-header grid grid-cols-[minmax(0,1fr)_auto_auto] grid-rows-(--site-header-height) items-center gap-x-2 gap-y-0 h-(--site-header-height) px-(--atlas-gutter) py-0 border-b-(length:--border-structure) border-border bg-background to-tablet:grid-cols-[minmax(0,1fr)_var(--header-control-height)_auto] to-tablet:grid-rows-[50px] to-tablet:gap-y-3 to-tablet:py-2 to-tablet:content-start"
+      data-section={activeSection}
+    >
+      <div className="header-brand col-start-1 row-start-1 flex items-center gap-3 min-w-0 to-tablet:contents">
+        <a
+          href="/"
+          className="site-title flex flex-none items-center gap-2 min-w-0 font-(family-name:--font-stack-body) text-(length:--type-brand) font-(--weight-medium) tracking-(--tracking-tight) leading-(--leading-display) whitespace-nowrap to-tablet:col-start-1 to-tablet:row-start-1"
+        >
+          <span
+            className="site-title-portrait size-8 flex-[0_0_var(--space-32)]"
+            aria-hidden="true"
+          >
             <ArtImage
+              className="block size-full object-contain"
               src={portraitImages.steinadler}
               alt=""
               width={48}
@@ -91,7 +101,7 @@ export function SiteHeader({
           <span>Greifvogelkompass</span>
         </a>
         {activeSection === 'birds' && onQueryChange && (
-          <div className="search-wrap topbar-search">
+          <div className="search-wrap topbar-search relative flex items-center flex-[0_1_220px] min-w-[140px] w-full m-0 to-tablet:col-span-full to-tablet:row-start-2 to-phone:hidden">
             <Search size={17} />
             <Input
               aria-label="Vogelart suchen"
@@ -101,7 +111,7 @@ export function SiteHeader({
             />
             {query && (
               <button
-                className="clear-search"
+                className="clear-search text-muted-foreground absolute right-[10px]"
                 aria-label="Suche leeren"
                 onClick={() => onQueryChange('')}
               >
@@ -111,10 +121,14 @@ export function SiteHeader({
           </div>
         )}
       </div>
-      <nav className="site-navigation" aria-label="Hauptnavigation">
+      <nav
+        className="site-navigation col-start-2 row-start-1 justify-self-end flex items-center gap-2 to-tablet:hidden"
+        aria-label="Hauptnavigation"
+      >
         {sections.map((section) => (
           <a
             key={section.id}
+            className="inline-flex items-center justify-center h-(--header-control-height) px-3 py-0 rounded-lg text-(length:--type-button) leading-(--leading-normal) font-(--weight-medium) whitespace-nowrap"
             href={section.href}
             aria-current={activeSection === section.id ? 'page' : undefined}
           >
@@ -122,7 +136,7 @@ export function SiteHeader({
           </a>
         ))}
       </nav>
-      <div className="mobile-navigation">
+      <div className="mobile-navigation hidden to-tablet:block to-tablet:col-start-3 to-tablet:row-start-1">
         <DropdownMenu modal={false}>
           <DropdownMenuTrigger
             render={
@@ -130,6 +144,7 @@ export function SiteHeader({
                 variant="ghost"
                 size="icon"
                 aria-label="Navigation öffnen"
+                className="to-tablet:size-(--header-control-height)"
               />
             }
           >
@@ -155,12 +170,12 @@ export function SiteHeader({
           </DropdownMenuContent>
         </DropdownMenu>
       </div>
-      <div className="header-actions">
+      <div className="header-actions col-start-3 row-start-1 flex items-center gap-2 justify-self-end to-tablet:col-start-2">
         <TooltipHint content={dark ? 'Hellmodus' : 'Dunkelmodus'}>
           <Button
             variant="ghost"
             size="icon"
-            className="header-action theme-toggle"
+            className="header-action min-w-[38px] theme-toggle"
             onClick={toggleTheme}
             aria-label={
               dark ? 'Hellmodus aktivieren' : 'Dunkelmodus aktivieren'
@@ -183,7 +198,7 @@ export function SiteHeader({
                 <Button
                   variant="ghost"
                   size="icon"
-                  className="header-action"
+                  className="header-action min-w-[38px]"
                   aria-label="Über diese Seite"
                 />
               }

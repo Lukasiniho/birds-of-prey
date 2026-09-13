@@ -33,24 +33,34 @@ export function QuizFeedback({ points, text }: QuizFeedbackProps) {
   return (
     <div
       ref={panelRef}
-      className="q-feedback t-panel-slide"
+      className="q-feedback flex-1 min-w-0 grid items-center gap-3 t-panel-slide"
       data-open="false"
       data-perfect={perfect}
       aria-live="polite"
       aria-atomic="true"
     >
-      <span className="q-feedback-icon" aria-hidden="true">
+      <span
+        className="q-feedback-icon text-danger bg-danger-soft grid place-items-center size-(--feedback-icon-size)"
+        aria-hidden="true"
+      >
         <Icon size={24} />
       </span>
-      <div className="q-feedback-copy">
-        <p className="q-feedback-title">{title}</p>
-        <p className="q-feedback-detail" title={text}>
+      <div className="q-feedback-copy min-w-0">
+        <p className="q-feedback-title text-(length:--type-feedback-title) font-(--weight-bold) leading-(--leading-compact) text-foreground">
+          {title}
+        </p>
+        <p
+          className="q-feedback-detail font-(--weight-regular) leading-(--leading-compact)"
+          title={text}
+        >
           {text}
         </p>
       </div>
-      <span className="q-points-earned">
+      <span className="q-points-earned font-(--weight-medium) leading-(--leading-display) whitespace-nowrap text-right">
         +{points}
-        <small>Punkte</small>
+        <small className="block mt-0 font-(--weight-regular) leading-(--leading-display)">
+          Punkte
+        </small>
       </span>
     </div>
   );

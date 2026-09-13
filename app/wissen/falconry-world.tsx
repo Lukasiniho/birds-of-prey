@@ -1,5 +1,7 @@
 'use client';
 
+import { DetailHeading, DetailCopy } from '@/components/detail-text';
+
 import { useEffect, useState } from 'react';
 import { ArtImage } from '@/components/art-image';
 import { ArrowUpRight, Info } from '@/components/icons';
@@ -84,19 +86,21 @@ export default function FalconryWorld({ birds }: { birds: KnowledgeBird[] }) {
   }, [attempt]);
 
   return (
-    <div className="knowledge-split falconry-world">
+    <div className="explorer-layout knowledge-split falconry-world">
       <section
-        className="falconry-map-surface"
+        className="falconry-map-surface bg-stage min-w-0 relative"
         aria-label={
           view === 'karte'
             ? 'Falknerei auf der Weltkarte'
             : 'Falknerei im Zeitstrahl'
         }
       >
-        <header className="knowledge-surface-heading">
+        <header className="knowledge-surface-heading to-tablet:items-start to-tablet:flex-wrap flex items-center justify-between gap-4 p-panel">
           <div>
-            <span className="knowledge-eyebrow">Mensch & Greifvogel</span>
-            <h2>Eine Kunst, viele Traditionen</h2>
+            <span className="knowledge-eyebrow text-muted-foreground text-(length:--type-caption) font-(--weight-medium) tracking-(--tracking-caps) block uppercase mb-1">
+              Mensch & Greifvogel
+            </span>
+            <DetailHeading>Eine Kunst, viele Traditionen</DetailHeading>
           </div>
           <SegmentedControl
             label="Karte oder Zeitstrahl"
@@ -107,21 +111,31 @@ export default function FalconryWorld({ birds }: { birds: KnowledgeBird[] }) {
           />
         </header>
         {view === 'zeitstrahl' ? (
-          <div className="falconry-timeline-surface">
-            <ol className="falconry-timeline" aria-label="Stationen wählen">
+          <div className="falconry-timeline-surface pt-0 px-panel pb-[calc(var(--panel-padding)+26px)] relative">
+            <ol
+              className="falconry-timeline list-none m-0 p-0 grid"
+              aria-label="Stationen wählen"
+            >
               {falconryEras.map((item) => (
                 <li key={item.id}>
                   <button
                     type="button"
-                    className="falconry-era"
+                    className="falconry-era grid grid-cols-[132px_var(--space-16)_minmax(0,1fr)] to-tablet:grid-cols-[88px_var(--space-16)_minmax(0,1fr)] items-start gap-x-3 w-full py-3 px-2 text-left"
                     aria-pressed={era === item.id}
                     onClick={() => setEra(item.id)}
                   >
-                    <span className="falconry-era-date">{item.era}</span>
-                    <span className="falconry-era-marker" aria-hidden="true" />
-                    <span className="falconry-era-text">
-                      <span className="falconry-era-name">{item.name}</span>
-                      <span className="falconry-era-summary">
+                    <span className="falconry-era-date text-(length:--type-caption) text-muted-foreground leading-(--leading-normal) pt-half text-right">
+                      {item.era}
+                    </span>
+                    <span
+                      className="falconry-era-marker relative self-stretch block w-4 min-h-full"
+                      aria-hidden="true"
+                    />
+                    <span className="falconry-era-text grid gap-half min-w-0">
+                      <span className="falconry-era-name text-(length:--type-ui) font-(--weight-medium) leading-(--leading-normal)">
+                        {item.name}
+                      </span>
+                      <span className="falconry-era-summary text-(length:--type-body) leading-(--leading-relaxed) text-muted-foreground">
                         {item.summary}
                       </span>
                     </span>
@@ -131,13 +145,13 @@ export default function FalconryWorld({ birds }: { birds: KnowledgeBird[] }) {
             </ol>
           </div>
         ) : (
-          <div className="falconry-map">
+          <div className="falconry-map aspect-[857/450] to-tablet:my-6 to-tablet:mx-0 relative w-full">
             {base ? (
               <>
                 <svg
                   viewBox={mapView.join(' ')}
                   aria-hidden="true"
-                  className="falconry-basemap"
+                  className="falconry-basemap size-full block"
                 >
                   <g>
                     {base.paths.map((d, index) => (
@@ -155,7 +169,7 @@ export default function FalconryWorld({ birds }: { birds: KnowledgeBird[] }) {
                     return (
                       <g
                         key={item.id}
-                        className="falconry-map-callout"
+                        className="falconry-map-callout text-muted-foreground"
                         data-selected={selected === item.id}
                       >
                         <line
@@ -176,7 +190,7 @@ export default function FalconryWorld({ birds }: { birds: KnowledgeBird[] }) {
                   return (
                     <button
                       type="button"
-                      className="falconry-map-pin"
+                      className="falconry-map-pin to-compact:size-[48px] to-tablet:size-[44px] absolute size-[56px] z-1"
                       key={item.id}
                       style={{
                         left: `${((x - mapView[0]) / mapView[2]) * 100}%`,
@@ -186,8 +200,9 @@ export default function FalconryWorld({ birds }: { birds: KnowledgeBird[] }) {
                       aria-pressed={selected === item.id}
                       onClick={() => setSelected(item.id)}
                     >
-                      <span className="falconry-pin-portrait">
+                      <span className="falconry-pin-portrait bg-background grid place-items-center size-full">
                         <ArtImage
+                          className="size-[46px] to-compact:size-[40px] to-tablet:size-[36px] object-contain"
                           src={bird.portrait}
                           alt=""
                           width={46}
@@ -195,13 +210,15 @@ export default function FalconryWorld({ birds }: { birds: KnowledgeBird[] }) {
                           displayWidth={46}
                         />
                       </span>
-                      <span className="falconry-pin-label">{item.name}</span>
+                      <span className="falconry-pin-label bg-background rounded-(--radius-small) text-(length:--type-ui) text-muted-foreground pointer-events-none absolute left-[50%] py-half px-2 whitespace-nowrap">
+                        {item.name}
+                      </span>
                     </button>
                   );
                 })}
               </>
             ) : (
-              <output className="falconry-map-status">
+              <output className="falconry-map-status text-muted-foreground text-(length:--type-body) flex flex-col gap-3 items-center justify-center absolute inset-0 p-panel text-center">
                 {failed ? (
                   <>
                     <p>
@@ -227,7 +244,7 @@ export default function FalconryWorld({ birds }: { birds: KnowledgeBird[] }) {
         )}
         {view === 'karte' && (
           <fieldset
-            className="ecology-tags falconry-region-choices"
+            className="ecology-tags flex flex-wrap gap-2 falconry-region-choices"
             aria-label="Falknereiregion wählen"
           >
             {falconryRegions.map((item) => (
@@ -244,14 +261,20 @@ export default function FalconryWorld({ birds }: { birds: KnowledgeBird[] }) {
         )}
         <FalconryMapInfo chapter={chapter} basemap={view === 'karte'} />
       </section>
-      <aside className="knowledge-notes" aria-live="polite" aria-atomic="true">
+      <aside
+        className="explorer-notes knowledge-notes bg-(--atlas-info-surface) relative min-w-0"
+        aria-live="polite"
+        aria-atomic="true"
+      >
         <div
-          className="knowledge-notes-scroll detail-panel"
+          className="knowledge-notes-scroll to-tablet:static to-tablet:overflow-visible absolute inset-0 overflow-y-auto detail-panel"
           key={`${view}-${chapter.id}`}
         >
-          <span className="knowledge-eyebrow">{chapter.place}</span>
-          <h2>{chapter.title}</h2>
-          <div className="knowledge-bird-list">
+          <span className="knowledge-eyebrow text-muted-foreground text-(length:--type-caption) font-(--weight-medium) tracking-(--tracking-caps) block uppercase mb-1">
+            {chapter.place}
+          </span>
+          <DetailHeading>{chapter.title}</DetailHeading>
+          <div className="knowledge-bird-list grid gap-2 mt-4">
             {chapter.birds.map((id) => {
               const bird = birds.find((item) => item.id === id)!;
               return (
@@ -267,8 +290,8 @@ export default function FalconryWorld({ birds }: { birds: KnowledgeBird[] }) {
               );
             })}
           </div>
-          <p>{chapter.text}</p>
-          <p>{chapter.detail}</p>
+          <DetailCopy className="mt-3">{chapter.text}</DetailCopy>
+          <DetailCopy className="mt-3">{chapter.detail}</DetailCopy>
         </div>
       </aside>
     </div>
@@ -289,7 +312,10 @@ function FalconryMapInfo({
   return (
     <Popover>
       <TooltipHint content={label}>
-        <PopoverTrigger className="range-map-source" aria-label={label}>
+        <PopoverTrigger
+          className="range-map-source absolute left-[8px] bottom-[8px] grid place-items-center size-[26px]"
+          aria-label={label}
+        >
           <Info size={14} aria-hidden="true" />
         </PopoverTrigger>
       </TooltipHint>
@@ -298,7 +324,7 @@ function FalconryMapInfo({
         align="start"
         className="range-map-source-details"
       >
-        <div className="range-map-credits">
+        <div className="range-map-credits text-muted-foreground text-(length:--type-caption) leading-(--leading-normal) flex flex-wrap gap-[5px] mt-[6px]">
           {chapter.sources.map((source) => (
             <div key={source.url}>
               <a href={source.url} target="_blank" rel="noreferrer">

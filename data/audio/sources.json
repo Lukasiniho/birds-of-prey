@@ -1241,5 +1241,104 @@
       "sha256": "870a38de529c0cde2ab6175d239b476f35cc83fe1cf09e179d5f4a8fe0ac3fb4",
       "downloadFilename": "iberienadler-original.wav"
     }
+  },
+  {
+    "birdId": "schreiseeadler",
+    "path": "public/audio/schreiseeadler-7c4f2b0885ed.mp3",
+    "label": "Rufreihe",
+    "author": "Günter Tembrock / Tierstimmenarchiv, Museum für Naturkunde Berlin",
+    "sourceUrl": "https://suche.tierstimmenarchiv.de/search/showdetails.html?unique_identifier=TSA%3AHaliaeetus_vocifer_V_2091_3_1&language=deutsch",
+    "downloadUrl": "https://suche.tierstimmenarchiv.de/download.mp3?unique_identifier=TSA:Haliaeetus_vocifer_V_2091_3_1",
+    "license": "CC BY-SA 3.0 DE",
+    "licenseUrl": "https://creativecommons.org/licenses/by-sa/3.0/de/",
+    "verifiedAt": "2026-09-13",
+    "durationSeconds": 8,
+    "sha256": "7c4f2b0885ed8f95755af0217e19463ea832d7549ae8e10e51b9553510787d22",
+    "bytes": 129192,
+    "description": "Rufe im Zoologischen Garten Berlin, aufgenommen am 12. Dezember 2000.",
+    "changes": "Rufsequenz ausgewählt und gekürzt; als Mono-MP3 gespeichert, Lautstärke angepasst und Schnittkanten kurz ein- und ausgeblendet. Tonhöhe und Abspielgeschwindigkeit unverändert.",
+    "edit": {
+      "startSeconds": 91,
+      "endSeconds": 99,
+      "gainDb": 0.0,
+      "fadeInSeconds": 0.012,
+      "fadeOutSeconds": 0.02,
+      "sampleRateHz": 44100,
+      "bitrateKbps": 128,
+      "encoder": "FFmpeg 7.1 / libmp3lame"
+    },
+    "original": {
+      "durationSeconds": 158.832,
+      "sha256": "06603125d33d9159d77fed79d5143c697bc65025bce268a050c25b91fe33d34f",
+      "downloadFilename": "schreiseeadler.mp3"
+    },
+    "archiveIdentifier": "TSA:Haliaeetus_vocifer_V_2091_3_1",
+    "archive": "Tierstimmenarchiv, Museum für Naturkunde Berlin"
+  },
+  {
+    "birdId": "gaensegeier",
+    "path": "public/audio/gaensegeier-6a53572503e0.mp3",
+    "label": "Rufe",
+    "author": "Hans Lütgens / Tierstimmenarchiv, Museum für Naturkunde Berlin",
+    "sourceUrl": "https://suche.tierstimmenarchiv.de/search/showdetails.html?unique_identifier=TSA%3AGyps_fulvus_Lue_59_5_1&language=deutsch",
+    "downloadUrl": "https://suche.tierstimmenarchiv.de/download.mp3?unique_identifier=TSA:Gyps_fulvus_Lue_59_5_1",
+    "license": "CC BY-SA 3.0 DE",
+    "licenseUrl": "https://creativecommons.org/licenses/by-sa/3.0/de/",
+    "verifiedAt": "2026-09-13",
+    "durationSeconds": 6,
+    "sha256": "6a53572503e03e0c0ff0e45239c964c39e3022761d93d731ae43c0d90a8a7767",
+    "bytes": 97009,
+    "description": "Schlusssequenz einer Aufnahme aus dem Tierpark Berlin; laut Archiv sind die letzten Laute vom Gänsegeier, davor ist auch ein Schneegeier zu hören.",
+    "changes": "Rufsequenz ausgewählt und gekürzt; als Mono-MP3 gespeichert, Lautstärke angepasst und Schnittkanten kurz ein- und ausgeblendet. Tonhöhe und Abspielgeschwindigkeit unverändert.",
+    "edit": {
+      "startSeconds": 24,
+      "endSeconds": 30,
+      "gainDb": 7.4,
+      "fadeInSeconds": 0.012,
+      "fadeOutSeconds": 0.02,
+      "sampleRateHz": 44100,
+      "bitrateKbps": 128,
+      "encoder": "FFmpeg 7.1 / libmp3lame"
+    },
+    "original": {
+      "durationSeconds": 30.616,
+      "sha256": "2836e46bad97b3ceb554ed6e954fbad2bd507d0a4b5bb9ce9e708c2484c881ac",
+      "downloadFilename": "gaensegeier.mp3"
+    },
+    "archiveIdentifier": "TSA:Gyps_fulvus_Lue_59_5_1",
+    "archive": "Tierstimmenarchiv, Museum für Naturkunde Berlin"
+  },
+  {
+    "birdId": "schleiereule",
+    "path": "public/audio/schleiereule-3f83b7ca374e.mp3",
+    "label": "Rufreihe",
+    "author": "Michael Schubert / Tierstimmenarchiv, Museum für Naturkunde Berlin",
+    "sourceUrl": "https://suche.tierstimmenarchiv.de/search/showdetails.html?unique_identifier=SUB%3ATyto_alba_Sub_CD0049_07&language=deutsch",
+    "downloadUrl": "https://suche.tierstimmenarchiv.de/download.mp3?unique_identifier=SUB:Tyto_alba_Sub_CD0049_07",
+    "license": "CC BY-SA 3.0 DE",
+    "licenseUrl": "https://creativecommons.org/licenses/by-sa/3.0/de/",
+    "verifiedAt": "2026-09-13",
+    "durationSeconds": 8,
+    "sha256": "3f83b7ca374e8598fabb1df64c3274f8cafc570d242f96939ac4255542e25ff7",
+    "bytes": 129192,
+    "description": "Rufe einer adulten Schleiereule (pch-Ruf), aufgenommen am 31. August 1981 bei Burg Stargard.",
+    "changes": "Rufsequenz ausgewählt und gekürzt; als Mono-MP3 gespeichert, Lautstärke angepasst und Schnittkanten kurz ein- und ausgeblendet. Tonhöhe und Abspielgeschwindigkeit unverändert.",
+    "edit": {
+      "startSeconds": 10,
+      "endSeconds": 18,
+      "gainDb": 16.5,
+      "fadeInSeconds": 0.012,
+      "fadeOutSeconds": 0.02,
+      "sampleRateHz": 44100,
+      "bitrateKbps": 128,
+      "encoder": "FFmpeg 7.1 / libmp3lame"
+    },
+    "original": {
+      "durationSeconds": 177.8,
+      "sha256": "d44100ecee4a95a89839133aba872cf72d74211468d7b1d5b7f369f3c0fe0e40",
+      "downloadFilename": "schleiereule.mp3"
+    },
+    "archiveIdentifier": "SUB:Tyto_alba_Sub_CD0049_07",
+    "archive": "Tierstimmenarchiv, Museum für Naturkunde Berlin"
   }
 ]

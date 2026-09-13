@@ -1,5 +1,6 @@
 'use client';
 
+import { cn } from '@/lib/utils';
 import { useEffect, useRef, useState } from 'react';
 import {
   Info,
@@ -90,19 +91,36 @@ export function QuizCallPlayer({
         : Play;
 
   return (
-    <div className="q-call-player" data-revealed={revealed}>
+    <div
+      className={cn(
+        'q-call-player relative z-1 flex flex-col items-center text-center',
+        revealed ? 'gap-1 py-0' : 'gap-3 py-6',
+      )}
+      data-revealed={revealed}
+    >
       <Button
         variant="ghost"
-        className="q-call-play"
+        className={cn(
+          'q-call-play flex h-auto border-0 shadow-none',
+          revealed ? 'flex-row gap-2 py-2 px-3' : 'flex-col gap-4 py-4 px-6',
+        )}
         onClick={toggle}
         aria-label={label}
       >
-        <Icon aria-hidden="true" className={revealed ? 'size-4.5' : 'size-8'} />
+        <Icon
+          aria-hidden="true"
+          className={cn(
+            'border-0 rounded-[50%] bg-primary text-primary-foreground',
+            revealed ? 'size-4.5 p-2' : 'size-8 p-6',
+          )}
+        />
         <span>{label}</span>
       </Button>
       <p
         className={
-          state === 'error' || state === 'loading' ? 'q-call-status' : 'sr-only'
+          state === 'error' || state === 'loading'
+            ? 'q-call-status text-muted-foreground text-(length:--type-caption) leading-(--leading-relaxed)'
+            : 'sr-only'
         }
         role="status"
       >
@@ -136,7 +154,7 @@ export function QuizCallInfo({ recording }: { recording: BirdRecording }) {
     <Popover>
       <TooltipHint content="Aufnahme, Quelle und Lizenz">
         <PopoverTrigger
-          className="range-map-source q-call-credit"
+          className="range-map-source absolute left-[8px] bottom-[8px] grid place-items-center size-[26px] q-call-credit z-2"
           aria-label="Aufnahme, Quelle und Lizenz"
         >
           <Info size={14} aria-hidden="true" />
@@ -147,7 +165,7 @@ export function QuizCallInfo({ recording }: { recording: BirdRecording }) {
         align="start"
         className="range-map-source-details"
       >
-        <div className="range-map-credits">
+        <div className="range-map-credits text-muted-foreground text-(length:--type-caption) leading-(--leading-normal) flex flex-wrap gap-[5px] mt-[6px]">
           <div>
             <a href={recording.sourceUrl} target="_blank" rel="noreferrer">
               {recording.author}

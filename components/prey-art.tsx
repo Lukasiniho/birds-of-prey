@@ -2,17 +2,47 @@ import { preyCatalog } from '@/lib/diets';
 import { ArtImage } from '@/components/art-image';
 import { Bone, Bug } from '@/components/icons';
 import { preyFraming } from '@/lib/prey-framing';
+import { cn } from '@/lib/utils';
 import { imageSource } from '@/lib/optimized-images';
-export function PreyArt({ preyKey }: { preyKey: string }) {
+type PreyArtVariant = 'atlas' | 'tile' | 'choice' | 'placed' | 'drag';
+
+const frameSizes: Record<PreyArtVariant, string> = {
+  atlas: 'size-[88px] mx-auto mb-2',
+  tile: 'size-[72px] min-h-0 mx-0 mb-2',
+  choice: 'size-full m-0',
+  placed: 'size-[28px] min-h-0 m-0',
+  drag: 'size-[80px] m-0',
+};
+const symbolSizes: Record<PreyArtVariant, string> = {
+  atlas: 'size-full min-h-[50px]',
+  tile: 'size-[72px] min-h-0 mb-2',
+  choice: 'size-full min-h-[50px] m-0',
+  placed: 'size-[28px] min-h-0 m-0',
+  drag: 'size-[80px] min-h-[50px] m-0',
+};
+
+/** The same crop and icon sizing in the atlas, knowledge tiles and quiz. */
+export function PreyArt({
+  preyKey,
+  variant = 'atlas',
+}: {
+  preyKey: string;
+  variant?: PreyArtVariant;
+}) {
   const frame = preyFraming[preyKey];
   if (!frame && !preyCatalog[preyKey]?.icon) return null;
   if (!frame)
     return (
-      <span className="prey-symbol">
+      <span
+        className={cn(
+          'prey-symbol text-muted-foreground grid place-items-center',
+          symbolSizes[variant],
+        )}
+      >
         {preyCatalog[preyKey].icon === 'bug' ? (
-          <Bug aria-hidden="true" />
+          <Bug size={variant === 'placed' ? 24 : 46} aria-hidden="true" />
         ) : (
-          <Bone aria-hidden="true" />
+          <Bone size={variant === 'placed' ? 24 : 46} aria-hidden="true" />
         )}
       </span>
     );
@@ -23,15 +53,22 @@ export function PreyArt({ preyKey }: { preyKey: string }) {
   // resolution the crop actually needs.
   const displayWidth = Math.ceil((130 * frame.imageWidth) / frame.width);
   return (
-    <span className="prey-image framed-prey">
+    <span
+      className={cn(
+        'prey-image framed-prey relative flex justify-center aspect-square p-0 max-w-full',
+        preyKey === 'fisch' ? 'items-center' : 'items-end',
+        frameSizes[variant],
+      )}
+    >
       <span
-        className="prey-crop"
+        className="prey-crop relative block overflow-hidden flex-none"
         style={{
           width: `${(frame.width / size) * 100}%`,
           height: `${(frame.height / size) * 100}%`,
         }}
       >
         <ArtImage
+          className="absolute block"
           src={imageSource(frame.src)}
           alt=""
           width={frame.imageWidth}

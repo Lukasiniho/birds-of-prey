@@ -30,9 +30,9 @@ export function RangeQuestion({
   const entry = bird.range;
   const data = useRangeMap(entry);
   return (
-    <div className="q-split">
-      <div className="q-specimen">
-        <div className="q-specimen-label">
+    <div className="q-split grid min-h-[500px]">
+      <div className="q-specimen to-tablet:py-3 bg-stage flex relative flex-col overflow-hidden">
+        <div className="q-specimen-label flex flex-col items-start gap-0 relative z-1">
           {answered ? (
             <SpeciesName
               variant="quiz"
@@ -47,9 +47,9 @@ export function RangeQuestion({
             </SpeciesCommonName>
           )}
         </div>
-        <div className="q-range-space">
+        <div className="q-range-space content-center to-tablet:min-h-0 to-tablet:mt-3 flex-1 grid min-h-[280px] mt-4">
           {entry && data ? (
-            <div className="range-map-surface q-range-map">
+            <div className="range-map-surface relative q-range-map">
               <MapDrawing
                 data={data}
                 world
@@ -60,19 +60,21 @@ export function RangeQuestion({
               <MapSourceInfo entry={entry} />
             </div>
           ) : (
-            <p className="range-map-placeholder">Karte wird geladen …</p>
+            <p className="range-map-placeholder m-0 border-(length:--border-structure) rounded-(--radius-card) text-muted-foreground text-(length:--type-ui) min-h-[160px] flex flex-col items-center justify-center gap-[10px]">
+              Karte wird geladen …
+            </p>
           )}
         </div>
       </div>
-      <div className="q-question-controls">
-        <span className="q-task-label">
+      <div className="q-question-controls flex flex-col items-stretch">
+        <span className="q-task-label to-tablet:mb-3 text-(length:--type-ui) font-(--weight-medium) text-(--main-color) flex items-center gap-2 mb-4">
           <GlobeHemisphereWest size={17} /> Verbreitung erkennen
         </span>
         <QuizQuestionTitle>
           Welcher Greifvogel <br />
           lebt hier?
         </QuizQuestionTitle>
-        <p>
+        <p className="text-(--muted-foreground) leading-(--leading-relaxed)">
           Die Karte zeigt das Verbreitungsgebiet einer Art. Wähle aus, zu wem es
           gehört.
         </p>
