@@ -1,0 +1,34 @@
+[
+  {
+    "age": "adult",
+    "info": {
+      "format": "raw",
+      "width": 1282,
+      "height": 1282,
+      "channels": 4,
+      "depth": "uchar",
+      "premultiplied": false,
+      "size": 6574096
+    },
+    "alphaDifferencesFromOriginal": 0,
+    "transparent": 1101037,
+    "opaque": 871,
+    "partial": 541616
+  },
+  {
+    "age": "juvenile",
+    "info": {
+      "format": "raw",
+      "width": 1282,
+      "height": 1282,
+      "channels": 4,
+      "depth": "uchar",
+      "premultiplied": false,
+      "size": 6574096
+    },
+    "alphaDifferencesFromOriginal": 0,
+    "transparent": 1101037,
+    "opaque": 871,
+    "partial": 541616
+  }
+]

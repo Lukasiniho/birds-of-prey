@@ -31,7 +31,7 @@ export const birdImages: Record<string, string> = {
   steinadler: '/birds/steinadler.png?v=c89f6fd477fa',
   'juvenile-steinadler': '/birds/juvenile-steinadler.png?v=4591ef8fe727',
   weissstorch: '/birds/weissstorch.png?v=de138eb54613',
-  'juvenile-habicht': '/birds/juvenile-habicht.png?v=ec9eea5c46b4',
+  'juvenile-habicht': '/birds/juvenile-habicht-20260913-v3.png',
   'juvenile-baumfalke': '/birds/juvenile-baumfalke.png?v=884c8a4270b0',
   kronenadler: '/birds/kronenadler-20260907.png',
   koenigsbussard: '/birds/koenigsbussard.png?v=fd1e16cf33a0',

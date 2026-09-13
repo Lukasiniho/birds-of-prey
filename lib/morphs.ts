@@ -1,4 +1,5 @@
 export type MorphSpeciesId =
+  | 'habicht'
   | 'maeusebussard'
   | 'gerfalke'
   | 'koenigsbussard'
@@ -37,6 +38,86 @@ export type BirdMorphConfig = {
 };
 
 export const birdMorphs: Record<MorphSpeciesId, BirdMorphConfig> = {
+  habicht: {
+    label: 'Gefiederform',
+    stages: ['male', 'juvenile'],
+    defaultId: 'normal',
+    note: 'Isabellfarbene Habichte sind eine sehr seltene beige Farbabweichung, vor allem aus Mittel- und Osteuropa bekannt. Die weiße Morphe gehört zur nordostasiatischen Unterart albidus, die auch blassgraue Vögel umfasst. Die beiden Gefiederformen sind keine Geschlechtsvarianten.',
+    sources: [
+      {
+        name: 'Wikipedia – Eurasischer Habicht: isabellfarbene Morphe und albidus',
+        url: 'https://en.wikipedia.org/wiki/Eurasian_goshawk#Description',
+      },
+      {
+        name: 'Macaulay Library – weiße Form von albidus',
+        url: 'https://macaulaylibrary.org/asset/615793231',
+      },
+      {
+        name: 'American Birding Association – Eurasischer Habicht',
+        url: 'https://www.aba.org/wp-content/uploads/2025/02/2024_ABA_CLC_Report.pdf',
+      },
+    ],
+    choices: [
+      {
+        id: 'normal',
+        label: 'Normal',
+        adultNote:
+          'Grauer Kopf mit hellem Überaugenstreif; helle Unterseite mit dichter dunkler Querbänderung.',
+        juvenileNote: 'Braune Oberseite und längsgestreifte helle Unterseite.',
+        adultColors: [
+          ['Grau', '#68717C'],
+          ['Grauweiß', '#E1E0DD'],
+          ['Dunkelgrau', '#383C43'],
+        ],
+        juvenileColors: [
+          ['Braun', '#79634E'],
+          ['Cremebeige', '#D8CAB1'],
+        ],
+      },
+      {
+        id: 'albidus',
+        label: 'Weiß',
+        adultNote:
+          'Weiße Morphe der nordostasiatischen Unterart albidus: überwiegend weißliches Gefieder mit blassgrauer Zeichnung. Iris und unbefiederte Partien behalten ihre natürliche Farbe.',
+        juvenileNote:
+          'Weiße Morphe der nordostasiatischen Unterart albidus im Jugendkleid: sehr helle Grundfarbe mit zurückhaltender bräunlicher Längszeichnung und heller Iris.',
+        adultColors: [
+          ['Weißlich', '#EEECE6'],
+          ['Blassgrau', '#BBBAB5'],
+        ],
+        juvenileColors: [
+          ['Weißlich', '#EEECE6'],
+          ['Blassgrau', '#BBBAB5'],
+        ],
+        images: {
+          male: '/birds/morph-habicht-albidus-male-20260913-v3.png',
+          juvenile: '/birds/morph-habicht-albidus-juvenile-20260913-v3.png',
+        },
+      },
+      {
+        id: 'isabell',
+        label: 'Isabell',
+        adultNote:
+          'Isabellfarbenes Gefieder ist eine sehr seltene beige Farbabweichung, vor allem aus Mittel- und Osteuropa bekannt. Die Querbänderung ist hellbraun abgeschwächt; diese Form unterscheidet sich von der weißen albidus-Morphe.',
+        juvenileNote:
+          'Illustrative Darstellung der seltenen isabellfarbenen Variante im Jugendkleid: beige Grundfarbe mit hellbrauner Längszeichnung und heller Iris.',
+        adultColors: [
+          ['Beige', '#CBB48D'],
+          ['Cremebeige', '#D8CAB1'],
+          ['Hellbraun', '#A58A6B'],
+        ],
+        juvenileColors: [
+          ['Beige', '#CBB48D'],
+          ['Cremebeige', '#D8CAB1'],
+          ['Hellbraun', '#A58A6B'],
+        ],
+        images: {
+          male: '/birds/morph-habicht-isabell-adult-20260913.png',
+          juvenile: '/birds/morph-habicht-isabell-juvenile-20260913.png',
+        },
+      },
+    ],
+  },
   zwergadler: {
     label: 'Morphe',
     defaultId: 'hell',

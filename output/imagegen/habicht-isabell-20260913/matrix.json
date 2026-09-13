@@ -1,0 +1,50 @@
+[
+  {
+    "morph": "normal",
+    "stage": "male",
+    "path": "public/birds/habicht.png",
+    "width": 1282,
+    "height": 1282,
+    "alpha": true
+  },
+  {
+    "morph": "albidus",
+    "stage": "male",
+    "path": "public/birds/morph-habicht-albidus-male-20260913-v3.png",
+    "width": 1282,
+    "height": 1282,
+    "alpha": true
+  },
+  {
+    "morph": "isabell",
+    "stage": "male",
+    "path": "public/birds/morph-habicht-isabell-adult-20260913.png",
+    "width": 1282,
+    "height": 1282,
+    "alpha": true
+  },
+  {
+    "morph": "normal",
+    "stage": "juvenile",
+    "path": "public/birds/juvenile-habicht-20260913-v3.png",
+    "width": 1282,
+    "height": 1282,
+    "alpha": true
+  },
+  {
+    "morph": "albidus",
+    "stage": "juvenile",
+    "path": "public/birds/morph-habicht-albidus-juvenile-20260913-v3.png",
+    "width": 1282,
+    "height": 1282,
+    "alpha": true
+  },
+  {
+    "morph": "isabell",
+    "stage": "juvenile",
+    "path": "public/birds/morph-habicht-isabell-juvenile-20260913.png",
+    "width": 1282,
+    "height": 1282,
+    "alpha": true
+  }
+]

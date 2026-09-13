@@ -1,0 +1,62 @@
+{
+  "date": "2026-09-13",
+  "species": "Eurasischer Habicht",
+  "type": "Flugbild",
+  "authorization": "User requested implementing the discussed isabelline variant; adult and juvenile follow the existing two-age selection.",
+  "generation": "Built-in image_gen; two independent image edits, one per age. No variants chain.",
+  "original": {
+    "path": "/Users/lukasvonhohnhorst/Coding/birds-of-prey/public/birds/habicht.png",
+    "sha256": "1978c3d38ab7f81be06fbaac74f16acf7bf447b86a75d5b68547a70293f51876",
+    "role": "Only edit target and sole anatomy, pose, composition and style reference",
+    "dimensions": [
+      1282,
+      1282
+    ]
+  },
+  "variants": [
+    {
+      "age": "adult",
+      "prompt": "Use case: precise-object-edit. Asset type: scientific naturalistic bird illustration, flight variant for an identification app.\nInput image 1 is the ONLY EDIT TARGET and the ONLY reference for anatomy, pixel geometry, pose, style, feather structure and composition: the normal adult Eurasian goshawk (Habicht).\nEDIT THIS IMAGE IN PLACE; change plumage pigmentation only to an adult isabelline beige color aberration. Convert all dark gray/brown/black plumage tones into pale muted sandy beige and soft warm light brown; pale feather areas become delicate cream. Retain clearly readable but subdued fine light-brown transverse barring on breast/belly, wing undersides and tail. Soft sandy beige head with a cream eyebrow. Keep the orange adult iris and yellow cere and feet, dark beak and dark claw tips. This is a diluted sand-beige isabelline bird, NOT a rusty orange or white albidus bird.\nStrictly immutable: square canvas format; exact position and scale of entire bird; silhouette; pose; downward viewpoint; head looking left; wing axis lower left to upper right; every feather outline, tip, overlap, wing joint, body contour, eye/beak/foot position, tail shape; perspective; lighting; same detailed naturalistic illustration rendering. Do not redraw, rotate, translate, crop, expand, shrink or recompose the bird. Preserve full wings and tail tips. Paint the new colors directly over the existing feathers without changing their placement.\nBackground must be genuine transparent alpha, absolutely no rendered checkerboard or opaque background, no shadow, no text, no extra objects. Output one image only.",
+      "rawPath": "output/imagegen/habicht-isabell-20260913/adult-raw.png",
+      "finalPath": "public/birds/morph-habicht-isabell-adult-20260913.png",
+      "sha256": "861c198aaddf7dae4604c037127a972dafb6049076e2cd0d02553182230abcff"
+    },
+    {
+      "age": "juvenile",
+      "prompt": "Use case: precise-object-edit. Asset type: scientific naturalistic bird illustration, juvenile flight variant for an identification app.\nInput image 1 is the ONLY EDIT TARGET and the ONLY reference for anatomy, pixel geometry, pose, style, feather structure and composition: the NORMAL ADULT Eurasian goshawk (Habicht). This juvenile must be edited directly from that original, not from any other variant.\nEDIT THIS IMAGE IN PLACE; change only plumage pigmentation and necessary age markings to a JUVENILE ISABELLINE beige color aberration. Overall gentle sandy beige / cream plumage with muted pale warm light-brown markings, NOT rusty orange and NOT white albidus. Replace the adult fine transverse barring on the breast and belly with natural juvenile lengthwise teardrop streaks in light warm brown on cream. Preserve softly banded flight feathers and tail, diluted into pale beige and cream. Head softly sandy beige with cream eyebrow. Change the adult orange iris to a pale yellow juvenile iris; retain yellow cere and feet, dark beak and dark claw tips.\nStrictly immutable: square canvas format; exact position and scale of entire bird; silhouette; pose; downward viewpoint; head looking left; wing axis lower left to upper right; every feather outline, tip, overlap, wing joint, body contour, eye/beak/foot position, tail shape; perspective; lighting; same detailed naturalistic illustration rendering. Do not redraw, rotate, translate, crop, expand, shrink or recompose the bird. Preserve full wings and tail tips. Paint only plumage colors and age patterns over existing geometry.\nBackground must be genuine transparent alpha, absolutely no rendered checkerboard or opaque background, no shadow, no text, no extra objects. Output one image only.",
+      "rawPath": "output/imagegen/habicht-isabell-20260913/juvenile-raw.png",
+      "finalPath": "public/birds/morph-habicht-isabell-juvenile-20260913.png",
+      "sha256": "1eda9a7561f0885db13859638f12eca04d04827fdaff8d389ec98fb2f66036d7"
+    }
+  ],
+  "localCleanup": {
+    "tool": "node scripts/restore-bird-alpha.mjs ORIGINAL EDIT OUTPUT",
+    "reason": "Raw results were RGB 1254×1254 with baked checkerboard.",
+    "processing": "Existing script resizes full canvas uniformly to original 1282×1282, transfers original alpha, repairs narrow edge colors. No independent crop, pose transform or painted plumage changes.",
+    "edgePixelsCleanedEach": 43338
+  },
+  "checks": {
+    "geometry": "Both raw edits visually overlaid 50% against original at a shared uniform canvas scale before alpha restoration. Eye, beak, feet, joints, wing tips and tail coincide; no material inner-pose or silhouette drift observed.",
+    "plumage": "Adult has muted beige/cream with light-brown transverse barring, orange iris. Juvenile has beige/cream with lengthwise brown breast/belly streaks and pale yellow iris. Both retain yellow cere/feet and naturalistic rendering.",
+    "alpha": "Both final images are 1282×1282 RGBA, zero alpha differences against original. 1101037 fully transparent pixels, 871 fully opaque pixels, 541616 partially transparent pixels (inherited original alpha).",
+    "backgroundReview": "Visually checked both finals on white, dark navy and green in background-review.png: checkerboard removed, pale feathers retained, all tips complete. Original alpha includes tiny low-opacity peripheral residues; no significant visible halo at review scale.",
+    "scope": "Only /tmp deliverables created; no website/source files edited. Parent must verify product display and integrate.",
+    "parentReview": "Original/raw 50% overlays and white/dark/green contact sheet inspected. Beak, eye, wing joints, feather tips, tail and feet align visually. New adult confirmed loaded in the live local UI; juvenile switches its image and age description. Final labels shortened on user request to Normal / Weiß / Isabell, explanation in right-hand description."
+  },
+  "reviewFiles": [
+    "adult-overlay.png",
+    "juvenile-overlay.png",
+    "background-review.png",
+    "alpha-report.json"
+  ],
+  "sources": [
+    {
+      "url": "https://en.wikipedia.org/wiki/Eurasian_goshawk#Description",
+      "role": "User-supplied description of rare beige isabelline birds and separate white albidus morph"
+    },
+    {
+      "url": "https://www.birdguides.com/articles/identification/getting-to-grips-with-goshawks/",
+      "role": "Juvenile streaked underparts; applying the beige aberration to juvenile plumage is an illustrative inference, identified as such in the UI."
+    }
+  ]
+}

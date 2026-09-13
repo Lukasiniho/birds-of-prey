@@ -30,7 +30,7 @@ void test('every colour form has illustrations for its supported plumages', () =
       }
     }
   }
-  assert.equal(forms, 20);
+  assert.equal(forms, 23);
 });
 void test('adult-only colour choices do not replace juvenile plumages', () => {
   for (const id of ['gaukler', 'bartgeier']) {
@@ -85,8 +85,8 @@ void test('default adult images remain the existing normal form', () => {
 void test('colour choice resolves within the current species and has a valid default', () => {
   assert.equal(getBirdMorphChoice('maeusebussard', 'weiss')?.id, 'mittel');
   assert.equal(getBirdMorphChoice('gerfalke', 'rostbraun')?.id, 'grau');
-  assert.equal(getBirdMorphConfig('habicht'), undefined);
-  assert.equal(getBirdMorphAppearance('habicht', 'dunkel', 'male'), undefined);
+  assert.equal(getBirdMorphConfig('habicht')?.defaultId, 'normal');
+  assert.equal(getBirdMorphChoice('habicht', 'dunkel', 'male')?.id, 'normal');
   for (const [id, config] of Object.entries(birdMorphs))
     assert.equal(getBirdMorphChoice(id)?.id, config.defaultId);
 });
