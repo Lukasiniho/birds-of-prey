@@ -4,6 +4,19 @@
  * lists without a pill element highlight the pressed tab itself.
  * See docs/design-system.md → Tabs. */
 
+/* Scroll outside the rounded rail: clipping the rail itself trims the shared
+ * outer focus ring. Equal padding and negative margins reserve painting room
+ * without moving the controls or changing their dimensions. */
+.t-tabs-scroll {
+  display: flex;
+  min-width: 0;
+  max-width: 100%;
+  padding: var(--space-4);
+  margin: calc(-1 * var(--space-4));
+  overflow-x: auto;
+  scroll-padding-inline: var(--space-8);
+}
+
 /* Pill switch (transitions.dev 16 Tabs sliding, on the app palette). */
 .t-tabs {
   position: relative;

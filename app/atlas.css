@@ -1750,6 +1750,9 @@ button.color-dot:not(:disabled) {
 .specimen-controls .morph-control {
   display: flex;
   align-items: center;
+  justify-content: center;
+  flex-wrap: wrap;
+  max-width: 100%;
   gap: 10px;
   margin: 0;
   padding: 0;

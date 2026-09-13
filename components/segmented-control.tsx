@@ -39,27 +39,29 @@ export function SegmentedControl<T extends string>({
 }: SegmentedControlProps<T>) {
   const { barRef, pillRef } = useSlidingPill(group, value);
   return (
-    <div
-      className={cn('t-tabs', className)}
-      role="radiogroup"
-      aria-label={label}
-      ref={barRef}
-    >
-      <span className="t-tabs-pill" aria-hidden="true" ref={pillRef} />
-      {options.map((option) => (
-        <button
-          type="button"
-          key={option.value}
-          role="radio"
-          className="t-tab"
-          aria-checked={value === option.value}
-          onPointerEnter={() => onPreload?.(option.value)}
-          onFocus={() => onPreload?.(option.value)}
-          onClick={() => onChange(option.value)}
-        >
-          {option.label}
-        </button>
-      ))}
+    <div className="t-tabs-scroll">
+      <div
+        className={cn('t-tabs', className)}
+        role="radiogroup"
+        aria-label={label}
+        ref={barRef}
+      >
+        <span className="t-tabs-pill" aria-hidden="true" ref={pillRef} />
+        {options.map((option) => (
+          <button
+            type="button"
+            key={option.value}
+            role="radio"
+            className="t-tab"
+            aria-checked={value === option.value}
+            onPointerEnter={() => onPreload?.(option.value)}
+            onFocus={() => onPreload?.(option.value)}
+            onClick={() => onChange(option.value)}
+          >
+            {option.label}
+          </button>
+        ))}
+      </div>
     </div>
   );
 }

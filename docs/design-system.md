@@ -205,6 +205,12 @@ eine Tab-Leiste nur, es gestaltet sie nicht um.
 | `.t-tabs` (Pille)     | Gefieder/Alter, Farbmorphen, Bühnenwahl im Wissen  | 30 px Tab, 3 px Schiene, 4/13 px, 14 px/500  |
 | `.t-tabs.t-tabs-line` | Atlas-Infotabs, Wissensbereiche, Falknerei-Kapitel | 38 px Leiste, 24 px Abstand, 16 px, 400/500  |
 
+`SegmentedControl` legt die Pillenschiene in `.t-tabs-scroll`. Nur diese
+rechteckige Hülle scrollt bei Platzmangel; 4 px Polster mit ausgleichendem
+negativem Außenabstand halten den gemeinsamen äußeren Fokusring vollständig
+sichtbar. Die gerundete `.t-tabs`-Schiene selbst darf ihn nicht beschneiden.
+Alter und Morphen verwenden dieselbe Komponente und Scroll-Regel.
+
 Die gleitende Markierung `.t-tabs-pill` wird von `lib/use-sliding-pill.ts`
 gemessen; Listen ohne Pillenelement (reine Button-Gruppen mit `aria-pressed`)
 heben den gedrückten Tab selbst hervor. Bei der Linienrolle ist die Pille der
