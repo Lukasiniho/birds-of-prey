@@ -1,0 +1,96 @@
+{
+  "mode": "builtin",
+  "jobs": [
+    {
+      "id": "female-turmfalke",
+      "source": "/Users/lukasvonhohnhorst/Coding/birds-of-prey/output/imagegen/falcon-review-20260913/turmfalke-adult-v5.png",
+      "version": "v5",
+      "change": "Adult female Common Kestrel: brown head with fine dark streaks instead of gray male head; brown barred tail instead of plain gray male tail, retaining black subterminal band and pale tips; warm brown upperparts where visible, cream-buff underside with dark streaks/spots. Natural dark iris, yellow cere and eye ring, yellow tucked toes. Same physical dimensions as master, no sex-driven scaling.",
+      "prompt": "Precise plumage-only edit, directly from the attached NORMAL ADULT ORIGINAL of this same species. CHANGE ONLY: Adult female Common Kestrel: brown head with fine dark streaks instead of gray male head; brown barred tail instead of plain gray male tail, retaining black subterminal band and pale tips; warm brown upperparts where visible, cream-buff underside with dark streaks/spots. Natural dark iris, yellow cere and eye ring, yellow tucked toes. Same physical dimensions as master, no sex-driven scaling. LOCK exact silhouette and all anatomy: beak/eye coordinates, head size, wings/joints/every feather outline, tail, feet, body, camera perspective, left-facing direction, lower-left to upper-right wing diagonal, canvas, scale and position. No redrawing/movement of anatomical structures; toggling images must not jump. Natural photographic feather details and soft light. Solid blue #0055FF background for local extraction, no blue spill, checkerboard, halo, text or additions.",
+      "raw": "/Users/lukasvonhohnhorst/.codex/generated_images/01a0976a-4f25-7e80-b0a6-3e4a596912e7/exec-71abdd71-b7da-4033-b58d-b747a192c32c.png",
+      "rawSilhouetteIoU": 0.9939220456307029,
+      "output": "public/birds/female-turmfalke-20260913-v5.png",
+      "sourceSha256": "95ae47f2a4db1a22f74074afa0e9a7cff9b8e1b968302215795f5f3c6b99b8d2",
+      "outputSha256": "6d1fd2702947545c159a89072ffcd8379e7f0266bee7b025ee6bbf018e8eed58",
+      "alphaMatchesMaster": true
+    },
+    {
+      "id": "juvenile-turmfalke",
+      "source": "/Users/lukasvonhohnhorst/Coding/birds-of-prey/output/imagegen/falcon-review-20260913/turmfalke-adult-v5.png",
+      "version": "v5",
+      "change": "Fully fledged juvenile Common Kestrel: brown streaked head, dark iris, muted yellow cere and orbital ring, pale buff underside with denser dark streaking, brown tail with several dark bars and black subterminal band; pale buff feather edges on brown coverts. No adult gray head/tail, no fluffy nestling body. Keep natural pale barred underwings and tucked feet.",
+      "prompt": "Precise plumage-only edit, directly from the attached NORMAL ADULT ORIGINAL of this same species. CHANGE ONLY: Fully fledged juvenile Common Kestrel: brown streaked head, dark iris, muted yellow cere and orbital ring, pale buff underside with denser dark streaking, brown tail with several dark bars and black subterminal band; pale buff feather edges on brown coverts. No adult gray head/tail, no fluffy nestling body. Keep natural pale barred underwings and tucked feet. LOCK exact silhouette and all anatomy: beak/eye coordinates, head size, wings/joints/every feather outline, tail, feet, body, camera perspective, left-facing direction, lower-left to upper-right wing diagonal, canvas, scale and position. No redrawing/movement of anatomical structures; toggling images must not jump. Natural photographic feather details and soft light. Solid blue #0055FF background for local extraction, no blue spill, checkerboard, halo, text or additions.",
+      "raw": "/Users/lukasvonhohnhorst/.codex/generated_images/01a0976a-4f25-7e80-b0a6-3e4a596912e7/exec-02e51be6-e6ac-4d6e-9d52-b6f7cf03336a.png",
+      "rawSilhouetteIoU": 0.9908766797230384,
+      "output": "public/birds/juvenile-turmfalke-20260913-v5.png",
+      "sourceSha256": "95ae47f2a4db1a22f74074afa0e9a7cff9b8e1b968302215795f5f3c6b99b8d2",
+      "outputSha256": "7a0c6bd24121f8b0827e98caac609bb6c36b08623e2b06c5524ce4407d11fa58",
+      "alphaMatchesMaster": true
+    },
+    {
+      "id": "juvenile-wanderfalke",
+      "source": "/Users/lukasvonhohnhorst/Coding/birds-of-prey/public/birds/wanderfalke.png",
+      "version": "v2",
+      "change": "Fully fledged juvenile Peregrine Falcon: brown rather than slate upperparts, creamy buff underbody densely streaked LENGTHWISE with natural dark brown individual feather markings, rather than adult transverse barring. Dark brown cap and broad moustache with pale cheek/throat. Soft brown underwing coverts and barred flight feathers rendered as real feather groups, no repeating squiggle texture. Bluish-gray cere and eye ring, dark iris, muted yellowish feet.",
+      "prompt": "Precise plumage-only edit, directly from the attached NORMAL ADULT ORIGINAL of this same species. CHANGE ONLY: Fully fledged juvenile Peregrine Falcon: brown rather than slate upperparts, creamy buff underbody densely streaked LENGTHWISE with natural dark brown individual feather markings, rather than adult transverse barring. Dark brown cap and broad moustache with pale cheek/throat. Soft brown underwing coverts and barred flight feathers rendered as real feather groups, no repeating squiggle texture. Bluish-gray cere and eye ring, dark iris, muted yellowish feet. LOCK exact silhouette and all anatomy: beak/eye coordinates, head size, wings/joints/every feather outline, tail, feet, body, camera perspective, left-facing direction, lower-left to upper-right wing diagonal, canvas, scale and position. No redrawing/movement of anatomical structures; toggling images must not jump. Natural photographic feather details and soft light. Solid blue #0055FF background for local extraction, no blue spill, checkerboard, halo, text or additions.",
+      "raw": "/Users/lukasvonhohnhorst/.codex/generated_images/01a0976a-4f25-7e80-b0a6-3e4a596912e7/exec-ed119448-52cc-4445-bd24-98286d320e95.png",
+      "rawSilhouetteIoU": 0.9814088389422349,
+      "output": "public/birds/juvenile-wanderfalke-20260913-v2.png",
+      "sourceSha256": "451172f0efeec9490f92d7b03383ef61ab4d3fe8604c1f17650118a29597177a",
+      "outputSha256": "0cc0afd9142bf5ea09b5b4d634b6b8b6b5a43b3aef555d8dec2a7bda8a223f3a",
+      "alphaMatchesMaster": true
+    },
+    {
+      "id": "juvenile-sakerfalke",
+      "source": "/Users/lukasvonhohnhorst/Coding/birds-of-prey/public/birds/sakerfalke.png",
+      "version": "v2",
+      "change": "Fully fledged juvenile Saker Falcon: brown streaked head, dark iris, blue-gray cere and orbital ring, blue-gray feet. Cream-buff underside with strong dark brown longitudinal streaks, brown underwing coverts with paler feather edges; barred gray-brown flight feathers. Preserve pale throat and relatively indistinct narrow moustache, do not make a Peregrine mask. Render real feather texture, no fish-scale pattern.",
+      "prompt": "Precise plumage-only edit, directly from the attached NORMAL ADULT ORIGINAL of this same species. CHANGE ONLY: Fully fledged juvenile Saker Falcon: brown streaked head, dark iris, blue-gray cere and orbital ring, blue-gray feet. Cream-buff underside with strong dark brown longitudinal streaks, brown underwing coverts with paler feather edges; barred gray-brown flight feathers. Preserve pale throat and relatively indistinct narrow moustache, do not make a Peregrine mask. Render real feather texture, no fish-scale pattern. LOCK exact silhouette and all anatomy: beak/eye coordinates, head size, wings/joints/every feather outline, tail, feet, body, camera perspective, left-facing direction, lower-left to upper-right wing diagonal, canvas, scale and position. No redrawing/movement of anatomical structures; toggling images must not jump. Natural photographic feather details and soft light. Solid blue #0055FF background for local extraction, no blue spill, checkerboard, halo, text or additions.",
+      "raw": "/Users/lukasvonhohnhorst/.codex/generated_images/01a0976a-4f25-7e80-b0a6-3e4a596912e7/exec-452fe3b7-c862-49bb-b2fa-05c012774656.png",
+      "rawSilhouetteIoU": 0.9922817384554713,
+      "output": "public/birds/juvenile-sakerfalke-20260913-v2.png",
+      "sourceSha256": "3a0bdf54ae0917e6aec9e0344b2df01e58800ff422d8c545800f49a5cdc67c4b",
+      "outputSha256": "6ffcad3618c927a2a368f59474cd073f907d76e8b48d697163cad78ee9cafe06",
+      "alphaMatchesMaster": true
+    },
+    {
+      "id": "juvenile-baumfalke",
+      "source": "/Users/lukasvonhohnhorst/Coding/birds-of-prey/public/birds/baumfalke.png",
+      "version": "v2",
+      "change": "Fully fledged juvenile Eurasian Hobby: replace adult rufous trousers and vent with buff and dark streaking; warm brownish upperparts with fine pale buff edges, cream-buff underbody heavily streaked longitudinally, dark cap and strong moustache with pale cheek/throat retained. No red thighs, no oversized buff head; dark iris and muted yellow cere/toes. Natural barred underwings, not tiled white spots.",
+      "prompt": "Precise plumage-only edit, directly from the attached NORMAL ADULT ORIGINAL of this same species. CHANGE ONLY: Fully fledged juvenile Eurasian Hobby: replace adult rufous trousers and vent with buff and dark streaking; warm brownish upperparts with fine pale buff edges, cream-buff underbody heavily streaked longitudinally, dark cap and strong moustache with pale cheek/throat retained. No red thighs, no oversized buff head; dark iris and muted yellow cere/toes. Natural barred underwings, not tiled white spots. LOCK exact silhouette and all anatomy: beak/eye coordinates, head size, wings/joints/every feather outline, tail, feet, body, camera perspective, left-facing direction, lower-left to upper-right wing diagonal, canvas, scale and position. No redrawing/movement of anatomical structures; toggling images must not jump. Natural photographic feather details and soft light. Solid blue #0055FF background for local extraction, no blue spill, checkerboard, halo, text or additions.",
+      "raw": "/Users/lukasvonhohnhorst/.codex/generated_images/01a0976a-4f25-7e80-b0a6-3e4a596912e7/exec-f7d06bd7-c6f5-4dda-b715-f117fb292fa8.png",
+      "rawSilhouetteIoU": 0.9846547682395409,
+      "output": "public/birds/juvenile-baumfalke-20260913-v2.png",
+      "sourceSha256": "8e442b0cf4e1d9b0ba6f49ed463ec2aa5d81e160fb16a3afef4445097255391d",
+      "outputSha256": "f300c61a026f44a9dbef22d4c7ebf0dd1bbd58ac9f36ba1c044aa8528cb221b3",
+      "alphaMatchesMaster": true
+    }
+  ],
+  "adult": {
+    "id": "turmfalke",
+    "source": "output/imagegen/bird-refresh-20260912/references/turmfalke-user-flight.jpg",
+    "role": "Same-species photo anatomy reference for full replacement",
+    "prompt": "Using ONLY this real Common Kestrel photo as the anatomical reference, create one new photoreal adult male Common Kestrel flying left. This replaces a failed artificial-looking website asset. Preserve the organic living-bird quality of this photograph, not an illustration or 3D model. Reorient to the left: wings diagonal lower-left to upper-right, camera from below and somewhat to the side so the side of the gray head, dark natural-size eye and tiny hooked beak are clearly seen in left profile. Head-to-tail axis nearly horizontal, tail extends to right slightly downward. Slim compact kestrel body, naturally integrated shoulder wing joints, tapered pointed falcon wings and long gray tail slightly spread with black terminal band. Tucked feet almost hidden. Gray male head, pale buff spotted underside, neutral pale gray-brown barred underwings; do not paint rufous back coloration onto the underwings. Real photographic fine feathers with irregular soft texture, no embossed feather plates, no swollen pigeon chest, no oversized toy eye, no eagle body or fingered eagle wings. Square canvas, whole bird completely visible, comfortably centered with 9 percent margin around extreme feathers. Solid saturated blue background #0055FF for clean local cutout, no blue light spill, no checkerboard or text. Species anatomy must come from the photograph. The output should look like a sharply focused real wildlife photograph with neutral diffuse daylight.",
+    "raw": "/Users/lukasvonhohnhorst/.codex/generated_images/01a0976a-4f25-7e80-b0a6-3e4a596912e7/exec-60d94e8f-48a9-4d7c-851f-ef8ba717c55c.png",
+    "output": "public/birds/turmfalke-20260913-v5.png",
+    "outputSha256": "95ae47f2a4db1a22f74074afa0e9a7cff9b8e1b968302215795f5f3c6b99b8d2"
+  },
+  "rejected": {
+    "prompt": "Create a corrected replacement for image 1, the existing adult male Common Kestrel (Falco tinnunculus). Image 2 is the real SAME species anatomy photograph. Primary requirement: convincing real flight photograph appearance and coherent anatomy, no stuffed-bird/painted illustration look. Rebuild the current swollen bulbous chest into a slim compact streamlined kestrel torso with the natural shoulder-to-wing connection and continuous leading edge seen in the real photo. Camera is below and slightly to the bird's LEFT SIDE, with the side of its gray head and eye clearly visible looking LEFT, beak pointing horizontally left, not up toward viewer. The body from head to tail extends mostly horizontally toward the right, only 15 degrees down; both wings spread on the lower-left to upper-right diagonal. View BOTH wing undersides naturally foreshortened, wings arise at shoulders, not from the abdomen; no broad rufous dorsal feathers drawn on underwings. Falcon long narrow pointed wings, no eagle finger fan. Feet tucked up naturally and mostly hidden among belly feathers, not dangling or giant claws. Long gray kestrel tail partly spread with broad black subterminal band and narrow pale edge, not an eagle's short fan. Male slate-gray head, small dark eye with subtle yellow orbital ring, pale cream-buff underside naturally spotted, subdued rufous back only where anatomically visible. Soft diffuse daylight, real fine uneven feathers, realistic small eye and subtle depth. Keep whole bird centered fully inside a square frame with even empty margins. Real transparent alpha background, no checkerboard, text or additions. Do not use any other bird species as anatomy template.",
+    "raw": "/Users/lukasvonhohnhorst/.codex/generated_images/01a0976a-4f25-7e80-b0a6-3e4a596912e7/exec-37f53573-9767-4a7f-8b79-d085eb427585.png",
+    "reason": "Still swollen toy-like body, rejected before integration."
+  },
+  "status": "integrated_localhost_browser_verified",
+  "validation": {
+    "variants": "Five edits have exact own-adult alpha; raw silhouette IoU 0.98\u20130.994; anatomical landmarks visually compared before restoring edges",
+    "backgrounds": "Light, dark and violet contact sheet inspected",
+    "browser": "All six new image currentSrc optimized files loaded=true, all three kestrel stages switched",
+    "checks": "npm run images passed; per-edit alpha assertions passed; existing morph-image regression passed; changed-file oxlint and git diff --check passed"
+  },
+  "sources": [
+    "https://www.rspb.org.uk/birds-and-wildlife/kestrel",
+    "https://www.allaboutbirds.org/guide/Peregrine_Falcon/id",
+    "https://www.allaboutbirds.org/guide/Gyrfalcon/id"
+  ]
+}

@@ -1,0 +1,118 @@
+{
+  "mode": "built-in image_gen",
+  "harpy": {
+    "adultPrompt": "Use case: precise-object-edit. Edit target: this exact existing adult Harpy Eagle flight cutout. Change ONLY the exposed scaly feet and toes from washed-out beige to natural moderately saturated warm yellow, maintaining real scales, subtle shading and black/charcoal talons. No orange/neon yellow, no whitening. Preserve EVERY other aspect exactly: gray head and crest, black breast collar, white belly, barred thighs, feather texture, wing and tail patterns, all feather contours and tips, anatomy, head facing left, camera underside perspective, diagonal wings bottom-left to top-right, framing, size and location on square canvas. No moving or reshaping feet, feathers, head or body. Keep full bird uncropped. Output real transparent alpha background, not checkerboard; no shadow, halo, text or additions. This is a selective feet colour correction, not a redraw.",
+    "adultRaw": "Generated images are saved to /Users/lukasvonhohnhorst/.codex/generated_images/01a0976a-4f25-7e80-b0a6-3e4a596912e7 as /Users/lukasvonhohnhorst/.codex/generated_images/01a0976a-4f25-7e80-b0a6-3e4a596912e7/exec-346b2ed1-d6bf-4c9f-8538-ab955e3aa4f0.png by default.\nIf you need to use a generated image at another path, copy it and leave the original in place unless the user explicitly asks you to delete it.\nThe generated image is already displayed to the user. There is no need to render it in the final response as a Markdown image or file link.",
+    "juvenilePrompt": "Use case: precise-object-edit. Input image is the ONLY edit target and normal adult original of Harpia harpyja. Make the existing juvenile variant by changing ONLY age-related plumage. Young flying Harpy Eagle: white/off-white head and crest with delicate pale gray feather shading, white breast and belly without the adult black breast collar; pale light-gray wing coverts; darker gray flight feathers with subtle dark barring; gray tail with darker transverse bars; white thighs with little or no strong black adult barring. Keep dark slate beak and brown eye, natural yellow scaled feet and black talons. Photoreal natural soft feather texture matching the adult. Precisely retain original anatomy and every landmark: eye, beak, crest, neck, wing roots, each wingtip and feather outline, tail shape, feet and toes. Same underside camera, head clearly facing LEFT, wing diagonal from lower-left to upper-right. Identical pose, silhouette, square framing, body size, position and margins. This is an age-plumage edit of this same individual in the SAME photograph; no reshaping or repositioning. Do not use another species or a prior juvenile as template. Full bird uncropped. Use a perfectly flat solid saturated chroma-blue background #0055FF for local background removal. No blue reflected light or blue tint on feathers. No checkerboard, no white halo, no shadow, no text or additions. Keep feathers reaching each silhouette edge in their natural colors, not bright white outlines.",
+    "juvenileRaw": "Generated images are saved to /Users/lukasvonhohnhorst/.codex/generated_images/01a0976a-4f25-7e80-b0a6-3e4a596912e7 as /Users/lukasvonhohnhorst/.codex/generated_images/01a0976a-4f25-7e80-b0a6-3e4a596912e7/exec-f80319de-4827-4c4e-8958-5e3747df4775.png by default.\nIf you need to use a generated image at another path, copy it and leave the original in place unless the user explicitly asks you to delete it.\nThe generated image is already displayed to the user. There is no need to render it in the final response as a Markdown image or file link.",
+    "rejectedCheckerJuvenile": "Generated images are saved to /Users/lukasvonhohnhorst/.codex/generated_images/01a0976a-4f25-7e80-b0a6-3e4a596912e7 as /Users/lukasvonhohnhorst/.codex/generated_images/01a0976a-4f25-7e80-b0a6-3e4a596912e7/exec-5e33bb4d-0786-40a6-9530-0b94fcb4251b.png by default.\nIf you need to use a generated image at another path, copy it and leave the original in place unless the user explicitly asks you to delete it.\nThe generated image is already displayed to the user. There is no need to render it in the final response as a Markdown image or file link.",
+    "adultSource": "public/birds/harpyie.png",
+    "juvenileSource": "output/imagegen/eagle-refresh-20260912/harpyie-adult-v2.png"
+  },
+  "seaJuveniles": [
+    {
+      "id": "seeadler",
+      "prompt": "Use case: precise-object-edit. The provided image is the ONLY edit target and normal adult original of this same species. Create its existing juvenile variant through an age-related plumage edit only. White-tailed Eagle, Haliaeetus albicilla. First-year juvenile: dark chocolate-brown head and neck with fine tawny streaks; dark brown iris; predominantly blackish charcoal bill with muted gray base, NOT adult yellow. Brown body and wing coverts with irregular tawny pale feather edges, sparse pale mottling especially axillaries and inner underwing; remiges brown-gray with subtle irregular pale bases. Tail predominantly brown with irregular off-white streaks through feather centers and dark tips, NOT adult all-white. Feet naturally yellow, dark talons. Precisely retain the adult's pose, underside camera perspective, head clearly facing LEFT, wing diagonal lower-left to upper-right, all body proportions, beak shape, each wing/feather tip, tail outline, feet position, eye location, framing, canvas aspect ratio, bird size and exact position. No anatomical redesign, no generic eagle template. Photoreal feather texture and natural light matching this adult; do not over-sharpen or illustrate. All bird parts uncropped. Flat solid saturated chroma-blue #0055FF background for local extraction, without blue spill/reflections on the bird. No checkerboard, halo, text, shadow or additions.",
+      "source": "/Users/lukasvonhohnhorst/Coding/birds-of-prey/public/birds/seeadler.png",
+      "raw": "/Users/lukasvonhohnhorst/.codex/generated_images/01a0976a-4f25-7e80-b0a6-3e4a596912e7/exec-4d716ae8-ff66-40e6-b490-4d84b1bc2d7f.png"
+    },
+    {
+      "id": "weisskopfseeadler",
+      "prompt": "Use case: precise-object-edit. The provided image is the ONLY edit target and normal adult original of this same species. Create its existing juvenile variant through an age-related plumage edit only. Bald Eagle, Haliaeetus leucocephalus. First-year juvenile: head and neck fully dark chocolate brown, dark brown iris, dark gray-black bill with dull gray base, NOT adult yellow. Brown body, scattered irregular white mottling on belly and especially axillaries/underwing coverts, NOT a large solid white second-year belly. Wings dark brown with irregular white flecking on underwing; dark flight-feather tips. Tail brown with mottled off-white inner areas and broad irregular dark tip, NOT adult white tail. Feet yellow with black talons. No adult white head or white neck. Precisely retain the adult's pose, underside camera perspective, head clearly facing LEFT, wing diagonal lower-left to upper-right, all body proportions, beak shape, each wing/feather tip, tail outline, feet position, eye location, framing, canvas aspect ratio, bird size and exact position. No anatomical redesign, no generic eagle template. Photoreal feather texture and natural light matching this adult; do not over-sharpen or illustrate. All bird parts uncropped. Flat solid saturated chroma-blue #0055FF background for local extraction, without blue spill/reflections on the bird. No checkerboard, halo, text, shadow or additions.",
+      "source": "/Users/lukasvonhohnhorst/Coding/birds-of-prey/public/birds/weisskopfseeadler.png",
+      "raw": "/Users/lukasvonhohnhorst/.codex/generated_images/01a0976a-4f25-7e80-b0a6-3e4a596912e7/exec-72b27bc0-622c-43c2-a8dc-ae1b932ac0e1.png"
+    },
+    {
+      "id": "riesenseeadler",
+      "prompt": "Use case: precise-object-edit. The provided image is the ONLY edit target and normal adult original of this same species. Create its existing juvenile variant through an age-related plumage edit only. Steller's Sea-Eagle, Haliaeetus pelagicus. First-year juvenile: largely dark brown with pale grayish streaks on head/neck and subtle pale feather tips and irregular light flecking on wing coverts. Remove the adult's solid white shoulder panels and white thighs: these areas become mottled brown and buff. Juvenile tail is grayish-white with extensive irregular dark-brown mottling and dark tips, NOT immaculate adult white. Retain the species' distinctive massive bill shape; bill stays natural dull yellow, less orange than adult, brown iris. Feet yellow with black talons. Do not turn the bill black like a young Bald Eagle. Precisely retain the adult's pose, underside camera perspective, head clearly facing LEFT, wing diagonal lower-left to upper-right, all body proportions, beak shape, each wing/feather tip, tail outline, feet position, eye location, framing, canvas aspect ratio, bird size and exact position. No anatomical redesign, no generic eagle template. Photoreal feather texture and natural light matching this adult; do not over-sharpen or illustrate. All bird parts uncropped. Flat solid saturated chroma-blue #0055FF background for local extraction, without blue spill/reflections on the bird. No checkerboard, halo, text, shadow or additions.",
+      "source": "/Users/lukasvonhohnhorst/Coding/birds-of-prey/public/birds/riesenseeadler.png",
+      "raw": "/Users/lukasvonhohnhorst/.codex/generated_images/01a0976a-4f25-7e80-b0a6-3e4a596912e7/exec-5eede3b2-23f5-43a0-9b2d-826716056d01.png"
+    }
+  ],
+  "sources": [
+    "https://peregrinefund.org/explore-raptors-species/eagles/harpy-eagle",
+    "https://ebird.org/species/whteag",
+    "https://ebird.org/species/stseag",
+    "https://www.allaboutbirds.org/guide/Bald_Eagle/id"
+  ],
+  "status": "integrated_localhost_browser_verified",
+  "outputs": [
+    {
+      "key": "harpyie",
+      "path": "public/birds/harpyie-20260913-v2.png",
+      "sha256": "353627afacf455316c72db73a4ee6129535f147ec2db8947bb268ef19dd4f961",
+      "residualBlueEdgePixelsRemoved": 0,
+      "canvas": [
+        1287,
+        1287
+      ]
+    },
+    {
+      "key": "juvenile-harpyie",
+      "path": "public/birds/juvenile-harpyie-20260913-v2.png",
+      "sha256": "868b1b29e57af6df9da2e115c9ac8837eea878f95f40705f9f2fb9ab08999f80",
+      "residualBlueEdgePixelsRemoved": 148,
+      "canvas": [
+        1287,
+        1287
+      ]
+    },
+    {
+      "key": "juvenile-seeadler",
+      "path": "public/birds/juvenile-seeadler-20260913-v2.png",
+      "sha256": "d654825bbc6878ad902d6902267c07b3084471bede976ad5a8a40cae7cb22d72",
+      "residualBlueEdgePixelsRemoved": 7,
+      "canvas": [
+        1332,
+        1332
+      ]
+    },
+    {
+      "key": "juvenile-weisskopfseeadler",
+      "path": "public/birds/juvenile-weisskopfseeadler-20260913-v2.png",
+      "sha256": "7cac8166cc255ad91821c217ea6c820d27d4668392416f76bb08e18d9b528098",
+      "residualBlueEdgePixelsRemoved": 74,
+      "canvas": [
+        1379,
+        1379
+      ]
+    },
+    {
+      "key": "juvenile-riesenseeadler",
+      "path": "public/birds/juvenile-riesenseeadler-20260913-v2.png",
+      "sha256": "44193069bac03db7889b3204efa311a10237497d610eb2199bca31df437e3f12",
+      "residualBlueEdgePixelsRemoved": 51,
+      "canvas": [
+        1470,
+        1470
+      ]
+    }
+  ],
+  "matting": {
+    "harpyAdult": "restore-edge-bounded.py with original alpha",
+    "juveniles": "remove-blue.py then restore-extracted-alpha.py with own adult alpha; residual blue within 16px edge removed",
+    "canvasAndAlpha": "Each juvenile identical canvas and alpha as its own normal adult",
+    "review": "Whole pairs on contrasting backgrounds plus head and feet closeups. First checker juvenile rejected for edge contamination; blue retry used."
+  },
+  "preservedSeaAdults": [
+    {
+      "path": "public/birds/seeadler.png",
+      "sha256": "c376f5783c8712d20b1566b04e3f1516b889eb4a11125d46e8ed9f0aaf9d971f"
+    },
+    {
+      "path": "public/birds/weisskopfseeadler.png",
+      "sha256": "8e2efa55fc3d1572c937f649abd618f91c5688d46c29c17e88fba97513ff6e8f"
+    },
+    {
+      "path": "public/birds/riesenseeadler.png",
+      "sha256": "0a8752880c8f59f1fc31a97361d54a46991b3ebc42f7967b58787ddc71aaeec7"
+    }
+  ],
+  "validation": {
+    "allFiveFinalAssetsLoadedInBrowser": true,
+    "allFourAgePairsSameCanvasAndAlpha": true,
+    "imagesBuild": "309 sources, 1302 files; sitemap 43 URLs",
+    "gitDiffCheck": "passed",
+    "seaAdultsUnchanged": true
+  }
+}

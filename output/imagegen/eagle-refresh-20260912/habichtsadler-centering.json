@@ -1,0 +1,24 @@
+[
+  {
+    "source": "public/birds/habichtsadler-20260913-v2.png",
+    "output": "public/birds/habichtsadler-20260913-v2-centered.png",
+    "sourceSha256": "01e6cd6108d2c9640b02733edb03b9cc68790bec2e2663a86f4ec566f5b6a94c",
+    "translation": {
+      "x": 0,
+      "y": 9
+    },
+    "resampled": false,
+    "visiblePixelsPreserved": true
+  },
+  {
+    "source": "public/birds/juvenile-habichtsadler-20260913-v2.png",
+    "output": "public/birds/juvenile-habichtsadler-20260913-v2-centered.png",
+    "sourceSha256": "0b8b6ad3b4fb50a73b385c53ef7dbfcd767b75cda2a8b8db5a6a61facf40eb8a",
+    "translation": {
+      "x": 0,
+      "y": 9
+    },
+    "resampled": false,
+    "visiblePixelsPreserved": true
+  }
+]

@@ -1,0 +1,338 @@
+[
+  {
+    "src": "/birds/juvenile-habichtsadler-20260913-v2-centered.png",
+    "pixels": 106
+  },
+  {
+    "src": "/birds/habichtsadler-20260913-v2-centered.png",
+    "pixels": 83
+  },
+  {
+    "src": "/birds/iberienadler-20260913-v2.png",
+    "pixels": 31
+  },
+  {
+    "src": "/birds/juvenile-iberienadler-20260913-v2.png",
+    "pixels": 81
+  },
+  {
+    "src": "/birds/juvenile-klippenadler-20260913-v2.png",
+    "pixels": 36
+  },
+  {
+    "src": "/birds/klippenadler-20260913-v2.png",
+    "pixels": 12
+  },
+  {
+    "src": "/birds/morph-zwergadler-dark-juvenile-20260913-v2.png",
+    "pixels": 39
+  },
+  {
+    "src": "/birds/morph-zwergadler-dark-adult-20260913-v2.png",
+    "pixels": 48
+  },
+  {
+    "src": "/birds/zwergadler-20260913-v2.png",
+    "pixels": 29
+  },
+  {
+    "src": "/birds/juvenile-zwergadler-20260913-v2.png",
+    "pixels": 41
+  },
+  {
+    "src": "/birds/juvenile-rotschwanzbussard-20260912.png",
+    "pixels": 93
+  },
+  {
+    "src": "/birds/morph-rotschwanzbussard-rostbraun-20260912.png",
+    "pixels": 102
+  },
+  {
+    "src": "/birds/morph-rotschwanzbussard-rostbraun-juvenile-20260912.png",
+    "pixels": 87
+  },
+  {
+    "src": "/birds/morph-rotschwanzbussard-dunkel-20260912.png",
+    "pixels": 107
+  },
+  {
+    "src": "/birds/morph-rotschwanzbussard-dunkel-juvenile-20260912.png",
+    "pixels": 82
+  },
+  {
+    "src": "/birds/rotschwanzbussard.png?v=bb1f1776b323",
+    "pixels": 95
+  },
+  {
+    "src": "/birds/falklandkarakara.png?v=2b670af57f78",
+    "pixels": 51
+  },
+  {
+    "src": "/birds/juvenile-falklandkarakara.png?v=55cda51b9840",
+    "pixels": 39
+  },
+  {
+    "src": "/birds/aguja.png?v=619fff7f72c6",
+    "pixels": 24
+  },
+  {
+    "src": "/birds/juvenile-aguja.png?v=85b3b27e6d8f",
+    "pixels": 84
+  },
+  {
+    "src": "/birds/juvenile-steinadler.png?v=4591ef8fe727",
+    "pixels": 77
+  },
+  {
+    "src": "/birds/steinadler.png?v=c89f6fd477fa",
+    "pixels": 42
+  },
+  {
+    "src": "/birds/weissstorch-20260913-v2.png",
+    "pixels": 224
+  },
+  {
+    "src": "/birds/juvenile-weissstorch-20260913-v2.png",
+    "pixels": 75
+  },
+  {
+    "src": "/birds/kronenadler-20260913-v2.png",
+    "pixels": 87
+  },
+  {
+    "src": "/birds/morph-koenigsbussard-dunkel-20260912-v3.png",
+    "pixels": 89
+  },
+  {
+    "src": "/birds/koenigsbussard-20260912-v3.png",
+    "pixels": 65
+  },
+  {
+    "src": "/birds/juvenile-koenigsbussard-20260912-v3.png",
+    "pixels": 62
+  },
+  {
+    "src": "/birds/morph-koenigsbussard-dunkel-juvenile-20260912-v3.png",
+    "pixels": 102
+  },
+  {
+    "src": "/birds/weisskopfseeadler.png?v=8e2efa55fc3d",
+    "pixels": 39
+  },
+  {
+    "src": "/birds/juvenile-weisskopfseeadler-20260913-v2.png",
+    "pixels": 71
+  },
+  {
+    "src": "/birds/juvenile-rotmilan.png?v=10d852e88d3b",
+    "pixels": 390
+  },
+  {
+    "src": "/birds/rotmilan.png?v=6da5b3ea7f6b",
+    "pixels": 215
+  },
+  {
+    "src": "/birds/gaukler.png?v=2beff99eb753",
+    "pixels": 39
+  },
+  {
+    "src": "/birds/female-gaukler.png?v=b5a1bbdc6ba2",
+    "pixels": 81
+  },
+  {
+    "src": "/birds/morph-gaukler-creme-female.png",
+    "pixels": 14
+  },
+  {
+    "src": "/birds/morph-gaukler-creme-male.png",
+    "pixels": 11
+  },
+  {
+    "src": "/birds/uhu.png?v=6897c2385499",
+    "pixels": 202
+  },
+  {
+    "src": "/birds/juvenile-uhu.png?v=3c170f6ab55e",
+    "pixels": 18
+  },
+  {
+    "src": "/birds/seeadler.png?v=c376f5783c87",
+    "pixels": 27
+  },
+  {
+    "src": "/birds/juvenile-seeadler-20260913-v2.png",
+    "pixels": 27
+  },
+  {
+    "src": "/birds/lannerfalke.png?v=4edbc96bcf0c",
+    "pixels": 121
+  },
+  {
+    "src": "/birds/juvenile-lannerfalke.png?v=129e2e00e483",
+    "pixels": 65
+  },
+  {
+    "src": "/birds/morph-maeusebussard-dunkel-juvenile-20260912.png",
+    "pixels": 370
+  },
+  {
+    "src": "/birds/juvenile-maeusebussard-20260912.png",
+    "pixels": 214
+  },
+  {
+    "src": "/birds/morph-maeusebussard-hell-20260912.png",
+    "pixels": 225
+  },
+  {
+    "src": "/birds/morph-maeusebussard-dunkel-20260912.png",
+    "pixels": 279
+  },
+  {
+    "src": "/birds/morph-maeusebussard-hell-juvenile-20260912.png",
+    "pixels": 236
+  },
+  {
+    "src": "/birds/maeusebussard.png?v=a8213ad8d1f0",
+    "pixels": 260
+  },
+  {
+    "src": "/birds/riesenseeadler.png?v=0a8752880c8f",
+    "pixels": 58
+  },
+  {
+    "src": "/birds/juvenile-riesenseeadler-20260913-v2.png",
+    "pixels": 24
+  },
+  {
+    "src": "/birds/juvenile-schwarzmilan.png?v=e05dd339cff1",
+    "pixels": 28
+  },
+  {
+    "src": "/birds/schwarzmilan.png?v=5935c3970185",
+    "pixels": 37
+  },
+  {
+    "src": "/birds/juvenile-sperber.png?v=bfaeca0d6478",
+    "pixels": 56
+  },
+  {
+    "src": "/birds/sakerfalke.png?v=3a0bdf54ae09",
+    "pixels": 85
+  },
+  {
+    "src": "/birds/juvenile-sakerfalke-20260913-v2.png",
+    "pixels": 78
+  },
+  {
+    "src": "/birds/juvenile-wuestenbussard-pair-20260907.png",
+    "pixels": 35
+  },
+  {
+    "src": "/birds/wuestenbussard-pair-20260907.png",
+    "pixels": 35
+  },
+  {
+    "src": "/birds/virginiauhu-20260907.png",
+    "pixels": 202
+  },
+  {
+    "src": "/birds/juvenile-gerfalke.png?v=94fa9cf68063",
+    "pixels": 377
+  },
+  {
+    "src": "/birds/juvenile-fischadler.png?v=99a289aa3fff",
+    "pixels": 251
+  },
+  {
+    "src": "/birds/female-fischadler-20260909.png",
+    "pixels": 28
+  },
+  {
+    "src": "/birds/fischadler.png?v=79946d4bd230",
+    "pixels": 183
+  },
+  {
+    "src": "/birds/schopfkarakara.png?v=b8cb40bdf189",
+    "pixels": 175
+  },
+  {
+    "src": "/birds/juvenile-schopfkarakara.png?v=d13412255811",
+    "pixels": 430
+  },
+  {
+    "src": "/birds/kampfadler.png?v=da5dac7ee04a",
+    "pixels": 22
+  },
+  {
+    "src": "/birds/juvenile-kampfadler.png?v=cf9040fd9748",
+    "pixels": 39
+  },
+  {
+    "src": "/birds/juvenile-baumfalke-20260913-v2.png",
+    "pixels": 186
+  },
+  {
+    "src": "/birds/baumfalke.png?v=8e442b0cf4e1",
+    "pixels": 15
+  },
+  {
+    "src": "/birds/juvenile-habicht.png?v=ec9eea5c46b4",
+    "pixels": 179
+  },
+  {
+    "src": "/birds/morph-habicht-albidus-juvenile-20260912-v2.png",
+    "pixels": 133
+  },
+  {
+    "src": "/birds/morph-habicht-albidus-20260912-v2.png",
+    "pixels": 32
+  },
+  {
+    "src": "/birds/habicht.png?v=1978c3d38ab7",
+    "pixels": 95
+  },
+  {
+    "src": "/birds/juvenile-turmfalke-20260913-v5.png",
+    "pixels": 17
+  },
+  {
+    "src": "/birds/kaiseradler-20260913-v2.png",
+    "pixels": 35
+  },
+  {
+    "src": "/birds/sekretaer-20260907.png",
+    "pixels": 69
+  },
+  {
+    "src": "/birds/juvenile-sekretaer-20260907.png",
+    "pixels": 312
+  },
+  {
+    "src": "/birds/morph-wespenbussard-hell-male-20260913-v3.png",
+    "pixels": 15
+  },
+  {
+    "src": "/birds/morph-wespenbussard-dunkel-juvenile-20260913-v3.png",
+    "pixels": 368
+  },
+  {
+    "src": "/birds/morph-wespenbussard-hell-juvenile-20260913-v3.png",
+    "pixels": 307
+  },
+  {
+    "src": "/birds/wespenbussard-20260913-v3.png",
+    "pixels": 234
+  },
+  {
+    "src": "/birds/juvenile-wespenbussard-20260913-v3.png",
+    "pixels": 43
+  },
+  {
+    "src": "/birds/morph-wespenbussard-dunkel-male-20260913-v3.png",
+    "pixels": 460
+  },
+  {
+    "src": "/birds/bartgeier-20260907.png",
+    "pixels": 78
+  }
+]

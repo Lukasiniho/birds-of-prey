@@ -1,0 +1,9 @@
+{
+  "output": "public/birds/juvenile-klippenadler-20260913-v3.png",
+  "rawSilhouetteIoU": 0.99066,
+  "alphaIdentical": true,
+  "matchedInteriorFeatures": 250,
+  "medianInteriorShiftPx": 0.97,
+  "p90InteriorShiftPx": 1.66,
+  "noResize": true
+}

@@ -1,0 +1,630 @@
+[
+  {
+    "species": "falklandkarakara",
+    "id": "falklandkarakara",
+    "src": "/birds/falklandkarakara.png?v=2b670af57f78",
+    "size": [
+      1300,
+      1300
+    ],
+    "bbox": [
+      50,
+      57,
+      1250,
+      1243
+    ],
+    "alphaEqual": true,
+    "IoU": 1.0
+  },
+  {
+    "species": "falklandkarakara",
+    "id": "juvenile-falklandkarakara",
+    "src": "/birds/juvenile-falklandkarakara.png?v=55cda51b9840",
+    "size": [
+      1300,
+      1300
+    ],
+    "bbox": [
+      50,
+      57,
+      1250,
+      1243
+    ],
+    "alphaEqual": false,
+    "IoU": 0.997182901403441
+  },
+  {
+    "species": "aguja",
+    "id": "aguja",
+    "src": "/birds/aguja.png?v=619fff7f72c6",
+    "size": [
+      1322,
+      1322
+    ],
+    "bbox": [
+      53,
+      50,
+      1269,
+      1272
+    ],
+    "alphaEqual": true,
+    "IoU": 1.0
+  },
+  {
+    "species": "aguja",
+    "id": "juvenile-aguja",
+    "src": "/birds/juvenile-aguja.png?v=85b3b27e6d8f",
+    "size": [
+      1316,
+      1316
+    ],
+    "bbox": [
+      50,
+      50,
+      1265,
+      1266
+    ]
+  },
+  {
+    "species": "steinadler",
+    "id": "steinadler",
+    "src": "/birds/steinadler.png?v=c89f6fd477fa",
+    "size": [
+      1376,
+      1376
+    ],
+    "bbox": [
+      78,
+      50,
+      1297,
+      1326
+    ],
+    "alphaEqual": true,
+    "IoU": 1.0
+  },
+  {
+    "species": "steinadler",
+    "id": "juvenile-steinadler",
+    "src": "/birds/juvenile-steinadler.png?v=4591ef8fe727",
+    "size": [
+      1340,
+      1340
+    ],
+    "bbox": [
+      79,
+      50,
+      1261,
+      1290
+    ]
+  },
+  {
+    "species": "rotmilan",
+    "id": "rotmilan",
+    "src": "/birds/rotmilan.png?v=6da5b3ea7f6b",
+    "size": [
+      1276,
+      1276
+    ],
+    "bbox": [
+      58,
+      50,
+      1217,
+      1226
+    ],
+    "alphaEqual": true,
+    "IoU": 1.0
+  },
+  {
+    "species": "rotmilan",
+    "id": "juvenile-rotmilan",
+    "src": "/birds/juvenile-rotmilan.png?v=10d852e88d3b",
+    "size": [
+      1276,
+      1276
+    ],
+    "bbox": [
+      58,
+      50,
+      1217,
+      1226
+    ],
+    "alphaEqual": false,
+    "IoU": 0.9842139950162118
+  },
+  {
+    "species": "gaukler",
+    "id": "gaukler",
+    "src": "/birds/gaukler.png?v=2beff99eb753",
+    "size": [
+      1385,
+      1385
+    ],
+    "bbox": [
+      50,
+      98,
+      1335,
+      1286
+    ],
+    "alphaEqual": true,
+    "IoU": 1.0
+  },
+  {
+    "species": "gaukler",
+    "id": "juvenile-gaukler",
+    "src": "/birds/juvenile-gaukler.png?v=c0546f30dca7",
+    "size": [
+      1390,
+      1390
+    ],
+    "bbox": [
+      50,
+      99,
+      1340,
+      1291
+    ]
+  },
+  {
+    "species": "gaukler",
+    "id": "female-gaukler",
+    "src": "/birds/female-gaukler.png?v=b5a1bbdc6ba2",
+    "size": [
+      1382,
+      1382
+    ],
+    "bbox": [
+      50,
+      97,
+      1332,
+      1285
+    ]
+  },
+  {
+    "species": "gaukler",
+    "id": "creme-male",
+    "src": "/birds/morph-gaukler-creme-male.png",
+    "size": [
+      1385,
+      1385
+    ],
+    "bbox": [
+      50,
+      98,
+      1335,
+      1286
+    ],
+    "alphaEqual": true,
+    "IoU": 1.0
+  },
+  {
+    "species": "gaukler",
+    "id": "creme-female",
+    "src": "/birds/morph-gaukler-creme-female.png",
+    "size": [
+      1385,
+      1385
+    ],
+    "bbox": [
+      50,
+      98,
+      1335,
+      1286
+    ],
+    "alphaEqual": true,
+    "IoU": 1.0
+  },
+  {
+    "species": "uhu",
+    "id": "uhu",
+    "src": "/birds/uhu.png?v=6897c2385499",
+    "size": [
+      1296,
+      1296
+    ],
+    "bbox": [
+      53,
+      50,
+      1242,
+      1246
+    ],
+    "alphaEqual": true,
+    "IoU": 1.0
+  },
+  {
+    "species": "uhu",
+    "id": "juvenile-uhu",
+    "src": "/birds/juvenile-uhu.png?v=3c170f6ab55e",
+    "size": [
+      1297,
+      1297
+    ],
+    "bbox": [
+      60,
+      50,
+      1237,
+      1247
+    ]
+  },
+  {
+    "species": "schwarzmilan",
+    "id": "schwarzmilan",
+    "src": "/birds/schwarzmilan.png?v=5935c3970185",
+    "size": [
+      1254,
+      1254
+    ],
+    "bbox": [
+      81,
+      52,
+      1172,
+      1201
+    ],
+    "alphaEqual": true,
+    "IoU": 1.0
+  },
+  {
+    "species": "schwarzmilan",
+    "id": "juvenile-schwarzmilan",
+    "src": "/birds/juvenile-schwarzmilan.png?v=e05dd339cff1",
+    "size": [
+      1254,
+      1254
+    ],
+    "bbox": [
+      81,
+      52,
+      1173,
+      1202
+    ],
+    "alphaEqual": false,
+    "IoU": 0.9847615790893814
+  },
+  {
+    "species": "sperber",
+    "id": "sperber",
+    "src": "/birds/sperber.png?v=2f1a9fa3874b",
+    "size": [
+      1254,
+      1254
+    ],
+    "bbox": [
+      94,
+      73,
+      1160,
+      1180
+    ],
+    "alphaEqual": true,
+    "IoU": 1.0
+  },
+  {
+    "species": "sperber",
+    "id": "juvenile-sperber",
+    "src": "/birds/juvenile-sperber.png?v=bfaeca0d6478",
+    "size": [
+      1254,
+      1254
+    ],
+    "bbox": [
+      94,
+      74,
+      1159,
+      1179
+    ],
+    "alphaEqual": false,
+    "IoU": 0.9940359817338706
+  },
+  {
+    "species": "sperber",
+    "id": "female-sperber",
+    "src": "/birds/female-sperber.png?v=18635d3510f6",
+    "size": [
+      1254,
+      1254
+    ],
+    "bbox": [
+      94,
+      74,
+      1159,
+      1180
+    ],
+    "alphaEqual": false,
+    "IoU": 0.9871888261750233
+  },
+  {
+    "species": "virginiauhu",
+    "id": "virginiauhu",
+    "src": "/birds/virginiauhu-20260907.png",
+    "size": [
+      1254,
+      1254
+    ],
+    "bbox": [
+      66,
+      50,
+      1188,
+      1204
+    ],
+    "alphaEqual": true,
+    "IoU": 1.0
+  },
+  {
+    "species": "virginiauhu",
+    "id": "juvenile-virginiauhu",
+    "src": "/birds/juvenile-virginiauhu.png?v=3a9727a2b403",
+    "size": [
+      1255,
+      1255
+    ],
+    "bbox": [
+      54,
+      50,
+      1200,
+      1205
+    ]
+  },
+  {
+    "species": "fischadler",
+    "id": "fischadler",
+    "src": "/birds/fischadler.png?v=79946d4bd230",
+    "size": [
+      1306,
+      1306
+    ],
+    "bbox": [
+      59,
+      50,
+      1246,
+      1256
+    ],
+    "alphaEqual": true,
+    "IoU": 1.0
+  },
+  {
+    "species": "fischadler",
+    "id": "female-fischadler",
+    "src": "/birds/female-fischadler-20260909.png",
+    "size": [
+      1306,
+      1306
+    ],
+    "bbox": [
+      59,
+      50,
+      1246,
+      1256
+    ],
+    "alphaEqual": true,
+    "IoU": 1.0
+  },
+  {
+    "species": "fischadler",
+    "id": "juvenile-fischadler",
+    "src": "/birds/juvenile-fischadler.png?v=99a289aa3fff",
+    "size": [
+      1307,
+      1307
+    ],
+    "bbox": [
+      60,
+      50,
+      1246,
+      1257
+    ]
+  },
+  {
+    "species": "schopfkarakara",
+    "id": "schopfkarakara",
+    "src": "/birds/schopfkarakara.png?v=b8cb40bdf189",
+    "size": [
+      1318,
+      1318
+    ],
+    "bbox": [
+      50,
+      69,
+      1268,
+      1249
+    ],
+    "alphaEqual": true,
+    "IoU": 1.0
+  },
+  {
+    "species": "schopfkarakara",
+    "id": "juvenile-schopfkarakara",
+    "src": "/birds/juvenile-schopfkarakara.png?v=d13412255811",
+    "size": [
+      1318,
+      1318
+    ],
+    "bbox": [
+      50,
+      69,
+      1268,
+      1248
+    ],
+    "alphaEqual": false,
+    "IoU": 0.9913234332883729
+  },
+  {
+    "species": "kampfadler",
+    "id": "kampfadler",
+    "src": "/birds/kampfadler.png?v=da5dac7ee04a",
+    "size": [
+      1304,
+      1304
+    ],
+    "bbox": [
+      68,
+      50,
+      1235,
+      1254
+    ],
+    "alphaEqual": true,
+    "IoU": 1.0
+  },
+  {
+    "species": "kampfadler",
+    "id": "juvenile-kampfadler",
+    "src": "/birds/juvenile-kampfadler.png?v=cf9040fd9748",
+    "size": [
+      1305,
+      1305
+    ],
+    "bbox": [
+      69,
+      50,
+      1236,
+      1255
+    ]
+  },
+  {
+    "species": "habicht",
+    "id": "habicht",
+    "src": "/birds/habicht.png?v=1978c3d38ab7",
+    "size": [
+      1282,
+      1282
+    ],
+    "bbox": [
+      58,
+      50,
+      1224,
+      1232
+    ],
+    "alphaEqual": true,
+    "IoU": 1.0
+  },
+  {
+    "species": "habicht",
+    "id": "juvenile-habicht",
+    "src": "/birds/juvenile-habicht.png?v=ec9eea5c46b4",
+    "size": [
+      1274,
+      1274
+    ],
+    "bbox": [
+      50,
+      50,
+      1223,
+      1224
+    ]
+  },
+  {
+    "species": "habicht",
+    "id": "albidus-male",
+    "src": "/birds/morph-habicht-albidus-20260912-v2.png",
+    "size": [
+      1282,
+      1282
+    ],
+    "bbox": [
+      58,
+      50,
+      1224,
+      1232
+    ],
+    "alphaEqual": true,
+    "IoU": 1.0
+  },
+  {
+    "species": "habicht",
+    "id": "albidus-juvenile",
+    "src": "/birds/morph-habicht-albidus-juvenile-20260912-v2.png",
+    "size": [
+      1282,
+      1282
+    ],
+    "bbox": [
+      58,
+      50,
+      1224,
+      1232
+    ],
+    "alphaEqual": true,
+    "IoU": 1.0
+  },
+  {
+    "species": "sekretaer",
+    "id": "sekretaer",
+    "src": "/birds/sekretaer-20260907.png",
+    "size": [
+      1254,
+      1254
+    ],
+    "bbox": [
+      87,
+      50,
+      1197,
+      1204
+    ],
+    "alphaEqual": true,
+    "IoU": 1.0
+  },
+  {
+    "species": "sekretaer",
+    "id": "juvenile-sekretaer",
+    "src": "/birds/juvenile-sekretaer-20260907.png",
+    "size": [
+      1254,
+      1254
+    ],
+    "bbox": [
+      89,
+      52,
+      1136,
+      1203
+    ],
+    "alphaEqual": false,
+    "IoU": 0.9261152731242706
+  },
+  {
+    "species": "bartgeier",
+    "id": "bartgeier",
+    "src": "/birds/bartgeier-20260907.png",
+    "size": [
+      1254,
+      1254
+    ],
+    "bbox": [
+      102,
+      50,
+      1152,
+      1204
+    ],
+    "alphaEqual": true,
+    "IoU": 1.0
+  },
+  {
+    "species": "bartgeier",
+    "id": "juvenile-bartgeier",
+    "src": "/birds/juvenile-bartgeier-20260909.png",
+    "size": [
+      1254,
+      1254
+    ],
+    "bbox": [
+      102,
+      50,
+      1152,
+      1204
+    ],
+    "alphaEqual": true,
+    "IoU": 1.0
+  },
+  {
+    "species": "bartgeier",
+    "id": "weiss-male",
+    "src": "/birds/morph-bartgeier-weiss-male.png",
+    "size": [
+      1254,
+      1254
+    ],
+    "bbox": [
+      102,
+      50,
+      1152,
+      1204
+    ],
+    "alphaEqual": true,
+    "IoU": 1.0
+  }
+]

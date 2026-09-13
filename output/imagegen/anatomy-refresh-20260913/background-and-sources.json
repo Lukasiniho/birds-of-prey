@@ -1,0 +1,22 @@
+{
+  "backgroundEdits": [
+    {
+      "id": "weissstorch",
+      "prompt": "Background-only edit of this exact generated white stork. Replace the checkerboard background with uniform saturated blue #0055FF for local extraction. Preserve the existing bird perfectly unchanged: every feather and edge, the entire white head neck body and wing coverts, black flight feathers, red bill legs toes, eye, proportions, pose, exact position, size and square canvas. Do NOT redraw the bird or alter lighting, color or anatomy. NO blue reflection or blue tint on white feathers; NO checker remnants, text, shadow, halo, additions or cropping.",
+      "raw": "Generated images are saved to /Users/lukasvonhohnhorst/.codex/generated_images/01a0976a-4f25-7e80-b0a6-3e4a596912e7 as /Users/lukasvonhohnhorst/.codex/generated_images/01a0976a-4f25-7e80-b0a6-3e4a596912e7/exec-f7f8c214-01d0-4593-b6ec-0be992ac34ff.png by default.\nIf you need to use a generated image at another path, copy it and leave the original in place unless the user explicitly asks you to delete it.\nThe generated image is already displayed to the user. There is no need to render it in the final response as a Markdown image or file link."
+    },
+    {
+      "id": "wespenbussard",
+      "prompt": "Background-only edit. Replace all checkerboard in this image with a uniform saturated blue #0055FF background, including tiny gaps between primary feathers. Preserve the honey-buzzard itself EXACTLY unchanged: all feathers, every silhouette point, head, eye, beak, wing geometry, tail, feet, colors, texture, size, position, framing and square canvas. No repainting or reshaping the bird. No blue reflections, halo or text. Only remove checker background.",
+      "raw": "Generated images are saved to /Users/lukasvonhohnhorst/.codex/generated_images/01a0976a-4f25-7e80-b0a6-3e4a596912e7 as /Users/lukasvonhohnhorst/.codex/generated_images/01a0976a-4f25-7e80-b0a6-3e4a596912e7/exec-af9a08f2-48ed-4302-9cf1-f78d90d200bb.png by default.\nIf you need to use a generated image at another path, copy it and leave the original in place unless the user explicitly asks you to delete it.\nThe generated image is already displayed to the user. There is no need to render it in the final response as a Markdown image or file link."
+    }
+  ],
+  "sources": [
+    "https://ebird.org/species/crheag1",
+    "https://www.birdlife.org.za/red-data-book/red-list/crowned-eagle/",
+    "https://ebird.org/species/euhbuz1/GR-M",
+    "https://www.birdsinbulgaria.org/birds.php?l=en&semeystvo=13&type=bird&vid=72",
+    "https://ebird.org/species/whisto1",
+    "https://www.lfu.bayern.de/natur/vogelmonitoring/weissstorch/index.htm"
+  ]
+}

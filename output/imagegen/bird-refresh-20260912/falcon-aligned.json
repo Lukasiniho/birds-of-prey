@@ -1,0 +1,134 @@
+[
+  {
+    "id": "wanderfalke",
+    "original": "/Users/lukasvonhohnhorst/Coding/birds-of-prey/public/birds/wanderfalke.png",
+    "references": [
+      "/Users/lukasvonhohnhorst/Coding/birds-of-prey/public/birds/wanderfalke.png",
+      "/Users/lukasvonhohnhorst/Coding/birds-of-prey/public/birds/rotschwanzbussard.png"
+    ],
+    "prompt": "Use case: style-transfer. Refine the existing flight illustration of adult Peregrine Falcon (Falco peregrinus). Image 1 is the ONLY edit target and the species/anatomy/pose master. Image 2 red-tailed hawk is ONLY a reference for natural feather texture, soft lighting and illustration finish, NEVER a body or feather-shape template. Preserve image 1's exact canvas proportions, bird placement and scale, flight pose, spread wing outlines, bill/eye locations, feet and tail. Viewed from below, looks LEFT, wings diagonal bottom left to upper right. Entire bird visible. Improve feather rendering to a refined naturalistic ornithological illustration: layered fine feathers, lifelike subtle variation, soft neutral daylight, crisp clean edge details. Replace the flat repeating tiled/scaly or wavy printed patterns with realistic plumage following actual feather groups. Preserve species-specific marks: dark slate crown and broad dark moustache, pale cheeks and throat, white-cream underparts finely barred with dark charcoal; natural fine barring follows feathers, not wavy snakes. Keep anatomically correct falcon pointed wings, feather counts, short hooked dark bill, yellow cere and toes. Natural moderate saturation and readable shadows. No random spots, no duplicated limbs, no hard plastic feather plates, no enlarged eye. True transparent alpha background, no painted checkerboard, no halo, no floor shadow, no text. Keep silhouette and interior anatomical landmarks strictly aligned with image 1.",
+    "generated": "/Users/lukasvonhohnhorst/.codex/generated_images/01a0976a-4f25-7e80-b0a6-3e4a596912e7/exec-ecbe7a19-568c-4cda-b44c-fa3cd9daae1b.png",
+    "alignment": [
+      [
+        1.1460075906472158,
+        -0.0695679335899727,
+        -19.625451262954083
+      ],
+      [
+        0.0695679335899727,
+        1.1460075906472158,
+        -72.66060816418741
+      ]
+    ]
+  },
+  {
+    "id": "turmfalke",
+    "original": "/Users/lukasvonhohnhorst/Coding/birds-of-prey/public/birds/turmfalke.png",
+    "references": [
+      "/Users/lukasvonhohnhorst/Coding/birds-of-prey/public/birds/turmfalke.png",
+      "/Users/lukasvonhohnhorst/Coding/birds-of-prey/public/birds/rotschwanzbussard.png"
+    ],
+    "prompt": "Use case: style-transfer. Refine the existing flight illustration of adult male Common Kestrel (Falco tinnunculus). Image 1 is the ONLY edit target and the species/anatomy/pose master. Image 2 red-tailed hawk is ONLY a reference for natural feather texture, soft lighting and illustration finish, NEVER a body or feather-shape template. Preserve image 1's exact canvas proportions, bird placement and scale, flight pose, spread wing outlines, bill/eye locations, feet and tail. Viewed from below, looks LEFT, wings diagonal bottom left to upper right. Entire bird visible. Improve feather rendering to a refined naturalistic ornithological illustration: layered fine feathers, lifelike subtle variation, soft neutral daylight, crisp clean edge details. Replace the flat repeating tiled/scaly or wavy printed patterns with realistic plumage following actual feather groups. Preserve species-specific marks: gray head, subtly marked tawny-buff underside with dark spots, restrained warm rufous upperparts where visible, long gray tail with a broad black terminal band. Keep anatomically correct falcon pointed wings, feather counts, short hooked dark bill, yellow cere and toes. Natural moderate saturation and readable shadows. No random spots, no duplicated limbs, no hard plastic feather plates, no enlarged eye. True transparent alpha background, no painted checkerboard, no halo, no floor shadow, no text. Keep silhouette and interior anatomical landmarks strictly aligned with image 1.",
+    "generated": "/Users/lukasvonhohnhorst/.codex/generated_images/01a0976a-4f25-7e80-b0a6-3e4a596912e7/exec-258fe440-5ff2-4f75-a52b-2df42700c044.png",
+    "alignment": [
+      [
+        1.040719748202441,
+        -0.041406586576579404,
+        13.079472744305042
+      ],
+      [
+        0.041406586576579404,
+        1.040719748202441,
+        -48.25225151185188
+      ]
+    ]
+  },
+  {
+    "id": "gerfalke",
+    "original": "/Users/lukasvonhohnhorst/Coding/birds-of-prey/public/birds/gerfalke.png",
+    "references": [
+      "/Users/lukasvonhohnhorst/Coding/birds-of-prey/public/birds/gerfalke.png",
+      "/Users/lukasvonhohnhorst/Coding/birds-of-prey/public/birds/rotschwanzbussard.png"
+    ],
+    "prompt": "Use case: style-transfer. Refine the existing flight illustration of adult normal GRAY morph Gyrfalcon (Falco rusticolus). Image 1 is the ONLY edit target and the species/anatomy/pose master. Image 2 red-tailed hawk is ONLY a reference for natural feather texture, soft lighting and illustration finish, NEVER a body or feather-shape template. Preserve image 1's exact canvas proportions, bird placement and scale, flight pose, spread wing outlines, bill/eye locations, feet and tail. Viewed from below, looks LEFT, wings diagonal bottom left to upper right. Entire bird visible. Improve feather rendering to a refined naturalistic ornithological illustration: layered fine feathers, lifelike subtle variation, soft neutral daylight, crisp clean edge details. Replace the flat repeating tiled/scaly or wavy printed patterns with realistic plumage following actual feather groups. Preserve species-specific marks: gray-brown crown and wings, white and gray barred underparts; not the white or dark morph; strong large falcon with broad-based pointed wings. Keep anatomically correct falcon pointed wings, feather counts, short hooked dark bill, yellow cere and toes. Natural moderate saturation and readable shadows. No random spots, no duplicated limbs, no hard plastic feather plates, no enlarged eye. True transparent alpha background, no painted checkerboard, no halo, no floor shadow, no text. Keep silhouette and interior anatomical landmarks strictly aligned with image 1.",
+    "generated": "/Users/lukasvonhohnhorst/.codex/generated_images/01a0976a-4f25-7e80-b0a6-3e4a596912e7/exec-353f194f-e491-42f3-a5c3-120a862f618f.png",
+    "alignment": [
+      [
+        1.10391937597944,
+        -0.074379091695957,
+        17.856333546201466
+      ],
+      [
+        0.074379091695957,
+        1.10391937597944,
+        -101.1446543311343
+      ]
+    ]
+  },
+  {
+    "id": "sakerfalke",
+    "original": "/Users/lukasvonhohnhorst/Coding/birds-of-prey/public/birds/sakerfalke.png",
+    "references": [
+      "/Users/lukasvonhohnhorst/Coding/birds-of-prey/public/birds/sakerfalke.png",
+      "/Users/lukasvonhohnhorst/Coding/birds-of-prey/public/birds/rotschwanzbussard.png"
+    ],
+    "prompt": "Use case: style-transfer. Refine the existing flight illustration of adult Saker Falcon (Falco cherrug). Image 1 is the ONLY edit target and the species/anatomy/pose master. Image 2 red-tailed hawk is ONLY a reference for natural feather texture, soft lighting and illustration finish, NEVER a body or feather-shape template. Preserve image 1's exact canvas proportions, bird placement and scale, flight pose, spread wing outlines, bill/eye locations, feet and tail. Viewed from below, looks LEFT, wings diagonal bottom left to upper right. Entire bird visible. Improve feather rendering to a refined naturalistic ornithological illustration: layered fine feathers, lifelike subtle variation, soft neutral daylight, crisp clean edge details. Replace the flat repeating tiled/scaly or wavy printed patterns with realistic plumage following actual feather groups. Preserve species-specific marks: pale cream head streaked brown, subtle narrow moustache, pale cream underparts with brown elongated spots, earth brown wings with pale barring; strong large falcon. Keep anatomically correct falcon pointed wings, feather counts, short hooked dark bill, yellow cere and toes. Natural moderate saturation and readable shadows. No random spots, no duplicated limbs, no hard plastic feather plates, no enlarged eye. True transparent alpha background, no painted checkerboard, no halo, no floor shadow, no text. Keep silhouette and interior anatomical landmarks strictly aligned with image 1.",
+    "generated": "/Users/lukasvonhohnhorst/.codex/generated_images/01a0976a-4f25-7e80-b0a6-3e4a596912e7/exec-bdeb4b2d-f66a-4b72-93e6-0ff06e9c7f32.png",
+    "alignment": [
+      [
+        1.1494508844018383,
+        -0.011982182191724295,
+        -63.93952645658053
+      ],
+      [
+        0.011982182191724295,
+        1.1494508844018383,
+        -65.42659449147814
+      ]
+    ]
+  },
+  {
+    "id": "lannerfalke",
+    "original": "/Users/lukasvonhohnhorst/Coding/birds-of-prey/public/birds/lannerfalke.png",
+    "references": [
+      "/Users/lukasvonhohnhorst/Coding/birds-of-prey/public/birds/lannerfalke.png",
+      "/Users/lukasvonhohnhorst/Coding/birds-of-prey/public/birds/rotschwanzbussard.png"
+    ],
+    "prompt": "Use case: style-transfer. Refine the existing flight illustration of adult Lanner Falcon (Falco biarmicus). Image 1 is the ONLY edit target and the species/anatomy/pose master. Image 2 red-tailed hawk is ONLY a reference for natural feather texture, soft lighting and illustration finish, NEVER a body or feather-shape template. Preserve image 1's exact canvas proportions, bird placement and scale, flight pose, spread wing outlines, bill/eye locations, feet and tail. Viewed from below, looks LEFT, wings diagonal bottom left to upper right. Entire bird visible. Improve feather rendering to a refined naturalistic ornithological illustration: layered fine feathers, lifelike subtle variation, soft neutral daylight, crisp clean edge details. Replace the flat repeating tiled/scaly or wavy printed patterns with realistic plumage following actual feather groups. Preserve species-specific marks: muted rufous crown/nape, distinct slender dark moustache, pale cream throat and breast, restrained dark spotting on underparts, gray-brown barred underwings; retain its own face, not a peregrine mask. Keep anatomically correct falcon pointed wings, feather counts, short hooked dark bill, yellow cere and toes. Natural moderate saturation and readable shadows. No random spots, no duplicated limbs, no hard plastic feather plates, no enlarged eye. True transparent alpha background, no painted checkerboard, no halo, no floor shadow, no text. Keep silhouette and interior anatomical landmarks strictly aligned with image 1.",
+    "generated": "/Users/lukasvonhohnhorst/.codex/generated_images/01a0976a-4f25-7e80-b0a6-3e4a596912e7/exec-92debe24-5007-4b66-a9b9-56e5a9daeb93.png",
+    "alignment": [
+      [
+        1.2137588823593537,
+        -0.013691698097104835,
+        -63.75201711530479
+      ],
+      [
+        0.013691698097104835,
+        1.2137588823593537,
+        -102.78516608562305
+      ]
+    ]
+  },
+  {
+    "id": "baumfalke",
+    "original": "/Users/lukasvonhohnhorst/Coding/birds-of-prey/public/birds/baumfalke.png",
+    "references": [
+      "/Users/lukasvonhohnhorst/Coding/birds-of-prey/public/birds/baumfalke.png",
+      "/Users/lukasvonhohnhorst/Coding/birds-of-prey/public/birds/rotschwanzbussard.png"
+    ],
+    "prompt": "Use case: style-transfer. Refine the existing flight illustration of adult Eurasian Hobby (Falco subbuteo). Image 1 is the ONLY edit target and the species/anatomy/pose master. Image 2 red-tailed hawk is ONLY a reference for natural feather texture, soft lighting and illustration finish, NEVER a body or feather-shape template. Preserve image 1's exact canvas proportions, bird placement and scale, flight pose, spread wing outlines, bill/eye locations, feet and tail. Viewed from below, looks LEFT, wings diagonal bottom left to upper right. Entire bird visible. Improve feather rendering to a refined naturalistic ornithological illustration: layered fine feathers, lifelike subtle variation, soft neutral daylight, crisp clean edge details. Replace the flat repeating tiled/scaly or wavy printed patterns with realistic plumage following actual feather groups. Preserve species-specific marks: slate-dark cap and moustache with sharply contrasting white cheeks/throat, cream-white breast with strong dark longitudinal streaks, muted rusty red trousers/undertail coverts, dark gray wings with subtle fine pale bars; slender long pointed wings. Keep anatomically correct falcon pointed wings, feather counts, short hooked dark bill, yellow cere and toes. Natural moderate saturation and readable shadows. No random spots, no duplicated limbs, no hard plastic feather plates, no enlarged eye. True transparent alpha background, no painted checkerboard, no halo, no floor shadow, no text. Keep silhouette and interior anatomical landmarks strictly aligned with image 1.",
+    "generated": "/Users/lukasvonhohnhorst/.codex/generated_images/01a0976a-4f25-7e80-b0a6-3e4a596912e7/exec-73a7c4ae-2960-4afc-a742-ca9588af0595.png",
+    "alignment": [
+      [
+        1.1206536933154445,
+        0.004019433146669242,
+        -29.952215185878032
+      ],
+      [
+        -0.004019433146669242,
+        1.1206536933154445,
+        -56.882543770045174
+      ]
+    ]
+  }
+]

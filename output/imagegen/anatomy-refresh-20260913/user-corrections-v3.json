@@ -1,0 +1,119 @@
+{
+  "mode": "builtin",
+  "adultPrompt": "Use case: precise-object-edit. Image 1 is the current normal adult European Honey-buzzard (Pernis apivorus) edit target. Image 2 is a real same-species photograph for ANATOMY reference only. Correct image 1: the head projects much too far forward on a long neck; bring the head approximately 30% closer to the shoulders, with a naturally short exposed neck and compact torso as in image 2. Keep the small honey-buzzard head size and readable eye/profile; do not create a thick eagle neck. Open its tail into a broad natural rounded fan, approximately 60 degrees as in the photograph, keeping species-specific tail length and dark terminal band plus narrower basal bars. Preserve image 1's wings, left-facing flight direction, underside camera with clear side of head, diagonal wings lower-left to upper-right, species plumage and natural photo feather detail. Do NOT copy the right-facing orientation of image 2. Entire bird fully visible, centered on the same square canvas with comfortable equal margins, no cropped feathers. Natural believable flight anatomy, not toy, painting or shiny sculpture. Real transparent alpha background, no checkerboard, no shadow or halo. Do not put more than one bird in output.",
+  "adultRaw": "/Users/lukasvonhohnhorst/.codex/generated_images/01a0976a-4f25-7e80-b0a6-3e4a596912e7/exec-6a904097-febe-483c-a690-b7e96d2125c2.png",
+  "backgroundPrompt": "Background-only edit of this exact image: replace ALL gray checkerboard with perfectly uniform saturated blue #0055FF, including gaps between feathers. Preserve every bird pixel's placement, exact anatomy, size, feather patterns, tail fan, head and wing landmarks. No resizing, cropping, shifting, blue reflections or spill. The entire bird must remain identical.",
+  "backgroundRaw": "/Users/lukasvonhohnhorst/.codex/generated_images/01a0976a-4f25-7e80-b0a6-3e4a596912e7/exec-080d4efe-0754-4d30-8b71-2f7105046e29.png",
+  "otherEdits": [
+    {
+      "id": "kaiserV2",
+      "source": "/Users/lukasvonhohnhorst/Coding/birds-of-prey/public/birds/kaiseradler.png",
+      "prompt": "Precise anatomy edit of this exact adult Eastern Imperial Eagle (Aquila heliaca). Its wings are stretched too long relative to its body. Shorten BOTH wings from shoulder to tip by about 12 percent while preserving their natural breadth, parallel-edged long-winged eagle character, realistic joints and feather lengths. Preserve head, neck, torso and tail proportions, their pixel size and positions, left-facing clear head, underside view, and the diagonal lower-left to upper-right spread. No overall bird shrinking in place of this anatomical correction. Keep full square canvas; whole bird comfortably centered, equal margins. Photoreal natural feather texture, adult blackish-brown plumage, pale nape, white shoulder patches retained, no plastic/painting. Solid uniform saturated blue #0055FF background for local alpha extraction, no blue spill or checkerboard.",
+      "raw": "/Users/lukasvonhohnhorst/.codex/generated_images/01a0976a-4f25-7e80-b0a6-3e4a596912e7/exec-394c1615-12f1-4cee-93cd-68924e570ee9.png"
+    },
+    {
+      "id": "condorMaleV4",
+      "source": "/Users/lukasvonhohnhorst/Coding/birds-of-prey/public/birds/andenkondor-male-20260907-v3.png",
+      "prompt": "Precise small color-only edit of this exact male Andean Condor flight image. Change ONLY bare head skin, neck skin and male comb/caruncle from their muted gray-brown cast to natural clearly visible dull brick red / dark red with realistic wrinkles and dark recesses; moderate believable skin saturation, not bright scarlet paint. Preserve ivory beak, eye, fluffy white collar and all feathers. LOCK exact whole bird silhouette, anatomy, wings, tail, feet, left-facing head, perspective, canvas, scale and pixel position. No pose or structural edits whatsoever. Transparent background with actual alpha, never a simulated checkerboard.",
+      "raw": "/Users/lukasvonhohnhorst/.codex/generated_images/01a0976a-4f25-7e80-b0a6-3e4a596912e7/exec-8bc3bfbf-425b-4daf-93c6-020c39c94cbd.png"
+    }
+  ],
+  "jobs": [
+    {
+      "id": "juvenile-wespenbussard",
+      "species": "wespenbussard",
+      "change": "Juvenile European Honey-buzzard of intermediate morph: brown head rather than gray, dark brown iris, muted yellow cere, dark bill; cream-buff breast/belly with clear irregular brown streaking, underwing coverts patterned brown, dark carpal areas; flight feathers and tail show four or five more evenly spaced dark bars, with broader dark primary ends than adult. Preserve every feather shape and length, only age-related feather COLOR/pattern.",
+      "source": "/Users/lukasvonhohnhorst/Coding/birds-of-prey/output/imagegen/anatomy-refresh-20260913/wespenbussard-adult-v3.png",
+      "prompt": "Precise plumage-only edit. Input is the normal adult original of this SAME species and sole edit target. Derive requested existing variant directly from it. CHANGE ONLY: Juvenile European Honey-buzzard of intermediate morph: brown head rather than gray, dark brown iris, muted yellow cere, dark bill; cream-buff breast/belly with clear irregular brown streaking, underwing coverts patterned brown, dark carpal areas; flight feathers and tail show four or five more evenly spaced dark bars, with broader dark primary ends than adult. Preserve every feather shape and length, only age-related feather COLOR/pattern. LOCK EVERYTHING ELSE: same exact pose, silhouette, anatomy, eye/beak landmarks, wing roots, each primary and tail outline, feet position, head clearly looking LEFT, underside camera and lower-left to upper-right wing diagonal. Identical bird size, canvas dimensions, centering, framing and natural feather rendering. Do not redraw, rotate, crop or move the bird. This is for toggling plumage without jumping. Only age/morph coloration may change; no other species template. Solid flat saturated blue #0055FF background for local extraction; no blue spill, checkerboard, halo, shadow, text or additions. Explicitly lock the corrected short exposed neck and wide fanned tail of this new input. Do not elongate the neck or narrow the tail.",
+      "raw": "/Users/lukasvonhohnhorst/.codex/generated_images/01a0976a-4f25-7e80-b0a6-3e4a596912e7/exec-cefd2b98-e2c2-430f-8249-e9416450da66.png",
+      "prepared": "output/imagegen/anatomy-refresh-20260913/juvenile-wespenbussard-v3.png",
+      "public": "public/birds/juvenile-wespenbussard-20260913-v3.png"
+    },
+    {
+      "id": "morph-wespenbussard-hell-male",
+      "species": "wespenbussard",
+      "change": "Adult European Honey-buzzard LIGHT morph: mostly pale cream-white belly, breast and underwing coverts with sparse small brown marks; retain strongly visible dark carpal patches and dark barring on flight feathers. Grayish head, yellow iris, muted gray cere, small dark bill. Preserve adult tail's broad terminal dark band, large pale separation, two narrower basal bars. Do not bleach all markings or turn feathers featureless white.",
+      "source": "/Users/lukasvonhohnhorst/Coding/birds-of-prey/output/imagegen/anatomy-refresh-20260913/wespenbussard-adult-v3.png",
+      "prompt": "Precise plumage-only edit. Input is the normal adult original of this SAME species and sole edit target. Derive requested existing variant directly from it. CHANGE ONLY: Adult European Honey-buzzard LIGHT morph: mostly pale cream-white belly, breast and underwing coverts with sparse small brown marks; retain strongly visible dark carpal patches and dark barring on flight feathers. Grayish head, yellow iris, muted gray cere, small dark bill. Preserve adult tail's broad terminal dark band, large pale separation, two narrower basal bars. Do not bleach all markings or turn feathers featureless white. LOCK EVERYTHING ELSE: same exact pose, silhouette, anatomy, eye/beak landmarks, wing roots, each primary and tail outline, feet position, head clearly looking LEFT, underside camera and lower-left to upper-right wing diagonal. Identical bird size, canvas dimensions, centering, framing and natural feather rendering. Do not redraw, rotate, crop or move the bird. This is for toggling plumage without jumping. Only age/morph coloration may change; no other species template. Solid flat saturated blue #0055FF background for local extraction; no blue spill, checkerboard, halo, shadow, text or additions. Explicitly lock the corrected short exposed neck and wide fanned tail of this new input. Do not elongate the neck or narrow the tail.",
+      "raw": "/Users/lukasvonhohnhorst/.codex/generated_images/01a0976a-4f25-7e80-b0a6-3e4a596912e7/exec-ac0b25f4-d05f-4852-a3a3-9ffcb00c73e8.png",
+      "prepared": "output/imagegen/anatomy-refresh-20260913/morph-wespenbussard-hell-male-v3.png",
+      "public": "public/birds/morph-wespenbussard-hell-male-20260913-v3.png"
+    },
+    {
+      "id": "morph-wespenbussard-hell-juvenile",
+      "species": "wespenbussard",
+      "change": "Juvenile European Honey-buzzard LIGHT morph: pale cream-white breast/belly with sparse brown streaks, light underwing coverts, visible dark carpal areas. Brownish head with pale feather edges, dark brown iris, muted yellow cere, dark bill. Flight feathers and tail have four or five relatively evenly spaced dark bars and more extensive dark primary tips than adult. Preserve pale feather detail, no overexposure.",
+      "source": "/Users/lukasvonhohnhorst/Coding/birds-of-prey/output/imagegen/anatomy-refresh-20260913/wespenbussard-adult-v3.png",
+      "prompt": "Precise plumage-only edit. Input is the normal adult original of this SAME species and sole edit target. Derive requested existing variant directly from it. CHANGE ONLY: Juvenile European Honey-buzzard LIGHT morph: pale cream-white breast/belly with sparse brown streaks, light underwing coverts, visible dark carpal areas. Brownish head with pale feather edges, dark brown iris, muted yellow cere, dark bill. Flight feathers and tail have four or five relatively evenly spaced dark bars and more extensive dark primary tips than adult. Preserve pale feather detail, no overexposure. LOCK EVERYTHING ELSE: same exact pose, silhouette, anatomy, eye/beak landmarks, wing roots, each primary and tail outline, feet position, head clearly looking LEFT, underside camera and lower-left to upper-right wing diagonal. Identical bird size, canvas dimensions, centering, framing and natural feather rendering. Do not redraw, rotate, crop or move the bird. This is for toggling plumage without jumping. Only age/morph coloration may change; no other species template. Solid flat saturated blue #0055FF background for local extraction; no blue spill, checkerboard, halo, shadow, text or additions. Explicitly lock the corrected short exposed neck and wide fanned tail of this new input. Do not elongate the neck or narrow the tail.",
+      "raw": "/Users/lukasvonhohnhorst/.codex/generated_images/01a0976a-4f25-7e80-b0a6-3e4a596912e7/exec-bd1a232d-d764-4bdc-a12d-686fd566ab66.png",
+      "prepared": "output/imagegen/anatomy-refresh-20260913/morph-wespenbussard-hell-juvenile-v3.png",
+      "public": "public/birds/morph-wespenbussard-hell-juvenile-20260913-v3.png"
+    },
+    {
+      "id": "morph-wespenbussard-dunkel-male",
+      "species": "wespenbussard",
+      "change": "Adult European Honey-buzzard DARK morph: chocolate brown head, breast, belly and underwing coverts, with natural subtle tonal detail, not pitch black. Lighter gray-brown flight feathers retain clear darker barring and dark tips, contrasting with brown coverts. Yellow iris, gray cere, dark small bill, yellow feet. Adult tail broad terminal band, pale gap and two narrower basal bars remain visible. Preserve feather detail and natural diffuse light.",
+      "source": "/Users/lukasvonhohnhorst/Coding/birds-of-prey/output/imagegen/anatomy-refresh-20260913/wespenbussard-adult-v3.png",
+      "prompt": "Precise plumage-only edit. Input is the normal adult original of this SAME species and sole edit target. Derive requested existing variant directly from it. CHANGE ONLY: Adult European Honey-buzzard DARK morph: chocolate brown head, breast, belly and underwing coverts, with natural subtle tonal detail, not pitch black. Lighter gray-brown flight feathers retain clear darker barring and dark tips, contrasting with brown coverts. Yellow iris, gray cere, dark small bill, yellow feet. Adult tail broad terminal band, pale gap and two narrower basal bars remain visible. Preserve feather detail and natural diffuse light. LOCK EVERYTHING ELSE: same exact pose, silhouette, anatomy, eye/beak landmarks, wing roots, each primary and tail outline, feet position, head clearly looking LEFT, underside camera and lower-left to upper-right wing diagonal. Identical bird size, canvas dimensions, centering, framing and natural feather rendering. Do not redraw, rotate, crop or move the bird. This is for toggling plumage without jumping. Only age/morph coloration may change; no other species template. Solid flat saturated blue #0055FF background for local extraction; no blue spill, checkerboard, halo, shadow, text or additions. Explicitly lock the corrected short exposed neck and wide fanned tail of this new input. Do not elongate the neck or narrow the tail.",
+      "raw": "/Users/lukasvonhohnhorst/.codex/generated_images/01a0976a-4f25-7e80-b0a6-3e4a596912e7/exec-3ad0730f-9ff6-4117-a247-4fed8ab25a41.png",
+      "prepared": "output/imagegen/anatomy-refresh-20260913/morph-wespenbussard-dunkel-male-v3.png",
+      "public": "public/birds/morph-wespenbussard-dunkel-male-20260913-v3.png"
+    },
+    {
+      "id": "morph-wespenbussard-dunkel-juvenile",
+      "species": "wespenbussard",
+      "change": "Juvenile European Honey-buzzard DARK morph: chocolate-dark-brown head, breast, belly and underwing coverts with subtle warmer brown feather tips; flight feathers lighter gray-brown and strongly barred, not flat black. Dark brown iris, muted yellow cere, small dark bill, yellow feet. Four or five more evenly spaced dark tail/flight-feather bars and extensive dark primary tips characterize juvenile plumage. Do not over-darken so feather detail disappears.",
+      "source": "/Users/lukasvonhohnhorst/Coding/birds-of-prey/output/imagegen/anatomy-refresh-20260913/wespenbussard-adult-v3.png",
+      "prompt": "Precise plumage-only edit. Input is the normal adult original of this SAME species and sole edit target. Derive requested existing variant directly from it. CHANGE ONLY: Juvenile European Honey-buzzard DARK morph: chocolate-dark-brown head, breast, belly and underwing coverts with subtle warmer brown feather tips; flight feathers lighter gray-brown and strongly barred, not flat black. Dark brown iris, muted yellow cere, small dark bill, yellow feet. Four or five more evenly spaced dark tail/flight-feather bars and extensive dark primary tips characterize juvenile plumage. Do not over-darken so feather detail disappears. LOCK EVERYTHING ELSE: same exact pose, silhouette, anatomy, eye/beak landmarks, wing roots, each primary and tail outline, feet position, head clearly looking LEFT, underside camera and lower-left to upper-right wing diagonal. Identical bird size, canvas dimensions, centering, framing and natural feather rendering. Do not redraw, rotate, crop or move the bird. This is for toggling plumage without jumping. Only age/morph coloration may change; no other species template. Solid flat saturated blue #0055FF background for local extraction; no blue spill, checkerboard, halo, shadow, text or additions. Explicitly lock the corrected short exposed neck and wide fanned tail of this new input. Do not elongate the neck or narrow the tail.",
+      "raw": "/Users/lukasvonhohnhorst/.codex/generated_images/01a0976a-4f25-7e80-b0a6-3e4a596912e7/exec-8ea9da13-ae6a-4897-b3f7-c3786b7d7840.png",
+      "prepared": "output/imagegen/anatomy-refresh-20260913/morph-wespenbussard-dunkel-juvenile-v3.png",
+      "public": "public/birds/morph-wespenbussard-dunkel-juvenile-20260913-v3.png"
+    },
+    {
+      "id": "juvenile-kaiseradler",
+      "species": "kaiseradler",
+      "source": "/Users/lukasvonhohnhorst/Coding/birds-of-prey/output/imagegen/anatomy-refresh-20260913/kaiseradler-adult-v2.png",
+      "prompt": "Precise plumage-only edit of this normal adult Eastern Imperial Eagle. Create the existing juvenile directly from this adult original: sandy buff head, breast and belly with bold narrow dark longitudinal streaks; warmer brown upperwing and underwing coverts with pale edges; dark gray-brown flight feathers, pale feather tips; remove adult white shoulder patches and pale adult nape contrast. Juvenile dark iris, yellow cere and yellow feet. LOCK silhouette, corrected shorter wings, every feather outline, head/body size, pose, natural photoreal detail, left-facing head, underside camera, lower-left to upper-right wings, tail fan, feet position, centering and square canvas exactly. Only age-related plumage color and markings change; no elongation or movement. Uniform saturated blue #0055FF background, no spill, no checkerboard.",
+      "raw": "/Users/lukasvonhohnhorst/.codex/generated_images/01a0976a-4f25-7e80-b0a6-3e4a596912e7/exec-3ac77271-87ad-49ff-8162-10edc839f2c2.png",
+      "prepared": "output/imagegen/anatomy-refresh-20260913/juvenile-kaiseradler-v2.png",
+      "public": "public/birds/juvenile-kaiseradler-20260913-v2.png"
+    }
+  ],
+  "status": "integrated_localhost_browser_verified",
+  "validation": {
+    "build": "passed",
+    "morph_images": "passed",
+    "design_lint": "passed",
+    "changed_code_lint": "passed",
+    "full_lint": "4 pre-existing failures in components/ui/carousel.tsx and chart.tsx",
+    "diff_check": "passed",
+    "silhouette": "5 Honey variants and Kaiser juvenile exact final normal adult alpha; visual landmark and feather review before matte restoration"
+  },
+  "condorProcessing": "Only generated red skin pixels composited locally into original adult within head/neck region; original alpha, all feathers, pose and remaining pixels retained. Female and juvenile remain their existing same-pose versions: male-only skin correction does not apply to them.",
+  "reviewFiles": [
+    "honey-v3-final-review.jpg",
+    "kaiser-condor-final-review.jpg"
+  ],
+  "outputs": [
+    "public/birds/juvenile-wespenbussard-20260913-v3.png",
+    "public/birds/morph-wespenbussard-hell-male-20260913-v3.png",
+    "public/birds/morph-wespenbussard-hell-juvenile-20260913-v3.png",
+    "public/birds/morph-wespenbussard-dunkel-male-20260913-v3.png",
+    "public/birds/morph-wespenbussard-dunkel-juvenile-20260913-v3.png",
+    "public/birds/juvenile-kaiseradler-20260913-v2.png",
+    "public/birds/wespenbussard-20260913-v3.png",
+    "public/birds/kaiseradler-20260913-v2.png",
+    "public/birds/andenkondor-male-20260913-v4.png"
+  ],
+  "sha256": {
+    "public/birds/juvenile-wespenbussard-20260913-v3.png": "6aaffe07622ba27d710bc5f4025db97bd2666fd6ad19324ce5ed03a1091627ce",
+    "public/birds/morph-wespenbussard-hell-male-20260913-v3.png": "d8a16e730d2412d274b37a1a4c46ff0116483c33baabb3fa281e8bcd7054829c",
+    "public/birds/morph-wespenbussard-hell-juvenile-20260913-v3.png": "818881d897e0523a1ffe45f2abdd1809463a199c61161ce2e0749aed85b1d389",
+    "public/birds/morph-wespenbussard-dunkel-male-20260913-v3.png": "f6302d34c69b07c0418f50f862c8ac16c98a7842c238b98a5a2eeaba7f71f4b1",
+    "public/birds/morph-wespenbussard-dunkel-juvenile-20260913-v3.png": "084463a93936389358305dad8e7816fc304b26d643dc824290c137cb5ee38758",
+    "public/birds/juvenile-kaiseradler-20260913-v2.png": "1aa820c322a0b8de1f47e2f6943901f31152b4af729ec90b137cd5ef3426d759",
+    "public/birds/wespenbussard-20260913-v3.png": "34edf214118efe6522a39860ab249f2bd3a4058ca313567a257240549f66796a",
+    "public/birds/kaiseradler-20260913-v2.png": "5d4e22b77e7e2c8ab1b7137ee0057b172b4ac1e88c35503a7702b2deed7ed51a",
+    "public/birds/andenkondor-male-20260913-v4.png": "c5b509e0b0edca8a493c57a0bdf1746a6037bb95288abf6a797bb9161dcbea2a"
+  }
+}

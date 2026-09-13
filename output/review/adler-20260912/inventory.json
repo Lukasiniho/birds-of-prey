@@ -1,0 +1,839 @@
+[
+  {
+    "species": "steinadler",
+    "variant": "adult",
+    "path": "/Users/lukasvonhohnhorst/Coding/birds-of-prey/public/birds/steinadler.png",
+    "sha256": "c89f6fd477fa6e3441b5941b78a01c26967a88f3548f4c95e328331d198b639a",
+    "size": [
+      1376,
+      1376
+    ],
+    "alpha_zero": 0.687,
+    "alpha_partial": 0.3129,
+    "bbox": [
+      79,
+      51,
+      1295,
+      1324
+    ]
+  },
+  {
+    "species": "steinadler",
+    "variant": "juvenile",
+    "path": "/Users/lukasvonhohnhorst/Coding/birds-of-prey/public/birds/juvenile-steinadler.png",
+    "sha256": "4591ef8fe727a6a199530ecb34b21de528321af73e86c44441c184761c1c14e4",
+    "size": [
+      1340,
+      1340
+    ],
+    "alpha_zero": 0.694,
+    "alpha_partial": 0.3033,
+    "bbox": [
+      80,
+      52,
+      1258,
+      1286
+    ],
+    "same_canvas": false,
+    "alpha_exact": false,
+    "normalized_silhouette_iou": 0.9217
+  },
+  {
+    "species": "steinadler",
+    "variant": "portrait",
+    "path": "/Users/lukasvonhohnhorst/Coding/birds-of-prey/public/birds/portrait-steinadler.png",
+    "sha256": "c7c05d9804cdf1737ed062247b86a309c39ff43145841d851b567547673448c6",
+    "size": [
+      1254,
+      1254
+    ],
+    "alpha_zero": 0.4727,
+    "alpha_partial": 0.5269,
+    "bbox": [
+      113,
+      129,
+      1140,
+      1121
+    ]
+  },
+  {
+    "species": "kaiseradler",
+    "variant": "adult",
+    "path": "/Users/lukasvonhohnhorst/Coding/birds-of-prey/public/birds/kaiseradler.png",
+    "sha256": "6b9eefe915670a71572e739a25ff5fc1659cfc64a3fe1aef3f25a96e0542530b",
+    "size": [
+      1254,
+      1254
+    ],
+    "alpha_zero": 0.7573,
+    "alpha_partial": 0.0151,
+    "bbox": [
+      70,
+      63,
+      1182,
+      1189
+    ]
+  },
+  {
+    "species": "kaiseradler",
+    "variant": "juvenile",
+    "path": "/Users/lukasvonhohnhorst/Coding/birds-of-prey/public/birds/juvenile-kaiseradler.png",
+    "sha256": "610fa7f70d164e13804006089380751abe83daafcb6370f8387131ed977f3ab7",
+    "size": [
+      1254,
+      1254
+    ],
+    "alpha_zero": 0.7575,
+    "alpha_partial": 0.0151,
+    "bbox": [
+      74,
+      63,
+      1178,
+      1189
+    ],
+    "same_canvas": true,
+    "alpha_exact": false,
+    "normalized_silhouette_iou": 0.9704
+  },
+  {
+    "species": "kaiseradler",
+    "variant": "portrait",
+    "path": "/Users/lukasvonhohnhorst/Coding/birds-of-prey/public/birds/portrait-kaiseradler.png",
+    "sha256": "84dc6567eb1eb5f66a86909344b3b065dadb6f40309cb67f6184180cc8c4bf3c",
+    "size": [
+      1254,
+      1254
+    ],
+    "alpha_zero": 0.4344,
+    "alpha_partial": 0.5655,
+    "bbox": [
+      79,
+      104,
+      1216,
+      1161
+    ]
+  },
+  {
+    "species": "steppenadler",
+    "variant": "adult",
+    "path": "/Users/lukasvonhohnhorst/Coding/birds-of-prey/public/birds/steppenadler.png",
+    "sha256": "b8a3b719e1630ce19d71ea50ccdd366706725214c7fb4a9883ff7785a49cc367",
+    "size": [
+      1254,
+      1254
+    ],
+    "alpha_zero": 0.7483,
+    "alpha_partial": 0.0184,
+    "bbox": [
+      67,
+      63,
+      1184,
+      1189
+    ]
+  },
+  {
+    "species": "steppenadler",
+    "variant": "juvenile",
+    "path": "/Users/lukasvonhohnhorst/Coding/birds-of-prey/public/birds/juvenile-steppenadler.png",
+    "sha256": "38f355728e820d6b09fa714c9e2e7d0b9ccce683dd9b86a9d7cf14d93a41b9a9",
+    "size": [
+      1254,
+      1254
+    ],
+    "alpha_zero": 0.7483,
+    "alpha_partial": 0.0184,
+    "bbox": [
+      67,
+      63,
+      1184,
+      1189
+    ],
+    "same_canvas": true,
+    "alpha_exact": true,
+    "normalized_silhouette_iou": 1.0
+  },
+  {
+    "species": "steppenadler",
+    "variant": "portrait",
+    "path": "/Users/lukasvonhohnhorst/Coding/birds-of-prey/public/birds/portrait-steppenadler.png",
+    "sha256": "99d2f86658ba024331282834f2420f1e2a6a631985b81cb5c9d5fbc99e1f0600",
+    "size": [
+      1254,
+      1254
+    ],
+    "alpha_zero": 0.4208,
+    "alpha_partial": 0.015,
+    "bbox": [
+      65,
+      62,
+      1187,
+      1190
+    ]
+  },
+  {
+    "species": "habichtsadler",
+    "variant": "adult",
+    "path": "/Users/lukasvonhohnhorst/Coding/birds-of-prey/public/birds/habichtsadler.png",
+    "sha256": "fd575f3c940d602b741dea1163cb608f7bd861fcb8414501eb3e388dd83abbf9",
+    "size": [
+      1254,
+      1254
+    ],
+    "alpha_zero": 0.6065,
+    "alpha_partial": 0.3929,
+    "bbox": [
+      19,
+      25,
+      1234,
+      1209
+    ]
+  },
+  {
+    "species": "habichtsadler",
+    "variant": "juvenile",
+    "path": "/Users/lukasvonhohnhorst/Coding/birds-of-prey/public/birds/juvenile-habichtsadler.png",
+    "sha256": "c6de9e3cd6dc71388c590ce2039657d9b24fe8fea52832bb03c297bdbd8ff9ba",
+    "size": [
+      1254,
+      1254
+    ],
+    "alpha_zero": 0.6065,
+    "alpha_partial": 0.3929,
+    "bbox": [
+      19,
+      25,
+      1234,
+      1209
+    ],
+    "same_canvas": true,
+    "alpha_exact": true,
+    "normalized_silhouette_iou": 1.0
+  },
+  {
+    "species": "habichtsadler",
+    "variant": "portrait",
+    "path": "/Users/lukasvonhohnhorst/Coding/birds-of-prey/public/birds/portrait-habichtsadler.png",
+    "sha256": "66274418c6ef294725576ce862cecb8dbd7cf6d7f1e06e64426fa28e8549a703",
+    "size": [
+      1254,
+      1254
+    ],
+    "alpha_zero": 0.4815,
+    "alpha_partial": 0.5184,
+    "bbox": [
+      90,
+      109,
+      1201,
+      1123
+    ]
+  },
+  {
+    "species": "iberienadler",
+    "variant": "adult",
+    "path": "/Users/lukasvonhohnhorst/Coding/birds-of-prey/public/birds/iberienadler.png",
+    "sha256": "692440c54420a11ab04f66c0cfdb86475f19c24168df7adb45ad26cbe9a290db",
+    "size": [
+      1254,
+      1254
+    ],
+    "alpha_zero": 0.6237,
+    "alpha_partial": 0.3759,
+    "bbox": [
+      14,
+      14,
+      1241,
+      1218
+    ]
+  },
+  {
+    "species": "iberienadler",
+    "variant": "juvenile",
+    "path": "/Users/lukasvonhohnhorst/Coding/birds-of-prey/public/birds/juvenile-iberienadler.png",
+    "sha256": "fab889c625b3bc59343020d6f2bd09551b7cbd644b70bb67ae9615ec387400e3",
+    "size": [
+      1254,
+      1254
+    ],
+    "alpha_zero": 0.6237,
+    "alpha_partial": 0.3759,
+    "bbox": [
+      14,
+      14,
+      1241,
+      1218
+    ],
+    "same_canvas": true,
+    "alpha_exact": true,
+    "normalized_silhouette_iou": 1.0
+  },
+  {
+    "species": "iberienadler",
+    "variant": "portrait",
+    "path": "/Users/lukasvonhohnhorst/Coding/birds-of-prey/public/birds/portrait-iberienadler.png",
+    "sha256": "819d3344762dbcc1d22bc182badd94f6c246c87b743facf1fa195d106b137560",
+    "size": [
+      1254,
+      1254
+    ],
+    "alpha_zero": 0.4155,
+    "alpha_partial": 0.5844,
+    "bbox": [
+      66,
+      88,
+      1192,
+      1170
+    ]
+  },
+  {
+    "species": "klippenadler",
+    "variant": "adult",
+    "path": "/Users/lukasvonhohnhorst/Coding/birds-of-prey/public/birds/klippenadler.png",
+    "sha256": "9e160e8d848dd46626ad4438f5e6921de4ccce751c6bdff7e76d60b66e772726",
+    "size": [
+      1254,
+      1254
+    ],
+    "alpha_zero": 0.6426,
+    "alpha_partial": 0.3571,
+    "bbox": [
+      22,
+      18,
+      1239,
+      1209
+    ]
+  },
+  {
+    "species": "klippenadler",
+    "variant": "juvenile",
+    "path": "/Users/lukasvonhohnhorst/Coding/birds-of-prey/public/birds/juvenile-klippenadler.png",
+    "sha256": "3bef1f41367556e8df9988cf028774016f93f47829c054eaa3c84d8c0d3fa0a1",
+    "size": [
+      1254,
+      1254
+    ],
+    "alpha_zero": 0.6426,
+    "alpha_partial": 0.3571,
+    "bbox": [
+      22,
+      18,
+      1239,
+      1209
+    ],
+    "same_canvas": true,
+    "alpha_exact": true,
+    "normalized_silhouette_iou": 1.0
+  },
+  {
+    "species": "klippenadler",
+    "variant": "portrait",
+    "path": "/Users/lukasvonhohnhorst/Coding/birds-of-prey/public/birds/portrait-klippenadler.png",
+    "sha256": "08b84b4909759ebffb7398d7be71daa461667283aa805eca972f4f686f8c3b7b",
+    "size": [
+      1254,
+      1254
+    ],
+    "alpha_zero": 0.3841,
+    "alpha_partial": 0.6158,
+    "bbox": [
+      63,
+      64,
+      1215,
+      1190
+    ]
+  },
+  {
+    "species": "zwergadler",
+    "variant": "adult",
+    "path": "/Users/lukasvonhohnhorst/Coding/birds-of-prey/public/birds/zwergadler.png",
+    "sha256": "cecd5a53d2e8698294c72c675206e93291d8a1fff7fc2cd4774b24e56f6b1316",
+    "size": [
+      1254,
+      1254
+    ],
+    "alpha_zero": 0.6435,
+    "alpha_partial": 0.3563,
+    "bbox": [
+      23,
+      21,
+      1237,
+      1211
+    ]
+  },
+  {
+    "species": "zwergadler",
+    "variant": "juvenile",
+    "path": "/Users/lukasvonhohnhorst/Coding/birds-of-prey/public/birds/juvenile-zwergadler.png",
+    "sha256": "4a7064b857ac58f7b0928b64a62fe261c097ac31765bec43a650d19e504550de",
+    "size": [
+      1254,
+      1254
+    ],
+    "alpha_zero": 0.6435,
+    "alpha_partial": 0.3563,
+    "bbox": [
+      23,
+      21,
+      1237,
+      1211
+    ],
+    "same_canvas": true,
+    "alpha_exact": true,
+    "normalized_silhouette_iou": 1.0
+  },
+  {
+    "species": "zwergadler",
+    "variant": "portrait",
+    "path": "/Users/lukasvonhohnhorst/Coding/birds-of-prey/public/birds/portrait-zwergadler.png",
+    "sha256": "89c4f450f81ffc417ed50f11c4608290edbc9082674576024616d615792359b7",
+    "size": [
+      1254,
+      1254
+    ],
+    "alpha_zero": 0.4481,
+    "alpha_partial": 0.5518,
+    "bbox": [
+      98,
+      95,
+      1195,
+      1163
+    ]
+  },
+  {
+    "species": "seeadler",
+    "variant": "adult",
+    "path": "/Users/lukasvonhohnhorst/Coding/birds-of-prey/public/birds/seeadler.png",
+    "sha256": "c376f5783c8712d20b1566b04e3f1516b889eb4a11125d46e8ed9f0aaf9d971f",
+    "size": [
+      1332,
+      1332
+    ],
+    "alpha_zero": 0.6948,
+    "alpha_partial": 0.3045,
+    "bbox": [
+      51,
+      55,
+      1280,
+      1275
+    ]
+  },
+  {
+    "species": "seeadler",
+    "variant": "juvenile",
+    "path": "/Users/lukasvonhohnhorst/Coding/birds-of-prey/public/birds/juvenile-seeadler.png",
+    "sha256": "ca0d72f258130f7922cdb06ff8575cb6314c142a18e601e3f11cd00ac78e031d",
+    "size": [
+      1349,
+      1349
+    ],
+    "alpha_zero": 0.702,
+    "alpha_partial": 0.2951,
+    "bbox": [
+      66,
+      53,
+      1284,
+      1295
+    ],
+    "same_canvas": false,
+    "alpha_exact": false,
+    "normalized_silhouette_iou": 0.8861
+  },
+  {
+    "species": "seeadler",
+    "variant": "portrait",
+    "path": "/Users/lukasvonhohnhorst/Coding/birds-of-prey/public/birds/portrait-seeadler.png",
+    "sha256": "a5aee8028f731587cb2d3cac0bc1e51f82484ddcdeac0e5023e9d4e0a3f8990b",
+    "size": [
+      1254,
+      1254
+    ],
+    "alpha_zero": 0.4737,
+    "alpha_partial": 0.526,
+    "bbox": [
+      118,
+      119,
+      1128,
+      1137
+    ]
+  },
+  {
+    "species": "weisskopfseeadler",
+    "variant": "adult",
+    "path": "/Users/lukasvonhohnhorst/Coding/birds-of-prey/public/birds/weisskopfseeadler.png",
+    "sha256": "8e2efa55fc3d1572c937f649abd618f91c5688d46c29c17e88fba97513ff6e8f",
+    "size": [
+      1379,
+      1379
+    ],
+    "alpha_zero": 0.7047,
+    "alpha_partial": 0.2951,
+    "bbox": [
+      51,
+      102,
+      1327,
+      1276
+    ]
+  },
+  {
+    "species": "weisskopfseeadler",
+    "variant": "juvenile",
+    "path": "/Users/lukasvonhohnhorst/Coding/birds-of-prey/public/birds/juvenile-weisskopfseeadler.png",
+    "sha256": "2688f1b94912b4d84cc1a35e1bc53a5ab849ae9db4e73396046009e05636aa25",
+    "size": [
+      1326,
+      1326
+    ],
+    "alpha_zero": 0.7109,
+    "alpha_partial": 0.2863,
+    "bbox": [
+      51,
+      100,
+      1274,
+      1225
+    ],
+    "same_canvas": false,
+    "alpha_exact": false,
+    "normalized_silhouette_iou": 0.9736
+  },
+  {
+    "species": "weisskopfseeadler",
+    "variant": "portrait",
+    "path": "/Users/lukasvonhohnhorst/Coding/birds-of-prey/public/birds/portrait-weisskopfseeadler.png",
+    "sha256": "51a0fe35125a0f702f27b1ec51b3c4406c144eed5f69a98683f56b550fec7baf",
+    "size": [
+      1254,
+      1254
+    ],
+    "alpha_zero": 0.571,
+    "alpha_partial": 0.4282,
+    "bbox": [
+      174,
+      115,
+      1076,
+      1139
+    ]
+  },
+  {
+    "species": "riesenseeadler",
+    "variant": "adult",
+    "path": "/Users/lukasvonhohnhorst/Coding/birds-of-prey/public/birds/riesenseeadler.png",
+    "sha256": "0a8752880c8f59f1fc31a97361d54a46991b3ebc42f7967b58787ddc71aaeec7",
+    "size": [
+      1470,
+      1470
+    ],
+    "alpha_zero": 0.7461,
+    "alpha_partial": 0.2536,
+    "bbox": [
+      52,
+      186,
+      1418,
+      1283
+    ]
+  },
+  {
+    "species": "riesenseeadler",
+    "variant": "juvenile",
+    "path": "/Users/lukasvonhohnhorst/Coding/birds-of-prey/public/birds/juvenile-riesenseeadler.png",
+    "sha256": "434cb35ef489b84de19831c2cac52ed1dfeba647695ccc4efb14dac9ae52bcd8",
+    "size": [
+      1328,
+      1328
+    ],
+    "alpha_zero": 0.7299,
+    "alpha_partial": 0.2672,
+    "bbox": [
+      52,
+      120,
+      1276,
+      1207
+    ],
+    "same_canvas": false,
+    "alpha_exact": false,
+    "normalized_silhouette_iou": 0.8017
+  },
+  {
+    "species": "riesenseeadler",
+    "variant": "portrait",
+    "path": "/Users/lukasvonhohnhorst/Coding/birds-of-prey/public/birds/portrait-riesenseeadler.png",
+    "sha256": "409a2db5a50727bd518f27aff855393c297b451c3ff8826c915ba618cbc4851c",
+    "size": [
+      1254,
+      1254
+    ],
+    "alpha_zero": 0.5514,
+    "alpha_partial": 0.4473,
+    "bbox": [
+      133,
+      114,
+      1120,
+      1138
+    ]
+  },
+  {
+    "species": "fischadler",
+    "variant": "adult",
+    "path": "/Users/lukasvonhohnhorst/Coding/birds-of-prey/public/birds/fischadler.png",
+    "sha256": "79946d4bd230315fa67babbab87438bb73a4eaa8894269540bd05c99baaee800",
+    "size": [
+      1306,
+      1306
+    ],
+    "alpha_zero": 0.7585,
+    "alpha_partial": 0.2394,
+    "bbox": [
+      61,
+      51,
+      1244,
+      1254
+    ]
+  },
+  {
+    "species": "fischadler",
+    "variant": "juvenile",
+    "path": "/Users/lukasvonhohnhorst/Coding/birds-of-prey/public/birds/juvenile-fischadler.png",
+    "sha256": "99a289aa3fff73cb0f97222b77c4e82499c842c093e4d19105f0a4eca0c580b4",
+    "size": [
+      1307,
+      1307
+    ],
+    "alpha_zero": 0.7611,
+    "alpha_partial": 0.2367,
+    "bbox": [
+      61,
+      51,
+      1244,
+      1254
+    ],
+    "same_canvas": false,
+    "alpha_exact": false,
+    "normalized_silhouette_iou": 0.9868
+  },
+  {
+    "species": "fischadler",
+    "variant": "portrait",
+    "path": "/Users/lukasvonhohnhorst/Coding/birds-of-prey/public/birds/portrait-fischadler-20260912.png",
+    "sha256": "5cabde23c0f3d49a42d263f5690e68779687a8356fd9628754c444464e9d69e8",
+    "size": [
+      1254,
+      1254
+    ],
+    "alpha_zero": 0.5869,
+    "alpha_partial": 0.0119,
+    "bbox": [
+      120,
+      111,
+      1133,
+      1032
+    ]
+  },
+  {
+    "species": "kronenadler",
+    "variant": "adult",
+    "path": "/Users/lukasvonhohnhorst/Coding/birds-of-prey/public/birds/kronenadler-20260907.png",
+    "sha256": "53a5c877e77ac2b31702af7512a84e124e25907fef584eab4b0cfb1ec55d1b7b",
+    "size": [
+      1254,
+      1254
+    ],
+    "alpha_zero": 0.7081,
+    "alpha_partial": 0.2902,
+    "bbox": [
+      64,
+      50,
+      1189,
+      1202
+    ]
+  },
+  {
+    "species": "kronenadler",
+    "variant": "juvenile",
+    "path": "/Users/lukasvonhohnhorst/Coding/birds-of-prey/public/birds/juvenile-kronenadler-adult-based-20260907.png",
+    "sha256": "87b9ea6072dbdbef6c7fa538da257c11bb46ebb83370fa12db839f3fd272e0f4",
+    "size": [
+      1254,
+      1254
+    ],
+    "alpha_zero": 0.7148,
+    "alpha_partial": 0.0148,
+    "bbox": [
+      65,
+      49,
+      1191,
+      1201
+    ],
+    "same_canvas": true,
+    "alpha_exact": false,
+    "normalized_silhouette_iou": 0.9621
+  },
+  {
+    "species": "kronenadler",
+    "variant": "portrait",
+    "path": "/Users/lukasvonhohnhorst/Coding/birds-of-prey/public/birds/portrait-kronenadler.png",
+    "sha256": "d675a84eb9f5cbc9535fe8ca47e39b51eb2824d9eb2484e0a227371941628c7a",
+    "size": [
+      1254,
+      1254
+    ],
+    "alpha_zero": 0.5891,
+    "alpha_partial": 0.023,
+    "bbox": [
+      152,
+      114,
+      1099,
+      1137
+    ]
+  },
+  {
+    "species": "kampfadler",
+    "variant": "adult",
+    "path": "/Users/lukasvonhohnhorst/Coding/birds-of-prey/public/birds/kampfadler.png",
+    "sha256": "da5dac7ee04a2bf274ed1b1eb127d1daba7e71edb72a7286d37d45ac2439939e",
+    "size": [
+      1304,
+      1304
+    ],
+    "alpha_zero": 0.6976,
+    "alpha_partial": 0.2995,
+    "bbox": [
+      69,
+      51,
+      1233,
+      1252
+    ]
+  },
+  {
+    "species": "kampfadler",
+    "variant": "juvenile",
+    "path": "/Users/lukasvonhohnhorst/Coding/birds-of-prey/public/birds/juvenile-kampfadler.png",
+    "sha256": "cf9040fd9748c2063fc2d081e12d45793f1d161b2064f21dcb567ac6e639ecf8",
+    "size": [
+      1305,
+      1305
+    ],
+    "alpha_zero": 0.6983,
+    "alpha_partial": 0.2993,
+    "bbox": [
+      71,
+      51,
+      1234,
+      1253
+    ],
+    "same_canvas": false,
+    "alpha_exact": false,
+    "normalized_silhouette_iou": 0.9914
+  },
+  {
+    "species": "kampfadler",
+    "variant": "portrait",
+    "path": "/Users/lukasvonhohnhorst/Coding/birds-of-prey/public/birds/portrait-kampfadler.png",
+    "sha256": "30b282363af9e7380d6fa3799919db6682deed26eecd4aa04a43900e92401daa",
+    "size": [
+      1254,
+      1254
+    ],
+    "alpha_zero": 0.5597,
+    "alpha_partial": 0.439,
+    "bbox": [
+      142,
+      115,
+      1111,
+      1139
+    ]
+  },
+  {
+    "species": "harpyie",
+    "variant": "adult",
+    "path": "/Users/lukasvonhohnhorst/Coding/birds-of-prey/public/birds/harpyie.png",
+    "sha256": "9cf1cc7c42216abfe6c6f61b49b473d8b01bd4d8467046f3ed26891ca7f96f75",
+    "size": [
+      1287,
+      1287
+    ],
+    "alpha_zero": 0.6693,
+    "alpha_partial": 0.328,
+    "bbox": [
+      52,
+      53,
+      1235,
+      1232
+    ]
+  },
+  {
+    "species": "harpyie",
+    "variant": "juvenile",
+    "path": "/Users/lukasvonhohnhorst/Coding/birds-of-prey/public/birds/juvenile-harpyie.png",
+    "sha256": "54f392ce519958b6628ac81be30bcefa1655d3511caa78081836bb339dfd249e",
+    "size": [
+      1296,
+      1296
+    ],
+    "alpha_zero": 0.6672,
+    "alpha_partial": 0.3306,
+    "bbox": [
+      52,
+      52,
+      1244,
+      1243
+    ],
+    "same_canvas": false,
+    "alpha_exact": false,
+    "normalized_silhouette_iou": 0.9855
+  },
+  {
+    "species": "harpyie",
+    "variant": "portrait",
+    "path": "/Users/lukasvonhohnhorst/Coding/birds-of-prey/public/birds/portrait-harpyie.png",
+    "sha256": "67acef2ec5dc3dccc4af3156c86b5a30b587f9087cb109e23f02becc6264ffa2",
+    "size": [
+      1254,
+      1254
+    ],
+    "alpha_zero": 0.6028,
+    "alpha_partial": 0.0226,
+    "bbox": [
+      181,
+      115,
+      1069,
+      1137
+    ]
+  },
+  {
+    "species": "zwergadler",
+    "variant": "dark-adult",
+    "path": "/Users/lukasvonhohnhorst/Coding/birds-of-prey/public/birds/morph-zwergadler-dark.png",
+    "sha256": "202802ec665ee2637e72436a63c26952eae64314f31b6d9d113b693b6e120ad9",
+    "size": [
+      1254,
+      1254
+    ],
+    "same_canvas": true,
+    "alpha_exact": true,
+    "normalized_silhouette_iou": 1.0
+  },
+  {
+    "species": "zwergadler",
+    "variant": "dark-juvenile",
+    "path": "/Users/lukasvonhohnhorst/Coding/birds-of-prey/public/birds/morph-juvenile-zwergadler-dark.png",
+    "sha256": "4106a2173ea253a53b76a3fa7b7444152f859d697af4f0357d4dc1c8ac03e58a",
+    "size": [
+      1254,
+      1254
+    ],
+    "same_canvas": true,
+    "alpha_exact": true,
+    "normalized_silhouette_iou": 1.0
+  },
+  {
+    "species": "fischadler",
+    "variant": "female",
+    "path": "/Users/lukasvonhohnhorst/Coding/birds-of-prey/public/birds/female-fischadler-20260909.png",
+    "sha256": "7410b30ff90288d99c98b5f3ada3d47fc516ff26635e5eeaaa3d7eb55c1d19dd",
+    "size": [
+      1306,
+      1306
+    ],
+    "same_canvas": true,
+    "alpha_exact": true,
+    "normalized_silhouette_iou": 1.0
+  }
+]

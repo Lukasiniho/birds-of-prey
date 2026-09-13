@@ -1,0 +1,59 @@
+{
+  "mode": "builtin",
+  "jobs": [
+    {
+      "id": "juvenile-habicht",
+      "source": "/Users/lukasvonhohnhorst/Coding/birds-of-prey/public/birds/habicht.png",
+      "change": "Normal juvenile Eurasian Goshawk: warm cream-buff underparts with dark brown LONGITUDINAL streaks instead of adult transverse barring; brown head with pale eyebrow, yellow iris (not orange), yellow cere and feet, gray hooked bill; brown barred wings and tail. Keep exact head size, shoulder junction, wings, feet, tail and feather outlines.",
+      "prompt": "Edit the provided NORMAL ADULT MASTER of this same species directly; precise plumage-only edit. Normal juvenile Eurasian Goshawk: warm cream-buff underparts with dark brown LONGITUDINAL streaks instead of adult transverse barring; brown head with pale eyebrow, yellow iris (not orange), yellow cere and feet, gray hooked bill; brown barred wings and tail. Keep exact head size, shoulder junction, wings, feet, tail and feather outlines. LOCK exact pixel coordinates of every body landmark, silhouette, entire feather contour, canvas, subject size and position. Preserve this left-facing three-quarter underside flight perspective, lower-left to upper-right wing axis. Do not rotate or reshape the bird, do not copy other species. Photorealistic feather detail and gentle natural light, no illustration/puppet look. BACKGROUND REQUIREMENT: completely uniform solid pure blue #0055FF outside the bird. NO CHECKERBOARD, NO CHECKERED PATTERN, NO SHADOW. Blue is only the removable background and must not color bird feathers. This is necessary for local background extraction. All wing tips fully in frame. No text.",
+      "raw": "/Users/lukasvonhohnhorst/.codex/generated_images/01a0976a-4f25-7e80-b0a6-3e4a596912e7/exec-ddbe9496-9965-4080-937c-315f3bb94c03.png",
+      "rejectedCheckerboardRaw": "/Users/lukasvonhohnhorst/.codex/generated_images/01a0976a-4f25-7e80-b0a6-3e4a596912e7/exec-729f8ff1-910d-4b0c-838d-b4d97f2cb35b.png",
+      "cut": "output/imagegen/remaining-refresh-20260913/juvenile-habicht-alignment-cut.png",
+      "rawSilhouetteIoU": 0.9871598510185466,
+      "output": "output/imagegen/remaining-refresh-20260913/juvenile-habicht-20260913-v3.png",
+      "sourceSha256": "1978c3d38ab7f81be06fbaac74f16acf7bf447b86a75d5b68547a70293f51876",
+      "sha256": "9c453892fe3d30bbe45f6e092b5f5f91d2b0877923f67c1e04d1051125eba1ec",
+      "alphaEqual": true,
+      "public": "public/birds/juvenile-habicht-20260913-v3.png",
+      "visualReview": "adult landmarks checked before matte; final white and dark contact sheet inspected"
+    },
+    {
+      "id": "juvenile-steinadler",
+      "source": "/Users/lukasvonhohnhorst/Coding/birds-of-prey/public/birds/steinadler.png",
+      "change": "Juvenile Golden Eagle: rich dark brown body with restrained golden nape, clearly defined white basal patches in the flight feathers on BOTH underwings, white tail base with a broad dark terminal band. White belongs inside feathers, not a white outer wing edge. Brown iris, yellow cere and feet, dark bill. Keep exact head angle, shoulder shape, wing proportions, legs/toes and tail fan.",
+      "prompt": "Edit the provided NORMAL ADULT MASTER of this same species directly; precise plumage-only edit. Juvenile Golden Eagle: rich dark brown body with restrained golden nape, clearly defined white basal patches in the flight feathers on BOTH underwings, white tail base with a broad dark terminal band. White belongs inside feathers, not a white outer wing edge. Brown iris, yellow cere and feet, dark bill. Keep exact head angle, shoulder shape, wing proportions, legs/toes and tail fan. LOCK exact pixel coordinates of every body landmark, silhouette, entire feather contour, canvas, subject size and position. Preserve this left-facing three-quarter underside flight perspective, lower-left to upper-right wing axis. Do not rotate or reshape the bird, do not copy other species. Photorealistic feather detail and gentle natural light, no illustration/puppet look. BACKGROUND REQUIREMENT: completely uniform solid pure blue #0055FF outside the bird. NO CHECKERBOARD, NO CHECKERED PATTERN, NO SHADOW. Blue is only the removable background and must not color bird feathers. This is necessary for local background extraction. All wing tips fully in frame. No text.",
+      "raw": "/Users/lukasvonhohnhorst/.codex/generated_images/01a0976a-4f25-7e80-b0a6-3e4a596912e7/exec-f3efcb0f-d1b1-4ea1-8534-cef065b4bc08.png",
+      "rejectedCheckerboardRaw": "/Users/lukasvonhohnhorst/.codex/generated_images/01a0976a-4f25-7e80-b0a6-3e4a596912e7/exec-6451af8d-af55-4308-8807-d77b3805fcc5.png",
+      "cut": "output/imagegen/remaining-refresh-20260913/juvenile-steinadler-alignment-cut.png",
+      "rawSilhouetteIoU": 0.9879102702799359,
+      "output": "output/imagegen/remaining-refresh-20260913/juvenile-steinadler-20260913-v3.png",
+      "sourceSha256": "c89f6fd477fa6e3441b5941b78a01c26967a88f3548f4c95e328331d198b639a",
+      "sha256": "11769ae7cd0d37118cb5cef6ab47b757c27ee8a4d64ebb2e8a492ea1c57a9dd2",
+      "alphaEqual": true,
+      "public": "public/birds/juvenile-steinadler-20260913-v3.png",
+      "visualReview": "adult landmarks checked before matte; final white and dark contact sheet inspected"
+    },
+    {
+      "id": "juvenile-aguja",
+      "source": "/Users/lukasvonhohnhorst/Coding/birds-of-prey/public/birds/aguja.png",
+      "change": "Juvenile Black-chested Buzzard-Eagle (Geranoaetus melanoleucus): warm buff and brown heavily streaked chest and belly, brown head, brown barred underwings and tail; no solid slate black adult chest shield, no adult white belly. Brown iris, yellow cere and feet, dark gray bill. Keep exact shoulder/body shape, feet and toes, tail root and fan.",
+      "prompt": "Edit the provided NORMAL ADULT MASTER of this same species directly; precise plumage-only edit. Juvenile Black-chested Buzzard-Eagle (Geranoaetus melanoleucus): warm buff and brown heavily streaked chest and belly, brown head, brown barred underwings and tail; no solid slate black adult chest shield, no adult white belly. Brown iris, yellow cere and feet, dark gray bill. Keep exact shoulder/body shape, feet and toes, tail root and fan. LOCK exact pixel coordinates of every body landmark, silhouette, entire feather contour, canvas, subject size and position. Preserve this left-facing three-quarter underside flight perspective, lower-left to upper-right wing axis. Do not rotate or reshape the bird, do not copy other species. Photorealistic feather detail and gentle natural light, no illustration/puppet look. BACKGROUND REQUIREMENT: completely uniform solid pure blue #0055FF outside the bird. NO CHECKERBOARD, NO CHECKERED PATTERN, NO SHADOW. Blue is only the removable background and must not color bird feathers. This is necessary for local background extraction. All wing tips fully in frame. No text.",
+      "raw": "/Users/lukasvonhohnhorst/.codex/generated_images/01a0976a-4f25-7e80-b0a6-3e4a596912e7/exec-2af0149d-fe1c-4bff-a658-21ae439933e2.png",
+      "rejectedCheckerboardRaw": "/Users/lukasvonhohnhorst/.codex/generated_images/01a0976a-4f25-7e80-b0a6-3e4a596912e7/exec-cefa22e5-a917-42e2-98a2-a0ff72f0794f.png",
+      "cut": "output/imagegen/remaining-refresh-20260913/juvenile-aguja-alignment-cut.png",
+      "rawSilhouetteIoU": 0.9852478106396378,
+      "output": "output/imagegen/remaining-refresh-20260913/juvenile-aguja-20260913-v3.png",
+      "sourceSha256": "619fff7f72c6f351173cb662a58a1b4875ec442dca180cf466e78dbbca531328",
+      "sha256": "8023c1fdeb4ad9d105a26c81b593195cc6f286b45e79cd581520993ec0bccc4d",
+      "alphaEqual": true,
+      "public": "public/birds/juvenile-aguja-20260913-v3.png",
+      "visualReview": "adult landmarks checked before matte; final white and dark contact sheet inspected"
+    }
+  ],
+  "status": "integrated_localhost_browser_verified",
+  "browserVerified": [
+    "juvenile-habicht",
+    "juvenile-steinadler",
+    "juvenile-aguja"
+  ]
+}

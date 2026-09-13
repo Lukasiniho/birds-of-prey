@@ -1,0 +1,212 @@
+[
+  {
+    "id": "wanderfalke",
+    "images": [
+      [
+        "juvenile-wanderfalke",
+        "/birds/juvenile-wanderfalke.png?v=f0c0ef3d0904"
+      ],
+      [
+        "wanderfalke",
+        "/birds/wanderfalke.png?v=451172f0efee"
+      ]
+    ]
+  },
+  {
+    "id": "turmfalke",
+    "images": [
+      [
+        "juvenile-turmfalke",
+        "/birds/juvenile-turmfalke-20260912-v2.png"
+      ],
+      [
+        "female-turmfalke",
+        "/birds/female-turmfalke-20260912-v2.png"
+      ],
+      [
+        "turmfalke",
+        "/birds/turmfalke-20260912-v2.png"
+      ]
+    ]
+  },
+  {
+    "id": "gerfalke",
+    "images": [
+      [
+        "juvenile-gerfalke",
+        "/birds/juvenile-gerfalke.png?v=94fa9cf68063"
+      ],
+      [
+        "gerfalke",
+        "/birds/gerfalke.png?v=aecd6530281f"
+      ]
+    ],
+    "morphs": {
+      "label": "Morphe",
+      "defaultId": "grau",
+      "note": "Weiß, Grau und Dunkel bezeichnen Abschnitte eines fließenden Farbspektrums. Männchen und Weibchen haben dieselben Gefiederfarben.",
+      "sources": [
+        {
+          "name": "Cornell Lab – Gerfalke",
+          "url": "https://www.allaboutbirds.org/guide/Gyrfalcon/id"
+        },
+        {
+          "name": "HawkWatch International – Gerfalke",
+          "url": "https://hawkwatch.org/raptor-id/raptor-id-fact-sheets/gyrfalcon/"
+        }
+      ],
+      "choices": [
+        {
+          "id": "weiss",
+          "label": "Weiß",
+          "adultNote": "Fast schneeweiß mit kleinen dunklen Flecken und dunklen äußersten Handschwingenspitzen. Schwanz weiß bis fein gebändert.",
+          "juvenileNote": "Die weiße Grundfarbe bleibt; Oberseite und Unterseite sind stärker dunkel gezeichnet. Füße und Wachshaut sind blaugrau.",
+          "adultColors": [
+            [
+              "Schneeweiß",
+              "#f4f2eb"
+            ],
+            [
+              "Dunkle Flecken",
+              "#353437"
+            ],
+            [
+              "Feines Grau",
+              "#c0bdb6"
+            ]
+          ],
+          "juvenileColors": [
+            [
+              "Weiß",
+              "#efeee9"
+            ],
+            [
+              "Dunkle Striche",
+              "#55504a"
+            ],
+            [
+              "Blaugraue Füße",
+              "#849199"
+            ]
+          ],
+          "images": {
+            "male": "/birds/morph-gerfalke-weiss-male.png?v=ecfc8cb16b28",
+            "juvenile": "/birds/morph-gerfalke-weiss-juvenile.png?v=3e506aebe4f6"
+          }
+        },
+        {
+          "id": "grau",
+          "label": "Grau",
+          "adultNote": "Graue Oberseite mit Bändern, helle Unterseite mit dunklen Flecken. Wachshaut und Füße sind gelb.",
+          "juvenileNote": "Bräunlicher mit Längsstrichen auf der Unterseite und hell gesäumten Deckfedern. Wachshaut, Augenring und Füße sind zunächst blaugrau.",
+          "adultColors": [
+            [
+              "Grau",
+              "#8a8984"
+            ],
+            [
+              "Grauweiß",
+              "#e2dfd6"
+            ],
+            [
+              "Dunkelzeichnung",
+              "#514c48"
+            ]
+          ],
+          "juvenileColors": [
+            [
+              "Braungrau",
+              "#74665b"
+            ],
+            [
+              "Cremeweiß",
+              "#dfd6c5"
+            ],
+            [
+              "Dunkelbraun",
+              "#494039"
+            ]
+          ]
+        },
+        {
+          "id": "dunkel",
+          "label": "Dunkel",
+          "adultNote": "Dunkelschiefergrau mit schwacher Bänderung und schwärzlichem Kopf. Die Unterseite wirkt weitgehend gleichmäßig dunkel.",
+          "juvenileNote": "Dunkelbraun mit schwachen hellen Längsstrichen; die Schwungfedern sind heller als die Flügeldecken. Füße und Wachshaut sind blaugrau.",
+          "adultColors": [
+            [
+              "Schiefergrau",
+              "#48474c"
+            ],
+            [
+              "Schwarzgrau",
+              "#292a2d"
+            ],
+            [
+              "Schwache Bänder",
+              "#737074"
+            ]
+          ],
+          "juvenileColors": [
+            [
+              "Dunkelbraun",
+              "#3d342d"
+            ],
+            [
+              "Helle Striche",
+              "#9b8c78"
+            ],
+            [
+              "Graubraune Schwingen",
+              "#777168"
+            ]
+          ],
+          "images": {
+            "male": "/birds/morph-gerfalke-dunkel-male.png?v=bab2a4ad27e7",
+            "juvenile": "/birds/morph-gerfalke-dunkel-juvenile.png?v=3cf027d7a27f"
+          }
+        }
+      ],
+      "rangeNote": "In Nordamerika sind graue Gerfalken häufiger als weiße oder dunkle."
+    }
+  },
+  {
+    "id": "sakerfalke",
+    "images": [
+      [
+        "juvenile-sakerfalke",
+        "/birds/juvenile-sakerfalke.png?v=abfb168aba4c"
+      ],
+      [
+        "sakerfalke",
+        "/birds/sakerfalke.png?v=3a0bdf54ae09"
+      ]
+    ]
+  },
+  {
+    "id": "lannerfalke",
+    "images": [
+      [
+        "juvenile-lannerfalke",
+        "/birds/juvenile-lannerfalke.png?v=129e2e00e483"
+      ],
+      [
+        "lannerfalke",
+        "/birds/lannerfalke.png?v=4edbc96bcf0c"
+      ]
+    ]
+  },
+  {
+    "id": "baumfalke",
+    "images": [
+      [
+        "juvenile-baumfalke",
+        "/birds/juvenile-baumfalke.png?v=884c8a4270b0"
+      ],
+      [
+        "baumfalke",
+        "/birds/baumfalke.png?v=8e442b0cf4e1"
+      ]
+    ]
+  }
+]

@@ -1,0 +1,9 @@
+{
+  "output": "public/birds/juvenile-kaiseradler-20260913-v3.png",
+  "rawSilhouetteIoU": 0.98582,
+  "alphaIdentical": true,
+  "matchedInteriorFeatures": 45,
+  "medianInteriorShiftPx": 1.13,
+  "p90InteriorShiftPx": 1.71,
+  "noResize": true
+}

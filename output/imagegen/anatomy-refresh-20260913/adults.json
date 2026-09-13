@@ -1,0 +1,27 @@
+{
+  "mode": "builtin",
+  "jobs": [
+    {
+      "id": "kronenadler",
+      "src": "public/birds/kronenadler-20260907.png",
+      "ref": "crowned-flight.jpg",
+      "prompt": "Recreate this adult African Crowned Eagle (Stephanoaetus coronatus) as a convincingly lifelike bird in flight. Image 1 is the existing asset to replace, useful ONLY for left-facing underside camera orientation and diagonal composition; correct its narrow oversized wings, overly white body and weak feet. Image 2 is a REAL SAME-SPECIES anatomical and adult plumage reference; use its broad relatively short rounded wings, substantial chest, long barred tail, robust feathered legs and powerful yellow feet with big black talons. Adult has brown crested head, rufous-brown underwing coverts and chest with irregular dark blotching, boldly dark-barred paler belly and thighs, pale remiges with two or three broad dark bars, not many thin evenly spaced stripes. Make wings correctly joined at shoulders, naturally flexed at elbows and wrists; a heavy forest eagle, not an Aquila template. Preserve head looking LEFT in readable side profile, viewed from slightly below and to the side, wings across lower-left to upper-right. Head must be clearly seen, not buried underneath torso. Natural feather layering, soft daylight, detailed but not painted/engraved/plastic. Full bird centered with balanced margins, square canvas, all tips and tail visible. Transparent alpha background requested, no checker or shadows.",
+      "raw": "/Users/lukasvonhohnhorst/.codex/generated_images/01a0976a-4f25-7e80-b0a6-3e4a596912e7/exec-a3d95ccb-9c3c-4b90-ba24-4f5d1dc099df.png"
+    },
+    {
+      "id": "weissstorch",
+      "src": "public/birds/weissstorch.png",
+      "ref": "stork-45131331.jpg",
+      "prompt": "Correct the proportions and realism of the white stork (Ciconia ciconia) flight asset in image 1. Image 2 shows REAL SAME-SPECIES birds for natural flight anatomy only; do not copy the flock or sky. Keep one bird, head pointing LEFT, seen from below and slightly from its side so eye and full bill profile are visible; wings diagonal lower-left to upper-right. Fix the stretched flat torso and awkward neck/shoulder transitions: compact rounded body, natural long slender fully outstretched neck with a gentle anatomical curve, a small head, straight long red tapered bill. Broad wings with full secondaries, articulated shoulders/elbows/wrists and separated outer primaries, not narrow identical fan-blades. Two thin red legs originate at the pelvis and trail straight rearwards parallel to body axis, relaxed grouped toes extending beyond the short white tail; not dangling diagonally down from the rump. White body/coverts, black flight feathers, dark iris. Natural wildlife photograph feather texture, subtle soft gray shading on white feathers, not beige carved scales, no overprocessed illustration. Balance all proportions against real stork anatomy. Full bird centered on square canvas with balanced 5% margins, no clipped wings, bill or feet. True transparent alpha background, no checker, shadow, objects or text.",
+      "raw": "/Users/lukasvonhohnhorst/.codex/generated_images/01a0976a-4f25-7e80-b0a6-3e4a596912e7/exec-718f621e-aae6-43b6-acbd-eff96dd858ef.png"
+    },
+    {
+      "id": "wespenbussard",
+      "src": "public/birds/wespenbussard-20260907.png",
+      "ref": "honey-intermediate.jpg",
+      "prompt": "Correct this European Honey-buzzard (Pernis apivorus) adult intermediate morph flight image. Image 1 is the existing normal adult to improve; image 2 is a REAL SAME-SPECIES reference for anatomy and plumage, not camera direction. The existing body is stretched too long and the wings are narrow uniform blades. Shorten the torso roughly 15% while retaining this species' small pigeon-like grayish head and slender projecting neck; do not turn it into a stocky Common Buzzard. Natural broad armwing with slight wrist articulation, long handwing with six prominent separated primaries and realistic feather overlaps. Long tail, less exaggeratedly fan-spread, subtly rounded end, broad dark terminal bar separated by a pale gap from two narrow basal bars. Adult intermediate: cream/buff underparts with irregular brown barring and spots, dark carpal patches on paler underwings, gray-brown head, small dark beak and muted gray cere, yellow iris, yellow feet tucked naturally close to body. Retain underside/slightly side camera with head clearly looking LEFT in readable profile and wing axis diagonal lower-left to upper-right. Natural living anatomy, wings attach at shoulders correctly, no human chest/puppet. Photoreal soft feathers and neutral daylight matching the current site's realistic images. Full bird centered on square canvas with balanced margins, all feather tips visible. True transparent alpha background, no checkerboard, no halo, shadows, text or extra objects.",
+      "raw": "/Users/lukasvonhohnhorst/.codex/generated_images/01a0976a-4f25-7e80-b0a6-3e4a596912e7/exec-fcc07996-0d11-4e77-8c56-aac7ec7962a3.png"
+    }
+  ],
+  "status": "reviewing"
+}

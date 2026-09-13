@@ -1,0 +1,84 @@
+{
+  "outputs": [
+    {
+      "key": "kronenadler",
+      "source": "output/imagegen/anatomy-refresh-20260913/kronenadler-adult-v2.png",
+      "path": "public/birds/kronenadler-20260913-v2.png",
+      "sha256": "1cd8a751f9be6e3b2833185e89ce1881d304366d02622d4931708adfff75ca3a"
+    },
+    {
+      "key": "weissstorch",
+      "source": "output/imagegen/anatomy-refresh-20260913/weissstorch-adult-v2.png",
+      "path": "public/birds/weissstorch-20260913-v2.png",
+      "sha256": "b2880b41ca37f3fe6954613e0c89739e505858a78fe3c34d189c728ed3d0c269"
+    },
+    {
+      "key": "wespenbussard",
+      "source": "output/imagegen/anatomy-refresh-20260913/wespenbussard-adult-v2.png",
+      "path": "public/birds/wespenbussard-20260913-v2.png",
+      "sha256": "0062b7bb709345e0371137f6f403adaa6e2f0e3e966e129348e20e2eada3d67c"
+    },
+    {
+      "key": "juvenile-kronenadler",
+      "source": "output/imagegen/anatomy-refresh-20260913/juvenile-kronenadler-v2.png",
+      "path": "public/birds/juvenile-kronenadler-20260913-v2.png",
+      "sha256": "1b240939c497433298972feffbaf591fb86656cc41902dc1041594c917b6a7ef"
+    },
+    {
+      "key": "juvenile-weissstorch",
+      "source": "output/imagegen/anatomy-refresh-20260913/juvenile-weissstorch-v2.png",
+      "path": "public/birds/juvenile-weissstorch-20260913-v2.png",
+      "sha256": "57f9c6f18f47941f521286dba4b999ba2b001eb0090e80a24291fb10e848f31f"
+    },
+    {
+      "key": "juvenile-wespenbussard",
+      "source": "output/imagegen/anatomy-refresh-20260913/juvenile-wespenbussard-v2.png",
+      "path": "public/birds/juvenile-wespenbussard-20260913-v2.png",
+      "sha256": "771e3efc17cf74532228ca759fbc53f2fc9d8e135bb4f7a13a71db87984920c1"
+    },
+    {
+      "key": "morph-wespenbussard-hell-male",
+      "source": "output/imagegen/anatomy-refresh-20260913/morph-wespenbussard-hell-male-v2.png",
+      "path": "public/birds/morph-wespenbussard-hell-male-20260913-v2.png",
+      "sha256": "ea441b4c10eaeeb8b304fa71ca5002b37ece54cdf084539b9ee206c602ed64a1"
+    },
+    {
+      "key": "morph-wespenbussard-hell-juvenile",
+      "source": "output/imagegen/anatomy-refresh-20260913/morph-wespenbussard-hell-juvenile-v2.png",
+      "path": "public/birds/morph-wespenbussard-hell-juvenile-20260913-v2.png",
+      "sha256": "9c0fbd0d9d7d1bd035eec5a15ee99b2a2b1e378f78bff3f0b2dea1eca7e5c972"
+    },
+    {
+      "key": "morph-wespenbussard-dunkel-male",
+      "source": "output/imagegen/anatomy-refresh-20260913/morph-wespenbussard-dunkel-male-v2.png",
+      "path": "public/birds/morph-wespenbussard-dunkel-male-20260913-v2.png",
+      "sha256": "7574430ccfc8fdc5a3d58f7ba00041a4ae1ec123c38ab361d9d6560a5ac4ac8c"
+    },
+    {
+      "key": "morph-wespenbussard-dunkel-juvenile",
+      "source": "output/imagegen/anatomy-refresh-20260913/morph-wespenbussard-dunkel-juvenile-v2.png",
+      "path": "public/birds/morph-wespenbussard-dunkel-juvenile-20260913-v2.png",
+      "sha256": "5323a6be7a8cc79e95b2636cb4dd4239bbb80c18788b9f4977fccb3e3219620e"
+    }
+  ],
+  "status": "integrated_pending_browser",
+  "matting": "Adult Crowned retained generated alpha; stork/honey regenerated only checker background to blue then locally extracted. All variants directly from centered final normal adults; blue removed locally and exact adult alpha retained. No prior variant used as input.",
+  "review": [
+    "honey-full-matrix-review.jpg",
+    "crowned-stork-pairs-review.jpg"
+  ],
+  "adultSources": [
+    {
+      "source": "public/birds/kronenadler-20260907.png",
+      "sha256": "53a5c877e77ac2b31702af7512a84e124e25907fef584eab4b0cfb1ec55d1b7b"
+    },
+    {
+      "source": "public/birds/weissstorch.png",
+      "sha256": "de138eb546135dff0662ef6e2c6b88026a862a9360e2d1695d1063dcd7ac6b47"
+    },
+    {
+      "source": "public/birds/wespenbussard-20260907.png",
+      "sha256": "a69d3dccf170877794f2ff34cea86c39a1dd01bde6cee3d797ad61de311d603a"
+    }
+  ]
+}

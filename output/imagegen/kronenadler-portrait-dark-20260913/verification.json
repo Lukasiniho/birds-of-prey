@@ -1,0 +1,19 @@
+{
+  "original": "public/birds/portrait-kronenadler-20260913-v4.png",
+  "generated": "/Users/lukasvonhohnhorst/.codex/generated_images/01a09aa2-73d0-7cb3-a5ff-4b32c6c83090/exec-44d44929-7eca-4905-8fec-3fd6bfc7a336.png",
+  "output": "public/birds/portrait-kronenadler-20260913-v5.png",
+  "reference": "public/birds/kronenadler-20260913-v3.png",
+  "referenceRole": "Adult head/neck plumage color only",
+  "method": "Built-in imagegen recolor; original alpha restored locally with scripts/restore-bird-alpha.mjs; feather-edge RGB cleanup, no resizing of the final canvas or neck distortion.",
+  "canvas": [
+    1254,
+    1254
+  ],
+  "alphaIdentical": true,
+  "prompt": "output/imagegen/kronenadler-portrait-dark-20260913/final-prompt.txt",
+  "discarded": "Earlier generation used v3 before concurrent v4 neck correction arrived; not integrated.",
+  "originalSha256": "35297810477ee9eb787bc0f7dd68cfeffc5d6dad88e89fb7f3abc2e75ad17742",
+  "generatedSha256": "ae9fb035ba3314c31fa080bf3e75ae3076a9645bd05c494d89c34bef92a55419",
+  "outputSha256": "633e81cf072c181970b41d9e8f502bfbdfa0202abb487c0c4482ae612552d1f6",
+  "referenceSha256": "acfacb1db86bffa2b4703733f49ccd2cdbc4e6e4cf59cb38557e985adfc3a4a6"
+}

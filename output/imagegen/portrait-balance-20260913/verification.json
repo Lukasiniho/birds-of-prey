@@ -1,0 +1,18 @@
+{
+  "original": "public/birds/portrait-gaukler-20260913-v2.png",
+  "generated": "/Users/lukasvonhohnhorst/.codex/generated_images/01a09aa2-73d0-7cb3-a5ff-4b32c6c83090/exec-7c9ebbf1-477c-4cee-9587-927f44c7f969.png",
+  "output": "public/birds/portrait-gaukler-20260913-v3.png",
+  "compositionReference": "public/birds/portrait-habicht-20260912.png",
+  "approvedComparison": "public/birds/portrait-aguja-20260913-v3.png",
+  "method": "Built-in imagegen edit; local border-connected background segmentation with protected light feathers and edge antialiasing. No neck distortion.",
+  "canvas": [
+    1254,
+    1254
+  ],
+  "transparentPixels": 735569,
+  "originalSha256": "190b49b9c715692cb686c0805a8a9961ca0192099739afcc6536920357c6e627",
+  "generatedSha256": "c1d7e4c294bc478fa0b66d4900008f74597d9db773cb732868f5c3a6da991300",
+  "outputSha256": "eec0cf730ad36335080a6bf0fc60c9507551cd2023625f854253ec704e67e6f2",
+  "compositionReferenceSha256": "537c94c4750ddfc37eba64e5e6e568af39418355cd0b0053bb59a76f4d3a285c",
+  "approvedComparisonSha256": "883c6d0782ef81345069ac3097a745f7628a2aa56c2fa882cb6f6903477d6acb"
+}

@@ -1,0 +1,2543 @@
+[
+  {
+    "id": "rotschwanzbussard",
+    "name": "Rotschwanzbussard",
+    "states": [
+      {
+        "stage": "male",
+        "morph": "hell",
+        "label": "Altvogel / Hell",
+        "src": "/birds/rotschwanzbussard.png?v=bb1f1776b323",
+        "optimized": "/optimized/rotschwanzbussard-d8696ee66331ff0e-1400.webp",
+        "sha256": "bb1f1776b323dc2ffb65f483c8484a85ad1a24f271d56dae32e51fcdc07b6fbb",
+        "httpVerified": true,
+        "size": [
+          1476,
+          1476
+        ],
+        "bbox": [
+          50,
+          184,
+          1426,
+          1291
+        ],
+        "hasTransparency": true,
+        "edgeClipped": false
+      },
+      {
+        "stage": "male",
+        "morph": "rostbraun",
+        "label": "Altvogel / Rostbraun",
+        "src": "/birds/morph-rotschwanzbussard-rostbraun-20260912.png",
+        "optimized": "/optimized/morph-rotschwanzbussard-rostbraun-20260912-c82877a97659e7a5-1400.webp",
+        "sha256": "deada11c428401a7d4aa81201381f11dc81209cb1f9049580111123466b6f3de",
+        "httpVerified": true,
+        "size": [
+          1476,
+          1476
+        ],
+        "bbox": [
+          50,
+          184,
+          1426,
+          1291
+        ],
+        "hasTransparency": true,
+        "edgeClipped": false
+      },
+      {
+        "stage": "male",
+        "morph": "dunkel",
+        "label": "Altvogel / Dunkel",
+        "src": "/birds/morph-rotschwanzbussard-dunkel-20260912.png",
+        "optimized": "/optimized/morph-rotschwanzbussard-dunkel-20260912-bbf328e25d125f57-1400.webp",
+        "sha256": "6eb553998651b27899b651c0863d12077de6d18a4ee1eea94e12acc794b7f4d3",
+        "httpVerified": true,
+        "size": [
+          1476,
+          1476
+        ],
+        "bbox": [
+          50,
+          184,
+          1426,
+          1291
+        ],
+        "hasTransparency": true,
+        "edgeClipped": false
+      },
+      {
+        "stage": "juvenile",
+        "morph": "hell",
+        "label": "Jungvogel / Hell",
+        "src": "/birds/juvenile-rotschwanzbussard-20260912.png",
+        "optimized": "/optimized/juvenile-rotschwanzbussard-20260912-ffbf5ed42446757c-1400.webp",
+        "sha256": "6b37c48a63639512f0b7e72945a06a1e4dbe308ab21bb69851dad3c2e5f1a837",
+        "httpVerified": true,
+        "size": [
+          1476,
+          1476
+        ],
+        "bbox": [
+          50,
+          184,
+          1426,
+          1291
+        ],
+        "hasTransparency": true,
+        "edgeClipped": false
+      },
+      {
+        "stage": "juvenile",
+        "morph": "rostbraun",
+        "label": "Jungvogel / Rostbraun",
+        "src": "/birds/morph-rotschwanzbussard-rostbraun-juvenile-20260912.png",
+        "optimized": "/optimized/morph-rotschwanzbussard-rostbraun-juvenile-20260912-91ae6302edb2ae86-1400.webp",
+        "sha256": "54ff5d790d957eca11921e1a625ee4bbeb7f20dbc55ad65854914744a8ce2ea4",
+        "httpVerified": true,
+        "size": [
+          1476,
+          1476
+        ],
+        "bbox": [
+          50,
+          184,
+          1426,
+          1291
+        ],
+        "hasTransparency": true,
+        "edgeClipped": false
+      },
+      {
+        "stage": "juvenile",
+        "morph": "dunkel",
+        "label": "Jungvogel / Dunkel",
+        "src": "/birds/morph-rotschwanzbussard-dunkel-juvenile-20260912.png",
+        "optimized": "/optimized/morph-rotschwanzbussard-dunkel-juvenile-20260912-42d263dc9a9ebc33-1400.webp",
+        "sha256": "dcf10b24110b7f2d2a934e4e7454025ee263fe2931f52d9b5180cd7b42055d6e",
+        "httpVerified": true,
+        "size": [
+          1476,
+          1476
+        ],
+        "bbox": [
+          50,
+          184,
+          1426,
+          1291
+        ],
+        "hasTransparency": true,
+        "edgeClipped": false
+      }
+    ],
+    "visualReview": "All selectable states inspected together; current post-correction matrices accepted. No further actionable artifact found."
+  },
+  {
+    "id": "habicht",
+    "name": "Habicht",
+    "states": [
+      {
+        "stage": "male",
+        "morph": "normal",
+        "label": "Altvogel / Normal",
+        "src": "/birds/habicht.png?v=1978c3d38ab7",
+        "optimized": "/optimized/habicht-f16712554991a60f-1282.webp",
+        "sha256": "1978c3d38ab7f81be06fbaac74f16acf7bf447b86a75d5b68547a70293f51876",
+        "httpVerified": true,
+        "size": [
+          1282,
+          1282
+        ],
+        "bbox": [
+          58,
+          50,
+          1224,
+          1232
+        ],
+        "hasTransparency": true,
+        "edgeClipped": false
+      },
+      {
+        "stage": "male",
+        "morph": "albidus",
+        "label": "Altvogel / Sehr hell",
+        "src": "/birds/morph-habicht-albidus-male-20260913-v3.png",
+        "optimized": "/optimized/morph-habicht-albidus-male-20260913-v3-06b63ed1b22e3080-1282.webp",
+        "sha256": "83834a727bf5849721926aa8e83534c9efaae23642d7ad2d2c1e331b4553bd0a",
+        "httpVerified": true,
+        "size": [
+          1282,
+          1282
+        ],
+        "bbox": [
+          58,
+          50,
+          1224,
+          1232
+        ],
+        "hasTransparency": true,
+        "edgeClipped": false
+      },
+      {
+        "stage": "juvenile",
+        "morph": "normal",
+        "label": "Jungvogel / Normal",
+        "src": "/birds/juvenile-habicht-20260913-v3.png",
+        "optimized": "/optimized/juvenile-habicht-20260913-v3-6ee8a957fa991b6a-1282.webp",
+        "sha256": "9c453892fe3d30bbe45f6e092b5f5f91d2b0877923f67c1e04d1051125eba1ec",
+        "httpVerified": true,
+        "size": [
+          1282,
+          1282
+        ],
+        "bbox": [
+          58,
+          50,
+          1224,
+          1232
+        ],
+        "hasTransparency": true,
+        "edgeClipped": false
+      },
+      {
+        "stage": "juvenile",
+        "morph": "albidus",
+        "label": "Jungvogel / Sehr hell",
+        "src": "/birds/morph-habicht-albidus-juvenile-20260913-v3.png",
+        "optimized": "/optimized/morph-habicht-albidus-juvenile-20260913-v3-386d3e472288af54-1282.webp",
+        "sha256": "23bc47bb53183d3dfc813a9760a27171ec1f8319c58254255bcdb24d9b13215d",
+        "httpVerified": true,
+        "size": [
+          1282,
+          1282
+        ],
+        "bbox": [
+          58,
+          50,
+          1224,
+          1232
+        ],
+        "hasTransparency": true,
+        "edgeClipped": false
+      }
+    ],
+    "visualReview": "All selectable states inspected together; current post-correction matrices accepted. No further actionable artifact found."
+  },
+  {
+    "id": "maeusebussard",
+    "name": "Mäusebussard",
+    "states": [
+      {
+        "stage": "male",
+        "morph": "hell",
+        "label": "Altvogel / Hell",
+        "src": "/birds/morph-maeusebussard-hell-20260912.png",
+        "optimized": "/optimized/morph-maeusebussard-hell-20260912-cada7df37b2a799d-1365.webp",
+        "sha256": "9b5dd4003158f5896ed37125d42ff5d7fa2ce40cab1519bcc6e35d436fece139",
+        "httpVerified": true,
+        "size": [
+          1365,
+          1365
+        ],
+        "bbox": [
+          50,
+          99,
+          1315,
+          1265
+        ],
+        "hasTransparency": true,
+        "edgeClipped": false
+      },
+      {
+        "stage": "male",
+        "morph": "mittel",
+        "label": "Altvogel / Mittel",
+        "src": "/birds/maeusebussard.png?v=a8213ad8d1f0",
+        "optimized": "/optimized/maeusebussard-bfc547b02af0ca43-1365.webp",
+        "sha256": "a8213ad8d1f00f45c1591aba2a74e725135856a39682a1c803d781f6bcfce98b",
+        "httpVerified": true,
+        "size": [
+          1365,
+          1365
+        ],
+        "bbox": [
+          50,
+          99,
+          1315,
+          1265
+        ],
+        "hasTransparency": true,
+        "edgeClipped": false
+      },
+      {
+        "stage": "male",
+        "morph": "dunkel",
+        "label": "Altvogel / Dunkel",
+        "src": "/birds/morph-maeusebussard-dunkel-20260912.png",
+        "optimized": "/optimized/morph-maeusebussard-dunkel-20260912-2f10dd21c47f2bf4-1365.webp",
+        "sha256": "5756094c03fa13a1d1de3a67ba6cf8979b569f8b53438013a3868f9886a52f64",
+        "httpVerified": true,
+        "size": [
+          1365,
+          1365
+        ],
+        "bbox": [
+          50,
+          99,
+          1315,
+          1265
+        ],
+        "hasTransparency": true,
+        "edgeClipped": false
+      },
+      {
+        "stage": "juvenile",
+        "morph": "hell",
+        "label": "Jungvogel / Hell",
+        "src": "/birds/morph-maeusebussard-hell-juvenile-20260912.png",
+        "optimized": "/optimized/morph-maeusebussard-hell-juvenile-20260912-8c19f4fd1ea3bf2f-1365.webp",
+        "sha256": "77827968d4b1185ba47da6b00295e48de2371f04b0115e84a2646940df6a6785",
+        "httpVerified": true,
+        "size": [
+          1365,
+          1365
+        ],
+        "bbox": [
+          50,
+          99,
+          1315,
+          1265
+        ],
+        "hasTransparency": true,
+        "edgeClipped": false
+      },
+      {
+        "stage": "juvenile",
+        "morph": "mittel",
+        "label": "Jungvogel / Mittel",
+        "src": "/birds/juvenile-maeusebussard-20260912.png",
+        "optimized": "/optimized/juvenile-maeusebussard-20260912-9764efe68b3dee31-1365.webp",
+        "sha256": "5ee761a13e5bd7072ed4275efccb7d4bf2d25ccfe609bc34b4a8ef2b3d322dc6",
+        "httpVerified": true,
+        "size": [
+          1365,
+          1365
+        ],
+        "bbox": [
+          50,
+          99,
+          1315,
+          1265
+        ],
+        "hasTransparency": true,
+        "edgeClipped": false
+      },
+      {
+        "stage": "juvenile",
+        "morph": "dunkel",
+        "label": "Jungvogel / Dunkel",
+        "src": "/birds/morph-maeusebussard-dunkel-juvenile-20260912.png",
+        "optimized": "/optimized/morph-maeusebussard-dunkel-juvenile-20260912-5438fde60c4ee93a-1365.webp",
+        "sha256": "6f8938153811ba4f7a8bd9394aef367c9538c6f3b536f57238c99803da913134",
+        "httpVerified": true,
+        "size": [
+          1365,
+          1365
+        ],
+        "bbox": [
+          50,
+          99,
+          1315,
+          1265
+        ],
+        "hasTransparency": true,
+        "edgeClipped": false
+      }
+    ],
+    "visualReview": "All selectable states inspected together; current post-correction matrices accepted. No further actionable artifact found."
+  },
+  {
+    "id": "wanderfalke",
+    "name": "Wanderfalke",
+    "states": [
+      {
+        "stage": "male",
+        "morph": null,
+        "label": "Altvogel / Normal",
+        "src": "/birds/wanderfalke.png?v=451172f0efee",
+        "optimized": "/optimized/wanderfalke-9265bd1eeb5b4675-1254.webp",
+        "sha256": "451172f0efeec9490f92d7b03383ef61ab4d3fe8604c1f17650118a29597177a",
+        "httpVerified": true,
+        "size": [
+          1254,
+          1254
+        ],
+        "bbox": [
+          192,
+          113,
+          1062,
+          1141
+        ],
+        "hasTransparency": true,
+        "edgeClipped": false
+      },
+      {
+        "stage": "juvenile",
+        "morph": null,
+        "label": "Jungvogel / Normal",
+        "src": "/birds/juvenile-wanderfalke-20260913-v2.png",
+        "optimized": "/optimized/juvenile-wanderfalke-20260913-v2-04a608e97cfab4db-1254.webp",
+        "sha256": "0cc0afd9142bf5ea09b5b4d634b6b8b6b5a43b3aef555d8dec2a7bda8a223f3a",
+        "httpVerified": true,
+        "size": [
+          1254,
+          1254
+        ],
+        "bbox": [
+          192,
+          113,
+          1062,
+          1141
+        ],
+        "hasTransparency": true,
+        "edgeClipped": false
+      }
+    ],
+    "visualReview": "All selectable states inspected together; current post-correction matrices accepted. No further actionable artifact found."
+  },
+  {
+    "id": "turmfalke",
+    "name": "Turmfalke",
+    "states": [
+      {
+        "stage": "female",
+        "morph": null,
+        "label": "Weibchen / Normal",
+        "src": "/birds/female-turmfalke-20260913-v5.png",
+        "optimized": "/optimized/female-turmfalke-20260913-v5-d3597d54e7e76892-1254.webp",
+        "sha256": "6d1fd2702947545c159a89072ffcd8379e7f0266bee7b025ee6bbf018e8eed58",
+        "httpVerified": true,
+        "size": [
+          1254,
+          1254
+        ],
+        "bbox": [
+          126,
+          65,
+          1127,
+          1189
+        ],
+        "hasTransparency": true,
+        "edgeClipped": false
+      },
+      {
+        "stage": "male",
+        "morph": null,
+        "label": "Männchen / Normal",
+        "src": "/birds/turmfalke-20260913-v5.png",
+        "optimized": "/optimized/turmfalke-20260913-v5-6bfe140437b197b8-1254.webp",
+        "sha256": "95ae47f2a4db1a22f74074afa0e9a7cff9b8e1b968302215795f5f3c6b99b8d2",
+        "httpVerified": true,
+        "size": [
+          1254,
+          1254
+        ],
+        "bbox": [
+          126,
+          65,
+          1127,
+          1189
+        ],
+        "hasTransparency": true,
+        "edgeClipped": false
+      },
+      {
+        "stage": "juvenile",
+        "morph": null,
+        "label": "Jungvogel / Normal",
+        "src": "/birds/juvenile-turmfalke-20260913-v5.png",
+        "optimized": "/optimized/juvenile-turmfalke-20260913-v5-d39a83f0151ca7d9-1254.webp",
+        "sha256": "7a0c6bd24121f8b0827e98caac609bb6c36b08623e2b06c5524ce4407d11fa58",
+        "httpVerified": true,
+        "size": [
+          1254,
+          1254
+        ],
+        "bbox": [
+          126,
+          65,
+          1127,
+          1189
+        ],
+        "hasTransparency": true,
+        "edgeClipped": false
+      }
+    ],
+    "visualReview": "All selectable states inspected together; current post-correction matrices accepted. No further actionable artifact found."
+  },
+  {
+    "id": "steinadler",
+    "name": "Steinadler",
+    "states": [
+      {
+        "stage": "male",
+        "morph": null,
+        "label": "Altvogel / Normal",
+        "src": "/birds/steinadler.png?v=c89f6fd477fa",
+        "optimized": "/optimized/steinadler-5cfacf4ce298373d-1376.webp",
+        "sha256": "c89f6fd477fa6e3441b5941b78a01c26967a88f3548f4c95e328331d198b639a",
+        "httpVerified": true,
+        "size": [
+          1376,
+          1376
+        ],
+        "bbox": [
+          78,
+          50,
+          1297,
+          1326
+        ],
+        "hasTransparency": true,
+        "edgeClipped": false
+      },
+      {
+        "stage": "juvenile",
+        "morph": null,
+        "label": "Jungvogel / Normal",
+        "src": "/birds/juvenile-steinadler-20260913-v3.png",
+        "optimized": "/optimized/juvenile-steinadler-20260913-v3-c5857a21353c9e9b-1376.webp",
+        "sha256": "11769ae7cd0d37118cb5cef6ab47b757c27ee8a4d64ebb2e8a492ea1c57a9dd2",
+        "httpVerified": true,
+        "size": [
+          1376,
+          1376
+        ],
+        "bbox": [
+          78,
+          50,
+          1297,
+          1326
+        ],
+        "hasTransparency": true,
+        "edgeClipped": false
+      }
+    ],
+    "visualReview": "All selectable states inspected together; current post-correction matrices accepted. No further actionable artifact found."
+  },
+  {
+    "id": "seeadler",
+    "name": "Seeadler",
+    "states": [
+      {
+        "stage": "male",
+        "morph": null,
+        "label": "Altvogel / Normal",
+        "src": "/birds/seeadler.png?v=c376f5783c87",
+        "optimized": "/optimized/seeadler-286b321da1c8266a-1332.webp",
+        "sha256": "c376f5783c8712d20b1566b04e3f1516b889eb4a11125d46e8ed9f0aaf9d971f",
+        "httpVerified": true,
+        "size": [
+          1332,
+          1332
+        ],
+        "bbox": [
+          50,
+          54,
+          1282,
+          1277
+        ],
+        "hasTransparency": true,
+        "edgeClipped": false
+      },
+      {
+        "stage": "juvenile",
+        "morph": null,
+        "label": "Jungvogel / Normal",
+        "src": "/birds/juvenile-seeadler-20260913-v2.png",
+        "optimized": "/optimized/juvenile-seeadler-20260913-v2-aeac191dfcb26026-1332.webp",
+        "sha256": "d654825bbc6878ad902d6902267c07b3084471bede976ad5a8a40cae7cb22d72",
+        "httpVerified": true,
+        "size": [
+          1332,
+          1332
+        ],
+        "bbox": [
+          50,
+          54,
+          1282,
+          1277
+        ],
+        "hasTransparency": true,
+        "edgeClipped": false
+      }
+    ],
+    "visualReview": "All selectable states inspected together; current post-correction matrices accepted. No further actionable artifact found."
+  },
+  {
+    "id": "fischadler",
+    "name": "Fischadler",
+    "states": [
+      {
+        "stage": "female",
+        "morph": null,
+        "label": "Weibchen / Normal",
+        "src": "/birds/female-fischadler-20260909.png",
+        "optimized": "/optimized/female-fischadler-20260909-e4bd7338909cb0b9-1306.webp",
+        "sha256": "7410b30ff90288d99c98b5f3ada3d47fc516ff26635e5eeaaa3d7eb55c1d19dd",
+        "httpVerified": true,
+        "size": [
+          1306,
+          1306
+        ],
+        "bbox": [
+          59,
+          50,
+          1246,
+          1256
+        ],
+        "hasTransparency": true,
+        "edgeClipped": false
+      },
+      {
+        "stage": "male",
+        "morph": null,
+        "label": "Männchen / Normal",
+        "src": "/birds/fischadler.png?v=79946d4bd230",
+        "optimized": "/optimized/fischadler-2ad87f0637a23d96-1306.webp",
+        "sha256": "79946d4bd230315fa67babbab87438bb73a4eaa8894269540bd05c99baaee800",
+        "httpVerified": true,
+        "size": [
+          1306,
+          1306
+        ],
+        "bbox": [
+          59,
+          50,
+          1246,
+          1256
+        ],
+        "hasTransparency": true,
+        "edgeClipped": false
+      },
+      {
+        "stage": "juvenile",
+        "morph": null,
+        "label": "Jungvogel / Normal",
+        "src": "/birds/juvenile-fischadler-20260913-v3.png",
+        "optimized": "/optimized/juvenile-fischadler-20260913-v3-44674181366791c9-1306.webp",
+        "sha256": "878eb2bb9e535dc54bc501ce988d727f9b8ffe9f2a40e018dd3440dc2aabe345",
+        "httpVerified": true,
+        "size": [
+          1306,
+          1306
+        ],
+        "bbox": [
+          59,
+          50,
+          1246,
+          1256
+        ],
+        "hasTransparency": true,
+        "edgeClipped": false
+      }
+    ],
+    "visualReview": "All selectable states inspected together; current post-correction matrices accepted. No further actionable artifact found."
+  },
+  {
+    "id": "wuestenbussard",
+    "name": "Wüstenbussard",
+    "states": [
+      {
+        "stage": "male",
+        "morph": null,
+        "label": "Altvogel / Normal",
+        "src": "/birds/wuestenbussard-pair-20260907.png",
+        "optimized": "/optimized/wuestenbussard-pair-20260907-f42ee86b8ecffecb-1400.webp",
+        "sha256": "6aaacd284ac7ad49d7b666d8e54ec269e59fb820b5fead72153655348685b3d3",
+        "httpVerified": true,
+        "size": [
+          1488,
+          1488
+        ],
+        "bbox": [
+          136,
+          126,
+          1353,
+          1348
+        ],
+        "hasTransparency": true,
+        "edgeClipped": false
+      },
+      {
+        "stage": "juvenile",
+        "morph": null,
+        "label": "Jungvogel / Normal",
+        "src": "/birds/juvenile-wuestenbussard-pair-20260907.png",
+        "optimized": "/optimized/juvenile-wuestenbussard-pair-20260907-e35fa7e239441bd5-1400.webp",
+        "sha256": "024eb7b799355391872cafd45cd85c42f94f70094dfca4c784c04dff7158c80b",
+        "httpVerified": true,
+        "size": [
+          1488,
+          1488
+        ],
+        "bbox": [
+          136,
+          126,
+          1353,
+          1348
+        ],
+        "hasTransparency": true,
+        "edgeClipped": false
+      }
+    ],
+    "visualReview": "All selectable states inspected together; current post-correction matrices accepted. No further actionable artifact found."
+  },
+  {
+    "id": "kaiseradler",
+    "name": "Kaiseradler",
+    "states": [
+      {
+        "stage": "male",
+        "morph": null,
+        "label": "Altvogel / Normal",
+        "src": "/birds/kaiseradler-20260913-v2.png",
+        "optimized": "/optimized/kaiseradler-20260913-v2-8897e834f5829d87-1254.webp",
+        "sha256": "5d4e22b77e7e2c8ab1b7137ee0057b172b4ac1e88c35503a7702b2deed7ed51a",
+        "httpVerified": true,
+        "size": [
+          1254,
+          1254
+        ],
+        "bbox": [
+          153,
+          128,
+          1098,
+          1119
+        ],
+        "hasTransparency": true,
+        "edgeClipped": false
+      },
+      {
+        "stage": "juvenile",
+        "morph": null,
+        "label": "Jungvogel / Normal",
+        "src": "/birds/juvenile-kaiseradler-20260913-v2.png",
+        "optimized": "/optimized/juvenile-kaiseradler-20260913-v2-895209d34f18114f-1254.webp",
+        "sha256": "1aa820c322a0b8de1f47e2f6943901f31152b4af729ec90b137cd5ef3426d759",
+        "httpVerified": true,
+        "size": [
+          1254,
+          1254
+        ],
+        "bbox": [
+          153,
+          128,
+          1098,
+          1119
+        ],
+        "hasTransparency": true,
+        "edgeClipped": false
+      }
+    ],
+    "visualReview": "All selectable states inspected together; current post-correction matrices accepted. No further actionable artifact found."
+  },
+  {
+    "id": "steppenadler",
+    "name": "Steppenadler",
+    "states": [
+      {
+        "stage": "male",
+        "morph": null,
+        "label": "Altvogel / Normal",
+        "src": "/birds/steppenadler-20260913-v2.png",
+        "optimized": "/optimized/steppenadler-20260913-v2-e98d61d09b3fa086-1254.webp",
+        "sha256": "52ba9b209b94fea3699f60f74f29fd522046d998ce46342febfc722561c9229c",
+        "httpVerified": true,
+        "size": [
+          1254,
+          1254
+        ],
+        "bbox": [
+          185,
+          143,
+          1127,
+          1112
+        ],
+        "hasTransparency": true,
+        "edgeClipped": false
+      },
+      {
+        "stage": "juvenile",
+        "morph": null,
+        "label": "Jungvogel / Normal",
+        "src": "/birds/juvenile-steppenadler-20260913-v2.png",
+        "optimized": "/optimized/juvenile-steppenadler-20260913-v2-0880779a72284797-1254.webp",
+        "sha256": "456e6da2aeaaa7bdaadc6def7b52bd72593333ae3cffa17de1a5ab1468c8c91c",
+        "httpVerified": true,
+        "size": [
+          1254,
+          1254
+        ],
+        "bbox": [
+          185,
+          143,
+          1127,
+          1112
+        ],
+        "hasTransparency": true,
+        "edgeClipped": false
+      }
+    ],
+    "visualReview": "All selectable states inspected together; current post-correction matrices accepted. No further actionable artifact found."
+  },
+  {
+    "id": "sekretaer",
+    "name": "Sekretär",
+    "states": [
+      {
+        "stage": "male",
+        "morph": null,
+        "label": "Altvogel / Normal",
+        "src": "/birds/sekretaer-20260907.png",
+        "optimized": "/optimized/sekretaer-20260907-1c5d264fa88e45a9-1254.webp",
+        "sha256": "056ced9f18e614b0c87b692dd6d0eaa336f93d8a6cf5bddf04582d6c5c352f4b",
+        "httpVerified": true,
+        "size": [
+          1254,
+          1254
+        ],
+        "bbox": [
+          87,
+          50,
+          1197,
+          1204
+        ],
+        "hasTransparency": true,
+        "edgeClipped": false
+      },
+      {
+        "stage": "juvenile",
+        "morph": null,
+        "label": "Jungvogel / Normal",
+        "src": "/birds/juvenile-sekretaer-20260913-v3.png",
+        "optimized": "/optimized/juvenile-sekretaer-20260913-v3-7ed2f034e193c16a-1254.webp",
+        "sha256": "e63cdd62e909b6a3f011754e3d8d97cc1e9f0afb1e16808f6eb2876a4778bb6d",
+        "httpVerified": true,
+        "size": [
+          1254,
+          1254
+        ],
+        "bbox": [
+          87,
+          50,
+          1197,
+          1204
+        ],
+        "hasTransparency": true,
+        "edgeClipped": false
+      }
+    ],
+    "visualReview": "All selectable states inspected together; current post-correction matrices accepted. No further actionable artifact found."
+  },
+  {
+    "id": "andenkondor",
+    "name": "Andenkondor",
+    "states": [
+      {
+        "stage": "female",
+        "morph": null,
+        "label": "Weibchen / Normal",
+        "src": "/birds/andenkondor-female-20260907-v3.png",
+        "optimized": "/optimized/andenkondor-female-20260907-v3-5a842d871e9f28c2-1254.webp",
+        "sha256": "262504903ac4bf20a8dcc604c51df193a9b5f283a431f9b8bafedcb06f5b0411",
+        "httpVerified": true,
+        "size": [
+          1254,
+          1254
+        ],
+        "bbox": [
+          35,
+          28,
+          1226,
+          1200
+        ],
+        "hasTransparency": true,
+        "edgeClipped": false
+      },
+      {
+        "stage": "male",
+        "morph": null,
+        "label": "Männchen / Normal",
+        "src": "/birds/andenkondor-male-20260913-v4.png",
+        "optimized": "/optimized/andenkondor-male-20260913-v4-0aafdee08a8d1ac4-1254.webp",
+        "sha256": "c5b509e0b0edca8a493c57a0bdf1746a6037bb95288abf6a797bb9161dcbea2a",
+        "httpVerified": true,
+        "size": [
+          1254,
+          1254
+        ],
+        "bbox": [
+          30,
+          23,
+          1229,
+          1228
+        ],
+        "hasTransparency": true,
+        "edgeClipped": false
+      },
+      {
+        "stage": "juvenile",
+        "morph": null,
+        "label": "Jungvogel / Normal",
+        "src": "/birds/andenkondor-juvenile-20260907-v3.png",
+        "optimized": "/optimized/andenkondor-juvenile-20260907-v3-f49f98b244759711-1254.webp",
+        "sha256": "1298ba8e77428ee28bd319abe5c744144c9abcc86c6b21dc964ffc5f9cff5c21",
+        "httpVerified": true,
+        "size": [
+          1254,
+          1254
+        ],
+        "bbox": [
+          34,
+          26,
+          1225,
+          1200
+        ],
+        "hasTransparency": true,
+        "edgeClipped": false
+      }
+    ],
+    "visualReview": "All selectable states inspected together; current post-correction matrices accepted. No further actionable artifact found."
+  },
+  {
+    "id": "wespenbussard",
+    "name": "Wespenbussard",
+    "states": [
+      {
+        "stage": "male",
+        "morph": "hell",
+        "label": "Altvogel / Hell",
+        "src": "/birds/morph-wespenbussard-hell-male-20260913-v3.png",
+        "optimized": "/optimized/morph-wespenbussard-hell-male-20260913-v3-c48d4e4d8c80d62d-1254.webp",
+        "sha256": "d8a16e730d2412d274b37a1a4c46ff0116483c33baabb3fa281e8bcd7054829c",
+        "httpVerified": true,
+        "size": [
+          1254,
+          1254
+        ],
+        "bbox": [
+          51,
+          38,
+          1202,
+          1215
+        ],
+        "hasTransparency": true,
+        "edgeClipped": false
+      },
+      {
+        "stage": "male",
+        "morph": "mittel",
+        "label": "Altvogel / Mittel",
+        "src": "/birds/wespenbussard-20260913-v3.png",
+        "optimized": "/optimized/wespenbussard-20260913-v3-86b4c86fcfca83f5-1254.webp",
+        "sha256": "34edf214118efe6522a39860ab249f2bd3a4058ca313567a257240549f66796a",
+        "httpVerified": true,
+        "size": [
+          1254,
+          1254
+        ],
+        "bbox": [
+          51,
+          38,
+          1202,
+          1215
+        ],
+        "hasTransparency": true,
+        "edgeClipped": false
+      },
+      {
+        "stage": "male",
+        "morph": "dunkel",
+        "label": "Altvogel / Dunkel",
+        "src": "/birds/morph-wespenbussard-dunkel-male-20260913-v3.png",
+        "optimized": "/optimized/morph-wespenbussard-dunkel-male-20260913-v3-85af14876fe93947-1254.webp",
+        "sha256": "f6302d34c69b07c0418f50f862c8ac16c98a7842c238b98a5a2eeaba7f71f4b1",
+        "httpVerified": true,
+        "size": [
+          1254,
+          1254
+        ],
+        "bbox": [
+          51,
+          38,
+          1202,
+          1215
+        ],
+        "hasTransparency": true,
+        "edgeClipped": false
+      },
+      {
+        "stage": "juvenile",
+        "morph": "hell",
+        "label": "Jungvogel / Hell",
+        "src": "/birds/morph-wespenbussard-hell-juvenile-20260913-v3.png",
+        "optimized": "/optimized/morph-wespenbussard-hell-juvenile-20260913-v3-097c70c9f54fa118-1254.webp",
+        "sha256": "818881d897e0523a1ffe45f2abdd1809463a199c61161ce2e0749aed85b1d389",
+        "httpVerified": true,
+        "size": [
+          1254,
+          1254
+        ],
+        "bbox": [
+          51,
+          38,
+          1202,
+          1215
+        ],
+        "hasTransparency": true,
+        "edgeClipped": false
+      },
+      {
+        "stage": "juvenile",
+        "morph": "mittel",
+        "label": "Jungvogel / Mittel",
+        "src": "/birds/juvenile-wespenbussard-20260913-v3.png",
+        "optimized": "/optimized/juvenile-wespenbussard-20260913-v3-145991f5af1dafb4-1254.webp",
+        "sha256": "6aaffe07622ba27d710bc5f4025db97bd2666fd6ad19324ce5ed03a1091627ce",
+        "httpVerified": true,
+        "size": [
+          1254,
+          1254
+        ],
+        "bbox": [
+          51,
+          38,
+          1202,
+          1215
+        ],
+        "hasTransparency": true,
+        "edgeClipped": false
+      },
+      {
+        "stage": "juvenile",
+        "morph": "dunkel",
+        "label": "Jungvogel / Dunkel",
+        "src": "/birds/morph-wespenbussard-dunkel-juvenile-20260913-v3.png",
+        "optimized": "/optimized/morph-wespenbussard-dunkel-juvenile-20260913-v3-f875909d90447c3a-1254.webp",
+        "sha256": "084463a93936389358305dad8e7816fc304b26d643dc824290c137cb5ee38758",
+        "httpVerified": true,
+        "size": [
+          1254,
+          1254
+        ],
+        "bbox": [
+          51,
+          38,
+          1202,
+          1215
+        ],
+        "hasTransparency": true,
+        "edgeClipped": false
+      }
+    ],
+    "visualReview": "All selectable states inspected together; current post-correction matrices accepted. No further actionable artifact found."
+  },
+  {
+    "id": "bartgeier",
+    "name": "Bartgeier",
+    "states": [
+      {
+        "stage": "male",
+        "morph": "rostorange",
+        "label": "Altvogel / Rostorange",
+        "src": "/birds/bartgeier-20260907.png",
+        "optimized": "/optimized/bartgeier-20260907-cac1546641d1b6fb-1254.webp",
+        "sha256": "4982215d7ad46855feb6eeaebdba7b78b263c6ab5f4dd184be636932a4c71204",
+        "httpVerified": true,
+        "size": [
+          1254,
+          1254
+        ],
+        "bbox": [
+          102,
+          50,
+          1152,
+          1204
+        ],
+        "hasTransparency": true,
+        "edgeClipped": false
+      },
+      {
+        "stage": "male",
+        "morph": "weiss",
+        "label": "Altvogel / Weiß",
+        "src": "/birds/morph-bartgeier-weiss-male.png",
+        "optimized": "/optimized/morph-bartgeier-weiss-male-2488f9608fa0489e-1254.webp",
+        "sha256": "bad7d249d686ed23c5aada2b1e60848248793f636ca0fa8df9044b33f58df640",
+        "httpVerified": true,
+        "size": [
+          1254,
+          1254
+        ],
+        "bbox": [
+          102,
+          50,
+          1152,
+          1204
+        ],
+        "hasTransparency": true,
+        "edgeClipped": false
+      },
+      {
+        "stage": "juvenile",
+        "morph": null,
+        "label": "Jungvogel / Normal",
+        "src": "/birds/juvenile-bartgeier-20260909.png",
+        "optimized": "/optimized/juvenile-bartgeier-20260909-9b2a39a65473cdc1-1254.webp",
+        "sha256": "6e201c979c4a959a9d7d594fdd819486d266ee10593459b448afb773c5e0ff9d",
+        "httpVerified": true,
+        "size": [
+          1254,
+          1254
+        ],
+        "bbox": [
+          102,
+          50,
+          1152,
+          1204
+        ],
+        "hasTransparency": true,
+        "edgeClipped": false
+      }
+    ],
+    "visualReview": "All selectable states inspected together; current post-correction matrices accepted. No further actionable artifact found."
+  },
+  {
+    "id": "kronenadler",
+    "name": "Kronenadler",
+    "states": [
+      {
+        "stage": "male",
+        "morph": null,
+        "label": "Altvogel / Normal",
+        "src": "/birds/kronenadler-20260913-v2.png",
+        "optimized": "/optimized/kronenadler-20260913-v2-5f2efc9d397b67d8-1254.webp",
+        "sha256": "1cd8a751f9be6e3b2833185e89ce1881d304366d02622d4931708adfff75ca3a",
+        "httpVerified": true,
+        "size": [
+          1254,
+          1254
+        ],
+        "bbox": [
+          40,
+          58,
+          1214,
+          1196
+        ],
+        "hasTransparency": true,
+        "edgeClipped": false
+      },
+      {
+        "stage": "juvenile",
+        "morph": null,
+        "label": "Jungvogel / Normal",
+        "src": "/birds/juvenile-kronenadler-20260913-v2.png",
+        "optimized": "/optimized/juvenile-kronenadler-20260913-v2-7d0948243fac84ee-1254.webp",
+        "sha256": "1b240939c497433298972feffbaf591fb86656cc41902dc1041594c917b6a7ef",
+        "httpVerified": true,
+        "size": [
+          1254,
+          1254
+        ],
+        "bbox": [
+          40,
+          58,
+          1214,
+          1196
+        ],
+        "hasTransparency": true,
+        "edgeClipped": false
+      }
+    ],
+    "visualReview": "All selectable states inspected together; current post-correction matrices accepted. No further actionable artifact found."
+  },
+  {
+    "id": "habichtsadler",
+    "name": "Habichtsadler",
+    "states": [
+      {
+        "stage": "male",
+        "morph": null,
+        "label": "Altvogel / Normal",
+        "src": "/birds/habichtsadler-20260913-v2-centered.png",
+        "optimized": "/optimized/habichtsadler-20260913-v2-centered-6bc5df723361bac0-1254.webp",
+        "sha256": "c0bfbe1b49adbec9751f460449f6d9be5946d82027c3d877533bc0c207dae1ef",
+        "httpVerified": true,
+        "size": [
+          1254,
+          1254
+        ],
+        "bbox": [
+          17,
+          32,
+          1236,
+          1220
+        ],
+        "hasTransparency": true,
+        "edgeClipped": false
+      },
+      {
+        "stage": "juvenile",
+        "morph": null,
+        "label": "Jungvogel / Normal",
+        "src": "/birds/juvenile-habichtsadler-20260913-v2-centered.png",
+        "optimized": "/optimized/juvenile-habichtsadler-20260913-v2-centered-97a960278976bfaf-1254.webp",
+        "sha256": "fdf1310ee9159688cdb3da03a3e8531094702ae529d1f106e530dd5fd064f08b",
+        "httpVerified": true,
+        "size": [
+          1254,
+          1254
+        ],
+        "bbox": [
+          17,
+          32,
+          1236,
+          1220
+        ],
+        "hasTransparency": true,
+        "edgeClipped": false
+      }
+    ],
+    "visualReview": "All selectable states inspected together; current post-correction matrices accepted. No further actionable artifact found."
+  },
+  {
+    "id": "iberienadler",
+    "name": "Iberienadler",
+    "states": [
+      {
+        "stage": "male",
+        "morph": null,
+        "label": "Altvogel / Normal",
+        "src": "/birds/iberienadler-20260913-v2.png",
+        "optimized": "/optimized/iberienadler-20260913-v2-e520018b28fd13f9-1254.webp",
+        "sha256": "c2bb0d23fa34f5a8c3ac68c01ea38bb35ecb72de6b5a56fb00cf24ba3edc5dc2",
+        "httpVerified": true,
+        "size": [
+          1254,
+          1254
+        ],
+        "bbox": [
+          13,
+          12,
+          1243,
+          1220
+        ],
+        "hasTransparency": true,
+        "edgeClipped": false
+      },
+      {
+        "stage": "juvenile",
+        "morph": null,
+        "label": "Jungvogel / Normal",
+        "src": "/birds/juvenile-iberienadler-20260913-v2.png",
+        "optimized": "/optimized/juvenile-iberienadler-20260913-v2-67aed579ed324b02-1254.webp",
+        "sha256": "eaecc724a6e9f6c75f27975b98ad46bc8c70a611239232591437932652158109",
+        "httpVerified": true,
+        "size": [
+          1254,
+          1254
+        ],
+        "bbox": [
+          13,
+          12,
+          1243,
+          1220
+        ],
+        "hasTransparency": true,
+        "edgeClipped": false
+      }
+    ],
+    "visualReview": "All selectable states inspected together; current post-correction matrices accepted. No further actionable artifact found."
+  },
+  {
+    "id": "klippenadler",
+    "name": "Klippenadler",
+    "states": [
+      {
+        "stage": "male",
+        "morph": null,
+        "label": "Altvogel / Normal",
+        "src": "/birds/klippenadler-20260913-v2.png",
+        "optimized": "/optimized/klippenadler-20260913-v2-1b178c5d418f2762-1254.webp",
+        "sha256": "5c9e09659f5fb11667d27db38937022cf7f8c03fc16f4652cb4faf75d6baf312",
+        "httpVerified": true,
+        "size": [
+          1254,
+          1254
+        ],
+        "bbox": [
+          20,
+          16,
+          1241,
+          1212
+        ],
+        "hasTransparency": true,
+        "edgeClipped": false
+      },
+      {
+        "stage": "juvenile",
+        "morph": null,
+        "label": "Jungvogel / Normal",
+        "src": "/birds/juvenile-klippenadler-20260913-v2.png",
+        "optimized": "/optimized/juvenile-klippenadler-20260913-v2-d2e92fd0280e56d6-1254.webp",
+        "sha256": "c62999b65ab3c46159c4ceda48550754255fa9ad8b9d6a751e17e27299a21ff4",
+        "httpVerified": true,
+        "size": [
+          1254,
+          1254
+        ],
+        "bbox": [
+          20,
+          16,
+          1241,
+          1212
+        ],
+        "hasTransparency": true,
+        "edgeClipped": false
+      }
+    ],
+    "visualReview": "All selectable states inspected together; current post-correction matrices accepted. No further actionable artifact found."
+  },
+  {
+    "id": "zwergadler",
+    "name": "Zwergadler",
+    "states": [
+      {
+        "stage": "male",
+        "morph": "hell",
+        "label": "Altvogel / Hell",
+        "src": "/birds/zwergadler-20260913-v2.png",
+        "optimized": "/optimized/zwergadler-20260913-v2-b3f587d3fd37cb93-1254.webp",
+        "sha256": "a42a61e347650c7bd50c0410f571e8370b2adc92ddf51981d3fd174babce5e97",
+        "httpVerified": true,
+        "size": [
+          1254,
+          1254
+        ],
+        "bbox": [
+          21,
+          19,
+          1240,
+          1214
+        ],
+        "hasTransparency": true,
+        "edgeClipped": false
+      },
+      {
+        "stage": "male",
+        "morph": "dunkel",
+        "label": "Altvogel / Dunkel",
+        "src": "/birds/morph-zwergadler-dark-adult-20260913-v2.png",
+        "optimized": "/optimized/morph-zwergadler-dark-adult-20260913-v2-a393768ea87f70ef-1254.webp",
+        "sha256": "da258931c138b2fe467e0fe88c3db2d60901be77308eb5f6c7ba1b551393be72",
+        "httpVerified": true,
+        "size": [
+          1254,
+          1254
+        ],
+        "bbox": [
+          21,
+          19,
+          1240,
+          1214
+        ],
+        "hasTransparency": true,
+        "edgeClipped": false
+      },
+      {
+        "stage": "juvenile",
+        "morph": "hell",
+        "label": "Jungvogel / Hell",
+        "src": "/birds/juvenile-zwergadler-20260913-v2.png",
+        "optimized": "/optimized/juvenile-zwergadler-20260913-v2-306358c4e870741f-1254.webp",
+        "sha256": "53e7ce22dd113a4b9fe327c8389524b67be4c72f0d07bec9961ac10b7988be53",
+        "httpVerified": true,
+        "size": [
+          1254,
+          1254
+        ],
+        "bbox": [
+          21,
+          19,
+          1240,
+          1214
+        ],
+        "hasTransparency": true,
+        "edgeClipped": false
+      },
+      {
+        "stage": "juvenile",
+        "morph": "dunkel",
+        "label": "Jungvogel / Dunkel",
+        "src": "/birds/morph-zwergadler-dark-juvenile-20260913-v2.png",
+        "optimized": "/optimized/morph-zwergadler-dark-juvenile-20260913-v2-608a2ae93bad2990-1254.webp",
+        "sha256": "ca47c6f68792983fc3473d41c449c031d94ccaa0ccbb2c72dbadbdfd864b0bb0",
+        "httpVerified": true,
+        "size": [
+          1254,
+          1254
+        ],
+        "bbox": [
+          21,
+          19,
+          1240,
+          1214
+        ],
+        "hasTransparency": true,
+        "edgeClipped": false
+      }
+    ],
+    "visualReview": "All selectable states inspected together; current post-correction matrices accepted. No further actionable artifact found."
+  },
+  {
+    "id": "weisskopfseeadler",
+    "name": "Weißkopfseeadler",
+    "states": [
+      {
+        "stage": "male",
+        "morph": null,
+        "label": "Altvogel / Normal",
+        "src": "/birds/weisskopfseeadler.png?v=8e2efa55fc3d",
+        "optimized": "/optimized/weisskopfseeadler-e3ee878e415635d5-1379.webp",
+        "sha256": "8e2efa55fc3d1572c937f649abd618f91c5688d46c29c17e88fba97513ff6e8f",
+        "httpVerified": true,
+        "size": [
+          1379,
+          1379
+        ],
+        "bbox": [
+          50,
+          101,
+          1329,
+          1278
+        ],
+        "hasTransparency": true,
+        "edgeClipped": false
+      },
+      {
+        "stage": "juvenile",
+        "morph": null,
+        "label": "Jungvogel / Normal",
+        "src": "/birds/juvenile-weisskopfseeadler-20260913-v2.png",
+        "optimized": "/optimized/juvenile-weisskopfseeadler-20260913-v2-bb1c070e12b7814c-1379.webp",
+        "sha256": "7cac8166cc255ad91821c217ea6c820d27d4668392416f76bb08e18d9b528098",
+        "httpVerified": true,
+        "size": [
+          1379,
+          1379
+        ],
+        "bbox": [
+          50,
+          101,
+          1329,
+          1278
+        ],
+        "hasTransparency": true,
+        "edgeClipped": false
+      }
+    ],
+    "visualReview": "All selectable states inspected together; current post-correction matrices accepted. No further actionable artifact found."
+  },
+  {
+    "id": "riesenseeadler",
+    "name": "Riesenseeadler",
+    "states": [
+      {
+        "stage": "male",
+        "morph": null,
+        "label": "Altvogel / Normal",
+        "src": "/birds/riesenseeadler.png?v=0a8752880c8f",
+        "optimized": "/optimized/riesenseeadler-6e9a6021a914035e-1400.webp",
+        "sha256": "0a8752880c8f59f1fc31a97361d54a46991b3ebc42f7967b58787ddc71aaeec7",
+        "httpVerified": true,
+        "size": [
+          1470,
+          1470
+        ],
+        "bbox": [
+          50,
+          185,
+          1420,
+          1285
+        ],
+        "hasTransparency": true,
+        "edgeClipped": false
+      },
+      {
+        "stage": "juvenile",
+        "morph": null,
+        "label": "Jungvogel / Normal",
+        "src": "/birds/juvenile-riesenseeadler-20260913-v2.png",
+        "optimized": "/optimized/juvenile-riesenseeadler-20260913-v2-48f3941bb1171d20-1400.webp",
+        "sha256": "44193069bac03db7889b3204efa311a10237497d610eb2199bca31df437e3f12",
+        "httpVerified": true,
+        "size": [
+          1470,
+          1470
+        ],
+        "bbox": [
+          50,
+          185,
+          1420,
+          1285
+        ],
+        "hasTransparency": true,
+        "edgeClipped": false
+      }
+    ],
+    "visualReview": "All selectable states inspected together; current post-correction matrices accepted. No further actionable artifact found."
+  },
+  {
+    "id": "gaukler",
+    "name": "Gaukler",
+    "states": [
+      {
+        "stage": "female",
+        "morph": "kastanienbraun",
+        "label": "Weibchen / Kastanienbraun",
+        "src": "/birds/female-gaukler.png?v=b5a1bbdc6ba2",
+        "optimized": "/optimized/female-gaukler-71c58ef57e613a83-1382.webp",
+        "sha256": "b5a1bbdc6ba29fce4abe095e3779c7e6c10ffb7266901e0f12a9822a18193a2f",
+        "httpVerified": true,
+        "size": [
+          1382,
+          1382
+        ],
+        "bbox": [
+          50,
+          97,
+          1332,
+          1285
+        ],
+        "hasTransparency": true,
+        "edgeClipped": false
+      },
+      {
+        "stage": "female",
+        "morph": "creme",
+        "label": "Weibchen / Creme",
+        "src": "/birds/morph-gaukler-creme-female.png",
+        "optimized": "/optimized/morph-gaukler-creme-female-6aaa763fbc86b8a2-1385.webp",
+        "sha256": "4cc4f8eeb1a3d9d0ccf07e63c2016dafa89da9412765c1a5f7a199223ae2c582",
+        "httpVerified": true,
+        "size": [
+          1385,
+          1385
+        ],
+        "bbox": [
+          50,
+          98,
+          1335,
+          1286
+        ],
+        "hasTransparency": true,
+        "edgeClipped": false
+      },
+      {
+        "stage": "male",
+        "morph": "kastanienbraun",
+        "label": "Männchen / Kastanienbraun",
+        "src": "/birds/gaukler.png?v=2beff99eb753",
+        "optimized": "/optimized/gaukler-fa2c316ea10acfdb-1385.webp",
+        "sha256": "2beff99eb75376631196b7f20e1ce322180e0a9d502f68c9222b8e9e7e1fc43c",
+        "httpVerified": true,
+        "size": [
+          1385,
+          1385
+        ],
+        "bbox": [
+          50,
+          98,
+          1335,
+          1286
+        ],
+        "hasTransparency": true,
+        "edgeClipped": false
+      },
+      {
+        "stage": "male",
+        "morph": "creme",
+        "label": "Männchen / Creme",
+        "src": "/birds/morph-gaukler-creme-male.png",
+        "optimized": "/optimized/morph-gaukler-creme-male-00d5756dc8cfee6f-1385.webp",
+        "sha256": "bc8b1f97e0281455ee601e713f77cbf715c237d9950981d72f154e1b85b39d21",
+        "httpVerified": true,
+        "size": [
+          1385,
+          1385
+        ],
+        "bbox": [
+          50,
+          98,
+          1335,
+          1286
+        ],
+        "hasTransparency": true,
+        "edgeClipped": false
+      },
+      {
+        "stage": "juvenile",
+        "morph": null,
+        "label": "Jungvogel / Normal",
+        "src": "/birds/juvenile-gaukler-20260913-v3.png",
+        "optimized": "/optimized/juvenile-gaukler-20260913-v3-6d92de79f2978061-1385.webp",
+        "sha256": "230bd40629b417e6f07892a5e129471ba452b3f50f3f0d185c55357200bbf6ff",
+        "httpVerified": true,
+        "size": [
+          1385,
+          1385
+        ],
+        "bbox": [
+          50,
+          98,
+          1335,
+          1286
+        ],
+        "hasTransparency": true,
+        "edgeClipped": false
+      }
+    ],
+    "visualReview": "All selectable states inspected together; current post-correction matrices accepted. No further actionable artifact found."
+  },
+  {
+    "id": "aguja",
+    "name": "Aguja",
+    "states": [
+      {
+        "stage": "male",
+        "morph": null,
+        "label": "Altvogel / Normal",
+        "src": "/birds/aguja.png?v=619fff7f72c6",
+        "optimized": "/optimized/aguja-2a8a10d546a74ac7-1322.webp",
+        "sha256": "619fff7f72c6f351173cb662a58a1b4875ec442dca180cf466e78dbbca531328",
+        "httpVerified": true,
+        "size": [
+          1322,
+          1322
+        ],
+        "bbox": [
+          53,
+          50,
+          1269,
+          1272
+        ],
+        "hasTransparency": true,
+        "edgeClipped": false
+      },
+      {
+        "stage": "juvenile",
+        "morph": null,
+        "label": "Jungvogel / Normal",
+        "src": "/birds/juvenile-aguja-20260913-v3.png",
+        "optimized": "/optimized/juvenile-aguja-20260913-v3-d42768e893ef3545-1322.webp",
+        "sha256": "8023c1fdeb4ad9d105a26c81b593195cc6f286b45e79cd581520993ec0bccc4d",
+        "httpVerified": true,
+        "size": [
+          1322,
+          1322
+        ],
+        "bbox": [
+          53,
+          50,
+          1269,
+          1272
+        ],
+        "hasTransparency": true,
+        "edgeClipped": false
+      }
+    ],
+    "visualReview": "All selectable states inspected together; current post-correction matrices accepted. No further actionable artifact found."
+  },
+  {
+    "id": "uhu",
+    "name": "Uhu",
+    "states": [
+      {
+        "stage": "male",
+        "morph": null,
+        "label": "Altvogel / Normal",
+        "src": "/birds/uhu.png?v=6897c2385499",
+        "optimized": "/optimized/uhu-05d4139731799d57-1296.webp",
+        "sha256": "6897c238549948d305536c9b595f68af7b0b4ca8e98e9cd7ffdd489064295e3f",
+        "httpVerified": true,
+        "size": [
+          1296,
+          1296
+        ],
+        "bbox": [
+          53,
+          50,
+          1242,
+          1246
+        ],
+        "hasTransparency": true,
+        "edgeClipped": false
+      },
+      {
+        "stage": "juvenile",
+        "morph": null,
+        "label": "Jungvogel / Normal",
+        "src": "/birds/juvenile-uhu.png?v=3c170f6ab55e",
+        "optimized": "/optimized/juvenile-uhu-455425b64d5f66f4-1297.webp",
+        "sha256": "3c170f6ab55e90dd1d8daf561812802b6bbfec0bbe433beca661edc11b053e66",
+        "httpVerified": true,
+        "size": [
+          1297,
+          1297
+        ],
+        "bbox": [
+          60,
+          50,
+          1237,
+          1247
+        ],
+        "hasTransparency": true,
+        "edgeClipped": false
+      }
+    ],
+    "visualReview": "All selectable states inspected together; current post-correction matrices accepted. No further actionable artifact found."
+  },
+  {
+    "id": "schwarzmilan",
+    "name": "Schwarzmilan",
+    "states": [
+      {
+        "stage": "male",
+        "morph": null,
+        "label": "Altvogel / Normal",
+        "src": "/birds/schwarzmilan.png?v=5935c3970185",
+        "optimized": "/optimized/schwarzmilan-3a53c1db5411e91a-1254.webp",
+        "sha256": "5935c3970185d327b81f51dc9c364e6a7cc9dbf5b4749b40c9aa1814950b6af8",
+        "httpVerified": true,
+        "size": [
+          1254,
+          1254
+        ],
+        "bbox": [
+          81,
+          52,
+          1172,
+          1201
+        ],
+        "hasTransparency": true,
+        "edgeClipped": false
+      },
+      {
+        "stage": "juvenile",
+        "morph": null,
+        "label": "Jungvogel / Normal",
+        "src": "/birds/juvenile-schwarzmilan.png?v=e05dd339cff1",
+        "optimized": "/optimized/juvenile-schwarzmilan-1668847607c0b907-1254.webp",
+        "sha256": "e05dd339cff1b5d9bf71346a3de03a6b11b84105b549480cfaa657ed57f4311f",
+        "httpVerified": true,
+        "size": [
+          1254,
+          1254
+        ],
+        "bbox": [
+          81,
+          52,
+          1173,
+          1202
+        ],
+        "hasTransparency": true,
+        "edgeClipped": false
+      }
+    ],
+    "visualReview": "All selectable states inspected together; current post-correction matrices accepted. No further actionable artifact found."
+  },
+  {
+    "id": "rotmilan",
+    "name": "Rotmilan",
+    "states": [
+      {
+        "stage": "male",
+        "morph": null,
+        "label": "Altvogel / Normal",
+        "src": "/birds/rotmilan.png?v=6da5b3ea7f6b",
+        "optimized": "/optimized/rotmilan-404441ad0fe63830-1276.webp",
+        "sha256": "6da5b3ea7f6b2915d94a4e01f8f9e2e8a447ff1bdd02f427f9ffe13fd58e4e02",
+        "httpVerified": true,
+        "size": [
+          1276,
+          1276
+        ],
+        "bbox": [
+          58,
+          50,
+          1217,
+          1226
+        ],
+        "hasTransparency": true,
+        "edgeClipped": false
+      },
+      {
+        "stage": "juvenile",
+        "morph": null,
+        "label": "Jungvogel / Normal",
+        "src": "/birds/juvenile-rotmilan.png?v=10d852e88d3b",
+        "optimized": "/optimized/juvenile-rotmilan-6c9a87c6e7e5bab4-1276.webp",
+        "sha256": "10d852e88d3bd095367e758bef37137974a84c2e8a67869f76317af94638f8df",
+        "httpVerified": true,
+        "size": [
+          1276,
+          1276
+        ],
+        "bbox": [
+          58,
+          50,
+          1217,
+          1226
+        ],
+        "hasTransparency": true,
+        "edgeClipped": false
+      }
+    ],
+    "visualReview": "All selectable states inspected together; current post-correction matrices accepted. No further actionable artifact found."
+  },
+  {
+    "id": "gerfalke",
+    "name": "Gerfalke",
+    "states": [
+      {
+        "stage": "male",
+        "morph": "weiss",
+        "label": "Altvogel / Weiß",
+        "src": "/birds/morph-gerfalke-weiss-male.png?v=ecfc8cb16b28",
+        "optimized": "/optimized/morph-gerfalke-weiss-male-7af9cd9be4c48913-1254.webp",
+        "sha256": "ecfc8cb16b284068e3cbfab486e95f764e75ea96e048afdf93a8b40f3193c360",
+        "httpVerified": true,
+        "size": [
+          1254,
+          1254
+        ],
+        "bbox": [
+          135,
+          113,
+          1118,
+          1137
+        ],
+        "hasTransparency": true,
+        "edgeClipped": false
+      },
+      {
+        "stage": "male",
+        "morph": "grau",
+        "label": "Altvogel / Grau",
+        "src": "/birds/gerfalke.png?v=aecd6530281f",
+        "optimized": "/optimized/gerfalke-ef47e0f0eba69e69-1254.webp",
+        "sha256": "aecd6530281f5d3acd0ed9c71cb12e94f3066e8db6cc4ae220291d30416d15e0",
+        "httpVerified": true,
+        "size": [
+          1254,
+          1254
+        ],
+        "bbox": [
+          135,
+          113,
+          1118,
+          1137
+        ],
+        "hasTransparency": true,
+        "edgeClipped": false
+      },
+      {
+        "stage": "male",
+        "morph": "dunkel",
+        "label": "Altvogel / Dunkel",
+        "src": "/birds/morph-gerfalke-dunkel-male.png?v=bab2a4ad27e7",
+        "optimized": "/optimized/morph-gerfalke-dunkel-male-cf0ae931b129b33b-1254.webp",
+        "sha256": "bab2a4ad27e7821f1aa2821751a1440f919484f82560f374133ad09c677f33cd",
+        "httpVerified": true,
+        "size": [
+          1254,
+          1254
+        ],
+        "bbox": [
+          135,
+          113,
+          1118,
+          1137
+        ],
+        "hasTransparency": true,
+        "edgeClipped": false
+      },
+      {
+        "stage": "juvenile",
+        "morph": "weiss",
+        "label": "Jungvogel / Weiß",
+        "src": "/birds/morph-gerfalke-weiss-juvenile.png?v=3e506aebe4f6",
+        "optimized": "/optimized/morph-gerfalke-weiss-juvenile-4b23ae921d652831-1254.webp",
+        "sha256": "3e506aebe4f65137197dfa62f1a56ab093f15b334cfc43a49755a5b8435f6e07",
+        "httpVerified": true,
+        "size": [
+          1254,
+          1254
+        ],
+        "bbox": [
+          135,
+          113,
+          1118,
+          1137
+        ],
+        "hasTransparency": true,
+        "edgeClipped": false
+      },
+      {
+        "stage": "juvenile",
+        "morph": "grau",
+        "label": "Jungvogel / Grau",
+        "src": "/birds/juvenile-gerfalke.png?v=94fa9cf68063",
+        "optimized": "/optimized/juvenile-gerfalke-216c0dd4b0558988-1254.webp",
+        "sha256": "94fa9cf68063b6989f4f9b6c0e066b10d2d123174df6013263ba3e9bf4dee791",
+        "httpVerified": true,
+        "size": [
+          1254,
+          1254
+        ],
+        "bbox": [
+          135,
+          113,
+          1118,
+          1138
+        ],
+        "hasTransparency": true,
+        "edgeClipped": false
+      },
+      {
+        "stage": "juvenile",
+        "morph": "dunkel",
+        "label": "Jungvogel / Dunkel",
+        "src": "/birds/morph-gerfalke-dunkel-juvenile.png?v=3cf027d7a27f",
+        "optimized": "/optimized/morph-gerfalke-dunkel-juvenile-44350448b76b585a-1254.webp",
+        "sha256": "3cf027d7a27fd45848f98acac20bade8c65f54bd720006b28ed53105b6eaaa21",
+        "httpVerified": true,
+        "size": [
+          1254,
+          1254
+        ],
+        "bbox": [
+          135,
+          113,
+          1118,
+          1137
+        ],
+        "hasTransparency": true,
+        "edgeClipped": false
+      }
+    ],
+    "visualReview": "All selectable states inspected together; current post-correction matrices accepted. No further actionable artifact found."
+  },
+  {
+    "id": "sakerfalke",
+    "name": "Sakerfalke",
+    "states": [
+      {
+        "stage": "male",
+        "morph": null,
+        "label": "Altvogel / Normal",
+        "src": "/birds/sakerfalke.png?v=3a0bdf54ae09",
+        "optimized": "/optimized/sakerfalke-949497e2e39ec426-1254.webp",
+        "sha256": "3a0bdf54ae0917e6aec9e0344b2df01e58800ff422d8c545800f49a5cdc67c4b",
+        "httpVerified": true,
+        "size": [
+          1254,
+          1254
+        ],
+        "bbox": [
+          171,
+          113,
+          1083,
+          1141
+        ],
+        "hasTransparency": true,
+        "edgeClipped": false
+      },
+      {
+        "stage": "juvenile",
+        "morph": null,
+        "label": "Jungvogel / Normal",
+        "src": "/birds/juvenile-sakerfalke-20260913-v2.png",
+        "optimized": "/optimized/juvenile-sakerfalke-20260913-v2-899f78c7a292b029-1254.webp",
+        "sha256": "6ffcad3618c927a2a368f59474cd073f907d76e8b48d697163cad78ee9cafe06",
+        "httpVerified": true,
+        "size": [
+          1254,
+          1254
+        ],
+        "bbox": [
+          171,
+          113,
+          1083,
+          1141
+        ],
+        "hasTransparency": true,
+        "edgeClipped": false
+      }
+    ],
+    "visualReview": "All selectable states inspected together; current post-correction matrices accepted. No further actionable artifact found."
+  },
+  {
+    "id": "lannerfalke",
+    "name": "Lannerfalke",
+    "states": [
+      {
+        "stage": "male",
+        "morph": null,
+        "label": "Altvogel / Normal",
+        "src": "/birds/lannerfalke.png?v=4edbc96bcf0c",
+        "optimized": "/optimized/lannerfalke-2ad64f1296057c2b-1254.webp",
+        "sha256": "4edbc96bcf0c104e89d380e194e9879bd8033c352bf8e071dcc81f22b6d01b64",
+        "httpVerified": true,
+        "size": [
+          1254,
+          1254
+        ],
+        "bbox": [
+          203,
+          113,
+          1051,
+          1141
+        ],
+        "hasTransparency": true,
+        "edgeClipped": false
+      },
+      {
+        "stage": "juvenile",
+        "morph": null,
+        "label": "Jungvogel / Normal",
+        "src": "/birds/juvenile-lannerfalke.png?v=129e2e00e483",
+        "optimized": "/optimized/juvenile-lannerfalke-9dbd4a82191731a8-1254.webp",
+        "sha256": "129e2e00e483be951d26455b2d5ec693094daee3db430a39009727ad0ee1a689",
+        "httpVerified": true,
+        "size": [
+          1254,
+          1254
+        ],
+        "bbox": [
+          203,
+          113,
+          1051,
+          1141
+        ],
+        "hasTransparency": true,
+        "edgeClipped": false
+      }
+    ],
+    "visualReview": "All selectable states inspected together; current post-correction matrices accepted. No further actionable artifact found."
+  },
+  {
+    "id": "baumfalke",
+    "name": "Baumfalke",
+    "states": [
+      {
+        "stage": "male",
+        "morph": null,
+        "label": "Altvogel / Normal",
+        "src": "/birds/baumfalke.png?v=8e442b0cf4e1",
+        "optimized": "/optimized/baumfalke-a785db5664c442dc-1254.webp",
+        "sha256": "8e442b0cf4e1d9b0ba6f49ed463ec2aa5d81e160fb16a3afef4445097255391d",
+        "httpVerified": true,
+        "size": [
+          1254,
+          1254
+        ],
+        "bbox": [
+          229,
+          113,
+          1017,
+          1141
+        ],
+        "hasTransparency": true,
+        "edgeClipped": false
+      },
+      {
+        "stage": "juvenile",
+        "morph": null,
+        "label": "Jungvogel / Normal",
+        "src": "/birds/juvenile-baumfalke-20260913-v2.png",
+        "optimized": "/optimized/juvenile-baumfalke-20260913-v2-890545d873b3766c-1254.webp",
+        "sha256": "f300c61a026f44a9dbef22d4c7ebf0dd1bbd58ac9f36ba1c044aa8528cb221b3",
+        "httpVerified": true,
+        "size": [
+          1254,
+          1254
+        ],
+        "bbox": [
+          229,
+          113,
+          1017,
+          1141
+        ],
+        "hasTransparency": true,
+        "edgeClipped": false
+      }
+    ],
+    "visualReview": "All selectable states inspected together; current post-correction matrices accepted. No further actionable artifact found."
+  },
+  {
+    "id": "falklandkarakara",
+    "name": "Falklandkarakara",
+    "states": [
+      {
+        "stage": "male",
+        "morph": null,
+        "label": "Altvogel / Normal",
+        "src": "/birds/falklandkarakara.png?v=2b670af57f78",
+        "optimized": "/optimized/falklandkarakara-aefd73c4866c63f8-1300.webp",
+        "sha256": "2b670af57f7826872ec9f9af03bea3a30691d406fb471a0bd2743739a3e8355d",
+        "httpVerified": true,
+        "size": [
+          1300,
+          1300
+        ],
+        "bbox": [
+          50,
+          57,
+          1250,
+          1243
+        ],
+        "hasTransparency": true,
+        "edgeClipped": false
+      },
+      {
+        "stage": "juvenile",
+        "morph": null,
+        "label": "Jungvogel / Normal",
+        "src": "/birds/juvenile-falklandkarakara.png?v=55cda51b9840",
+        "optimized": "/optimized/juvenile-falklandkarakara-ab88d9f0d2d4ef2f-1300.webp",
+        "sha256": "55cda51b9840e18f5a1166e9f0a42637d82312aff5dc6ea6ab948f4492e3a1ea",
+        "httpVerified": true,
+        "size": [
+          1300,
+          1300
+        ],
+        "bbox": [
+          50,
+          57,
+          1250,
+          1243
+        ],
+        "hasTransparency": true,
+        "edgeClipped": false
+      }
+    ],
+    "visualReview": "All selectable states inspected together; current post-correction matrices accepted. No further actionable artifact found."
+  },
+  {
+    "id": "schopfkarakara",
+    "name": "Schopfkarakara",
+    "states": [
+      {
+        "stage": "male",
+        "morph": null,
+        "label": "Altvogel / Normal",
+        "src": "/birds/schopfkarakara.png?v=b8cb40bdf189",
+        "optimized": "/optimized/schopfkarakara-deedb85028daebe6-1318.webp",
+        "sha256": "b8cb40bdf189cf24dffc3d385936e72295c43db23e8e32652a6aa3c236eefd11",
+        "httpVerified": true,
+        "size": [
+          1318,
+          1318
+        ],
+        "bbox": [
+          50,
+          69,
+          1268,
+          1249
+        ],
+        "hasTransparency": true,
+        "edgeClipped": false
+      },
+      {
+        "stage": "juvenile",
+        "morph": null,
+        "label": "Jungvogel / Normal",
+        "src": "/birds/juvenile-schopfkarakara.png?v=d13412255811",
+        "optimized": "/optimized/juvenile-schopfkarakara-060606b46ba91639-1318.webp",
+        "sha256": "d13412255811a01262494d67749ea892225864e53ce459b15fc6960f40ad5000",
+        "httpVerified": true,
+        "size": [
+          1318,
+          1318
+        ],
+        "bbox": [
+          50,
+          69,
+          1268,
+          1248
+        ],
+        "hasTransparency": true,
+        "edgeClipped": false
+      }
+    ],
+    "visualReview": "All selectable states inspected together; current post-correction matrices accepted. No further actionable artifact found."
+  },
+  {
+    "id": "koenigsbussard",
+    "name": "Königsbussard",
+    "states": [
+      {
+        "stage": "male",
+        "morph": "hell",
+        "label": "Altvogel / Hell",
+        "src": "/birds/koenigsbussard-20260912-v3.png",
+        "optimized": "/optimized/koenigsbussard-20260912-v3-fdace7a9f26a3f62-1254.webp",
+        "sha256": "6312baf95f2f7def8e362da0df0fdeef5bac10832fed203ffda103bb1d01a158",
+        "httpVerified": true,
+        "size": [
+          1254,
+          1254
+        ],
+        "bbox": [
+          47,
+          33,
+          1223,
+          1207
+        ],
+        "hasTransparency": true,
+        "edgeClipped": false
+      },
+      {
+        "stage": "male",
+        "morph": "dunkel",
+        "label": "Altvogel / Dunkel",
+        "src": "/birds/morph-koenigsbussard-dunkel-20260912-v3.png",
+        "optimized": "/optimized/morph-koenigsbussard-dunkel-20260912-v3-110d6d19bc5558a0-1254.webp",
+        "sha256": "812f3a2731cbd9e0a9ed6c2209ccf5c46ec4eef6813be538b0e09598d5a02ca5",
+        "httpVerified": true,
+        "size": [
+          1254,
+          1254
+        ],
+        "bbox": [
+          47,
+          33,
+          1223,
+          1207
+        ],
+        "hasTransparency": true,
+        "edgeClipped": false
+      },
+      {
+        "stage": "juvenile",
+        "morph": "hell",
+        "label": "Jungvogel / Hell",
+        "src": "/birds/juvenile-koenigsbussard-20260912-v3.png",
+        "optimized": "/optimized/juvenile-koenigsbussard-20260912-v3-132f6cd245c0f76e-1254.webp",
+        "sha256": "62836776c747173dc46d7f8783e20cd1613457970c9664eba1b0e209908df579",
+        "httpVerified": true,
+        "size": [
+          1254,
+          1254
+        ],
+        "bbox": [
+          47,
+          33,
+          1223,
+          1207
+        ],
+        "hasTransparency": true,
+        "edgeClipped": false
+      },
+      {
+        "stage": "juvenile",
+        "morph": "dunkel",
+        "label": "Jungvogel / Dunkel",
+        "src": "/birds/morph-koenigsbussard-dunkel-juvenile-20260912-v3.png",
+        "optimized": "/optimized/morph-koenigsbussard-dunkel-juvenile-20260912-v3-aa88635272144738-1254.webp",
+        "sha256": "55688d4a5495c7d51420527deff77323acde2dd7229b279660566d792b41b82a",
+        "httpVerified": true,
+        "size": [
+          1254,
+          1254
+        ],
+        "bbox": [
+          47,
+          33,
+          1223,
+          1207
+        ],
+        "hasTransparency": true,
+        "edgeClipped": false
+      }
+    ],
+    "visualReview": "All selectable states inspected together; current post-correction matrices accepted. No further actionable artifact found."
+  },
+  {
+    "id": "harpyie",
+    "name": "Harpyie",
+    "states": [
+      {
+        "stage": "male",
+        "morph": null,
+        "label": "Altvogel / Normal",
+        "src": "/birds/harpyie-20260913-v2.png",
+        "optimized": "/optimized/harpyie-20260913-v2-431bec1786e1e3e5-1287.webp",
+        "sha256": "353627afacf455316c72db73a4ee6129535f147ec2db8947bb268ef19dd4f961",
+        "httpVerified": true,
+        "size": [
+          1287,
+          1287
+        ],
+        "bbox": [
+          50,
+          52,
+          1237,
+          1234
+        ],
+        "hasTransparency": true,
+        "edgeClipped": false
+      },
+      {
+        "stage": "juvenile",
+        "morph": null,
+        "label": "Jungvogel / Normal",
+        "src": "/birds/juvenile-harpyie-20260913-v2.png",
+        "optimized": "/optimized/juvenile-harpyie-20260913-v2-c7791a61b45eeee9-1287.webp",
+        "sha256": "868b1b29e57af6df9da2e115c9ac8837eea878f95f40705f9f2fb9ab08999f80",
+        "httpVerified": true,
+        "size": [
+          1287,
+          1287
+        ],
+        "bbox": [
+          50,
+          52,
+          1237,
+          1234
+        ],
+        "hasTransparency": true,
+        "edgeClipped": false
+      }
+    ],
+    "visualReview": "All selectable states inspected together; current post-correction matrices accepted. No further actionable artifact found."
+  },
+  {
+    "id": "kampfadler",
+    "name": "Kampfadler",
+    "states": [
+      {
+        "stage": "male",
+        "morph": null,
+        "label": "Altvogel / Normal",
+        "src": "/birds/kampfadler.png?v=da5dac7ee04a",
+        "optimized": "/optimized/kampfadler-582b776713b22434-1304.webp",
+        "sha256": "da5dac7ee04a2bf274ed1b1eb127d1daba7e71edb72a7286d37d45ac2439939e",
+        "httpVerified": true,
+        "size": [
+          1304,
+          1304
+        ],
+        "bbox": [
+          68,
+          50,
+          1235,
+          1254
+        ],
+        "hasTransparency": true,
+        "edgeClipped": false
+      },
+      {
+        "stage": "juvenile",
+        "morph": null,
+        "label": "Jungvogel / Normal",
+        "src": "/birds/juvenile-kampfadler.png?v=cf9040fd9748",
+        "optimized": "/optimized/juvenile-kampfadler-1506180af2061986-1305.webp",
+        "sha256": "cf9040fd9748c2063fc2d081e12d45793f1d161b2064f21dcb567ac6e639ecf8",
+        "httpVerified": true,
+        "size": [
+          1305,
+          1305
+        ],
+        "bbox": [
+          69,
+          50,
+          1236,
+          1255
+        ],
+        "hasTransparency": true,
+        "edgeClipped": false
+      }
+    ],
+    "visualReview": "All selectable states inspected together; current post-correction matrices accepted. No further actionable artifact found."
+  },
+  {
+    "id": "virginiauhu",
+    "name": "Virginia-Uhu",
+    "states": [
+      {
+        "stage": "male",
+        "morph": null,
+        "label": "Altvogel / Normal",
+        "src": "/birds/virginiauhu-20260907.png",
+        "optimized": "/optimized/virginiauhu-20260907-beb5cf1e85a3a7a7-1254.webp",
+        "sha256": "91d4230dfbf719c86baa58791f3ab9f2c7c62814b6cb91fa7ac96f7447b71f45",
+        "httpVerified": true,
+        "size": [
+          1254,
+          1254
+        ],
+        "bbox": [
+          66,
+          50,
+          1188,
+          1204
+        ],
+        "hasTransparency": true,
+        "edgeClipped": false
+      },
+      {
+        "stage": "juvenile",
+        "morph": null,
+        "label": "Jungvogel / Normal",
+        "src": "/birds/juvenile-virginiauhu-20260913-v3.png",
+        "optimized": "/optimized/juvenile-virginiauhu-20260913-v3-2d214f7e34355a97-1254.webp",
+        "sha256": "c0ca97d5df9fdbf176a88a3c17f22824649192fac0afad6b7536eba926e6c753",
+        "httpVerified": true,
+        "size": [
+          1254,
+          1254
+        ],
+        "bbox": [
+          66,
+          50,
+          1188,
+          1204
+        ],
+        "hasTransparency": true,
+        "edgeClipped": false
+      }
+    ],
+    "visualReview": "All selectable states inspected together; current post-correction matrices accepted. No further actionable artifact found."
+  },
+  {
+    "id": "weissstorch",
+    "name": "Weißstorch",
+    "states": [
+      {
+        "stage": "male",
+        "morph": null,
+        "label": "Altvogel / Normal",
+        "src": "/birds/weissstorch-20260913-v2.png",
+        "optimized": "/optimized/weissstorch-20260913-v2-61bac8f391654966-1254.webp",
+        "sha256": "b2880b41ca37f3fe6954613e0c89739e505858a78fe3c34d189c728ed3d0c269",
+        "httpVerified": true,
+        "size": [
+          1254,
+          1254
+        ],
+        "bbox": [
+          104,
+          40,
+          1150,
+          1214
+        ],
+        "hasTransparency": true,
+        "edgeClipped": false
+      },
+      {
+        "stage": "juvenile",
+        "morph": null,
+        "label": "Jungvogel / Normal",
+        "src": "/birds/juvenile-weissstorch-20260913-v2.png",
+        "optimized": "/optimized/juvenile-weissstorch-20260913-v2-eeab807566702966-1254.webp",
+        "sha256": "57f9c6f18f47941f521286dba4b999ba2b001eb0090e80a24291fb10e848f31f",
+        "httpVerified": true,
+        "size": [
+          1254,
+          1254
+        ],
+        "bbox": [
+          104,
+          40,
+          1150,
+          1214
+        ],
+        "hasTransparency": true,
+        "edgeClipped": false
+      }
+    ],
+    "visualReview": "All selectable states inspected together; current post-correction matrices accepted. No further actionable artifact found."
+  },
+  {
+    "id": "sperber",
+    "name": "Sperber",
+    "states": [
+      {
+        "stage": "female",
+        "morph": null,
+        "label": "Weibchen / Normal",
+        "src": "/birds/female-sperber.png?v=18635d3510f6",
+        "optimized": "/optimized/female-sperber-0ef523abb094a0b8-1254.webp",
+        "sha256": "18635d3510f6d2208dc433710a2b6b112cd0a4dfa13bd546a003d1bbaa09f8a9",
+        "httpVerified": true,
+        "size": [
+          1254,
+          1254
+        ],
+        "bbox": [
+          94,
+          74,
+          1159,
+          1180
+        ],
+        "hasTransparency": true,
+        "edgeClipped": false
+      },
+      {
+        "stage": "male",
+        "morph": null,
+        "label": "Männchen / Normal",
+        "src": "/birds/sperber.png?v=2f1a9fa3874b",
+        "optimized": "/optimized/sperber-c1c3f17d8230cc9a-1254.webp",
+        "sha256": "2f1a9fa3874badef3158d577935ec1360c0d566ea0d3ea3cbe6bb89c39772b58",
+        "httpVerified": true,
+        "size": [
+          1254,
+          1254
+        ],
+        "bbox": [
+          94,
+          73,
+          1160,
+          1180
+        ],
+        "hasTransparency": true,
+        "edgeClipped": false
+      },
+      {
+        "stage": "juvenile",
+        "morph": null,
+        "label": "Jungvogel / Normal",
+        "src": "/birds/juvenile-sperber.png?v=bfaeca0d6478",
+        "optimized": "/optimized/juvenile-sperber-35fc6e847cf0429a-1254.webp",
+        "sha256": "bfaeca0d647806afe18c1c2038c787702c4c2b3ccc4e1dc278031b82b88ef0da",
+        "httpVerified": true,
+        "size": [
+          1254,
+          1254
+        ],
+        "bbox": [
+          94,
+          74,
+          1159,
+          1179
+        ],
+        "hasTransparency": true,
+        "edgeClipped": false
+      }
+    ],
+    "visualReview": "All selectable states inspected together; current post-correction matrices accepted. No further actionable artifact found."
+  }
+]

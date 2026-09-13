@@ -1,0 +1,35 @@
+[
+  {
+    "id": "steppenadler-adult-v1",
+    "refs": [
+      "/Users/lukasvonhohnhorst/Coding/birds-of-prey/output/imagegen/eagle-refresh-20260912/references/steppe-140479291.jpg",
+      "/Users/lukasvonhohnhorst/Coding/birds-of-prey/output/imagegen/eagle-refresh-20260912/references/steppe-140479331.jpg"
+    ],
+    "prompt": "Use case: scientific-educational. Create a naturalistic field-guide flight illustration of ONE bird. The supplied photographs of this SAME SPECIES are the authority for its anatomy: preserve the real relative sizes of head, torso, wings and tail, wing-root attachment and overlapping feather groups. No invented uniform eagle body. View obliquely from below with the side of the head clearly visible, gaze LEFT, both spread wing undersides visible, wing axis lower-left to upper-right at about 45 degrees. Mirror the flight reference to face left. Natural banking glide, feet tucked, slim cohesive torso. Soft natural feather detail, neutral daylight, restrained colour, no rigid scales or plastic feather plates. Whole bird in square canvas with roughly 6 percent breathing room at all extreme tips. Genuine transparent background preferred; if alpha is unavailable use PERFECTLY UNIFORM blue RGB 0,90,255 for local removal. Never a checkerboard, gradient, shadow or label. Subject: ADULT STEPPE EAGLE Aquila nipalensis. Photo 1's immature bird supplies proportions and structural flight anatomy ONLY; photo 2 supplies adult identity. The new illustration is ADULT, rich natural dark brown body/coverts, subtly paler and barred flight feathers, no juvenile pale transverse band. Broad deep wings and seven natural primary fingers; head substantial with long yellow gape, not shrunken relative to elongated thin wings. Avoid the unreal tiny-body/giant-wings ratio of stylized eagle icons. Do not broaden or shorten the wings beyond the actual photos. Preserve a real eagle silhouette.",
+    "generated": "/Users/lukasvonhohnhorst/.codex/generated_images/01a0976a-4f25-7e80-b0a6-3e4a596912e7/exec-3f57f225-caa1-4266-9394-bdc0f86f7c55.png",
+    "status": "rejected_by_user",
+    "feedback": "User explicitly rejects this entire candidate: unnatural/unrecognizable; never integrate or derive variants."
+  },
+  {
+    "id": "iberienadler-adult-v1",
+    "refs": [
+      "/Users/lukasvonhohnhorst/Coding/birds-of-prey/output/imagegen/eagle-refresh-20260912/references/spanish-78539591.jpg",
+      "/Users/lukasvonhohnhorst/Coding/birds-of-prey/output/imagegen/eagle-refresh-20260912/references/spanish-78539561.jpg"
+    ],
+    "prompt": "Use case: scientific-educational. Create a naturalistic field-guide flight illustration of ONE bird. The supplied photographs of this SAME SPECIES are the authority for its anatomy: preserve the real relative sizes of head, torso, wings and tail, wing-root attachment and overlapping feather groups. No invented uniform eagle body. View obliquely from below with the side of the head clearly visible, gaze LEFT, both spread wing undersides visible, wing axis lower-left to upper-right at about 45 degrees. Mirror the flight reference to face left. Natural banking glide, feet tucked, slim cohesive torso. Soft natural feather detail, neutral daylight, restrained colour, no rigid scales or plastic feather plates. Whole bird in square canvas with roughly 6 percent breathing room at all extreme tips. Genuine transparent background preferred; if alpha is unavailable use PERFECTLY UNIFORM blue RGB 0,90,255 for local removal. Never a checkerboard, gradient, shadow or label. Subject: ADULT SPANISH IMPERIAL EAGLE Aquila adalberti. Photo 1 supplies real wing/body proportions and shoulder geometry; photo 2 supplies the clearly visible head and adult plumage. Long broad relatively rectangular wings, robust head/neck and bill, a moderately long relatively narrow slightly spread tail. Deep brown body, pale straw nape/sides of head, DISTINCT white leading shoulder edge visible from below as in this species. This must be recognizably a Spanish Imperial Eagle by shape, not a Bonelli's Eagle recolored. Do not invent large pure-white flight feather panels.",
+    "generated": "/Users/lukasvonhohnhorst/.codex/generated_images/01a0976a-4f25-7e80-b0a6-3e4a596912e7/exec-b916511e-442a-48c3-a882-a93651044fa4.png",
+    "status": "rejected_by_user",
+    "feedback": "User rejects candidate as unattractive / no improvement. Never integrate or derive any age or morph variants."
+  },
+  {
+    "id": "klippenadler-adult-v1",
+    "refs": [
+      "/Users/lukasvonhohnhorst/Coding/birds-of-prey/output/imagegen/eagle-refresh-20260912/references/verreaux-219611721.jpg",
+      "/Users/lukasvonhohnhorst/Coding/birds-of-prey/output/imagegen/eagle-refresh-20260912/references/verreaux-219611901.jpg"
+    ],
+    "prompt": "Use case: scientific-educational. Create a naturalistic field-guide flight illustration of ONE bird. The supplied photographs of this SAME SPECIES are the authority for its anatomy: preserve the real relative sizes of head, torso, wings and tail, wing-root attachment and overlapping feather groups. No invented uniform eagle body. View obliquely from below with the side of the head clearly visible, gaze LEFT, both spread wing undersides visible, wing axis lower-left to upper-right at about 45 degrees. Mirror the flight reference to face left. Natural banking glide, feet tucked, slim cohesive torso. Soft natural feather detail, neutral daylight, restrained colour, no rigid scales or plastic feather plates. Whole bird in square canvas with roughly 6 percent breathing room at all extreme tips. Genuine transparent background preferred; if alpha is unavailable use PERFECTLY UNIFORM blue RGB 0,90,255 for local removal. Never a checkerboard, gradient, shadow or label. Subject: ADULT VERREAUX'S EAGLE Aquila verreauxii. Photo 1's species-specific outline is essential: long wings distinctly NARROW AT THE BASE near the torso and broader toward the outer wing, natural elbow/wrist structure, relatively long tail, smallish distinctive head and muscular streamlined body. The head reference is photo 2. Satin black-brown feathering with visible soft detail, pale gray-white panels in the outer underwing as shown in photo 1, dark tail, yellow cere and feet. Do not give it the wide wing roots and fan tail of a Bonelli's Eagle, and do not exaggerate fingers into giant knives.",
+    "generated": "/Users/lukasvonhohnhorst/.codex/generated_images/01a0976a-4f25-7e80-b0a6-3e4a596912e7/exec-31b3fa24-60f6-490c-9953-31e0521afaf7.png",
+    "status": "rejected_by_user",
+    "feedback": "User rejects candidate as unattractive / no improvement. Never integrate or derive any age or morph variants."
+  }
+]

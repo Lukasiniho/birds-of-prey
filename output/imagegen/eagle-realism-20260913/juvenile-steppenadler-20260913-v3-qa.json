@@ -1,0 +1,9 @@
+{
+  "output": "public/birds/juvenile-steppenadler-20260913-v3.png",
+  "rawSilhouetteIoU": 0.9927,
+  "alphaIdentical": true,
+  "matchedInteriorFeatures": 147,
+  "medianInteriorShiftPx": 0.68,
+  "p90InteriorShiftPx": 1.65,
+  "noResize": true
+}

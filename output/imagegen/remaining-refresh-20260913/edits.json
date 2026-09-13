@@ -1,0 +1,98 @@
+{
+  "mode": "builtin",
+  "jobs": [
+    {
+      "id": "juvenile-sekretaer",
+      "source": "/Users/lukasvonhohnhorst/Coding/birds-of-prey/public/birds/sekretaer-20260907.png",
+      "prompt": "Precise plumage-only edit directly from this NORMAL ADULT ORIGINAL of the same species. CHANGE ONLY: Fully fledged young Secretarybird. Duller pale yellowish-gray facial skin instead of bright orange adult skin; slightly buff-gray plumage, subtle pale edging on coverts, dark iris. Retain the adult master head plume shapes, both long central tail feathers, leg and toe positions exactly. This comparison needs unchanged geometry; show a developed flying juvenile, not a recently fledged short-tailed chick. LOCK EVERYTHING ELSE: identical canvas and pixel scale, centered position, silhouette, head/beak/eye coordinates, body/wing/tail/feet landmarks, left-facing head, underside perspective and lower-left to upper-right wing axis. No copying a different species. No changing anatomy or framing. Realistic fine feathers and diffuse light. Solid uniform blue #0055FF background for local extraction, no blue reflection/spill, no checkerboard, no white halo, no added objects or text.",
+      "raw": "/Users/lukasvonhohnhorst/.codex/generated_images/01a0976a-4f25-7e80-b0a6-3e4a596912e7/exec-808887a4-dcc3-46f3-85a5-d0262e9a6db2.png",
+      "rawSilhouetteIoU": 0.9866052529513313,
+      "output": "output/imagegen/remaining-refresh-20260913/juvenile-sekretaer-20260913-v3.png",
+      "sourceSha256": "056ced9f18e614b0c87b692dd6d0eaa336f93d8a6cf5bddf04582d6c5c352f4b",
+      "sha256": "e63cdd62e909b6a3f011754e3d8d97cc1e9f0afb1e16808f6eb2876a4778bb6d",
+      "alphaEqual": true,
+      "edgePixelsDecontaminated": 332,
+      "public": "public/birds/juvenile-sekretaer-20260913-v3.png",
+      "visualReview": "adult pair and white/dark/violet backgrounds inspected; geometry and feather edges accepted"
+    },
+    {
+      "id": "juvenile-virginiauhu",
+      "source": "/Users/lukasvonhohnhorst/Coding/birds-of-prey/public/birds/virginiauhu-20260907.png",
+      "prompt": "Precise plumage-only edit directly from this NORMAL ADULT ORIGINAL of the same species. CHANGE ONLY: Fully fledged juvenile Great Horned Owl: softer buff-gray mottled juvenile plumage with finer diffuse barring and less crisp adult chest marks. Keep bright yellow iris and dark bill. Retain exact adult head angle, facial-disc geometry, ear-tuft shapes, tucked foot/toe outlines. No fluffy nestling head, altered expression, extra talons or head rotation. LOCK EVERYTHING ELSE: identical canvas and pixel scale, centered position, silhouette, head/beak/eye coordinates, body/wing/tail/feet landmarks, left-facing head, underside perspective and lower-left to upper-right wing axis. No copying a different species. No changing anatomy or framing. Realistic fine feathers and diffuse light. Solid uniform blue #0055FF background for local extraction, no blue reflection/spill, no checkerboard, no white halo, no added objects or text.",
+      "raw": "/Users/lukasvonhohnhorst/.codex/generated_images/01a0976a-4f25-7e80-b0a6-3e4a596912e7/exec-192f7373-a65f-4ced-b91d-c5de8baaed1e.png",
+      "rawSilhouetteIoU": 0.9933365840850696,
+      "output": "output/imagegen/remaining-refresh-20260913/juvenile-virginiauhu-20260913-v3.png",
+      "sourceSha256": "91d4230dfbf719c86baa58791f3ab9f2c7c62814b6cb91fa7ac96f7447b71f45",
+      "sha256": "c0ca97d5df9fdbf176a88a3c17f22824649192fac0afad6b7536eba926e6c753",
+      "alphaEqual": true,
+      "edgePixelsDecontaminated": 148,
+      "public": "public/birds/juvenile-virginiauhu-20260913-v3.png",
+      "visualReview": "adult pair and white/dark/violet backgrounds inspected; geometry and feather edges accepted"
+    },
+    {
+      "id": "juvenile-gaukler",
+      "source": "/Users/lukasvonhohnhorst/Coding/birds-of-prey/public/birds/gaukler.png",
+      "prompt": "Precise plumage-only edit directly from this NORMAL ADULT ORIGINAL of the same species. CHANGE ONLY: Young brown Bateleur: warm brown head, body and coverts with light brown feather edges, grayish cere/facial skin, dark brown eye, muted blue-gray feet; gray-brown flight feathers. Tail brown, no adult red skin or chestnut dorsal patch. Lock tail root, fan position, silhouette and length to adult original for stable age comparison. Do not relocate tail or stretch trunk. LOCK EVERYTHING ELSE: identical canvas and pixel scale, centered position, silhouette, head/beak/eye coordinates, body/wing/tail/feet landmarks, left-facing head, underside perspective and lower-left to upper-right wing axis. No copying a different species. No changing anatomy or framing. Realistic fine feathers and diffuse light. Solid uniform blue #0055FF background for local extraction, no blue reflection/spill, no checkerboard, no white halo, no added objects or text.",
+      "raw": "/Users/lukasvonhohnhorst/.codex/generated_images/01a0976a-4f25-7e80-b0a6-3e4a596912e7/exec-7bd76d6c-b3a0-4dd9-b0bb-5bd080255ab0.png",
+      "rawSilhouetteIoU": 0.9862450543447271,
+      "output": "output/imagegen/remaining-refresh-20260913/juvenile-gaukler-20260913-v3.png",
+      "sourceSha256": "2beff99eb75376631196b7f20e1ce322180e0a9d502f68c9222b8e9e7e1fc43c",
+      "sha256": "230bd40629b417e6f07892a5e129471ba452b3f50f3f0d185c55357200bbf6ff",
+      "alphaEqual": true,
+      "edgePixelsDecontaminated": 63,
+      "public": "public/birds/juvenile-gaukler-20260913-v3.png",
+      "visualReview": "adult pair and white/dark/violet backgrounds inspected; geometry and feather edges accepted"
+    },
+    {
+      "id": "juvenile-fischadler",
+      "source": "/Users/lukasvonhohnhorst/Coding/birds-of-prey/public/birds/fischadler.png",
+      "prompt": "Precise plumage-only edit directly from this NORMAL ADULT ORIGINAL of the same species. CHANGE ONLY: Juvenile Osprey: ORANGE iris with round black pupil, white head with brown eye mask and slightly buff nape/breast; brown feather groups with pale buff feather edges, barred flight feathers, dark bill, pale blue-gray legs and toes. Only juvenile markings, not a brown breast bib all over. Eye color must clearly differ from yellow adult. Exact unchanged pose/feather outlines and soft realistic plumage. LOCK EVERYTHING ELSE: identical canvas and pixel scale, centered position, silhouette, head/beak/eye coordinates, body/wing/tail/feet landmarks, left-facing head, underside perspective and lower-left to upper-right wing axis. No copying a different species. No changing anatomy or framing. Realistic fine feathers and diffuse light. Solid uniform blue #0055FF background for local extraction, no blue reflection/spill, no checkerboard, no white halo, no added objects or text.",
+      "raw": "/Users/lukasvonhohnhorst/.codex/generated_images/01a0976a-4f25-7e80-b0a6-3e4a596912e7/exec-ebde1a72-d69a-4bb0-b2bd-bf21d807c4a1.png",
+      "rawSilhouetteIoU": 0.9882906777637201,
+      "output": "output/imagegen/remaining-refresh-20260913/juvenile-fischadler-20260913-v3.png",
+      "sourceSha256": "79946d4bd230315fa67babbab87438bb73a4eaa8894269540bd05c99baaee800",
+      "sha256": "878eb2bb9e535dc54bc501ce988d727f9b8ffe9f2a40e018dd3440dc2aabe345",
+      "alphaEqual": true,
+      "edgePixelsDecontaminated": 39,
+      "public": "public/birds/juvenile-fischadler-20260913-v3.png",
+      "visualReview": "adult pair and white/dark/violet backgrounds inspected; geometry and feather edges accepted"
+    },
+    {
+      "id": "morph-habicht-albidus-male",
+      "source": "/Users/lukasvonhohnhorst/Coding/birds-of-prey/public/birds/habicht.png",
+      "prompt": "Precise plumage-only edit directly from this NORMAL ADULT ORIGINAL of the same species. CHANGE ONLY: Very pale albidus form adult Eurasian Goshawk: mostly white head and body with delicate light-gray transverse barring; white eyebrow, light gray cheeks; pale gray barred remiges and tail. Orange iris, yellow cere/feet, dark gray bill. Head crown must be WHITE with subtle gray feathers, no brown/rust patch or cyan patch. Retain feather detail and subtle pale markings, not overexposed featureless white. LOCK EVERYTHING ELSE: identical canvas and pixel scale, centered position, silhouette, head/beak/eye coordinates, body/wing/tail/feet landmarks, left-facing head, underside perspective and lower-left to upper-right wing axis. No copying a different species. No changing anatomy or framing. Realistic fine feathers and diffuse light. Solid uniform blue #0055FF background for local extraction, no blue reflection/spill, no checkerboard, no white halo, no added objects or text.",
+      "raw": "/Users/lukasvonhohnhorst/.codex/generated_images/01a0976a-4f25-7e80-b0a6-3e4a596912e7/exec-e07e653d-aef6-40fa-8e58-9598522ab567.png",
+      "rawSilhouetteIoU": 0.9895040127800387,
+      "output": "output/imagegen/remaining-refresh-20260913/morph-habicht-albidus-male-20260913-v3.png",
+      "sourceSha256": "1978c3d38ab7f81be06fbaac74f16acf7bf447b86a75d5b68547a70293f51876",
+      "sha256": "83834a727bf5849721926aa8e83534c9efaae23642d7ad2d2c1e331b4553bd0a",
+      "alphaEqual": true,
+      "edgePixelsDecontaminated": 124,
+      "public": "public/birds/morph-habicht-albidus-male-20260913-v3.png",
+      "visualReview": "adult pair and white/dark/violet backgrounds inspected; geometry and feather edges accepted"
+    },
+    {
+      "id": "morph-habicht-albidus-juvenile",
+      "source": "/Users/lukasvonhohnhorst/Coding/birds-of-prey/public/birds/habicht.png",
+      "prompt": "Precise plumage-only edit directly from this NORMAL ADULT ORIGINAL of the same species. CHANGE ONLY: Very pale albidus form juvenile Eurasian Goshawk: white ground color with sparse pale brown longitudinal streaks on breast/belly, pale gray-brown markings on wing coverts/remiges/tail. Pale yellow iris, yellow cere/feet, dark gray bill. Crown white with fine light brown feather streaks, no cyan/blue patch, no flat rusty patch. Natural fine feather texture and restrained color. LOCK EVERYTHING ELSE: identical canvas and pixel scale, centered position, silhouette, head/beak/eye coordinates, body/wing/tail/feet landmarks, left-facing head, underside perspective and lower-left to upper-right wing axis. No copying a different species. No changing anatomy or framing. Realistic fine feathers and diffuse light. Solid uniform blue #0055FF background for local extraction, no blue reflection/spill, no checkerboard, no white halo, no added objects or text.",
+      "raw": "/Users/lukasvonhohnhorst/.codex/generated_images/01a0976a-4f25-7e80-b0a6-3e4a596912e7/exec-fcbdd092-7d2f-4bec-97f0-29f74026d692.png",
+      "rawSilhouetteIoU": 0.9850175562196744,
+      "output": "output/imagegen/remaining-refresh-20260913/morph-habicht-albidus-juvenile-20260913-v3.png",
+      "sourceSha256": "1978c3d38ab7f81be06fbaac74f16acf7bf447b86a75d5b68547a70293f51876",
+      "sha256": "23bc47bb53183d3dfc813a9760a27171ec1f8319c58254255bcdb24d9b13215d",
+      "alphaEqual": true,
+      "edgePixelsDecontaminated": 27,
+      "public": "public/birds/morph-habicht-albidus-juvenile-20260913-v3.png",
+      "visualReview": "adult pair and white/dark/violet backgrounds inspected; geometry and feather edges accepted"
+    }
+  ],
+  "status": "integrated_localhost_browser_verified",
+  "browserVerified": [
+    "juvenile-sekretaer",
+    "juvenile-virginiauhu",
+    "juvenile-gaukler",
+    "juvenile-fischadler",
+    "morph-habicht-albidus-male",
+    "morph-habicht-albidus-juvenile"
+  ]
+}

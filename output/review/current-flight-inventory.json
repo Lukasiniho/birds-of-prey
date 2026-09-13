@@ -1,0 +1,629 @@
+[
+  {
+    "id": "rotschwanzbussard",
+    "images": [
+      [
+        "Altvogel / Hell",
+        "/birds/rotschwanzbussard.png?v=bb1f1776b323"
+      ],
+      [
+        "Altvogel / Rostbraun",
+        "/birds/morph-rotschwanzbussard-rostbraun-20260912.png"
+      ],
+      [
+        "Altvogel / Dunkel",
+        "/birds/morph-rotschwanzbussard-dunkel-20260912.png"
+      ],
+      [
+        "Jungvogel / Hell",
+        "/birds/juvenile-rotschwanzbussard-20260912.png"
+      ],
+      [
+        "Jungvogel / Rostbraun",
+        "/birds/morph-rotschwanzbussard-rostbraun-juvenile-20260912.png"
+      ],
+      [
+        "Jungvogel / Dunkel",
+        "/birds/morph-rotschwanzbussard-dunkel-juvenile-20260912.png"
+      ]
+    ]
+  },
+  {
+    "id": "habicht",
+    "images": [
+      [
+        "Altvogel / Normal",
+        "/birds/habicht.png?v=1978c3d38ab7"
+      ],
+      [
+        "Altvogel / Sehr hell",
+        "/birds/morph-habicht-albidus-male-20260913-v3.png"
+      ],
+      [
+        "Jungvogel / Normal",
+        "/birds/juvenile-habicht-20260913-v3.png"
+      ],
+      [
+        "Jungvogel / Sehr hell",
+        "/birds/morph-habicht-albidus-juvenile-20260913-v3.png"
+      ]
+    ]
+  },
+  {
+    "id": "maeusebussard",
+    "images": [
+      [
+        "Altvogel / Hell",
+        "/birds/morph-maeusebussard-hell-20260912.png"
+      ],
+      [
+        "Altvogel / Mittel",
+        "/birds/maeusebussard.png?v=a8213ad8d1f0"
+      ],
+      [
+        "Altvogel / Dunkel",
+        "/birds/morph-maeusebussard-dunkel-20260912.png"
+      ],
+      [
+        "Jungvogel / Hell",
+        "/birds/morph-maeusebussard-hell-juvenile-20260912.png"
+      ],
+      [
+        "Jungvogel / Mittel",
+        "/birds/juvenile-maeusebussard-20260912.png"
+      ],
+      [
+        "Jungvogel / Dunkel",
+        "/birds/morph-maeusebussard-dunkel-juvenile-20260912.png"
+      ]
+    ]
+  },
+  {
+    "id": "wanderfalke",
+    "images": [
+      [
+        "Altvogel / Normal",
+        "/birds/wanderfalke.png?v=451172f0efee"
+      ],
+      [
+        "Jungvogel / Normal",
+        "/birds/juvenile-wanderfalke-20260913-v2.png"
+      ]
+    ]
+  },
+  {
+    "id": "turmfalke",
+    "images": [
+      [
+        "Weibchen / Normal",
+        "/birds/female-turmfalke-20260913-v5.png"
+      ],
+      [
+        "Männchen / Normal",
+        "/birds/turmfalke-20260913-v5.png"
+      ],
+      [
+        "Jungvogel / Normal",
+        "/birds/juvenile-turmfalke-20260913-v5.png"
+      ]
+    ]
+  },
+  {
+    "id": "steinadler",
+    "images": [
+      [
+        "Altvogel / Normal",
+        "/birds/steinadler.png?v=c89f6fd477fa"
+      ],
+      [
+        "Jungvogel / Normal",
+        "/birds/juvenile-steinadler-20260913-v3.png"
+      ]
+    ]
+  },
+  {
+    "id": "seeadler",
+    "images": [
+      [
+        "Altvogel / Normal",
+        "/birds/seeadler.png?v=c376f5783c87"
+      ],
+      [
+        "Jungvogel / Normal",
+        "/birds/juvenile-seeadler-20260913-v2.png"
+      ]
+    ]
+  },
+  {
+    "id": "fischadler",
+    "images": [
+      [
+        "Weibchen / Normal",
+        "/birds/female-fischadler-20260909.png"
+      ],
+      [
+        "Männchen / Normal",
+        "/birds/fischadler.png?v=79946d4bd230"
+      ],
+      [
+        "Jungvogel / Normal",
+        "/birds/juvenile-fischadler-20260913-v3.png"
+      ]
+    ]
+  },
+  {
+    "id": "wuestenbussard",
+    "images": [
+      [
+        "Altvogel / Normal",
+        "/birds/wuestenbussard-pair-20260907.png"
+      ],
+      [
+        "Jungvogel / Normal",
+        "/birds/juvenile-wuestenbussard-pair-20260907.png"
+      ]
+    ]
+  },
+  {
+    "id": "kaiseradler",
+    "images": [
+      [
+        "Altvogel / Normal",
+        "/birds/kaiseradler-20260913-v2.png"
+      ],
+      [
+        "Jungvogel / Normal",
+        "/birds/juvenile-kaiseradler-20260913-v2.png"
+      ]
+    ]
+  },
+  {
+    "id": "steppenadler",
+    "images": [
+      [
+        "Altvogel / Normal",
+        "/birds/steppenadler-20260913-v2.png"
+      ],
+      [
+        "Jungvogel / Normal",
+        "/birds/juvenile-steppenadler-20260913-v2.png"
+      ]
+    ]
+  },
+  {
+    "id": "sekretaer",
+    "images": [
+      [
+        "Altvogel / Normal",
+        "/birds/sekretaer-20260907.png"
+      ],
+      [
+        "Jungvogel / Normal",
+        "/birds/juvenile-sekretaer-20260913-v3.png"
+      ]
+    ]
+  },
+  {
+    "id": "andenkondor",
+    "images": [
+      [
+        "Weibchen / Normal",
+        "/birds/andenkondor-female-20260907-v3.png"
+      ],
+      [
+        "Männchen / Normal",
+        "/birds/andenkondor-male-20260913-v4.png"
+      ],
+      [
+        "Jungvogel / Normal",
+        "/birds/andenkondor-juvenile-20260907-v3.png"
+      ]
+    ]
+  },
+  {
+    "id": "wespenbussard",
+    "images": [
+      [
+        "Altvogel / Hell",
+        "/birds/morph-wespenbussard-hell-male-20260913-v3.png"
+      ],
+      [
+        "Altvogel / Mittel",
+        "/birds/wespenbussard-20260913-v3.png"
+      ],
+      [
+        "Altvogel / Dunkel",
+        "/birds/morph-wespenbussard-dunkel-male-20260913-v3.png"
+      ],
+      [
+        "Jungvogel / Hell",
+        "/birds/morph-wespenbussard-hell-juvenile-20260913-v3.png"
+      ],
+      [
+        "Jungvogel / Mittel",
+        "/birds/juvenile-wespenbussard-20260913-v3.png"
+      ],
+      [
+        "Jungvogel / Dunkel",
+        "/birds/morph-wespenbussard-dunkel-juvenile-20260913-v3.png"
+      ]
+    ]
+  },
+  {
+    "id": "bartgeier",
+    "images": [
+      [
+        "Altvogel / Rostorange",
+        "/birds/bartgeier-20260907.png"
+      ],
+      [
+        "Altvogel / Weiß",
+        "/birds/morph-bartgeier-weiss-male.png"
+      ],
+      [
+        "Jungvogel / Normal",
+        "/birds/juvenile-bartgeier-20260909.png"
+      ]
+    ]
+  },
+  {
+    "id": "kronenadler",
+    "images": [
+      [
+        "Altvogel / Normal",
+        "/birds/kronenadler-20260913-v2.png"
+      ],
+      [
+        "Jungvogel / Normal",
+        "/birds/juvenile-kronenadler-20260913-v2.png"
+      ]
+    ]
+  },
+  {
+    "id": "habichtsadler",
+    "images": [
+      [
+        "Altvogel / Normal",
+        "/birds/habichtsadler-20260913-v2-centered.png"
+      ],
+      [
+        "Jungvogel / Normal",
+        "/birds/juvenile-habichtsadler-20260913-v2-centered.png"
+      ]
+    ]
+  },
+  {
+    "id": "iberienadler",
+    "images": [
+      [
+        "Altvogel / Normal",
+        "/birds/iberienadler-20260913-v2.png"
+      ],
+      [
+        "Jungvogel / Normal",
+        "/birds/juvenile-iberienadler-20260913-v2.png"
+      ]
+    ]
+  },
+  {
+    "id": "klippenadler",
+    "images": [
+      [
+        "Altvogel / Normal",
+        "/birds/klippenadler-20260913-v2.png"
+      ],
+      [
+        "Jungvogel / Normal",
+        "/birds/juvenile-klippenadler-20260913-v2.png"
+      ]
+    ]
+  },
+  {
+    "id": "zwergadler",
+    "images": [
+      [
+        "Altvogel / Hell",
+        "/birds/zwergadler-20260913-v2.png"
+      ],
+      [
+        "Altvogel / Dunkel",
+        "/birds/morph-zwergadler-dark-adult-20260913-v2.png"
+      ],
+      [
+        "Jungvogel / Hell",
+        "/birds/juvenile-zwergadler-20260913-v2.png"
+      ],
+      [
+        "Jungvogel / Dunkel",
+        "/birds/morph-zwergadler-dark-juvenile-20260913-v2.png"
+      ]
+    ]
+  },
+  {
+    "id": "weisskopfseeadler",
+    "images": [
+      [
+        "Altvogel / Normal",
+        "/birds/weisskopfseeadler.png?v=8e2efa55fc3d"
+      ],
+      [
+        "Jungvogel / Normal",
+        "/birds/juvenile-weisskopfseeadler-20260913-v2.png"
+      ]
+    ]
+  },
+  {
+    "id": "riesenseeadler",
+    "images": [
+      [
+        "Altvogel / Normal",
+        "/birds/riesenseeadler.png?v=0a8752880c8f"
+      ],
+      [
+        "Jungvogel / Normal",
+        "/birds/juvenile-riesenseeadler-20260913-v2.png"
+      ]
+    ]
+  },
+  {
+    "id": "gaukler",
+    "images": [
+      [
+        "Weibchen / Kastanienbraun",
+        "/birds/female-gaukler.png?v=b5a1bbdc6ba2"
+      ],
+      [
+        "Weibchen / Creme",
+        "/birds/morph-gaukler-creme-female.png"
+      ],
+      [
+        "Männchen / Kastanienbraun",
+        "/birds/gaukler.png?v=2beff99eb753"
+      ],
+      [
+        "Männchen / Creme",
+        "/birds/morph-gaukler-creme-male.png"
+      ],
+      [
+        "Jungvogel / Normal",
+        "/birds/juvenile-gaukler-20260913-v3.png"
+      ]
+    ]
+  },
+  {
+    "id": "aguja",
+    "images": [
+      [
+        "Altvogel / Normal",
+        "/birds/aguja.png?v=619fff7f72c6"
+      ],
+      [
+        "Jungvogel / Normal",
+        "/birds/juvenile-aguja-20260913-v3.png"
+      ]
+    ]
+  },
+  {
+    "id": "uhu",
+    "images": [
+      [
+        "Altvogel / Normal",
+        "/birds/uhu.png?v=6897c2385499"
+      ],
+      [
+        "Jungvogel / Normal",
+        "/birds/juvenile-uhu.png?v=3c170f6ab55e"
+      ]
+    ]
+  },
+  {
+    "id": "schwarzmilan",
+    "images": [
+      [
+        "Altvogel / Normal",
+        "/birds/schwarzmilan.png?v=5935c3970185"
+      ],
+      [
+        "Jungvogel / Normal",
+        "/birds/juvenile-schwarzmilan.png?v=e05dd339cff1"
+      ]
+    ]
+  },
+  {
+    "id": "rotmilan",
+    "images": [
+      [
+        "Altvogel / Normal",
+        "/birds/rotmilan.png?v=6da5b3ea7f6b"
+      ],
+      [
+        "Jungvogel / Normal",
+        "/birds/juvenile-rotmilan.png?v=10d852e88d3b"
+      ]
+    ]
+  },
+  {
+    "id": "gerfalke",
+    "images": [
+      [
+        "Altvogel / Weiß",
+        "/birds/morph-gerfalke-weiss-male.png?v=ecfc8cb16b28"
+      ],
+      [
+        "Altvogel / Grau",
+        "/birds/gerfalke.png?v=aecd6530281f"
+      ],
+      [
+        "Altvogel / Dunkel",
+        "/birds/morph-gerfalke-dunkel-male.png?v=bab2a4ad27e7"
+      ],
+      [
+        "Jungvogel / Weiß",
+        "/birds/morph-gerfalke-weiss-juvenile.png?v=3e506aebe4f6"
+      ],
+      [
+        "Jungvogel / Grau",
+        "/birds/juvenile-gerfalke.png?v=94fa9cf68063"
+      ],
+      [
+        "Jungvogel / Dunkel",
+        "/birds/morph-gerfalke-dunkel-juvenile.png?v=3cf027d7a27f"
+      ]
+    ]
+  },
+  {
+    "id": "sakerfalke",
+    "images": [
+      [
+        "Altvogel / Normal",
+        "/birds/sakerfalke.png?v=3a0bdf54ae09"
+      ],
+      [
+        "Jungvogel / Normal",
+        "/birds/juvenile-sakerfalke-20260913-v2.png"
+      ]
+    ]
+  },
+  {
+    "id": "lannerfalke",
+    "images": [
+      [
+        "Altvogel / Normal",
+        "/birds/lannerfalke.png?v=4edbc96bcf0c"
+      ],
+      [
+        "Jungvogel / Normal",
+        "/birds/juvenile-lannerfalke.png?v=129e2e00e483"
+      ]
+    ]
+  },
+  {
+    "id": "baumfalke",
+    "images": [
+      [
+        "Altvogel / Normal",
+        "/birds/baumfalke.png?v=8e442b0cf4e1"
+      ],
+      [
+        "Jungvogel / Normal",
+        "/birds/juvenile-baumfalke-20260913-v2.png"
+      ]
+    ]
+  },
+  {
+    "id": "falklandkarakara",
+    "images": [
+      [
+        "Altvogel / Normal",
+        "/birds/falklandkarakara.png?v=2b670af57f78"
+      ],
+      [
+        "Jungvogel / Normal",
+        "/birds/juvenile-falklandkarakara.png?v=55cda51b9840"
+      ]
+    ]
+  },
+  {
+    "id": "schopfkarakara",
+    "images": [
+      [
+        "Altvogel / Normal",
+        "/birds/schopfkarakara.png?v=b8cb40bdf189"
+      ],
+      [
+        "Jungvogel / Normal",
+        "/birds/juvenile-schopfkarakara.png?v=d13412255811"
+      ]
+    ]
+  },
+  {
+    "id": "koenigsbussard",
+    "images": [
+      [
+        "Altvogel / Hell",
+        "/birds/koenigsbussard-20260912-v3.png"
+      ],
+      [
+        "Altvogel / Dunkel",
+        "/birds/morph-koenigsbussard-dunkel-20260912-v3.png"
+      ],
+      [
+        "Jungvogel / Hell",
+        "/birds/juvenile-koenigsbussard-20260912-v3.png"
+      ],
+      [
+        "Jungvogel / Dunkel",
+        "/birds/morph-koenigsbussard-dunkel-juvenile-20260912-v3.png"
+      ]
+    ]
+  },
+  {
+    "id": "harpyie",
+    "images": [
+      [
+        "Altvogel / Normal",
+        "/birds/harpyie-20260913-v2.png"
+      ],
+      [
+        "Jungvogel / Normal",
+        "/birds/juvenile-harpyie-20260913-v2.png"
+      ]
+    ]
+  },
+  {
+    "id": "kampfadler",
+    "images": [
+      [
+        "Altvogel / Normal",
+        "/birds/kampfadler.png?v=da5dac7ee04a"
+      ],
+      [
+        "Jungvogel / Normal",
+        "/birds/juvenile-kampfadler.png?v=cf9040fd9748"
+      ]
+    ]
+  },
+  {
+    "id": "virginiauhu",
+    "images": [
+      [
+        "Altvogel / Normal",
+        "/birds/virginiauhu-20260907.png"
+      ],
+      [
+        "Jungvogel / Normal",
+        "/birds/juvenile-virginiauhu-20260913-v3.png"
+      ]
+    ]
+  },
+  {
+    "id": "weissstorch",
+    "images": [
+      [
+        "Altvogel / Normal",
+        "/birds/weissstorch-20260913-v2.png"
+      ],
+      [
+        "Jungvogel / Normal",
+        "/birds/juvenile-weissstorch-20260913-v2.png"
+      ]
+    ]
+  },
+  {
+    "id": "sperber",
+    "images": [
+      [
+        "Weibchen / Normal",
+        "/birds/female-sperber.png?v=18635d3510f6"
+      ],
+      [
+        "Männchen / Normal",
+        "/birds/sperber.png?v=2f1a9fa3874b"
+      ],
+      [
+        "Jungvogel / Normal",
+        "/birds/juvenile-sperber.png?v=bfaeca0d6478"
+      ]
+    ]
+  }
+]

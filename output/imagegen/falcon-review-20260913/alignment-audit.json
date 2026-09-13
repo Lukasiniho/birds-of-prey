@@ -1,0 +1,257 @@
+[
+  {
+    "id": "wanderfalke",
+    "size": [
+      1254,
+      1254
+    ],
+    "bbox": [
+      192,
+      113,
+      1062,
+      1141
+    ],
+    "alphaEqual": true,
+    "IoU": 1.0
+  },
+  {
+    "id": "juvenile-wanderfalke",
+    "size": [
+      1254,
+      1254
+    ],
+    "bbox": [
+      192,
+      113,
+      1062,
+      1141
+    ],
+    "alphaEqual": false,
+    "IoU": 0.984790557249708
+  },
+  {
+    "id": "turmfalke",
+    "size": [
+      1254,
+      1254
+    ],
+    "bbox": [
+      85,
+      41,
+      1193,
+      1181
+    ],
+    "alphaEqual": true,
+    "IoU": 1.0
+  },
+  {
+    "id": "juvenile-turmfalke",
+    "size": [
+      1254,
+      1254
+    ],
+    "bbox": [
+      85,
+      41,
+      1193,
+      1181
+    ],
+    "alphaEqual": true,
+    "IoU": 1.0
+  },
+  {
+    "id": "female-turmfalke",
+    "size": [
+      1254,
+      1254
+    ],
+    "bbox": [
+      85,
+      41,
+      1193,
+      1181
+    ],
+    "alphaEqual": true,
+    "IoU": 1.0
+  },
+  {
+    "id": "gerfalke",
+    "size": [
+      1254,
+      1254
+    ],
+    "bbox": [
+      135,
+      113,
+      1118,
+      1137
+    ],
+    "alphaEqual": true,
+    "IoU": 1.0
+  },
+  {
+    "id": "juvenile-gerfalke",
+    "size": [
+      1254,
+      1254
+    ],
+    "bbox": [
+      135,
+      113,
+      1118,
+      1138
+    ],
+    "alphaEqual": false,
+    "IoU": 0.9963142468535086
+  },
+  {
+    "id": "weiss-male",
+    "size": [
+      1254,
+      1254
+    ],
+    "bbox": [
+      135,
+      113,
+      1118,
+      1137
+    ],
+    "alphaEqual": true,
+    "IoU": 1.0
+  },
+  {
+    "id": "weiss-juvenile",
+    "size": [
+      1254,
+      1254
+    ],
+    "bbox": [
+      135,
+      113,
+      1118,
+      1137
+    ],
+    "alphaEqual": true,
+    "IoU": 1.0
+  },
+  {
+    "id": "dunkel-male",
+    "size": [
+      1254,
+      1254
+    ],
+    "bbox": [
+      135,
+      113,
+      1118,
+      1137
+    ],
+    "alphaEqual": true,
+    "IoU": 1.0
+  },
+  {
+    "id": "dunkel-juvenile",
+    "size": [
+      1254,
+      1254
+    ],
+    "bbox": [
+      135,
+      113,
+      1118,
+      1137
+    ],
+    "alphaEqual": true,
+    "IoU": 1.0
+  },
+  {
+    "id": "sakerfalke",
+    "size": [
+      1254,
+      1254
+    ],
+    "bbox": [
+      171,
+      113,
+      1083,
+      1141
+    ],
+    "alphaEqual": true,
+    "IoU": 1.0
+  },
+  {
+    "id": "juvenile-sakerfalke",
+    "size": [
+      1254,
+      1254
+    ],
+    "bbox": [
+      175,
+      113,
+      1083,
+      1141
+    ],
+    "alphaEqual": false,
+    "IoU": 0.9606495148422116
+  },
+  {
+    "id": "lannerfalke",
+    "size": [
+      1254,
+      1254
+    ],
+    "bbox": [
+      203,
+      113,
+      1051,
+      1141
+    ],
+    "alphaEqual": true,
+    "IoU": 1.0
+  },
+  {
+    "id": "juvenile-lannerfalke",
+    "size": [
+      1254,
+      1254
+    ],
+    "bbox": [
+      203,
+      113,
+      1051,
+      1141
+    ],
+    "alphaEqual": false,
+    "IoU": 0.9978592876743818
+  },
+  {
+    "id": "baumfalke",
+    "size": [
+      1254,
+      1254
+    ],
+    "bbox": [
+      229,
+      113,
+      1017,
+      1141
+    ],
+    "alphaEqual": true,
+    "IoU": 1.0
+  },
+  {
+    "id": "juvenile-baumfalke",
+    "size": [
+      1254,
+      1254
+    ],
+    "bbox": [
+      234,
+      113,
+      1024,
+      1141
+    ],
+    "alphaEqual": false,
+    "IoU": 0.9259972000206018
+  }
+]

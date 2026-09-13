@@ -1,0 +1,53 @@
+{
+  "generation": "built-in image_gen; targeted original edits, not rejected v1 candidates",
+  "jobs": [
+    {
+      "id": "steppenadler-adult-v2",
+      "source": "public/birds/steppenadler.png",
+      "ref": "output/imagegen/eagle-refresh-20260912/references/steppe-140479331.jpg",
+      "prompt": "Use case: precise-object-edit. Edit IMAGE 1, the existing adult Steppe Eagle illustration. Correct only its disproportionately elongated wings: reduce shoulder-to-tip length by approximately 15%, retaining broad wing depth and a plausible elbow/wrist and seven primary fingers. Keep its existing head, long yellow gape, torso, feet, tail, adult plumage, camera angle and left-facing head unchanged. Keep head and torso at exactly their existing size and position on the square canvas; the shortened wings leave more space around the tips. Image 2 is a real SAME-SPECIES anatomy check only, not a replacement composition. Preserve a soft naturalistic field-guide rendering, avoid hard embossed scalloped feathers. The view remains oblique underside, wing diagonal lower-left to upper-right. Complete bird, transparent background; if genuine alpha unavailable use perfectly uniform RGB(0,90,255) blue for local removal, never checkerboard or gradient. Do not generate a different eagle, redraw the whole pose, or enlarge the torso.",
+      "raw": "exec-ab66df0a-ca96-4537-86c8-e52ced032b58.png",
+      "approved": true,
+      "matte": "extract-checker.py, exterior neutral connected background removed; original canvas preserved",
+      "source_sha256": "b8a3b719e1630ce19d71ea50ccdd366706725214c7fb4a9883ff7785a49cc367",
+      "final_sha256": "52ba9b209b94fea3699f60f74f29fd522046d998ce46342febfc722561c9229c",
+      "qa": "Adult approved by user; adult/juvenile common canvas and alpha verified; head, eye, wing/tail anchors inspected in pair review. Browser check pending."
+    },
+    {
+      "id": "steppenadler-juvenile-v2",
+      "source": "output/imagegen/eagle-refresh-20260912/steppenadler-adult-v2.png",
+      "prompt": "Use case: precise-object-edit. Edit this NORMAL ADULT STEPPE EAGLE into the juvenile plumage of the same species. Change ONLY feather coloration and pattern: warmer medium-brown body and coverts with subtle pale tips, a clear narrow cream-white transverse band along the base of the primary and secondary feathers on BOTH underwings, pale trailing margins, dark juvenile eye. Retain the long yellow gape. Keep the exact head/eye/beak locations, body, wings, every feather silhouette, tail pose, feet, scale, position and square canvas of the supplied adult; do not move or resize anything. Natural field-guide illustration with existing feather texture. Transparent background; if actual alpha unavailable use solid RGB(0,90,255), never checkerboard. This is a plumage edit, not a new bird pose.",
+      "raw": "exec-2a2349ab-9e67-4aa5-993c-499dda523008.png",
+      "matte": "extract-checker.py then restore-extracted-alpha.py; identical adult alpha",
+      "source_sha256": "52ba9b209b94fea3699f60f74f29fd522046d998ce46342febfc722561c9229c",
+      "final_sha256": "456e6da2aeaaa7bdaadc6def7b52bd72593333ae3cffa17de1a5ab1468c8c91c",
+      "qa": "Adult approved by user; adult/juvenile common canvas and alpha verified; head, eye, wing/tail anchors inspected in pair review. Browser check pending."
+    },
+    {
+      "id": "habichtsadler-adult-v2",
+      "source": "public/birds/habichtsadler.png",
+      "ref": "public/birds/rotschwanzbussard.png STYLE ONLY",
+      "prompt": "Use case: style-transfer. IMAGE 1 is the edit target: adult Bonelli's Eagle, Habichtsadler. Make its rendering convincingly lifelike instead of drawn. Replace the uniform outlined/scalloped feather plates with soft interlocking feather barbs, subtle irregular real feather texture, gently overlapping groups, and natural diffuse daylight. Reduce hard contour emphasis and oversharpened contrast on individual feathers. Eye and beak should have subtle realistic light and material, not a painted icon. IMAGE 2 is ONLY the desired degree of naturalism and soft texture; never copy that buzzard's anatomy, plumage or composition. Preserve IMAGE 1's exact silhouette, entire anatomy, left-facing head, eye/beak locations, pose, wing and tail positions, feet, canvas size, framing and scale. Keep all Bonelli's adult markings and colors recognizable. This is surface texture and lighting only, no reshaping or blur filter. Complete bird on actual transparent background; if true transparency unavailable use perfectly flat RGB(0,90,255), never checkerboard.",
+      "raw": "exec-1d29ee76-0880-44f3-a5c0-2a79af09fc49.png",
+      "approved": true,
+      "matte": "restore-variant-matte.py RGB, inspected bill; detached low-alpha debris removed",
+      "source_sha256": "fd575f3c940d602b741dea1163cb608f7bd861fcb8414501eb3e388dd83abbf9",
+      "final_sha256": "01e6cd6108d2c9640b02733edb03b9cc68790bec2e2663a86f4ec566f5b6a94c",
+      "qa": "Adult approved by user; adult/juvenile common canvas and alpha verified; head, eye, wing/tail anchors inspected in pair review. Browser check pending."
+    },
+    {
+      "id": "habichtsadler-juvenile-v2",
+      "source": "output/imagegen/eagle-refresh-20260912/habichtsadler-adult-v2.png",
+      "prompt": "Use case: precise-object-edit. Convert the supplied NORMAL ADULT BONELLI'S EAGLE to juvenile plumage. Only plumage and iris change: soft muted rufous-buff head, neck, underbody and underwing coverts with much finer sparse dark streaking; brown upperparts, gray-brown barred flight feathers, tail with fine bars and no bold adult terminal band; hazel-brown iris, yellow toes and dark bill unchanged. Keep the EXACT approved naturalistic feather rendering, every silhouette edge, eye/beak position, head shape, wing pose and joints, body, feet, tail shape, leftward gaze, scale, framing and square canvas. Do not lengthen wings or redraw anatomy. Soft real feather barbs, no drawn outlines, no plate-like embossed texture. Genuine transparent background; otherwise perfectly flat RGB(0,90,255), no checkerboard.",
+      "raw": "exec-888f2f01-6c14-43b7-85c4-f30b916538fe.png",
+      "matte": "restore-edge-bounded.py; identical adult alpha; no tail-edge amplification above 1.6",
+      "source_sha256": "01e6cd6108d2c9640b02733edb03b9cc68790bec2e2663a86f4ec566f5b6a94c",
+      "final_sha256": "0b8b6ad3b4fb50a73b385c53ef7dbfcd767b75cda2a8b8db5a6a61facf40eb8a",
+      "qa": "Adult approved by user; adult/juvenile common canvas and alpha verified; head, eye, wing/tail anchors inspected in pair review. Browser check pending."
+    }
+  ],
+  "sources": [
+    "https://ebird.org/species/steeag1",
+    "https://birdlifecyprus.org/bonellis-eagle/"
+  ]
+}

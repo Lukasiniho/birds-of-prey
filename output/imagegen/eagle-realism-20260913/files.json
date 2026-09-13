@@ -1,0 +1,62 @@
+[
+  {
+    "path": "public/birds/klippenadler-20260913-v2.png",
+    "sha256": "5c9e09659f5fb11667d27db38937022cf7f8c03fc16f4652cb4faf75d6baf312"
+  },
+  {
+    "path": "public/birds/juvenile-klippenadler-20260913-v2.png",
+    "sha256": "c62999b65ab3c46159c4ceda48550754255fa9ad8b9d6a751e17e27299a21ff4"
+  },
+  {
+    "path": "public/birds/steinadler.png",
+    "sha256": "c89f6fd477fa6e3441b5941b78a01c26967a88f3548f4c95e328331d198b639a"
+  },
+  {
+    "path": "public/birds/klippenadler-20260913-v3.png",
+    "sha256": "cc59521d48b44b11b1b612d545d3d6c1b3346c7631e075d3f45bf2030ae3f0db"
+  },
+  {
+    "path": "public/birds/juvenile-klippenadler-20260913-v3.png",
+    "sha256": "0156da1cb7abff299169640773566c5eca32b4a8be730c6f3e657478cca6f91e"
+  },
+  {
+    "path": "public/birds/steppenadler-20260913-v2.png",
+    "sha256": "52ba9b209b94fea3699f60f74f29fd522046d998ce46342febfc722561c9229c"
+  },
+  {
+    "path": "public/birds/juvenile-steppenadler-20260913-v2.png",
+    "sha256": "456e6da2aeaaa7bdaadc6def7b52bd72593333ae3cffa17de1a5ab1468c8c91c"
+  },
+  {
+    "path": "public/birds/hunting-steppenadler.png",
+    "sha256": "bc11af2308e6c6ffca42979d33b612e9779ba19c9e7647c90e74bdf6d485e202"
+  },
+  {
+    "path": "public/birds/steppenadler-20260913-v3.png",
+    "sha256": "789665a1fc0ad04fdd7355d5af63880bad6d19c055a27ab329c627817eb94149"
+  },
+  {
+    "path": "public/birds/juvenile-steppenadler-20260913-v3.png",
+    "sha256": "b21ce36507b6a302d185e585d6041af4736ad4cbacb6c5f550229030b468f97f"
+  },
+  {
+    "path": "public/birds/kaiseradler-20260913-v2.png",
+    "sha256": "5d4e22b77e7e2c8ab1b7137ee0057b172b4ac1e88c35503a7702b2deed7ed51a"
+  },
+  {
+    "path": "public/birds/juvenile-kaiseradler-20260913-v2.png",
+    "sha256": "1aa820c322a0b8de1f47e2f6943901f31152b4af729ec90b137cd5ef3426d759"
+  },
+  {
+    "path": "public/birds/hunting-kaiseradler.png",
+    "sha256": "ff9735ce19c6158c6ebc750260aab3a098d1a8f9b9d4eba468f8912e507372f3"
+  },
+  {
+    "path": "public/birds/kaiseradler-20260913-v3.png",
+    "sha256": "c34b407ca6f0c098b4e11e6ae53e2780e93d405b55ae1bd73ecb87df0c120577"
+  },
+  {
+    "path": "public/birds/juvenile-kaiseradler-20260913-v3.png",
+    "sha256": "2bee77d8328d0994a93a282ff414e8ac9b45b6a6c2f188549b7380b93097fd0b"
+  }
+]
