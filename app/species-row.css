@@ -38,6 +38,11 @@
   height: var(--species-row-portrait);
   object-fit: contain;
 }
+/* Optical correction for the approved Aguja portrait; shared row size stays unchanged. */
+.species-row-portrait[src*='/portrait-aguja-'],
+.species-row-sprite[data-species='aguja'] {
+  transform: scale(1.1);
+}
 .species-row-name {
   display: flex;
   flex-direction: column;
