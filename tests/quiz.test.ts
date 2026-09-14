@@ -454,6 +454,43 @@ void test('every puzzle uses existing bird and landscape images', () => {
     assert(existsSync(`public${habitatImages[id]}`), id);
 });
 
+void test('flight art covers every illustrated bird and varies morph species', () => {
+  const variants = new Map<string, Set<string>>();
+  for (let seed = 0; seed < 120; seed++) {
+    const round = roundFor(seed);
+    for (const question of round) {
+      if (question.kind === 'sex') {
+        assert.equal(question.art, undefined);
+        continue;
+      }
+      const ids = 'birdId' in question ? [question.birdId] : question.birdIds;
+      assert.deepEqual(Object.keys(question.art!).sort(), [...ids].sort());
+      for (const id of ids) {
+        const image = question.art![id];
+        assert(
+          quizBirds[id].identificationImages.some((art) => art.image === image),
+          `${id} shows art outside its own plumages`,
+        );
+        assert(existsSync(`public${image.split('?')[0]}`), image);
+        if (!variants.has(id)) variants.set(id, new Set());
+        variants.get(id)!.add(image);
+      }
+      if (question.kind === 'identify')
+        assert.equal(question.art![question.birdId], question.appearance.image);
+    }
+  }
+  const morphSpecies = Object.values(quizBirds).filter(
+    (bird) => bird.identificationImages.length > 1,
+  );
+  assert.equal(morphSpecies.length, 9);
+  for (const bird of morphSpecies)
+    assert.equal(
+      variants.get(bird.id)?.size,
+      bird.identificationImages.length,
+      `${bird.id} never shows all of its plumages`,
+    );
+});
+
 void test('seeded rounds are reproducible, varied, and leave source data unchanged', () => {
   const original = JSON.stringify(quizBirds);
   assert.deepEqual(roundFor(123456), roundFor(123456));

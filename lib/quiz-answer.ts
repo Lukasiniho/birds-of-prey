@@ -22,6 +22,16 @@ export type QuizDraft = {
 };
 export type QuizAnswer = QuizDraft & { points: number };
 
+/** Paint the birds of one question with that question's chosen flight art. */
+export function quizArtBirds(birds: BirdMap, question: QuizQuestion): BirdMap {
+  if (!question.art) return birds;
+  const painted = Object.entries(question.art).map(([id, image]) => [
+    id,
+    { ...birds[id], image },
+  ]);
+  return { ...birds, ...Object.fromEntries(painted) };
+}
+
 export function initialDraft(
   question: QuizQuestion,
   birds: BirdMap,

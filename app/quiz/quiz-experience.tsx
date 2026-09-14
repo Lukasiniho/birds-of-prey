@@ -31,6 +31,7 @@ import {
   initialDraft,
   canSubmitAnswer,
   scoreAnswer,
+  quizArtBirds,
   type BirdMap,
   type HuntingTypes,
   type QuizDraft as Draft,
@@ -362,7 +363,9 @@ export default function QuizExperience({
     );
   }
 
-  const bird = 'birdId' in question ? birds[question.birdId] : null;
+  // Every illustration in a question uses the round's chosen flight art.
+  const shownBirds = quizArtBirds(birds, question);
+  const bird = 'birdId' in question ? shownBirds[question.birdId] : null;
 
   const onChange = (value: Draft) =>
     setDrafts((previous) => ({ ...previous, [question.id]: value }));
@@ -455,7 +458,7 @@ export default function QuizExperience({
                       answered={Boolean(answer)}
                       onChange={onChange}
                       huntingTypes={huntingTypes}
-                      birds={birds}
+                      birds={shownBirds}
                     />
                   )}
                 {question.kind === 'sex' && bird && (
@@ -471,7 +474,7 @@ export default function QuizExperience({
                   <RangeQuestion
                     question={question}
                     bird={bird}
-                    birds={birds}
+                    birds={shownBirds}
                     choice={draft.choice}
                     answered={Boolean(answer)}
                     onChange={(choice) => onChange({ ...draft, choice })}
@@ -479,7 +482,7 @@ export default function QuizExperience({
                 )}
                 {question.kind === 'weight' && (
                   <WeightQuestion
-                    birds={birds}
+                    birds={shownBirds}
                     draft={draft}
                     answered={Boolean(answer)}
                     onChange={onChange}
@@ -497,7 +500,7 @@ export default function QuizExperience({
                 {question.kind === 'compare' && (
                   <WingComparison
                     question={question}
-                    birds={birds}
+                    birds={shownBirds}
                     choice={draft.choice}
                     answered={Boolean(answer)}
                     onChange={(choice) => onChange({ ...draft, choice })}
@@ -506,7 +509,7 @@ export default function QuizExperience({
                 {question.kind === 'habitat' && (
                   <HabitatQuestion
                     question={question}
-                    birds={birds}
+                    birds={shownBirds}
                     habitats={question.habitatIds.map((id) =>
                       habitats.find((habitat) => habitat.id === id)!,
                     )}
@@ -533,7 +536,7 @@ export default function QuizExperience({
                   key={`feedback-${question.id}`}
                   question={question}
                   answer={answer}
-                  birds={birds}
+                  birds={shownBirds}
                   huntingTypes={huntingTypes}
                 />
               )}

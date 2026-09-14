@@ -83,7 +83,11 @@ type QuizTask =
       correct: string;
     };
 
-export type QuizQuestion = QuizTask & { id: string };
+/** `art` fixes the flight illustration per bird, so morph variants vary by round. */
+export type QuizQuestion = QuizTask & {
+  id: string;
+  art?: Record<string, string>;
+};
 export type QuizHistory = {
   questionKeys: string[];
   birdIds: string[];
@@ -646,8 +650,26 @@ export function createQuizRound(
     );
     add(choose(differentLandscapes.length ? differentLandscapes : candidates));
   }
+  // One illustration per bird and question: species with several morphs show a
+  // different plumage from round to round, and may show two of them in one round.
+  const flightArt = (task: QuizTask) =>
+    task.kind === 'sex'
+      ? undefined
+      : Object.fromEntries(
+          taskBirds(task).map((id) => {
+            const variants = birds[id].identificationImages;
+            return [
+              id,
+              task.kind === 'identify' && id === task.birdId
+                ? task.appearance.image
+                : (variants[Math.floor(random() * variants.length)]?.image ??
+                  birds[id].image),
+            ];
+          }),
+        );
   return shuffled(tasks, random).map((task, index) => ({
     ...task,
     id: `${seed}-${index}`,
+    art: flightArt(task),
   }));
 }

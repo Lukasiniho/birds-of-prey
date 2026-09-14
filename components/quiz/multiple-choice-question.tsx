@@ -63,11 +63,7 @@ export function MultipleChoiceQuestion({
             <>
               <QuizOrbit />
               <BirdArt
-                bird={
-                  isIdentify
-                    ? { ...bird, image: question.appearance.image }
-                    : bird
-                }
+                bird={bird}
                 className={QUIZ_FLIGHT_FRAME}
                 alt={
                   showName ? bird.name : 'Greifvogel im Flug – bestimme die Art'
