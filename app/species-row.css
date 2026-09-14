@@ -38,22 +38,6 @@
   height: var(--species-row-portrait);
   object-fit: contain;
 }
-/* Optical artwork corrections, shared by rail, mobile sheet and inline rows.
- * Compare the cranium, not the crest or the full neck silhouette. */
-.species-row-portrait[src*='/portrait-kronenadler-'],
-.species-row-sprite[data-species='kronenadler'],
-.species-row-portrait[src*='/portrait-schwarzmilan-'],
-.species-row-sprite[data-species='schwarzmilan'] {
-  transform: scale(1.08);
-}
-.species-row-portrait[src*='/portrait-aguja-'],
-.species-row-sprite[data-species='aguja'] {
-  transform: scale(1.1);
-}
-.species-row-portrait[src*='/portrait-bartgeier-'],
-.species-row-sprite[data-species='bartgeier'] {
-  transform: scale(1.12);
-}
 /* A library row may truncate its last child; species names wrap and hyphenate
  * instead, because a clipped German compound is unreadable. */
 .species-row-name,

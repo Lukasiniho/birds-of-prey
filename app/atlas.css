@@ -135,33 +135,6 @@ button.color-dot:not(:disabled) {
   --icon-swap-dur: 350ms;
   --icon-swap-start-scale: 0.965;
 }
-.own-portrait[data-species='sperber'] {
-  background-size: 87% auto;
-}
-.own-portrait[data-species='gerfalke'] {
-  background-size: 114% auto;
-}
-.own-portrait[data-species='steppenadler'] {
-  background-size: 95.4% auto;
-}
-.own-portrait[data-species='maeusebussard'],
-.own-portrait[data-species='rotschwanzbussard'],
-.own-portrait[data-species='fischadler'] {
-  background-size: 105% auto;
-}
-.own-portrait[data-species='kaiseradler'] {
-  background-size: 106% auto;
-}
-.own-portrait[data-species='habichtsadler'],
-.own-portrait[data-species='iberienadler'] {
-  background-size: 104% auto;
-}
-.own-portrait[data-species='baumfalke'],
-.own-portrait[data-species='uhu'],
-.own-portrait[data-species='virginiauhu'],
-.own-portrait[data-species='harpyie'] {
-  background-size: 107% auto;
-}
 /* Duotone motifs use the main colour. Unlayered component rules may override it. */
 :where(svg[data-icon-weight='duotone']) {
   color: var(--main-color);
