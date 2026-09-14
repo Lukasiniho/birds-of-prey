@@ -1,7 +1,7 @@
 'use client';
 import { QuizActionButton } from '@/components/quiz/action-button';
 
-import type { CSSProperties } from 'react';
+import type { CSSProperties, ReactNode } from 'react';
 import { ArtImage } from '@/components/art-image';
 import { SpeciesCommonName } from '@/components/species-name';
 import {
@@ -16,12 +16,14 @@ export function QuizResults({
   questions,
   answers,
   birds,
+  countSelect,
   onRestart,
   onReview,
 }: {
   questions: QuizQuestion[];
   answers: Record<string, Answer>;
   birds: BirdMap;
+  countSelect: ReactNode;
   onRestart: () => void;
   onReview: (index: number) => void;
 }) {
@@ -71,9 +73,12 @@ export function QuizResults({
             <p className="text-(length:--type-body) mt-2 mb-3 leading-(--leading-relaxed) text-muted-foreground">
               {perfect} von {questions.length} Aufgaben mit voller Punktzahl.
             </p>
-            <QuizActionButton onClick={onRestart}>
-              <RotateCcw size={17} /> Noch eine Runde
-            </QuizActionButton>
+            <div className="q-round-settings flex flex-wrap items-center gap-3">
+              {countSelect}
+              <QuizActionButton onClick={onRestart}>
+                <RotateCcw size={17} /> Noch eine Runde
+              </QuizActionButton>
+            </div>
           </div>
         </div>
         <div className="q-result-breakdown grid grid-cols-2 gap-x-6 gap-y-3 py-4 px-0 to-desktop:grid-cols-[repeat(2,1fr)] to-desktop:gap-6">

@@ -285,6 +285,11 @@
   width: 130px;
   height: var(--control-height-touch);
 }
+/* On the results screen the count sits next to the restart button, so it
+   matches the button height instead of the compact control height. */
+.q-result-copy .q-round-settings [data-slot='select-trigger'] {
+  height: 3rem;
+}
 
 .q-result-score > div {
   border-color: transparent;

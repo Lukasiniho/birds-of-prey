@@ -137,35 +137,38 @@ export default function QuizExperience({
   }, [showResults, ready]);
 
   const completed = Object.keys(answers).length;
+  const countSelect = (
+    <Select
+      value={String(questionCount)}
+      items={questionCounts}
+      onValueChange={(value) => {
+        if (!value) return;
+        const count = Number(value);
+        if (count === questionCount) return;
+        setQuestionCount(count);
+      }}
+    >
+      <SelectTrigger aria-label="Fragenzahl">
+        <SelectValue />
+      </SelectTrigger>
+      <SelectContent>
+        {questionCounts.map(({ value, label }) => (
+          <SelectItem key={value} value={value}>
+            {label}
+          </SelectItem>
+        ))}
+      </SelectContent>
+    </Select>
+  );
   const roundSettings = (
     <div className="q-round-settings justify-items-start text-(length:--type-ui) grid gap-2">
       <span
         className="text-(length:--type-body) font-(--weight-medium) text-(--muted-foreground)"
-        id="q-count-label"
+        aria-hidden="true"
       >
         Fragenzahl
       </span>
-      <Select
-        value={String(questionCount)}
-        items={questionCounts}
-        onValueChange={(value) => {
-          if (!value) return;
-          const count = Number(value);
-          if (count === questionCount) return;
-          setQuestionCount(count);
-        }}
-      >
-        <SelectTrigger aria-labelledby="q-count-label">
-          <SelectValue />
-        </SelectTrigger>
-        <SelectContent>
-          {questionCounts.map(({ value, label }) => (
-            <SelectItem key={value} value={value}>
-              {label}
-            </SelectItem>
-          ))}
-        </SelectContent>
-      </Select>
+      {countSelect}
     </div>
   );
 
@@ -377,16 +380,14 @@ export default function QuizExperience({
         ref={mainRef}
       >
         {showResults ? (
-          <>
-            {roundSettings}
-            <QuizResults
-              questions={questions}
-              answers={answers}
-              birds={birds}
-              onRestart={() => resetRound(quizHistory(questions))}
-              onReview={navigate}
-            />
-          </>
+          <QuizResults
+            questions={questions}
+            answers={answers}
+            birds={birds}
+            countSelect={countSelect}
+            onRestart={() => resetRound(quizHistory(questions))}
+            onReview={navigate}
+          />
         ) : (
           <>
             <div className="q-round-navigation to-tablet:grid-cols-[var(--control-height-compact)_minmax(0,1fr)_var(--control-height-compact)] to-tablet:grid to-tablet:gap-2 to-tablet:h-(--control-height-compact) flex items-center justify-center h-6 mb-2">
