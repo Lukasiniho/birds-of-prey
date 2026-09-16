@@ -53,7 +53,7 @@ export function SpeciesFacts({ speciesId }: { speciesId: string }) {
   ];
   return (
     <dl
-      className="species-facts font-(family-name:--font-stack-body) text-(length:--type-body) leading-(--leading-compact) grid gap-3 m-0"
+      className="species-facts font-(family-name:--font-stack-body) text-(length:--type-body) leading-(--leading-compact) grid gap-(--rail-caption-gap) m-0"
       aria-label="Wesentliche Artinformationen"
     >
       {rows.map(({ label, icon, value, context }) => {

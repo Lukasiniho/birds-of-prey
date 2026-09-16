@@ -25,7 +25,9 @@ function TooltipProvider({
   delay?: number;
   children: ReactNode;
 }) {
-  return <DelayContext.Provider value={delay}>{children}</DelayContext.Provider>;
+  return (
+    <DelayContext.Provider value={delay}>{children}</DelayContext.Provider>
+  );
 }
 
 function Tooltip({ children, ...props }: TooltipPrimitive.Root.Props) {
@@ -59,7 +61,9 @@ function TooltipTrigger({
   // Ohne Modul dieselbe Auszeichnung, nur ohne die Verdrahtung der Blase.
   // `render` als Funktion braucht deren Kontext und wartet darauf.
   if (isValidElement(render)) return render;
-  return <button type="button" {...(props as React.ComponentProps<'button'>)} />;
+  return (
+    <button type="button" {...(props as React.ComponentProps<'button'>)} />
+  );
 }
 
 function TooltipContent({

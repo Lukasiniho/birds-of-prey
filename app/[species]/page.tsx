@@ -25,7 +25,9 @@ export async function generateMetadata({
       title,
       description: bird.intro,
       url: birdHref(bird),
-      images: [{ url: imageSource(birdImage(bird.id, 'male')), alt: bird.name }],
+      images: [
+        { url: imageSource(birdImage(bird.id, 'male')), alt: bird.name },
+      ],
     },
   };
 }

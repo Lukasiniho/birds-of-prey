@@ -11,10 +11,7 @@ import {
   InputGroupButton,
   InputGroupInput,
 } from '@/components/ui/input-group';
-import {
-  CaretDown as ChevronDownIcon,
-  X as XIcon,
-} from '@/components/icons';
+import { CaretDown as ChevronDownIcon, X as XIcon } from '@/components/icons';
 
 const Combobox = ComboboxPrimitive.Root;
 

@@ -19,6 +19,7 @@ const explanations = {
   NT: 'Die Art liegt nahe an einer Gefährdungsstufe oder dürfte deren Kriterien in naher Zukunft erfüllen.',
   VU: 'Für die Art besteht ein hohes Risiko, in der Natur auszusterben.',
   EN: 'Für die Art besteht ein sehr hohes Risiko, in der Natur auszusterben.',
+  CR: 'Für die Art besteht ein extrem hohes Risiko, in der Natur auszusterben.',
 } as const;
 
 export function ConservationTooltip({
