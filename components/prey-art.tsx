@@ -7,7 +7,7 @@ import { imageSource } from '@/lib/optimized-images';
 type PreyArtVariant = 'atlas' | 'tile' | 'choice' | 'placed' | 'drag';
 
 const frameSizes: Record<PreyArtVariant, string> = {
-  atlas: 'size-[88px] mx-auto mb-2',
+  atlas: 'size-[64px] mx-auto mb-2',
   tile: 'size-[72px] min-h-0 mx-0 mb-2',
   choice: 'size-full m-0',
   placed: 'size-[28px] min-h-0 m-0',

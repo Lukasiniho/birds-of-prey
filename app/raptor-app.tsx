@@ -7,7 +7,7 @@ import {
   AppSelectContent as SelectContent,
 } from '@/components/app-select';
 import { cn } from '@/lib/utils';
-import { SpeciesName, SpeciesScientificName } from '@/components/species-name';
+import { SpeciesName } from '@/components/species-name';
 import { SpeciesRowContent } from '@/components/species-row';
 import { useEffect, useRef, useState } from 'react';
 import { useSlidingPill } from '@/lib/use-sliding-pill';
@@ -450,7 +450,7 @@ function HuntingArt({ bird }: { bird: BirdSpecies }) {
 }
 function PreyGallery({ items }: { items: PreyExample[] }) {
   return (
-    <div className="prey-list grid grid-cols-2 gap-x-4 gap-y-(--rail-caption-gap) mt-(--rail-content-gap) mb-(--rail-section-gap)">
+    <div className="prey-list grid grid-cols-3 gap-x-3 gap-y-(--rail-caption-gap) mt-(--rail-content-gap) mb-(--rail-section-gap)">
       {items.map(({ key, note }) => {
         const prey = preyCatalog[key];
         return (
@@ -671,12 +671,15 @@ export default function RaptorApp({
               className="species-group min-w-0 max-w-full not-first:mt-3 to-phone:not-first:mt-4 to-phone:shrink-0"
               key={group.id}
             >
-              <h3 className="species-group-title items-baseline mb-2 to-phone:flex-wrap to-phone:gap-2 font-(family-name:--font-stack-body) text-(length:--type-ui) leading-(--leading-normal) font-(--weight-medium) text-muted-foreground flex flex-wrap p-0 gap-2">
+              {/* Die Gruppenzeile ist eine Beschriftung, kein Namenspaar: eine
+                  Schrift (die der Oberfläche), der deutsche Name im Textton,
+                  die Gattung aufrecht als Beiwerk in der zweiten Farbe. */}
+              <h3 className="species-group-title items-baseline mb-2 to-phone:flex-wrap to-phone:gap-2 font-(family-name:--font-stack-body) text-(length:--type-ui) leading-(--leading-normal) font-(--weight-medium) text-foreground flex flex-wrap p-0 gap-2">
                 <span>{group.title}</span>
                 {group.subtitle && (
-                  <SpeciesScientificName as="small">
+                  <small className="font-(family-name:--font-stack-body) text-(length:--type-ui) font-(--weight-regular) not-italic text-muted-foreground">
                     {group.subtitle}
-                  </SpeciesScientificName>
+                  </small>
                 )}
               </h3>
               <SidebarMenu className="bird-list gap-half min-w-0 max-w-full to-phone:overflow-visible to-phone:m-0 to-phone:p-0 to-phone:gap-1">
