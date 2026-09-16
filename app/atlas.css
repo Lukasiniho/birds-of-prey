@@ -169,9 +169,14 @@ button.color-dot:not(:disabled) {
   color: var(--main-color);
 }
 
-/* The information tabs stay visible above the scrolling panel; tabs.css owns the look. */
-.info-panel .info-tab-list {
-  background: var(--atlas-info-surface);
+/* The information tabs stay visible above the scrolling panel; tabs.css owns
+   the look. Nur ab der Spaltenbreite: dort trägt das Panel dieselbe Fläche,
+   die Leiste verschwindet darin. Darunter liegt das Panel auf dem Seitengrund,
+   und die Fläche stünde als hellerer Balken darin. */
+@media (min-width: 981px) {
+  .info-panel .info-tab-list {
+    background: var(--atlas-info-surface);
+  }
 }
 
 /* Dimorphic species: a mini ♀/♂ switch beside the weight label picks which

@@ -72,7 +72,9 @@ export function InfoFullscreen({
           holen ihn von der Mitte des Schriftfelds auf die Mitte der
           Kleinbuchstaben: „Steckbrief · Nahrung · Vorkommen“ füllt weder die
           Ober- noch die Unterlänge, die das Feld reserviert. */}
-      <div className="info-expand-slot ml-auto flex h-(--control-height) items-center pb-[9px]">
+      {/* Auf dem Telefon gibt es keine zweite Fläche, die das Vollbild
+          gewinnen könnte: der Knopf bliebe ohne Wirkung und bleibt weg. */}
+      <div className="info-expand-slot ml-auto flex h-(--control-height) items-center pb-[9px] to-phone:hidden">
         <DialogTrigger
           render={
             <Button
