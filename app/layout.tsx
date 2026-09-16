@@ -10,23 +10,24 @@ import {
   THEME_COLOR_LIGHT,
 } from '@/lib/site';
 // Selbst gehostet statt über next/font/google: scripts/build-fonts.mjs schneidet
-// Googles Latin-Subset auf den gebrauchten Zeichenvorrat und die Achse 400–700
-// zu, 121 KB → 89 KB. `preload: false` lässt dem Heldenbild die Bandbreite.
+// Googles Latin-Subset auf den gebrauchten Zeichenvorrat und die Gewichtsachse
+// zu (Display 400–800, Text 400–700). `preload: false` lässt dem Heldenbild die
+// Bandbreite.
 const displayFont = localFont({
   variable: '--font-display',
   display: 'swap',
   preload: false,
   // Muss hier stehen: sonst setzt der Shim sein eigenes `sans-serif` davor.
-  fallback: ['Cormorant Garamond Fallback', 'Georgia', 'serif'],
+  fallback: ['EB Garamond Fallback', 'Georgia', 'serif'],
   src: [
     {
-      path: './fonts/cormorant-garamond-latin.woff2',
-      weight: '400 700',
+      path: './fonts/eb-garamond-latin.woff2',
+      weight: '400 800',
       style: 'normal',
     },
     {
-      path: './fonts/cormorant-garamond-latin-italic.woff2',
-      weight: '400 700',
+      path: './fonts/eb-garamond-latin-italic.woff2',
+      weight: '400 800',
       style: 'italic',
     },
   ],
@@ -36,7 +37,9 @@ const bodyFont = localFont({
   display: 'swap',
   preload: false,
   fallback: ['Inter Fallback', 'Arial', 'sans-serif'],
-  src: [{ path: './fonts/inter-latin.woff2', weight: '400 700', style: 'normal' }],
+  src: [
+    { path: './fonts/inter-latin.woff2', weight: '400 700', style: 'normal' },
+  ],
 });
 export const metadata: Metadata = {
   metadataBase: new URL(SITE_URL),

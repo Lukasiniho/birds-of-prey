@@ -2,6 +2,7 @@ import { test } from 'node:test';
 import assert from 'node:assert/strict';
 import { birds } from '../lib/birds.ts';
 import { conservationLabels, speciesFacts } from '../lib/species-facts.ts';
+import { speciesTrivia } from '../lib/species-trivia.ts';
 
 await test('every catalog species has exactly the five agreed facts with sources', () => {
   assert.deepEqual(
@@ -41,4 +42,15 @@ await test('lifespan scope and global conservation remain explicit', () => {
   assert.equal(speciesFacts.rotmilan.conservation.code, 'LC');
   assert.equal(speciesFacts.kronenadler.conservation.code, 'NT');
   assert.equal(speciesFacts.harpyie.conservation.code, 'VU');
+});
+
+await test('every catalog species has one trivia line', () => {
+  // Der Katalog wächst schubweise; die Sammlung darf einer Art vorauslaufen,
+  // eine Art ohne ihren Satz darf es nie geben.
+  for (const bird of birds) assert(speciesTrivia[bird.id], bird.id);
+  for (const [id, trivia] of Object.entries(speciesTrivia)) {
+    assert(trivia.trim().length > 20, id);
+    assert(/[.!?]$/.test(trivia.trim()), id);
+    assert(!trivia.includes('"'), id);
+  }
 });

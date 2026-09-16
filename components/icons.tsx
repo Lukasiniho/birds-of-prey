@@ -29,6 +29,7 @@ import { GlobeHemisphereWestIcon } from '@phosphor-icons/react/dist/ssr/GlobeHem
 import { HandFistIcon } from '@phosphor-icons/react/dist/ssr/HandFist';
 import { HourglassMediumIcon } from '@phosphor-icons/react/dist/ssr/HourglassMedium';
 import { InfoIcon } from '@phosphor-icons/react/dist/ssr/Info';
+import { LightbulbIcon } from '@phosphor-icons/react/dist/ssr/Lightbulb';
 import { ListIcon } from '@phosphor-icons/react/dist/ssr/List';
 import { MagnifyingGlassIcon } from '@phosphor-icons/react/dist/ssr/MagnifyingGlass';
 import { MapPinIcon } from '@phosphor-icons/react/dist/ssr/MapPin';
@@ -77,6 +78,16 @@ export const ArrowDown = /*#__PURE__*/ phosphorIcon(ArrowDownIcon);
 export const ArrowLeft = /*#__PURE__*/ phosphorIcon(ArrowLeftIcon);
 export const ArrowRight = /*#__PURE__*/ phosphorIcon(ArrowRightIcon);
 export const ArrowUpRight = /*#__PURE__*/ phosphorIcon(ArrowUpRightIcon);
+/* Duotone-Geschwister für Stellen, an denen der Pfeil kein Steuerzeichen ist,
+ * sondern wie die Fakten-Zeichen zum Inhalt gehört. */
+export const ArrowLeftDuotone = /*#__PURE__*/ phosphorIcon(
+  ArrowLeftIcon,
+  'duotone',
+);
+export const ArrowRightDuotone = /*#__PURE__*/ phosphorIcon(
+  ArrowRightIcon,
+  'duotone',
+);
 export const ArrowsLeftRight = /*#__PURE__*/ phosphorIcon(ArrowsLeftRightIcon);
 export const Bone = /*#__PURE__*/ phosphorIcon(BoneIcon, 'duotone');
 export const Bug = /*#__PURE__*/ phosphorIcon(BugIcon, 'duotone');
@@ -110,6 +121,7 @@ export const HourglassMedium = /*#__PURE__*/ phosphorIcon(
 export const Info = /*#__PURE__*/ phosphorIcon(InfoIcon);
 /** Header site menu: duotone like the theme toggle beside it. */
 export const InfoDuotone = /*#__PURE__*/ phosphorIcon(InfoIcon, 'duotone');
+export const Lightbulb = /*#__PURE__*/ phosphorIcon(LightbulbIcon, 'duotone');
 export const List = /*#__PURE__*/ phosphorIcon(ListIcon);
 export const MagnifyingGlass = /*#__PURE__*/ phosphorIcon(
   MagnifyingGlassIcon,

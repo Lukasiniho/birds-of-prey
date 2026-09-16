@@ -1,12 +1,12 @@
 /* Metrisch angeglichene Ersatzschriften, damit der `font-display: swap` keinen
  * Sprung erzeugt. Maße von next/font; die Subsets liegen in app/fonts/. */
 @font-face {
-  font-family: 'Cormorant Garamond Fallback';
+  font-family: 'EB Garamond Fallback';
   src: local('Times New Roman');
-  ascent-override: 95.27%;
-  descent-override: 29.59%;
+  ascent-override: 106.50%;
+  descent-override: 31.52%;
   line-gap-override: 0%;
-  size-adjust: 96.98%;
+  size-adjust: 94.56%;
 }
 @font-face {
   font-family: 'Inter Fallback';

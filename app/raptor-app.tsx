@@ -32,7 +32,12 @@ import {
   SheetTrigger,
 } from '@/components/ui/sheet';
 import { SiteHeader } from '@/components/site-header';
-import { Select, SelectValue, SelectItem } from '@/components/ui/select';
+import {
+  Select,
+  SelectValue,
+  SelectItem,
+  SelectTrigger as PlainSelectTrigger,
+} from '@/components/ui/select';
 import { Tabs, TabsList, TabsTrigger, TabsContent } from '@/components/ui/tabs';
 import {
   Sidebar,
@@ -74,6 +79,8 @@ import { PreyArt } from '@/components/prey-art';
 import { imageSource } from '@/lib/optimized-images.ts';
 import { loadImage } from '@/lib/image-loader';
 import { SpeciesFacts } from '@/components/species-facts';
+import { InfoFullscreen } from '@/components/info-fullscreen';
+import { SpeciesTrivia } from '@/components/species-trivia';
 import { speciesProfiles } from '@/lib/species-profiles';
 import { RangeMap } from '@/components/range-map';
 import {
@@ -443,7 +450,7 @@ function HuntingArt({ bird }: { bird: BirdSpecies }) {
 }
 function PreyGallery({ items }: { items: PreyExample[] }) {
   return (
-    <div className="prey-list grid grid-cols-2 gap-x-4 gap-y-3 mt-(--rail-content-gap) mb-(--rail-section-gap)">
+    <div className="prey-list grid grid-cols-2 gap-x-4 gap-y-(--rail-caption-gap) mt-(--rail-content-gap) mb-(--rail-section-gap)">
       {items.map(({ key, note }) => {
         const prey = preyCatalog[key];
         return (
@@ -560,6 +567,58 @@ export default function RaptorApp({
   }
   const filtered = filterBirds(query);
   const groups = groupBirds(filtered, grouping);
+  // Die Pfeiltasten im Vollbild folgen der Reihenfolge der sichtbaren
+  // Artenliste; eine Art, die in zwei Gruppen steht, zählt nur einmal.
+  const railOrder = [
+    ...new Set(groups.flatMap((group) => group.birds).map((b) => b.id)),
+  ];
+  const speciesOptions = railOrder.map((id) => ({
+    value: id,
+    label: speciesById[id].name,
+  }));
+  // Im Vollbild gibt es keine Artenliste daneben; das Klappmenü am Namen ist
+  // dort der Weg zu jeder anderen Art und benutzt dieselben Auswahlfelder wie
+  // Gruppierung und Gefieder.
+  const speciesPicker = (
+    <Select
+      value={selected}
+      onValueChange={(v) => {
+        if (v) select(String(v));
+      }}
+      items={speciesOptions}
+    >
+      {/* Kein Knopf, nur das Zeichen neben dem Namen. Fläche, Rand und
+          Schatten stehen am Element, weil die Basisklassen des Auswahlfelds
+          und die ungeschichtete `button`-Regel sie sonst zurückholen. */}
+      <PlainSelectTrigger
+        className="species-jump size-6 shrink-0 justify-center p-0 text-foreground data-[size=default]:h-6 [&_svg]:text-foreground"
+        style={{
+          border: 'none',
+          background: 'transparent',
+          boxShadow: 'none',
+          borderRadius: 'var(--radius-small)',
+        }}
+        aria-label="Art wählen"
+      />
+      {/* Die Liste richtet sich sonst nach dem 36px-Knopf und schneidet die
+          langen Namen ab; hier bestimmt der längste Name die Breite. */}
+      <SelectContent
+        className="w-auto min-w-[240px] max-w-[320px] max-h-[min(var(--available-height),320px)]"
+        style={{ padding: 'var(--space-8)' }}
+      >
+        {speciesOptions.map((o) => (
+          <SelectItem value={o.value} key={o.value}>
+            {o.label}
+          </SelectItem>
+        ))}
+      </SelectContent>
+    </Select>
+  );
+  function stepSpecies(delta: number) {
+    const index = railOrder.indexOf(selected);
+    if (index === -1 || railOrder.length < 2) return;
+    select(railOrder[(index + delta + railOrder.length) % railOrder.length]);
+  }
   function renderLibraryRail(inPicker = false) {
     return (
       <>
@@ -687,6 +746,218 @@ export default function RaptorApp({
       </>
     );
   }
+  const measurementStrip = (
+    <MeasurementStrip withAudio={withAudio}>
+      <Measurement
+        withAudio={withAudio}
+        label="Spannweite"
+        range={bird.span}
+        unit="cm"
+        sex={sex}
+      />
+      {/* Drops out on a narrow stage, where three labels would
+        collide; the CSS says at which width. */}
+      <Measurement
+        withAudio={withAudio}
+        className="measurement-optional stage-small:hidden"
+        label="Körperlänge"
+        range={bird.length}
+        unit="cm"
+        sex={sex}
+      />
+      <Measurement
+        withAudio={withAudio}
+        label="Gewicht"
+        range={bird.weight}
+        sexes={
+          bird.sexes
+            ? {
+                male: bird.sexes.male.weight,
+                female: bird.sexes.female.weight,
+              }
+            : undefined
+        }
+        unit="g"
+        sex={sex}
+        onSexChange={bird.sexes ? setSex : undefined}
+      />
+      <BirdAudio
+        className="px-3 to-tablet:px-[7px] to-phone:px-1"
+        key={bird.id}
+        birdId={bird.id}
+        name={bird.name}
+      />
+    </MeasurementStrip>
+  );
+  const profilePanel = (
+    <>
+      <SpeciesFacts speciesId={bird.id} />
+      <AtlasSection className="profile-section first:mt-0 first:pt-0 first:border-t-0">
+        <DetailHeading className="tracking-(--tracking-tight)">
+          Erkennungsmerkmale
+        </DetailHeading>
+        <p className="mt-(--rail-caption-gap) leading-(--leading-relaxed)">
+          {speciesProfiles[bird.id].identification}
+        </p>
+      </AtlasSection>
+      <AtlasSection className="color-section to-phone:col-span-full">
+        <DetailHeading className="tracking-(--tracking-tight)">
+          Farben
+        </DetailHeading>
+        <div className="body-colors grid grid-cols-[max-content_minmax(0,1fr)] items-center gap-x-5 gap-y-[14px] mt-[18px]">
+          <ColorRow
+            label="Gefieder"
+            colors={appearance?.colors ?? colorsFor(bird, plumage)}
+          />
+          <ColorRow label="Augen" colors={bodyColors.eyes} />
+          <ColorRow
+            label="Beine & Füße"
+            colors={bodyColors.legs}
+            note={bodyColors.note}
+          />
+        </div>
+        <div className="plumage-note mt-(--rail-section-gap) pt-0">
+          <h3 className="font-(family-name:--font-stack-display) text-(length:--type-label-heading) font-(--weight-label-heading) leading-(--leading-heading) tracking-(--tracking-tight) text-foreground">
+            {plumagesFor(bird.id).find((p) => p.value === plumage)!.label}
+            {morph && ` · ${morph.label}`}
+          </h3>
+          <p className="leading-(--leading-relaxed) mt-2 text-(length:--type-caption)">
+            {appearance?.note ?? plumageNoteFor(bird.id, plumage)}
+          </p>
+          {morphConfig && (
+            <div
+              className="morph-context t-acc text-(length:--type-caption) text-muted-foreground leading-(--leading-normal) mt-3"
+              data-open={hintOpen ? 'true' : 'false'}
+            >
+              <button
+                type="button"
+                className="t-acc-head appearance-none flex items-center gap-2 min-h-[20px] m-0 p-0 border-0 bg-transparent text-inherit text-left select-none"
+                aria-expanded={hintOpen}
+                onClick={() => setHintOpen(!hintOpen)}
+              >
+                <span className="t-acc-chevron inline-flex" aria-hidden="true">
+                  <CaretDown size={13} />
+                </span>
+                {morphConfig.hintLabel ?? 'Hinweis zu den Morphen'}
+              </button>
+              <div className="t-acc-panel grid">
+                <div className="t-acc-panel-inner overflow-hidden">
+                  <p className="leading-(--leading-relaxed) mt-2 text-(length:--type-body)">
+                    {morphConfig.note}
+                  </p>
+                </div>
+              </div>
+            </div>
+          )}
+        </div>
+      </AtlasSection>
+      <AtlasSection className="profile-section first:mt-0 first:pt-0 first:border-t-0">
+        <DetailHeading className="tracking-(--tracking-tight)">
+          Lebensweise
+        </DetailHeading>
+        <p className="mt-(--rail-caption-gap) leading-(--leading-relaxed)">
+          {speciesProfiles[bird.id].behaviour}
+        </p>
+      </AtlasSection>
+      <AtlasSection className="profile-section first:mt-0 first:pt-0 first:border-t-0">
+        <DetailHeading className="tracking-(--tracking-tight)">
+          Brut & Aufzucht
+        </DetailHeading>
+        <p className="mt-(--rail-caption-gap) leading-(--leading-relaxed)">
+          {speciesProfiles[bird.id].breeding}
+        </p>
+      </AtlasSection>
+      <SpeciesTrivia speciesId={bird.id} />
+    </>
+  );
+  const dietPanel = (
+    <>
+      <section className="diet-section m-0 p-0 border-0 to-compact:col-span-2 to-phone:col-span-full">
+        <DetailHeading className="tracking-(--tracking-tight)">
+          Nahrungsbeispiele
+        </DetailHeading>
+        <PreyGallery items={bird.ecology.diet.examples} />
+        <p className="text-(length:--type-body) leading-(--leading-relaxed) text-foreground mt-(--rail-content-gap)">
+          {bird.ecology.diet.summary}
+        </p>
+        {bird.ecology.diet.occasionalExamples.length > 0 && (
+          <div className="occasional-prey mt-(--rail-section-gap)">
+            <h3 className="font-(family-name:--font-stack-body) text-(length:--type-caption) font-(--weight-medium) text-(--muted-foreground)">
+              Gelegentlich
+            </h3>
+            <PreyGallery items={bird.ecology.diet.occasionalExamples} />
+          </div>
+        )}
+      </section>
+      <AtlasSection className="hunting-section">
+        <DetailHeading className="tracking-(--tracking-tight)">
+          Jagdweise
+        </DetailHeading>
+        <HuntingArt bird={bird} />
+        {/* Each technique has its own chapter under Wissen. */}
+        <div className="ecology-tags flex flex-wrap gap-2 mt-[10px] mx-0 mb-(--rail-content-gap)">
+          {bird.ecology.huntingTags.map((id) => (
+            <EcologyTag as="a" key={id} href={techniqueHref(id)}>
+              {huntingTypes[id].label}
+            </EcologyTag>
+          ))}
+        </div>
+        <p className="hunting-text mt-(--rail-caption-gap) text-(length:--type-body) leading-(--leading-relaxed)">
+          {bird.ecology.hunting.text}
+        </p>
+      </AtlasSection>
+    </>
+  );
+  const habitatPanel = (
+    <>
+      <section className="habitat m-0 p-0 border-0 [container-type:inline-size] to-compact:col-start-3 to-compact:row-start-2 to-phone:col-span-full to-phone:row-auto">
+        <div className="range-block m-0 p-0 mb-(--rail-section-gap) pb-(--rail-section-gap) border-b-(length:--border-structure)">
+          <DetailHeading className="tracking-(--tracking-tight)">
+            Verbreitung
+          </DetailHeading>
+          <p className="text-foreground text-(length:--type-body) leading-(--leading-relaxed) mt-(--rail-content-gap)">
+            {bird.range}
+          </p>
+          {bird.ecology.status.tags.some((id) => id !== 'ausserhalb') && (
+            <div className="ecology-status my-[14px] mx-0">
+              <h3 className="text-(length:--type-ui)">Status in Deutschland</h3>
+              <div className="ecology-tags flex flex-wrap gap-2 mt-[10px] mx-0 mb-[7px]">
+                {bird.ecology.status.tags
+                  .filter((id) => id !== 'ausserhalb')
+                  .map((id) => (
+                    <EcologyTag key={id}>{statusLabels[id]}</EcologyTag>
+                  ))}
+              </div>
+            </div>
+          )}
+          <RangeMap birdId={bird.id} name={bird.name} />
+        </div>
+        <DetailHeading className="tracking-(--tracking-tight)">
+          Lebensraum
+        </DetailHeading>
+        <p className="text-foreground text-(length:--type-body) leading-(--leading-relaxed) mt-(--rail-content-gap)">
+          {bird.habitat}
+        </p>
+        <div className="habitat-gallery grid grid-cols-2 gap-4 mt-(--rail-content-gap)">
+          {bird.ecology.habitatTags.map((id) => (
+            <figure className="m-0 min-w-0" key={id}>
+              <ArtImage
+                className="block w-full h-auto aspect-[3/2] rounded-md object-cover"
+                src={imageSource(habitatImages[id])}
+                alt={landscapes[id].description}
+                width={1536}
+                height={1024}
+                displayWidth={220}
+              />
+              <figcaption className="mt-(--rail-caption-gap) text-(length:--type-caption) leading-(--leading-normal) text-(--muted-foreground)">
+                {landscapes[id].label}
+              </figcaption>
+            </figure>
+          ))}
+        </div>
+      </section>
+    </>
+  );
   return (
     <TooltipProvider delay={180}>
       <div className="app-shell from-compact:h-dvh from-compact:min-h-0 from-compact:overflow-hidden">
@@ -715,7 +986,7 @@ export default function RaptorApp({
                   render={
                     <button
                       type="button"
-                      className="species-picker to-phone:inline-grid to-phone:flex-[0_0_var(--species-picker-size)] to-phone:mt-[calc(var(--type-hero)*var(--leading-display)/2-var(--species-picker-size)/2)] to-phone:after:content-[''] to-phone:after:absolute to-phone:after:inset-0 to-phone:place-items-center to-phone:h-(--species-picker-size) to-phone:p-0 to-phone:bg-surface to-phone:shadow-(--shadow-subtle) to-phone:text-foreground hidden"
+                      className="species-picker to-phone:inline-grid to-phone:flex-[0_0_var(--species-picker-size)] to-phone:mt-[calc(var(--type-hero)*var(--leading-display)/2-var(--species-picker-size)/2)] to-phone:after:content-[''] to-phone:after:absolute to-phone:after:inset-0 to-phone:place-items-center to-phone:h-(--species-picker-size) to-phone:p-0 to-phone:text-foreground hidden"
                       aria-label={
                         query
                           ? `Art wechseln, ${filtered.length} Treffer`
@@ -798,47 +1069,7 @@ export default function RaptorApp({
                 </div>
               </div>
             </div>
-            <MeasurementStrip withAudio={withAudio}>
-              <Measurement
-                withAudio={withAudio}
-                label="Spannweite"
-                range={bird.span}
-                unit="cm"
-                sex={sex}
-              />
-              {/* Drops out on a narrow stage, where three labels would
-                  collide; the CSS says at which width. */}
-              <Measurement
-                withAudio={withAudio}
-                className="measurement-optional stage-small:hidden"
-                label="Körperlänge"
-                range={bird.length}
-                unit="cm"
-                sex={sex}
-              />
-              <Measurement
-                withAudio={withAudio}
-                label="Gewicht"
-                range={bird.weight}
-                sexes={
-                  bird.sexes
-                    ? {
-                        male: bird.sexes.male.weight,
-                        female: bird.sexes.female.weight,
-                      }
-                    : undefined
-                }
-                unit="g"
-                sex={sex}
-                onSexChange={bird.sexes ? setSex : undefined}
-              />
-              <BirdAudio
-                className="px-3 to-tablet:px-[7px] to-phone:px-1"
-                key={bird.id}
-                birdId={bird.id}
-                name={bird.name}
-              />
-            </MeasurementStrip>
+            {measurementStrip}
             <div className="image-credit text-(length:--type-credit) text-(--muted-foreground-stage) leading-(--leading-normal) text-center shrink-0 self-stretch py-[calc(var(--space-8)-var(--space-2))] px-3 flex flex-wrap items-baseline justify-center gap-x-3 gap-y-1">
               <span>KI-generierte Illustration</span>
               <BirdAudioCredit
@@ -885,196 +1116,56 @@ export default function RaptorApp({
                 <TabsTrigger
                   className={tabStyles.lineTrigger}
                   value="lebensraum"
-                  data-label="Lebensraum"
+                  data-label="Vorkommen"
                 >
-                  Lebensraum
+                  Vorkommen
                 </TabsTrigger>
+                {/* Kein key auf der Art: das Vollbild soll beim Blättern
+                    offen bleiben, statt mit jeder Art neu zu starten. */}
+                <InfoFullscreen
+                  name={bird.name}
+                  latin={bird.latin}
+                  measurements={measurementStrip}
+                  onStep={stepSpecies}
+                  picker={speciesPicker}
+                  portrait={
+                    portraitImages[bird.id]
+                      ? imageSource(portraitImages[bird.id])
+                      : undefined
+                  }
+                  columns={[
+                    {
+                      value: 'profil',
+                      label: 'Steckbrief',
+                      content: profilePanel,
+                    },
+                    { value: 'nahrung', label: 'Nahrung', content: dietPanel },
+                    {
+                      value: 'lebensraum',
+                      label: 'Vorkommen',
+                      content: habitatPanel,
+                    },
+                  ]}
+                />
               </TabsList>
-              <div className="info-scroll p-panel from-compact:[scrollbar-width:thin] from-compact:[scrollbar-color:var(--border)_transparent] from-compact:min-h-0 from-compact:flex-1 from-compact:overflow-y-auto from-compact:overscroll-contain from-compact:pb-[calc(var(--panel-padding)+var(--rail-fade-height))]">
+              <div className="info-scroll p-panel from-compact:[scrollbar-width:thin] from-compact:[scrollbar-color:var(--border)_transparent] from-compact:min-h-0 from-compact:flex-1 from-compact:overflow-y-auto from-compact:overscroll-contain from-compact:pb-(--rail-fade-height)">
                 <TabsContent
                   value="profil"
                   className="info-tab-content min-w-0 max-w-full text-(length:--type-body) leading-(--leading-relaxed) outline-none"
                 >
-                  <SpeciesFacts speciesId={bird.id} />
-                  <AtlasSection className="profile-section first:mt-0 first:pt-0 first:border-t-0">
-                    <DetailHeading className="tracking-(--tracking-tight)">
-                      Erkennungsmerkmale
-                    </DetailHeading>
-                    <p className="mt-(--rail-caption-gap) leading-(--leading-relaxed)">
-                      {speciesProfiles[bird.id].identification}
-                    </p>
-                  </AtlasSection>
-                  <AtlasSection className="color-section to-phone:col-span-full">
-                    <DetailHeading className="tracking-(--tracking-tight)">
-                      Farben
-                    </DetailHeading>
-                    <div className="body-colors grid grid-cols-[max-content_minmax(0,1fr)] items-center gap-x-5 gap-y-[14px] mt-[18px]">
-                      <ColorRow
-                        label="Gefieder"
-                        colors={appearance?.colors ?? colorsFor(bird, plumage)}
-                      />
-                      <ColorRow label="Augen" colors={bodyColors.eyes} />
-                      <ColorRow
-                        label="Beine & Füße"
-                        colors={bodyColors.legs}
-                        note={bodyColors.note}
-                      />
-                    </div>
-                    <div className="plumage-note mt-6 pt-0">
-                      <h3 className="font-(family-name:--font-stack-display) text-(length:--type-label-heading) font-(--weight-label-heading) leading-(--leading-heading) tracking-(--tracking-tight) text-foreground">
-                        {
-                          plumagesFor(bird.id).find((p) => p.value === plumage)!
-                            .label
-                        }
-                        {morph && ` · ${morph.label}`}
-                      </h3>
-                      <p className="leading-(--leading-relaxed) mt-2 text-(length:--type-caption)">
-                        {appearance?.note ?? plumageNoteFor(bird.id, plumage)}
-                      </p>
-                      {morphConfig && (
-                        <div
-                          className="morph-context t-acc text-(length:--type-caption) text-muted-foreground leading-(--leading-normal) mt-3"
-                          data-open={hintOpen ? 'true' : 'false'}
-                        >
-                          <button
-                            type="button"
-                            className="t-acc-head appearance-none flex items-center gap-2 min-h-[20px] m-0 p-0 border-0 bg-transparent text-inherit text-left select-none"
-                            aria-expanded={hintOpen}
-                            onClick={() => setHintOpen(!hintOpen)}
-                          >
-                            <span
-                              className="t-acc-chevron inline-flex"
-                              aria-hidden="true"
-                            >
-                              <CaretDown size={13} />
-                            </span>
-                            {morphConfig.hintLabel ?? 'Hinweis zu den Morphen'}
-                          </button>
-                          <div className="t-acc-panel grid">
-                            <div className="t-acc-panel-inner overflow-hidden">
-                              <p className="leading-(--leading-relaxed) mt-2 text-(length:--type-body)">
-                                {morphConfig.note}
-                              </p>
-                            </div>
-                          </div>
-                        </div>
-                      )}
-                    </div>
-                  </AtlasSection>
-                  <AtlasSection className="profile-section first:mt-0 first:pt-0 first:border-t-0">
-                    <DetailHeading className="tracking-(--tracking-tight)">
-                      Lebensweise
-                    </DetailHeading>
-                    <p className="mt-(--rail-caption-gap) leading-(--leading-relaxed)">
-                      {speciesProfiles[bird.id].behaviour}
-                    </p>
-                  </AtlasSection>
-                  <AtlasSection className="profile-section first:mt-0 first:pt-0 first:border-t-0">
-                    <DetailHeading className="tracking-(--tracking-tight)">
-                      Brut & Aufzucht
-                    </DetailHeading>
-                    <p className="mt-(--rail-caption-gap) leading-(--leading-relaxed)">
-                      {speciesProfiles[bird.id].breeding}
-                    </p>
-                  </AtlasSection>
+                  {profilePanel}
                 </TabsContent>
                 <TabsContent
                   value="nahrung"
                   className="info-tab-content min-w-0 max-w-full text-(length:--type-body) leading-(--leading-relaxed) outline-none"
                 >
-                  <section className="diet-section m-0 p-0 border-0 to-compact:col-span-2 to-phone:col-span-full">
-                    <DetailHeading className="tracking-(--tracking-tight)">
-                      Nahrungsbeispiele
-                    </DetailHeading>
-                    <PreyGallery items={bird.ecology.diet.examples} />
-                    <p className="text-(length:--type-body) leading-(--leading-relaxed) text-foreground mt-4">
-                      {bird.ecology.diet.summary}
-                    </p>
-                    {bird.ecology.diet.occasionalExamples.length > 0 && (
-                      <div className="occasional-prey mt-6">
-                        <h3 className="font-(family-name:--font-stack-body) text-(length:--type-caption) font-(--weight-medium) text-(--muted-foreground)">
-                          Gelegentlich
-                        </h3>
-                        <PreyGallery
-                          items={bird.ecology.diet.occasionalExamples}
-                        />
-                      </div>
-                    )}
-                  </section>
-                  <AtlasSection className="hunting-section">
-                    <DetailHeading className="tracking-(--tracking-tight)">
-                      Jagdweise
-                    </DetailHeading>
-                    <HuntingArt bird={bird} />
-                    {/* Each technique has its own chapter under Wissen. */}
-                    <div className="ecology-tags flex flex-wrap gap-2 mt-[10px] mx-0 mb-4">
-                      {bird.ecology.huntingTags.map((id) => (
-                        <EcologyTag as="a" key={id} href={techniqueHref(id)}>
-                          {huntingTypes[id].label}
-                        </EcologyTag>
-                      ))}
-                    </div>
-                    <p className="hunting-text mt-3 text-(length:--type-body) leading-(--leading-relaxed)">
-                      {bird.ecology.hunting.text}
-                    </p>
-                  </AtlasSection>
+                  {dietPanel}
                 </TabsContent>
                 <TabsContent
                   value="lebensraum"
                   className="info-tab-content min-w-0 max-w-full text-(length:--type-body) leading-(--leading-relaxed) outline-none"
                 >
-                  <section className="habitat m-0 p-0 border-0 [container-type:inline-size] to-compact:col-start-3 to-compact:row-start-2 to-phone:col-span-full to-phone:row-auto">
-                    <div className="range-block m-0 p-0 mb-(--rail-section-gap) pb-(--rail-section-gap) border-b-(length:--border-structure)">
-                      <DetailHeading className="tracking-(--tracking-tight)">
-                        Verbreitung
-                      </DetailHeading>
-                      <p className="text-foreground text-(length:--type-body) leading-(--leading-relaxed) mt-4">
-                        {bird.range}
-                      </p>
-                      {bird.ecology.status.tags.some(
-                        (id) => id !== 'ausserhalb',
-                      ) && (
-                        <div className="ecology-status my-[14px] mx-0">
-                          <h3 className="text-(length:--type-ui)">
-                            Status in Deutschland
-                          </h3>
-                          <div className="ecology-tags flex flex-wrap gap-2 mt-[10px] mx-0 mb-[7px]">
-                            {bird.ecology.status.tags
-                              .filter((id) => id !== 'ausserhalb')
-                              .map((id) => (
-                                <EcologyTag key={id}>
-                                  {statusLabels[id]}
-                                </EcologyTag>
-                              ))}
-                          </div>
-                        </div>
-                      )}
-                      <RangeMap birdId={bird.id} name={bird.name} />
-                    </div>
-                    <DetailHeading className="tracking-(--tracking-tight)">
-                      Lebensraum
-                    </DetailHeading>
-                    <p className="text-foreground text-(length:--type-body) leading-(--leading-relaxed) mt-4">
-                      {bird.habitat}
-                    </p>
-                    <div className="habitat-gallery grid grid-cols-2 gap-4 mt-(--rail-content-gap)">
-                      {bird.ecology.habitatTags.map((id) => (
-                        <figure className="m-0 min-w-0" key={id}>
-                          <ArtImage
-                            className="block w-full h-auto aspect-[3/2] rounded-md object-cover"
-                            src={imageSource(habitatImages[id])}
-                            alt={landscapes[id].description}
-                            width={1536}
-                            height={1024}
-                            displayWidth={220}
-                          />
-                          <figcaption className="mt-(--rail-caption-gap) text-(length:--type-caption) leading-(--leading-normal) text-(--muted-foreground)">
-                            {landscapes[id].label}
-                          </figcaption>
-                        </figure>
-                      ))}
-                    </div>
-                  </section>
+                  {habitatPanel}
                 </TabsContent>
               </div>
             </Tabs>

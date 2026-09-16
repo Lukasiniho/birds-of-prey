@@ -55,6 +55,7 @@ body {
   --weight-medium: 500;
   --weight-semibold: 600;
   --weight-bold: 700;
+  --weight-black: 800; /* die schwerste Stufe der Display-Achse */
   /* Optical emphasis beyond the display font’s maximum weight of 700. */
   --display-emphasis-stroke: 0.015em;
   /* Letter-spacing roles: tight for display sizes, caps for uppercase labels. */
@@ -68,7 +69,7 @@ body {
   --type-credit: var(--text-2xs);
   /* The scientific name is the second line: a step under the German name in
    * size and weight, never bold. */
-  --type-scientific: var(--text-base);
+  --type-scientific: var(--text-sm);
   --type-ui: var(--text-sm);
   --type-button: var(--text-base);
   /* Underline tabs share the button size; pill tabs use --type-body. */
@@ -80,8 +81,11 @@ body {
    * as its text and only carries more weight. */
   --weight-tooltip-heading: var(--weight-bold);
   --type-label-heading: var(--text-lg);
-  --weight-label-heading: var(--weight-bold);
-  --type-detail-heading: var(--text-2xl);
+  --weight-label-heading: var(--weight-semibold);
+  --type-detail-heading: var(--text-xl);
+  /* Artnamen, die eine Kopfzeile tragen: eigene Rolle, seit die
+   * Detailüberschrift eine Stufe tiefer steht. */
+  --type-species-big: var(--text-2xl);
   --type-feedback-title: var(--text-base);
   /* The question title is the widest line in the quiz stage: it steps down on
    * narrow screens so a two-word species question keeps its line count. */

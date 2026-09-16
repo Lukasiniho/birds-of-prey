@@ -25,7 +25,11 @@ const CHARSET =
   '–—‘’‚“”„†•…‹›′″·°' +
   '€→←↔≈≤≥×÷♀♂';
 
-const AXES = { wght: { min: 400, max: 700 } };
+// Jede Familie bringt ihre eigene Achse mit: EB Garamond reicht bis 800,
+// Inter endet bei 700 — eine gemeinsame Obergrenze würde eine der beiden
+// entweder beschneiden oder über ihren Bereich hinaus anfragen.
+const DISPLAY_AXES = { wght: { min: 400, max: 800 } };
+const BODY_AXES = { wght: { min: 400, max: 700 } };
 
 // Google liefert woff2 nur an Browser aus.
 const BROWSER_UA =
@@ -33,20 +37,26 @@ const BROWSER_UA =
 
 const families = [
   {
-    file: 'cormorant-garamond-latin.woff2',
-    css: 'family=Cormorant+Garamond:wght@400..700',
+    file: 'eb-garamond-latin.woff2',
+    css: 'family=EB+Garamond:wght@400..800',
+    axes: DISPLAY_AXES,
   },
   {
-    file: 'cormorant-garamond-latin-italic.woff2',
-    css: 'family=Cormorant+Garamond:ital,wght@1,400..700',
+    file: 'eb-garamond-latin-italic.woff2',
+    css: 'family=EB+Garamond:ital,wght@1,400..800',
+    axes: DISPLAY_AXES,
   },
-  { file: 'inter-latin.woff2', css: 'family=Inter:wght@400..700' },
+  {
+    file: 'inter-latin.woff2',
+    css: 'family=Inter:wght@400..700',
+    axes: BODY_AXES,
+  },
 ];
 
 const output = fileURLToPath(new URL('../app/fonts/', import.meta.url));
 await mkdir(output, { recursive: true });
 
-for (const { file, css } of families) {
+for (const { file, css, axes } of families) {
   const sheet = await fetch(
     `https://fonts.googleapis.com/css2?${css}&display=swap`,
     { headers: { 'User-Agent': BROWSER_UA } },
@@ -64,7 +74,7 @@ for (const { file, css } of families) {
   const source = Buffer.from(await (await fetch(url)).arrayBuffer());
   const subset = await subsetFont(source, CHARSET, {
     targetFormat: 'woff2',
-    variationAxes: AXES,
+    variationAxes: axes,
   });
   await writeFile(path.join(output, file), subset);
   const kb = (bytes) => `${Math.round(bytes / 1024)} KB`;
