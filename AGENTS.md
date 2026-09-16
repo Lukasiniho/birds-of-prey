@@ -35,8 +35,10 @@
 
 ## Artdaten
 
-- Maße in den Artdaten sind Zahlenpaare `[min, max]`: Spannweite in cm (auf 5
-  gerundet), Gewicht immer in Gramm — nie in Kilogramm speichern. Keine
+- Maße in den Artdaten sind Zahlenpaare `[min, max]`: Spannweite und
+  Körperlänge in cm, beide immer auf dem 5-cm-Raster (`npm run lint` prüft das,
+  `node scripts/check-measurements.mjs --fix` rundet Abweichungen auf das
+  nächste 5er-Increment), Gewicht immer in Gramm — nie in Kilogramm speichern. Keine
   Scheingenauigkeit: Gramm unter 1 kg auf 10 g, darüber auf 100 g runden; erreicht
   eine Art 1 kg, werden alle ihre Werte unter 1 kg auf 50 g gerundet (700–1.300 g,
   nie 690–1.300 g). Geschlechtsspezifische Werte gibt es nur für das Gewicht,

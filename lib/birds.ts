@@ -14,9 +14,9 @@ export type BirdSpecies = {
   latin: string;
   group: string;
   tile: number | null;
-  /** Wingspan in cm, both sexes. */
+  /** Wingspan in cm, both sexes, on the 5 cm grid. */
   span: MeasurementRange;
-  /** Body length bill to tail in cm, both sexes. */
+  /** Body length bill to tail in cm, both sexes, on the 5 cm grid. */
   length: MeasurementRange;
   /** Body mass in grams, both sexes — always grams, never kilograms. */
   weight: MeasurementRange;
@@ -65,7 +65,7 @@ export const birds: BirdSpecies[] = [
     group: 'Habichte',
     tile: 0,
     span: [100, 115],
-    length: [48, 62],
+    length: [50, 60],
     weight: [650, 1800],
     sexes: {
       male: { weight: [650, 1100] },
@@ -93,7 +93,7 @@ export const birds: BirdSpecies[] = [
     group: 'Bussarde',
     tile: 1,
     span: [110, 140],
-    length: [46, 58],
+    length: [45, 60],
     weight: [450, 1400],
     sexes: {
       male: { weight: [450, 1200] },
@@ -120,7 +120,7 @@ export const birds: BirdSpecies[] = [
     group: 'Falken',
     tile: 2,
     span: [90, 105],
-    length: [38, 51],
+    length: [40, 50],
     weight: [600, 1100],
     sexes: {
       male: { weight: [600, 750] },
@@ -148,7 +148,7 @@ export const birds: BirdSpecies[] = [
     group: 'Falken',
     tile: 3,
     span: [65, 85],
-    length: [32, 39],
+    length: [30, 40],
     weight: [140, 310],
     sexes: {
       male: { weight: [140, 250] },
@@ -203,7 +203,7 @@ export const birds: BirdSpecies[] = [
     group: 'Adler',
     tile: 5,
     span: [200, 245],
-    length: [76, 92],
+    length: [75, 90],
     weight: [4100, 6900],
     sexes: {
       male: { weight: [4100, 4600] },
@@ -231,7 +231,7 @@ export const birds: BirdSpecies[] = [
     group: 'Fischadler',
     tile: 6,
     span: [150, 170],
-    length: [55, 63],
+    length: [55, 65],
     weight: [1300, 2100],
     sexes: {
       male: { weight: [1300, 1600] },

@@ -22,7 +22,7 @@ export const additionalBirds: AdditionalBird[] = [
     latin: 'Haliaeetus leucocephalus',
     group: 'Adler',
     span: [180, 230],
-    length: [70, 102],
+    length: [70, 100],
     weight: [3000, 6300],
     sexes: {
       male: { weight: [3000, 4500] },
@@ -201,7 +201,7 @@ export const additionalBirds: AdditionalBird[] = [
     latin: 'Geranoaetus melanoleucus',
     group: 'Bussarde',
     span: [150, 200],
-    length: [62, 76],
+    length: [60, 75],
     weight: [1700, 3200],
     sexes: {
       male: { weight: [1700, 2300] },
@@ -263,7 +263,7 @@ export const additionalBirds: AdditionalBird[] = [
     latin: 'Bubo bubo',
     group: 'Eulen',
     span: [160, 190],
-    length: [59, 73],
+    length: [60, 75],
     weight: [1500, 4200],
     sexes: {
       male: { weight: [1500, 2800] },
@@ -456,7 +456,7 @@ export const additionalBirds: AdditionalBird[] = [
     latin: 'Falco rusticolus',
     group: 'Falken',
     span: [110, 135],
-    length: [48, 65],
+    length: [50, 65],
     weight: [950, 2000],
     sexes: {
       male: { weight: [950, 1300] },
@@ -516,7 +516,7 @@ export const additionalBirds: AdditionalBird[] = [
     latin: 'Falco cherrug',
     group: 'Falken',
     span: [110, 125],
-    length: [45, 57],
+    length: [45, 55],
     weight: [700, 1300],
     sexes: {
       male: { weight: [700, 900] },
@@ -577,7 +577,7 @@ export const additionalBirds: AdditionalBird[] = [
     latin: 'Falco biarmicus',
     group: 'Falken',
     span: [100, 110],
-    length: [43, 50],
+    length: [45, 50],
     weight: [500, 900],
     sexes: {
       male: { weight: [500, 600] },
@@ -639,7 +639,7 @@ export const additionalBirds: AdditionalBird[] = [
     latin: 'Falco subbuteo',
     group: 'Falken',
     span: [75, 85],
-    length: [30, 36],
+    length: [30, 35],
     weight: [130, 340],
     sexes: {
       male: { weight: [130, 230] },
@@ -700,7 +700,7 @@ export const additionalBirds: AdditionalBird[] = [
     latin: 'Daptrius australis',
     group: 'Karakaras',
     span: [115, 125],
-    length: [58, 65],
+    length: [60, 65],
     weight: [1200, 1700],
     sexes: {
       male: { weight: [1200, 1400] },
@@ -820,7 +820,7 @@ export const additionalBirds: AdditionalBird[] = [
     latin: 'Buteo regalis',
     group: 'Bussarde',
     span: [120, 160],
-    length: [56, 69],
+    length: [55, 70],
     weight: [1000, 2100],
     sexes: {
       male: { weight: [1000, 1500] },
@@ -879,7 +879,7 @@ export const additionalBirds: AdditionalBird[] = [
     latin: 'Harpia harpyja',
     group: 'Adler',
     span: [175, 225],
-    length: [86, 107],
+    length: [85, 105],
     weight: [4000, 9000],
     sexes: {
       male: { weight: [4000, 6000] },
@@ -939,7 +939,7 @@ export const additionalBirds: AdditionalBird[] = [
     latin: 'Polemaetus bellicosus',
     group: 'Adler',
     span: [190, 240],
-    length: [78, 96],
+    length: [80, 95],
     weight: [2200, 6500],
     sexes: {
       male: { weight: [2200, 3800] },
@@ -999,7 +999,7 @@ export const additionalBirds: AdditionalBird[] = [
     latin: 'Bubo virginianus',
     group: 'Eulen',
     span: [100, 145],
-    length: [46, 63],
+    length: [45, 65],
     weight: [700, 2500],
     sexes: {
       male: { weight: [700, 1600] },
@@ -1114,7 +1114,7 @@ export const additionalBirds: AdditionalBird[] = [
     latin: 'Accipiter nisus',
     group: 'Habichte & Sperber',
     span: [60, 75],
-    length: [28, 40],
+    length: [30, 40],
     weight: [110, 340],
     sexes: {
       male: { weight: [110, 200] },
