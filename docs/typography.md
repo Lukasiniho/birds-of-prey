@@ -68,7 +68,7 @@ je eine Stufe kleiner und leichter. Es gibt drei Varianten:
 
 | Variante      | Deutscher Name | Wissenschaftlicher Name             |
 | ------------- | -------------- | ----------------------------------- |
-| `standard`    | 18 px / 700    | 16 px / 500, kursiv                 |
+| `standard`    | 18 px / 700    | 16 px / 400, kursiv                 |
 | `quiz`        | 20–24 px / 700 | 16–18 px, direkt am deutschen Namen |
 | `atlas-title` | 32–48 px / 700 | halb so groß (min. 20 px), 400      |
 

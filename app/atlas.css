@@ -6,6 +6,9 @@
   outline: none;
   box-shadow: none !important;
   border: var(--border-selection) solid transparent;
+  /* Die Rail steht enger als die Listen auf Wissen: gleiche Zeile, 2 px
+   * weniger Polster oben und unten, damit mehr Arten ins Bild passen. */
+  padding-block: var(--space-2);
 }
 .bird-entry[data-slot]:hover {
   background: var(--hover);

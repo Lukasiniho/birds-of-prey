@@ -93,7 +93,7 @@ export function SpeciesScientificName({
         className,
         'species-scientific-name',
         nameType,
-        'block font-(--weight-medium) italic text-muted-foreground -mt-[0.1em]',
+        'block font-(--weight-regular) italic text-muted-foreground -mt-[0.1em]',
         scientificVariants[variant],
       )}
     />
