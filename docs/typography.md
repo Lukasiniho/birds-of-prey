@@ -16,7 +16,7 @@ relative rem-Werte; die Browser-Schriftgröße bleibt frei wählbar.
 | Bildnachweis unter der Bühne            | `--type-credit`            | 11 px    |
 | Quellen und Bildunterschriften          | `--type-caption`           | 12 px    |
 | Filter und sonstige UI-Texte            | `--type-ui`                | 14 px    |
-| Wissenschaftlicher Artname              | `--type-scientific`        | 16 px    |
+| Wissenschaftlicher Artname              | `--type-scientific`        | 14 px    |
 | Fließtext und Aufgabenbeschreibungen    | `--type-body`              | 14 px    |
 | Tags                                    | `--type-tag`               | 12 px    |
 | Buttons und Hauptnavigation             | `--type-button`            | 16 px    |
@@ -28,7 +28,8 @@ relative rem-Werte; die Browser-Schriftgröße bleibt frei wählbar.
 | Label-Titel                             | `--type-label-title`       | 20 px    |
 | Marke in der Kopfzeile                  | `--type-brand`             | 20 px    |
 | Karten- und Listentitel                 | `--type-card-title`        | 20–24 px |
-| Detailüberschrift rechts                | `--type-detail-heading`    | 24 px    |
+| Detailüberschrift rechts                | `--type-detail-heading`    | 20 px    |
+| Artname in Kopfzeilen                   | `--type-species-big`       | 24 px    |
 | Deutscher Artname im Quiz               | `--type-species-quiz`      | 20–24 px |
 | Weitere Überschrift                     | `--type-heading`           | 28 px    |
 | Quiz-Fragentitel                        | `--type-quiz-question`     | 24–32 px |

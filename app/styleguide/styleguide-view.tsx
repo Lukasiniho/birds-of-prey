@@ -64,7 +64,7 @@ const textRoles = [
   ['--type-ui', 'Filter und sonstige UI-Texte', '14 px'],
   ['--type-body', 'Fließtext und Aufgabentexte', '14 px'],
   ['--type-tag', 'Tags', '12 px'],
-  ['--type-scientific', 'Wissenschaftlicher Artname', '16 px'],
+  ['--type-scientific', 'Wissenschaftlicher Artname', '14 px'],
   ['--type-button', 'Buttons und Hauptnavigation', '16 px'],
   ['--type-tab', 'Unterstrich-Tabs', '16 px'],
   ['--type-feedback-title', 'Quiz-Rückmeldung', '16 px'],
@@ -72,7 +72,8 @@ const textRoles = [
   ['--type-lead', 'Einleitung', '18 px'],
   ['--type-label-title', 'Label-Titel', '20 px'],
   ['--type-card-title', 'Karten- und Listentitel', '20–24 px'],
-  ['--type-detail-heading', 'Detailüberschrift', '24 px'],
+  ['--type-detail-heading', 'Detailüberschrift', '20 px'],
+  ['--type-species-big', 'Artname in Kopfzeilen', '24 px'],
   ['--type-heading', 'Weitere Überschrift', '28 px'],
   ['--type-quiz-question', 'Quiz-Frage', '32 px'],
   ['--type-page-title', 'Seitentitel', '32–40 px'],
@@ -606,7 +607,7 @@ export default function StyleguideView() {
             {[
               ['steckbrief', 'Steckbrief'],
               ['nahrung', 'Nahrung'],
-              ['lebensraum', 'Lebensraum'],
+              ['lebensraum', 'Vorkommen'],
             ].map(([id, label]) => (
               <button
                 key={id}
