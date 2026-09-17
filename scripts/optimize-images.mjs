@@ -28,8 +28,10 @@ const portraitLadder = [160, 280, 560];
 // Colour quality stays where it was: these illustrations are the point of the
 // site. The alpha channel is the exception — at 80 it costs 17% of the bytes
 // for a pixel error of 0.18/255, which no eye resolves.
-// Encoder effort stays at 4 because Netlify rebuilds every image from scratch
-// on each deploy, and 6 traded ten minutes of build time for about 3% of bytes.
+// Encoder effort stays at 4. The Netlify build cache now carries public/optimized
+// across deploys, so only new images pay the encode — but raising the effort
+// changes the digest, so the first build after such a change re-encodes all of
+// them, and 6 bought about 3% of bytes for ten minutes of that.
 const options = { quality: 88, alphaQuality: 80, effort: 4 };
 
 async function imagesIn(directory) {

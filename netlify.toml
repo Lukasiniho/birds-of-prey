@@ -1,3 +1,6 @@
+[[plugins]]
+  package = "/netlify/plugins/cache-optimized-images"
+
 [build]
   command = "npm run build"
   publish = "dist/client"
