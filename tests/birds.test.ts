@@ -4,15 +4,15 @@ import { birds, filterBirds, groupBirds, plumagesFor } from '../lib/birds.ts';
 void test('German and scientific searches return the right species', () => {
   assert.equal(filterBirds('mäuse')[0]?.id, 'maeusebussard');
   assert.equal(filterBirds('FALCO').length, 6);
-  assert.equal(filterBirds('   ').length, 42);
+  assert.equal(filterBirds('   ').length, 45);
   assert.equal(filterBirds('unbekannt').length, 0);
 });
 void test('genus grouping preserves every bird exactly once', () => {
   const groups = groupBirds(birds, 'genus');
-  assert.equal(groups.length, 26);
+  assert.equal(groups.length, 28);
   const all = groups.flatMap((g) => g.birds.map((b) => b.id));
-  assert.equal(all.length, 42);
-  assert.equal(new Set(all).size, 42);
+  assert.equal(all.length, 45);
+  assert.equal(new Set(all).size, 45);
   assert.equal(groups.find((g) => g.id === 'Falco')?.birds.length, 6);
 });
 void test('all grouping modes retain every matching species and no extras', () => {
@@ -61,6 +61,11 @@ void test('new German species names, synonyms and umlaut-free IDs are searchable
     ['Kondor', 'andenkondor'],
     ['Honey Buzzard', 'wespenbussard'],
     ['Lämmergeier', 'bartgeier'],
+    ['Aquila pomarina', 'schreiadler'],
+    ['Lesser Spotted Eagle', 'schreiadler'],
+    ['Wedge-tailed Eagle', 'keilschwanzadler'],
+    ['Affenadler', 'philippinenadler'],
+    ['Pithecophaga jefferyi', 'philippinenadler'],
   ])
     assert(filterBirds(query).some((b) => b.id === id));
 });

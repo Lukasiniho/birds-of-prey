@@ -1340,5 +1340,104 @@
     },
     "archiveIdentifier": "SUB:Tyto_alba_Sub_CD0049_07",
     "archive": "Tierstimmenarchiv, Museum für Naturkunde Berlin"
+  },
+  {
+    "birdId": "schreiadler",
+    "path": "public/audio/schreiadler-d7cb0c7e185f.mp3",
+    "label": "Rufreihe",
+    "author": "Günter Tembrock / Tierstimmenarchiv, Museum für Naturkunde Berlin",
+    "sourceUrl": "https://suche.tierstimmenarchiv.de/search/showdetails.html?unique_identifier=TSA%3A1185_Schreiadler_Rufreihe&language=deutsch",
+    "downloadUrl": "https://suche.tierstimmenarchiv.de/download.mp3?unique_identifier=TSA:1185_Schreiadler_Rufreihe",
+    "license": "CC BY-SA 3.0 DE",
+    "licenseUrl": "https://creativecommons.org/licenses/by-sa/3.0/de/",
+    "verifiedAt": "2026-09-13",
+    "durationSeconds": 6.8,
+    "sha256": "d7cb0c7e185f05bb63465f4708dc3baeb092c76ce4f3a3e829f6488e0fcecce2",
+    "bytes": 109966,
+    "description": "Rufreihe eines Schreiadlers; im Archiv unter Aquila pomarina geführt.",
+    "changes": "Rufsequenz ausgewählt und gekürzt; als Mono-MP3 gespeichert, Lautstärke angepasst und Schnittkanten kurz ein- und ausgeblendet. Tonhöhe und Abspielgeschwindigkeit unverändert.",
+    "edit": {
+      "startSeconds": 6.4,
+      "endSeconds": 13.2,
+      "gainDb": 1.171,
+      "fadeInSeconds": 0.012,
+      "fadeOutSeconds": 0.02,
+      "sampleRateHz": 44100,
+      "bitrateKbps": 128,
+      "encoder": "FFmpeg 7.1 / libmp3lame"
+    },
+    "original": {
+      "durationSeconds": 14.968163,
+      "sha256": "baf823c19164acdf3d46cd0556b92da7d6b26dfa3b502ed15e98b31b2a1fcf14",
+      "downloadFilename": "schreiadler-mastered-original.mp3"
+    },
+    "archiveIdentifier": "TSA:1185_Schreiadler_Rufreihe",
+    "archive": "Tierstimmenarchiv, Museum für Naturkunde Berlin"
+  },
+  {
+    "birdId": "keilschwanzadler",
+    "path": "public/audio/keilschwanzadler-d7f44eaaa7bd.mp3",
+    "label": "Rufreihe",
+    "author": "Günter Tembrock / Tierstimmenarchiv, Museum für Naturkunde Berlin",
+    "sourceUrl": "https://suche.tierstimmenarchiv.de/search/showdetails.html?unique_identifier=TSA%3A0681_Keilschwanzadler_Rufe&language=deutsch",
+    "downloadUrl": "https://suche.tierstimmenarchiv.de/download.mp3?unique_identifier=TSA:0681_Keilschwanzadler_Rufe",
+    "license": "CC BY-SA 3.0 DE",
+    "licenseUrl": "https://creativecommons.org/licenses/by-sa/3.0/de/",
+    "verifiedAt": "2026-09-13",
+    "durationSeconds": 8.4,
+    "sha256": "d7f44eaaa7bd52ad9563d1f5b8ba673cb66c1b5e07324517abf08d0c5562a1a3",
+    "bytes": 135461,
+    "description": "Rufe eines Keilschwanzadlers; bearbeitete Archivaufnahme, Originalband V1629_06_POS_08_16. Aufnahmeort und Haltungsstatus sind im Archiveintrag nicht angegeben.",
+    "changes": "Rufsequenz ausgewählt und gekürzt; als Mono-MP3 gespeichert, Lautstärke angepasst und Schnittkanten kurz ein- und ausgeblendet. Tonhöhe und Abspielgeschwindigkeit unverändert.",
+    "edit": {
+      "startSeconds": 0.1,
+      "endSeconds": 8.5,
+      "gainDb": 1.066,
+      "fadeInSeconds": 0.012,
+      "fadeOutSeconds": 0.02,
+      "sampleRateHz": 44100,
+      "bitrateKbps": 128,
+      "encoder": "FFmpeg 7.1 / libmp3lame"
+    },
+    "original": {
+      "durationSeconds": 14.315102,
+      "sha256": "8a8f39565b4c47b69649c114837621f1ca087ff9088f7458d216d9c016b0e012",
+      "downloadFilename": "keilschwanzadler-original.mp3"
+    },
+    "archiveIdentifier": "TSA:0681_Keilschwanzadler_Rufe",
+    "archive": "Tierstimmenarchiv, Museum für Naturkunde Berlin"
+  },
+  {
+    "birdId": "philippinenadler",
+    "path": "public/audio/philippinenadler-d537a62bee87.mp3",
+    "label": "Rufe",
+    "author": "Günter Tembrock / Tierstimmenarchiv, Museum für Naturkunde Berlin",
+    "sourceUrl": "https://suche.tierstimmenarchiv.de/search/showdetails.html?unique_identifier=TSA%3A0010_Affenadler_Rufe&language=deutsch",
+    "downloadUrl": "https://suche.tierstimmenarchiv.de/download.mp3?unique_identifier=TSA:0010_Affenadler_Rufe",
+    "license": "CC BY-SA 3.0 DE",
+    "licenseUrl": "https://creativecommons.org/licenses/by-sa/3.0/de/",
+    "verifiedAt": "2026-09-13",
+    "durationSeconds": 5.172245,
+    "sha256": "d537a62bee8702193443d55cf82b66e6e1bfab65673d9b3e1a37216a6bbf84f0",
+    "bytes": 83634,
+    "description": "Rufe eines Philippinenadlers; im Archiv unter Affenadler (Pithecophaga jefferyi) geführt. Aufnahmeort und Haltungsstatus sind im Archiveintrag nicht angegeben.",
+    "changes": "Vollständige kurze Rufsequenz übernommen; als Mono-MP3 gespeichert, Lautstärke angepasst und Schnittkanten kurz ein- und ausgeblendet. Tonhöhe und Abspielgeschwindigkeit unverändert.",
+    "edit": {
+      "startSeconds": 0,
+      "endSeconds": 5.172245,
+      "gainDb": 3.03,
+      "fadeInSeconds": 0.012,
+      "fadeOutSeconds": 0.02,
+      "sampleRateHz": 44100,
+      "bitrateKbps": 128,
+      "encoder": "FFmpeg 7.1 / libmp3lame"
+    },
+    "original": {
+      "durationSeconds": 5.172245,
+      "sha256": "827b884eda63b55551f6205183a1d97e05d57fb9d42f2c36b3c2d5d18d3c1c54",
+      "downloadFilename": "philippinenadler-original.mp3"
+    },
+    "archiveIdentifier": "TSA:0010_Affenadler_Rufe",
+    "archive": "Tierstimmenarchiv, Museum für Naturkunde Berlin"
   }
 ]

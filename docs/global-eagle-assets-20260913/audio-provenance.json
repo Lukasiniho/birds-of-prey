@@ -1,0 +1,68 @@
+[
+  {
+    "birdId": "schreiadler",
+    "sourceUrl": "https://suche.tierstimmenarchiv.de/search/showdetails.html?unique_identifier=TSA%3A1185_Schreiadler_Rufreihe&language=deutsch",
+    "savedHtml": "schreiadler-mastered-details.html",
+    "savedHtmlSha256": "aec87b57a74ed2ed47b0c1ac5aa158df02897aeac8567a2a0ee3f46b99fdf8ac",
+    "itemPageLicense": "CC BY-SA 3.0 DE",
+    "embeddedOriginalMetadataLicense": "Creative Commons BY-NC-SA 3.0",
+    "licenseDiscrepancy": "The current item detail page explicitly links CC BY-SA 3.0 DE legalcode. The older original MP3 ID3 metadata instead says BY-NC-SA 3.0. The manifest follows the current item page; both original file and saved page are retained as evidence.",
+    "authorField": "Tembrock, Günter",
+    "originalArchiveNotes": "Mastered Recording - Original: B: V1102_10_Pos_10_02",
+    "qa": {
+      "decodedDurationSeconds": 6.8,
+      "sampleRateHz": 44100,
+      "channels": 1,
+      "peakDbfs": -2.4430491550261015,
+      "rmsDbfs": -18.86238470008459,
+      "spectrogramInspected": true,
+      "auditionPerformed": false,
+      "afconvertDecodedDurationSeconds": 6.844,
+      "afconvertVerified": true
+    }
+  },
+  {
+    "birdId": "keilschwanzadler",
+    "sourceUrl": "https://suche.tierstimmenarchiv.de/search/showdetails.html?unique_identifier=TSA%3A0681_Keilschwanzadler_Rufe&language=deutsch",
+    "savedHtml": "keilschwanzadler-details.html",
+    "savedHtmlSha256": "2c88a3471470dd743cf9eca05cc6dc03bd9094ebf33d0e5ae32d1285c9b6491f",
+    "itemPageLicense": "CC BY-SA 3.0 DE",
+    "embeddedOriginalMetadataLicense": "Creative Commons BY-NC-SA 3.0",
+    "licenseDiscrepancy": "The current item detail page explicitly links CC BY-SA 3.0 DE legalcode. The older original MP3 ID3 metadata instead says BY-NC-SA 3.0. The manifest follows the current item page; both original file and saved page are retained as evidence.",
+    "authorField": "Tembrock, Günter",
+    "originalArchiveNotes": "Mastered Recording - Original: B: V1629_06_POS_08_16",
+    "qa": {
+      "decodedDurationSeconds": 8.4,
+      "sampleRateHz": 44100,
+      "channels": 1,
+      "peakDbfs": -2.4476347737859463,
+      "rmsDbfs": -21.706975191796836,
+      "spectrogramInspected": true,
+      "auditionPerformed": false,
+      "afconvertDecodedDurationSeconds": 8.4375,
+      "afconvertVerified": true
+    }
+  },
+  {
+    "birdId": "philippinenadler",
+    "sourceUrl": "https://suche.tierstimmenarchiv.de/search/showdetails.html?unique_identifier=TSA%3A0010_Affenadler_Rufe&language=deutsch",
+    "savedHtml": "philippinenadler-details.html",
+    "savedHtmlSha256": "0da469b9ac67f9089d7286e0f51cf9f626d8e6eaae50787e09d1d07d2da14b47",
+    "itemPageLicense": "CC BY-SA 3.0 DE",
+    "embeddedOriginalMetadataLicense": "Creative Commons BY-NC-SA 3.0",
+    "licenseDiscrepancy": "The current item detail page explicitly links CC BY-SA 3.0 DE legalcode. The older original MP3 ID3 metadata instead says BY-NC-SA 3.0. The manifest follows the current item page; both original file and saved page are retained as evidence.",
+    "authorField": "Tembrock, Günter",
+    "originalArchiveNotes": "Mastered Recording - Original: B: V0105_01_POS_00_00",
+    "qa": {
+      "decodedDurationSeconds": 5.1722448979591835,
+      "sampleRateHz": 44100,
+      "channels": 1,
+      "peakDbfs": -2.456209458589744,
+      "rmsDbfs": -20.888598993164017,
+      "spectrogramInspected": true,
+      "auditionPerformed": false,
+      "afconvertDecodedDurationSeconds": 5.198375,
+      "afconvertVerified": true
+    }
+  }
+]

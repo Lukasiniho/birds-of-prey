@@ -1,8 +1,17 @@
 /** Short quiz cues, condensed from the full species profiles. */
 export const quizIdentification: Record<string, string> = {
-  schleiereule: 'Herzförmiger Gesichtsschleier, dunkle Augen und lange, helle Flügel.',
-  gaensegeier: 'Breite zweifarbige Flügel, kurzer Schwanz und eine helle Halskrause.',
-  schreiseeadler: 'Weißer Kopf und Schwanz, kastanienbrauner Bauch und dunkle Schwingen.',
+  schreiadler:
+    'Kleiner brauner Adler mit breiten Flügeln und dunklen Schwungfedern.',
+  keilschwanzadler:
+    'Lange gefingerte Flügel und ein auffällig keilförmiger Schwanz.',
+  philippinenadler:
+    'Lange Federhaube, mächtiger blaugrauer Schnabel und helle Unterseite.',
+  schleiereule:
+    'Herzförmiger Gesichtsschleier, dunkle Augen und lange, helle Flügel.',
+  gaensegeier:
+    'Breite zweifarbige Flügel, kurzer Schwanz und eine helle Halskrause.',
+  schreiseeadler:
+    'Weißer Kopf und Schwanz, kastanienbrauner Bauch und dunkle Schwingen.',
   habichtsadler:
     'Heller Körper, dunkle Unterflügeldecken und breite Schwanzendbinde.',
   iberienadler: 'Dunkles Alterskleid mit weißen Schultern und hellem Nacken.',

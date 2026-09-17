@@ -1,4 +1,7 @@
 export const portraitImages: Record<string, string> = {
+  philippinenadler: '/birds/portrait-philippinenadler-20260913.png',
+  keilschwanzadler: '/birds/portrait-keilschwanzadler-20260913.png',
+  schreiadler: '/birds/portrait-schreiadler-20260913.png',
   gaensegeier: '/birds/portrait-gaensegeier-20260913.png',
   schreiseeadler: '/birds/portrait-schreiseeadler-20260913.png',
   schleiereule: '/birds/portrait-schleiereule-20260913.png',

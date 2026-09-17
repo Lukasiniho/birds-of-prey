@@ -30,6 +30,60 @@ const fund = (name: string) => [
 ];
 
 export const speciesProfiles: Record<string, SpeciesProfile> = {
+  schreiadler: {
+    identification:
+      'Ein kleiner Adler mit breiten Flügeln, relativ kleinem Schnabel und braunem Kopf. Die Unterflügeldecken sind meist heller als die dunklen Schwungfedern. Vom ähnlichen Schelladler lässt er sich nur anhand mehrerer Merkmale sicher trennen.',
+    behaviour:
+      'Auf kurzrasigen Wiesen sucht er häufig schreitend nach Nahrung. Im Herbst zieht er über Land und entlang des östlichen Mittelmeers nach Afrika. Den Winter verbringt er weit vom europäischen Brutrevier entfernt.',
+    breeding:
+      'Der Horst liegt verborgen in einem ruhigen Wald. Beide Partner versorgen die Brut, doch meist überlebt nur das ältere von zwei Jungen. Nach ungefähr acht Wochen verlässt es den Horst.',
+    sources: [
+      {
+        name: 'Deutsche Wildtier Stiftung',
+        url: 'https://www.deutschewildtierstiftung.de/wildtiere/schreiadler',
+      },
+      {
+        name: 'The Peregrine Fund',
+        url: 'https://peregrinefund.org/explore-raptors-species/eagles/lesser-spotted-eagle',
+      },
+    ],
+  },
+  keilschwanzadler: {
+    identification:
+      'Der lange, deutlich keilförmige Schwanz und die langen gefingerten Flügel prägen die Silhouette. Altvögel wirken fast schwarzbraun, jüngere Vögel wärmer rotbraun. Die kräftigen Läufe sind bis zu den hellen Zehen befiedert.',
+    behaviour:
+      'Brutpaare nutzen feste Reviere und kreisen oft hoch über der Landschaft. Junge und unverpaarte Vögel streifen weiter umher. An ergiebigen Kadavern können sich mehrere Adler versammeln.',
+    breeding:
+      'Ein großer Asthorst wird meist in einem hohen Baum gebaut und über Jahre ergänzt. Beide Eltern beteiligen sich an Brut und Aufzucht. Die Jungen schlüpfen nach etwa sechs Wochen und werden nach rund drei Monaten flügge.',
+    sources: [
+      {
+        name: 'BirdLife Australia',
+        url: 'https://birdlife.org.au/bird-profiles/wedge-tailed-eagle/',
+      },
+      {
+        name: 'The Peregrine Fund',
+        url: 'https://peregrinefund.org/explore-raptors-species/eagles/wedge-tailed-eagle',
+      },
+    ],
+  },
+  philippinenadler: {
+    identification:
+      'Lange Kopf- und Nackenfedern bilden eine lockere Haube. Auffällig sind der hohe blaugraue Schnabel, die helle Unterseite, breite gerundete Flügel und ein langer Schwanz. Jungvögel ähneln den Altvögeln schon früh.',
+    behaviour:
+      'Er lebt überwiegend verborgen im Wald und wechselt zwischen Ansitzen in den Baumkronen. Die Beute unterscheidet sich von Insel zu Insel. Manche Paare jagen gemeinsam, wobei ein Vogel die Beute ablenkt.',
+    breeding:
+      'Das Paar baut seinen Horst hoch in einem großen Waldbaum. Ein einziges Ei wird etwa zwei Monate bebrütet. Die lange Betreuung des Jungvogels führt dazu, dass erfolgreiche Paare gewöhnlich nur alle zwei Jahre brüten.',
+    sources: [
+      {
+        name: 'Philippine Eagle Foundation',
+        url: 'https://www.philippineeaglefoundation.org/philippine-eagle',
+      },
+      {
+        name: 'The Peregrine Fund',
+        url: 'https://peregrinefund.org/explore-raptors-species/eagles/philippine-eagle',
+      },
+    ],
+  },
   schleiereule: {
     identification: 'Der herzförmige Gesichtsschleier und die dunklen Augen sind unverwechselbar. Lange Flügel, ein kurzer Schwanz und das helle Untergefieder kennzeichnen den Flug; Federohren fehlen.',
     behaviour: 'Jagt überwiegend nachts und in der Dämmerung. Ihr feines Gehör hilft beim Orten versteckter Kleinsäuger. Tagsüber ruht sie oft in Gebäuden; ihr Ruf ist ein raues Kreischen.',

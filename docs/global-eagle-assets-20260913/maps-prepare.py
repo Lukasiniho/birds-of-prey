@@ -1,0 +1,25 @@
+from pathlib import Path
+import json,hashlib,cv2,numpy as np,subprocess,sys
+p=Path('/private/tmp/eagle-range-additions-20260913'); root=Path('/Users/lukasvonhohnhorst/Coding/birds-of-prey')
+records=[
+ dict(id='schreiadler',name='Clanga pomarina',fileTitle='File:ClangaPomarinaIUCNver2018 2.png',imageUrl='https://upload.wikimedia.org/wikipedia/commons/6/62/ClangaPomarinaIUCNver2018_2.png',author='Alexander Kürthy; BirdLife International / IUCN Red List (2016)',license='CC BY-SA 3.0',licenseUrl='https://creativecommons.org/licenses/by-sa/3.0/',legend=[dict(color='#00FF00',label='Brutgebiet'),dict(color='#00FFFF',label='Durchzugsgebiet'),dict(color='#007FFF',label='Winterquartier')],inside=[[25,54],[30,-18],[33,0]],outside=[[0,50],[47,-20],[20,23],[80,20]],focusBounds=[-8,-36,56,63],note='Georeferenzierte Bearbeitung der Karte von Alexander Kürthy nach BirdLife International / IUCN (2016; Kartenversion 2018.2). Brut-, Durchzugs- und Wintergebiete zusammengefasst; keine aktuellen Beobachtungsdaten. CC BY-SA 3.0.'),
+ dict(id='keilschwanzadler',name='Aquila audax',fileTitle='File:AquilaAudaxIUCNver2019 1.png',imageUrl='https://upload.wikimedia.org/wikipedia/commons/1/11/AquilaAudaxIUCNver2019_1.png',author='Alexander Kürthy; BirdLife International / IUCN Red List (2016)',license='CC BY-SA 3.0',licenseUrl='https://creativecommons.org/licenses/by-sa/3.0/',legend=[dict(color='#008000',label='Ganzjährig')],inside=[[135,-25],[147,-42],[120,-25]],outside=[[145,-6],[172,-42],[125,0]],focusBounds=[109,-45,157,-8],note='Georeferenzierte Bearbeitung der Karte von Alexander Kürthy nach BirdLife International / IUCN (2016; Kartenversion 2019.1). Illustriertes ganzjähriges Vorkommen; keine aktuellen Beobachtungsdaten. CC BY-SA 3.0.'),
+ dict(id='philippinenadler',name='Pithecophaga jefferyi',fileTitle='File:Phileagle rangemap.png',imageUrl='https://upload.wikimedia.org/wikipedia/commons/7/7f/Phileagle_rangemap.png',author='Kleomarlo',license='Public domain',licenseUrl='https://creativecommons.org/publicdomain/mark/1.0/',legend=[dict(color='#5F9EA0',label='Vorkommen')],inside=[[122,17],[125.3,11.9],[124.9,10.9],[125,7.5]],outside=[[120.5,17.7],[118.5,9.5],[123,10],[121,12.7]],focusBounds=[116.5,5,127.5,19.5],note='Georeferenzierte Bearbeitung der gemeinfreien Karte von Kleomarlo (2008). Illustriertes Vorkommen auf Luzon, Samar, Leyte und Mindanao; vereinfachte historische Referenzkarte, keine aktuellen Beobachtungsdaten.')]
+regs={};palettes={};originals=[]
+for r in records:
+ id=r['id'];reg=json.loads((p/f'registration/{id}.json').read_text());reg.pop('all_fits',None)
+ reg['registrationBasemapPath']='data/ranges/world.geojson';reg['registrationBasemapSha256']=hashlib.sha256((root/'data/ranges/world.geojson').read_bytes()).hexdigest()
+ reg['validation']='Odd interleaved Natural Earth 1:50m coastline samples withheld from affine fitting; neighboring samples are correlated. P90 cartographic coastline agreement within review_bounds, normalized to 1000 source pixels. Whole-source overlay visually reviewed.'
+ regs[id]=reg
+ r['sourceUrl']='https://commons.wikimedia.org/wiki/'+r['fileTitle'].replace(' ','_')
+ palettes[id]={k:r[k] for k in ['author','sourceUrl','license','licenseUrl','legend']}
+ raw=(p/f'{id}.png').read_bytes();h,w=cv2.imread(str(p/f'{id}.png')).shape[:2]
+ originals.append({**{k:r[k] for k in ['id','name','fileTitle','imageUrl','author','license','licenseUrl','sourceUrl']},'width':w,'height':h,'downloadUrl':r['imageUrl'],'downloadedOn':'2026-09-13','sha256':hashlib.sha256(raw).hexdigest(),'authoringPath':f'data/ranges/reference-originals/{id}.png'})
+for name,value in [('registrations.json',regs),('palettes.json',palettes),('reference-sources.json',originals),('records.json',records)]:
+ (p/name).write_text(json.dumps(value,ensure_ascii=False,indent=2)+'\n')
+for r in records:
+ id=r['id']; subprocess.run([sys.executable,str(root/'scripts/vectorize-reference-map.py'),'--image',str(p/f'{id}.png'),'--registration',str(p/'registrations.json'),'--id',id,'--palette',str(p/'palettes.json'),'--output',str(p/f'{id}.geojson')],check=True)
+sources=[]
+for r in records:
+ id=r['id'];sources.append({**{k:r[k] for k in ['id','author','sourceUrl','license','licenseUrl','focusBounds','note']},'sha256':hashlib.sha256((p/f'{id}.geojson').read_bytes()).hexdigest(),'downloadedOn':'2026-09-13','adaptedOn':'2026-09-13','review':{'status':'approved','reviewedOn':'2026-09-13','registrationErrorPx1000':regs[id]['coast_p90_px'],'notes':'Actual licensed source hue contours extracted with the existing vectorization CLI. Whole-source coastline and extracted contour overlays visually reviewed. One inverse Mercator projection and global scale/translation; no local warp or invented biological boundaries. Seasonal present categories combined where applicable. 3 native pixel border closing, 0.45 pixel contour simplification, components below 4 source pixels omitted. Coastline statistic measures cartographic agreement, not biological precision.','inside':r['inside'],'outside':r['outside']}})
+(p/'sources.json').write_text(json.dumps(sources,ensure_ascii=False,indent=2)+'\n')

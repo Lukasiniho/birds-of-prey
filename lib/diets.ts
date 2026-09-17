@@ -146,6 +146,78 @@ export const preyCatalog: Record<
   },
 };
 export const diets: Record<string, Diet> = {
+  schreiadler: {
+    summary:
+      'Kleine Säugetiere und Frösche sind wichtige Beutetiere im Brutgebiet. Daneben erbeutet er Reptilien und Vögel; in Afrika können Termiten und Vogelnestlinge einen großen Anteil ausmachen.',
+    primary: ['kleinsauger', 'wuhlmause', 'frosche'],
+    occasional: ['reptilien', 'vogel', 'termiten', 'nestlinge', 'aas'],
+    carrion: true,
+    sources: [
+      'https://www.deutschewildtierstiftung.de/wildtiere/schreiadler',
+      'https://peregrinefund.org/explore-raptors-species/eagles/lesser-spotted-eagle',
+    ],
+    examples: [
+      {
+        key: 'wuehlmaus',
+      },
+      {
+        key: 'frosch',
+      },
+    ],
+    occasionalExamples: [
+      {
+        key: 'echse',
+      },
+      {
+        key: 'singvogel',
+      },
+    ],
+  },
+  keilschwanzadler: {
+    summary:
+      'Kaninchen und Hasen sind vielerorts wichtige Beutetiere. Auch andere Säugetiere, Vögel und Reptilien werden gejagt. Aas, darunter überfahrene Tiere, ergänzt die Nahrung regelmäßig.',
+    primary: ['kaninchen', 'hasen', 'aas'],
+    occasional: ['kleine-bis-mittelgrosse-saugetiere', 'vogel', 'reptilien'],
+    carrion: true,
+    sources: ['https://birdlife.org.au/bird-profiles/wedge-tailed-eagle/'],
+    examples: [
+      {
+        key: 'kaninchen',
+      },
+      {
+        key: 'hase',
+      },
+      {
+        key: 'aas',
+      },
+    ],
+    occasionalExamples: [
+      {
+        key: 'echse',
+      },
+    ],
+  },
+  philippinenadler: {
+    summary:
+      'Je nach Insel jagt er unterschiedliche Waldsäugetiere, darunter Riesengleiter, Schleichkatzen, Flughörnchen und Affen. Auch Vögel und Reptilien werden erbeutet; Affen sind nicht überall die Hauptnahrung.',
+    primary: ['kleine-bis-mittelgrosse-saugetiere', 'affen'],
+    occasional: ['vogel', 'reptilien'],
+    carrion: false,
+    sources: [
+      'https://peregrinefund.org/explore-raptors-species/eagles/philippine-eagle',
+      'https://animaldiversity.org/accounts/Pithecophaga_jefferyi/',
+    ],
+    examples: [
+      {
+        key: 'affe',
+      },
+    ],
+    occasionalExamples: [
+      {
+        key: 'schlange',
+      },
+    ],
+  },
   schleiereule: {
     summary: 'Kleinsäuger, vor allem Wühlmäuse, bilden die Hauptnahrung. Auch andere Mäuse und Spitzmäuse werden erbeutet; kleine Vögel ergänzen den Speiseplan nur gelegentlich.',
     primary: ['wuhlmause', 'mause', 'kleinsauger'],

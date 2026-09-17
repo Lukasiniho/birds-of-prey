@@ -697,5 +697,49 @@
         "label": "Erloschen"
       }
     ]
+  },
+  "schreiadler": {
+    "author": "Alexander Kürthy; BirdLife International / IUCN Red List (2016)",
+    "sourceUrl": "https://commons.wikimedia.org/wiki/File:ClangaPomarinaIUCNver2018_2.png",
+    "license": "CC BY-SA 3.0",
+    "licenseUrl": "https://creativecommons.org/licenses/by-sa/3.0/",
+    "legend": [
+      {
+        "color": "#00FF00",
+        "label": "Brutgebiet"
+      },
+      {
+        "color": "#00FFFF",
+        "label": "Durchzugsgebiet"
+      },
+      {
+        "color": "#007FFF",
+        "label": "Winterquartier"
+      }
+    ]
+  },
+  "keilschwanzadler": {
+    "author": "Alexander Kürthy; BirdLife International / IUCN Red List (2016)",
+    "sourceUrl": "https://commons.wikimedia.org/wiki/File:AquilaAudaxIUCNver2019_1.png",
+    "license": "CC BY-SA 3.0",
+    "licenseUrl": "https://creativecommons.org/licenses/by-sa/3.0/",
+    "legend": [
+      {
+        "color": "#008000",
+        "label": "Ganzjährig"
+      }
+    ]
+  },
+  "philippinenadler": {
+    "author": "Kleomarlo",
+    "sourceUrl": "https://commons.wikimedia.org/wiki/File:Phileagle_rangemap.png",
+    "license": "Public domain",
+    "licenseUrl": "https://creativecommons.org/publicdomain/mark/1.0/",
+    "legend": [
+      {
+        "color": "#5F9EA0",
+        "label": "Vorkommen"
+      }
+    ]
   }
 }

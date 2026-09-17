@@ -42,6 +42,9 @@ await test('lifespan scope and global conservation remain explicit', () => {
   assert.equal(speciesFacts.rotmilan.conservation.code, 'LC');
   assert.equal(speciesFacts.kronenadler.conservation.code, 'NT');
   assert.equal(speciesFacts.harpyie.conservation.code, 'VU');
+  assert.equal(speciesFacts.philippinenadler.conservation.code, 'CR');
+  assert.equal(conservationLabels.CR, 'Vom Aussterben bedroht');
+  assert.equal(speciesFacts.schreiadler.movement.value, 'Zugvogel');
 });
 
 await test('every catalog species has one trivia line', () => {

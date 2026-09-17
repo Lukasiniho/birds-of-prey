@@ -5,6 +5,7 @@ export const conservationLabels = {
   NT: 'Potenziell gefährdet',
   VU: 'Gefährdet',
   EN: 'Stark gefährdet',
+  CR: 'Vom Aussterben bedroht',
 } as const;
 export type SpeciesFact = { value: string; sources: string[]; note?: string };
 export type SpeciesFactsData = {
@@ -15,6 +16,95 @@ export type SpeciesFactsData = {
   movement: SpeciesFact;
 };
 export const speciesFacts: Record<string, SpeciesFactsData> = {
+  schreiadler: {
+    lifespan: {
+      value: '26 Jahre',
+      sources: [
+        'https://peregrinefund.org/explore-raptors-species/eagles/lesser-spotted-eagle',
+      ],
+      context: 'Höchstalter · Wildbahn',
+    },
+    clutch: {
+      value: 'Meist 2 Eier',
+      sources: [
+        'https://peregrinefund.org/explore-raptors-species/eagles/lesser-spotted-eagle',
+      ],
+    },
+    conservation: {
+      code: 'LC',
+      sources: ['https://www.birdlife.org/list-of-eagle-species/'],
+    },
+    activity: {
+      value: 'Tagaktiv',
+      sources: [
+        'https://www.deutschewildtierstiftung.de/wildtiere/schreiadler',
+      ],
+    },
+    movement: {
+      value: 'Zugvogel',
+      sources: [
+        'https://peregrinefund.org/explore-raptors-species/eagles/lesser-spotted-eagle',
+      ],
+      note: 'Brütet in Mittel- und Osteuropa sowie Westasien und überwintert überwiegend im südlichen Afrika.',
+    },
+  },
+  keilschwanzadler: {
+    lifespan: {
+      value: '40 Jahre',
+      sources: [
+        'https://genomics.senescence.info/species/entry.php?species=Aquila_audax',
+      ],
+      context: 'Höchstalter · Tierhaltung',
+    },
+    clutch: {
+      value: 'Meist 1–2 Eier',
+      sources: ['https://animaldiversity.org/accounts/Aquila_audax/'],
+    },
+    conservation: {
+      code: 'LC',
+      sources: ['https://birdlife.org.au/bird-profiles/wedge-tailed-eagle/'],
+    },
+    activity: {
+      value: 'Tagaktiv',
+      sources: ['https://birdlife.org.au/bird-profiles/wedge-tailed-eagle/'],
+    },
+    movement: {
+      value: 'Überwiegend Standvogel',
+      sources: ['https://birdlife.org.au/bird-profiles/wedge-tailed-eagle/'],
+      note: 'Brutpaare bleiben meist im Revier; Jungvögel und unverpaarte Tiere können weiträumig umherstreifen.',
+    },
+  },
+  philippinenadler: {
+    lifespan: {
+      value: 'über 41 Jahre',
+      sources: [
+        'https://genomics.senescence.info/species/entry.php?species=Pithecophaga_jefferyi',
+      ],
+      context: 'Höchstalter · Tierhaltung',
+      note: 'Ein bereits adulter Vogel lebte weitere 41 Jahre im Zoo von Rom; keine mittlere Lebenserwartung in freier Natur.',
+    },
+    clutch: {
+      value: '1 Ei',
+      sources: ['https://www.philippineeaglefoundation.org/philippine-eagle'],
+    },
+    conservation: {
+      code: 'CR',
+      sources: [
+        'https://peregrinefund.org/explore-raptors-species/eagles/philippine-eagle',
+      ],
+    },
+    activity: {
+      value: 'Tagaktiv',
+      sources: [
+        'https://peregrinefund.org/explore-raptors-species/eagles/philippine-eagle',
+      ],
+    },
+    movement: {
+      value: 'Standvogel',
+      sources: ['https://animaldiversity.org/accounts/Pithecophaga_jefferyi/'],
+      note: 'Auf die Philippinen beschränkt; keine regelmäßigen saisonalen Fernwanderungen.',
+    },
+  },
   schleiereule: {
     lifespan: { value: 'ca. 4 Jahre', context: 'Ab Brutreife · Wildbahn', note: 'BTO-Schätzung für Vögel, die das Brutalter erreichen; keine Lebensdauer ab Schlupf.', sources: ['https://www.bto.org/learn/about-birds/birdfacts/barn-owl'] },
     clutch: { value: 'Meist 4–6 Eier', sources: ['https://www.bto.org/learn/about-birds/birdfacts/barn-owl'] },

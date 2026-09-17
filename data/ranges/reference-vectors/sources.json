@@ -1824,5 +1824,92 @@
         ]
       ]
     }
+  },
+  {
+    "id": "schreiadler",
+    "author": "Alexander Kürthy; BirdLife International / IUCN Red List (2016)",
+    "sourceUrl": "https://commons.wikimedia.org/wiki/File:ClangaPomarinaIUCNver2018_2.png",
+    "license": "CC BY-SA 3.0",
+    "licenseUrl": "https://creativecommons.org/licenses/by-sa/3.0/",
+    "focusBounds": [-8, -36, 56, 63],
+    "note": "Georeferenzierte Bearbeitung der Karte von Alexander Kürthy nach BirdLife International / IUCN (2016; Kartenversion 2018.2). Brut-, Durchzugs- und Wintergebiete zusammengefasst; keine aktuellen Beobachtungsdaten. CC BY-SA 3.0.",
+    "sha256": "d1ced881a1d3027813a2bc0938c8383bbd8be4b5ac200fa7990502cd20d9fb30",
+    "downloadedOn": "2026-09-13",
+    "adaptedOn": "2026-09-13",
+    "review": {
+      "status": "approved",
+      "reviewedOn": "2026-09-13",
+      "registrationErrorPx1000": 3.897791862487793,
+      "notes": "Actual licensed source hue contours extracted with the existing vectorization CLI. Whole-source coastline and extracted contour overlays visually reviewed. One inverse Mercator projection and global scale/translation; no local warp or invented biological boundaries. Seasonal present categories combined where applicable. 3 native pixel border closing, 0.45 pixel contour simplification, components below 4 source pixels omitted. Coastline statistic measures cartographic agreement, not biological precision.",
+      "inside": [
+        [25, 54],
+        [30, -18],
+        [33, 0]
+      ],
+      "outside": [
+        [0, 50],
+        [47, -20],
+        [20, 23],
+        [80, 20]
+      ]
+    }
+  },
+  {
+    "id": "keilschwanzadler",
+    "author": "Alexander Kürthy; BirdLife International / IUCN Red List (2016)",
+    "sourceUrl": "https://commons.wikimedia.org/wiki/File:AquilaAudaxIUCNver2019_1.png",
+    "license": "CC BY-SA 3.0",
+    "licenseUrl": "https://creativecommons.org/licenses/by-sa/3.0/",
+    "focusBounds": [109, -45, 157, -8],
+    "note": "Georeferenzierte Bearbeitung der Karte von Alexander Kürthy nach BirdLife International / IUCN (2016; Kartenversion 2019.1). Die Vorlage zeigt Australien und Tasmanien; das bekannte Vorkommen im Süden Neuguineas ist darin nicht eingezeichnet. Keine aktuellen Beobachtungsdaten. CC BY-SA 3.0.",
+    "sha256": "2d3576afcae2418259d6553baf9c12ff77a269aa1fd3f5b5bc80e5823c39e1e3",
+    "downloadedOn": "2026-09-13",
+    "adaptedOn": "2026-09-13",
+    "review": {
+      "status": "approved",
+      "reviewedOn": "2026-09-13",
+      "registrationErrorPx1000": 1.9534724950790405,
+      "notes": "Actual licensed source hue contours extracted with the existing vectorization CLI. Whole-source coastline and extracted contour overlays visually reviewed. One inverse Mercator projection and global scale/translation; no local warp or invented biological boundaries. Seasonal present categories combined where applicable. 3 native pixel border closing, 0.45 pixel contour simplification, components below 4 source pixels omitted. Coastline statistic measures cartographic agreement, not biological precision.",
+      "inside": [
+        [135, -25],
+        [147, -42],
+        [120, -25]
+      ],
+      "outside": [
+        [145, -6],
+        [172, -42],
+        [125, 0]
+      ]
+    }
+  },
+  {
+    "id": "philippinenadler",
+    "author": "Kleomarlo",
+    "sourceUrl": "https://commons.wikimedia.org/wiki/File:Phileagle_rangemap.png",
+    "license": "Public domain",
+    "licenseUrl": "https://creativecommons.org/publicdomain/mark/1.0/",
+    "focusBounds": [116.5, 5, 127.5, 19.5],
+    "note": "Georeferenzierte Bearbeitung der gemeinfreien Karte von Kleomarlo (2008). Illustriertes Vorkommen auf Luzon, Samar, Leyte und Mindanao; vereinfachte historische Referenzkarte, keine aktuellen Beobachtungsdaten.",
+    "sha256": "04d0d6f83519a83631424ad814764cbe33fe18b282f1e392a27b3d54bdf72624",
+    "downloadedOn": "2026-09-13",
+    "adaptedOn": "2026-09-13",
+    "review": {
+      "status": "approved",
+      "reviewedOn": "2026-09-13",
+      "registrationErrorPx1000": 1.763028860092163,
+      "notes": "Actual licensed source hue contours extracted with the existing vectorization CLI. Whole-source coastline and extracted contour overlays visually reviewed. One inverse Mercator projection and global scale/translation; no local warp or invented biological boundaries. Seasonal present categories combined where applicable. 3 native pixel border closing, 0.45 pixel contour simplification, components below 4 source pixels omitted. Coastline statistic measures cartographic agreement, not biological precision.",
+      "inside": [
+        [122, 17],
+        [125.3, 11.9],
+        [124.9, 10.9],
+        [125, 7.5]
+      ],
+      "outside": [
+        [120.5, 17.7],
+        [118.5, 9.5],
+        [123, 10],
+        [121, 12.7]
+      ]
+    }
   }
 ]

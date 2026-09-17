@@ -10,7 +10,14 @@ import { portraitImages } from '../lib/portrait-images.ts';
 import { huntingImages } from '../lib/hunting-images.ts';
 import { speciesById } from '../lib/ecology.ts';
 const sharp = createRequire(import.meta.url)('sharp');
-const ids = ['schreiseeadler', 'gaensegeier', 'schleiereule'];
+const ids = [
+  'schreiseeadler',
+  'gaensegeier',
+  'schleiereule',
+  'schreiadler',
+  'keilschwanzadler',
+  'philippinenadler',
+];
 const local = (url: string) => `public${url.split('?')[0]}`;
 
 void test('new species have linked, transparent media and matching adult/juvenile silhouettes', async () => {

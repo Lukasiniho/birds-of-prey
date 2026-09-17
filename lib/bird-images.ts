@@ -1,4 +1,10 @@
 export const birdImages: Record<string, string> = {
+  schreiadler: '/birds/schreiadler-20260913.png',
+  'juvenile-schreiadler': '/birds/juvenile-schreiadler-20260913.png',
+  keilschwanzadler: '/birds/keilschwanzadler-20260913.png',
+  'juvenile-keilschwanzadler': '/birds/juvenile-keilschwanzadler-20260913.png',
+  philippinenadler: '/birds/philippinenadler-20260913.png',
+  'juvenile-philippinenadler': '/birds/juvenile-philippinenadler-20260913.png',
   gaensegeier: '/birds/gaensegeier-20260913.png',
   'juvenile-gaensegeier': '/birds/juvenile-gaensegeier-20260913.png',
   schreiseeadler: '/birds/schreiseeadler-20260913.png',

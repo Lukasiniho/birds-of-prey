@@ -4629,5 +4629,91 @@
         1329
       ]
     ]
+  },
+  "schreiadler": {
+    "proj_string": "+proj=merc +R=1 +lon_0=0",
+    "parameters_1000px": [
+      654.9872393643473, -652.725763424788, 245.4470686585076, 898.6902984691312
+    ],
+    "coast_rmse_capped15_px": 2.599933385848999,
+    "coast_median_px": 0.7669270038604736,
+    "coast_p90_px": 3.897791862487793,
+    "sample_count": 4728,
+    "image_width": 1858,
+    "image_height": 2480,
+    "pixel_transform_native": [
+      1216.9662907389572, -1212.7644684432562, 456.0406535675071,
+      1669.7665745556458
+    ],
+    "transform_definition": "pixel_x=sx*projected_x+tx; pixel_y=sy*projected_y+ty",
+    "validation": "Odd interleaved Natural Earth 1:50m coastline samples withheld from affine fitting; neighboring samples are correlated. P90 cartographic coastline agreement within review_bounds, normalized to 1000 source pixels. Whole-source overlay visually reviewed.",
+    "controls": [
+      [-5.6, 36, 347.446, 834.2420000000001],
+      [20, -34.8, 902.988, 2443.27],
+      [51.3, 12, 1716.7920000000001, 1406.506],
+      [-17.5, 14.7, 92.9, 1324.7540000000001],
+      [7.05, 57.98, 618.714, 154.214]
+    ],
+    "review_bounds": [-20, -36, 55, 70],
+    "registrationBasemapPath": "data/ranges/world.geojson",
+    "registrationBasemapSha256": "3e458fc036ad0a66411f2c1e6cac49c5d7bfb81cb1123bc513b22511a2b7fdeb"
+  },
+  "keilschwanzadler": {
+    "proj_string": "+proj=merc +R=1 +lon_0=0",
+    "parameters_1000px": [
+      747.3986382823962, -748.7619232697749, -1239.4867232881463,
+      -22.220583892639866
+    ],
+    "coast_rmse_capped15_px": 1.2389557361602783,
+    "coast_median_px": 0.13534247875213623,
+    "coast_p90_px": 1.9534724950790405,
+    "sample_count": 1110,
+    "image_width": 3507,
+    "image_height": 2480,
+    "pixel_transform_native": [
+      2621.1270244563634, -2625.9080649071007, -4346.879938571529,
+      -77.927587711488
+    ],
+    "transform_definition": "pixel_x=sx*projected_x+tx; pixel_y=sy*projected_y+ty",
+    "validation": "Odd interleaved Natural Earth 1:50m coastline samples withheld from affine fitting; neighboring samples are correlated. P90 cartographic coastline agreement within review_bounds, normalized to 1000 source pixels. Whole-source overlay visually reviewed.",
+    "controls": [
+      [113.16, -26.15, 848.6940000000001, 1160.817],
+      [153.64, -28.64, 2661.813, 1280.055],
+      [142.53, -10.68, 2170.833, 410.319],
+      [146.83, -43.64, 2367.225, 2139.27],
+      [130, -11.8, 1613.22, 455.91]
+    ],
+    "review_bounds": [109, -45, 155, -9],
+    "registrationBasemapPath": "data/ranges/world.geojson",
+    "registrationBasemapSha256": "3e458fc036ad0a66411f2c1e6cac49c5d7bfb81cb1123bc513b22511a2b7fdeb"
+  },
+  "philippinenadler": {
+    "proj_string": "+proj=merc +R=1 +lon_0=0",
+    "parameters_1000px": [
+      5173.8152768024, -5213.824785201927, -10504.928156706283,
+      1977.5966842307873
+    ],
+    "coast_rmse_capped15_px": 1.0822261571884155,
+    "coast_median_px": 0.23252063989639282,
+    "coast_p90_px": 1.763028860092163,
+    "sample_count": 636,
+    "image_width": 2000,
+    "image_height": 3120,
+    "pixel_transform_native": [
+      10347.6305536048, -10427.649570403853, -21009.856313412565,
+      3955.1933684615747
+    ],
+    "transform_definition": "pixel_x=sx*projected_x+tx; pixel_y=sy*projected_y+ty",
+    "validation": "Odd interleaved Natural Earth 1:50m coastline samples withheld from affine fitting; neighboring samples are correlated. P90 cartographic coastline agreement within review_bounds, normalized to 1000 source pixels. Whole-source overlay visually reviewed.",
+    "controls": [
+      [120.59, 18.5, 798.0, 504.0],
+      [122.15, 18.53, 1060.0, 524.0],
+      [126.2, 6.27, 1784.0, 2796.0],
+      [117.2, 8.4, 154.0, 2400.0],
+      [125.58, 5.56, 1680.0, 2942.0]
+    ],
+    "review_bounds": [116, 5, 127, 20],
+    "registrationBasemapPath": "data/ranges/world.geojson",
+    "registrationBasemapSha256": "3e458fc036ad0a66411f2c1e6cac49c5d7bfb81cb1123bc513b22511a2b7fdeb"
   }
 }
