@@ -200,7 +200,7 @@ export default function StyleguideView() {
 
   return (
     <div className="app-shell section-shell">
-      <main className="sg-main max-w-[1360px] mx-auto page-content">
+      <main className="sg-main w-full page-content">
         <header className="sg-heading mb-section">
           <h1 className="page-title font-(family-name:--font-stack-display) text-(length:--type-page-title) font-(--weight-semibold) leading-(--leading-display) tracking-(--tracking-tight)">
             Design-System

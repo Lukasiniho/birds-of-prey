@@ -57,7 +57,7 @@ export default function FalconryExplorer({ species }: { species: Species[] }) {
   return (
     <div className="app-shell section-shell falconry-shell">
       <SiteHeader activeSection="falknerei" />
-      <main className="falconry-main max-w-[1440px] my-0 mx-auto page-content">
+      <main className="falconry-main w-full page-content">
         <header className="falconry-heading to-tablet:mb-section mb-section">
           <h1 className="page-title font-(family-name:--font-stack-display) text-(length:--type-page-title) font-(--weight-semibold) leading-(--leading-display) tracking-(--tracking-tight)">
             Falknerei kennenlernen

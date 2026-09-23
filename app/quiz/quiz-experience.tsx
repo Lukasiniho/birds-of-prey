@@ -138,6 +138,10 @@ export default function QuizExperience({
   }, [showResults, ready]);
 
   const completed = Object.keys(answers).length;
+  const totalPoints = Object.values(answers).reduce(
+    (total, answer) => total + answer.points,
+    0,
+  );
   const countSelect = (
     <Select
       value={String(questionCount)}
@@ -287,7 +291,7 @@ export default function QuizExperience({
       <div className="app-shell section-shell quiz-shell bg-background text-foreground">
         <SiteHeader activeSection="quiz" />
         <main
-          className="q-main max-w-[1360px] mx-auto px-page pt-page pb-section q-start-main grid items-start justify-items-center flex-1"
+          className="q-main w-full px-page pt-page pb-section q-start-main grid items-start justify-items-center flex-1"
           ref={mainRef}
         >
           <QuizSplit
@@ -377,7 +381,7 @@ export default function QuizExperience({
         className={cn(
           'q-main mx-auto',
           showResults
-            ? 'page-content max-w-[1360px]'
+            ? 'page-content'
             : 'q-main-active max-w-none pt-2 px-section pb-[calc(var(--answer-bar-height,80px)+var(--section-gap))]',
         )}
         ref={mainRef}
@@ -393,7 +397,7 @@ export default function QuizExperience({
           />
         ) : (
           <>
-            <div className="q-round-navigation to-tablet:grid-cols-[var(--control-height-compact)_minmax(0,1fr)_var(--control-height-compact)] to-tablet:grid to-tablet:gap-2 to-tablet:h-(--control-height-compact) flex items-center justify-center h-6 mb-2">
+            <div className="q-round-navigation to-tablet:grid-cols-[var(--control-height-compact)_minmax(0,1fr)_var(--control-height-compact)] to-tablet:grid to-tablet:gap-2 to-tablet:h-(--control-height-compact) to-tablet:py-0 flex items-center justify-between gap-4 py-4 mb-2">
               <Button
                 className="q-mobile-exit hidden to-tablet:inline-flex to-tablet:size-(--control-height-compact) to-tablet:border-0 to-tablet:p-0"
                 variant="ghost"
@@ -405,7 +409,7 @@ export default function QuizExperience({
               </Button>
               <div className="q-question-progress to-tablet:justify-self-center to-tablet:min-h-0 to-tablet:max-w-full to-tablet:min-w-0 flex items-center gap-3 min-w-0">
                 <p
-                  className="q-progress-label tabular-nums font-(family-name:--font-stack-body) text-(length:--type-caption) leading-(--leading-normal) font-(--weight-regular) text-muted-foreground whitespace-nowrap"
+                  className="q-progress-label tabular-nums font-(family-name:--font-stack-body) text-(length:--type-caption) from-tablet:text-(length:--type-ui) leading-(--leading-normal) font-(--weight-regular) text-muted-foreground whitespace-nowrap"
                   aria-live="polite"
                   aria-atomic="true"
                 >
@@ -426,13 +430,24 @@ export default function QuizExperience({
                       onClick={() => navigate(index)}
                     >
                       <span
-                        className="size-[7px] rounded-[50%] bg-current"
+                        className="size-[7px] from-tablet:size-2 rounded-[50%] bg-current"
                         aria-hidden="true"
                       />
                     </button>
                   ))}
                 </nav>
               </div>
+              <p
+                className="q-round-score to-tablet:hidden shrink-0 text-(length:--type-metric) tabular-nums text-success font-(--weight-semibold) leading-(--leading-display) whitespace-nowrap text-right"
+                aria-live="polite"
+                aria-atomic="true"
+              >
+                <span className="sr-only">Gesamtpunktzahl: </span>
+                {totalPoints}{' '}
+                <span className="text-(length:--type-ui) text-inherit font-(--weight-regular)">
+                  Punkte
+                </span>
+              </p>
             </div>
             <div className="q-workspace rounded-(--radius-surface) bg-surface shadow-(--shadow-none) overflow-hidden">
               <div key={`question-${question.id}`} className="q-question-scene">

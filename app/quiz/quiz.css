@@ -140,7 +140,7 @@
   color: var(--q-state-color);
 }
 .q-answer-content {
-  height: calc(5rem + env(safe-area-inset-bottom));
+  height: calc(5rem + env(safe-area-inset-bottom) - var(--border-structure));
 }
 .q-primary[data-slot] {
   background: var(--main-color);
@@ -190,15 +190,13 @@
 @media (max-width: 760px) {
   .q-answer-content {
     height: calc(
-      3rem + var(--space-12) * 2 + var(--border-structure) +
-        env(safe-area-inset-bottom)
+      3rem + var(--space-12) * 2 + env(safe-area-inset-bottom)
     );
   }
   .q-answer-content[data-open='true'] {
     /* The feedback row spans from the panel's top edge to the button itself. */
     height: calc(
-      7rem + var(--space-12) * 2 + var(--border-structure) +
-        env(safe-area-inset-bottom)
+      7rem + var(--space-12) * 2 + env(safe-area-inset-bottom)
     );
   }
   /* transitions.dev card resize: the bottom edge stays anchored. */

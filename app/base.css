@@ -60,6 +60,10 @@ a {
   min-height: 100dvh;
   --site-header-height: 58px;
 }
+.section-shell > main {
+  max-width: var(--site-max-width);
+  margin-inline: auto;
+}
 
 /* Reduced motion applies across every route, including portals and pseudo-elements. */
 @media (prefers-reduced-motion: reduce) {

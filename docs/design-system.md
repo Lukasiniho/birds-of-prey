@@ -214,8 +214,19 @@ haben überall 4 px Innenabstand und 8 px zwischen Porträt und Name; das
 Porträt misst 64 px in Auswahllisten (`--species-row-portrait`) und 48 px im
 Fließtext (`--species-row-portrait-inline`, `data-size="inline"`). `--rail-section-gap`,
 `--rail-content-gap` und `--rail-caption-gap` sind Aliase auf 24/16/12 px.
-Maximale Inhaltsbreiten: Quiz 1360 px, Falknerei 1440 px. Wissen nutzt die volle
-Seitenbreite mit dem gemeinsamen Seitenrand. Glossareinträge haben nur vertikales
+Die Inhalte von Wissen, Quiz, Falknerei und Styleguide sind über
+`--site-max-width` auf 1600 px begrenzt und zentriert. Die Grenze liegt an den
+Hauptinhalten der `.section-shell`, nicht am `body`. Die Kopfzeile samt
+Logo, Navigation und unterer Trennlinie nutzt auf allen Seiten die volle
+Fensterbreite mit einheitlich 12 px Seitenabstand (`--atlas-gutter`), ohne
+Maximalbreite. Der Atlasinhalt und die
+Vollbildseiten bleiben über die gesamte Fensterbreite ausgedehnt, mit ihren
+bestehenden Seitenrändern. Die Inhalte der fixen Quiz-Antwortleiste teilen die 1600-px-Grenze
+und Zentrierung; ihre weiße Fläche, obere Trennlinie und ihr Schatten füllen
+die Fensterbreite. Die Trennlinie liegt am äußeren Balken und zählt zur
+bestehenden Gesamthöhe, damit die Buttonpositionen unverändert bleiben.
+Unterhalb davon füllt die Seite die verfügbare Breite mit ihren bestehenden
+Seitenrändern. Glossareinträge haben nur vertikales
 Panel-Padding, damit ihre Texte links und rechts mit Tabs und Filterleiste fluchten.
 Spannweite und Gewicht teilen die Messwertbox in gleich breite Bereiche mit
 identischem Innenabstand; die Audio-Spalte ist separat, auch mobil.
@@ -284,7 +295,9 @@ Linienleiste bleibt dort, damit die Orientierungsregeln der Bibliothek sie nicht
 `SegmentedControl` legt die Pillenschiene in `.t-tabs-scroll`. Nur diese
 rechteckige Hülle scrollt bei Platzmangel; 4 px Polster mit ausgleichendem
 negativem Außenabstand halten den gemeinsamen äußeren Fokusring vollständig
-sichtbar. Die gerundete `.t-tabs`-Schiene selbst darf ihn nicht beschneiden.
+sichtbar. Die maximale Breite der Hülle umfasst zusätzlich beide 4-px-Polster,
+damit in schmalen Aktionsspalten weder die Rundung noch der Fokusring abgeschnitten
+wird. Die gerundete `.t-tabs`-Schiene selbst darf ihn nicht beschneiden.
 Alter und Morphen verwenden dieselbe Komponente und Scroll-Regel.
 
 Die gleitende Markierung `.t-tabs-pill` wird von `lib/use-sliding-pill.ts`
@@ -354,8 +367,14 @@ Stelle bricht, das Layout anpassen, nicht die Skala.
 ## Kopfzeile und Seiten
 
 Gemeinsamer Seitentitel: „Greifvogelkompass“. Jede Seite trägt `.page-title` an
-derselben Stelle. Die Kopfzeile folgt auf Quiz-, Wissens- und Falknereiseiten
-dem Seitenrand, im Atlas dem Atlas-Rand. Das Info-Menü zeigt Autorenlinks und
+derselben Stelle. Jede Kopfzeile setzt `--page-gutter` auf `--atlas-gutter`
+(12 px), unabhängig von Route und Bildschirmbreite. Logo und Aktionen stehen
+dadurch auf allen Seiten an denselben Außenrändern wie auf der Atlas-Hauptroute.
+Die Navigation samt unterer Trennlinie nutzt die volle Fensterbreite.
+Mobil erhalten die
+Aktionen ihre volle Breite; bei Platzmangel kürzt sich nur der Markenname mit
+Ellipse. Der vollständige Linkname bleibt für assistive Technik erhalten.
+Das Info-Menü zeigt Autorenlinks und
 Impressum unter einer nicht fetten Überschrift mit Projektnamen.
 
 ## Dropdowns
@@ -391,10 +410,19 @@ zweispaltigen Aufgaben sitzt die Antwortgruppe am unteren Innenrand. Die
 Fragenzahl wird auf der Startseite vor dem Start gewählt. Während der Runde
 sind Kopfzeile und Seitentitel ausgeblendet. Der Quizbereich nutzt die volle
 Seitenbreite mit 32 px Außenabstand links und rechts (`--section-gap`).
-Die 24 px hohe Fortschrittszeile sitzt mittig über der Fragebox, mit exakt
-8 px Abstand nach oben zum Seitenrand und nach unten zur Box. Mobil ist die
-Zeile 30 px hoch: links sitzt Abbrechen als Zurück-Pfeil, der Fortschritt
-bleibt mittig. Unten nutzt der rahmenlose Antwortbutton mobil die volle Breite.
+Die Fortschrittszeile sitzt über der Fragebox. Auf Desktop verwendet der Zähler
+`--type-ui` (14 px), die Punkte `--space-8` (8 px). Mobil bleiben der Zähler bei
+`--type-caption` (12 px) und die Punkte bei ihrer bisherigen 7-px-Geometrie.
+Auf Desktop stehen die
+Fortschrittsindikatoren am linken Rand und die laufende Gesamtpunktzahl am
+rechten Rand, bündig mit der Fragebox. Die Punktzahl verwendet `--type-metric`
+(32 px), `--weight-semibold` (600) und `--success`; „Punkte“ bleibt daneben in der
+kleineren UI-Rolle, mit normalem Gewicht und derselben grünen Farbe.
+Die Zeile hat je 16 px vertikales Padding (`--space-16`) und je 8 px
+Abstand nach oben zum Seitenrand und nach unten zur Box. Mobil entfallen
+Padding und Gesamtpunktzahl, und die Zeile bleibt 30 px hoch: links sitzt
+Abbrechen als Zurück-Pfeil, der Fortschritt bleibt mittig. Unten nutzt der
+rahmenlose Antwortbutton mobil die volle Breite.
 Auf Desktop bleibt die Antwortleiste 80 px hoch, zuzüglich Safe Area.
 Zurück- und Antwortbutton sind dort gleich hoch (48 px). „Zurück“ ist nur
 so breit wie Linkspfeil, Text und Innenabstand; der Antwortbutton bleibt 224 px
@@ -416,6 +444,8 @@ bildet eine Grid-Zeile ohne zusätzliches Padding oder Gap. Der Button bleibt am
 genau eine kompakte Ergebniszeile (maximal 80 Zeichen, keine Merkmalsabsätze).
 Bei Platzmangel kürzt die Anzeige mit Ellipse, ohne Zeilenumbruch oder Scrollen;
 der vollständige Kurztext bleibt im DOM und als Titel erhalten.
+Gesamtpunktzahl und verdiente Punkte verwenden dieselbe Zahlenrolle:
+`--type-metric` (32 px), `--weight-semibold` (600), `--leading-display` und `--success`.
 `npm run test:quiz-feedback` prüft die Texte aller Aufgabentypen. „Punkte“
 steht ohne zusätzlichen Abstand unter der Zahl und übernimmt deren grüne Farbe.
 Der Desktop-Button bleibt vertikal zentriert.

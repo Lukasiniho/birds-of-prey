@@ -62,7 +62,7 @@ export function QuizFeedback({ points, text }: QuizFeedbackProps) {
           {text}
         </p>
       </div>
-      <span className="q-points-earned text-(length:--type-metric) tabular-nums text-success font-(--weight-medium) leading-(--leading-display) whitespace-nowrap text-right">
+      <span className="q-points-earned text-(length:--type-metric) tabular-nums text-success font-(--weight-semibold) leading-(--leading-display) whitespace-nowrap text-right">
         +{points}
         <small className="text-(length:--type-ui) text-inherit block mt-0 font-(--weight-regular) leading-(--leading-display)">
           Punkte

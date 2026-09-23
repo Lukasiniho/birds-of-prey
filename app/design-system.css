@@ -18,6 +18,7 @@
   --pill-height-large: var(--control-height);
   --header-control-height: var(--control-height);
   --page-gutter: var(--space-40);
+  --site-max-width: 1600px;
   --atlas-gutter: var(--space-12);
   --section-gap: var(--space-32);
   --panel-padding: var(--space-24);
@@ -56,7 +57,7 @@
   }
 }
 
-/* The atlas header aligns with its species rail, not the editorial page gutter. */
+/* Every navbar uses the main route's compact gutter. */
 .site-header {
   --page-gutter: var(--atlas-gutter);
 }

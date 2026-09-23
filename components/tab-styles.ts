@@ -5,8 +5,9 @@ const trigger =
 const pill = 't-tabs-pill absolute left-0 w-0 z-0 pointer-events-none';
 
 export const tabStyles = {
+  // Include the focus padding in the cap; negative margins keep the rail aligned.
   scroll:
-    't-tabs-scroll flex min-w-0 max-w-full p-1 -m-1 overflow-x-auto scroll-px-2',
+    't-tabs-scroll flex min-w-0 max-w-[calc(100%+2*var(--space-4))] p-1 -m-1 overflow-x-auto scroll-px-2',
   pillRail: `${rail} inline-flex gap-[3px] h-auto p-[3px]`,
   lineRail: `${rail} t-tabs-line flex justify-start w-full gap-6 p-0 to-tablet:overflow-x-auto to-tablet:overflow-y-hidden to-tablet:[scrollbar-width:none] to-tablet:[-webkit-overflow-scrolling:touch] to-tablet:scroll-px-4`,
   pillTrigger: `${trigger} h-(--control-height-compact) py-1 px-[13px]`,
