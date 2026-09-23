@@ -29,3 +29,27 @@ void test('All species belong to the genus named by their binomial', () => {
           assert.equal(species.latin.split(' ')[0], genus.latin);
       }
 });
+
+void test('Branch counts include all and only atlas descendants and every species has a German name', async () => {
+  const { taxonomyRoot, taxonomyPath } = await import('../lib/taxonomy.ts');
+  const walk = (node: typeof taxonomyRoot): number => {
+    if (!node.children.length) {
+      assert.ok(node.name && node.name !== node.latin, node.latin);
+      return node.birdId ? 1 : 0;
+    }
+    const count = node.children.reduce((sum, child) => sum + walk(child), 0);
+    assert.equal(node.atlasCount, count, node.latin);
+    assert.equal(
+      node.totalCount,
+      node.children.reduce((sum, child) => sum + child.totalCount, 0),
+    );
+    return count;
+  };
+  assert.equal(walk(taxonomyRoot), birds.length);
+  assert.equal(taxonomyRoot.totalCount, 589);
+  for (const bird of birds) {
+    const path = taxonomyPath(bird.id);
+    assert.equal(path.length, 5);
+    assert.equal(path.at(-1), bird.latin);
+  }
+});

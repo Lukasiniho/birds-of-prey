@@ -9,7 +9,6 @@ import {
   filterGlossary,
   glossaryCategories,
   glossaryEntries,
-  glossaryHref,
   type GlossaryCategory,
 } from '@/lib/glossary';
 
@@ -43,11 +42,6 @@ export default function GlossaryExplorer() {
     });
     return () => window.cancelAnimationFrame(frame);
   }, [selected, selectedVisible]);
-
-  function choose(id: string) {
-    window.history.pushState(window.history.state, '', glossaryHref(id));
-    window.dispatchEvent(new PopStateEvent('popstate'));
-  }
 
   return (
     <section className="grid gap-6" aria-labelledby="glossary-heading">
@@ -123,23 +117,7 @@ export default function GlossaryExplorer() {
               data-selected={entry.id === selected}
             >
               <dt className="font-(family-name:--font-stack-display) text-(length:--type-detail-heading) font-(--weight-label-heading) leading-(--leading-heading)">
-                <a
-                  href={glossaryHref(entry.id)}
-                  onClick={(event) => {
-                    if (
-                      event.button === 0 &&
-                      !event.metaKey &&
-                      !event.ctrlKey &&
-                      !event.shiftKey &&
-                      !event.altKey
-                    ) {
-                      event.preventDefault();
-                      choose(entry.id);
-                    }
-                  }}
-                >
-                  {entry.term}
-                </a>
+                {entry.term}
               </dt>
               <dd className="grid gap-2 text-(length:--type-body) leading-(--leading-relaxed)">
                 <span className="text-(length:--type-caption) text-muted-foreground">

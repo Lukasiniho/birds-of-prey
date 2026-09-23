@@ -77,6 +77,8 @@ das Raster der Antwortleiste, während die mobile Höhenanimation in Quiz-CSS bl
 `BirdSearch` teilt Suche und Löschaktion zwischen Kopfzeile und Artenauswahl.
 `KnowledgeBirdGroup` bildet die gemeinsamen Artenlisten in Nahrung und Jagdweisen.
 `SpeciesName` hält die Textrollen seiner Varianten direkt an den Namenselementen.
+Die Variante `compact` zeigt Arten ohne Atlas-Porträt in Grau mit `--type-body`
+für den deutschen Namen und `--type-caption` für den wissenschaftlichen Namen.
 `MeasurementStrip` regelt das Raster und die optionale Ruf-Spalte; die Zellen
 wählen ihre kompakte Darstellung über `withAudio`. `EcologyTag` teilt die
 Geometrie von Statuslabels, Wissenslinks und Regionsauswahl.

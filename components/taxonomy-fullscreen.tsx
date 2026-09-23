@@ -1,14 +1,15 @@
 'use client';
 
 import { useEffect, useRef, useState, type ReactNode } from 'react';
-import taxonomy from '@/data/taxonomy.json';
 import { birds } from '@/lib/birds';
+import { taxonomyRoot, taxonomyPath, type TaxonomyNode } from '@/lib/taxonomy';
 import { birdHref } from '@/lib/bird-routes';
 import { portraitImages } from '@/lib/portrait-images';
 import { SpeciesRowLink } from '@/components/species-row';
-import { SpeciesScientificName } from '@/components/species-name';
+import { SpeciesName } from '@/components/species-name';
 import { CaretRight, X } from '@/components/icons';
 import { Button } from '@/components/ui/button';
+import { SegmentedControl } from '@/components/segmented-control';
 import {
   Dialog,
   DialogTrigger,
@@ -19,169 +20,262 @@ import {
 } from '@/components/ui/dialog';
 import { fullscreenSurface } from '@/components/fullscreen-styles';
 
-const byLatin = new Map(birds.map((bird) => [bird.latin, bird]));
+const byId = new Map(birds.map((bird) => [bird.id, bird]));
+type View = 'tree' | 'list';
+const views = [
+  { value: 'tree', label: 'Baum' },
+  { value: 'list', label: 'Liste' },
+] as const;
 
-function Branch({
-  latin,
-  name,
-  rank,
-  open,
-  children,
-}: {
-  latin: string;
-  name?: string;
-  rank: string;
-  open: boolean;
-  children: ReactNode;
-}) {
+type NodeProps = {
+  node: TaxonomyNode;
+  view: View;
+  expanded: Set<string>;
+  selected: string;
+  onToggle: (latin: string) => void;
+  onSelect: (id: string) => void;
+};
+function Taxon({
+  node,
+  view,
+  expanded,
+  selected,
+  onToggle,
+  onSelect,
+}: NodeProps) {
+  const horizontal = view === 'tree';
+  const hasChildren = node.children.length > 0;
+  const isOpen = expanded.has(node.latin);
+  const bird = node.birdId ? byId.get(node.birdId) : undefined;
+  const selectedRef = useRef<HTMLDivElement>(null);
+  useEffect(() => {
+    if (node.birdId !== selected) return;
+    const frame = requestAnimationFrame(() =>
+      selectedRef.current?.scrollIntoView({
+        block: 'center',
+        inline: 'nearest',
+      }),
+    );
+    return () => cancelAnimationFrame(frame);
+  }, [node.birdId, selected, view]);
+  const panelId = `taxon-${node.latin.replaceAll(' ', '-')}`;
   return (
-    <details open={open} className="min-w-0 [&[open]>summary>svg]:rotate-90">
-      <summary className="flex cursor-pointer list-none items-center gap-2 rounded-control px-2 py-3 hover:bg-accent [&::-webkit-details-marker]:hidden">
-        <CaretRight className="size-4 shrink-0" />
-        <span className="min-w-0 flex-1 break-words">
-          <span className="block font-(--weight-semibold)">
-            {name ?? latin}
-          </span>
-          {name && (
-            <span className="text-(length:--type-caption) text-muted-foreground">
-              {latin}
-            </span>
+    <div className={horizontal ? 'flex w-max items-center' : 'min-w-0'}>
+      <div
+        ref={selectedRef}
+        className={
+          horizontal
+            ? hasChildren
+              ? isOpen
+                ? 'w-60 self-stretch shrink-0'
+                : 'w-52 self-stretch shrink-0'
+              : bird
+                ? 'w-64 shrink-0'
+                : 'w-52 shrink-0'
+            : ''
+        }
+      >
+        <div
+          className={`${horizontal && hasChildren ? 'sticky top-[calc(50%-var(--space-32))] flex items-center' : 'relative'} ${horizontal && node.latin !== 'Aves' ? 'before:absolute before:-left-8 before:top-1/2 before:w-8 before:border-t before:border-border' : ''}`}
+        >
+          {hasChildren ? (
+            <button
+              type="button"
+              aria-expanded={isOpen}
+              aria-controls={panelId}
+              onClick={() => onToggle(node.latin)}
+              className={`flex w-full items-center gap-2 rounded-control p-3 text-left hover:bg-accent ${horizontal ? 'border border-border bg-background' : ''}`}
+            >
+              <CaretRight
+                className={`size-4 shrink-0 ${isOpen ? 'rotate-90' : ''}`}
+              />
+              <span className="min-w-0 flex-1">
+                <span className="block text-(length:--type-caption) text-muted-foreground">
+                  {node.rank}
+                </span>
+                <span className="block wrap-anywhere font-(--weight-semibold)">
+                  {node.name ?? node.latin}
+                </span>
+                {node.name && (
+                  <span className="block text-(length:--type-caption) text-muted-foreground">
+                    {node.latin}
+                  </span>
+                )}
+                <span className="mt-1 block text-(length:--type-caption) text-muted-foreground">
+                  <span
+                    className={
+                      node.atlasCount
+                        ? 'text-primary font-(--weight-semibold)'
+                        : ''
+                    }
+                  >
+                    {node.atlasCount} im Atlas
+                  </span>{' '}
+                  · {node.totalCount} {node.totalCount === 1 ? 'Art' : 'Arten'}
+                </span>
+              </span>
+            </button>
+          ) : bird ? (
+            <SpeciesRowLink
+              portrait={portraitImages[bird.id]}
+              name={bird.name}
+              latin={bird.latin}
+              href={birdHref(bird)}
+              size="inline"
+              aria-current={bird.id === selected ? 'page' : undefined}
+              className={bird.id === selected ? 'bg-accent' : ''}
+              onClick={(event) => {
+                if (
+                  event.metaKey ||
+                  event.ctrlKey ||
+                  event.shiftKey ||
+                  event.altKey
+                )
+                  return;
+                event.preventDefault();
+                onSelect(bird.id);
+              }}
+            />
+          ) : (
+            <div
+              className="px-2 py-1"
+              aria-label={`${node.name}, ${node.latin}, ohne Porträt`}
+            >
+              <SpeciesName
+                name={node.name}
+                latin={node.latin}
+                variant="compact"
+              />
+            </div>
           )}
-        </span>
-        <span className="text-(length:--type-caption) text-muted-foreground">
-          {rank}
-        </span>
-      </summary>
-      <div className="ml-3 border-l border-border pl-3 sm:ml-5 sm:pl-5">
-        {children}
+          {horizontal && hasChildren && isOpen && (
+            <span
+              aria-hidden="true"
+              className="w-8 shrink-0 border-t border-border"
+            />
+          )}
+        </div>
       </div>
-    </details>
+      {hasChildren && (
+        <div id={panelId} hidden={!isOpen}>
+          {isOpen && (
+            <div
+              className={
+                horizontal
+                  ? 'flex items-center'
+                  : 'ml-3 border-l border-border pl-3 sm:ml-5 sm:pl-5'
+              }
+            >
+              <ul
+                className={
+                  horizontal ? 'flex flex-col' : 'flex flex-col gap-2 py-2'
+                }
+              >
+                {node.children.map((child) => (
+                  <li
+                    key={child.latin}
+                    className={
+                      horizontal
+                        ? `relative py-2 pl-8 before:absolute before:left-0 before:top-0 before:bottom-0 before:border-l before:border-border ${child.children.length ? '' : 'first:before:top-1/2 last:before:bottom-1/2'}`
+                        : ''
+                    }
+                  >
+                    <Taxon
+                      node={child}
+                      view={view}
+                      expanded={expanded}
+                      selected={selected}
+                      onToggle={onToggle}
+                      onSelect={onSelect}
+                    />
+                  </li>
+                ))}
+              </ul>
+            </div>
+          )}
+        </div>
+      )}
+    </div>
   );
 }
 
-function TaxonomyTree({
+function TaxonomyExplorer({
   selected,
   onSelect,
 }: {
   selected: string;
   onSelect: (id: string) => void;
 }) {
-  const current = birds.find((bird) => bird.id === selected)!;
-  const selectedRef = useRef<HTMLDivElement>(null);
-  useEffect(() => {
-    const frame = requestAnimationFrame(() =>
-      selectedRef.current?.scrollIntoView({ block: 'center' }),
-    );
-    return () => cancelAnimationFrame(frame);
-  }, []);
+  const [view, setView] = useState<View>('tree');
+  const [expanded, setExpanded] = useState(
+    () => new Set(taxonomyPath(selected)),
+  );
+  const onToggle = (latin: string) =>
+    setExpanded((previous) => {
+      const next = new Set(previous);
+      if (next.has(latin)) next.delete(latin);
+      else next.add(latin);
+      return next;
+    });
   return (
-    <div
-      className="min-h-0 overflow-y-auto overscroll-contain pr-2"
-      aria-label="Taxonomische Einordnung"
-    >
-      <div className="mx-auto w-full max-w-4xl">
-        <p className="mb-3 text-(length:--type-caption) text-muted-foreground">
-          Klasse Vögel · Aves
-        </p>
-        {taxonomy.map((order) => (
-          <Branch
-            key={order.latin}
-            {...order}
-            rank="Ordnung"
-            open={order.families.some((f) =>
-              f.genera.some((g) =>
-                g.species.some((s) => s.latin === current.latin),
-              ),
-            )}
-          >
-            {order.families.map((family) => (
-              <Branch
-                key={family.latin}
-                {...family}
-                rank="Familie"
-                open={family.genera.some((g) =>
-                  g.species.some((s) => s.latin === current.latin),
-                )}
-              >
-                {family.genera.map((genus) => (
-                  <Branch
-                    key={genus.latin}
-                    latin={genus.latin}
-                    rank="Gattung"
-                    open={genus.species.some((s) => s.latin === current.latin)}
-                  >
-                    <ul className="flex flex-col gap-2 py-2">
-                      {genus.species.map((species) => {
-                        const bird = byLatin.get(species.latin);
-                        return (
-                          <li key={species.latin}>
-                            {bird ? (
-                              <div
-                                ref={
-                                  bird.id === selected ? selectedRef : undefined
-                                }
-                                className={
-                                  bird.id === selected
-                                    ? 'rounded-control bg-accent'
-                                    : ''
-                                }
-                              >
-                                <SpeciesRowLink
-                                  portrait={portraitImages[bird.id]}
-                                  name={bird.name}
-                                  latin={bird.latin}
-                                  href={birdHref(bird)}
-                                  size="inline"
-                                  aria-current={
-                                    bird.id === selected ? 'page' : undefined
-                                  }
-                                  onClick={(event) => {
-                                    if (
-                                      event.metaKey ||
-                                      event.ctrlKey ||
-                                      event.shiftKey ||
-                                      event.altKey
-                                    )
-                                      return;
-                                    event.preventDefault();
-                                    onSelect(bird.id);
-                                  }}
-                                />
-                              </div>
-                            ) : (
-                              <div
-                                className="px-2 py-1 text-muted-foreground"
-                                aria-label={`${species.latin}, ohne Porträt`}
-                              >
-                                <SpeciesScientificName>
-                                  {species.latin}
-                                </SpeciesScientificName>
-                              </div>
-                            )}
-                          </li>
-                        );
-                      })}
-                    </ul>
-                  </Branch>
-                ))}
-              </Branch>
-            ))}
-          </Branch>
-        ))}
-        <p className="mt-6 text-(length:--type-caption) text-muted-foreground">
-          Die fünf Ordnungen unserer Arten · Systematik:{' '}
-          <a
-            className="text-primary"
-            href="https://doi.org/10.2173/avilist.v2025b"
-            target="_blank"
-            rel="noreferrer"
-          >
-            AviList v2025b
-          </a>
-          , AviList Core Team (2026), CC BY 4.0. Auf Ordnungen, Familien,
-          Gattungen und Arten gekürzt.
+    <div className="flex min-h-0 min-w-0 flex-col gap-3">
+      <div className="flex flex-wrap items-center justify-between gap-3">
+        <SegmentedControl
+          label="Darstellung"
+          group="taxonomy"
+          value={view}
+          options={views}
+          onChange={setView}
+        />
+        <p className="text-(length:--type-caption) text-muted-foreground">
+          {taxonomyRoot.atlasCount} im Atlas · {taxonomyRoot.totalCount} Arten
+          insgesamt
         </p>
       </div>
+      <div
+        className="min-h-0 flex-1 overflow-auto overscroll-contain p-2"
+        aria-label={
+          view === 'tree' ? 'Horizontaler Systematikbaum' : 'Systematikliste'
+        }
+      >
+        <div
+          className={
+            view === 'tree'
+              ? 'w-max min-w-full py-6'
+              : 'mx-auto w-full max-w-4xl'
+          }
+        >
+          <Taxon
+            node={taxonomyRoot}
+            view={view}
+            expanded={expanded}
+            selected={selected}
+            onToggle={onToggle}
+            onSelect={onSelect}
+          />
+        </div>
+      </div>
+      <p className="text-(length:--type-caption) text-muted-foreground">
+        Systematik:{' '}
+        <a
+          className="text-primary"
+          href="https://doi.org/10.2173/avilist.v2025b"
+          target="_blank"
+          rel="noreferrer"
+        >
+          AviList v2025b
+        </a>{' '}
+        (CC BY 4.0) · Deutsche Namen:{' '}
+        <a
+          className="text-primary"
+          href="https://github.com/tphakala/openfauna"
+          target="_blank"
+          rel="noreferrer"
+        >
+          OpenFauna / BirdNET, Cornell Lab & IOC
+        </a>{' '}
+        (CC BY-SA 4.0).
+      </p>
     </div>
   );
 }
@@ -196,7 +290,7 @@ export function TaxonomyFullscreen({
   children: ReactNode;
 }) {
   const [open, setOpen] = useState(false);
-  const bird = birds.find((item) => item.id === selected)!;
+  const bird = byId.get(selected)!;
   return (
     <Dialog open={open} onOpenChange={setOpen}>
       <DialogTrigger
@@ -216,8 +310,8 @@ export function TaxonomyFullscreen({
             Systematik der Vögel
           </DialogTitle>
           <DialogDescription className="mt-2 text-(length:--type-body)">
-            Entdecke die Verwandtschaft unserer {birds.length} Arten. Mit
-            Porträt: im Atlas öffnen. Klein und grau: ohne Porträt.
+            Von der Ordnung bis zur Art. Äste aufklappen und Arten mit Porträt
+            im Atlas öffnen.
           </DialogDescription>
         </div>
         <DialogClose
@@ -233,7 +327,7 @@ export function TaxonomyFullscreen({
           <X />
         </DialogClose>
         {open && (
-          <TaxonomyTree
+          <TaxonomyExplorer
             selected={selected}
             onSelect={(id) => {
               onSelect(id);
