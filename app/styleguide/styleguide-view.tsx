@@ -102,7 +102,7 @@ const trackings = [
 const spaces = [2, 4, 8, 12, 16, 20, 24, 32, 40] as const;
 
 const layoutRoles = [
-  ['--page-gutter', 'Seitenrand', '40 px / mobil 20 px'],
+  ['--page-gutter', 'Seitenrand', '12 px'],
   ['--section-gap', 'Abstand zwischen Abschnitten', '32 px'],
   ['--panel-padding', 'Panel-Innenabstand', '24 px / mobil 16 px'],
   ['--atlas-gutter', 'Atlas-Außenabstand', '12 px'],
@@ -150,7 +150,7 @@ const easings = [
 
 const breakpoints = [
   ['640 px', 'Telefon: einspaltig, Messwerte gestapelt'],
-  ['760 px', 'Tablet hochkant: mobile Kopfzeile, Rand 20 px'],
+  ['760 px', 'Tablet hochkant: mobile Kopfzeile, kompakte Panels'],
   ['980 px', 'Atlas einspaltig, Seitenspalten schmaler'],
   ['1190 px', 'Breite Layouts werden kompakter'],
   ['1600 px', 'Sehr breite Bildschirme: Spalten wachsen'],

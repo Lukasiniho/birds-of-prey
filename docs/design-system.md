@@ -195,19 +195,22 @@ Browser-Basisschrift. Rahmen und Radien bleiben geometrische px-Werte.
 | `--space-8`  |         8 px | Icon/Text, kleine Listen und Controls           |
 | `--space-12` |        12 px | Textanschluss, kompakte Controls                |
 | `--space-16` |        16 px | Karten, kompakte Panels, Grid-Abstände          |
-| `--space-20` |        20 px | Mittlere Inhaltsabstände, mobiler Seitenrand    |
+| `--space-20` |        20 px | Mittlere Inhaltsabstände                       |
 | `--space-24` |        24 px | Panel-Innenabstand, zusammengehörige Abschnitte |
 | `--space-32` |        32 px | Seitenabschnitte und Seitenkopf-Abstand         |
-| `--space-40` |        40 px | Seitenrand auf Desktop                          |
+| `--space-40` |        40 px | Große Inhaltsabstände                           |
 
 | Rolle                     | Desktop | Bis 760 px |
 | ------------------------- | ------: | ---------: |
-| `--page-gutter`           |   40 px |      20 px |
+| `--page-gutter`           |   12 px |      12 px |
 | `--section-gap`           |   32 px |      32 px |
 | `--panel-padding`         |   24 px |      16 px |
 | `--panel-padding-compact` |   16 px |      16 px |
 
 `.page-content` teilt Seitenabstände zwischen Quiz, Wissen und Falknerei.
+Beide Seitenränder betragen einheitlich 12 px (`--page-gutter`), ebenso in
+Kopfzeile, Quizaufgaben und Quiz-Antwortleiste. `--atlas-gutter` ist ein Alias
+derselben Rolle. Unterhalb der Maximalbreite fluchten Inhalt und Kopfzeile.
 `.detail-panel` teilt das Padding zwischen Atlas, Anatomie und Falknerei. Im
 Atlas richten sich Kopfleiste, Gruppierung und Gruppentitel mit
 `--atlas-gutter` (12 px) an der Artenleiste aus. Artenzeilen (`.species-row`)
@@ -339,7 +342,7 @@ messen ihre Position dynamisch; `prefers-reduced-motion` schaltet Übergänge ab
 | Wert    | Bedeutung                                           |
 | ------- | --------------------------------------------------- |
 | 640 px  | Telefon: einspaltig, Messwerte gestapelt            |
-| 760 px  | Tablet hochkant: mobile Kopfzeile, Seitenrand 20 px |
+| 760 px  | Tablet hochkant: mobile Kopfzeile, kompakte Panels |
 | 980 px  | Atlas wird einspaltig, Seitenspalten schmaler       |
 | 1190 px | Breite Layouts werden kompakter                     |
 | 1600 px | Sehr breite Bildschirme: Atlas-Spalten wachsen      |
@@ -368,7 +371,7 @@ Stelle bricht, das Layout anpassen, nicht die Skala.
 ## Kopfzeile und Seiten
 
 Gemeinsamer Seitentitel: „Greifvogelkompass“. Jede Seite trägt `.page-title` an
-derselben Stelle. Jede Kopfzeile setzt `--page-gutter` auf `--atlas-gutter`
+derselben Stelle. Jede Kopfzeile verwendet den gemeinsamen `--page-gutter`
 (12 px), unabhängig von Route und Bildschirmbreite. Logo und Aktionen stehen
 dadurch auf allen Seiten an denselben Außenrändern wie auf der Atlas-Hauptroute.
 Die Navigation samt unterer Trennlinie nutzt die volle Fensterbreite.
@@ -388,8 +391,8 @@ ARIA erkennbar.
 
 ## Quiz
 
-Die Startkarte hat oben denselben Seitenabstand wie links und rechts:
-`--page-gutter` (40 px auf Desktop, 20 px bis 760 px).
+Die Startkarte verwendet horizontal `--page-gutter` (12 px). Ihr oberer
+Abstand bleibt `--space-40` auf Desktop und `--space-20` bis 760 px.
 Der Starttitel nutzt 700 mit der zentralen optischen Display-Betonung
 `--display-emphasis-stroke`. Das dekorative Fragezeichen ist ein freies
 Phosphor-Regular-Symbol ohne Kreis, Schatten oder Duotone-Hinterlegung.

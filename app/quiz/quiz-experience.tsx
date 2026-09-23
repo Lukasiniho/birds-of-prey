@@ -291,7 +291,7 @@ export default function QuizExperience({
       <div className="app-shell section-shell quiz-shell bg-background text-foreground">
         <SiteHeader activeSection="quiz" />
         <main
-          className="q-main w-full px-page pt-page pb-section q-start-main grid items-start justify-items-center flex-1"
+          className="q-main w-full px-page pt-10 to-tablet:pt-5 pb-section q-start-main grid items-start justify-items-center flex-1"
           ref={mainRef}
         >
           <QuizSplit
@@ -382,7 +382,7 @@ export default function QuizExperience({
           'q-main mx-auto',
           showResults
             ? 'page-content'
-            : 'q-main-active max-w-none pt-2 px-section pb-[calc(var(--answer-bar-height,80px)+var(--section-gap))]',
+            : 'q-main-active max-w-none pt-2 px-page pb-[calc(var(--answer-bar-height,80px)+var(--section-gap))]',
         )}
         ref={mainRef}
       >
