@@ -1,0 +1,3046 @@
+[
+  {
+    "latin": "Accipitriformes",
+    "name": "Greifvögel",
+    "families": [
+      {
+        "latin": "Accipitridae",
+        "name": "Habichtartige",
+        "genera": [
+          {
+            "latin": "Gampsonyx",
+            "species": [
+              {
+                "latin": "Gampsonyx swainsonii",
+                "name": "Pearl Kite"
+              }
+            ]
+          },
+          {
+            "latin": "Chelictinia",
+            "species": [
+              {
+                "latin": "Chelictinia riocourii",
+                "name": "Scissor-tailed Kite"
+              }
+            ]
+          },
+          {
+            "latin": "Elanus",
+            "species": [
+              {
+                "latin": "Elanus leucurus",
+                "name": "White-tailed Kite"
+              },
+              {
+                "latin": "Elanus caeruleus",
+                "name": "Black-winged Kite"
+              },
+              {
+                "latin": "Elanus axillaris",
+                "name": "Black-shouldered Kite"
+              },
+              {
+                "latin": "Elanus scriptus",
+                "name": "Letter-winged Kite"
+              }
+            ]
+          },
+          {
+            "latin": "Polyboroides",
+            "species": [
+              {
+                "latin": "Polyboroides radiatus",
+                "name": "Madagascar Harrier-Hawk"
+              },
+              {
+                "latin": "Polyboroides typus",
+                "name": "African Harrier-Hawk"
+              }
+            ]
+          },
+          {
+            "latin": "Gypohierax",
+            "species": [
+              {
+                "latin": "Gypohierax angolensis",
+                "name": "Palm-nut Vulture"
+              }
+            ]
+          },
+          {
+            "latin": "Gypaetus",
+            "species": [
+              {
+                "latin": "Gypaetus barbatus",
+                "name": "Bearded Vulture"
+              }
+            ]
+          },
+          {
+            "latin": "Neophron",
+            "species": [
+              {
+                "latin": "Neophron percnopterus",
+                "name": "Egyptian Vulture"
+              }
+            ]
+          },
+          {
+            "latin": "Eutriorchis",
+            "species": [
+              {
+                "latin": "Eutriorchis astur",
+                "name": "Madagascar Serpent Eagle"
+              }
+            ]
+          },
+          {
+            "latin": "Leptodon",
+            "species": [
+              {
+                "latin": "Leptodon forbesi",
+                "name": "White-collared Kite"
+              },
+              {
+                "latin": "Leptodon cayanensis",
+                "name": "Grey-headed Kite"
+              }
+            ]
+          },
+          {
+            "latin": "Chondrohierax",
+            "species": [
+              {
+                "latin": "Chondrohierax wilsonii",
+                "name": "Cuban Kite"
+              },
+              {
+                "latin": "Chondrohierax uncinatus",
+                "name": "Hook-billed Kite"
+              }
+            ]
+          },
+          {
+            "latin": "Aviceda",
+            "species": [
+              {
+                "latin": "Aviceda cuculoides",
+                "name": "African Cuckoo-Hawk"
+              },
+              {
+                "latin": "Aviceda madagascariensis",
+                "name": "Madagascar Cuckoo-Hawk"
+              },
+              {
+                "latin": "Aviceda jerdoni",
+                "name": "Jerdon's Baza"
+              },
+              {
+                "latin": "Aviceda subcristata",
+                "name": "Pacific Baza"
+              },
+              {
+                "latin": "Aviceda leuphotes",
+                "name": "Black Baza"
+              }
+            ]
+          },
+          {
+            "latin": "Pernis",
+            "species": [
+              {
+                "latin": "Pernis apivorus",
+                "name": "European Honey Buzzard"
+              },
+              {
+                "latin": "Pernis ptilorhynchus",
+                "name": "Crested Honey Buzzard"
+              },
+              {
+                "latin": "Pernis celebensis",
+                "name": "Barred Honey Buzzard"
+              },
+              {
+                "latin": "Pernis steerei",
+                "name": "Philippine Honey Buzzard"
+              }
+            ]
+          },
+          {
+            "latin": "Elanoides",
+            "species": [
+              {
+                "latin": "Elanoides forficatus",
+                "name": "Swallow-tailed Kite"
+              }
+            ]
+          },
+          {
+            "latin": "Hamirostra",
+            "species": [
+              {
+                "latin": "Hamirostra melanosternon",
+                "name": "Black-breasted Buzzard"
+              }
+            ]
+          },
+          {
+            "latin": "Lophoictinia",
+            "species": [
+              {
+                "latin": "Lophoictinia isura",
+                "name": "Square-tailed Kite"
+              }
+            ]
+          },
+          {
+            "latin": "Henicopernis",
+            "species": [
+              {
+                "latin": "Henicopernis longicauda",
+                "name": "Long-tailed Honey Buzzard"
+              },
+              {
+                "latin": "Henicopernis infuscatus",
+                "name": "Black Honey Buzzard"
+              }
+            ]
+          },
+          {
+            "latin": "Sarcogyps",
+            "species": [
+              {
+                "latin": "Sarcogyps calvus",
+                "name": "Red-headed Vulture"
+              }
+            ]
+          },
+          {
+            "latin": "Trigonoceps",
+            "species": [
+              {
+                "latin": "Trigonoceps occipitalis",
+                "name": "White-headed Vulture"
+              }
+            ]
+          },
+          {
+            "latin": "Aegypius",
+            "species": [
+              {
+                "latin": "Aegypius monachus",
+                "name": "Cinereous Vulture"
+              }
+            ]
+          },
+          {
+            "latin": "Torgos",
+            "species": [
+              {
+                "latin": "Torgos tracheliotos",
+                "name": "Lappet-faced Vulture"
+              }
+            ]
+          },
+          {
+            "latin": "Necrosyrtes",
+            "species": [
+              {
+                "latin": "Necrosyrtes monachus",
+                "name": "Hooded Vulture"
+              }
+            ]
+          },
+          {
+            "latin": "Gyps",
+            "species": [
+              {
+                "latin": "Gyps bengalensis",
+                "name": "White-rumped Vulture"
+              },
+              {
+                "latin": "Gyps himalayensis",
+                "name": "Himalayan Vulture"
+              },
+              {
+                "latin": "Gyps africanus",
+                "name": "White-backed Vulture"
+              },
+              {
+                "latin": "Gyps indicus",
+                "name": "Indian Vulture"
+              },
+              {
+                "latin": "Gyps tenuirostris",
+                "name": "Slender-billed Vulture"
+              },
+              {
+                "latin": "Gyps coprotheres",
+                "name": "Cape Vulture"
+              },
+              {
+                "latin": "Gyps fulvus",
+                "name": "Griffon Vulture"
+              },
+              {
+                "latin": "Gyps rueppelli",
+                "name": "Rüppell's Vulture"
+              }
+            ]
+          },
+          {
+            "latin": "Spilornis",
+            "species": [
+              {
+                "latin": "Spilornis klossi",
+                "name": "Great Nicobar Serpent Eagle"
+              },
+              {
+                "latin": "Spilornis rufipectus",
+                "name": "Sulawesi Serpent Eagle"
+              },
+              {
+                "latin": "Spilornis kinabaluensis",
+                "name": "Mountain Serpent Eagle"
+              },
+              {
+                "latin": "Spilornis cheela",
+                "name": "Crested Serpent Eagle"
+              },
+              {
+                "latin": "Spilornis holospilus",
+                "name": "Philippine Serpent Eagle"
+              },
+              {
+                "latin": "Spilornis elgini",
+                "name": "Andaman Serpent Eagle"
+              }
+            ]
+          },
+          {
+            "latin": "Pithecophaga",
+            "species": [
+              {
+                "latin": "Pithecophaga jefferyi",
+                "name": "Philippine Eagle"
+              }
+            ]
+          },
+          {
+            "latin": "Terathopius",
+            "species": [
+              {
+                "latin": "Terathopius ecaudatus",
+                "name": "Bateleur"
+              }
+            ]
+          },
+          {
+            "latin": "Circaetus",
+            "species": [
+              {
+                "latin": "Circaetus fasciolatus",
+                "name": "Southern Banded Snake Eagle"
+              },
+              {
+                "latin": "Circaetus cinerascens",
+                "name": "Western Banded Snake Eagle"
+              },
+              {
+                "latin": "Circaetus spectabilis",
+                "name": "Congo Serpent Eagle"
+              },
+              {
+                "latin": "Circaetus beaudouini",
+                "name": "Beaudouin's Snake Eagle"
+              },
+              {
+                "latin": "Circaetus pectoralis",
+                "name": "Black-chested Snake Eagle"
+              },
+              {
+                "latin": "Circaetus cinereus",
+                "name": "Brown Snake Eagle"
+              },
+              {
+                "latin": "Circaetus gallicus",
+                "name": "Short-toed Snake Eagle"
+              }
+            ]
+          },
+          {
+            "latin": "Stephanoaetus",
+            "species": [
+              {
+                "latin": "Stephanoaetus coronatus",
+                "name": "Crowned Eagle"
+              }
+            ]
+          },
+          {
+            "latin": "Nisaetus",
+            "species": [
+              {
+                "latin": "Nisaetus nanus",
+                "name": "Wallace's Hawk-Eagle"
+              },
+              {
+                "latin": "Nisaetus kelaarti",
+                "name": "Legge's Hawk-Eagle"
+              },
+              {
+                "latin": "Nisaetus nipalensis",
+                "name": "Mountain Hawk-Eagle"
+              },
+              {
+                "latin": "Nisaetus alboniger",
+                "name": "Blyth's Hawk-Eagle"
+              },
+              {
+                "latin": "Nisaetus bartelsi",
+                "name": "Javan Hawk-Eagle"
+              },
+              {
+                "latin": "Nisaetus lanceolatus",
+                "name": "Sulawesi Hawk-Eagle"
+              },
+              {
+                "latin": "Nisaetus pinskeri",
+                "name": "Pinsker's Hawk-Eagle"
+              },
+              {
+                "latin": "Nisaetus philippensis",
+                "name": "Philippine Hawk-Eagle"
+              },
+              {
+                "latin": "Nisaetus cirrhatus",
+                "name": "Changeable Hawk-Eagle"
+              },
+              {
+                "latin": "Nisaetus floris",
+                "name": "Flores Hawk-Eagle"
+              }
+            ]
+          },
+          {
+            "latin": "Spizaetus",
+            "species": [
+              {
+                "latin": "Spizaetus tyrannus",
+                "name": "Black Hawk-Eagle"
+              },
+              {
+                "latin": "Spizaetus melanoleucus",
+                "name": "Black-and-white Hawk-Eagle"
+              },
+              {
+                "latin": "Spizaetus ornatus",
+                "name": "Ornate Hawk-Eagle"
+              },
+              {
+                "latin": "Spizaetus isidori",
+                "name": "Black-and-chestnut Eagle"
+              }
+            ]
+          },
+          {
+            "latin": "Lophotriorchis",
+            "species": [
+              {
+                "latin": "Lophotriorchis kienerii",
+                "name": "Rufous-bellied Eagle"
+              }
+            ]
+          },
+          {
+            "latin": "Polemaetus",
+            "species": [
+              {
+                "latin": "Polemaetus bellicosus",
+                "name": "Martial Eagle"
+              }
+            ]
+          },
+          {
+            "latin": "Lophaetus",
+            "species": [
+              {
+                "latin": "Lophaetus occipitalis",
+                "name": "Long-crested Eagle"
+              }
+            ]
+          },
+          {
+            "latin": "Ictinaetus",
+            "species": [
+              {
+                "latin": "Ictinaetus malaiensis",
+                "name": "Black Eagle"
+              }
+            ]
+          },
+          {
+            "latin": "Clanga",
+            "species": [
+              {
+                "latin": "Clanga hastata",
+                "name": "Indian Spotted Eagle"
+              },
+              {
+                "latin": "Clanga clanga",
+                "name": "Greater Spotted Eagle"
+              },
+              {
+                "latin": "Clanga pomarina",
+                "name": "Lesser Spotted Eagle"
+              }
+            ]
+          },
+          {
+            "latin": "Hieraaetus",
+            "species": [
+              {
+                "latin": "Hieraaetus wahlbergi",
+                "name": "Wahlberg's Eagle"
+              },
+              {
+                "latin": "Hieraaetus ayresii",
+                "name": "Ayres's Hawk-Eagle"
+              },
+              {
+                "latin": "Hieraaetus weiskei",
+                "name": "Pygmy Eagle"
+              },
+              {
+                "latin": "Hieraaetus pennatus",
+                "name": "Booted Eagle"
+              },
+              {
+                "latin": "Hieraaetus morphnoides",
+                "name": "Little Eagle"
+              }
+            ]
+          },
+          {
+            "latin": "Aquila",
+            "species": [
+              {
+                "latin": "Aquila nipalensis",
+                "name": "Steppe Eagle"
+              },
+              {
+                "latin": "Aquila rapax",
+                "name": "Tawny Eagle"
+              },
+              {
+                "latin": "Aquila heliaca",
+                "name": "Eastern Imperial Eagle"
+              },
+              {
+                "latin": "Aquila adalberti",
+                "name": "Spanish Imperial Eagle"
+              },
+              {
+                "latin": "Aquila africana",
+                "name": "Cassin's Hawk-Eagle"
+              },
+              {
+                "latin": "Aquila gurneyi",
+                "name": "Gurney's Eagle"
+              },
+              {
+                "latin": "Aquila audax",
+                "name": "Wedge-tailed Eagle"
+              },
+              {
+                "latin": "Aquila chrysaetos",
+                "name": "Golden Eagle"
+              },
+              {
+                "latin": "Aquila verreauxii",
+                "name": "Verreaux's Eagle"
+              },
+              {
+                "latin": "Aquila spilogaster",
+                "name": "African Hawk-Eagle"
+              },
+              {
+                "latin": "Aquila fasciata",
+                "name": "Bonelli's Eagle"
+              }
+            ]
+          },
+          {
+            "latin": "Harpyopsis",
+            "species": [
+              {
+                "latin": "Harpyopsis novaeguineae",
+                "name": "Papuan Eagle"
+              }
+            ]
+          },
+          {
+            "latin": "Macheiramphus",
+            "species": [
+              {
+                "latin": "Macheiramphus alcinus",
+                "name": "Bat Hawk"
+              }
+            ]
+          },
+          {
+            "latin": "Harpia",
+            "species": [
+              {
+                "latin": "Harpia harpyja",
+                "name": "Harpy Eagle"
+              }
+            ]
+          },
+          {
+            "latin": "Morphnus",
+            "species": [
+              {
+                "latin": "Morphnus guianensis",
+                "name": "Crested Eagle"
+              }
+            ]
+          },
+          {
+            "latin": "Lophospiza",
+            "species": [
+              {
+                "latin": "Lophospiza griseiceps",
+                "name": "Sulawesi Goshawk"
+              },
+              {
+                "latin": "Lophospiza trivirgata",
+                "name": "Crested Goshawk"
+              }
+            ]
+          },
+          {
+            "latin": "Micronisus",
+            "species": [
+              {
+                "latin": "Micronisus gabar",
+                "name": "Gabar Goshawk"
+              }
+            ]
+          },
+          {
+            "latin": "Urotriorchis",
+            "species": [
+              {
+                "latin": "Urotriorchis macrourus",
+                "name": "Long-tailed Hawk"
+              }
+            ]
+          },
+          {
+            "latin": "Melierax",
+            "species": [
+              {
+                "latin": "Melierax metabates",
+                "name": "Dark Chanting Goshawk"
+              },
+              {
+                "latin": "Melierax poliopterus",
+                "name": "Eastern Chanting Goshawk"
+              },
+              {
+                "latin": "Melierax canorus",
+                "name": "Pale Chanting Goshawk"
+              }
+            ]
+          },
+          {
+            "latin": "Kaupifalco",
+            "species": [
+              {
+                "latin": "Kaupifalco monogrammicus",
+                "name": "Lizard Buzzard"
+              }
+            ]
+          },
+          {
+            "latin": "Aerospiza",
+            "species": [
+              {
+                "latin": "Aerospiza castanilius",
+                "name": "Chestnut-flanked Sparrowhawk"
+              },
+              {
+                "latin": "Aerospiza tachiro",
+                "name": "African Goshawk"
+              }
+            ]
+          },
+          {
+            "latin": "Tachyspiza",
+            "species": [
+              {
+                "latin": "Tachyspiza erythropus",
+                "name": "Red-thighed Sparrowhawk"
+              },
+              {
+                "latin": "Tachyspiza minulla",
+                "name": "Little Sparrowhawk"
+              },
+              {
+                "latin": "Tachyspiza virgata",
+                "name": "Besra"
+              },
+              {
+                "latin": "Tachyspiza nanus",
+                "name": "Dwarf Sparrowhawk"
+              },
+              {
+                "latin": "Tachyspiza erythrauchen",
+                "name": "Rufous-necked Sparrowhawk"
+              },
+              {
+                "latin": "Tachyspiza cirrocephala",
+                "name": "Collared Sparrowhawk"
+              },
+              {
+                "latin": "Tachyspiza brachyura",
+                "name": "New Britain Sparrowhawk"
+              },
+              {
+                "latin": "Tachyspiza rhodogaster",
+                "name": "Vinous-breasted Sparrowhawk"
+              },
+              {
+                "latin": "Tachyspiza gularis",
+                "name": "Japanese Sparrowhawk"
+              },
+              {
+                "latin": "Tachyspiza badia",
+                "name": "Shikra"
+              },
+              {
+                "latin": "Tachyspiza butleri",
+                "name": "Nicobar Sparrowhawk"
+              },
+              {
+                "latin": "Tachyspiza brevipes",
+                "name": "Levant Sparrowhawk"
+              },
+              {
+                "latin": "Tachyspiza soloensis",
+                "name": "Chinese Sparrowhawk"
+              },
+              {
+                "latin": "Tachyspiza imitator",
+                "name": "Imitator Goshawk"
+              },
+              {
+                "latin": "Tachyspiza francesiae",
+                "name": "Frances's Sparrowhawk"
+              },
+              {
+                "latin": "Tachyspiza trinotata",
+                "name": "Spot-tailed Sparrowhawk"
+              },
+              {
+                "latin": "Tachyspiza poliocephala",
+                "name": "Grey-headed Goshawk"
+              },
+              {
+                "latin": "Tachyspiza princeps",
+                "name": "New Britain Goshawk"
+              },
+              {
+                "latin": "Tachyspiza novaehollandiae",
+                "name": "Grey Goshawk"
+              },
+              {
+                "latin": "Tachyspiza hiogaster",
+                "name": "Variable Goshawk"
+              },
+              {
+                "latin": "Tachyspiza melanochlamys",
+                "name": "Black-mantled Goshawk"
+              },
+              {
+                "latin": "Tachyspiza albogularis",
+                "name": "Pied Goshawk"
+              },
+              {
+                "latin": "Tachyspiza rufitorques",
+                "name": "Fiji Goshawk"
+              },
+              {
+                "latin": "Tachyspiza henicogramma",
+                "name": "Moluccan Goshawk"
+              },
+              {
+                "latin": "Tachyspiza luteoschistacea",
+                "name": "Slaty-mantled Goshawk"
+              },
+              {
+                "latin": "Tachyspiza haplochrous",
+                "name": "White-bellied Goshawk"
+              },
+              {
+                "latin": "Tachyspiza fasciata",
+                "name": "Brown Goshawk"
+              }
+            ]
+          },
+          {
+            "latin": "Erythrotriorchis",
+            "species": [
+              {
+                "latin": "Erythrotriorchis radiatus",
+                "name": "Red Goshawk"
+              },
+              {
+                "latin": "Erythrotriorchis buergersi",
+                "name": "Chestnut-shouldered Goshawk"
+              }
+            ]
+          },
+          {
+            "latin": "Accipiter",
+            "species": [
+              {
+                "latin": "Accipiter poliogaster",
+                "name": "Grey-bellied Hawk"
+              },
+              {
+                "latin": "Accipiter madagascariensis",
+                "name": "Madagascar Sparrowhawk"
+              },
+              {
+                "latin": "Accipiter ovampensis",
+                "name": "Ovambo Sparrowhawk"
+              },
+              {
+                "latin": "Accipiter striatus",
+                "name": "Sharp-shinned Hawk"
+              },
+              {
+                "latin": "Accipiter rufiventris",
+                "name": "Rufous-breasted Sparrowhawk"
+              },
+              {
+                "latin": "Accipiter nisus",
+                "name": "Eurasian Sparrowhawk"
+              }
+            ]
+          },
+          {
+            "latin": "Astur",
+            "species": [
+              {
+                "latin": "Astur cooperii",
+                "name": "Cooper's Hawk"
+              },
+              {
+                "latin": "Astur gundlachi",
+                "name": "Gundlach's Hawk"
+              },
+              {
+                "latin": "Astur chilensis",
+                "name": "Chilean Hawk"
+              },
+              {
+                "latin": "Astur bicolor",
+                "name": "Bicolored Hawk"
+              },
+              {
+                "latin": "Astur atricapillus",
+                "name": "American Goshawk"
+              },
+              {
+                "latin": "Astur meyerianus",
+                "name": "Meyer's Goshawk"
+              },
+              {
+                "latin": "Astur gentilis",
+                "name": "Eurasian Goshawk"
+              },
+              {
+                "latin": "Astur henstii",
+                "name": "Henst's Goshawk"
+              },
+              {
+                "latin": "Astur melanoleucus",
+                "name": "Black Sparrowhawk"
+              }
+            ]
+          },
+          {
+            "latin": "Megatriorchis",
+            "species": [
+              {
+                "latin": "Megatriorchis doriae",
+                "name": "Doria's Hawk"
+              }
+            ]
+          },
+          {
+            "latin": "Circus",
+            "species": [
+              {
+                "latin": "Circus assimilis",
+                "name": "Spotted Harrier"
+              },
+              {
+                "latin": "Circus macrourus",
+                "name": "Pallid Harrier"
+              },
+              {
+                "latin": "Circus maurus",
+                "name": "Black Harrier"
+              },
+              {
+                "latin": "Circus cyaneus",
+                "name": "Hen Harrier"
+              },
+              {
+                "latin": "Circus hudsonius",
+                "name": "Northern Harrier"
+              },
+              {
+                "latin": "Circus cinereus",
+                "name": "Cinereous Harrier"
+              },
+              {
+                "latin": "Circus buffoni",
+                "name": "Long-winged Harrier"
+              },
+              {
+                "latin": "Circus pygargus",
+                "name": "Montagu's Harrier"
+              },
+              {
+                "latin": "Circus melanoleucos",
+                "name": "Pied Harrier"
+              },
+              {
+                "latin": "Circus ranivorus",
+                "name": "African Marsh Harrier"
+              },
+              {
+                "latin": "Circus aeruginosus",
+                "name": "Western Marsh Harrier"
+              },
+              {
+                "latin": "Circus maillardi",
+                "name": "Reunion Harrier"
+              },
+              {
+                "latin": "Circus macrosceles",
+                "name": "Malagasy Harrier"
+              },
+              {
+                "latin": "Circus approximans",
+                "name": "Swamp Harrier"
+              },
+              {
+                "latin": "Circus spilonotus",
+                "name": "Eastern Marsh Harrier"
+              },
+              {
+                "latin": "Circus spilothorax",
+                "name": "Papuan Harrier"
+              }
+            ]
+          },
+          {
+            "latin": "Harpagus",
+            "species": [
+              {
+                "latin": "Harpagus diodon",
+                "name": "Rufous-thighed Kite"
+              },
+              {
+                "latin": "Harpagus bidentatus",
+                "name": "Double-toothed Kite"
+              }
+            ]
+          },
+          {
+            "latin": "Microspizias",
+            "species": [
+              {
+                "latin": "Microspizias collaris",
+                "name": "Semicollared Hawk"
+              },
+              {
+                "latin": "Microspizias superciliosus",
+                "name": "Tiny Hawk"
+              }
+            ]
+          },
+          {
+            "latin": "Haliastur",
+            "species": [
+              {
+                "latin": "Haliastur sphenurus",
+                "name": "Whistling Kite"
+              },
+              {
+                "latin": "Haliastur indus",
+                "name": "Brahminy Kite"
+              }
+            ]
+          },
+          {
+            "latin": "Milvus",
+            "species": [
+              {
+                "latin": "Milvus milvus",
+                "name": "Red Kite"
+              },
+              {
+                "latin": "Milvus migrans",
+                "name": "Black Kite"
+              }
+            ]
+          },
+          {
+            "latin": "Haliaeetus",
+            "species": [
+              {
+                "latin": "Haliaeetus leucoryphus",
+                "name": "Pallas's Fish Eagle"
+              },
+              {
+                "latin": "Haliaeetus pelagicus",
+                "name": "Steller's Sea Eagle"
+              },
+              {
+                "latin": "Haliaeetus albicilla",
+                "name": "White-tailed Eagle"
+              },
+              {
+                "latin": "Haliaeetus leucocephalus",
+                "name": "Bald Eagle"
+              }
+            ]
+          },
+          {
+            "latin": "Icthyophaga",
+            "species": [
+              {
+                "latin": "Icthyophaga vocifer",
+                "name": "African Fish Eagle"
+              },
+              {
+                "latin": "Icthyophaga vociferoides",
+                "name": "Madagascar Fish Eagle"
+              },
+              {
+                "latin": "Icthyophaga leucogaster",
+                "name": "White-bellied Sea Eagle"
+              },
+              {
+                "latin": "Icthyophaga sanfordi",
+                "name": "Sanford's Sea Eagle"
+              },
+              {
+                "latin": "Icthyophaga humilis",
+                "name": "Lesser Fish Eagle"
+              },
+              {
+                "latin": "Icthyophaga ichthyaetus",
+                "name": "Grey-headed Fish Eagle"
+              }
+            ]
+          },
+          {
+            "latin": "Butastur",
+            "species": [
+              {
+                "latin": "Butastur liventer",
+                "name": "Rufous-winged Buzzard"
+              },
+              {
+                "latin": "Butastur rufipennis",
+                "name": "Grasshopper Buzzard"
+              },
+              {
+                "latin": "Butastur indicus",
+                "name": "Grey-faced Buzzard"
+              },
+              {
+                "latin": "Butastur teesa",
+                "name": "White-eyed Buzzard"
+              }
+            ]
+          },
+          {
+            "latin": "Ictinia",
+            "species": [
+              {
+                "latin": "Ictinia plumbea",
+                "name": "Plumbeous Kite"
+              },
+              {
+                "latin": "Ictinia mississippiensis",
+                "name": "Mississippi Kite"
+              }
+            ]
+          },
+          {
+            "latin": "Geranospiza",
+            "species": [
+              {
+                "latin": "Geranospiza caerulescens",
+                "name": "Crane Hawk"
+              }
+            ]
+          },
+          {
+            "latin": "Busarellus",
+            "species": [
+              {
+                "latin": "Busarellus nigricollis",
+                "name": "Black-collared Hawk"
+              }
+            ]
+          },
+          {
+            "latin": "Helicolestes",
+            "species": [
+              {
+                "latin": "Helicolestes hamatus",
+                "name": "Slender-billed Kite"
+              }
+            ]
+          },
+          {
+            "latin": "Rostrhamus",
+            "species": [
+              {
+                "latin": "Rostrhamus sociabilis",
+                "name": "Snail Kite"
+              }
+            ]
+          },
+          {
+            "latin": "Morphnarchus",
+            "species": [
+              {
+                "latin": "Morphnarchus princeps",
+                "name": "Barred Hawk"
+              }
+            ]
+          },
+          {
+            "latin": "Cryptoleucopteryx",
+            "species": [
+              {
+                "latin": "Cryptoleucopteryx plumbea",
+                "name": "Plumbeous Hawk"
+              }
+            ]
+          },
+          {
+            "latin": "Buteogallus",
+            "species": [
+              {
+                "latin": "Buteogallus schistaceus",
+                "name": "Slate-colored Hawk"
+              },
+              {
+                "latin": "Buteogallus anthracinus",
+                "name": "Common Black Hawk"
+              },
+              {
+                "latin": "Buteogallus gundlachii",
+                "name": "Cuban Black Hawk"
+              },
+              {
+                "latin": "Buteogallus aequinoctialis",
+                "name": "Rufous Crab Hawk"
+              },
+              {
+                "latin": "Buteogallus meridionalis",
+                "name": "Savanna Hawk"
+              },
+              {
+                "latin": "Buteogallus lacernulatus",
+                "name": "White-necked Hawk"
+              },
+              {
+                "latin": "Buteogallus urubitinga",
+                "name": "Great Black Hawk"
+              },
+              {
+                "latin": "Buteogallus solitarius",
+                "name": "Solitary Eagle"
+              },
+              {
+                "latin": "Buteogallus coronatus",
+                "name": "Chaco Eagle"
+              }
+            ]
+          },
+          {
+            "latin": "Rupornis",
+            "species": [
+              {
+                "latin": "Rupornis magnirostris",
+                "name": "Roadside Hawk"
+              }
+            ]
+          },
+          {
+            "latin": "Parabuteo",
+            "species": [
+              {
+                "latin": "Parabuteo leucorrhous",
+                "name": "White-rumped Hawk"
+              },
+              {
+                "latin": "Parabuteo unicinctus",
+                "name": "Harris's Hawk"
+              }
+            ]
+          },
+          {
+            "latin": "Pseudastur",
+            "species": [
+              {
+                "latin": "Pseudastur occidentalis",
+                "name": "Grey-backed Hawk"
+              },
+              {
+                "latin": "Pseudastur albicollis",
+                "name": "White Hawk"
+              },
+              {
+                "latin": "Pseudastur polionotus",
+                "name": "Mantled Hawk"
+              }
+            ]
+          },
+          {
+            "latin": "Geranoaetus",
+            "species": [
+              {
+                "latin": "Geranoaetus albicaudatus",
+                "name": "White-tailed Hawk"
+              },
+              {
+                "latin": "Geranoaetus polyosoma",
+                "name": "Variable Hawk"
+              },
+              {
+                "latin": "Geranoaetus melanoleucus",
+                "name": "Black-chested Buzzard-Eagle"
+              }
+            ]
+          },
+          {
+            "latin": "Leucopternis",
+            "species": [
+              {
+                "latin": "Leucopternis semiplumbeus",
+                "name": "Semiplumbeous Hawk"
+              },
+              {
+                "latin": "Leucopternis melanops",
+                "name": "Black-faced Hawk"
+              },
+              {
+                "latin": "Leucopternis kuhli",
+                "name": "White-browed Hawk"
+              }
+            ]
+          },
+          {
+            "latin": "Bermuteo",
+            "species": [
+              {
+                "latin": "Bermuteo avivorus",
+                "name": "Bermuda Hawk"
+              }
+            ]
+          },
+          {
+            "latin": "Buteo",
+            "species": [
+              {
+                "latin": "Buteo plagiatus",
+                "name": "Grey Hawk"
+              },
+              {
+                "latin": "Buteo nitidus",
+                "name": "Grey-lined Hawk"
+              },
+              {
+                "latin": "Buteo platypterus",
+                "name": "Broad-winged Hawk"
+              },
+              {
+                "latin": "Buteo ridgwayi",
+                "name": "Ridgway's Hawk"
+              },
+              {
+                "latin": "Buteo lineatus",
+                "name": "Red-shouldered Hawk"
+              },
+              {
+                "latin": "Buteo albonotatus",
+                "name": "Zone-tailed Hawk"
+              },
+              {
+                "latin": "Buteo solitarius",
+                "name": "Hawaiian Hawk"
+              },
+              {
+                "latin": "Buteo albigula",
+                "name": "White-throated Hawk"
+              },
+              {
+                "latin": "Buteo brachyurus",
+                "name": "Short-tailed Hawk"
+              },
+              {
+                "latin": "Buteo galapagoensis",
+                "name": "Galapagos Hawk"
+              },
+              {
+                "latin": "Buteo swainsoni",
+                "name": "Swainson's Hawk"
+              },
+              {
+                "latin": "Buteo ventralis",
+                "name": "Rufous-tailed Hawk"
+              },
+              {
+                "latin": "Buteo jamaicensis",
+                "name": "Red-tailed Hawk"
+              },
+              {
+                "latin": "Buteo regalis",
+                "name": "Ferruginous Hawk"
+              },
+              {
+                "latin": "Buteo lagopus",
+                "name": "Rough-legged Buzzard"
+              },
+              {
+                "latin": "Buteo auguralis",
+                "name": "Red-necked Buzzard"
+              },
+              {
+                "latin": "Buteo rufofuscus",
+                "name": "Jackal Buzzard"
+              },
+              {
+                "latin": "Buteo augur",
+                "name": "Augur Buzzard"
+              },
+              {
+                "latin": "Buteo oreophilus",
+                "name": "Mountain Buzzard"
+              },
+              {
+                "latin": "Buteo trizonatus",
+                "name": "Forest Buzzard"
+              },
+              {
+                "latin": "Buteo buteo",
+                "name": "Common Buzzard"
+              },
+              {
+                "latin": "Buteo brachypterus",
+                "name": "Madagascar Buzzard"
+              },
+              {
+                "latin": "Buteo socotraensis",
+                "name": "Socotra Buzzard"
+              },
+              {
+                "latin": "Buteo hemilasius",
+                "name": "Upland Buzzard"
+              },
+              {
+                "latin": "Buteo rufinus",
+                "name": "Long-legged Buzzard"
+              },
+              {
+                "latin": "Buteo refectus",
+                "name": "Himalayan Buzzard"
+              },
+              {
+                "latin": "Buteo japonicus",
+                "name": "Eastern Buzzard"
+              }
+            ]
+          }
+        ]
+      },
+      {
+        "latin": "Pandionidae",
+        "name": "Fischadler",
+        "genera": [
+          {
+            "latin": "Pandion",
+            "species": [
+              {
+                "latin": "Pandion haliaetus",
+                "name": "Osprey"
+              }
+            ]
+          }
+        ]
+      },
+      {
+        "latin": "Sagittariidae",
+        "name": "Sekretäre",
+        "genera": [
+          {
+            "latin": "Sagittarius",
+            "species": [
+              {
+                "latin": "Sagittarius serpentarius",
+                "name": "Secretarybird"
+              }
+            ]
+          }
+        ]
+      }
+    ]
+  },
+  {
+    "latin": "Falconiformes",
+    "name": "Falkenartige",
+    "families": [
+      {
+        "latin": "Falconidae",
+        "name": "Falkenartige",
+        "genera": [
+          {
+            "latin": "Herpetotheres",
+            "species": [
+              {
+                "latin": "Herpetotheres cachinnans",
+                "name": "Laughing Falcon"
+              }
+            ]
+          },
+          {
+            "latin": "Micrastur",
+            "species": [
+              {
+                "latin": "Micrastur buckleyi",
+                "name": "Buckley's Forest Falcon"
+              },
+              {
+                "latin": "Micrastur semitorquatus",
+                "name": "Collared Forest Falcon"
+              },
+              {
+                "latin": "Micrastur mirandollei",
+                "name": "Slaty-backed Forest Falcon"
+              },
+              {
+                "latin": "Micrastur ruficollis",
+                "name": "Barred Forest Falcon"
+              },
+              {
+                "latin": "Micrastur mintoni",
+                "name": "Cryptic Forest Falcon"
+              },
+              {
+                "latin": "Micrastur plumbeus",
+                "name": "Plumbeous Forest Falcon"
+              },
+              {
+                "latin": "Micrastur gilvicollis",
+                "name": "Lined Forest Falcon"
+              }
+            ]
+          },
+          {
+            "latin": "Spiziapteryx",
+            "species": [
+              {
+                "latin": "Spiziapteryx circumcincta",
+                "name": "Spot-winged Falconet"
+              }
+            ]
+          },
+          {
+            "latin": "Caracara",
+            "species": [
+              {
+                "latin": "Caracara lutosa",
+                "name": "Guadalupe Caracara"
+              },
+              {
+                "latin": "Caracara plancus",
+                "name": "Crested Caracara"
+              }
+            ]
+          },
+          {
+            "latin": "Ibycter",
+            "species": [
+              {
+                "latin": "Ibycter americanus",
+                "name": "Red-throated Caracara"
+              }
+            ]
+          },
+          {
+            "latin": "Daptrius",
+            "species": [
+              {
+                "latin": "Daptrius chimachima",
+                "name": "Yellow-headed Caracara"
+              },
+              {
+                "latin": "Daptrius ater",
+                "name": "Black Caracara"
+              },
+              {
+                "latin": "Daptrius chimango",
+                "name": "Chimango Caracara"
+              },
+              {
+                "latin": "Daptrius carunculatus",
+                "name": "Carunculated Caracara"
+              },
+              {
+                "latin": "Daptrius megalopterus",
+                "name": "Mountain Caracara"
+              },
+              {
+                "latin": "Daptrius albogularis",
+                "name": "White-throated Caracara"
+              },
+              {
+                "latin": "Daptrius australis",
+                "name": "Striated Caracara"
+              }
+            ]
+          },
+          {
+            "latin": "Polihierax",
+            "species": [
+              {
+                "latin": "Polihierax semitorquatus",
+                "name": "Pygmy Falcon"
+              }
+            ]
+          },
+          {
+            "latin": "Microhierax",
+            "species": [
+              {
+                "latin": "Microhierax erythrogenys",
+                "name": "Philippine Falconet"
+              },
+              {
+                "latin": "Microhierax melanoleucos",
+                "name": "Pied Falconet"
+              },
+              {
+                "latin": "Microhierax caerulescens",
+                "name": "Collared Falconet"
+              },
+              {
+                "latin": "Microhierax fringillarius",
+                "name": "Black-thighed Falconet"
+              },
+              {
+                "latin": "Microhierax latifrons",
+                "name": "White-fronted Falconet"
+              }
+            ]
+          },
+          {
+            "latin": "Neohierax",
+            "species": [
+              {
+                "latin": "Neohierax insignis",
+                "name": "White-rumped Falcon"
+              }
+            ]
+          },
+          {
+            "latin": "Falco",
+            "species": [
+              {
+                "latin": "Falco zoniventris",
+                "name": "Banded Kestrel"
+              },
+              {
+                "latin": "Falco naumanni",
+                "name": "Lesser Kestrel"
+              },
+              {
+                "latin": "Falco alopex",
+                "name": "Fox Kestrel"
+              },
+              {
+                "latin": "Falco rupicoloides",
+                "name": "Greater Kestrel"
+              },
+              {
+                "latin": "Falco punctatus",
+                "name": "Mauritius Kestrel"
+              },
+              {
+                "latin": "Falco duboisi",
+                "name": "Reunion Kestrel"
+              },
+              {
+                "latin": "Falco araeus",
+                "name": "Seychelles Kestrel"
+              },
+              {
+                "latin": "Falco newtoni",
+                "name": "Malagasy Kestrel"
+              },
+              {
+                "latin": "Falco rupicolus",
+                "name": "Rock Kestrel"
+              },
+              {
+                "latin": "Falco cenchroides",
+                "name": "Nankeen Kestrel"
+              },
+              {
+                "latin": "Falco moluccensis",
+                "name": "Spotted Kestrel"
+              },
+              {
+                "latin": "Falco tinnunculus",
+                "name": "Common Kestrel"
+              },
+              {
+                "latin": "Falco sparverius",
+                "name": "American Kestrel"
+              },
+              {
+                "latin": "Falco vespertinus",
+                "name": "Red-footed Falcon"
+              },
+              {
+                "latin": "Falco amurensis",
+                "name": "Amur Falcon"
+              },
+              {
+                "latin": "Falco columbarius",
+                "name": "Merlin"
+              },
+              {
+                "latin": "Falco ardosiaceus",
+                "name": "Grey Kestrel"
+              },
+              {
+                "latin": "Falco dickinsoni",
+                "name": "Dickinson's Kestrel"
+              },
+              {
+                "latin": "Falco berigora",
+                "name": "Brown Falcon"
+              },
+              {
+                "latin": "Falco deiroleucus",
+                "name": "Orange-breasted Falcon"
+              },
+              {
+                "latin": "Falco rufigularis",
+                "name": "Bat Falcon"
+              },
+              {
+                "latin": "Falco longipennis",
+                "name": "Australian Hobby"
+              },
+              {
+                "latin": "Falco severus",
+                "name": "Oriental Hobby"
+              },
+              {
+                "latin": "Falco eleonorae",
+                "name": "Eleonora's Falcon"
+              },
+              {
+                "latin": "Falco concolor",
+                "name": "Sooty Falcon"
+              },
+              {
+                "latin": "Falco cuvierii",
+                "name": "African Hobby"
+              },
+              {
+                "latin": "Falco subbuteo",
+                "name": "Eurasian Hobby"
+              },
+              {
+                "latin": "Falco novaeseelandiae",
+                "name": "New Zealand Falcon"
+              },
+              {
+                "latin": "Falco femoralis",
+                "name": "Aplomado Falcon"
+              },
+              {
+                "latin": "Falco chicquera",
+                "name": "Red-necked Falcon"
+              },
+              {
+                "latin": "Falco mexicanus",
+                "name": "Prairie Falcon"
+              },
+              {
+                "latin": "Falco hypoleucos",
+                "name": "Grey Falcon"
+              },
+              {
+                "latin": "Falco fasciinucha",
+                "name": "Taita Falcon"
+              },
+              {
+                "latin": "Falco peregrinus",
+                "name": "Peregrine Falcon"
+              },
+              {
+                "latin": "Falco biarmicus",
+                "name": "Lanner Falcon"
+              },
+              {
+                "latin": "Falco jugger",
+                "name": "Laggar Falcon"
+              },
+              {
+                "latin": "Falco subniger",
+                "name": "Black Falcon"
+              },
+              {
+                "latin": "Falco rusticolus",
+                "name": "Gyrfalcon"
+              },
+              {
+                "latin": "Falco cherrug",
+                "name": "Saker Falcon"
+              }
+            ]
+          }
+        ]
+      }
+    ]
+  },
+  {
+    "latin": "Strigiformes",
+    "name": "Eulen",
+    "families": [
+      {
+        "latin": "Strigidae",
+        "name": "Eigentliche Eulen",
+        "genera": [
+          {
+            "latin": "Uroglaux",
+            "species": [
+              {
+                "latin": "Uroglaux dimorpha",
+                "name": "Papuan Hawk-Owl"
+              }
+            ]
+          },
+          {
+            "latin": "Margarobyas",
+            "species": [
+              {
+                "latin": "Margarobyas lawrencii",
+                "name": "Bare-legged Owl"
+              }
+            ]
+          },
+          {
+            "latin": "Ninox",
+            "species": [
+              {
+                "latin": "Ninox rufa",
+                "name": "Rufous Owl"
+              },
+              {
+                "latin": "Ninox strenua",
+                "name": "Powerful Owl"
+              },
+              {
+                "latin": "Ninox connivens",
+                "name": "Barking Owl"
+              },
+              {
+                "latin": "Ninox rudolfi",
+                "name": "Great Sumba Boobook"
+              },
+              {
+                "latin": "Ninox affinis",
+                "name": "Andaman Boobook"
+              },
+              {
+                "latin": "Ninox boobook",
+                "name": "Australian Boobook"
+              },
+              {
+                "latin": "Ninox rotiensis",
+                "name": "Rote Boobook"
+              },
+              {
+                "latin": "Ninox fusca",
+                "name": "Timor Boobook"
+              },
+              {
+                "latin": "Ninox plesseni",
+                "name": "Alor Boobook"
+              },
+              {
+                "latin": "Ninox leucopsis",
+                "name": "Tasmanian Boobook"
+              },
+              {
+                "latin": "Ninox novaeseelandiae",
+                "name": "Morepork"
+              },
+              {
+                "latin": "Ninox albifacies",
+                "name": "Laughing Owl"
+              },
+              {
+                "latin": "Ninox sumbaensis",
+                "name": "Little Sumba Boobook"
+              },
+              {
+                "latin": "Ninox scutulata",
+                "name": "Brown Boobook"
+              },
+              {
+                "latin": "Ninox obscura",
+                "name": "Hume's Boobook"
+              },
+              {
+                "latin": "Ninox japonica",
+                "name": "Northern Boobook"
+              },
+              {
+                "latin": "Ninox randi",
+                "name": "Chocolate Boobook"
+              },
+              {
+                "latin": "Ninox philippensis",
+                "name": "Luzon Boobook"
+              },
+              {
+                "latin": "Ninox spilocephala",
+                "name": "Mindanao Boobook"
+              },
+              {
+                "latin": "Ninox mindorensis",
+                "name": "Mindoro Boobook"
+              },
+              {
+                "latin": "Ninox spilonotus",
+                "name": "Romblon Boobook"
+              },
+              {
+                "latin": "Ninox rumseyi",
+                "name": "Cebu Boobook"
+              },
+              {
+                "latin": "Ninox leventisi",
+                "name": "Camiguin Boobook"
+              },
+              {
+                "latin": "Ninox reyi",
+                "name": "Sulu Boobook"
+              },
+              {
+                "latin": "Ninox ochracea",
+                "name": "Ochre-bellied Boobook"
+              },
+              {
+                "latin": "Ninox burhani",
+                "name": "Togian Boobook"
+              },
+              {
+                "latin": "Ninox ios",
+                "name": "Cinnabar Boobook"
+              },
+              {
+                "latin": "Ninox hypogramma",
+                "name": "Halmahera Boobook"
+              },
+              {
+                "latin": "Ninox forbesi",
+                "name": "Tanimbar Boobook"
+              },
+              {
+                "latin": "Ninox squamipila",
+                "name": "Seram Boobook"
+              },
+              {
+                "latin": "Ninox hantu",
+                "name": "Buru Boobook"
+              },
+              {
+                "latin": "Ninox natalis",
+                "name": "Christmas Boobook"
+              },
+              {
+                "latin": "Ninox theomacha",
+                "name": "Papuan Boobook"
+              },
+              {
+                "latin": "Ninox meeki",
+                "name": "Manus Boobook"
+              },
+              {
+                "latin": "Ninox punctulata",
+                "name": "Speckled Boobook"
+              },
+              {
+                "latin": "Ninox variegata",
+                "name": "New Ireland Boobook"
+              },
+              {
+                "latin": "Ninox odiosa",
+                "name": "New Britain Boobook"
+              }
+            ]
+          },
+          {
+            "latin": "Taenioptynx",
+            "species": [
+              {
+                "latin": "Taenioptynx brodiei",
+                "name": "Collared Owlet"
+              },
+              {
+                "latin": "Taenioptynx sylvaticus",
+                "name": "Sunda Owlet"
+              }
+            ]
+          },
+          {
+            "latin": "Xenoglaux",
+            "species": [
+              {
+                "latin": "Xenoglaux loweryi",
+                "name": "Long-whiskered Owlet"
+              }
+            ]
+          },
+          {
+            "latin": "Micrathene",
+            "species": [
+              {
+                "latin": "Micrathene whitneyi",
+                "name": "Elf Owl"
+              }
+            ]
+          },
+          {
+            "latin": "Aegolius",
+            "species": [
+              {
+                "latin": "Aegolius funereus",
+                "name": "Boreal Owl"
+              },
+              {
+                "latin": "Aegolius acadicus",
+                "name": "Northern Saw-whet Owl"
+              },
+              {
+                "latin": "Aegolius gradyi",
+                "name": "Bermuda Saw-whet Owl"
+              },
+              {
+                "latin": "Aegolius ridgwayi",
+                "name": "Unspotted Saw-whet Owl"
+              },
+              {
+                "latin": "Aegolius harrisii",
+                "name": "Buff-fronted Owl"
+              }
+            ]
+          },
+          {
+            "latin": "Athene",
+            "species": [
+              {
+                "latin": "Athene blewitti",
+                "name": "Forest Owlet"
+              },
+              {
+                "latin": "Athene superciliaris",
+                "name": "White-browed Owl"
+              },
+              {
+                "latin": "Athene cunicularia",
+                "name": "Burrowing Owl"
+              },
+              {
+                "latin": "Athene noctua",
+                "name": "Little Owl"
+              },
+              {
+                "latin": "Athene brama",
+                "name": "Spotted Owlet"
+              },
+              {
+                "latin": "Athene jacquinoti",
+                "name": "West Solomons Owl"
+              },
+              {
+                "latin": "Athene granti",
+                "name": "Guadalcanal Owl"
+              },
+              {
+                "latin": "Athene malaitae",
+                "name": "Malaita Owl"
+              },
+              {
+                "latin": "Athene roseoaxillaris",
+                "name": "Makira Owl"
+              }
+            ]
+          },
+          {
+            "latin": "Surnia",
+            "species": [
+              {
+                "latin": "Surnia ulula",
+                "name": "Northern Hawk-Owl"
+              }
+            ]
+          },
+          {
+            "latin": "Glaucidium",
+            "species": [
+              {
+                "latin": "Glaucidium passerinum",
+                "name": "Eurasian Pygmy Owl"
+              },
+              {
+                "latin": "Glaucidium perlatum",
+                "name": "Pearl-spotted Owlet"
+              },
+              {
+                "latin": "Glaucidium gnoma",
+                "name": "Northern Pygmy Owl"
+              },
+              {
+                "latin": "Glaucidium costaricanum",
+                "name": "Costa Rican Pygmy Owl"
+              },
+              {
+                "latin": "Glaucidium nubicola",
+                "name": "Cloud-forest Pygmy Owl"
+              },
+              {
+                "latin": "Glaucidium jardinii",
+                "name": "Andean Pygmy Owl"
+              },
+              {
+                "latin": "Glaucidium bolivianum",
+                "name": "Yungas Pygmy Owl"
+              },
+              {
+                "latin": "Glaucidium parkeri",
+                "name": "Subtropical Pygmy Owl"
+              },
+              {
+                "latin": "Glaucidium griseiceps",
+                "name": "Central American Pygmy Owl"
+              },
+              {
+                "latin": "Glaucidium sanchezi",
+                "name": "Tamaulipas Pygmy Owl"
+              },
+              {
+                "latin": "Glaucidium palmarum",
+                "name": "Colima Pygmy Owl"
+              },
+              {
+                "latin": "Glaucidium hardyi",
+                "name": "Amazonian Pygmy Owl"
+              },
+              {
+                "latin": "Glaucidium mooreorum",
+                "name": "Pernambuco Pygmy Owl"
+              },
+              {
+                "latin": "Glaucidium minutissimum",
+                "name": "East Brazilian Pygmy Owl"
+              },
+              {
+                "latin": "Glaucidium brasilianum",
+                "name": "Ferruginous Pygmy Owl"
+              },
+              {
+                "latin": "Glaucidium nana",
+                "name": "Austral Pygmy Owl"
+              },
+              {
+                "latin": "Glaucidium peruanum",
+                "name": "Pacific Pygmy Owl"
+              },
+              {
+                "latin": "Glaucidium siju",
+                "name": "Cuban Pygmy Owl"
+              },
+              {
+                "latin": "Glaucidium tephronotum",
+                "name": "Red-chested Owlet"
+              },
+              {
+                "latin": "Glaucidium sjostedti",
+                "name": "Sjöstedt's Barred Owlet"
+              },
+              {
+                "latin": "Glaucidium cuculoides",
+                "name": "Asian Barred Owlet"
+              },
+              {
+                "latin": "Glaucidium castanopterum",
+                "name": "Javan Owlet"
+              },
+              {
+                "latin": "Glaucidium radiatum",
+                "name": "Jungle Owlet"
+              },
+              {
+                "latin": "Glaucidium castanotum",
+                "name": "Chestnut-backed Owlet"
+              },
+              {
+                "latin": "Glaucidium capense",
+                "name": "African Barred Owlet"
+              },
+              {
+                "latin": "Glaucidium albertinum",
+                "name": "Albertine Owlet"
+              }
+            ]
+          },
+          {
+            "latin": "Otus",
+            "species": [
+              {
+                "latin": "Otus sagittatus",
+                "name": "White-fronted Scops Owl"
+              },
+              {
+                "latin": "Otus balli",
+                "name": "Andaman Scops Owl"
+              },
+              {
+                "latin": "Otus rufescens",
+                "name": "Reddish Scops Owl"
+              },
+              {
+                "latin": "Otus thilohoffmanni",
+                "name": "Serendib Scops Owl"
+              },
+              {
+                "latin": "Otus icterorhynchus",
+                "name": "Sandy Scops Owl"
+              },
+              {
+                "latin": "Otus ireneae",
+                "name": "Sokoke Scops Owl"
+              },
+              {
+                "latin": "Otus alfredi",
+                "name": "Flores Scops Owl"
+              },
+              {
+                "latin": "Otus spilocephalus",
+                "name": "Mountain Scops Owl"
+              },
+              {
+                "latin": "Otus brookii",
+                "name": "Rajah Scops Owl"
+              },
+              {
+                "latin": "Otus angelinae",
+                "name": "Javan Scops Owl"
+              },
+              {
+                "latin": "Otus mentawi",
+                "name": "Mentawai Scops Owl"
+              },
+              {
+                "latin": "Otus bakkamoena",
+                "name": "Indian Scops Owl"
+              },
+              {
+                "latin": "Otus lettia",
+                "name": "Collared Scops Owl"
+              },
+              {
+                "latin": "Otus gurneyi",
+                "name": "Giant Scops Owl"
+              },
+              {
+                "latin": "Otus lempiji",
+                "name": "Sunda Scops Owl"
+              },
+              {
+                "latin": "Otus semitorques",
+                "name": "Japanese Scops Owl"
+              },
+              {
+                "latin": "Otus silvicola",
+                "name": "Wallace's Scops Owl"
+              },
+              {
+                "latin": "Otus fuliginosus",
+                "name": "Palawan Scops Owl"
+              },
+              {
+                "latin": "Otus megalotis",
+                "name": "Philippine Scops Owl"
+              },
+              {
+                "latin": "Otus everetti",
+                "name": "Everett's Scops Owl"
+              },
+              {
+                "latin": "Otus nigrorum",
+                "name": "Negros Scops Owl"
+              },
+              {
+                "latin": "Otus mindorensis",
+                "name": "Mindoro Scops Owl"
+              },
+              {
+                "latin": "Otus magicus",
+                "name": "Moluccan Scops Owl"
+              },
+              {
+                "latin": "Otus tempestatis",
+                "name": "Wetar Scops Owl"
+              },
+              {
+                "latin": "Otus jolandae",
+                "name": "Rinjani Scops Owl"
+              },
+              {
+                "latin": "Otus podarginus",
+                "name": "Palau Scops Owl"
+              },
+              {
+                "latin": "Otus mantananensis",
+                "name": "Mantanani Scops Owl"
+              },
+              {
+                "latin": "Otus elegans",
+                "name": "Ryukyu Scops Owl"
+              },
+              {
+                "latin": "Otus manadensis",
+                "name": "Sulawesi Scops Owl"
+              },
+              {
+                "latin": "Otus mendeni",
+                "name": "Banggai Scops Owl"
+              },
+              {
+                "latin": "Otus collari",
+                "name": "Sangihe Scops Owl"
+              },
+              {
+                "latin": "Otus siaoensis",
+                "name": "Siau Scops Owl"
+              },
+              {
+                "latin": "Otus sulaensis",
+                "name": "Sula Scops Owl"
+              },
+              {
+                "latin": "Otus beccarii",
+                "name": "Biak Scops Owl"
+              },
+              {
+                "latin": "Otus umbra",
+                "name": "Simeulue Scops Owl"
+              },
+              {
+                "latin": "Otus enganensis",
+                "name": "Enggano Scops Owl"
+              },
+              {
+                "latin": "Otus alius",
+                "name": "Nicobar Scops Owl"
+              },
+              {
+                "latin": "Otus pamelae",
+                "name": "Arabian Scops Owl"
+              },
+              {
+                "latin": "Otus scops",
+                "name": "Eurasian Scops Owl"
+              },
+              {
+                "latin": "Otus cyprius",
+                "name": "Cyprus Scops Owl"
+              },
+              {
+                "latin": "Otus bikegila",
+                "name": "Principe Scops Owl"
+              },
+              {
+                "latin": "Otus pembaensis",
+                "name": "Pemba Scops Owl"
+              },
+              {
+                "latin": "Otus hartlaubi",
+                "name": "Sao Tome Scops Owl"
+              },
+              {
+                "latin": "Otus senegalensis",
+                "name": "African Scops Owl"
+              },
+              {
+                "latin": "Otus brucei",
+                "name": "Pallid Scops Owl"
+              },
+              {
+                "latin": "Otus mirus",
+                "name": "Mindanao Scops Owl"
+              },
+              {
+                "latin": "Otus longicornis",
+                "name": "Luzon Scops Owl"
+              },
+              {
+                "latin": "Otus moheliensis",
+                "name": "Moheli Scops Owl"
+              },
+              {
+                "latin": "Otus pauliani",
+                "name": "Karthala Scops Owl"
+              },
+              {
+                "latin": "Otus insularis",
+                "name": "Seychelles Scops Owl"
+              },
+              {
+                "latin": "Otus sunia",
+                "name": "Oriental Scops Owl"
+              },
+              {
+                "latin": "Otus socotranus",
+                "name": "Socotra Scops Owl"
+              },
+              {
+                "latin": "Otus capnodes",
+                "name": "Anjouan Scops Owl"
+              },
+              {
+                "latin": "Otus mayottensis",
+                "name": "Mayotte Scops Owl"
+              },
+              {
+                "latin": "Otus grucheti",
+                "name": "Reunion Scops Owl"
+              },
+              {
+                "latin": "Otus murivorus",
+                "name": "Rodrigues Scops Owl"
+              },
+              {
+                "latin": "Otus sauzieri",
+                "name": "Mauritius Scops Owl"
+              },
+              {
+                "latin": "Otus rutilus",
+                "name": "Madagascar Scops Owl"
+              }
+            ]
+          },
+          {
+            "latin": "Ptilopsis",
+            "species": [
+              {
+                "latin": "Ptilopsis leucotis",
+                "name": "Northern White-faced Owl"
+              },
+              {
+                "latin": "Ptilopsis granti",
+                "name": "Southern White-faced Owl"
+              }
+            ]
+          },
+          {
+            "latin": "Asio",
+            "species": [
+              {
+                "latin": "Asio solomonensis",
+                "name": "Fearful Owl"
+              },
+              {
+                "latin": "Asio capensis",
+                "name": "Marsh Owl"
+              },
+              {
+                "latin": "Asio flammeus",
+                "name": "Short-eared Owl"
+              },
+              {
+                "latin": "Asio stygius",
+                "name": "Stygian Owl"
+              },
+              {
+                "latin": "Asio clamator",
+                "name": "Striped Owl"
+              },
+              {
+                "latin": "Asio grammicus",
+                "name": "Jamaican Owl"
+              },
+              {
+                "latin": "Asio madagascariensis",
+                "name": "Madagascar Owl"
+              },
+              {
+                "latin": "Asio abyssinicus",
+                "name": "Abyssinian Owl"
+              },
+              {
+                "latin": "Asio otus",
+                "name": "Long-eared Owl"
+              }
+            ]
+          },
+          {
+            "latin": "Jubula",
+            "species": [
+              {
+                "latin": "Jubula lettii",
+                "name": "Maned Owl"
+              }
+            ]
+          },
+          {
+            "latin": "Bubo",
+            "species": [
+              {
+                "latin": "Bubo scandiacus",
+                "name": "Snowy Owl"
+              },
+              {
+                "latin": "Bubo magellanicus",
+                "name": "Lesser Horned Owl"
+              },
+              {
+                "latin": "Bubo virginianus",
+                "name": "Great Horned Owl"
+              },
+              {
+                "latin": "Bubo capensis",
+                "name": "Cape Eagle-Owl"
+              },
+              {
+                "latin": "Bubo ascalaphus",
+                "name": "Pharaoh Eagle-Owl"
+              },
+              {
+                "latin": "Bubo bubo",
+                "name": "Eurasian Eagle-Owl"
+              },
+              {
+                "latin": "Bubo bengalensis",
+                "name": "Indian Eagle-Owl"
+              },
+              {
+                "latin": "Bubo cinerascens",
+                "name": "Greyish Eagle-Owl"
+              },
+              {
+                "latin": "Bubo africanus",
+                "name": "Spotted Eagle-Owl"
+              },
+              {
+                "latin": "Bubo milesi",
+                "name": "Arabian Eagle-Owl"
+              }
+            ]
+          },
+          {
+            "latin": "Scotopelia",
+            "species": [
+              {
+                "latin": "Scotopelia peli",
+                "name": "Pel's Fishing Owl"
+              },
+              {
+                "latin": "Scotopelia ussheri",
+                "name": "Rufous Fishing Owl"
+              },
+              {
+                "latin": "Scotopelia bouvieri",
+                "name": "Vermiculated Fishing Owl"
+              }
+            ]
+          },
+          {
+            "latin": "Ketupa",
+            "species": [
+              {
+                "latin": "Ketupa poensis",
+                "name": "Fraser's Eagle-Owl"
+              },
+              {
+                "latin": "Ketupa leucosticta",
+                "name": "Akun Eagle-Owl"
+              },
+              {
+                "latin": "Ketupa lactea",
+                "name": "Verreaux's Eagle-Owl"
+              },
+              {
+                "latin": "Ketupa shelleyi",
+                "name": "Shelley's Eagle-Owl"
+              },
+              {
+                "latin": "Ketupa blakistoni",
+                "name": "Blakiston's Fish Owl"
+              },
+              {
+                "latin": "Ketupa ketupu",
+                "name": "Buffy Fish Owl"
+              },
+              {
+                "latin": "Ketupa zeylonensis",
+                "name": "Brown Fish Owl"
+              },
+              {
+                "latin": "Ketupa flavipes",
+                "name": "Tawny Fish Owl"
+              },
+              {
+                "latin": "Ketupa coromanda",
+                "name": "Dusky Eagle-Owl"
+              },
+              {
+                "latin": "Ketupa nipalensis",
+                "name": "Spot-bellied Eagle-Owl"
+              },
+              {
+                "latin": "Ketupa sumatrana",
+                "name": "Barred Eagle-Owl"
+              },
+              {
+                "latin": "Ketupa philippensis",
+                "name": "Philippine Eagle-Owl"
+              }
+            ]
+          },
+          {
+            "latin": "Psiloscops",
+            "species": [
+              {
+                "latin": "Psiloscops flammeolus",
+                "name": "Flammulated Owl"
+              }
+            ]
+          },
+          {
+            "latin": "Gymnasio",
+            "species": [
+              {
+                "latin": "Gymnasio nudipes",
+                "name": "Puerto Rican Owl"
+              }
+            ]
+          },
+          {
+            "latin": "Megascops",
+            "species": [
+              {
+                "latin": "Megascops clarkii",
+                "name": "Bare-shanked Screech Owl"
+              },
+              {
+                "latin": "Megascops trichopsis",
+                "name": "Whiskered Screech Owl"
+              },
+              {
+                "latin": "Megascops albogularis",
+                "name": "White-throated Screech Owl"
+              },
+              {
+                "latin": "Megascops choliba",
+                "name": "Tropical Screech Owl"
+              },
+              {
+                "latin": "Megascops koepckeae",
+                "name": "Koepcke's Screech Owl"
+              },
+              {
+                "latin": "Megascops ingens",
+                "name": "Rufescent Screech Owl"
+              },
+              {
+                "latin": "Megascops petersoni",
+                "name": "Cinnamon Screech Owl"
+              },
+              {
+                "latin": "Megascops marshalli",
+                "name": "Cloud-forest Screech Owl"
+              },
+              {
+                "latin": "Megascops hoyi",
+                "name": "Yungas Screech Owl"
+              },
+              {
+                "latin": "Megascops guatemalae",
+                "name": "Middle American Screech Owl"
+              },
+              {
+                "latin": "Megascops centralis",
+                "name": "Choco Screech Owl"
+              },
+              {
+                "latin": "Megascops roraimae",
+                "name": "Foothill Screech Owl"
+              },
+              {
+                "latin": "Megascops sanctaecatarinae",
+                "name": "Long-tufted Screech Owl"
+              },
+              {
+                "latin": "Megascops barbarus",
+                "name": "Bearded Screech Owl"
+              },
+              {
+                "latin": "Megascops seductus",
+                "name": "Balsas Screech Owl"
+              },
+              {
+                "latin": "Megascops cooperi",
+                "name": "Pacific Screech Owl"
+              },
+              {
+                "latin": "Megascops kennicottii",
+                "name": "Western Screech Owl"
+              },
+              {
+                "latin": "Megascops asio",
+                "name": "Eastern Screech Owl"
+              },
+              {
+                "latin": "Megascops gilesi",
+                "name": "Santa Marta Screech Owl"
+              },
+              {
+                "latin": "Megascops roboratus",
+                "name": "West Peruvian Screech Owl"
+              },
+              {
+                "latin": "Megascops watsonii",
+                "name": "Tawny-bellied Screech Owl"
+              },
+              {
+                "latin": "Megascops atricapilla",
+                "name": "Black-capped Screech Owl"
+              }
+            ]
+          },
+          {
+            "latin": "Lophostrix",
+            "species": [
+              {
+                "latin": "Lophostrix cristata",
+                "name": "Crested Owl"
+              }
+            ]
+          },
+          {
+            "latin": "Pulsatrix",
+            "species": [
+              {
+                "latin": "Pulsatrix perspicillata",
+                "name": "Spectacled Owl"
+              },
+              {
+                "latin": "Pulsatrix koeniswaldiana",
+                "name": "Tawny-browed Owl"
+              },
+              {
+                "latin": "Pulsatrix melanota",
+                "name": "Band-bellied Owl"
+              }
+            ]
+          },
+          {
+            "latin": "Strix",
+            "species": [
+              {
+                "latin": "Strix virgata",
+                "name": "Mottled Owl"
+              },
+              {
+                "latin": "Strix nigrolineata",
+                "name": "Black-and-white Owl"
+              },
+              {
+                "latin": "Strix huhula",
+                "name": "Black-banded Owl"
+              },
+              {
+                "latin": "Strix albitarsis",
+                "name": "Rufous-banded Owl"
+              },
+              {
+                "latin": "Strix seloputo",
+                "name": "Spotted Wood Owl"
+              },
+              {
+                "latin": "Strix ocellata",
+                "name": "Mottled Wood Owl"
+              },
+              {
+                "latin": "Strix leptogrammica",
+                "name": "Brown Wood Owl"
+              },
+              {
+                "latin": "Strix aluco",
+                "name": "Tawny Owl"
+              },
+              {
+                "latin": "Strix nivicolum",
+                "name": "Himalayan Owl"
+              },
+              {
+                "latin": "Strix hadorami",
+                "name": "Desert Owl"
+              },
+              {
+                "latin": "Strix butleri",
+                "name": "Omani Owl"
+              },
+              {
+                "latin": "Strix occidentalis",
+                "name": "Spotted Owl"
+              },
+              {
+                "latin": "Strix varia",
+                "name": "Barred Owl"
+              },
+              {
+                "latin": "Strix sartorii",
+                "name": "Cinereous Owl"
+              },
+              {
+                "latin": "Strix fulvescens",
+                "name": "Fulvous Owl"
+              },
+              {
+                "latin": "Strix hylophila",
+                "name": "Rusty-barred Owl"
+              },
+              {
+                "latin": "Strix rufipes",
+                "name": "Rufous-legged Owl"
+              },
+              {
+                "latin": "Strix chacoensis",
+                "name": "Chaco Owl"
+              },
+              {
+                "latin": "Strix uralensis",
+                "name": "Ural Owl"
+              },
+              {
+                "latin": "Strix nebulosa",
+                "name": "Great Grey Owl"
+              },
+              {
+                "latin": "Strix woodfordii",
+                "name": "African Wood Owl"
+              }
+            ]
+          }
+        ]
+      },
+      {
+        "latin": "Tytonidae",
+        "name": "Schleiereulen",
+        "genera": [
+          {
+            "latin": "Phodilus",
+            "species": [
+              {
+                "latin": "Phodilus assimilis",
+                "name": "Sri Lanka Bay Owl"
+              },
+              {
+                "latin": "Phodilus badius",
+                "name": "Oriental Bay Owl"
+              }
+            ]
+          },
+          {
+            "latin": "Tyto",
+            "species": [
+              {
+                "latin": "Tyto tenebricosa",
+                "name": "Sooty Owl"
+              },
+              {
+                "latin": "Tyto novaehollandiae",
+                "name": "Australasian Masked Owl"
+              },
+              {
+                "latin": "Tyto aurantia",
+                "name": "Golden Masked Owl"
+              },
+              {
+                "latin": "Tyto nigrobrunnea",
+                "name": "Taliabu Masked Owl"
+              },
+              {
+                "latin": "Tyto inexspectata",
+                "name": "Minahasa Masked Owl"
+              },
+              {
+                "latin": "Tyto rosenbergii",
+                "name": "Sulawesi Masked Owl"
+              },
+              {
+                "latin": "Tyto prigoginei",
+                "name": "Itombwe Owl"
+              },
+              {
+                "latin": "Tyto longimembris",
+                "name": "Eastern Grass Owl"
+              },
+              {
+                "latin": "Tyto capensis",
+                "name": "African Grass Owl"
+              },
+              {
+                "latin": "Tyto alba",
+                "name": "Western Barn Owl"
+              },
+              {
+                "latin": "Tyto javanica",
+                "name": "Eastern Barn Owl"
+              },
+              {
+                "latin": "Tyto furcata",
+                "name": "American Barn Owl"
+              },
+              {
+                "latin": "Tyto deroepstorffi",
+                "name": "Andaman Masked Owl"
+              },
+              {
+                "latin": "Tyto glaucops",
+                "name": "Ashy-faced Owl"
+              },
+              {
+                "latin": "Tyto soumagnei",
+                "name": "Red Owl"
+              }
+            ]
+          }
+        ]
+      }
+    ]
+  },
+  {
+    "latin": "Cathartiformes",
+    "name": "Neuweltgeier",
+    "families": [
+      {
+        "latin": "Cathartidae",
+        "name": "Neuweltgeier",
+        "genera": [
+          {
+            "latin": "Gymnogyps",
+            "species": [
+              {
+                "latin": "Gymnogyps californianus",
+                "name": "California Condor"
+              }
+            ]
+          },
+          {
+            "latin": "Sarcoramphus",
+            "species": [
+              {
+                "latin": "Sarcoramphus papa",
+                "name": "King Vulture"
+              }
+            ]
+          },
+          {
+            "latin": "Vultur",
+            "species": [
+              {
+                "latin": "Vultur gryphus",
+                "name": "Andean Condor"
+              }
+            ]
+          },
+          {
+            "latin": "Coragyps",
+            "species": [
+              {
+                "latin": "Coragyps atratus",
+                "name": "Black Vulture"
+              }
+            ]
+          },
+          {
+            "latin": "Cathartes",
+            "species": [
+              {
+                "latin": "Cathartes aura",
+                "name": "Turkey Vulture"
+              },
+              {
+                "latin": "Cathartes burrovianus",
+                "name": "Lesser Yellow-headed Vulture"
+              },
+              {
+                "latin": "Cathartes melambrotus",
+                "name": "Greater Yellow-headed Vulture"
+              }
+            ]
+          }
+        ]
+      }
+    ]
+  },
+  {
+    "latin": "Ciconiiformes",
+    "name": "Störche",
+    "families": [
+      {
+        "latin": "Ciconiidae",
+        "name": "Störche",
+        "genera": [
+          {
+            "latin": "Anastomus",
+            "species": [
+              {
+                "latin": "Anastomus oscitans",
+                "name": "Asian Openbill"
+              },
+              {
+                "latin": "Anastomus lamelligerus",
+                "name": "African Openbill"
+              }
+            ]
+          },
+          {
+            "latin": "Leptoptilos",
+            "species": [
+              {
+                "latin": "Leptoptilos crumenifer",
+                "name": "Marabou Stork"
+              },
+              {
+                "latin": "Leptoptilos dubius",
+                "name": "Greater Adjutant"
+              },
+              {
+                "latin": "Leptoptilos javanicus",
+                "name": "Lesser Adjutant"
+              }
+            ]
+          },
+          {
+            "latin": "Mycteria",
+            "species": [
+              {
+                "latin": "Mycteria americana",
+                "name": "Wood Stork"
+              },
+              {
+                "latin": "Mycteria cinerea",
+                "name": "Milky Stork"
+              },
+              {
+                "latin": "Mycteria ibis",
+                "name": "Yellow-billed Stork"
+              },
+              {
+                "latin": "Mycteria leucocephala",
+                "name": "Painted Stork"
+              }
+            ]
+          },
+          {
+            "latin": "Jabiru",
+            "species": [
+              {
+                "latin": "Jabiru mycteria",
+                "name": "Jabiru"
+              }
+            ]
+          },
+          {
+            "latin": "Ephippiorhynchus",
+            "species": [
+              {
+                "latin": "Ephippiorhynchus senegalensis",
+                "name": "Saddle-billed Stork"
+              },
+              {
+                "latin": "Ephippiorhynchus asiaticus",
+                "name": "Black-necked Stork"
+              }
+            ]
+          },
+          {
+            "latin": "Ciconia",
+            "species": [
+              {
+                "latin": "Ciconia nigra",
+                "name": "Black Stork"
+              },
+              {
+                "latin": "Ciconia maguari",
+                "name": "Maguari Stork"
+              },
+              {
+                "latin": "Ciconia boyciana",
+                "name": "Oriental Stork"
+              },
+              {
+                "latin": "Ciconia ciconia",
+                "name": "White Stork"
+              },
+              {
+                "latin": "Ciconia abdimii",
+                "name": "Abdim's Stork"
+              },
+              {
+                "latin": "Ciconia stormi",
+                "name": "Storm's Stork"
+              },
+              {
+                "latin": "Ciconia microscelis",
+                "name": "African Woolly-necked Stork"
+              },
+              {
+                "latin": "Ciconia episcopus",
+                "name": "Asian Woolly-necked Stork"
+              }
+            ]
+          }
+        ]
+      }
+    ]
+  }
+]

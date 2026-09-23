@@ -8,7 +8,11 @@ import {
   AppSelectContent as SelectContent,
 } from '@/components/app-select';
 import { cn } from '@/lib/utils';
-import { SpeciesName } from '@/components/species-name';
+import { TaxonomyFullscreen } from '@/components/taxonomy-fullscreen';
+import {
+  SpeciesCommonName,
+  SpeciesScientificName,
+} from '@/components/species-name';
 import { SpeciesRowContent } from '@/components/species-row';
 import { useEffect, useRef, useState } from 'react';
 import { useSlidingPill } from '@/lib/use-sliding-pill';
@@ -255,7 +259,17 @@ function Measurement({
 /* transitions.dev texts reveal: the name and Latin name rise in with a
    staggered blur. On a species change the block fades out quietly (200ms),
    then the new text is written into the DOM and the reveal replays. */
-function RevealHeading({ name, latin }: { name: string; latin: string }) {
+function RevealHeading({
+  name,
+  latin,
+  selected,
+  onSelect,
+}: {
+  name: string;
+  latin: string;
+  selected: string;
+  onSelect: (id: string) => void;
+}) {
   const ref = useRef<HTMLDivElement>(null);
   const [initial] = useState({ name, latin });
   useEffect(() => {
@@ -285,14 +299,22 @@ function RevealHeading({ name, latin }: { name: string; latin: string }) {
       className="t-stagger is-shown w-full px-[15px] to-desktop:px-[3px] to-phone:w-auto to-phone:min-w-0 to-phone:p-0"
       ref={ref}
     >
-      <SpeciesName
-        name={initial.name}
-        latin={initial.latin}
-        commonAs="h1"
-        scientificAs="p"
-        animated
+      <SpeciesCommonName
+        as="h1"
         variant="atlas-title"
-      />
+        className="t-stagger-line t-stagger-line--1"
+      >
+        {initial.name}
+      </SpeciesCommonName>
+      <TaxonomyFullscreen selected={selected} onSelect={onSelect}>
+        <SpeciesScientificName
+          as="span"
+          variant="atlas-title"
+          className="t-stagger-line t-stagger-line--2"
+        >
+          {initial.latin}
+        </SpeciesScientificName>
+      </TaxonomyFullscreen>
     </div>
   );
 }
@@ -988,7 +1010,12 @@ export default function RaptorApp({
             className="specimen-panel [container:atlas-stage/inline-size] bg-stage relative flex flex-col min-w-0 min-h-[860px] from-compact:h-full from-compact:min-h-0 to-compact:min-h-[830px] to-phone:min-h-[620px] overflow-hidden"
           >
             <div className="specimen-heading to-phone:[--species-picker-size:34px] pt-[48px] px-[48px] to-desktop:px-[30px] from-compact:pt-5 from-compact:-mt-[2px] from-wide:pt-6 from-wide:px-[50px] from-wide:mt-0 to-phone:pt-5 to-phone:px-4 to-phone:flex to-phone:items-start to-phone:justify-center to-phone:gap-3 justify-between gap-2 items-start z-2 relative block text-center">
-              <RevealHeading name={bird.name} latin={bird.latin} />
+              <RevealHeading
+                name={bird.name}
+                latin={bird.latin}
+                selected={selected}
+                onSelect={select}
+              />
               {/* The rail costs a phone most of its first screen, so there the
                   species list becomes a sheet under the name. */}
               <Sheet open={pickerOpen} onOpenChange={setPickerOpen}>
