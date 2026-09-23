@@ -543,6 +543,12 @@ export const glossaryEntries: GlossaryEntry[] = (
   ] satisfies GlossaryEntry[]
 ).sort((a, b) => a.term.localeCompare(b.term, 'de'));
 
+const glossaryById = new Map(glossaryEntries.map((entry) => [entry.id, entry]));
+
+export function getGlossaryEntry(id: string): GlossaryEntry | undefined {
+  return glossaryById.get(id);
+}
+
 export function glossaryHref(id: string) {
   return `/wissen?begriff=${encodeURIComponent(id)}#glossar`;
 }

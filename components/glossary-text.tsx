@@ -5,11 +5,9 @@ import {
   type ReactNode,
   type ReactElement,
 } from 'react';
-import { glossaryHref } from '@/lib/glossary';
+import { GlossaryLink } from '@/components/glossary-link';
 import { splitGlossaryText } from '@/lib/glossary-matching';
 
-// Explicit color utilities override the unlayered anchor reset in base.css.
-// The shared keyboard-focus ring and text size remain inherited.
 // Only descend into prose elements. Existing links, controls, SVGs and custom
 // components are left intact; a glossary link must never contain another link.
 const proseElements = new Set([
@@ -33,14 +31,9 @@ export function GlossaryText({ children }: { children: ReactNode }) {
       if (typeof node === 'string') {
         return splitGlossaryText(node, seen).map((part, index) =>
           part.id ? (
-            <a
-              key={`${part.id}-${index}`}
-              href={glossaryHref(part.id)}
-              className="glossary-link text-(--glossary-link)! font-(--weight-semibold) no-underline transition-colors duration-(--duration-quick) ease-(--ease-out) hover:text-(--glossary-link-hover)! focus-visible:text-(--glossary-link-hover)!"
-              title={`${part.term} im Glossar`}
-            >
+            <GlossaryLink key={`${part.id}-${index}`} id={part.id}>
               {part.text}
-            </a>
+            </GlossaryLink>
           ) : (
             part.text
           ),

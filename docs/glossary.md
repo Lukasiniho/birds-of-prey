@@ -7,6 +7,7 @@ Unter `/wissen#glossar` stehen die Fachbegriffe alphabetisch mit Suche und Theme
 - Vorhandene Links, Buttons und andere interaktive Komponenten bleiben unberührt. Die Komponente wird ausschließlich um Fließtexte verwendet, nicht um ganze interaktive Panels.
 - Die gemeinsamen Komponenten `DetailCopy`, `FactTooltip` und `SpeciesTrivia` sowie alle redaktionellen Textfelder im Artenatlas verwenden den Renderer. Neue Fachbegriffe werden dort automatisch aktiv; zusätzliche Wortformen gehören in `aliases`.
 - Neue Arten benötigen keine eigenen Verlinkungen. Neue Textfelder außerhalb dieser Komponenten sollten explizit `GlossaryText` verwenden.
+- `GlossaryLink` verwendet `Tooltip`, `TooltipTrigger` und `TooltipContent` in der bestehenden Detail-Variante. Hover und Tastaturfokus zeigen die unveränderte Definition über `getGlossaryEntry(id)` aus `lib/glossary.ts`; der Trigger bleibt ein echter Link zum Glossar. Kein zusätzlicher Browser-Titeltooltip und keine duplizierten Erklärungstexte.
 - Die Definitionen selbst bleiben ohne automatische Links, damit sie ruhig lesbar sind.
 
 ## Fachliche Referenzen
