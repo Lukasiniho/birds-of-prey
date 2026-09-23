@@ -214,8 +214,8 @@ Beide Seitenränder betragen einheitlich 12 px (`--page-gutter`), ebenso in
 Kopfzeile, Quizaufgaben und Quiz-Antwortleiste. `--atlas-gutter` ist ein Alias
 derselben Rolle. Unterhalb der Maximalbreite fluchten Inhalt und Kopfzeile.
 `.detail-panel` teilt das Padding zwischen Atlas, Anatomie und Falknerei. Im
-Atlas richten sich Kopfleiste, Gruppierung und Gruppentitel mit
-`--atlas-gutter` (12 px) an der Artenleiste aus. Artenzeilen (`.species-row`)
+Atlas verwenden Kopfleiste, Gruppierung und Gruppentitel
+`--atlas-gutter` (12 px) und richten sich an der Artenleiste aus. Artenzeilen (`.species-row`)
 haben überall 4 px Innenabstand und 8 px zwischen Porträt und Name; das
 Porträt misst 64 px in Auswahllisten (`--species-row-portrait`) und 48 px im
 Fließtext (`--species-row-portrait-inline`, `data-size="inline"`). `--rail-section-gap`,

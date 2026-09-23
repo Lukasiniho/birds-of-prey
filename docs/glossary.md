@@ -10,6 +10,7 @@ Unter `/wissen#glossar` stehen die Fachbegriffe alphabetisch mit Suche und Theme
 - Neue Arten benötigen keine eigenen Verlinkungen. Neue Textfelder außerhalb dieser Komponenten sollten explizit `GlossaryText` verwenden.
 - `GlossaryLink` verwendet `Tooltip`, `TooltipTrigger` und `TooltipContent` in der bestehenden Detail-Variante. Hover und Tastaturfokus zeigen die unveränderte Definition über `getGlossaryEntry(id)` aus `lib/glossary.ts`; der Trigger bleibt ein echter Link zum Glossar. Kein zusätzlicher Browser-Titeltooltip und keine duplizierten Erklärungstexte.
 - Die Definitionen selbst bleiben ohne automatische Links, damit sie ruhig lesbar sind.
+- „Quellen“ öffnet die weiterführenden Links bei Hover oder Klick in der gemeinsamen schwebenden Karte (`PopoverContent`). Der Trigger und die Links bleiben per Tastatur und auf Touchscreens erreichbar.
 
 ## Fachliche Referenzen
 

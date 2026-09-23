@@ -62,7 +62,6 @@ body {
   --tracking-tight: -0.02em;
   --tracking-normal: 0;
   --tracking-caps: 0.06em;
-
   --type-caption: var(--text-xs);
   /* Der Bildnachweis steht unter der Bühne und soll dem Bild nicht die
    * Aufmerksamkeit nehmen: eine Stufe unter der Bildunterschrift. */
