@@ -144,7 +144,7 @@ Aufrufstellen brauchen dafür keine eigenen Regeln. Alle Duotone-Icons tragen
 Quiz-Vogelbühnen sind immer `--stage`. Dropdown-Trigger und Menüs sind hell
 `--surface`, dunkel `--background` (`--select-background`).
 
-## Typografie
+Glossarlinks verwenden `--glossary-link` und beim Hover/Fokus\n`--glossary-link-hover`: gesättigtes Teal, für Hell und Dunkel getrennt\nabgestimmt. Gewicht 600 (`--weight-semibold`) unterscheidet sie zusätzlich\nvom Fließtext; keine Unterstreichung, unveränderte Schriftgröße und der\ngemeinsame Tastatur-Fokusring. Die allgemeinen Akzentfarben bleiben unverändert.\n\n## Typografie
 
 Details in `docs/typography.md`. Kurzfassung: Inter für Fließtext und
 Bedienelemente, Source Serif 4 für redaktionelle Titel.

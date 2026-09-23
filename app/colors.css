@@ -3,28 +3,26 @@
  * ergänzen und in docs/design-system.md (Farben) beschreiben. */
 :root {
   color-scheme: light;
-
   /* Flächen */
   --background: #fafcfd; /* Seite und Kopfzeile */
   --surface: #fff; /* erhaben: Karten, Menüs, Dropdown-Trigger */
   --stage: #eaf1f5; /* vertieft: Bild- und Quizbühnen, Kartenwasser */
   --muted: #e7eef3; /* ruhige Nebenfläche */
   --hover: #eef3f6; /* Zeilen- und Listen-Hover */
-
   /* Text und Linien */
   --foreground: #273c4b;
   /* Zwei Stufen, je nach Fläche darunter; beide so hell wie möglich bei 4,5:1. */
   --muted-foreground: #647785; /* auf --background und --surface */
   --muted-foreground-stage: #576974; /* auf Vertieftem */
   --border: #dce5eb;
-
   /* Akzent */
   --main-color: #487878;
+  --glossary-link: #00786b;
+  --glossary-link-hover: #005c52;
   --primary: var(--main-color);
   --primary-foreground: #fff;
   --ring: var(--main-color);
   --selection-border: var(--main-color);
-
   /* Status */
   --success: #267662;
   --success-soft: #eef8f3;
@@ -103,6 +101,8 @@
   --muted-foreground-stage: var(--muted-foreground);
   --border: #26323b;
   --main-color: #86aaa6;
+  --glossary-link: #4fdec4;
+  --glossary-link-hover: #8cebd9;
   --primary-foreground: var(--background);
   --success: #8bd5b6;
   --success-soft: #18372e;
