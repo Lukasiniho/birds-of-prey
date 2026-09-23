@@ -3,8 +3,12 @@
 Der wissenschaftliche Bühnenname öffnet den gemeinsamen Vollbilddialog.
 Der horizontale Baum verbindet Klasse → Ordnung → Familie → Gattung → Art.
 Der gemeinsame Darstellungsschalter bietet zusätzlich eine eingerückte Liste.
-Aufklappbare Knoten sind native Buttons mit `aria-expanded` und `aria-controls`;
-der Aufklappzustand bleibt beim Darstellungswechsel erhalten. Beim Öffnen wird der Pfad zur aktuellen Art aufgeklappt
+Aufklappbare Knoten sind native Buttons mit `aria-expanded`;
+jede Ansicht behält ihren Aufklappzustand beim Darstellungswechsel.
+Der Baum zeigt pro Ebene einen geöffneten Pfad in unabhängigen Spalten.
+Geschwisterknoten behalten beim Öffnen von Nachkommen Position und Scrollstand.
+SVG-Verbindungen folgen den sichtbaren Knoten beim Scrollen und bei Größenänderungen.
+Geöffnete Knoten und die aktuelle Atlas-Art haben einen Teal-Auswahlrahmen. Beim Öffnen wird der Pfad zur aktuellen Art aufgeklappt
 und diese in den sichtbaren Bereich gescrollt. Atlas-Arten verwenden die
 vorhandenen Porträt- und Namenskomponenten und navigieren zur Art. Arten ohne
 Atlas-Eintrag stehen kleiner mit deutschem und wissenschaftlichem Namen in Grau im Baum.
