@@ -95,7 +95,7 @@ export default function GlossaryExplorer() {
               ref={entry.id === selected ? activeEntry : undefined}
               tabIndex={entry.id === selected ? -1 : undefined}
               id={`glossar-${entry.id}`}
-              className="glossary-entry grid content-start gap-2 p-panel border-t-(length:--border-structure) rounded-(--radius-small) data-[selected=true]:bg-(--selected)"
+              className="glossary-entry grid content-start gap-2 py-panel border-t-(length:--border-structure) rounded-(--radius-small) data-[selected=true]:bg-(--selected)"
               data-selected={entry.id === selected}
             >
               <dt className="font-(family-name:--font-stack-display) text-(length:--type-detail-heading) font-(--weight-label-heading) leading-(--leading-heading)">

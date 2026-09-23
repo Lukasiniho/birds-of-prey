@@ -214,7 +214,9 @@ haben überall 4 px Innenabstand und 8 px zwischen Porträt und Name; das
 Porträt misst 64 px in Auswahllisten (`--species-row-portrait`) und 48 px im
 Fließtext (`--species-row-portrait-inline`, `data-size="inline"`). `--rail-section-gap`,
 `--rail-content-gap` und `--rail-caption-gap` sind Aliase auf 24/16/12 px.
-Maximale Inhaltsbreiten: Quiz und Wissen 1360 px, Falknerei 1440 px.
+Maximale Inhaltsbreiten: Quiz 1360 px, Falknerei 1440 px. Wissen nutzt die volle
+Seitenbreite mit dem gemeinsamen Seitenrand. Glossareinträge haben nur vertikales
+Panel-Padding, damit ihre Texte links und rechts mit Tabs und Filterleiste fluchten.
 Spannweite und Gewicht teilen die Messwertbox in gleich breite Bereiche mit
 identischem Innenabstand; die Audio-Spalte ist separat, auch mobil.
 
