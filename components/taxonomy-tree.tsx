@@ -124,7 +124,7 @@ export function TaxonomyTree({
   }, [path]);
   return (
     <div
-      className="min-h-0 min-w-0 flex-1 overflow-x-auto overflow-y-hidden overscroll-contain"
+      className="min-h-0 min-w-0 flex-1 overflow-x-auto overflow-y-hidden overscroll-contain [scrollbar-width:none] [&::-webkit-scrollbar]:hidden"
       aria-label="Horizontaler Systematikbaum"
     >
       <div ref={stage} className="relative flex h-full w-max gap-8 p-2">
@@ -158,7 +158,7 @@ export function TaxonomyTree({
             </h3>
             <div
               data-taxonomy-column={depth}
-              className="relative min-h-0 flex-1 overflow-y-auto overscroll-contain [overflow-anchor:none] [scrollbar-width:thin]"
+              className="relative min-h-0 flex-1 overflow-y-auto overscroll-contain [overflow-anchor:none] [scrollbar-width:none] [&::-webkit-scrollbar]:hidden"
               onScroll={schedule}
             >
               <ul className="flex flex-col gap-3 py-1">
