@@ -140,7 +140,7 @@ export function TaxonomyFullscreen({
         <div className="min-w-0 pr-12">
           <h1
             id="taxonomy-title"
-            className="font-(family-name:--font-stack-display) text-(length:--type-heading)"
+            className="page-title font-(family-name:--font-stack-display) text-(length:--type-page-title) font-(--weight-semibold) leading-(--leading-display) tracking-(--tracking-tight)"
           >
             Systematik der Vögel
           </h1>

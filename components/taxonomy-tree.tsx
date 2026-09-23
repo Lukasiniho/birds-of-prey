@@ -190,7 +190,7 @@ export function TaxonomyTree({
             className={`relative flex h-full shrink-0 flex-col gap-3 ${depth === 4 ? 'w-64' : 'w-52'}`}
             aria-label={ranks[depth]}
           >
-            <h3 className="text-(length:--type-label-heading) font-(--weight-bold) text-foreground">
+            <h3 className="text-(length:--type-label-heading) font-(--weight-semibold) text-muted-foreground">
               {ranks[depth]}
             </h3>
             <TaxonomyColumn
