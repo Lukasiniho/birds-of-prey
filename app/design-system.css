@@ -18,7 +18,7 @@
   --pill-height-large: var(--control-height);
   --header-control-height: var(--control-height);
   --page-gutter: var(--space-12);
-  --site-max-width: 1600px;
+  --site-max-width: 1400px;
   --atlas-gutter: var(--page-gutter);
   --section-gap: var(--space-32);
   --panel-padding: var(--space-24);

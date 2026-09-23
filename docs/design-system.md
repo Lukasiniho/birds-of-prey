@@ -221,13 +221,13 @@ Porträt misst 64 px in Auswahllisten (`--species-row-portrait`) und 48 px im
 Fließtext (`--species-row-portrait-inline`, `data-size="inline"`). `--rail-section-gap`,
 `--rail-content-gap` und `--rail-caption-gap` sind Aliase auf 24/16/12 px.
 Die Inhalte von Wissen, Quiz, Falknerei und Styleguide sind über
-`--site-max-width` auf 1600 px begrenzt und zentriert. Die Grenze liegt an den
+`--site-max-width` auf 1400 px begrenzt und zentriert. Die Grenze liegt an den
 Hauptinhalten der `.section-shell`, nicht am `body`. Die Kopfzeile samt
 Logo, Navigation und unterer Trennlinie nutzt auf allen Seiten die volle
 Fensterbreite mit einheitlich 12 px Seitenabstand (`--atlas-gutter`), ohne
 Maximalbreite. Der Atlasinhalt und die
 Vollbildseiten bleiben über die gesamte Fensterbreite ausgedehnt, mit ihren
-bestehenden Seitenrändern. Die Inhalte der fixen Quiz-Antwortleiste teilen die 1600-px-Grenze
+bestehenden Seitenrändern. Die Inhalte der fixen Quiz-Antwortleiste teilen die 1400-px-Grenze
 und Zentrierung; ihre weiße Fläche, obere Trennlinie und ihr Schatten füllen
 die Fensterbreite. Die Trennlinie liegt am äußeren Balken und zählt zur
 bestehenden Gesamthöhe, damit die Buttonpositionen unverändert bleiben.
