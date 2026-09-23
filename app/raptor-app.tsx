@@ -761,7 +761,7 @@ export default function RaptorApp({
   function renderLibraryRail(inPicker = false) {
     return (
       <>
-        <div className="library-top to-phone:items-center to-phone:flex-wrap to-phone:block to-phone:gap-4 p-0 gap-4">
+        <div className="library-top shrink-0 to-phone:items-center to-phone:flex-wrap to-phone:block to-phone:gap-4 p-0 gap-4">
           <div
             className={cn(
               'grouping-control to-phone:flex-[0_0_100%] to-phone:flex-row to-phone:items-center to-phone:justify-between to-phone:gap-2 flex flex-col gap-2',
@@ -796,95 +796,110 @@ export default function RaptorApp({
             </Select>
           </div>
         </div>
-        <nav
-          aria-label="Vogelarten"
-          className={cn(
-            'grouped-navigation min-w-0 max-w-full to-phone:block to-phone:overflow-x-hidden',
+        <div
+          className={
             inPicker
-              ? 'flex-1 min-h-0 pt-2 max-h-none overflow-y-auto overscroll-y-contain pb-[calc(var(--space-20)+env(safe-area-inset-bottom))]'
-              : 'to-phone:max-h-[min(36dvh,320px)] to-phone:overscroll-y-contain to-phone:overflow-y-auto to-phone:pt-4 to-phone:pb-[5px]',
-          )}
+              ? 'flex-1 min-h-0 overflow-y-auto overscroll-y-contain pb-[calc(var(--space-20)+env(safe-area-inset-bottom))]'
+              : 'contents'
+          }
         >
-          {groups.map((group) => (
-            <section
-              className="species-group min-w-0 max-w-full not-first:mt-3 to-phone:not-first:mt-4 to-phone:shrink-0"
-              key={group.id}
-            >
-              {/* Die Gruppenzeile ist eine Beschriftung, kein Namenspaar: eine
+          <nav
+            aria-label="Vogelarten"
+            className={cn(
+              'grouped-navigation min-w-0 max-w-full to-phone:block to-phone:overflow-x-hidden',
+              inPicker
+                ? 'pt-2'
+                : 'to-phone:max-h-[min(36dvh,320px)] to-phone:overscroll-y-contain to-phone:overflow-y-auto to-phone:pt-4 to-phone:pb-[5px]',
+            )}
+          >
+            {groups.map((group) => (
+              <section
+                className="species-group min-w-0 max-w-full not-first:mt-3 to-phone:not-first:mt-4 to-phone:shrink-0"
+                key={group.id}
+              >
+                {/* Die Gruppenzeile ist eine Beschriftung, kein Namenspaar: eine
                   Schrift (die der Oberfläche), der deutsche Name im Textton,
                   die Gattung aufrecht als Beiwerk in der zweiten Farbe. */}
-              <h3 className="species-group-title items-baseline mb-2 to-phone:flex-wrap to-phone:gap-2 font-(family-name:--font-stack-body) text-(length:--type-ui) leading-(--leading-normal) font-(--weight-medium) text-foreground flex flex-wrap p-0 gap-2">
-                <span>{group.title}</span>
-                {group.subtitle && (
-                  <small className="font-(family-name:--font-stack-body) text-(length:--type-ui) font-(--weight-regular) not-italic text-muted-foreground">
-                    {group.subtitle}
-                  </small>
-                )}
-              </h3>
-              <SidebarMenu className="bird-list gap-half min-w-0 max-w-full to-phone:overflow-visible to-phone:m-0 to-phone:p-0 to-phone:gap-1">
-                {group.birds.map((b) => (
-                  <SidebarMenuItem
-                    key={b.id}
-                    className="to-phone:shrink-0 to-phone:w-full to-phone:min-w-0"
-                  >
-                    <SidebarMenuButton
-                      className="species-row bird-entry max-w-full"
-                      isActive={selected === b.id}
-                      aria-current={selected === b.id ? 'page' : undefined}
-                      render={
-                        // oxlint-disable-next-line jsx-a11y/anchor-has-content, jsx-a11y/control-has-associated-label -- the sidebar button supplies the link text
-                        <a href={birdHref(b) + birdInfoSearch('', infoTab)} />
-                      }
-                      onClick={(event) => {
-                        if (
-                          event.metaKey ||
-                          event.ctrlKey ||
-                          event.shiftKey ||
-                          event.altKey
-                        )
-                          return;
-                        event.preventDefault();
-                        select(b.id);
-                      }}
-                      onPointerEnter={() => warmBird(b.id)}
-                      onFocus={() => warmBird(b.id)}
+                <h3 className="species-group-title items-baseline mb-2 to-phone:flex-wrap to-phone:gap-2 font-(family-name:--font-stack-body) text-(length:--type-ui) leading-(--leading-normal) font-(--weight-medium) text-foreground flex flex-wrap p-0 gap-2">
+                  <span>{group.title}</span>
+                  {group.subtitle && (
+                    <small className="font-(family-name:--font-stack-body) text-(length:--type-ui) font-(--weight-regular) not-italic text-muted-foreground">
+                      {group.subtitle}
+                    </small>
+                  )}
+                </h3>
+                <SidebarMenu className="bird-list gap-half min-w-0 max-w-full to-phone:overflow-visible to-phone:m-0 to-phone:p-0 to-phone:gap-1">
+                  {group.birds.map((b) => (
+                    <SidebarMenuItem
+                      key={b.id}
+                      className="to-phone:shrink-0 to-phone:w-full to-phone:min-w-0"
                     >
-                      <SpeciesRowContent
-                        portrait={
-                          <span
-                            className="species-row-sprite own-portrait bg-no-repeat bg-contain bg-center"
-                            data-species={b.id}
-                            style={
-                              portraitImages[b.id]
-                                ? {
-                                    backgroundImage: `url(${imageSource(portraitImages[b.id])})`,
-                                  }
-                                : { backgroundImage: 'none' }
-                            }
-                            aria-hidden="true"
-                          />
+                      <SidebarMenuButton
+                        className="species-row bird-entry max-w-full"
+                        isActive={selected === b.id}
+                        aria-current={selected === b.id ? 'page' : undefined}
+                        render={
+                          // oxlint-disable-next-line jsx-a11y/anchor-has-content, jsx-a11y/control-has-associated-label -- the sidebar button supplies the link text
+                          <a href={birdHref(b) + birdInfoSearch('', infoTab)} />
                         }
-                        name={b.name}
-                        latin={b.latin}
-                      />
-                    </SidebarMenuButton>
-                  </SidebarMenuItem>
-                ))}
-              </SidebarMenu>
-            </section>
-          ))}
-        </nav>
-        {filtered.length === 0 && (
-          <div className="empty-library to-phone:min-h-[180px] to-phone:py-6 to-phone:px-3 to-phone:gap-1 flex-1 min-h-[320px] py-8 px-3 flex flex-col items-center justify-center gap-1 text-center">
-            <p className="text-(length:--type-body) flex items-center gap-2">
-              <Feather size={17} aria-hidden="true" />
-              Keine Art gefunden.
-            </p>
-            <span className="text-(length:--type-ui) text-muted-foreground leading-(--leading-relaxed)">
-              Versuche einen anderen Suchbegriff.
-            </span>
-          </div>
-        )}
+                        onClick={(event) => {
+                          if (
+                            event.metaKey ||
+                            event.ctrlKey ||
+                            event.shiftKey ||
+                            event.altKey
+                          )
+                            return;
+                          event.preventDefault();
+                          select(b.id);
+                        }}
+                        onPointerEnter={() => warmBird(b.id)}
+                        onFocus={() => warmBird(b.id)}
+                      >
+                        <SpeciesRowContent
+                          portrait={
+                            <span
+                              className="species-row-sprite own-portrait bg-no-repeat bg-contain bg-center"
+                              data-species={b.id}
+                              style={
+                                portraitImages[b.id]
+                                  ? {
+                                      backgroundImage: `url(${imageSource(portraitImages[b.id])})`,
+                                    }
+                                  : { backgroundImage: 'none' }
+                              }
+                              aria-hidden="true"
+                            />
+                          }
+                          name={b.name}
+                          latin={b.latin}
+                        />
+                      </SidebarMenuButton>
+                    </SidebarMenuItem>
+                  ))}
+                </SidebarMenu>
+              </section>
+            ))}
+          </nav>
+          {filtered.length === 0 && (
+            <div className="empty-library to-phone:min-h-[180px] to-phone:py-6 to-phone:px-3 to-phone:gap-1 flex-1 min-h-[320px] py-8 px-3 flex flex-col items-center justify-center gap-1 text-center">
+              <p
+                className={cn(
+                  'flex items-center gap-2',
+                  inPicker
+                    ? 'text-(length:--type-label-heading) font-(--weight-bold)'
+                    : 'text-(length:--type-body)',
+                )}
+              >
+                <Feather size={inPicker ? 24 : 17} aria-hidden="true" />
+                Keine Art gefunden.
+              </p>
+              <span className="text-(length:--type-ui) text-muted-foreground leading-(--leading-relaxed)">
+                Versuche einen anderen Suchbegriff.
+              </span>
+            </div>
+          )}
+        </div>
       </>
     );
   }
@@ -1190,11 +1205,13 @@ export default function RaptorApp({
                 >
                   <CaretDown size={16} />
                 </SheetTrigger>
+                {/* Pin both edges so filtering cannot pull the search below
+                    the keyboard; only the results area scrolls. */}
                 <SheetContent
                   side="bottom"
-                  className="species-picker-sheet flex flex-col gap-0 max-h-[85dvh] pt-5 px-page pb-0 rounded-t-(--radius-surface) rounded-b-none bg-background"
+                  className="species-picker-sheet flex flex-col gap-0 data-[side=bottom]:top-[max(var(--space-20),env(safe-area-inset-top))] overflow-hidden pt-5 px-page pb-0 rounded-t-(--radius-surface) rounded-b-none bg-background"
                 >
-                  <SheetTitle className="species-picker-title mb-4 font-(family-name:--font-stack-display) text-(length:--type-label-title) text-foreground">
+                  <SheetTitle className="species-picker-title shrink-0 mb-4 font-(family-name:--font-stack-display) text-(length:--type-label-title) text-foreground">
                     Art wählen
                   </SheetTitle>
                   {/* The search belongs where the list is: on a phone the
@@ -1203,7 +1220,7 @@ export default function RaptorApp({
                     query={query}
                     onQueryChange={setQuery}
                     label="Vogelart suchen"
-                    className="to-phone:flex-1 to-phone:min-w-[130px] mb-3 picker-search"
+                    className="shrink-0 min-w-0 mb-3 picker-search"
                   />
                   {renderLibraryRail(true)}
                 </SheetContent>
