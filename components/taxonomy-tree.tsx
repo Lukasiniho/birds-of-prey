@@ -161,7 +161,7 @@ export function TaxonomyTree({
               className="relative min-h-0 flex-1 overflow-y-auto overscroll-contain [overflow-anchor:none] [scrollbar-width:thin]"
               onScroll={schedule}
             >
-              <ul className="flex flex-col gap-3 p-1">
+              <ul className="flex flex-col gap-3 py-1">
                 {nodes.map((node) => (
                   <li key={node.latin}>
                     <TaxonomyCard
