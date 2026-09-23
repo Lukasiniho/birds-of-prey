@@ -108,7 +108,7 @@ export function BirdAudio({
         >
           {bars.map((peak, index) => (
             <span
-              className="relative rounded-(--radius-pill) bg-border flex-1 min-w-0 max-w-[4px] min-h-[3px]"
+              className="relative rounded-(--radius-pill) bg-border flex-1 min-w-0 max-w-[4px] min-h-[3px] max-h-full"
               key={index}
               style={
                 {
