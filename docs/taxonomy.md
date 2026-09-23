@@ -1,11 +1,26 @@
 # Systematik im Atlas
 
-Der wissenschaftliche Bühnenname öffnet den gemeinsamen Vollbilddialog.
+Der wissenschaftliche Bühnenname und das Info-Symbol rechts daneben öffnen
+`/<wissenschaftlicher-artname>/systematik` als eigene Vollbildseite.
+Alle Atlas-Arten haben direkt aufrufbare, statisch exportierte Systematikseiten.
+Der Parameter `?taxon=<wissenschaftlicher-gruppenname>` speichert den geöffneten
+Ast; ohne Parameter öffnet sich der Pfad zur ausgewählten Atlas-Art. `?taxon=`
+steht für den vollständig eingeklappten Baum. Ungültige Gruppen fallen auf den
+Artpfad zurück. Zurück/Vorwärts und Neuladen stellen die Auswahl wieder her.
+Beim Schließen wird der Fokus nicht zum Artnamen zurückgesetzt: weder per Maus
+noch per Tastatur (einschließlich Escape) bleibt dort ein Fokusrahmen stehen.
 Der horizontale Baum verbindet Klasse → Ordnung → Familie → Gattung → Art.
 Aufklappbare Knoten sind native Buttons mit `aria-expanded`;
 Der Baum zeigt pro Ebene einen geöffneten Pfad in unabhängigen Spalten.
 Geschwisterknoten behalten beim Öffnen von Nachkommen Position und Scrollstand.
-SVG-Verbindungen folgen den sichtbaren Knoten beim Scrollen und bei Größenänderungen.
+Geänderte Spalten wechseln mit dem transitions.dev-Panel-reveal: 400 ms öffnen,
+350 ms schließen, 12 px Bewegung und 2 px Unschärfe über die zentralen
+`--panel-*`-Tokens. Ausblendende Spalten sind inert und für Screenreader verborgen.
+Unveränderte Spalten werden nicht neu animiert. `prefers-reduced-motion` schaltet
+Übergänge ab. SVG-Verbindungen folgen den sichtbaren Knoten auch während der
+Animation, beim Scrollen und bei Größenänderungen.
+`node --experimental-strip-types --test tests/taxonomy-routes.test.ts` prüft
+alle Art-URLs und sämtliche auswählbaren Äste einschließlich leerer Auswahl.
 Geöffnete Knoten und die aktuelle Atlas-Art haben einen Teal-Auswahlrahmen. Beim Öffnen wird der Pfad zur aktuellen Art aufgeklappt
 und diese in den sichtbaren Bereich gescrollt. Atlas-Arten verwenden die
 vorhandenen Porträt- und Namenskomponenten und navigieren zur Art. Arten ohne

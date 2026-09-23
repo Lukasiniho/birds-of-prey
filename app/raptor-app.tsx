@@ -8,7 +8,11 @@ import {
   AppSelectContent as SelectContent,
 } from '@/components/app-select';
 import { cn } from '@/lib/utils';
-import { TaxonomyFullscreen } from '@/components/taxonomy-fullscreen';
+import {
+  TaxonomyFullscreen,
+  TaxonomyTrigger,
+} from '@/components/taxonomy-fullscreen';
+import { taxonomyPathForSearch, taxonomySearch } from '@/lib/taxonomy-routes';
 import {
   SpeciesCommonName,
   SpeciesScientificName,
@@ -24,6 +28,8 @@ import {
   birdHref,
   birdForPath,
   birdFullscreenHref,
+  birdTaxonomyHref,
+  isBirdTaxonomyPath,
   isBirdFullscreenPath,
   birdInfoTabForSearch,
   birdInfoSearch,
@@ -275,12 +281,12 @@ function RevealHeading({
   name,
   latin,
   selected,
-  onSelect,
+  onOpenTaxonomy,
 }: {
   name: string;
   latin: string;
   selected: string;
-  onSelect: (id: string) => void;
+  onOpenTaxonomy: () => void;
 }) {
   const ref = useRef<HTMLDivElement>(null);
   const [initial] = useState({ name, latin });
@@ -288,13 +294,19 @@ function RevealHeading({
     const block = ref.current;
     if (!block) return;
     const lines = [...block.querySelectorAll<HTMLElement>('.t-stagger-line')];
-    const [line1, line2] = lines;
-    if (line1.textContent === name && line2.textContent === latin) return;
+    const common = block.querySelector<HTMLElement>(
+      '[data-species-name="common"]',
+    );
+    const scientific = block.querySelector<HTMLElement>(
+      '[data-species-name="scientific"]',
+    );
+    if (!common || !scientific) return;
+    if (common.textContent === name && scientific.textContent === latin) return;
     block.classList.add('is-hiding');
     block.classList.remove('is-shown');
     const timer = setTimeout(() => {
-      line1.textContent = name;
-      line2.textContent = latin;
+      common.textContent = name;
+      scientific.textContent = latin;
       // Snap to the hidden start state without a transition, otherwise the
       // lines would tween 0 -> 12px and the reveal would reverse that instead.
       for (const line of lines) line.style.transition = 'none';
@@ -318,15 +330,11 @@ function RevealHeading({
       >
         {initial.name}
       </SpeciesCommonName>
-      <TaxonomyFullscreen selected={selected} onSelect={onSelect}>
-        <SpeciesScientificName
-          as="span"
-          variant="atlas-title"
-          className="t-stagger-line t-stagger-line--2"
-        >
+      <TaxonomyTrigger selected={selected} onOpen={onOpenTaxonomy}>
+        <SpeciesScientificName as="span" variant="atlas-title">
           {initial.latin}
         </SpeciesScientificName>
-      </TaxonomyFullscreen>
+      </TaxonomyTrigger>
     </div>
   );
 }
@@ -511,9 +519,11 @@ function PreyGallery({ items }: { items: PreyExample[] }) {
 export default function RaptorApp({
   initialBirdId = 'rotschwanzbussard',
   initialFullscreen = false,
+  initialTaxonomy = false,
 }: {
   initialBirdId?: string;
   initialFullscreen?: boolean;
+  initialTaxonomy?: boolean;
 }) {
   const [selected, setSelected] = useState(initialBirdId);
   const [chosenPlumage, setPlumage] = useState<Plumage>('male');
@@ -524,10 +534,18 @@ export default function RaptorApp({
   const [hintOpen, setHintOpen] = useState(false);
   const [pickerOpen, setPickerOpen] = useState(false);
   const [infoTab, setInfoTab] = useState<BirdInfoTab>('profil');
+  const [taxonomyBranch, setTaxonomyBranch] = useState(() =>
+    taxonomyPathForSearch('', initialBirdId),
+  );
   const [path, setPath] = useState(
-    initialFullscreen ? birdFullscreenHref(speciesById[initialBirdId]) : '',
+    initialTaxonomy
+      ? birdTaxonomyHref(speciesById[initialBirdId])
+      : initialFullscreen
+        ? birdFullscreenHref(speciesById[initialBirdId])
+        : '',
   );
   const fullscreen = isBirdFullscreenPath(path);
+  const taxonomyOpen = isBirdTaxonomyPath(path);
   const bird = speciesById[selected];
   useEffect(() => {
     function syncFromUrl() {
@@ -537,6 +555,9 @@ export default function RaptorApp({
         speciesById[legacyId ?? ''] ??
         speciesById[initialBirdId];
       setSelected(current.id);
+      setTaxonomyBranch(
+        taxonomyPathForSearch(window.location.search, current.id),
+      );
       if (!isBirdFullscreenPath(window.location.pathname))
         setInfoTab(birdInfoTabForSearch(window.location.search));
       // The legacy ?art= links get rewritten to their species path. The home
@@ -546,9 +567,11 @@ export default function RaptorApp({
         const params = new URLSearchParams(window.location.search);
         params.delete('art');
         const query = params.toString();
-        const href = isBirdFullscreenPath(window.location.pathname)
-          ? birdFullscreenHref(current)
-          : birdHref(current);
+        const href = isBirdTaxonomyPath(window.location.pathname)
+          ? birdTaxonomyHref(current)
+          : isBirdFullscreenPath(window.location.pathname)
+            ? birdFullscreenHref(current)
+            : birdHref(current);
         window.history.replaceState(
           window.history.state,
           '',
@@ -565,12 +588,16 @@ export default function RaptorApp({
     // Before the first sync the server-rendered title and canonical still fit.
     if (!path) return;
     const home = path === '/';
-    const title = home ? SITE_NAME : birdPageTitle(bird, fullscreen);
+    const title = home
+      ? SITE_NAME
+      : birdPageTitle(bird, fullscreen) + (taxonomyOpen ? ' – Systematik' : '');
     const href = home
       ? '/'
-      : fullscreen
-        ? birdFullscreenHref(bird)
-        : birdHref(bird);
+      : taxonomyOpen
+        ? birdTaxonomyHref(bird)
+        : fullscreen
+          ? birdFullscreenHref(bird)
+          : birdHref(bird);
     const description = home ? SITE_DESCRIPTION : bird.intro;
     document.title = home ? title : `${title} · ${SITE_NAME}`;
     document
@@ -591,7 +618,7 @@ export default function RaptorApp({
       ['meta[property="og:image:alt"]', home ? SITE_NAME : bird.name],
     ])
       document.querySelector(selector)?.setAttribute('content', content);
-  }, [bird, path, fullscreen]);
+  }, [bird, path, fullscreen, taxonomyOpen]);
   const withAudio = Boolean(birdRecordings[bird.id]);
   const availablePlumages = plumagesFor(bird.id);
   const plumage = availablePlumages.some((p) => p.value === chosenPlumage)
@@ -640,6 +667,20 @@ export default function RaptorApp({
         window.location.hash !==
       href
     )
+      window.history.pushState(window.history.state, '', href);
+  }
+  function openTaxonomy() {
+    const href = birdTaxonomyHref(bird);
+    setTaxonomyBranch(taxonomyPathForSearch('', bird.id));
+    window.history.pushState(window.history.state, '', href);
+    setPath(href);
+  }
+  function selectTaxonomyBranch(branch: string[]) {
+    setTaxonomyBranch(branch);
+    const href =
+      birdTaxonomyHref(bird) +
+      taxonomySearch(window.location.search, branch, bird.id);
+    if (window.location.pathname + window.location.search !== href)
       window.history.pushState(window.history.state, '', href);
   }
   function warmBird(
@@ -1063,6 +1104,18 @@ export default function RaptorApp({
       </section>
     </>
   );
+  if (taxonomyOpen) {
+    return (
+      <TaxonomyFullscreen
+        selected={selected}
+        path={taxonomyBranch}
+        onPathChange={selectTaxonomyBranch}
+        onSelect={(id) => select(id, false)}
+        atlasHref={birdHref(bird) + birdInfoSearch('', infoTab)}
+        onClose={() => select(bird.id, false)}
+      />
+    );
+  }
   if (fullscreen) {
     return (
       <TooltipProvider delay={180}>
@@ -1117,7 +1170,7 @@ export default function RaptorApp({
                 name={bird.name}
                 latin={bird.latin}
                 selected={selected}
-                onSelect={select}
+                onOpenTaxonomy={openTaxonomy}
               />
               {/* The rail costs a phone most of its first screen, so there the
                   species list becomes a sheet under the name. */}

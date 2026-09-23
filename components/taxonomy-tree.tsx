@@ -1,8 +1,11 @@
 'use client';
 
 import { useLayoutEffect, useRef, useState } from 'react';
-import { taxonomyRoot, taxonomyPath, type TaxonomyNode } from '@/lib/taxonomy';
-import { TaxonomyCard } from '@/components/taxonomy-card';
+import { taxonomyRoot, type TaxonomyNode } from '@/lib/taxonomy';
+import {
+  TaxonomyColumn,
+  motionMilliseconds,
+} from '@/components/taxonomy-column';
 
 const ranks = ['Klasse', 'Ordnung', 'Familie', 'Gattung', 'Art'];
 
@@ -11,11 +14,14 @@ const ranks = ['Klasse', 'Ordnung', 'Familie', 'Gattung', 'Art'];
 export function TaxonomyTree({
   selected,
   onSelect,
+  path,
+  onPathChange,
 }: {
   selected: string;
   onSelect: (id: string) => void;
+  path: string[];
+  onPathChange: (path: string[]) => void;
 }) {
-  const [path, setPath] = useState(() => taxonomyPath(selected).slice(0, -1));
   const stage = useRef<HTMLDivElement>(null);
   const connectors = useRef<SVGSVGElement>(null);
   const columns: TaxonomyNode[][] = [[taxonomyRoot]];
@@ -23,7 +29,9 @@ export function TaxonomyTree({
     const active = columns[depth]?.find((node) => node.latin === path[depth]);
     columns.push(active?.children ?? []);
   }
-  const [lines, setLines] = useState<{ d: string; active: boolean }[]>([]);
+  const [lines, setLines] = useState<
+    { d: string; active: boolean; opacity: number }[]
+  >([]);
   const initialised = useRef(new Map<number, string>());
   const frame = useRef<number | null>(null);
   const measure = useRef(() => {});
@@ -38,8 +46,8 @@ export function TaxonomyTree({
     const element = stage.current;
     if (!element) return;
     measure.current = () => {
-      // Client rectangles include the dialog's opening scale. Convert them
-      // back into SVG coordinates so the scale is not applied twice.
+      // Convert client rectangles back into SVG coordinates, including zoom
+      // and the columns' animated translation.
       const matrix = connectors.current?.getScreenCTM();
       if (!matrix || !matrix.a || !matrix.d) return;
       const inverse = matrix.inverse();
@@ -48,7 +56,7 @@ export function TaxonomyTree({
       const panels = [
         ...element.querySelectorAll<HTMLElement>('[data-taxonomy-column]'),
       ];
-      const next: { d: string; active: boolean }[] = [];
+      const next: { d: string; active: boolean; opacity: number }[] = [];
       for (let depth = 0; depth < panels.length - 1; depth++) {
         const from = [
           ...panels[depth].querySelectorAll<HTMLElement>('[data-taxon]'),
@@ -65,6 +73,10 @@ export function TaxonomyTree({
           ),
         );
         const { x: x1, y: y1 } = sourcePoint;
+        const opacity = Math.min(
+          Number(getComputedStyle(panels[depth]).opacity),
+          Number(getComputedStyle(panels[depth + 1]).opacity),
+        );
         for (const to of panels[depth + 1].querySelectorAll<HTMLElement>(
           '[data-taxon]',
         )) {
@@ -74,6 +86,7 @@ export function TaxonomyTree({
           const { x: x2, y: y2 } = toLocal(target.left, middle);
           const joint = (x1 + x2) / 2;
           next.push({
+            opacity,
             d: `M${x1},${y1}H${joint}V${y2}H${x2}`,
             active:
               to.dataset.taxon === path[depth + 1] ||
@@ -84,7 +97,7 @@ export function TaxonomyTree({
       // Paint the selected path last so shared segments stay fully teal.
       setLines(next.sort((a, b) => Number(a.active) - Number(b.active)));
     };
-    // Position only newly opened columns. Never scroll the dialog or a column
+    // Position only newly opened columns. Never scroll the page or a column
     // to the left of the clicked node; browser scroll anchoring is disabled.
     for (const panel of element.querySelectorAll<HTMLElement>(
       '[data-taxonomy-column]',
@@ -110,15 +123,34 @@ export function TaxonomyTree({
         : 0;
     }
     measure.current();
+    // Keep connectors attached to the moving cards throughout the reveal.
+    const until =
+      performance.now() +
+      Math.max(
+        motionMilliseconds(element, '--panel-open-dur'),
+        motionMilliseconds(element, '--panel-close-dur'),
+      );
+    let motionFrame: number;
+    let motionFrames = 0;
+    function followMotion() {
+      measure.current();
+      // Even without motion, wait for the new panels' open-state commit.
+      if (++motionFrames < 2 || performance.now() <= until)
+        motionFrame = requestAnimationFrame(followMotion);
+    }
+    motionFrame = requestAnimationFrame(followMotion);
     const observer = new ResizeObserver(schedule);
     observer.observe(element);
     // Font loading and scrollbar changes can resize cards without resizing
     // the fixed-height stage itself.
-    for (const child of element.querySelectorAll('[data-taxon], [data-taxonomy-column]')) {
+    for (const child of element.querySelectorAll(
+      '[data-taxon], [data-taxonomy-column]',
+    )) {
       observer.observe(child);
     }
     return () => {
       observer.disconnect();
+      cancelAnimationFrame(motionFrame);
       if (frame.current !== null) cancelAnimationFrame(frame.current);
     };
   }, [path]);
@@ -127,7 +159,11 @@ export function TaxonomyTree({
       className="min-h-0 min-w-0 flex-1 overflow-x-auto overflow-y-hidden overscroll-contain [scrollbar-width:none] [&::-webkit-scrollbar]:hidden"
       aria-label="Horizontaler Systematikbaum"
     >
-      <div ref={stage} className="relative flex h-full w-max gap-8 p-2">
+      <div
+        ref={stage}
+        className="relative flex h-full w-max gap-8 p-2"
+        onTransitionEnd={schedule}
+      >
         <svg
           ref={connectors}
           aria-hidden="true"
@@ -140,6 +176,7 @@ export function TaxonomyTree({
               d={line.d}
               stroke={line.active ? 'var(--selection-border)' : 'var(--border)'}
               style={{
+                opacity: line.opacity,
                 strokeWidth: line.active
                   ? 'var(--border-selection)'
                   : 'var(--border-structure)',
@@ -156,31 +193,16 @@ export function TaxonomyTree({
             <h3 className="text-(length:--type-label-heading) font-(--weight-bold) text-foreground">
               {ranks[depth]}
             </h3>
-            <div
-              data-taxonomy-column={depth}
-              className="relative min-h-0 flex-1 overflow-y-auto overscroll-contain [overflow-anchor:none] [scrollbar-width:none] [&::-webkit-scrollbar]:hidden"
+            <TaxonomyColumn
+              branch={depth ? (path[depth - 1] ?? '') : 'root'}
+              nodes={nodes}
+              depth={depth}
+              selected={selected}
+              path={path}
+              onPathChange={onPathChange}
+              onSelect={onSelect}
               onScroll={schedule}
-            >
-              <ul className="flex flex-col gap-3 py-1">
-                {nodes.map((node) => (
-                  <li key={node.latin}>
-                    <TaxonomyCard
-                      node={node}
-                      selected={selected}
-                      isOpen={path[depth] === node.latin}
-                      onToggle={() =>
-                        setPath((previous) =>
-                          previous[depth] === node.latin
-                            ? previous.slice(0, depth)
-                            : [...previous.slice(0, depth), node.latin],
-                        )
-                      }
-                      onSelect={onSelect}
-                    />
-                  </li>
-                ))}
-              </ul>
-            </div>
+            />
           </section>
         ))}
       </div>

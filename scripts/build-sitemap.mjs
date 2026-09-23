@@ -5,13 +5,18 @@ import { fileURLToPath } from 'node:url';
 import {
   birdHref,
   birdFullscreenHref,
+  birdTaxonomyHref,
   birdsBySlug,
 } from '../lib/bird-routes.ts';
 import { SITE_URL } from '../lib/site.ts';
 
 const sections = ['/', '/quiz', '/wissen', '/falknerei'];
 const species = Object.values(birdsBySlug)
-  .flatMap((bird) => [birdHref(bird), birdFullscreenHref(bird)])
+  .flatMap((bird) => [
+    birdHref(bird),
+    birdFullscreenHref(bird),
+    birdTaxonomyHref(bird),
+  ])
   .sort();
 const entry = (path, priority, changefreq) =>
   `  <url>\n    <loc>${SITE_URL}${path === '/' ? '' : path}</loc>\n    <changefreq>${changefreq}</changefreq>\n    <priority>${priority}</priority>\n  </url>`;
