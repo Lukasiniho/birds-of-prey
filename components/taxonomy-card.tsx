@@ -5,7 +5,6 @@ import { birdHref } from '@/lib/bird-routes';
 import { portraitImages } from '@/lib/portrait-images';
 import { SpeciesRowLink } from '@/components/species-row';
 import { SpeciesName } from '@/components/species-name';
-import { CaretRight } from '@/components/icons';
 const byId = new Map(birds.map((bird) => [bird.id, bird]));
 
 type NodeProps = {
@@ -40,11 +39,8 @@ export function TaxonomyCard({
         aria-expanded={isOpen}
         onClick={onToggle}
         data-taxon={node.latin}
-        className={`flex w-full items-center gap-2 rounded-control p-2 text-left hover:bg-accent border-(length:--border-selection) ${active ? 'border-primary bg-accent' : 'border-border bg-background'}`}
+        className={`flex w-full items-center rounded-control p-1 text-left hover:bg-accent border-(length:--border-selection) ${active ? 'border-primary bg-accent' : 'border-border bg-background'}`}
       >
-        <CaretRight
-          className={`size-4 shrink-0 ${isOpen ? 'rotate-90' : ''}`}
-        />
         <span className="min-w-0 flex-1">
           <span className="block text-(length:--type-credit) uppercase tracking-(--tracking-normal) text-muted-foreground">
             {node.rank}

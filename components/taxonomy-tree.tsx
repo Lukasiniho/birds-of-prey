@@ -23,7 +23,7 @@ export function TaxonomyTree({
     const active = columns[depth]?.find((node) => node.latin === path[depth]);
     columns.push(active?.children ?? []);
   }
-  const [lines, setLines] = useState<{ d: string }[]>([]);
+  const [lines, setLines] = useState<{ d: string; active: boolean }[]>([]);
   const initialised = useRef(new Map<number, string>());
   const frame = useRef<number | null>(null);
   const measure = useRef(() => {});
@@ -48,7 +48,7 @@ export function TaxonomyTree({
       const panels = [
         ...element.querySelectorAll<HTMLElement>('[data-taxonomy-column]'),
       ];
-      const next: { d: string }[] = [];
+      const next: { d: string; active: boolean }[] = [];
       for (let depth = 0; depth < panels.length - 1; depth++) {
         const from = [
           ...panels[depth].querySelectorAll<HTMLElement>('[data-taxon]'),
@@ -75,10 +75,14 @@ export function TaxonomyTree({
           const joint = (x1 + x2) / 2;
           next.push({
             d: `M${x1},${y1}H${joint}V${y2}H${x2}`,
+            active:
+              to.dataset.taxon === path[depth + 1] ||
+              to.getAttribute('aria-current') === 'page',
           });
         }
       }
-      setLines(next);
+      // Paint the selected path last so shared segments stay fully teal.
+      setLines(next.sort((a, b) => Number(a.active) - Number(b.active)));
     };
     // Position only newly opened columns. Never scroll the dialog or a column
     // to the left of the clicked node; browser scroll anchoring is disabled.
@@ -134,8 +138,12 @@ export function TaxonomyTree({
             <path
               key={index}
               d={line.d}
-              stroke="var(--selection-border)"
-              style={{ strokeWidth: 'var(--border-selection)' }}
+              stroke={line.active ? 'var(--selection-border)' : 'var(--border)'}
+              style={{
+                strokeWidth: line.active
+                  ? 'var(--border-selection)'
+                  : 'var(--border-structure)',
+              }}
             />
           ))}
         </svg>
