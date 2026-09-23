@@ -46,7 +46,7 @@ export function TaxonomyCard({
           className={`size-4 shrink-0 ${isOpen ? 'rotate-90' : ''}`}
         />
         <span className="min-w-0 flex-1">
-          <span className="block text-(length:--type-caption) uppercase tracking-(--tracking-caps) text-muted-foreground">
+          <span className="block text-(length:--type-credit) uppercase tracking-(--tracking-normal) text-muted-foreground">
             {node.rank}
           </span>
           <span className="block wrap-anywhere font-(--weight-semibold)">

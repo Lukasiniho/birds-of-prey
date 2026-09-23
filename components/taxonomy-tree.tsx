@@ -17,12 +17,13 @@ export function TaxonomyTree({
 }) {
   const [path, setPath] = useState(() => taxonomyPath(selected).slice(0, -1));
   const stage = useRef<HTMLDivElement>(null);
+  const connectors = useRef<SVGSVGElement>(null);
   const columns: TaxonomyNode[][] = [[taxonomyRoot]];
   for (let depth = 0; depth < 4; depth++) {
     const active = columns[depth]?.find((node) => node.latin === path[depth]);
     columns.push(active?.children ?? []);
   }
-  const [lines, setLines] = useState<{ d: string; active: boolean }[]>([]);
+  const [lines, setLines] = useState<{ d: string }[]>([]);
   const initialised = useRef(new Map<number, string>());
   const frame = useRef<number | null>(null);
   const measure = useRef(() => {});
@@ -37,12 +38,17 @@ export function TaxonomyTree({
     const element = stage.current;
     if (!element) return;
     measure.current = () => {
-      const bounds = element.getBoundingClientRect();
-      if (!bounds.width || !bounds.height) return;
+      // Client rectangles include the dialog's opening scale. Convert them
+      // back into SVG coordinates so the scale is not applied twice.
+      const matrix = connectors.current?.getScreenCTM();
+      if (!matrix || !matrix.a || !matrix.d) return;
+      const inverse = matrix.inverse();
+      const toLocal = (x: number, y: number) =>
+        new DOMPoint(x, y).matrixTransform(inverse);
       const panels = [
         ...element.querySelectorAll<HTMLElement>('[data-taxonomy-column]'),
       ];
-      const next: { d: string; active: boolean }[] = [];
+      const next: { d: string }[] = [];
       for (let depth = 0; depth < panels.length - 1; depth++) {
         const from = [
           ...panels[depth].querySelectorAll<HTMLElement>('[data-taxon]'),
@@ -51,26 +57,24 @@ export function TaxonomyTree({
         const source = from.getBoundingClientRect();
         const sourceClip = panels[depth].getBoundingClientRect();
         const targetClip = panels[depth + 1].getBoundingClientRect();
-        const y1 =
+        const sourcePoint = toLocal(
+          source.right,
           Math.max(
             sourceClip.top,
             Math.min(sourceClip.bottom, source.top + source.height / 2),
-          ) - bounds.top;
-        const x1 = source.right - bounds.left;
+          ),
+        );
+        const { x: x1, y: y1 } = sourcePoint;
         for (const to of panels[depth + 1].querySelectorAll<HTMLElement>(
           '[data-taxon]',
         )) {
           const target = to.getBoundingClientRect();
           const middle = target.top + target.height / 2;
           if (middle < targetClip.top || middle > targetClip.bottom) continue;
-          const x2 = target.left - bounds.left;
-          const y2 = middle - bounds.top;
+          const { x: x2, y: y2 } = toLocal(target.left, middle);
           const joint = (x1 + x2) / 2;
           next.push({
             d: `M${x1},${y1}H${joint}V${y2}H${x2}`,
-            active:
-              to.dataset.taxon === path[depth + 1] ||
-              to.getAttribute('aria-current') === 'page',
           });
         }
       }
@@ -104,6 +108,11 @@ export function TaxonomyTree({
     measure.current();
     const observer = new ResizeObserver(schedule);
     observer.observe(element);
+    // Font loading and scrollbar changes can resize cards without resizing
+    // the fixed-height stage itself.
+    for (const child of element.querySelectorAll('[data-taxon], [data-taxonomy-column]')) {
+      observer.observe(child);
+    }
     return () => {
       observer.disconnect();
       if (frame.current !== null) cancelAnimationFrame(frame.current);
@@ -116,6 +125,7 @@ export function TaxonomyTree({
     >
       <div ref={stage} className="relative flex h-full w-max gap-8 p-2">
         <svg
+          ref={connectors}
           aria-hidden="true"
           className="pointer-events-none absolute inset-0 h-full w-full overflow-hidden"
           fill="none"
@@ -124,8 +134,8 @@ export function TaxonomyTree({
             <path
               key={index}
               d={line.d}
-              stroke={line.active ? 'var(--primary)' : 'var(--border)'}
-              strokeWidth="1"
+              stroke="var(--selection-border)"
+              style={{ strokeWidth: 'var(--border-selection)' }}
             />
           ))}
         </svg>
