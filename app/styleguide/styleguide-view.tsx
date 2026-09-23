@@ -1,4 +1,5 @@
 'use client';
+import { SpeciesName } from '@/components/species-name';
 import { tabStyles } from '@/components/tab-styles';
 
 /* Reference page for the design system. Every specimen below is rendered with a
@@ -675,6 +676,18 @@ export default function StyleguideView() {
             ))}
           </dl>
         </Section>
+        <section className="mb-section">
+          <h2 className="font-(family-name:--font-stack-display) text-(length:--type-heading)">
+            Arten ohne Atlas-Porträt
+          </h2>
+          <div className="mt-4">
+            <SpeciesName
+              name="Eckschwanzsperber"
+              latin="Accipiter striatus"
+              variant="compact"
+            />
+          </div>
+        </section>
       </main>
     </div>
   );

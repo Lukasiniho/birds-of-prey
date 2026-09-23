@@ -77,6 +77,8 @@ das Raster der Antwortleiste, während die mobile Höhenanimation in Quiz-CSS bl
 `BirdSearch` teilt Suche und Löschaktion zwischen Kopfzeile und Artenauswahl.
 `KnowledgeBirdGroup` bildet die gemeinsamen Artenlisten in Nahrung und Jagdweisen.
 `SpeciesName` hält die Textrollen seiner Varianten direkt an den Namenselementen.
+Die Variante `compact` zeigt Arten ohne Atlas-Porträt in Grau mit `--type-body`
+für den deutschen Namen und `--type-caption` für den wissenschaftlichen Namen.
 `MeasurementStrip` regelt das Raster und die optionale Ruf-Spalte; die Zellen
 wählen ihre kompakte Darstellung über `withAudio`. `EcologyTag` teilt die
 Geometrie von Statuslabels, Wissenslinks und Regionsauswahl.
@@ -144,7 +146,7 @@ Aufrufstellen brauchen dafür keine eigenen Regeln. Alle Duotone-Icons tragen
 Quiz-Vogelbühnen sind immer `--stage`. Dropdown-Trigger und Menüs sind hell
 `--surface`, dunkel `--background` (`--select-background`).
 
-## Typografie
+Glossarlinks verwenden `--glossary-link` und beim Hover/Fokus\n`--glossary-link-hover`: gesättigtes Teal, für Hell und Dunkel getrennt\nabgestimmt. Gewicht 600 (`--weight-semibold`) unterscheidet sie zusätzlich\nvom Fließtext; keine Unterstreichung, unveränderte Schriftgröße und der\ngemeinsame Tastatur-Fokusring. Die allgemeinen Akzentfarben bleiben unverändert.\n\n## Typografie
 
 Details in `docs/typography.md`. Kurzfassung: Inter für Fließtext und
 Bedienelemente, Source Serif 4 für redaktionelle Titel.

@@ -7,6 +7,7 @@ import {
   CornersOut as Expand,
   X,
 } from '@/components/icons';
+import { fullscreenSurface } from '@/components/fullscreen-styles';
 import { SpeciesName } from '@/components/species-name';
 import { ArtImage } from '@/components/art-image';
 import { Button } from '@/components/ui/button';
@@ -93,7 +94,7 @@ export function InfoFullscreen({
         // steht die Fensterhöhe fest und jede Spalte scrollt für sich, also
         // kosten die 24 px der schmalen Spalte sichtbare Zeilen statt Luft zu
         // machen.
-        className="info-fullscreen [--rail-section-gap:var(--space-16)] [--rail-content-gap:var(--space-12)] [--rail-caption-gap:var(--space-8)] w-[calc(100vw-2*var(--atlas-gutter))] max-w-none sm:max-w-none h-[calc(100dvh-2*var(--atlas-gutter))] p-panel gap-(--rail-section-gap) grid-rows-[auto_minmax(0,1fr)] overflow-hidden bg-background text-foreground"
+        className={fullscreenSurface}
         showCloseButton={false}
       >
         {/* Kopfzeile wie im Atlas: Porträt, Namenspaar — und rechts daneben

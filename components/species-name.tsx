@@ -1,12 +1,19 @@
 import type { HTMLAttributes, ReactNode } from 'react';
 import { cn } from '@/lib/utils';
 
-type NameVariant = 'standard' | 'big' | 'atlas-title' | 'quiz' | 'detail';
+type NameVariant =
+  | 'compact'
+  | 'standard'
+  | 'big'
+  | 'atlas-title'
+  | 'quiz'
+  | 'detail';
 
 // These roles follow the component through portals and nested button labels.
 const nameType =
   'font-(family-name:--font-stack-display) leading-(--leading-heading) tracking-(--tracking-normal) hyphens-auto wrap-anywhere';
 const commonVariants: Record<NameVariant, string> = {
+  compact: 'text-(length:--type-body) text-muted-foreground',
   standard: 'text-(length:--type-species-common)',
   /* Eine Stufe über der Listenzeile: für Kopfzeilen, die einen Namen tragen,
    * aber nicht die Bühne sind. Beide Zeilen steigen gemeinsam, damit das Paar
@@ -18,6 +25,7 @@ const commonVariants: Record<NameVariant, string> = {
     'text-(length:--type-hero) text-balance wrap-normal font-(--weight-label-heading) leading-(--leading-display) tracking-(--tracking-tight)',
 };
 const scientificVariants: Record<NameVariant, string> = {
+  compact: 'text-(length:--type-caption)',
   standard: 'text-(length:--type-scientific)',
   big: 'text-(length:--type-label-title)',
   detail: 'text-(length:--type-scientific)',

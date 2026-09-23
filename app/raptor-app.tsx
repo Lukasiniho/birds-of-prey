@@ -1,4 +1,5 @@
 'use client';
+import { GlossaryText } from '@/components/glossary-text';
 import { EcologyTag } from '@/components/ecology-tag';
 import { MeasurementStrip } from '@/components/measurement-strip';
 import { tabStyles } from '@/components/tab-styles';
@@ -7,7 +8,11 @@ import {
   AppSelectContent as SelectContent,
 } from '@/components/app-select';
 import { cn } from '@/lib/utils';
-import { SpeciesName } from '@/components/species-name';
+import { TaxonomyFullscreen } from '@/components/taxonomy-fullscreen';
+import {
+  SpeciesCommonName,
+  SpeciesScientificName,
+} from '@/components/species-name';
 import { SpeciesRowContent } from '@/components/species-row';
 import { useEffect, useRef, useState } from 'react';
 import { useSlidingPill } from '@/lib/use-sliding-pill';
@@ -254,7 +259,17 @@ function Measurement({
 /* transitions.dev texts reveal: the name and Latin name rise in with a
    staggered blur. On a species change the block fades out quietly (200ms),
    then the new text is written into the DOM and the reveal replays. */
-function RevealHeading({ name, latin }: { name: string; latin: string }) {
+function RevealHeading({
+  name,
+  latin,
+  selected,
+  onSelect,
+}: {
+  name: string;
+  latin: string;
+  selected: string;
+  onSelect: (id: string) => void;
+}) {
   const ref = useRef<HTMLDivElement>(null);
   const [initial] = useState({ name, latin });
   useEffect(() => {
@@ -284,14 +299,22 @@ function RevealHeading({ name, latin }: { name: string; latin: string }) {
       className="t-stagger is-shown w-full px-[15px] to-desktop:px-[3px] to-phone:w-auto to-phone:min-w-0 to-phone:p-0"
       ref={ref}
     >
-      <SpeciesName
-        name={initial.name}
-        latin={initial.latin}
-        commonAs="h1"
-        scientificAs="p"
-        animated
+      <SpeciesCommonName
+        as="h1"
         variant="atlas-title"
-      />
+        className="t-stagger-line t-stagger-line--1"
+      >
+        {initial.name}
+      </SpeciesCommonName>
+      <TaxonomyFullscreen selected={selected} onSelect={onSelect}>
+        <SpeciesScientificName
+          as="span"
+          variant="atlas-title"
+          className="t-stagger-line t-stagger-line--2"
+        >
+          {initial.latin}
+        </SpeciesScientificName>
+      </TaxonomyFullscreen>
     </div>
   );
 }
@@ -424,7 +447,9 @@ function ColorRow({
             <TooltipContent>
               {name}
               {note && (
-                <span className="swatch-detail max-w-[220px]">{note}</span>
+                <span className="swatch-detail max-w-[220px]">
+                  <GlossaryText>{note}</GlossaryText>
+                </span>
               )}
             </TooltipContent>
           </Tooltip>
@@ -462,7 +487,7 @@ function PreyGallery({ items }: { items: PreyExample[] }) {
             <span>{prey.name}</span>
             {note && (
               <small className="block text-(length:--type-caption) text-muted-foreground leading-(--leading-normal)">
-                {note}
+                <GlossaryText>{note}</GlossaryText>
               </small>
             )}
           </div>
@@ -800,7 +825,7 @@ export default function RaptorApp({
           Erkennungsmerkmale
         </DetailHeading>
         <p className="mt-(--rail-caption-gap) leading-(--leading-relaxed)">
-          {speciesProfiles[bird.id].identification}
+          <GlossaryText>{speciesProfiles[bird.id].identification}</GlossaryText>
         </p>
       </AtlasSection>
       <AtlasSection className="color-section to-phone:col-span-full">
@@ -825,7 +850,9 @@ export default function RaptorApp({
             {morph && ` · ${morph.label}`}
           </h3>
           <p className="leading-(--leading-relaxed) mt-2 text-(length:--type-caption)">
-            {appearance?.note ?? plumageNoteFor(bird.id, plumage)}
+            <GlossaryText>
+              {appearance?.note ?? plumageNoteFor(bird.id, plumage)}
+            </GlossaryText>
           </p>
           {morphConfig && (
             <div
@@ -846,7 +873,7 @@ export default function RaptorApp({
               <div className="t-acc-panel grid">
                 <div className="t-acc-panel-inner overflow-hidden">
                   <p className="leading-(--leading-relaxed) mt-2 text-(length:--type-body)">
-                    {morphConfig.note}
+                    <GlossaryText>{morphConfig.note}</GlossaryText>
                   </p>
                 </div>
               </div>
@@ -859,7 +886,7 @@ export default function RaptorApp({
           Lebensweise
         </DetailHeading>
         <p className="mt-(--rail-caption-gap) leading-(--leading-relaxed)">
-          {speciesProfiles[bird.id].behaviour}
+          <GlossaryText>{speciesProfiles[bird.id].behaviour}</GlossaryText>
         </p>
       </AtlasSection>
       <AtlasSection className="profile-section first:mt-0 first:pt-0 first:border-t-0">
@@ -867,7 +894,7 @@ export default function RaptorApp({
           Brut & Aufzucht
         </DetailHeading>
         <p className="mt-(--rail-caption-gap) leading-(--leading-relaxed)">
-          {speciesProfiles[bird.id].breeding}
+          <GlossaryText>{speciesProfiles[bird.id].breeding}</GlossaryText>
         </p>
       </AtlasSection>
       <SpeciesTrivia speciesId={bird.id} />
@@ -881,7 +908,7 @@ export default function RaptorApp({
         </DetailHeading>
         <PreyGallery items={bird.ecology.diet.examples} />
         <p className="text-(length:--type-body) leading-(--leading-relaxed) text-foreground mt-(--rail-content-gap)">
-          {bird.ecology.diet.summary}
+          <GlossaryText>{bird.ecology.diet.summary}</GlossaryText>
         </p>
         {bird.ecology.diet.occasionalExamples.length > 0 && (
           <div className="occasional-prey mt-(--rail-section-gap)">
@@ -906,7 +933,7 @@ export default function RaptorApp({
           ))}
         </div>
         <p className="hunting-text mt-(--rail-caption-gap) text-(length:--type-body) leading-(--leading-relaxed)">
-          {bird.ecology.hunting.text}
+          <GlossaryText>{bird.ecology.hunting.text}</GlossaryText>
         </p>
       </AtlasSection>
     </>
@@ -919,7 +946,7 @@ export default function RaptorApp({
             Verbreitung
           </DetailHeading>
           <p className="text-foreground text-(length:--type-body) leading-(--leading-relaxed) mt-(--rail-content-gap)">
-            {bird.range}
+            <GlossaryText>{bird.range}</GlossaryText>
           </p>
           {bird.ecology.status.tags.some((id) => id !== 'ausserhalb') && (
             <div className="ecology-status my-[14px] mx-0">
@@ -928,7 +955,9 @@ export default function RaptorApp({
                 {bird.ecology.status.tags
                   .filter((id) => id !== 'ausserhalb')
                   .map((id) => (
-                    <EcologyTag key={id}>{statusLabels[id]}</EcologyTag>
+                    <EcologyTag key={id}>
+                      <GlossaryText>{statusLabels[id]}</GlossaryText>
+                    </EcologyTag>
                   ))}
               </div>
             </div>
@@ -939,7 +968,7 @@ export default function RaptorApp({
           Lebensraum
         </DetailHeading>
         <p className="text-foreground text-(length:--type-body) leading-(--leading-relaxed) mt-(--rail-content-gap)">
-          {bird.habitat}
+          <GlossaryText>{bird.habitat}</GlossaryText>
         </p>
         <div className="habitat-gallery grid grid-cols-2 gap-4 mt-(--rail-content-gap)">
           {bird.ecology.habitatTags.map((id) => (
@@ -953,7 +982,7 @@ export default function RaptorApp({
                 displayWidth={220}
               />
               <figcaption className="mt-(--rail-caption-gap) text-(length:--type-caption) leading-(--leading-normal) text-(--muted-foreground)">
-                {landscapes[id].label}
+                <GlossaryText>{landscapes[id].label}</GlossaryText>
               </figcaption>
             </figure>
           ))}
@@ -981,7 +1010,12 @@ export default function RaptorApp({
             className="specimen-panel [container:atlas-stage/inline-size] bg-stage relative flex flex-col min-w-0 min-h-[860px] from-compact:h-full from-compact:min-h-0 to-compact:min-h-[830px] to-phone:min-h-[620px] overflow-hidden"
           >
             <div className="specimen-heading to-phone:[--species-picker-size:34px] pt-[48px] px-[48px] to-desktop:px-[30px] from-compact:pt-5 from-compact:-mt-[2px] from-wide:pt-6 from-wide:px-[50px] from-wide:mt-0 to-phone:pt-5 to-phone:px-4 to-phone:flex to-phone:items-start to-phone:justify-center to-phone:gap-3 justify-between gap-2 items-start z-2 relative block text-center">
-              <RevealHeading name={bird.name} latin={bird.latin} />
+              <RevealHeading
+                name={bird.name}
+                latin={bird.latin}
+                selected={selected}
+                onSelect={select}
+              />
               {/* The rail costs a phone most of its first screen, so there the
                   species list becomes a sheet under the name. */}
               <Sheet open={pickerOpen} onOpenChange={setPickerOpen}>
