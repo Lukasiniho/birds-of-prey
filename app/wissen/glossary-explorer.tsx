@@ -1,5 +1,6 @@
 'use client';
 
+import { Surface, SurfaceHeader } from '@/components/surface';
 import { useEffect, useRef, useState, useSyncExternalStore } from 'react';
 import { DetailHeading, DetailCopy } from '@/components/detail-text';
 import { EcologyTag } from '@/components/ecology-tag';
@@ -111,8 +112,8 @@ export default function GlossaryExplorer() {
           ))}
         </dl>
       ) : (
-        <div className="grid gap-3 p-panel bg-stage rounded-(--radius-card)">
-          <DetailHeading>Kein Begriff gefunden</DetailHeading>
+        <Surface kind="card" className="grid gap-4 bg-stage">
+          <SurfaceHeader><DetailHeading>Kein Begriff gefunden</DetailHeading></SurfaceHeader>
           <p className="text-(length:--type-body) text-muted-foreground">
             Versuche einen anderen Suchbegriff oder zeige alle Themen an.
           </p>
@@ -126,7 +127,7 @@ export default function GlossaryExplorer() {
           >
             Filter zurücksetzen
           </button>
-        </div>
+        </Surface>
       )}
       <p className="text-(length:--type-caption) text-muted-foreground leading-(--leading-relaxed)">
         Zum Weiterlesen:{' '}

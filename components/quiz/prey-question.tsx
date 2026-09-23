@@ -1,5 +1,7 @@
 'use client';
+import { QuizIncorrectIcon } from '@/components/quiz/incorrect-icon';
 
+import { RemovableChip } from '@/components/close-control';
 import { QuizChoiceHeading } from '@/components/quiz/task-heading';
 import { SpeciesName } from '@/components/species-name';
 import { useRef, useState, type PointerEvent } from 'react';
@@ -9,7 +11,6 @@ import {
   Check,
   DotsSix as Grip,
   ForkKnife as Utensils,
-  X,
 } from '@/components/icons';
 import { PreyArt } from '@/components/prey-art';
 import { preyCatalog } from '@/lib/diets';
@@ -174,7 +175,7 @@ export function PreyQuestion({
                     correct ? (
                       <Check size={17} />
                     ) : picked ? (
-                      <X size={17} />
+                      <QuizIncorrectIcon size={17} />
                     ) : null
                   ) : picked ? (
                     <Check size={17} />
@@ -220,9 +221,7 @@ export function PreyQuestion({
           <div className="q-prey-plate to-compact:justify-start flex flex-wrap items-center justify-center gap-2 min-h-[48px] mt-auto">
             {selected.length ? (
               selected.map((id) => (
-                <button
-                  className="flex items-center gap-(--space-8) py-(--space-8) px-(--space-12)"
-                  type="button"
+                <RemovableChip
                   key={id}
                   disabled={answered}
                   aria-label={`${preyCatalog[id].name} entfernen`}
@@ -230,8 +229,7 @@ export function PreyQuestion({
                 >
                   <PreyArt preyKey={id} variant="placed" />
                   <span>{preyCatalog[id].name}</span>
-                  {!answered && <X size={14} aria-hidden="true" />}
-                </button>
+                </RemovableChip>
               ))
             ) : (
               <span className="q-prey-empty text-(length:--type-ui) text-muted-foreground">

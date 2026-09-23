@@ -1,6 +1,6 @@
 # Design-System
 
-Stand: 10. September 2026. Dieses Dokument ist die aktuelle Spezifikation, keine
+Stand: 23. September 2026. Dieses Dokument ist die aktuelle Spezifikation, keine
 Änderungshistorie. Gleiche sichtbare Funktionen bekommen dieselbe Rolle; Rollen
 werden zentral definiert und in Seiten-CSS nur verwendet, nicht neu erfunden.
 `npm run lint` prüft Farben, Schriftgrößen, Radien und Breakpoints.
@@ -29,8 +29,10 @@ prüft diese Grenze; ungenutzte UI-Komponenten bleiben erhalten.
 | `app/sections.css`         | Seitenrahmen und Titel für Quiz, Wissen und Falknerei                    |
 | Seiten-CSS                 | Anordnung, Umbrüche und fachliche Darstellung einer Seite                |
 
-Die Bibliotheksdateien in `components/ui` werden nicht umgestaltet; nur die
-Icon-Imports dürfen angepasst werden. Ungenutzte Primitive bleiben im Repo;
+Die Bibliotheksdateien in `components/ui` verwenden dieselben Radien sowie
+dieselben Flächen-, Kopf- und Schließen-Komponenten wie die Anwendung.
+Ihre Bibliotheksmechanik und bestehenden Textrollen bleiben erhalten.
+Ungenutzte Primitive bleiben im Repo;
 `@source not` in `app/globals.css` nimmt ihre Utilities aus dem Tailwind-Scan.
 Wird eine solche Komponente eingebunden, muss ihre Ausnahme dort entfallen.
 
@@ -51,8 +53,8 @@ breit nach schmal, damit die kleinere Ansicht bei Überschneidung gewinnt.
 Atlas-Bühne bei einschließlich 635 und 570 px ab. Sie folgen den Viewport-Regeln,
 damit die Messleiste weiterhin anhand ihres tatsächlich verfügbaren Platzes reagiert.
 
-Die Bild-/Kartenpanels in Wissen und Falknerei teilen `explorerStyles` aus
-`components/explorer-styles.ts`. Nur die Breite der Falknerei-Spalte weicht über die beiden
+Die Bild-/Kartenpanels in Wissen und Falknerei teilen die Komponenten aus
+`components/explorer-panel.tsx`. Nur die Breite der Falknerei-Spalte weicht über die beiden
 `--explorer-aside*`-Variablen ab. Überschriften und Erklärungstexte verwenden
 `DetailHeading` und `DetailCopy` aus `components/detail-text.tsx`; Schriftrollen
 bleiben damit an einer Stelle. Elementvorgaben für Überschriften und Absatzränder
@@ -246,7 +248,8 @@ identischem Innenabstand; die Audio-Spalte ist separat, auch mobil.
 | `--radius-small`           |   6 px | Kleine Kennzeichnungen, Bildausschnitte           |
 | `--radius-control`         |  12 px | Buttons, Eingaben, Auswahlsteuerung               |
 | `--radius-card`            |  12 px | Quizkarten, Karten-Vorschauen, Drag-Vorschau      |
-| `--radius-surface`         |  20 px | Große Arbeitsflächen und Dialoge                  |
+| `--radius-surface`         |  20 px | Panels, Dialoge und Messwertboxen                  |
+| `--radius-surface-large`   |  28 px | Optional stärker gerundete Fläche, explizite Variante |
 | `--radius-pill`            | 999 px | Tags                                              |
 | `--radius-tab-pill`        |  48 px | Pillen-Tabs                                       |
 | `--border-structure`       |   1 px | Flächengrenzen, Trennlinien                       |
@@ -270,6 +273,68 @@ Controls definiert. Komponenten definieren keinen eigenen; wo eine Fläche ihren
 den Offset nach innen. Reine Links und Navigation brauchen keinen zusätzlichen
 Auswahlrahmen. Suche, Navigationslinks, Theme-Schalter und Info-Menü teilen
 `--header-control-height`; Icon-Buttons der Kopfzeile nutzen `.header-action`.
+
+## Flächen, Köpfe und Schließen
+
+`components/surface.tsx` besitzt die Geometrie. Feature-Komponenten setzen keine
+abweichenden Radien, Panel-Polster oder Kopfabstände. `Surface` wählt `panel`, `largePanel`
+oder `card`; `SurfaceBody` besitzt das Innenpolster, wenn die Außenfläche eine
+geteilte Bühne ist. Das Polster darf nur einmal anliegen. `padding="none"`
+ist für geteilte Flächen und randfüllende Medien, `hero` nur für den bereits
+bestehenden Quiz-Einstieg (40 px, mobil Panel-Padding).
+
+| Rolle | Radius | Innenabstand Desktop / bis 760 px |
+| --- | ---: | ---: |
+| Panel, Dialog, Vollbildseite | 20 px | 24 / 16 px |
+| Sheet / Drawer | 20 px nur an freien Ecken | 24 / 16 px |
+| Explizite stärker gerundete Variante | 28 px | 24 / 16 px |
+| Messwertbox | 20 px | 8 px vertikal, Inhalt als Gruppe zentriert |
+| Karte, kompakte Infobox | 12 px | 16 / 16 px |
+| Schließen-Aktion | 12 px | Kontrollfläche 38 / 44 px, Icon 20 px |
+
+`SurfaceHeader` richtet Titel und Aktion oben aus, mit einer echten
+Aktionsspalte und 16 px Abstand. Titel und Beschreibung trennen 8 px,
+Dachzeile und Titel 4 px. Zwischen Kopf, Inhalt und Fuß liegen 16 px;
+`SurfaceFooter` teilt Rahmen, Aktionsabstand und 16 px oberes Polster.
+Schließen wird niemals absolut über den Inhalt gelegt. Lange Titel können
+umbrechen, ohne einen künstlichen rechten Platzhalter. Bestehende Titelrollen
+bleiben erhalten; gleiche Abstände erzwingen keine gleiche Schriftgröße.
+
+- `CloseControl` ist die einzige ikonische Schließen-Schaltfläche;
+  `CloseLink` bewahrt native Navigation und Modifier-Klick auf Vollbildseiten.
+  Keine Größen-, Stil- oder Klassen-Overrides. Der zentrale Fokusring bleibt.
+- `DialogContent`, `SheetContent` und `DrawerContent` bekommen ihren Titel über
+  `heading`. Dialoge wählen die zentrale Variante `size="compact"` (20 px)
+  oder `size="large"` (28 px). Bestehende Panels und die Verbreitungskarte
+  behalten die Standardrolle 20 px; 28 px wird nicht anhand der Flächengröße
+  automatisch zugewiesen.
+  Sie besitzen Kopf, CloseControl und einen getrennten Scrollbereich.
+  Base UI besitzt weiterhin Fokusfalle, Escape, Fokus-Rückgabe und Dismissal.
+  Alert-Dialoge behalten ihre explizite Abbrechen-Aktion.
+- `FieldClear` ist eine Feldaktion mit 30 px Ziel und 16 px Icon (Suche,
+  Combobox, Chip-Entfernung); `RemovableChip` macht das gesamte Quiz-Tag klickbar.
+  Quiz-Abbrechen bleibt eine Navigationsaktion. `QuizIncorrectIcon` ist ein
+  Antwortstatus und keine Schließen-Aktion.
+- `FullscreenPage`, `ExplorerPanel/Stage/Header/Notes`, `AtlasInfoPanel/Body`,
+  `SpecimenHeader` und `PageHeader` kapseln die jeweiligen Layouts. Explorer
+  teilen Panel-Polster; ihre Aktionszeile darf mobil unter den Titel wechseln.
+- `QuizQuestionHeader` teilt 12 px zwischen Label, Frage und Erklärung.
+  Kartenfuß und Trivia verwenden die gemeinsamen Flächenbausteine.
+- Messwerte verwenden 8 px vertikales Polster (`--space-8`). Label und Wert
+  werden gemeinsam vertikal zentriert, ohne Versatz am Zahlenwert. Vertikale
+  Trennlinien sind an beiden Enden um `--space-8` eingerückt. Die
+  Ziffern nutzen die Display-Zeilenhöhe; feste Bildbühnen-Spalten und die kompakte
+  Vollbild-Kopfvariante. Randfüllende Medien, Menüzeilen, Tabs, Quiz-Antwortfelder
+  und Tooltips haben eigene semantische Innenlayouts; sie erfinden keine Radien.
+
+`/styleguide` zeigt Panel und Karte sowie echte Dialog-/Sheet-Beispiele mit
+langen Titeln und scrollendem Inhalt. `npm run lint:design` prüft zusätzlich
+**alle** Dateien in app, components (einschließlich ungenutzter UI-Primitiven),
+hooks und lib auf rohe/gerechnete Radien, Inline-Radien, Radius-Aliase, direkte
+Schließen-Icons und Geometrie-Overrides an den gemeinsamen Komponenten.
+`npm run test:surfaces` prüft den Scanner mit absichtlich fehlerhaften Beispielen
+und dem gesamten Quellbestand. Tailwinds parallele Standard-Radiusskala ist
+deaktiviert; alle Rollen verweisen direkt auf die sieben zentralen Radius-Tokens.
 
 ## Schatten
 

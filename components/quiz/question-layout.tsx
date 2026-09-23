@@ -1,6 +1,7 @@
 import type { ComponentProps, ReactNode } from 'react';
 import { cn } from '@/lib/utils';
-import { QuizQuestionTitle } from './question-title';
+import { QuizQuestionHeader } from './question-header';
+import { Surface, SurfaceBody } from '@/components/surface';
 
 export function QuizOrbit() {
   return (
@@ -12,18 +13,20 @@ export function QuizOrbit() {
 }
 
 export function QuizSplit({
-  as: Tag = 'div',
+  as = 'div',
+  surface = false,
   className,
   ...props
-}: ComponentProps<'div'> & { as?: 'div' | 'section' }) {
-  return (
-    <Tag
-      {...props}
-      className={cn(
-        className,
-        'q-split grid grid-cols-[1.02fr_1fr] min-h-[500px] from-tablet:min-h-[450px] to-tablet:grid-cols-1',
-      )}
-    />
+}: ComponentProps<'div'> & { as?: 'div' | 'section'; surface?: boolean }) {
+  const layout = cn(
+    className,
+    'q-split grid grid-cols-[1.02fr_1fr] min-h-[500px] from-tablet:min-h-[450px] to-tablet:grid-cols-1',
+  );
+  const Tag = as;
+  return surface ? (
+    <Surface {...props} as={as} padding="none" className={layout} />
+  ) : (
+    <Tag {...props} className={layout} />
   );
 }
 
@@ -33,14 +36,13 @@ export function QuizSpecimen({
   ...props
 }: ComponentProps<'div'> & { start?: boolean }) {
   return (
-    <div
+    <SurfaceBody
       {...props}
+      padding={start ? 'hero' : 'panel'}
       className={cn(
         className,
         'q-specimen bg-stage relative flex-col overflow-hidden',
-        start
-          ? 'q-start-stage grid place-items-center p-10 to-tablet:p-panel'
-          : 'flex p-panel',
+        start ? 'q-start-stage grid place-items-center' : 'flex',
       )}
     />
   );
@@ -80,27 +82,17 @@ export function QuizPrompt({
   children: ReactNode;
 }) {
   return (
-    <div className="q-question-controls flex flex-col items-stretch p-panel">
-      <span className="q-task-label to-tablet:mb-3 text-(length:--type-ui) font-(--weight-medium) text-(--main-color) flex items-center gap-2 mb-4">
-        {label}
-      </span>
-      <QuizQuestionTitle
-        className={cn(
-          'to-tablet:[&_br]:hidden',
-          reserveLines && 'from-tablet:min-h-[2lh]',
-        )}
-      >
-        {title}
-      </QuizQuestionTitle>
-      <p
-        className={cn(
-          'text-muted-foreground text-(length:--type-body) leading-(--leading-relaxed) mt-4 max-w-[45ch] to-tablet:mt-3 to-tablet:max-w-none',
-          reserveLines && 'from-tablet:min-h-[2lh]',
-        )}
-      >
-        {description}
-      </p>
+    <SurfaceBody
+      padding="panel"
+      className="q-question-controls flex flex-col items-stretch"
+    >
+      <QuizQuestionHeader
+        label={label}
+        title={title}
+        description={description}
+        reserveLines={reserveLines}
+      />
       {children}
-    </div>
+    </SurfaceBody>
   );
 }

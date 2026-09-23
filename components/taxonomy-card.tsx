@@ -38,7 +38,7 @@ export function TaxonomyCard({
         aria-expanded={isOpen}
         onClick={onToggle}
         data-taxon={node.latin}
-        className={`flex w-full items-center rounded-control p-2 text-left bg-surface hover:bg-accent border-(length:--border-selection) ${active ? 'border-primary' : 'border-border'}`}
+        className={`flex w-full items-center rounded-(--radius-control) p-2 text-left bg-surface hover:bg-accent border-(length:--border-selection) ${active ? 'border-primary' : 'border-border'}`}
       >
         <span className="min-w-0 flex-1">
           <span className="block text-(length:--type-credit) uppercase tracking-(--tracking-normal) text-muted-foreground">

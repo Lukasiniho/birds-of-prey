@@ -12,17 +12,18 @@
     "build": "vinext build",
     "postbuild": "node scripts/compact-deployment-images.mjs && node scripts/deprioritize-hydration-preloads.mjs",
     "start": "wrangler dev --config dist/server/wrangler.json",
-    "lint": "node scripts/check-css-budget.mjs && node scripts/check-design-system.mjs && node scripts/check-measurements.mjs && oxlint",
+    "lint": "node scripts/check-css-budget.mjs && node scripts/check-design-system.mjs && node scripts/check-surface-system.mjs && node scripts/check-measurements.mjs && oxlint",
     "test:quiz-feedback": "node --experimental-strip-types --no-warnings --test tests/quiz-feedback.test.ts",
     "test:bird-pages": "node --experimental-strip-types --no-warnings --test tests/bird-routes.test.ts scripts/check-bird-pages.mjs",
-    "lint:design": "node scripts/check-design-system.mjs",
+    "lint:design": "node scripts/check-design-system.mjs && node scripts/check-surface-system.mjs",
     "fonts": "node scripts/build-fonts.mjs",
     "images": "node scripts/optimize-images.mjs && npm run sitemap",
     "images:lossless": "node scripts/compress-source-images.mjs",
     "sitemap": "node --experimental-strip-types --no-warnings scripts/build-sitemap.mjs",
     "format": "oxfmt",
     "audio:peaks": "node scripts/build-audio-peaks.mjs",
-    "maps:build": "node scripts/build-range-maps.mjs && node scripts/build-reference-range-maps.mjs"
+    "maps:build": "node scripts/build-range-maps.mjs && node scripts/build-reference-range-maps.mjs",
+    "test:surfaces": "node --test tests/surface-system.test.mjs"
   },
   "dependencies": {
     "@base-ui/react": "1.7.0",

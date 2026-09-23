@@ -1,7 +1,8 @@
 'use client';
 
 import { useRef } from 'react';
-import { MagnifyingGlass, X } from '@/components/icons';
+import { MagnifyingGlass } from '@/components/icons';
+import { FieldClear } from '@/components/close-control';
 import { Input } from '@/components/ui/input';
 import { cn } from '@/lib/utils';
 
@@ -32,24 +33,22 @@ export function SearchField({
         ref={inputRef}
         type="text"
         role="searchbox"
-        className="w-full h-(--control-height) py-0 pl-[36px] pr-[30px] border-(length:--border-structure) rounded-lg shadow-none text-foreground"
+        className="w-full h-(--control-height) py-0 pl-[36px] pr-10 border-(length:--border-structure) rounded-(--radius-control) shadow-none text-foreground"
         aria-label={label}
         placeholder={placeholder}
         value={query}
         onChange={(event) => onQueryChange(event.target.value)}
       />
       {query && (
-        <button
-          type="button"
-          className="clear-search text-muted-foreground absolute right-[10px]"
-          aria-label="Suche leeren"
-          onClick={() => {
-            onQueryChange('');
-            inputRef.current?.focus();
-          }}
-        >
-          <X size={14} aria-hidden="true" />
-        </button>
+        <span className="clear-search absolute right-1 inline-flex">
+          <FieldClear
+            aria-label="Suche leeren"
+            onClick={() => {
+              onQueryChange('');
+              inputRef.current?.focus();
+            }}
+          />
+        </span>
       )}
     </div>
   );

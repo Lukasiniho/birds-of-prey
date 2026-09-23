@@ -11,13 +11,7 @@
   border-style: solid;
   border-color: var(--border);
 }
-.q-prey-plate button {
-  border: var(--border-structure) solid var(--border);
-  border-radius: var(--radius-control);
-  font-size: var(--type-ui);
-  background: var(--stage);
-  color: var(--foreground);
-}
+
 .q-compare-radio {
   border: var(--border-structure) solid var(--border);
   border-radius: 50%;

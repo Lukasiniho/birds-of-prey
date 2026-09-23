@@ -1,9 +1,13 @@
 'use client';
-import { cn } from '@/lib/utils';
-import { explorerStyles } from '@/components/explorer-styles';
+import {
+  ExplorerPanel,
+  ExplorerStage,
+  ExplorerHeader,
+  ExplorerNotes,
+} from '@/components/explorer-panel';
 import { KnowledgeBirdGroup as HunterGroup } from '@/components/knowledge-bird-group';
 
-import { DetailHeading, DetailCopy } from '@/components/detail-text';
+import { DetailCopy } from '@/components/detail-text';
 
 import { useEffect, useState } from 'react';
 import { ArtImage } from '@/components/art-image';
@@ -43,24 +47,15 @@ export default function TechniqueExplorer({
   const additional = entry.hunters.filter((h) => h.importance !== 'primary');
 
   return (
-    <div
-      className={cn('knowledge-split technique-explorer', explorerStyles.panel)}
-    >
-      <section
-        className="knowledge-surface bg-stage min-w-0"
-        aria-label="Jagdtechniken"
-      >
-        <header className="knowledge-surface-heading to-tablet:items-start to-tablet:flex-wrap flex items-center justify-between gap-4 p-panel">
-          <div>
-            <span className="knowledge-eyebrow text-muted-foreground text-(length:--type-caption) font-(--weight-medium) tracking-(--tracking-caps) block uppercase mb-1">
-              Strategie & Beute
-            </span>
-            <DetailHeading>Wie Greifvögel jagen</DetailHeading>
-          </div>
-          <Crosshair size={24} aria-hidden="true" />
-        </header>
+    <ExplorerPanel className={'knowledge-split technique-explorer'}>
+      <ExplorerStage className="knowledge-surface" aria-label="Jagdtechniken">
+        <ExplorerHeader
+          eyebrow="Strategie & Beute"
+          title="Wie Greifvögel jagen"
+          actions={<Crosshair size={24} aria-hidden="true" />}
+        />
         <fieldset
-          className="knowledge-grid grid grid-cols-5 to-tablet:grid-cols-3 px-panel pb-panel gap-2"
+          className="knowledge-grid grid grid-cols-5 to-tablet:grid-cols-3 gap-2"
           aria-label="Jagdtechnik wählen"
         >
           {techniques.map((item) => (
@@ -93,44 +88,37 @@ export default function TechniqueExplorer({
             </button>
           ))}
         </fieldset>
-      </section>
-      <aside
-        className={cn(
-          'knowledge-notes bg-(--atlas-info-surface) relative min-w-0',
-          explorerStyles.notes,
-        )}
+      </ExplorerStage>
+      <ExplorerNotes
+        className="knowledge-notes"
         aria-live="polite"
         aria-atomic="true"
+        scrollKey={entry.id}
       >
-        <div
-          className="knowledge-notes-scroll to-tablet:static to-tablet:overflow-visible absolute inset-0 overflow-y-auto detail-panel"
-          key={entry.id}
-        >
-          <span className="knowledge-eyebrow text-muted-foreground text-(length:--type-caption) font-(--weight-medium) tracking-(--tracking-caps) block uppercase mb-1">
-            Jagdtechnik · {countLabel(entry.hunters.length)}
-          </span>
-          <DetailHeading>{entry.label}</DetailHeading>
-          <DetailCopy className="mt-3">{entry.text}</DetailCopy>
-          {typical.length > 0 && (
-            <HunterGroup
-              title="Typische Technik"
-              hunters={typical}
-              onHover={setHovered}
-            />
-          )}
-          {additional.length > 0 && (
-            <HunterGroup
-              title="Ergänzend"
-              hunters={additional}
-              onHover={setHovered}
-            />
-          )}
-          <DetailCopy className="mt-3">
-            Beim Überfahren einer Art leuchten links alle Techniken auf, die sie
-            ebenfalls nutzt.
-          </DetailCopy>
-        </div>
-      </aside>
-    </div>
+        <ExplorerHeader
+          eyebrow={<> Jagdtechnik · {countLabel(entry.hunters.length)} </>}
+          title={entry.label}
+        />
+        <DetailCopy className="mt-3">{entry.text}</DetailCopy>
+        {typical.length > 0 && (
+          <HunterGroup
+            title="Typische Technik"
+            hunters={typical}
+            onHover={setHovered}
+          />
+        )}
+        {additional.length > 0 && (
+          <HunterGroup
+            title="Ergänzend"
+            hunters={additional}
+            onHover={setHovered}
+          />
+        )}
+        <DetailCopy className="mt-3">
+          Beim Überfahren einer Art leuchten links alle Techniken auf, die sie
+          ebenfalls nutzt.
+        </DetailCopy>
+      </ExplorerNotes>
+    </ExplorerPanel>
   );
 }

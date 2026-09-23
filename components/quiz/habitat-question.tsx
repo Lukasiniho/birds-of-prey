@@ -1,10 +1,11 @@
 'use client';
+import { QuizIncorrectIcon } from '@/components/quiz/incorrect-icon';
 
 import { useRef, useState, type PointerEvent } from 'react';
 import { createPortal } from 'react-dom';
 import { ArtImage } from '@/components/art-image';
 import { SpeciesCommonName } from '@/components/species-name';
-import { Check, DotsSix as Grip, MapPin, Plus, X } from '@/components/icons';
+import { Check, DotsSix as Grip, MapPin, Plus } from '@/components/icons';
 import type { QuizHabitat, QuizQuestion } from '@/lib/quiz-engine';
 import type { BirdMap, QuizDraft as Draft } from '@/lib/quiz-answer';
 import { quizHabitatCorrections } from '@/lib/quiz-feedback';
@@ -184,7 +185,7 @@ export function HabitatQuestion({
                   aria-label="Richtig zugeordnet"
                 />
               ) : answered ? (
-                <X
+                <QuizIncorrectIcon
                   className="shrink-0 w-[14px] to-desktop:hidden"
                   size={16}
                   aria-label="Falsch zugeordnet"
@@ -272,7 +273,7 @@ export function HabitatQuestion({
                             aria-label="Richtig zugeordnet"
                           />
                         ) : (
-                          <X
+                          <QuizIncorrectIcon
                             className="shrink-0 ml-auto"
                             size={18}
                             aria-label="Falsch zugeordnet"

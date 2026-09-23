@@ -1,14 +1,13 @@
 'use client';
 
 import { useState } from 'react';
-import { CornersOut as Expand, X } from '@/components/icons';
+import { CornersOut as Expand } from '@/components/icons';
 import { Button } from '@/components/ui/button';
 import {
   Dialog,
   DialogTrigger,
   DialogContent,
   DialogTitle,
-  DialogClose,
 } from '@/components/ui/dialog';
 import { displayRangeMaps } from '@/lib/range-map-catalog';
 import type { DisplayRangeMapEntry as RangeMapEntry } from '@/lib/range-map-entry';
@@ -43,7 +42,7 @@ function ReviewedRangeMap({
   const [world, setWorld] = useState(false);
   if (!data) return null;
   return (
-    <div className="range-map mt-[18px] min-w-0">
+    <div className="range-map mt-4 min-w-0">
       <Dialog>
         <div className="range-map-surface relative">
           <DialogTrigger
@@ -58,26 +57,12 @@ function ReviewedRangeMap({
           <MapSourceInfo entry={entry} />
         </div>
         <DialogContent
-          className="range-map-dialog max-h-[calc(100dvh-32px)] overflow-y-auto p-panel gap-3 bg-background text-foreground"
-          showCloseButton={false}
+          className="range-map-dialog"
+          closeLabel="Karte schließen"
+          heading={<DialogTitle>Verbreitung · {name}</DialogTitle>}
         >
-          <DialogTitle className="pr-[42px] font-(family-name:--font-stack-display) text-(length:--type-heading) leading-(--leading-display)">
-            Verbreitung · {name}
-          </DialogTitle>
-          <DialogClose
-            render={
-              <Button
-                variant="ghost"
-                size="icon"
-                className="range-map-close absolute right-[12px] top-[12px]"
-                aria-label="Karte schließen"
-              />
-            }
-          >
-            <X />
-          </DialogClose>
           <fieldset
-            className="range-map-view-controls border-0 m-0 p-0 flex gap-[6px]"
+            className="range-map-view-controls border-0 m-0 p-0 flex gap-2"
             aria-label="Kartenausschnitt"
           >
             <Button

@@ -1,4 +1,5 @@
 'use client';
+import { AtlasInfoPanel, AtlasPanelBody, SpecimenHeader } from '@/components/atlas-panel';
 import { GlossaryText } from '@/components/glossary-text';
 import { EcologyTag } from '@/components/ecology-tag';
 import { MeasurementStrip } from '@/components/measurement-strip';
@@ -241,7 +242,7 @@ function Measurement({
       className={cn(
         'measurement-cell min-w-0 m-0 text-center [container-type:inline-size]',
         withAudio
-          ? 'grid grid-cols-[minmax(0,1fr)] grid-rows-[20px_minmax(32px,auto)] content-start items-center justify-items-center gap-y-half px-3 to-tablet:px-[7px] to-phone:px-1'
+          ? 'grid grid-cols-[minmax(0,1fr)] grid-rows-[var(--space-24)_auto] content-center items-center justify-items-center gap-y-half px-3 to-tablet:px-[7px] to-phone:px-1'
           : 'block px-4',
         className,
       )}
@@ -259,10 +260,11 @@ function Measurement({
       </span>
       <p
         className={cn(
-          'measurement-value font-(family-name:--font-stack-display) font-(--weight-medium) tracking-(--tracking-tight) leading-(--leading-display)',
+          'measurement-value font-(family-name:--font-stack-display) font-(--weight-medium) tracking-(--tracking-tight)',
           withAudio
-            ? '-translate-y-[3px] m-0 flex items-baseline justify-center whitespace-nowrap text-(length:--type-metric-compact)'
+            ? 'm-0 flex items-baseline justify-center whitespace-nowrap text-(length:--type-metric-compact)'
             : 'text-(length:--type-metric) whitespace-normal to-phone:mt-[3px]',
+          'leading-(--leading-display)',
         )}
       >
         <MeasurementValue
@@ -428,7 +430,7 @@ function BirdArt({
       })}
       {failedSource === nextSource && (
         <button
-          className="image-retry border-(length:--border-structure) rounded-lg bg-background absolute bottom-[20px] py-2 px-3 pointer-events-auto"
+          className="image-retry border-(length:--border-structure) rounded-(--radius-control) bg-background absolute bottom-[20px] py-2 px-3 pointer-events-auto"
           onClick={() => {
             setFailedSource(null);
             setRetry((n) => n + 1);
@@ -1103,7 +1105,7 @@ export default function RaptorApp({
           {bird.ecology.habitatTags.map((id) => (
             <figure className="m-0 min-w-0" key={id}>
               <ArtImage
-                className="block w-full h-auto aspect-[3/2] rounded-md object-cover"
+                className="block w-full h-auto aspect-[3/2] rounded-(--radius-small) object-cover"
                 src={imageSource(habitatImages[id])}
                 alt={landscapes[id].description}
                 width={1536}
@@ -1180,7 +1182,7 @@ export default function RaptorApp({
             id="main-content"
             className="specimen-panel [container:atlas-stage/inline-size] bg-stage relative flex flex-col min-w-0 min-h-[860px] from-compact:h-full from-compact:min-h-0 to-compact:min-h-[830px] to-phone:min-h-[620px] overflow-hidden"
           >
-            <div className="specimen-heading to-phone:[--species-picker-size:34px] pt-[48px] px-[48px] to-desktop:px-[30px] from-compact:pt-5 from-compact:-mt-[2px] from-wide:pt-6 from-wide:px-[50px] from-wide:mt-0 to-phone:pt-5 to-phone:px-4 to-phone:grid to-phone:grid-cols-[minmax(0,max-content)_var(--species-picker-size)] to-phone:items-start to-phone:justify-center to-phone:gap-x-1 to-phone:gap-y-0 justify-between gap-2 items-start z-2 relative block text-center">
+            <SpecimenHeader>
               <RevealHeading
                 name={bird.name}
                 latin={bird.latin}
@@ -1209,23 +1211,22 @@ export default function RaptorApp({
                     the keyboard; only the results area scrolls. */}
                 <SheetContent
                   side="bottom"
-                  className="species-picker-sheet flex flex-col gap-0 data-[side=bottom]:top-[max(var(--space-20),env(safe-area-inset-top))] overflow-hidden pt-5 px-page pb-0 rounded-t-(--radius-surface) rounded-b-none bg-background"
+                  className="species-picker-sheet data-[side=bottom]:top-[max(var(--space-20),env(safe-area-inset-top))]"
+                  heading={<SheetTitle>Art wählen</SheetTitle>}
+                  closeLabel="Artenauswahl schließen"
                 >
-                  <SheetTitle className="species-picker-title shrink-0 mb-4 font-(family-name:--font-stack-display) text-(length:--type-label-title) text-foreground">
-                    Art wählen
-                  </SheetTitle>
                   {/* The search belongs where the list is: on a phone the
                       header keeps its single row. */}
                   <SearchField
                     query={query}
                     onQueryChange={setQuery}
                     label="Vogelart suchen"
-                    className="shrink-0 min-w-0 mb-3 picker-search"
+                    className="shrink-0 min-w-0 picker-search"
                   />
                   {renderLibraryRail(true)}
                 </SheetContent>
               </Sheet>
-            </div>
+            </SpecimenHeader>
             <div className="plumage-stage flex flex-col flex-1 min-h-0 gap-0">
               <div className="specimen-controls gap-x-[30px] gap-y-[10px] mt-8 mx-5 from-compact:relative from-compact:z-2 from-compact:mt-6 to-phone:mt-4 flex items-center justify-center flex-wrap">
                 <div className="control-group flex items-center justify-center flex-wrap max-w-full gap-[10px] m-0 p-0 border-0">
@@ -1290,8 +1291,7 @@ export default function RaptorApp({
               />
             </div>
           </main>
-          <aside
-            className="info-panel border-l-(length:--border-structure) to-compact:border-l-0 min-w-0 overflow-x-hidden to-compact:col-[1/-1] to-compact:border-t-(length:--border-structure) from-compact:h-[calc(100%-2*var(--atlas-gutter))] from-compact:my-(--atlas-gutter) from-compact:w-full from-compact:border-(length:--border-structure) from-compact:rounded-(--radius-surface) from-compact:bg-(--atlas-info-surface) from-compact:min-h-0 from-compact:relative from-compact:overflow-hidden to-compact:grid-cols-[1fr_1fr_1fr] to-compact:block to-compact:max-w-none to-phone:grid-cols-[1fr_1fr] flex flex-col gap-0"
+          <AtlasInfoPanel
             aria-label={`Informationen zum ${bird.name}`}
           >
             <Tabs
@@ -1301,7 +1301,7 @@ export default function RaptorApp({
             >
               <TabsList
                 variant="line"
-                className={`${tabStyles.lineRail} info-tab-list z-3 mt-[calc(var(--panel-padding)-5px)] mx-panel mb-0 w-[calc(100%-2*var(--panel-padding))]`}
+                className={`${tabStyles.lineRail} info-tab-list z-3 mt-panel mx-panel mb-0 w-[calc(100%-2*var(--panel-padding))]`}
                 aria-label="Informationen"
                 ref={infoBarRef}
               >
@@ -1337,7 +1337,7 @@ export default function RaptorApp({
                   onOpen={() => select(bird.id, true)}
                 />
               </TabsList>
-              <div className="info-scroll p-panel from-compact:[scrollbar-width:thin] from-compact:[scrollbar-color:var(--border)_transparent] from-compact:min-h-0 from-compact:flex-1 from-compact:overflow-y-auto from-compact:overscroll-contain from-compact:pb-(--rail-fade-height)">
+              <AtlasPanelBody>
                 <TabsContent
                   value="profil"
                   className="info-tab-content min-w-0 max-w-full text-(length:--type-body) leading-(--leading-relaxed) outline-none"
@@ -1356,9 +1356,9 @@ export default function RaptorApp({
                 >
                   {habitatPanel}
                 </TabsContent>
-              </div>
+              </AtlasPanelBody>
             </Tabs>
-          </aside>
+          </AtlasInfoPanel>
         </SidebarProvider>
         <output className="sr-only" aria-live="polite">
           {bird.name}

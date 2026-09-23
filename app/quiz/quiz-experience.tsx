@@ -1,4 +1,5 @@
 'use client';
+import { Surface, SurfaceBody } from '@/components/surface';
 import { QuizAnswerBar } from '@/components/quiz/answer-bar';
 import { QuizSplit, QuizSpecimen } from '@/components/quiz/question-layout';
 import { cn } from '@/lib/utils';
@@ -296,7 +297,8 @@ export default function QuizExperience({
         >
           <QuizSplit
             as="section"
-            className="q-start w-full q-workspace rounded-(--radius-surface) bg-surface shadow-(--shadow-none) overflow-hidden"
+            surface
+            className="q-start w-full q-workspace bg-surface shadow-(--shadow-none) overflow-hidden"
             aria-labelledby="q-start-title"
           >
             <QuizSpecimen start aria-hidden="true">
@@ -339,7 +341,7 @@ export default function QuizExperience({
                 </span>
               </div>
             </QuizSpecimen>
-            <div className="q-start-content to-tablet:p-panel min-w-0 flex flex-col justify-center p-10">
+            <SurfaceBody padding="hero" className="q-start-content flex flex-col justify-center">
               <span className="q-task-label to-tablet:mb-3 text-(length:--type-ui) font-(--weight-medium) text-(--main-color) flex items-center gap-2 mb-4">
                 Wie gut kennst du sie?
               </span>
@@ -360,7 +362,7 @@ export default function QuizExperience({
                   Quiz starten <ArrowRight size={24} className="size-6" />
                 </QuizActionButton>
               </div>
-            </div>
+            </SurfaceBody>
           </QuizSplit>
         </main>
       </div>
@@ -449,7 +451,7 @@ export default function QuizExperience({
                 </span>
               </p>
             </div>
-            <div className="q-workspace rounded-(--radius-surface) bg-surface shadow-(--shadow-none) overflow-hidden">
+            <Surface padding="none" className="q-workspace bg-surface shadow-(--shadow-none) overflow-hidden">
               <div key={`question-${question.id}`} className="q-question-scene">
                 {(question.kind === 'span' ||
                   question.kind === 'weight-estimate') &&
@@ -534,7 +536,7 @@ export default function QuizExperience({
                   />
                 )}
               </div>
-            </div>
+            </Surface>
             <QuizAnswerBar ref={answerBarRef} open={Boolean(answer)}>
               <QuizActionButton
                 appearance="exit"

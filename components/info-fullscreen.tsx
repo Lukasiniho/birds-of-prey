@@ -5,9 +5,10 @@ import {
   ArrowLeftDuotone,
   ArrowRightDuotone,
   CornersOut as Expand,
-  X,
 } from '@/components/icons';
-import { fullscreenSurface } from '@/components/fullscreen-styles';
+import { FullscreenPage } from '@/components/fullscreen-page';
+import { SurfaceHeader, SurfaceBody } from '@/components/surface';
+import { CloseLink } from '@/components/close-control';
 import { SpeciesName } from '@/components/species-name';
 import { ArtImage } from '@/components/art-image';
 import { buttonVariants } from '@/components/ui/button';
@@ -153,17 +154,24 @@ export function InfoFullscreen({
     return () => document.removeEventListener('keydown', onKeyDown, true);
   }, [onStep, onClose]);
   return (
-    <div className="flow-root min-h-dvh bg-stage">
-      <main
-        ref={pageRef}
-        tabIndex={-1}
-        id="main-content"
-        aria-label={`Informationen zum ${name}`}
-        className={`${fullscreenSurface} relative grid m-(--atlas-gutter) rounded-(--radius-surface) border-(length:--border-structure)`}
-      >
-        {/* Kopfzeile wie im Atlas: Porträt, Namenspaar — und rechts daneben
+    <FullscreenPage
+      ref={pageRef}
+      tabIndex={-1}
+      id="main-content"
+      aria-label={`Informationen zum ${name}`}
+    >
+      {/* Kopfzeile wie im Atlas: Porträt, Namenspaar — und rechts daneben
             dieselbe Maßleiste, nur auf Kopfzeilenbreite geschrumpft. */}
-        <div className="info-fullscreen-head flex items-start gap-4 pr-[56px] min-w-0">
+      <SurfaceHeader
+        actions={
+          <CloseLink
+            href={atlasHref}
+            label="Vollbild schließen"
+            onNavigate={onClose}
+          />
+        }
+      >
+        <div className="info-fullscreen-head flex items-start gap-4 min-w-0">
           {/* Alles in der Kopfzeile beginnt an derselben Oberkante: das hohe
               Porträt gibt die Zeilenhöhe vor, Pfeile, Name und Klappmenü
               hängen daran und stehen damit auf einer Linie mit der Maßleiste
@@ -224,33 +232,25 @@ export function InfoFullscreen({
             </div>
           )}
         </div>
-        <ViewLink
-          href={atlasHref}
-          label="Vollbild schließen"
-          onNavigate={onClose}
-          className="absolute right-(--panel-padding) top-(--panel-padding)"
-        >
-          <X />
-        </ViewLink>
-        {/* Die Spalten trennt eine Linie in der Mitte ihres Zwischenraums, nicht
+      </SurfaceHeader>
+      {/* Die Spalten trennt eine Linie in der Mitte ihres Zwischenraums, nicht
             nur Luft — nebeneinander laufende Fließtexte verschwimmen sonst. */}
-        <div className="info-fullscreen-columns grid grid-cols-3 min-h-0 to-tablet:grid-cols-1 to-tablet:auto-rows-max to-tablet:overflow-y-auto">
-          {columns.map(({ value, label, content }) => (
-            <section
-              className="info-fullscreen-column flex flex-col min-w-0 min-h-0 gap-(--rail-content-gap) px-(--space-24) first:pl-0 last:pr-0 [&+section]:border-l-(length:--border-structure) to-tablet:shrink-0 to-tablet:px-0 to-tablet:[&+section]:border-l-0 to-tablet:[&+section]:mt-(--rail-section-gap)"
-              key={value}
-              aria-label={label}
-            >
-              <h2 className="info-fullscreen-heading shrink-0 font-(family-name:--font-stack-body) text-(length:--type-caption) font-(--weight-semibold) leading-(--leading-none) tracking-(--tracking-caps) uppercase text-(--main-color) pb-[13px] border-b-(length:--border-structure)">
-                {label}
-              </h2>
-              <div className="info-fullscreen-scroll min-w-0 text-(length:--type-body) leading-(--leading-relaxed) from-tablet:min-h-0 from-tablet:flex-1 from-tablet:overflow-y-auto from-tablet:overscroll-contain from-tablet:[scrollbar-width:thin] from-tablet:[scrollbar-color:var(--border)_transparent]">
-                {content}
-              </div>
-            </section>
-          ))}
-        </div>
-      </main>
-    </div>
+      <SurfaceBody className="info-fullscreen-columns flex-1 grid grid-cols-3 min-h-0 to-tablet:grid-cols-1 to-tablet:auto-rows-max to-tablet:overflow-y-auto">
+        {columns.map(({ value, label, content }) => (
+          <section
+            className="info-fullscreen-column flex flex-col min-w-0 min-h-0 gap-(--rail-content-gap) px-(--space-24) first:pl-0 last:pr-0 [&+section]:border-l-(length:--border-structure) to-tablet:shrink-0 to-tablet:px-0 to-tablet:[&+section]:border-l-0 to-tablet:[&+section]:mt-(--rail-section-gap)"
+            key={value}
+            aria-label={label}
+          >
+            <h2 className="info-fullscreen-heading shrink-0 font-(family-name:--font-stack-body) text-(length:--type-caption) font-(--weight-semibold) leading-(--leading-none) tracking-(--tracking-caps) uppercase text-(--main-color) pb-3 border-b-(length:--border-structure)">
+              {label}
+            </h2>
+            <div className="info-fullscreen-scroll min-w-0 text-(length:--type-body) leading-(--leading-relaxed) from-tablet:min-h-0 from-tablet:flex-1 from-tablet:overflow-y-auto from-tablet:overscroll-contain from-tablet:[scrollbar-width:thin] from-tablet:[scrollbar-color:var(--border)_transparent]">
+              {content}
+            </div>
+          </section>
+        ))}
+      </SurfaceBody>
+    </FullscreenPage>
   );
 }

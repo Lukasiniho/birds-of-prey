@@ -3,10 +3,11 @@
 import * as React from 'react';
 import { Toast as ToastPrimitive } from '@base-ui/react/toast';
 
+import { SurfaceHeader } from '@/components/surface';
+import { CloseControl } from '@/components/close-control';
 import { cn } from '@/lib/utils';
 import { Button } from '@/components/ui/button';
 import {
-  X as XIcon,
   CheckCircle as CircleCheckIcon,
   Info as InfoIcon,
   Warning as TriangleAlertIcon,
@@ -42,7 +43,7 @@ function Toast({ className, ...props }: ToastPrimitive.Root.Props) {
     <ToastPrimitive.Root
       data-slot="toast"
       className={cn(
-        'rounded-2xl group/toast pointer-events-auto absolute right-0 bottom-0 z-[calc(1000-var(--toast-index))] w-full origin-bottom border bg-popover text-popover-foreground shadow-lg will-change-transform outline-none select-none focus-visible:border-ring focus-visible:ring-[3px] focus-visible:ring-ring/50',
+        'rounded-(--radius-surface) group/toast pointer-events-auto absolute right-0 bottom-0 z-[calc(1000-var(--toast-index))] w-full origin-bottom border bg-popover text-popover-foreground shadow-lg will-change-transform outline-none select-none focus-visible:border-ring focus-visible:ring-[3px] focus-visible:ring-ring/50',
         '[--gap:0.75rem] [--height:var(--toast-frontmost-height,var(--toast-height))] [--offset-y:calc(var(--toast-offset-y)*-1+calc(var(--toast-index)*var(--gap)*-1)+var(--toast-swipe-movement-y))] [--peek:0.75rem] [--scale:calc(max(0,1-(var(--toast-index)*0.1)))] [--shrink:calc(1-var(--scale))]',
         'h-(--height) [transform:translateX(var(--toast-swipe-movement-x))_translateY(calc(var(--toast-swipe-movement-y)-(var(--toast-index)*var(--peek))-(var(--shrink)*var(--height))))_scale(var(--scale))] [transition:transform_500ms_cubic-bezier(0.22,1,0.36,1),opacity_500ms,height_150ms]',
         "after:absolute after:top-full after:left-0 after:h-[calc(var(--gap)+1px)] after:w-full after:content-['']",
@@ -69,7 +70,7 @@ function ToastContent({ className, ...props }: ToastPrimitive.Content.Props) {
     <ToastPrimitive.Content
       data-slot="toast-content"
       className={cn(
-        'flex h-full items-center gap-3 overflow-hidden p-4 transition-opacity duration-250 ease-[cubic-bezier(0.22,1,0.36,1)] data-behind:opacity-0 data-expanded:opacity-100',
+        'flex h-full items-center gap-4 overflow-hidden p-panel-compact transition-opacity duration-250 ease-[cubic-bezier(0.22,1,0.36,1)] data-behind:opacity-0 data-expanded:opacity-100',
         className,
       )}
       {...props}
@@ -115,25 +116,18 @@ function ToastAction({
   );
 }
 
-function ToastClose({
-  className,
-  children,
-  render = <Button variant="ghost" size="icon-sm" />,
-  ...props
-}: ToastPrimitive.Close.Props) {
+function ToastClose(
+  props: Omit<
+    ToastPrimitive.Close.Props,
+    'className' | 'style' | 'render' | 'children'
+  >,
+) {
   return (
     <ToastPrimitive.Close
-      data-slot="toast-close"
-      aria-label="Close toast"
-      render={render}
-      className={cn(
-        "relative shrink-0 text-muted-foreground after:absolute after:-inset-2 after:content-[''] hover:text-foreground",
-        className,
-      )}
       {...props}
-    >
-      {children ?? <XIcon aria-hidden="true" />}
-    </ToastPrimitive.Close>
+      data-slot="toast-close"
+      render={<CloseControl aria-label="Mitteilung schließen" />}
+    />
   );
 }
 
@@ -180,13 +174,17 @@ function ToastList() {
   return toasts.map((toastItem) => (
     <Toast key={toastItem.id} toast={toastItem}>
       <ToastContent>
-        <ToastIcon type={toastItem.type} />
-        <div className="flex min-w-0 flex-1 flex-col gap-1">
-          <ToastTitle />
-          <ToastDescription />
-        </div>
-        <ToastAction />
-        <ToastClose />
+        <SurfaceHeader
+          className="w-full"
+          actions={<ToastClose />}
+          description={<ToastDescription />}
+        >
+          <div className="flex items-center gap-2">
+            <ToastIcon type={toastItem.type} />
+            <ToastTitle />
+          </div>
+          {toastItem.actionProps && <ToastAction />}
+        </SurfaceHeader>
       </ToastContent>
     </Toast>
   ));

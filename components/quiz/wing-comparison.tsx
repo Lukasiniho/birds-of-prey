@@ -1,4 +1,5 @@
 'use client';
+import { QuizIncorrectIcon } from '@/components/quiz/incorrect-icon';
 
 import { QuizChoiceHeading } from '@/components/quiz/task-heading';
 import { SpeciesName } from '@/components/species-name';
@@ -6,8 +7,7 @@ import { ArtImage } from '@/components/art-image';
 import {
   ArrowsLeftRight as ArrowLeftRight,
   Check,
-  X,
-} from '@/components/icons';
+  } from '@/components/icons';
 import type { QuizBird, QuizQuestion } from '@/lib/quiz-engine';
 import './new-questions.css';
 
@@ -65,7 +65,7 @@ export function WingComparison({
                 aria-hidden="true"
               >
                 {answered && correct && <Check size={17} />}
-                {answered && choice === id && !correct && <X size={17} />}
+                {answered && choice === id && !correct && <QuizIncorrectIcon size={17} />}
               </span>
               <div className="q-comparison-name min-w-0 pr-6">
                 <SpeciesName

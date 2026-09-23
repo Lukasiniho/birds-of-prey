@@ -1,5 +1,11 @@
 'use client';
-import { explorerStyles } from '@/components/explorer-styles';
+import { PageHeader } from '@/components/page-header';
+import {
+  ExplorerPanel,
+  ExplorerStage,
+  ExplorerNotes,
+} from '@/components/explorer-panel';
+import { SurfaceHeader } from '@/components/surface';
 import { tabStyles } from '@/components/tab-styles';
 
 import { cn } from '@/lib/utils';
@@ -58,14 +64,14 @@ export default function FalconryExplorer({ species }: { species: Species[] }) {
     <div className="app-shell section-shell falconry-shell">
       <SiteHeader activeSection="falknerei" />
       <main className="falconry-main w-full page-content">
-        <header className="falconry-heading to-tablet:mb-section mb-section">
-          <h1 className="page-title font-(family-name:--font-stack-display) text-(length:--type-page-title) font-(--weight-semibold) leading-(--leading-display) tracking-(--tracking-tight)">
-            Falknerei kennenlernen
-          </h1>
-          <DetailCopy leading="normal" className="mt-3">
-            Die Beizjagd, ihre Vögel und das Handwerk dahinter.
-          </DetailCopy>
-        </header>
+        <PageHeader
+          title="Falknerei kennenlernen"
+          description={
+            <DetailCopy leading="normal">
+              Die Beizjagd, ihre Vögel und das Handwerk dahinter.
+            </DetailCopy>
+          }
+        />
         <Tabs
           value={activeChapter}
           onValueChange={(value) => setActiveChapter(String(value))}
@@ -97,20 +103,18 @@ export default function FalconryExplorer({ species }: { species: Species[] }) {
             <TabsContent
               key={chapter.id}
               value={chapter.id}
-              className={cn(
-                'falconry-panel bg-background m-0 min-h-[610px] to-tablet:min-h-0 text-(length:--type-body)',
-                explorerStyles.panel,
-              )}
+              render={<ExplorerPanel />}
+              className="falconry-panel m-0 min-h-[610px] to-tablet:min-h-0 text-(length:--type-body)"
             >
-              <section
-                className="falconry-stage pt-[26px] px-[28px] pb-[22px] to-compact:px-[22px] to-tablet:pt-[22px] to-tablet:px-[18px] to-tablet:pb-[18px] bg-stage flex flex-col min-w-0 relative"
+              <ExplorerStage
+                className="falconry-stage"
                 aria-label={
                   chapter.id === 'beizvoegel'
                     ? bird.name
                     : 'Wanderfalke auf der Faust'
                 }
               >
-                <div className="falconry-stage-label relative z-1">
+                <SurfaceHeader className="falconry-stage-label relative z-1">
                   <SpeciesName
                     name={
                       chapter.id === 'beizvoegel'
@@ -125,7 +129,7 @@ export default function FalconryExplorer({ species }: { species: Species[] }) {
                     commonAs="h2"
                     scientificAs="i"
                   />
-                </div>
+                </SurfaceHeader>
                 <div
                   className={`falconry-art to-tablet:min-h-0 flex-1 grid place-items-center min-h-[350px] ${chapter.id === 'beizvoegel' ? 'falconry-flight' : ''}`}
                 >
@@ -190,44 +194,39 @@ export default function FalconryExplorer({ species }: { species: Species[] }) {
                       : 'Die Faust ist der mit dem Handschuh geschützte Sitzplatz.'}
                   </DetailCopy>
                 )}
-              </section>
-              <aside
-                className={cn(
-                  'falconry-notes flex flex-col detail-panel',
-                  explorerStyles.notes,
-                )}
+              </ExplorerStage>
+              <ExplorerNotes
+                className="falconry-notes flex flex-col"
                 aria-label={chapter.label}
               >
                 {chapter.id === 'grundlagen' && (
                   <>
-                    <DetailHeading className="mb-[14px]">
-                      Die Beizjagd
-                    </DetailHeading>
-                    <DetailCopy className="mb-[15px]">
+                    <DetailHeading className="mb-2">Die Beizjagd</DetailHeading>
+                    <DetailCopy className="mb-4">
                       Falknerei ist die Jagd mit einem ausgebildeten Greifvogel
                       auf wild lebende Beute in ihrem natürlichen Lebensraum.
                     </DetailCopy>
-                    <DetailCopy className="mb-[15px]">
+                    <DetailCopy className="mb-4">
                       Der Mensch arbeitet mit den natürlichen Fähigkeiten des
                       Vogels. Dafür muss er dessen Verhalten kennen und
                       Vertrauen aufbauen.
                     </DetailCopy>
-                    <dl className="mt-[3px]">
-                      <div className="py-[15px] px-0 border-t-(length:--border-structure)">
+                    <dl className="mt-1">
+                      <div className="py-4 px-0 border-t-(length:--border-structure)">
                         <DetailHeading as="dt">Beizvogel</DetailHeading>
                         <DetailCopy as="dd" className="mt-2">
                           Ein Greifvogel, der für die gemeinsame Jagd
                           ausgebildet ist.
                         </DetailCopy>
                       </div>
-                      <div className="py-[15px] px-0 border-t-(length:--border-structure)">
+                      <div className="py-4 px-0 border-t-(length:--border-structure)">
                         <DetailHeading as="dt">Abtragen</DetailHeading>
                         <DetailCopy as="dd" className="mt-2">
                           Die behutsame Gewöhnung des Vogels an den Menschen und
                           seine Umgebung.
                         </DetailCopy>
                       </div>
-                      <div className="py-[15px] px-0 border-t-(length:--border-structure)">
+                      <div className="py-4 px-0 border-t-(length:--border-structure)">
                         <DetailHeading as="dt">Atzung</DetailHeading>
                         <DetailCopy as="dd" className="mt-2">
                           Der falknerische Ausdruck für die Nahrung des Vogels.
@@ -238,22 +237,22 @@ export default function FalconryExplorer({ species }: { species: Species[] }) {
                 )}
                 {chapter.id === 'ausruestung' && (
                   <>
-                    <DetailHeading className="mb-[14px]">
+                    <DetailHeading className="mb-2">
                       Die Ausrüstung
                     </DetailHeading>
-                    <DetailCopy className="mb-[15px]">
+                    <DetailCopy className="mb-4">
                       Jedes Stück erfüllt eine Aufgabe beim Umgang mit dem
                       Vogel.
                     </DetailCopy>
-                    <dl className="mt-[3px]">
-                      <div className="py-[15px] px-0 border-t-(length:--border-structure)">
+                    <dl className="mt-1">
+                      <div className="py-4 px-0 border-t-(length:--border-structure)">
                         <DetailHeading as="dt">Handschuh</DetailHeading>
                         <DetailCopy as="dd" className="mt-2">
                           Kräftiges Leder schützt die Hand und bietet dem Vogel
                           einen sicheren Sitzplatz auf der Faust.
                         </DetailCopy>
                       </div>
-                      <div className="py-[15px] px-0 border-t-(length:--border-structure)">
+                      <div className="py-4 px-0 border-t-(length:--border-structure)">
                         <DetailHeading as="dt">Haube</DetailHeading>
                         <DetailCopy as="dd" className="mt-2">
                           Die angepasste Lederhaube schirmt optische Reize ab,
@@ -261,7 +260,7 @@ export default function FalconryExplorer({ species }: { species: Species[] }) {
                           gewöhnt.
                         </DetailCopy>
                       </div>
-                      <div className="py-[15px] px-0 border-t-(length:--border-structure)">
+                      <div className="py-4 px-0 border-t-(length:--border-structure)">
                         <DetailHeading as="dt">Federspiel</DetailHeading>
                         <DetailCopy as="dd" className="mt-2">
                           Eine Beuteattrappe an einer Schnur. Falken trainieren
@@ -277,14 +276,14 @@ export default function FalconryExplorer({ species }: { species: Species[] }) {
                     <SpeciesCommonName
                       as="h2"
                       variant="detail"
-                      className="mb-[14px]"
+                      className="mb-2"
                     >
                       {bird.name}
                     </SpeciesCommonName>
-                    <DetailCopy className="falconry-note-subtitle -mt-[5px] mb-[15px]">
+                    <DetailCopy className="falconry-note-subtitle -mt-[5px] mb-4">
                       {bird.subtitle}
                     </DetailCopy>
-                    <DetailCopy className="mb-[15px]">{bird.text}</DetailCopy>
+                    <DetailCopy className="mb-4">{bird.text}</DetailCopy>
                     <div className="falconry-note-block mt-[6px] mb-6 border-t-(length:--border-structure) pt-[19px]">
                       <DetailHeading as="h3">
                         Welcher Vogel passt?
@@ -306,15 +305,15 @@ export default function FalconryExplorer({ species }: { species: Species[] }) {
                 )}
                 {chapter.id === 'verantwortung' && (
                   <>
-                    <DetailHeading className="mb-[14px]">
+                    <DetailHeading className="mb-2">
                       Der Vogel im Mittelpunkt
                     </DetailHeading>
-                    <DetailCopy className="mb-[15px]">
+                    <DetailCopy className="mb-4">
                       Falknerei bedeutet tägliche, fachkundige Betreuung. Der
                       Alltag richtet sich nach den Bedürfnissen des Vogels.
                     </DetailCopy>
-                    <dl className="mt-[3px]">
-                      <div className="py-[15px] px-0 border-t-(length:--border-structure)">
+                    <dl className="mt-1">
+                      <div className="py-4 px-0 border-t-(length:--border-structure)">
                         <DetailHeading as="dt">
                           Gesundheit & Haltung
                         </DetailHeading>
@@ -323,7 +322,7 @@ export default function FalconryExplorer({ species }: { species: Species[] }) {
                           Beobachtung des Gesundheitszustands gehören dazu.
                         </DetailCopy>
                       </div>
-                      <div className="py-[15px] px-0 border-t-(length:--border-structure)">
+                      <div className="py-4 px-0 border-t-(length:--border-structure)">
                         <DetailHeading as="dt">
                           Geduld & Erfahrung
                         </DetailHeading>
@@ -332,7 +331,7 @@ export default function FalconryExplorer({ species }: { species: Species[] }) {
                           guten Verständnis für das Verhalten des Vogels.
                         </DetailCopy>
                       </div>
-                      <div className="py-[15px] px-0 border-t-(length:--border-structure)">
+                      <div className="py-4 px-0 border-t-(length:--border-structure)">
                         <DetailHeading as="dt">
                           Wissen weitergeben
                         </DetailHeading>
@@ -356,7 +355,7 @@ export default function FalconryExplorer({ species }: { species: Species[] }) {
                     aria-hidden="true"
                   />
                 </a>
-              </aside>
+              </ExplorerNotes>
             </TabsContent>
           ))}
         </Tabs>

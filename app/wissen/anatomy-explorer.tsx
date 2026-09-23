@@ -1,8 +1,12 @@
 'use client';
-import { cn } from '@/lib/utils';
-import { explorerStyles } from '@/components/explorer-styles';
+import {
+  ExplorerPanel,
+  ExplorerStage,
+  ExplorerHeader,
+  ExplorerNotes,
+} from '@/components/explorer-panel';
 
-import { DetailHeading, DetailCopy } from '@/components/detail-text';
+import { DetailCopy } from '@/components/detail-text';
 
 import { useState } from 'react';
 import { ArtImage } from '@/components/art-image';
@@ -154,10 +158,10 @@ export default function AnatomyExplorer({
   const name = speciesOptions[species].label;
 
   return (
-    <div className={cn('anatomy-layout', explorerStyles.panel)}>
+    <ExplorerPanel className={'anatomy-layout'}>
       {/* oxlint-disable-next-line jsx-a11y/no-noninteractive-element-interactions -- pointer-down only dismisses the pinned label; buttons stay the interactive controls */}
-      <section
-        className="anatomy-stage pt-6 px-[22px] pb-[44px] to-compact:px-[6px] to-tablet:pt-[22px] to-tablet:px-3 bg-stage relative flex flex-col justify-start min-w-0"
+      <ExplorerStage
+        className="anatomy-stage"
         aria-label={`Körperbau des ${name === 'Wanderfalke' ? 'Wanderfalken' : 'Mäusebussards'}`}
         onPointerDown={(event) => {
           if (!(event.target as HTMLElement).closest('button')) {
@@ -172,25 +176,23 @@ export default function AnatomyExplorer({
           }
         }}
       >
-        <div className="anatomy-stage-heading flex items-center justify-between flex-wrap gap-4 py-0 px-[6px] mb-3">
-          <div>
-            <span className="knowledge-eyebrow text-muted-foreground text-(length:--type-caption) font-(--weight-medium) tracking-(--tracking-caps) block uppercase mb-1">
-              Form & Funktion
-            </span>
-            <DetailHeading>Jedes Detail hat eine Aufgabe</DetailHeading>
-          </div>
-          <SegmentedControl
-            label="Beispielvogel wählen"
-            group="anatomie"
-            value={String(species)}
-            options={speciesOptions}
-            onChange={(value) => {
-              setSpecies(Number(value) as 0 | 1);
-              setOpen(null);
-              setPinned(null);
-            }}
-          />
-        </div>
+        <ExplorerHeader
+          eyebrow="Form & Funktion"
+          title="Jedes Detail hat eine Aufgabe"
+          actions={
+            <SegmentedControl
+              label="Beispielvogel wählen"
+              group="anatomie"
+              value={String(species)}
+              options={speciesOptions}
+              onChange={(value) => {
+                setSpecies(Number(value) as 0 | 1);
+                setOpen(null);
+                setPinned(null);
+              }}
+            />
+          }
+        />
         <div className="anatomy-canvas relative w-full max-w-[730px] aspect-square my-0 mx-auto">
           <ArtImage
             className="anatomy-bird block size-full object-contain select-none"
@@ -246,20 +248,15 @@ export default function AnatomyExplorer({
             ))}
           </TooltipProvider>
         </div>
-      </section>
-      <aside
-        className={cn(
-          'anatomy-notes bg-(--atlas-info-surface) detail-panel',
-          explorerStyles.notes,
-        )}
+      </ExplorerStage>
+      <ExplorerNotes
+        className="anatomy-notes"
         aria-label="Körperteile entdecken"
       >
-        <div className="anatomy-notes-heading flex items-center gap-3">
-          <DetailHeading leading="display">Der Körperbau</DetailHeading>
-        </div>
+        <ExplorerHeader title="Der Körperbau" />
         <DetailCopy
           leading="normal"
-          className="anatomy-notes-intro text-(length:--type-body) text-muted-foreground mt-3"
+          className="anatomy-notes-intro text-(length:--type-body) text-muted-foreground mt-2"
         >
           Wähle ein Körperteil und sieh, wofür es gebaut ist.
         </DetailCopy>
@@ -285,7 +282,7 @@ export default function AnatomyExplorer({
             </button>
           ))}
         </div>
-      </aside>
-    </div>
+      </ExplorerNotes>
+    </ExplorerPanel>
   );
 }

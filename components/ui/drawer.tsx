@@ -3,6 +3,12 @@
 import * as React from 'react';
 import { Drawer as DrawerPrimitive } from '@base-ui/react/drawer';
 
+import { CloseControl } from '@/components/close-control';
+import {
+  SurfaceHeader,
+  SurfaceBody,
+  SurfaceFooter,
+} from '@/components/surface';
 import { cn } from '@/lib/utils';
 
 type DrawerContextProps = {
@@ -100,8 +106,15 @@ function DrawerSwipeHandle({
 function DrawerContent({
   className,
   children,
+  heading,
+  showCloseButton = true,
+  closeLabel = 'Schließen',
   ...props
-}: DrawerPrimitive.Popup.Props) {
+}: DrawerPrimitive.Popup.Props & {
+  heading?: React.ReactNode;
+  showCloseButton?: boolean;
+  closeLabel?: string;
+}) {
   const { hasSnapPoints, modal, showSwipeHandle, swipeDirection } = useDrawer();
   const swipeAxis =
     swipeDirection === 'down' || swipeDirection === 'up' ? 'y' : 'x';
@@ -122,7 +135,7 @@ function DrawerContent({
           data-snap-points={hasSnapPoints ? '' : undefined}
           className={cn(
             // Base.
-            'bg-popover text-popover-foreground text-sm data-[swipe-direction=down]:rounded-t-xl data-[swipe-direction=down]:border-t data-[swipe-direction=left]:rounded-r-xl data-[swipe-direction=left]:border-r data-[swipe-direction=right]:rounded-l-xl data-[swipe-direction=right]:border-l data-[swipe-direction=up]:rounded-b-xl data-[swipe-direction=up]:border-b group/drawer-popup pointer-events-auto fixed z-50 m-(--drawer-inset,0px) flex h-(--drawer-content-height) max-h-(--drawer-content-max-height,none) min-h-0 w-(--drawer-content-width,auto) transform-[translate3d(var(--translate-x,0px),var(--translate-y,0px),0)_scale(var(--stack-scale))] flex-col transition-[transform,height,opacity,filter] duration-450 ease-[cubic-bezier(0.22,1,0.36,1)] will-change-transform outline-none select-none [interpolate-size:allow-keywords]',
+            'bg-popover text-popover-foreground text-sm data-[swipe-direction=down]:rounded-t-(--radius-surface) data-[swipe-direction=down]:border-t data-[swipe-direction=left]:rounded-r-(--radius-surface) data-[swipe-direction=left]:border-r data-[swipe-direction=right]:rounded-l-(--radius-surface) data-[swipe-direction=right]:border-l data-[swipe-direction=up]:rounded-b-(--radius-surface) data-[swipe-direction=up]:border-b group/drawer-popup pointer-events-auto fixed z-50 m-(--drawer-inset,0px) flex h-(--drawer-content-height) max-h-(--drawer-content-max-height,none) min-h-0 w-(--drawer-content-width,auto) transform-[translate3d(var(--translate-x,0px),var(--translate-y,0px),0)_scale(var(--stack-scale))] flex-col transition-[transform,height,opacity,filter] duration-450 ease-[cubic-bezier(0.22,1,0.36,1)] will-change-transform outline-none select-none [interpolate-size:allow-keywords]',
             // Nested.
             'data-nested-drawer-open:overflow-hidden data-nested-drawer-open:brightness-95',
             // Bleed.
@@ -153,10 +166,25 @@ function DrawerContent({
           <DrawerPrimitive.Content
             data-slot="drawer-content"
             className={cn(
-              'flex min-h-0 flex-1 flex-col overflow-hidden overscroll-contain rounded-[inherit] transition-opacity duration-300 ease-[cubic-bezier(0.45,1.005,0,1.005)] select-text group-data-nested-drawer-open/drawer-popup:opacity-0 group-data-nested-drawer-swiping/drawer-popup:opacity-100 group-data-swiping/drawer-popup:select-none',
+              'p-panel gap-4 flex min-h-0 flex-1 flex-col overflow-hidden overscroll-contain rounded-[inherit] transition-opacity duration-300 ease-[cubic-bezier(0.45,1.005,0,1.005)] select-text group-data-nested-drawer-open/drawer-popup:opacity-0 group-data-nested-drawer-swiping/drawer-popup:opacity-100 group-data-swiping/drawer-popup:select-none',
             )}
           >
-            {children}
+            {(heading || showCloseButton) && (
+              <SurfaceHeader
+                actions={
+                  showCloseButton ? (
+                    <DrawerPrimitive.Close
+                      render={<CloseControl aria-label={closeLabel} />}
+                    />
+                  ) : undefined
+                }
+              >
+                {heading}
+              </SurfaceHeader>
+            )}
+            <SurfaceBody className="flex flex-col gap-4 overflow-y-auto overscroll-contain">
+              {children}
+            </SurfaceBody>
           </DrawerPrimitive.Content>
         </DrawerPrimitive.Popup>
       </DrawerPrimitive.Viewport>
@@ -164,27 +192,12 @@ function DrawerContent({
   );
 }
 
-function DrawerHeader({ className, ...props }: React.ComponentProps<'div'>) {
-  return (
-    <div
-      data-slot="drawer-header"
-      className={cn(
-        'gap-0.5 p-4 pb-0 md:gap-0.5 md:text-left flex shrink-0 flex-col group-data-[swipe-axis=y]/drawer-popup:text-center',
-        className,
-      )}
-      {...props}
-    />
-  );
+function DrawerHeader(props: React.ComponentProps<'div'>) {
+  return <SurfaceHeader data-slot="drawer-header" {...props} />;
 }
 
-function DrawerFooter({ className, ...props }: React.ComponentProps<'div'>) {
-  return (
-    <div
-      data-slot="drawer-footer"
-      className={cn('gap-2 p-4 pt-0 mt-auto flex shrink-0 flex-col', className)}
-      {...props}
-    />
-  );
+function DrawerFooter(props: React.ComponentProps<'div'>) {
+  return <SurfaceFooter data-slot="drawer-footer" {...props} />;
 }
 
 function DrawerTitle({ className, ...props }: DrawerPrimitive.Title.Props) {

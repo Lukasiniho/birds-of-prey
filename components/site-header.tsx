@@ -123,7 +123,7 @@ export function SiteHeader({
         {sections.map((section) => (
           <a
             key={section.id}
-            className="inline-flex items-center justify-center h-(--header-control-height) px-3 py-0 rounded-lg text-(length:--type-button) leading-(--leading-normal) font-(--weight-medium) whitespace-nowrap"
+            className="inline-flex items-center justify-center h-(--header-control-height) px-3 py-0 rounded-(--radius-control) text-(length:--type-button) leading-(--leading-normal) font-(--weight-medium) whitespace-nowrap"
             href={section.href}
             aria-current={activeSection === section.id ? 'page' : undefined}
           >

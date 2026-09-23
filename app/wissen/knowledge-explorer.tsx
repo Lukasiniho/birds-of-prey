@@ -1,4 +1,5 @@
 'use client';
+import { PageHeader } from '@/components/page-header';
 import { tabStyles } from '@/components/tab-styles';
 
 import { useEffect, useSyncExternalStore } from 'react';
@@ -59,11 +60,7 @@ export default function KnowledgeExplorer({
     <div className="app-shell section-shell knowledge-shell">
       <SiteHeader activeSection="wissen" />
       <main className="knowledge-main w-full page-content">
-        <header className="knowledge-heading to-compact:items-start to-compact:flex-col to-compact:gap-5 to-compact:mb-section flex justify-between items-center gap-[28px] mb-section">
-          <h1 className="page-title font-(family-name:--font-stack-display) text-(length:--type-page-title) font-(--weight-semibold) leading-(--leading-display) tracking-(--tracking-tight)">
-            Greifvögel verstehen
-          </h1>
-        </header>
+        <PageHeader title="Greifvögel verstehen" />
         <Tabs
           value={section}
           onValueChange={(value) => {

@@ -34,7 +34,6 @@
 @source not "../components/ui/bubble.tsx";
 @source not "../components/ui/button-group.tsx";
 @source not "../components/ui/calendar.tsx";
-@source not "../components/ui/card.tsx";
 @source not "../components/ui/carousel.tsx";
 @source not "../components/ui/chart.tsx";
 @source not "../components/ui/checkbox.tsx";
@@ -115,8 +114,7 @@
   --color-sidebar-ring: var(--ring);
   --color-popover: var(--background);
   --color-popover-foreground: var(--foreground);
-  --radius-lg: var(--radius-control);
-  --radius-md: var(--radius-small);
+  --radius-*: initial;
 }
 * {
   box-sizing: border-box;

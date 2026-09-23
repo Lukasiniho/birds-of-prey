@@ -3,12 +3,13 @@
 import { useEffect, useRef, type ReactNode } from 'react';
 import { birds } from '@/lib/birds';
 import { taxonomyRoot } from '@/lib/taxonomy';
-import { Info, X } from '@/components/icons';
-import { buttonVariants } from '@/components/ui/button';
+import { Info } from '@/components/icons';
 import { birdTaxonomyHref } from '@/lib/bird-routes';
 import { TaxonomyTree } from '@/components/taxonomy-tree';
 import { TaxonomyMobileTree } from '@/components/taxonomy-mobile-tree';
-import { fullscreenSurface } from '@/components/fullscreen-styles';
+import { FullscreenPage } from '@/components/fullscreen-page';
+import { SurfaceHeader, SurfaceBody } from '@/components/surface';
+import { CloseLink } from '@/components/close-control';
 
 const byId = new Map(birds.map((bird) => [bird.id, bird]));
 function TaxonomyExplorer({
@@ -81,7 +82,7 @@ export function TaxonomyTrigger({
     <a
       id="taxonomy-trigger"
       href={birdTaxonomyHref(bird)}
-      className="relative z-1 inline-block max-w-full rounded-control hover:bg-hover"
+      className="relative z-1 inline-block max-w-full rounded-(--radius-control) hover:bg-hover"
       aria-label={`Systematik von ${bird.name} öffnen`}
       title="Systematik öffnen"
       onClick={(event) => {
@@ -99,9 +100,9 @@ export function TaxonomyTrigger({
     >
       <span className="t-stagger-line t-stagger-line--2 relative">
         {children}
-        {/* Keep the name centered and its line height unchanged. The icon
-            shares the name's reveal instead of remaining visible alone. */}
-        <Info className="absolute left-full top-1/2 ml-2 size-5 -translate-y-1/2 text-primary" />
+        {/* Source Serif's visible letters sit below the line-box center.
+            The optical offset leaves the name's spacing and reveal intact. */}
+        <Info className="absolute left-full top-1/2 ml-2 mt-half size-5 -translate-y-1/2 text-primary" />
       </span>
     </a>
   );
@@ -136,52 +137,42 @@ export function TaxonomyFullscreen({
     return () => document.removeEventListener('keydown', keydown);
   }, [onClose]);
   return (
-    <div className="flow-root min-h-dvh bg-stage">
-      <main
-        ref={page}
-        tabIndex={-1}
-        id="main-content"
-        aria-labelledby="taxonomy-title"
-        className={`${fullscreenSurface} relative grid m-(--atlas-gutter) rounded-(--radius-surface) border-(length:--border-structure)`}
-      >
-        <div className="min-w-0 pr-12">
-          <h1
-            id="taxonomy-title"
-            className="page-title font-(family-name:--font-stack-display) text-(length:--type-page-title) font-(--weight-semibold) leading-(--leading-display) tracking-(--tracking-tight)"
-          >
-            Systematik der Vögel
-          </h1>
-          <p className="mt-2 text-(length:--type-body) text-muted-foreground">
+    <FullscreenPage
+      ref={page}
+      tabIndex={-1}
+      id="main-content"
+      aria-labelledby="taxonomy-title"
+    >
+      <SurfaceHeader
+        actions={
+          <CloseLink
+            href={atlasHref}
+            label="Systematik schließen"
+            onNavigate={onClose}
+          />
+        }
+        description={
+          <p className="text-(length:--type-body) text-muted-foreground">
             Von der Ordnung bis zur Art. Äste aufklappen und Arten mit Porträt
             im Atlas öffnen.
           </p>
-        </div>
-        <a
-          href={atlasHref}
-          className={`${buttonVariants({ variant: 'ghost', size: 'icon' })} absolute right-(--panel-padding) top-(--panel-padding)`}
-          aria-label="Systematik schließen"
-          onClick={(event) => {
-            if (
-              event.button !== 0 ||
-              event.metaKey ||
-              event.ctrlKey ||
-              event.shiftKey ||
-              event.altKey
-            )
-              return;
-            event.preventDefault();
-            onClose();
-          }}
+        }
+      >
+        <h1
+          id="taxonomy-title"
+          className="page-title font-(family-name:--font-stack-display) text-(length:--type-page-title) font-(--weight-semibold) leading-(--leading-display) tracking-(--tracking-tight)"
         >
-          <X />
-        </a>
+          Systematik der Vögel
+        </h1>
+      </SurfaceHeader>
+      <SurfaceBody className="flex min-h-0 flex-1 flex-col">
         <TaxonomyExplorer
           selected={selected}
           onSelect={onSelect}
           path={path}
           onPathChange={onPathChange}
         />
-      </main>
-    </div>
+      </SurfaceBody>
+    </FullscreenPage>
   );
 }

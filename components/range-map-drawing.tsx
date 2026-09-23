@@ -46,7 +46,7 @@ function MapLegend({ label }: { label: string }) {
   return (
     <div className="range-map-legend rounded-(--radius-control) text-(length:--type-caption) leading-(--leading-heading) bg-background text-foreground absolute top-[8px] right-[8px] flex items-center gap-[6px] py-1 px-2 pointer-events-none">
       <span
-        className="size-[10px] rounded-md bg-(--map-range) flex-none"
+        className="size-[10px] rounded-(--radius-small) bg-(--map-range) flex-none"
         aria-hidden="true"
       />{' '}
       {label}
@@ -75,7 +75,7 @@ export function MapDrawing({
           'range-map-svg block w-full h-auto aspect-[1.85] bg-(--map-water)',
           framed && 'border-(length:--border-structure)',
           framed &&
-            (framed === 'card' ? 'rounded-(--radius-card)' : 'rounded-lg'),
+            (framed === 'card' ? 'rounded-(--radius-card)' : 'rounded-(--radius-control)'),
         )}
         viewBox={(world ? data.base.viewBox : data.range.viewBox).join(' ')}
         // SVG needs an explicit image role to expose its accessible name.

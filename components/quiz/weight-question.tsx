@@ -1,4 +1,5 @@
 'use client';
+import { QuizIncorrectIcon } from '@/components/quiz/incorrect-icon';
 
 import { useLayoutEffect, useRef, useState, type PointerEvent } from 'react';
 import { createPortal } from 'react-dom';
@@ -9,8 +10,7 @@ import {
   Check,
   DotsSix as Grip,
   Scales as Scale,
-  X,
-} from '@/components/icons';
+  } from '@/components/icons';
 import { Button } from '@/components/ui/button';
 import { closestWeightSlot } from '@/lib/quiz-drag';
 import { moveBird, weightOrder } from '@/lib/quiz-engine';
@@ -251,7 +251,7 @@ export function WeightQuestion({
                 {correct[index] === id ? (
                   <Check size={16} aria-label="Richtiger Platz" />
                 ) : (
-                  <X size={16} aria-label="Falscher Platz" />
+                  <QuizIncorrectIcon size={16} aria-label="Falscher Platz" />
                 )}
               </QuizCardFooter>
             ) : (

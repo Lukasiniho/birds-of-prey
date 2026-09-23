@@ -1,9 +1,14 @@
 'use client';
-import { explorerStyles } from '@/components/explorer-styles';
+import {
+  ExplorerPanel,
+  ExplorerStage,
+  ExplorerHeader,
+  ExplorerNotes,
+} from '@/components/explorer-panel';
 import { EcologyTag } from '@/components/ecology-tag';
 import { cn } from '@/lib/utils';
 
-import { DetailHeading, DetailCopy } from '@/components/detail-text';
+import { DetailCopy } from '@/components/detail-text';
 
 import { useEffect, useState } from 'react';
 import { ArtImage } from '@/components/art-image';
@@ -89,32 +94,30 @@ export default function FalconryWorld({ birds }: { birds: KnowledgeBird[] }) {
   }, [attempt]);
 
   return (
-    <div className={cn('knowledge-split falconry-world', explorerStyles.panel)}>
-      <section
-        className="falconry-map-surface bg-stage min-w-0 relative"
+    <ExplorerPanel className={'knowledge-split falconry-world'}>
+      <ExplorerStage
+        className="falconry-map-surface"
         aria-label={
           view === 'karte'
             ? 'Falknerei auf der Weltkarte'
             : 'Falknerei im Zeitstrahl'
         }
       >
-        <header className="knowledge-surface-heading to-tablet:items-start to-tablet:flex-wrap flex items-center justify-between gap-4 p-panel">
-          <div>
-            <span className="knowledge-eyebrow text-muted-foreground text-(length:--type-caption) font-(--weight-medium) tracking-(--tracking-caps) block uppercase mb-1">
-              Mensch & Greifvogel
-            </span>
-            <DetailHeading>Eine Kunst, viele Traditionen</DetailHeading>
-          </div>
-          <SegmentedControl
-            label="Karte oder Zeitstrahl"
-            group="falknerei"
-            value={view}
-            options={views}
-            onChange={setView}
-          />
-        </header>
+        <ExplorerHeader
+          eyebrow="Mensch & Greifvogel"
+          title="Eine Kunst, viele Traditionen"
+          actions={
+            <SegmentedControl
+              label="Karte oder Zeitstrahl"
+              group="falknerei"
+              value={view}
+              options={views}
+              onChange={setView}
+            />
+          }
+        />
         {view === 'zeitstrahl' ? (
-          <div className="falconry-timeline-surface pt-0 px-panel pb-[calc(var(--panel-padding)+26px)] relative">
+          <div className="falconry-timeline-surface relative">
             <ol
               className="falconry-timeline list-none m-0 p-0 grid"
               aria-label="Stationen wählen"
@@ -253,7 +256,7 @@ export default function FalconryWorld({ birds }: { birds: KnowledgeBird[] }) {
         )}
         {view === 'karte' && (
           <fieldset
-            className="ecology-tags flex flex-wrap gap-2 falconry-region-choices m-0 pt-0 pr-[calc(var(--panel-padding)+34px)] pb-panel pl-panel"
+            className="ecology-tags flex flex-wrap gap-2 falconry-region-choices m-0 p-0"
             aria-label="Falknereiregion wählen"
           >
             {falconryRegions.map((item) => (
@@ -270,44 +273,37 @@ export default function FalconryWorld({ birds }: { birds: KnowledgeBird[] }) {
           </fieldset>
         )}
         <FalconryMapInfo chapter={chapter} basemap={view === 'karte'} />
-      </section>
-      <aside
-        className={cn(
-          'knowledge-notes bg-(--atlas-info-surface) relative min-w-0',
-          explorerStyles.notes,
-        )}
+      </ExplorerStage>
+      <ExplorerNotes
+        className="knowledge-notes"
         aria-live="polite"
         aria-atomic="true"
+        scrollKey={`${view}-${chapter.id}`}
       >
-        <div
-          className="knowledge-notes-scroll to-tablet:static to-tablet:overflow-visible absolute inset-0 overflow-y-auto detail-panel"
-          key={`${view}-${chapter.id}`}
-        >
-          <span className="knowledge-eyebrow text-muted-foreground text-(length:--type-caption) font-(--weight-medium) tracking-(--tracking-caps) block uppercase mb-1">
-            {chapter.place}
-          </span>
-          <DetailHeading>{chapter.title}</DetailHeading>
-          <div className="knowledge-bird-list grid gap-2 mt-4">
-            {chapter.birds.map((id) => {
-              const bird = birds.find((item) => item.id === id)!;
-              return (
-                <SpeciesRowLink
-                  size="inline"
-                  href={bird.href}
-                  key={id}
-                  portrait={bird.portrait}
-                  name={bird.name}
-                  latin={bird.latin}
-                  trailing={<ArrowUpRight size={16} aria-hidden="true" />}
-                />
-              );
-            })}
-          </div>
-          <DetailCopy className="mt-3">{chapter.text}</DetailCopy>
-          <DetailCopy className="mt-3">{chapter.detail}</DetailCopy>
+        <ExplorerHeader
+          eyebrow={<> {chapter.place} </>}
+          title={chapter.title}
+        />
+        <div className="knowledge-bird-list grid gap-2 mt-4">
+          {chapter.birds.map((id) => {
+            const bird = birds.find((item) => item.id === id)!;
+            return (
+              <SpeciesRowLink
+                size="inline"
+                href={bird.href}
+                key={id}
+                portrait={bird.portrait}
+                name={bird.name}
+                latin={bird.latin}
+                trailing={<ArrowUpRight size={16} aria-hidden="true" />}
+              />
+            );
+          })}
         </div>
-      </aside>
-    </div>
+        <DetailCopy className="mt-3">{chapter.text}</DetailCopy>
+        <DetailCopy className="mt-3">{chapter.detail}</DetailCopy>
+      </ExplorerNotes>
+    </ExplorerPanel>
   );
 }
 
@@ -326,7 +322,7 @@ function FalconryMapInfo({
     <Popover>
       <TooltipHint content={label}>
         <PopoverTrigger
-          className="range-map-source absolute right-panel bottom-panel grid place-items-center size-[26px]"
+          className="range-map-source ml-auto grid place-items-center size-(--control-height-compact)"
           aria-label={label}
         >
           <Info size={14} aria-hidden="true" />

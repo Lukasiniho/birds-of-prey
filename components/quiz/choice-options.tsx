@@ -1,7 +1,8 @@
 'use client';
+import { QuizIncorrectIcon } from '@/components/quiz/incorrect-icon';
 import { cn } from '@/lib/utils';
 
-import { Check, X } from '@/components/icons';
+import { Check } from '@/components/icons';
 import { RadioGroup, RadioGroupItem } from '@/components/ui/radio-group';
 
 /** The lettered answer list every single-choice quiz mode shares. */
@@ -61,7 +62,7 @@ export function QuizChoices({
               />
             )}
             {isWrong && (
-              <X
+              <QuizIncorrectIcon
                 className="q-option-wrong ml-auto text-danger"
                 size={18}
                 aria-label="Falsche Antwort"

@@ -1,6 +1,12 @@
 import * as React from 'react';
 
 import { cn } from '@/lib/utils';
+import {
+  Surface,
+  SurfaceHeader,
+  SurfaceBody,
+  SurfaceFooter,
+} from '@/components/surface';
 
 function Card({
   className,
@@ -8,11 +14,13 @@ function Card({
   ...props
 }: React.ComponentProps<'div'> & { size?: 'default' | 'sm' }) {
   return (
-    <div
+    <Surface
+      as="div"
+      kind="card"
       data-slot="card"
       data-size={size}
       className={cn(
-        'group/card flex flex-col gap-(--card-spacing) overflow-hidden rounded-xl bg-card py-(--card-spacing) text-sm text-card-foreground ring-1 ring-foreground/10 [--card-spacing:--spacing(4)] has-data-[slot=card-footer]:pb-0 has-[>img:first-child]:pt-0 data-[size=sm]:[--card-spacing:--spacing(3)] data-[size=sm]:has-data-[slot=card-footer]:pb-0 *:[img:first-child]:rounded-t-xl *:[img:last-child]:rounded-b-xl',
+        'group/card flex flex-col gap-4 overflow-hidden bg-card text-sm text-card-foreground',
         className,
       )}
       {...props}
@@ -20,16 +28,31 @@ function Card({
   );
 }
 
-function CardHeader({ className, ...props }: React.ComponentProps<'div'>) {
+function CardHeader({
+  className,
+  children,
+  ...props
+}: React.ComponentProps<'div'>) {
+  const content: React.ReactNode[] = [];
+  let actions: React.ReactNode;
+  let description: React.ReactNode;
+  React.Children.forEach(children, (child) => {
+    if (React.isValidElement(child) && child.type === CardAction)
+      actions = child;
+    else if (React.isValidElement(child) && child.type === CardDescription)
+      description = child;
+    else content.push(child);
+  });
   return (
-    <div
+    <SurfaceHeader
       data-slot="card-header"
-      className={cn(
-        'group/card-header @container/card-header grid auto-rows-min items-start gap-1 rounded-t-xl px-(--card-spacing) has-data-[slot=card-action]:grid-cols-[1fr_auto] has-data-[slot=card-description]:grid-rows-[auto_auto] [.border-b]:pb-(--card-spacing)',
-        className,
-      )}
+      className={className}
+      actions={actions}
+      description={description}
       {...props}
-    />
+    >
+      {content}
+    </SurfaceHeader>
   );
 }
 
@@ -71,22 +94,15 @@ function CardAction({ className, ...props }: React.ComponentProps<'div'>) {
 
 function CardContent({ className, ...props }: React.ComponentProps<'div'>) {
   return (
-    <div
-      data-slot="card-content"
-      className={cn('px-(--card-spacing)', className)}
-      {...props}
-    />
+    <SurfaceBody data-slot="card-content" className={className} {...props} />
   );
 }
 
 function CardFooter({ className, ...props }: React.ComponentProps<'div'>) {
   return (
-    <div
+    <SurfaceFooter
       data-slot="card-footer"
-      className={cn(
-        'flex items-center rounded-b-xl border-t bg-muted/50 p-(--card-spacing)',
-        className,
-      )}
+      className={cn('justify-start', className)}
       {...props}
     />
   );

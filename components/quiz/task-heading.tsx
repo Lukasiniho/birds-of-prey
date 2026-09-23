@@ -1,5 +1,6 @@
 import type { ReactNode } from 'react';
-import { QuizQuestionTitle } from './question-title';
+import { QuizQuestionHeader } from './question-header';
+import { SurfaceFooter } from '@/components/surface';
 
 /** Shared introduction for the sorting and habitat boards. */
 export function QuizTaskHeading({
@@ -14,18 +15,12 @@ export function QuizTaskHeading({
   description: ReactNode;
 }) {
   return (
-    <div
-      className={`${className} flex items-end justify-between gap-6 mb-section`}
-    >
-      <div>
-        <span className="q-task-label text-(length:--type-ui) font-(--weight-medium) text-(--main-color) flex items-center gap-2 mb-[10px]">
-          {label}
-        </span>
-        <QuizQuestionTitle>{children}</QuizQuestionTitle>
-        <p className="text-muted-foreground text-(length:--type-body) leading-(--leading-relaxed) mt-[10px] max-w-[62ch]">
-          {description}
-        </p>
-      </div>
+    <div className={`${className} mb-section`}>
+      <QuizQuestionHeader
+        label={label}
+        title={children}
+        description={description}
+      />
     </div>
   );
 }
@@ -42,13 +37,11 @@ export function QuizChoiceHeading({
 }) {
   return (
     <div className="q-new-heading mb-section">
-      <span className="q-task-label text-(length:--type-ui) font-(--weight-medium) text-(--main-color) flex items-center gap-2 mb-3">
-        {label}
-      </span>
-      <QuizQuestionTitle>{children}</QuizQuestionTitle>
-      <p className="text-muted-foreground text-(length:--type-body) leading-(--leading-normal) mt-3 max-w-[70ch]">
-        {description}
-      </p>
+      <QuizQuestionHeader
+        label={label}
+        title={children}
+        description={description}
+      />
     </div>
   );
 }
@@ -62,10 +55,10 @@ export function QuizCardFooter({
   children: ReactNode;
 }) {
   return (
-    <div
-      className={`${className} flex items-center justify-between border-t-(length:--border-structure) mt-2 pt-2 min-h-[42px] text-muted-foreground text-(length:--type-caption)`}
+    <SurfaceFooter
+      className={`${className} justify-between mt-2 min-h-[42px] text-muted-foreground text-(length:--type-caption)`}
     >
       {children}
-    </div>
+    </SurfaceFooter>
   );
 }

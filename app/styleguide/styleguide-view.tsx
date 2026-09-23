@@ -1,4 +1,5 @@
 'use client';
+import { SurfaceExamples } from '@/components/surface-examples';
 import { SpeciesName } from '@/components/species-name';
 import { EcologyTag } from '@/components/ecology-tag';
 import { SearchField } from '@/components/search-field';
@@ -109,12 +110,13 @@ const layoutRoles = [
 ] as const;
 
 const radii = [
-  ['--radius-small', 'Kennzeichnungen, Bildausschnitte'],
-  ['--radius-control', 'Buttons, Eingaben, Auswahl'],
-  ['--radius-card', 'Karten und Vorschauen'],
-  ['--radius-surface', 'Große Flächen und Dialoge'],
-  ['--radius-pill', 'Tags'],
-  ['--radius-tab-pill', 'Pillen-Tabs'],
+  ['rounded-(--radius-small)', '--radius-small', 'Kennzeichnungen, Bildausschnitte'],
+  ['rounded-(--radius-control)', '--radius-control', 'Buttons, Eingaben, Auswahl'],
+  ['rounded-(--radius-card)', '--radius-card', 'Karten und Vorschauen'],
+  ['rounded-(--radius-surface)', '--radius-surface', 'Panels, Dialoge und Messwertboxen'],
+  ['rounded-(--radius-surface-large)', '--radius-surface-large', 'Stärker gerundete Variante, nur explizit'],
+  ['rounded-(--radius-pill)', '--radius-pill', 'Tags'],
+  ['rounded-(--radius-tab-pill)', '--radius-tab-pill', 'Pillen-Tabs'],
 ] as const;
 
 const heights = [
@@ -443,21 +445,24 @@ export default function StyleguideView() {
           </dl>
         </Section>
 
+        <Section title="Flächen, Köpfe und Schließen" intro="Gemeinsame Komponenten für Dialoge, Sheets, Vollbildseiten und Karten. Tastaturfokus, lange Titel und Scrollen lassen sich hier direkt prüfen.">
+          <SurfaceExamples />
+        </Section>
+
         <Section
           title="Radien, Rahmen und Steuerhöhen"
           intro="Radien folgen der Größe der Fläche. Steuerhöhen gibt es in drei Stufen; jede Leiste und jedes Eingabefeld nimmt eine davon."
         >
           <div className="sg-specimens flex flex-wrap items-center gap-4">
-            {radii.map(([token, note]) => (
+            {radii.map(([radiusClass, token, note]) => (
               <div
                 className="sg-swatch rounded-(--radius-card) bg-surface grid gap-2 p-3 border-(length:--border-structure)"
                 key={token}
                 style={{ width: '210px' }}
               >
                 <div
-                  className="sg-chip rounded-(--radius-small) h-[46px]"
+                  className={`sg-chip h-[46px] ${radiusClass}`}
                   style={{
-                    borderRadius: `var(${token})`,
                     background: 'var(--stage)',
                   }}
                 />
