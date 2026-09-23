@@ -215,6 +215,7 @@ button.color-dot:not(:disabled) {
 .bird-audio .bird-audio-play {
   background: var(--primary);
   color: var(--primary-foreground);
+  border: var(--border-selection) solid var(--primary-border);
   border-radius: var(--radius-pill);
   font: var(--weight-medium) var(--type-ui) / var(--leading-normal)
     var(--font-stack-body);

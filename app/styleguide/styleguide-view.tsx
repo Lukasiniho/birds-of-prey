@@ -35,6 +35,7 @@ const inks = [
 const accents = [
   ['--main-color', 'Akzent; primary, ring, selection-border'],
   ['--primary-hover', 'Hover gefüllter Akzentbuttons'],
+  ['--primary-border', 'Dunkler Rahmen gefüllter Akzentcontrols'],
   ['--accent-ring', 'Leuchtringe um Marker und Pins'],
   ['--accent-line', 'Akzentrahmen'],
 ] as const;

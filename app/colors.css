@@ -20,6 +20,7 @@
   --glossary-link: #00786b;
   --glossary-link-hover: #005c52;
   --primary: var(--main-color);
+  --primary-border: #2c5555;
   --primary-foreground: #fff;
   --ring: var(--main-color);
   --selection-border: var(--main-color);

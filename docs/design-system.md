@@ -130,6 +130,7 @@ Rollen wie der Atlas.
 | `--main-color`                | Akzent; `--primary`, `--ring`, `--selection-border` sind Aliase            |
 | `--primary-foreground`        | Text und Icons auf gefüllten Akzentflächen                                 |
 | `--primary-hover`             | Hover gefüllter Akzentbuttons                                              |
+| `--primary-border`            | Dunkler Teal-Rahmen gefüllter Akzentcontrols, etwa der Ruf-Knopf; in beiden Themes gleich |
 | `--selected`                  | Gewählte Zeilen und Kacheln                                                |
 | `--nav-current`               | Aktuelle Seite in der Kopfnavigation; dunkel dieselbe Fläche wie der Hover |
 | `--selected-strong`           | Kräftige Auswahl; im Dunkelmodus eine Stufe kräftiger                      |
