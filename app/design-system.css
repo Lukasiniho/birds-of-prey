@@ -15,6 +15,7 @@
   --control-height-compact: 30px;
   --control-height: 38px;
   --control-height-touch: 44px;
+  --pill-height-large: var(--control-height);
   --header-control-height: var(--control-height);
   --page-gutter: var(--space-40);
   --atlas-gutter: var(--space-12);

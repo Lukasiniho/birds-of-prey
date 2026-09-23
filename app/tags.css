@@ -2,7 +2,7 @@
 .ecology-tag {
   border-radius: var(--radius-pill);
   color: var(--foreground);
-  font-size: var(--type-tag);
+  font-size: var(--tag-font-size, var(--type-tag));
   text-decoration: none;
 }
 .ecology-tag:is(a):hover,

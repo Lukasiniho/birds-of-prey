@@ -1,20 +1,3 @@
-.search-wrap input {
-  background: transparent;
-  font-size: var(--type-ui);
-}
-.search-wrap input::placeholder {
-  color: var(--muted-foreground);
-}
-.search-wrap input:focus-visible {
-  border-color: var(--ring);
-}
-.topbar-search input {
-  background: var(--background);
-}
-
-.topbar-search input:focus-visible {
-  border-color: var(--muted-foreground);
-}
 html {
   overflow-y: scroll;
   scrollbar-gutter: stable;
@@ -34,12 +17,6 @@ html {
   background: var(--select-background);
   border: var(--border-structure) solid var(--border);
   box-shadow: var(--shadow-floating);
-}
-@media (max-width: 760px) {
-  .site-header .topbar-search input {
-    /* design-lint-allow: iOS zooms focused inputs whose text is under 16px. */
-    font-size: max(16px, var(--text-base));
-  }
 }
 @media (min-width: 641px) and (max-width: 760px) {
   .app-shell:has(.topbar-search) {

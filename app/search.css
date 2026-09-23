@@ -1,0 +1,16 @@
+.search-field input {
+  background: var(--background);
+  font-size: var(--type-ui);
+}
+.search-field input::placeholder {
+  color: var(--muted-foreground);
+}
+.search-field input:focus-visible {
+  border-color: var(--muted-foreground);
+}
+@media (max-width: 760px) {
+  .search-field input {
+    /* The 16px role prevents iOS focus zoom on every search surface. */
+    font-size: var(--type-button);
+  }
+}

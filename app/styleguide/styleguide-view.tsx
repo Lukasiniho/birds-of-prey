@@ -1,5 +1,7 @@
 'use client';
 import { SpeciesName } from '@/components/species-name';
+import { EcologyTag } from '@/components/ecology-tag';
+import { SearchField } from '@/components/search-field';
 import { tabStyles } from '@/components/tab-styles';
 
 /* Reference page for the design system. Every specimen below is rendered with a
@@ -65,6 +67,7 @@ const textRoles = [
   ['--type-ui', 'Filter und sonstige UI-Texte', '14 px'],
   ['--type-body', 'Fließtext und Aufgabentexte', '14 px'],
   ['--type-tag', 'Tags', '12 px'],
+  ['--type-tag-large', 'Große Filterpillen', '14 px'],
   ['--type-scientific', 'Wissenschaftlicher Artname', '14 px'],
   ['--type-button', 'Buttons und Hauptnavigation', '16 px'],
   ['--type-tab', 'Unterstrich-Tabs', '16 px'],
@@ -192,6 +195,7 @@ function Section({
 export default function StyleguideView() {
   const [pill, setPill] = useState('altvogel');
   const [line, setLine] = useState('steckbrief');
+  const [query, setQuery] = useState('');
   const { barRef, pillRef } = useSlidingPill('styleguide', line);
 
   return (
@@ -494,6 +498,17 @@ export default function StyleguideView() {
             ))}
             <SpecimenRow>
               <dt className="text-(length:--type-caption) text-(--muted-foreground) font-(family-name:--font-stack-body)">
+                --pill-height-large · 38 px
+              </dt>
+              <dd className="m-0 min-w-0 flex flex-wrap items-center gap-2">
+                <EcologyTag>Standard-Tag</EcologyTag>
+                <EcologyTag as="button" type="button" size="large">
+                  Große Filterpille
+                </EcologyTag>
+              </dd>
+            </SpecimenRow>
+            <SpecimenRow>
+              <dt className="text-(length:--type-caption) text-(--muted-foreground) font-(family-name:--font-stack-body)">
                 --border-structure · 1 px
               </dt>
               <dd className="m-0 min-w-0">
@@ -549,6 +564,19 @@ export default function StyleguideView() {
               </span>
             ))}
           </div>
+        </Section>
+
+        <Section
+          title="Suche"
+          intro="Kopfzeile, Artenauswahl und Glossar verwenden dasselbe Suchfeld mit gemeinsamer Löschaktion."
+        >
+          <SearchField
+            query={query}
+            onQueryChange={setQuery}
+            label="Beispielsuche"
+            placeholder="Vogelart suchen"
+            className="max-w-xs"
+          />
         </Section>
 
         <Section

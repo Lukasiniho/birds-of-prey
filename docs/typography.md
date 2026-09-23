@@ -19,6 +19,7 @@ relative rem-Werte; die Browser-Schriftgröße bleibt frei wählbar.
 | Wissenschaftlicher Artname              | `--type-scientific`        | 14 px    |
 | Fließtext und Aufgabenbeschreibungen    | `--type-body`              | 14 px    |
 | Tags                                    | `--type-tag`               | 12 px    |
+| Große Filterpillen                       | `--type-tag-large`         | 14 px    |
 | Buttons und Hauptnavigation             | `--type-button`            | 16 px    |
 | Unterstrich-Tabs                        | `--type-tab`               | 16 px    |
 | Quiz-Rückmeldung                        | `--type-feedback-title`    | 16 px    |
@@ -105,7 +106,9 @@ Zustände (Auswahlrahmen, Hintergrund).
   `QuizQuestionTitle` mit `--type-quiz-question` und `--leading-display`,
   auch mehrzeilig. Die Rolle skaliert selbst mit der Viewportbreite
   (24–32 px); die Frage bekommt auf keiner Seite eine eigene mobile Größe.
-- Tags haben eine einzige gemeinsame CSS-Regel.
+- Tags haben eine einzige gemeinsame CSS-Regel. `EcologyTag size="large"`
+  verwendet oberhalb von 760 px `--type-tag-large` (Alias auf `--text-sm`);
+  mobil und bei Standard-Tags bleibt es bei `--type-tag`.
 - Bibliothekskomponenten in `components/ui` behalten ihre Vorlage.
 
 ## Regeln für Änderungen

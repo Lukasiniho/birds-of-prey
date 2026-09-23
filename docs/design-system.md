@@ -21,6 +21,7 @@ prüft diese Grenze; ungenutzte UI-Komponenten bleiben erhalten.
 | `app/tooltips.css`         | Schwebende Karte (Tooltip und Popover), Pfeil                            |
 | `app/base.css`             | Body, Links, Buttons, Überschriften, Fokusring, App-Shell                |
 | `app/header.css`           | Kopfzeile: Marke, Suche, Navigation, Aktionen, mobile Anordnung          |
+| `app/search.css`           | Gemeinsames Suchfeld: Fläche, Text, Platzhalter und Fokus                 |
 | `app/atlas.css`            | Artenleiste, Bühne, Infobereich, Messwerte, Audio                        |
 | `app/motion.css`           | transitions.dev-Snippets: Akkordeon, Textreveal, Zahlen, Icon-Swap, Menü |
 | `app/tags.css`             | Art-Tags und Verbreitungsstatus                                          |
@@ -74,7 +75,13 @@ Porträtpositionen auf der Quiz-Startseite gehören zu den jeweiligen Bilddaten.
 Erkennungsaufgaben. `QuizPrompt` hält Aufgabenlabel, Titel und Anleitung zusammen;
 Schätzaufgaben reservieren auf Desktop zwei Textzeilen. `QuizAnswerBar` besitzt
 das Raster der Antwortleiste, während die mobile Höhenanimation in Quiz-CSS bleibt.
-`BirdSearch` teilt Suche und Löschaktion zwischen Kopfzeile und Artenauswahl.
+`SearchField` teilt Suche und Löschaktion zwischen Kopfzeile, mobiler
+Artenauswahl und Glossar. Die Kopfzeilensuche ist die visuelle Referenz:
+überall 38 px Höhe, derselbe Radius, Text, Duotone-Suchsymbol und Löschknopf.
+Bis 760 px verwenden alle Suchfelder die 16-px-Buttonrolle gegen iOS-Fokuszoom.
+Aufrufstellen setzen nur Suchwert, Beschriftung, Platzhalter und äußeres Layout;
+nach dem Leeren bleibt der Fokus im Feld. `npm run lint` verhindert eigene
+Suchfelder außerhalb dieser Komponente; `/styleguide` zeigt sie interaktiv.
 `KnowledgeBirdGroup` bildet die gemeinsamen Artenlisten in Nahrung und Jagdweisen.
 `SpeciesName` hält die Textrollen seiner Varianten direkt an den Namenselementen.
 Die Variante `compact` zeigt Arten ohne Atlas-Porträt in Grau mit `--type-body`
@@ -218,6 +225,7 @@ identischem Innenabstand; die Audio-Spalte ist separat, auch mobil.
 | `--control-height-compact` |  30 px | Pillen-Tabs, Schalter                             |
 | `--control-height`         |  38 px | Kopfzeile, Suche, Selects, Unterstrich-Leiste     |
 | `--control-height-touch`   |  44 px | Große Aktionsflächen                              |
+| `--pill-height-large`      |  38 px | Große Filterpillen; Alias auf `--control-height` |
 | `--radius-small`           |   6 px | Kleine Kennzeichnungen, Bildausschnitte           |
 | `--radius-control`         |  12 px | Buttons, Eingaben, Auswahlsteuerung               |
 | `--radius-card`            |  12 px | Quizkarten, Karten-Vorschauen, Drag-Vorschau      |
@@ -228,6 +236,15 @@ identischem Innenabstand; die Audio-Spalte ist separat, auch mobil.
 | `--border-selection`       |   2 px | Interaktive Auswahl und Drop-Ziele                |
 | `--focus-ring`             |   2 px | `solid var(--ring)`, für alle Controls            |
 | `--focus-offset`           |   2 px | Außen; Ausnahmen setzen nur den Offset nach innen |
+
+`EcologyTag` bietet mit `size="large"` große Filterpillen: mindestens
+`--pill-height-large` hoch und mit `--space-16` horizontalem Innenabstand.
+Die Glossarfilter verwenden diese Variante und teilen an allen Breakpoints
+die Höhe von 38 px mit dem benachbarten Suchfeld. Der Text verwendet `--type-tag-large` (14 px,
+Alias auf `--text-sm`), die Stufe zwischen kompakten Tags und Suchfeldtext.
+Farben und Pillenradius bleiben gemeinsame Tag-Rollen; die Standardvariante
+behält ihre kompakten Maße. Bis 760 px nutzt die große Variante das kompakte
+horizontale Padding und `--type-tag` (12 px), behält aber die gemeinsame Suchhöhe.
 
 Auswahlrahmen reservieren bereits im inaktiven Zustand 2 px; ein Wechsel ändert
 Farbe, nicht Größe. Der Fokusring ist in `app/base.css` einmal für alle

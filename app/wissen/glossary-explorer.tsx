@@ -3,8 +3,7 @@
 import { useEffect, useRef, useState, useSyncExternalStore } from 'react';
 import { DetailHeading, DetailCopy } from '@/components/detail-text';
 import { EcologyTag } from '@/components/ecology-tag';
-import { MagnifyingGlass, X } from '@/components/icons';
-import { Input } from '@/components/ui/input';
+import { SearchField } from '@/components/search-field';
 import {
   filterGlossary,
   glossaryCategories,
@@ -55,31 +54,13 @@ export default function GlossaryExplorer() {
             erklärt.
           </DetailCopy>
         </div>
-        <div className="relative flex items-center w-full max-w-sm to-phone:max-w-none">
-          <MagnifyingGlass
-            size={18}
-            className="absolute left-3"
-            aria-hidden="true"
-          />
-          <Input
-            type="text"
-            value={query}
-            onChange={(event) => setQuery(event.target.value)}
-            aria-label="Glossar durchsuchen"
-            placeholder="Begriff suchen …"
-            className="glossary-search h-(--control-height-touch) pl-10 pr-10 text-(length:--type-button) md:text-(length:--type-button) shadow-none"
-          />
-          {query && (
-            <button
-              type="button"
-              onClick={() => setQuery('')}
-              aria-label="Suche leeren"
-              className="absolute right-0 inline-flex items-center justify-center w-10 h-(--control-height-touch)"
-            >
-              <X size={18} />
-            </button>
-          )}
-        </div>
+        <SearchField
+          query={query}
+          onQueryChange={setQuery}
+          label="Glossar durchsuchen"
+          placeholder="Begriff suchen …"
+          className="min-w-0 w-full max-w-xs to-desktop:max-w-none"
+        />
       </header>
       <div
         className="flex flex-wrap gap-2"
@@ -89,6 +70,7 @@ export default function GlossaryExplorer() {
         {(['Alle', ...glossaryCategories] as const).map((item) => (
           <EcologyTag
             as="button"
+            size="large"
             type="button"
             key={item}
             aria-pressed={category === item}

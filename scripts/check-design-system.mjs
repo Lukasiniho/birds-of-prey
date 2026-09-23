@@ -9,11 +9,13 @@
 //   5. media-query widths outside the shared breakpoint set
 //   6. a ui primitive that app/globals.css keeps out of the Tailwind scan but
 //      that something imports again — its utilities would be missing
+//   7. search inputs outside the shared SearchField component
 //
 // A deliberate exception carries `design-lint-allow` in a comment on the same
 // line or the line above, together with its reason.
 import { readdirSync, readFileSync, statSync } from 'node:fs';
 import { join, relative } from 'node:path';
+import ts from 'typescript';
 
 const root = process.cwd();
 const scanRoots = ['app', 'components', 'hooks'];
@@ -45,9 +47,52 @@ function* walk(dir) {
 }
 
 const findings = [];
+
+function checkSearchFields(file, code) {
+  if (!file.endsWith('.tsx') || file === 'components/search-field.tsx') return;
+  const source = ts.createSourceFile(
+    file,
+    code,
+    ts.ScriptTarget.Latest,
+    true,
+    ts.ScriptKind.TSX,
+  );
+  const inputNames = new Set(['input', 'Input']);
+  // Include aliases so importing Input as TextField cannot hide a separate search.
+  for (const statement of source.statements) {
+    if (!ts.isImportDeclaration(statement)) continue;
+    const bindings = statement.importClause?.namedBindings;
+    if (bindings && ts.isNamedImports(bindings)) {
+      for (const binding of bindings.elements) {
+        if ((binding.propertyName ?? binding.name).text === 'Input') {
+          inputNames.add(binding.name.text);
+        }
+      }
+    }
+  }
+  function visit(node) {
+    if (
+      (ts.isJsxOpeningElement(node) || ts.isJsxSelfClosingElement(node)) &&
+      inputNames.has(node.tagName.getText(source)) &&
+      /search|such|query/i.test(node.attributes.getText(source))
+    ) {
+      const { line } = source.getLineAndCharacterOfPosition(
+        node.getStart(source),
+      );
+      findings.push(
+        `${file}:${line + 1}: separate search input — use components/search-field.tsx`,
+      );
+    }
+    ts.forEachChild(node, visit);
+  }
+  visit(source);
+}
+
 for (const scanRoot of scanRoots) {
   for (const file of walk(join(root, scanRoot))) {
-    const lines = readFileSync(join(root, file), 'utf8').split('\n');
+    const code = readFileSync(join(root, file), 'utf8');
+    checkSearchFields(file, code);
+    const lines = code.split('\n');
     lines.forEach((line, index) => {
       const allowed =
         /design-lint-allow/.test(line) ||
@@ -132,5 +177,5 @@ if (findings.length) {
   process.exit(1);
 }
 console.log(
-  'check-design-system: colours, sizes, radii and breakpoints are on their roles',
+  'check-design-system: colours, sizes, radii and breakpoints are on their roles; search fields are shared',
 );

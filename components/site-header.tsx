@@ -24,7 +24,7 @@ import {
   DropdownMenuSeparator,
 } from '@/components/ui/dropdown-menu';
 import { Button } from '@/components/ui/button';
-import { BirdSearch } from '@/components/bird-search';
+import { SearchField } from '@/components/search-field';
 
 const sections = [
   { id: 'birds', label: 'Vögel', href: '/' },
@@ -108,11 +108,11 @@ export function SiteHeader({
           <span>Greifvogelkompass</span>
         </a>
         {activeSection === 'birds' && onQueryChange && (
-          <BirdSearch
+          <SearchField
             query={query}
             onQueryChange={onQueryChange}
-            inHeader
-            className="flex-[0_1_220px] min-w-[140px] w-full m-0 to-tablet:col-span-full to-tablet:row-start-2 to-phone:hidden"
+            label="Vogelart suchen"
+            className="topbar-search flex-[0_1_220px] min-w-[140px] w-full m-0 to-tablet:col-span-full to-tablet:row-start-2 to-phone:hidden"
           />
         )}
       </div>

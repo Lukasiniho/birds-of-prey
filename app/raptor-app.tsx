@@ -44,7 +44,7 @@ import {
   GenderFemale,
   GenderMale,
 } from '@/components/icons';
-import { BirdSearch } from '@/components/bird-search';
+import { SearchField } from '@/components/search-field';
 import {
   Sheet,
   SheetContent,
@@ -1199,9 +1199,10 @@ export default function RaptorApp({
                   </SheetTitle>
                   {/* The search belongs where the list is: on a phone the
                       header keeps its single row. */}
-                  <BirdSearch
+                  <SearchField
                     query={query}
                     onQueryChange={setQuery}
+                    label="Vogelart suchen"
                     className="to-phone:flex-1 to-phone:min-w-[130px] mb-3 picker-search"
                   />
                   {renderLibraryRail(true)}

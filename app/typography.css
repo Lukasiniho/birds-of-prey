@@ -76,6 +76,7 @@ body {
   --type-tab: var(--type-button);
   --type-body: var(--text-sm);
   --type-tag: var(--text-xs);
+  --type-tag-large: var(--text-sm);
   /* Floating bubbles have no size of their own: hint, detail card and source
    * popover all read at --type-body, and a heading in them is the same size
    * as its text and only carries more weight. */
