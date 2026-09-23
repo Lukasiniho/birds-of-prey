@@ -9,9 +9,13 @@ steht für den vollständig eingeklappten Baum. Ungültige Gruppen fallen auf de
 Artpfad zurück. Zurück/Vorwärts und Neuladen stellen die Auswahl wieder her.
 Beim Schließen wird der Fokus nicht zum Artnamen zurückgesetzt: weder per Maus
 noch per Tastatur (einschließlich Escape) bleibt dort ein Fokusrahmen stehen.
-Der horizontale Baum verbindet Klasse → Ordnung → Familie → Gattung → Art.
+Der Baum verbindet Klasse → Ordnung → Familie → Gattung → Art. Bis 760 px
+erscheint er als traditionelle, vertikale Liste mit eingerückten Ästen und
+Verbindungslinien. Chevrons öffnen und schließen die Zweige; Namen und
+Artanzahlen bleiben innerhalb der Bildschirmbreite. Die geöffnete Linie und
+ihre URL sind in beiden Ansichten dieselben. Darüber bleibt der horizontale Baum.
 Aufklappbare Knoten sind native Buttons mit `aria-expanded`;
-Der Baum zeigt pro Ebene einen geöffneten Pfad in unabhängigen Spalten.
+Auf Desktop zeigt der Baum pro Ebene einen geöffneten Pfad in unabhängigen Spalten.
 Geschwisterknoten behalten beim Öffnen von Nachkommen Position und Scrollstand.
 Geänderte Spalten wechseln mit dem transitions.dev-Panel-reveal: 400 ms öffnen,
 350 ms schließen, 12 px Bewegung und 2 px Unschärfe über die zentralen
@@ -21,7 +25,9 @@ Unveränderte Spalten werden nicht neu animiert. `prefers-reduced-motion` schalt
 Animation, beim Scrollen und bei Größenänderungen.
 `node --experimental-strip-types --test tests/taxonomy-routes.test.ts` prüft
 alle Art-URLs und sämtliche auswählbaren Äste einschließlich leerer Auswahl.
-Geöffnete Knoten und die aktuelle Atlas-Art haben einen Teal-Auswahlrahmen. Beim Öffnen wird der Pfad zur aktuellen Art aufgeklappt
+Geöffnete Gruppenknoten haben auf Desktop einen Teal-Auswahlrahmen, mobil eine
+Auswahl-Tönung. Atlas-Arten stehen ohne Kartenfläche und Rahmen im Baum, auch
+beim Hover und für die aktuelle Art. Beim Öffnen wird der Pfad zur aktuellen Art aufgeklappt
 und diese in den sichtbaren Bereich gescrollt. Atlas-Arten verwenden die
 vorhandenen Porträt- und Namenskomponenten und navigieren zur Art. Arten ohne
 Atlas-Eintrag stehen kleiner mit deutschem und wissenschaftlichem Namen in Grau im Baum.

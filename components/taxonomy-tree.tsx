@@ -46,6 +46,32 @@ export function TaxonomyTree({
     const element = stage.current;
     if (!element) return;
     measure.current = () => {
+      // The vertical tree owns mobile. Defer positioning hidden columns until
+      // a resize makes the desktop layout visible again.
+      if (!element.clientHeight) return;
+      for (const panel of element.querySelectorAll<HTMLElement>(
+        '[data-taxonomy-column]',
+      )) {
+        const depth = Number(panel.dataset.taxonomyColumn);
+        const parent = depth ? (path[depth - 1] ?? '') : 'root';
+        if (initialised.current.get(depth) === parent) continue;
+        initialised.current.set(depth, parent);
+        const current = [
+          ...panel.querySelectorAll<HTMLElement>('[data-taxon]'),
+        ].find(
+          (node) =>
+            node.dataset.taxon === path[depth] ||
+            node.getAttribute('aria-current') === 'page',
+        );
+        panel.scrollTop = current
+          ? Math.max(
+              0,
+              current.offsetTop -
+                panel.clientHeight / 2 +
+                current.clientHeight / 2,
+            )
+          : 0;
+      }
       // Convert client rectangles back into SVG coordinates, including zoom
       // and the columns' animated translation.
       const matrix = connectors.current?.getScreenCTM();
@@ -97,31 +123,6 @@ export function TaxonomyTree({
       // Paint the selected path last so shared segments stay fully teal.
       setLines(next.sort((a, b) => Number(a.active) - Number(b.active)));
     };
-    // Position only newly opened columns. Never scroll the page or a column
-    // to the left of the clicked node; browser scroll anchoring is disabled.
-    for (const panel of element.querySelectorAll<HTMLElement>(
-      '[data-taxonomy-column]',
-    )) {
-      const depth = Number(panel.dataset.taxonomyColumn);
-      const parent = depth ? (path[depth - 1] ?? '') : 'root';
-      if (initialised.current.get(depth) === parent) continue;
-      initialised.current.set(depth, parent);
-      const current = [
-        ...panel.querySelectorAll<HTMLElement>('[data-taxon]'),
-      ].find(
-        (node) =>
-          node.dataset.taxon === path[depth] ||
-          node.getAttribute('aria-current') === 'page',
-      );
-      panel.scrollTop = current
-        ? Math.max(
-            0,
-            current.offsetTop -
-              panel.clientHeight / 2 +
-              current.clientHeight / 2,
-          )
-        : 0;
-    }
     measure.current();
     // Keep connectors attached to the moving cards throughout the reveal.
     const until =
@@ -156,12 +157,12 @@ export function TaxonomyTree({
   }, [path]);
   return (
     <div
-      className="min-h-0 min-w-0 flex-1 overflow-x-auto overflow-y-hidden overscroll-contain [scrollbar-width:none] [&::-webkit-scrollbar]:hidden"
+      className="min-h-0 min-w-0 flex-1 overflow-x-auto overflow-y-hidden overscroll-contain [scrollbar-width:none] [&::-webkit-scrollbar]:hidden to-tablet:hidden"
       aria-label="Horizontaler Systematikbaum"
     >
       <div
         ref={stage}
-        className="relative flex h-full w-max gap-8 p-2"
+        className="relative flex h-full w-max gap-8 py-2"
         onTransitionEnd={schedule}
       >
         <svg

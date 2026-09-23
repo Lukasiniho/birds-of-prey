@@ -30,7 +30,6 @@ export function TaxonomyCard({
         ? 'var(--border)'
         : 'transparent',
   };
-  const border = `bg-surface border-(length:--border-selection) ${active ? 'border-primary' : 'border-transparent'}`;
   if (node.children.length)
     return (
       <button
@@ -69,7 +68,6 @@ export function TaxonomyCard({
   if (bird)
     return (
       <SpeciesRowLink
-        style={selectionStyle}
         data-taxon={node.latin}
         portrait={portraitImages[bird.id]}
         name={bird.name}
@@ -77,7 +75,7 @@ export function TaxonomyCard({
         href={birdHref(bird)}
         size="inline"
         aria-current={active ? 'page' : undefined}
-        className={border}
+        className="hover:bg-transparent!"
         onClick={(event) => {
           if (event.metaKey || event.ctrlKey || event.shiftKey || event.altKey)
             return;

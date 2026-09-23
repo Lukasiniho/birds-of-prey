@@ -320,13 +320,13 @@ function RevealHeading({
   }, [name, latin]);
   return (
     <div
-      className="t-stagger is-shown w-full px-[15px] to-desktop:px-[3px] to-phone:w-auto to-phone:min-w-0 to-phone:p-0"
+      className="t-stagger is-shown w-full px-[15px] to-desktop:px-[3px] to-phone:contents"
       ref={ref}
     >
       <SpeciesCommonName
         as="h1"
         variant="atlas-title"
-        className="t-stagger-line t-stagger-line--1"
+        className="t-stagger-line t-stagger-line--1 to-phone:col-start-1 to-phone:row-start-1 to-phone:min-w-0"
       >
         {initial.name}
       </SpeciesCommonName>
@@ -1180,7 +1180,7 @@ export default function RaptorApp({
             id="main-content"
             className="specimen-panel [container:atlas-stage/inline-size] bg-stage relative flex flex-col min-w-0 min-h-[860px] from-compact:h-full from-compact:min-h-0 to-compact:min-h-[830px] to-phone:min-h-[620px] overflow-hidden"
           >
-            <div className="specimen-heading to-phone:[--species-picker-size:34px] pt-[48px] px-[48px] to-desktop:px-[30px] from-compact:pt-5 from-compact:-mt-[2px] from-wide:pt-6 from-wide:px-[50px] from-wide:mt-0 to-phone:pt-5 to-phone:px-4 to-phone:flex to-phone:items-start to-phone:justify-center to-phone:gap-3 justify-between gap-2 items-start z-2 relative block text-center">
+            <div className="specimen-heading to-phone:[--species-picker-size:34px] pt-[48px] px-[48px] to-desktop:px-[30px] from-compact:pt-5 from-compact:-mt-[2px] from-wide:pt-6 from-wide:px-[50px] from-wide:mt-0 to-phone:pt-5 to-phone:px-4 to-phone:grid to-phone:grid-cols-[minmax(0,max-content)_var(--species-picker-size)] to-phone:items-start to-phone:justify-center to-phone:gap-x-1 to-phone:gap-y-0 justify-between gap-2 items-start z-2 relative block text-center">
               <RevealHeading
                 name={bird.name}
                 latin={bird.latin}
@@ -1194,7 +1194,7 @@ export default function RaptorApp({
                   render={
                     <button
                       type="button"
-                      className="species-picker to-phone:inline-grid to-phone:flex-[0_0_var(--species-picker-size)] to-phone:mt-[calc(var(--type-hero)*var(--leading-display)/2-var(--species-picker-size)/2)] to-phone:after:content-[''] to-phone:after:absolute to-phone:after:inset-0 to-phone:place-items-center to-phone:h-(--species-picker-size) to-phone:p-0 to-phone:text-foreground hidden"
+                      className="species-picker to-phone:inline-grid to-phone:col-start-2 to-phone:row-start-1 to-phone:self-center to-phone:after:content-[''] to-phone:after:absolute to-phone:after:inset-0 to-phone:place-items-center to-phone:size-(--species-picker-size) to-phone:p-0 to-phone:text-foreground hidden"
                       aria-label={
                         query
                           ? `Art wechseln, ${filtered.length} Treffer`
@@ -1203,7 +1203,7 @@ export default function RaptorApp({
                     />
                   }
                 >
-                  <CaretDown size={16} />
+                  <CaretDown size={24} className="translate-y-half" />
                 </SheetTrigger>
                 {/* Pin both edges so filtering cannot pull the search below
                     the keyboard; only the results area scrolls. */}

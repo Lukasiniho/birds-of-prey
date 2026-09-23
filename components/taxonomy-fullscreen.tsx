@@ -7,6 +7,7 @@ import { Info, X } from '@/components/icons';
 import { buttonVariants } from '@/components/ui/button';
 import { birdTaxonomyHref } from '@/lib/bird-routes';
 import { TaxonomyTree } from '@/components/taxonomy-tree';
+import { TaxonomyMobileTree } from '@/components/taxonomy-mobile-tree';
 import { fullscreenSurface } from '@/components/fullscreen-styles';
 
 const byId = new Map(birds.map((bird) => [bird.id, bird]));
@@ -28,6 +29,12 @@ function TaxonomyExplorer({
         insgesamt
       </p>
       <div className="flex min-h-0 flex-1">
+        <TaxonomyMobileTree
+          selected={selected}
+          onSelect={onSelect}
+          path={path}
+          onPathChange={onPathChange}
+        />
         <TaxonomyTree
           selected={selected}
           onSelect={onSelect}
