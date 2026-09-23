@@ -13,6 +13,8 @@ export type TaxonomyNode = {
 };
 const byLatin = new Map(birds.map((bird) => [bird.latin, bird]));
 const germanNames: Record<string, string> = names;
+const nameCollator = new Intl.Collator('de', { sensitivity: 'base' });
+
 function branch(
   latin: string,
   name: string | undefined,
@@ -23,7 +25,9 @@ function branch(
     latin,
     name,
     rank,
-    children,
+    children: [...children].sort((a, b) =>
+      nameCollator.compare(a.name ?? a.latin, b.name ?? b.latin),
+    ),
     atlasCount: children.reduce((count, child) => count + child.atlasCount, 0),
     totalCount: children.reduce((count, child) => count + child.totalCount, 0),
   };

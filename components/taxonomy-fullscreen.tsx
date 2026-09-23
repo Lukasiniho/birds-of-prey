@@ -1,11 +1,10 @@
 'use client';
 
-import { useEffect, useRef, useState, type ReactNode } from 'react';
+import { useState, type ReactNode } from 'react';
 import { birds } from '@/lib/birds';
-import { taxonomyRoot, taxonomyPath, type TaxonomyNode } from '@/lib/taxonomy';
+import { taxonomyRoot } from '@/lib/taxonomy';
 import { X } from '@/components/icons';
 import { Button } from '@/components/ui/button';
-import { SegmentedControl } from '@/components/segmented-control';
 import {
   Dialog,
   DialogTrigger,
@@ -14,67 +13,10 @@ import {
   DialogDescription,
   DialogClose,
 } from '@/components/ui/dialog';
-import { TaxonomyCard } from '@/components/taxonomy-card';
 import { TaxonomyTree } from '@/components/taxonomy-tree';
 import { fullscreenSurface } from '@/components/fullscreen-styles';
 
 const byId = new Map(birds.map((bird) => [bird.id, bird]));
-type View = 'tree' | 'list';
-const views = [
-  { value: 'tree', label: 'Baum' },
-  { value: 'list', label: 'Liste' },
-] as const;
-
-function TaxonList({
-  node,
-  selected,
-  expanded,
-  onToggle,
-  onSelect,
-}: {
-  node: TaxonomyNode;
-  selected: string;
-  expanded: Set<string>;
-  onToggle: (latin: string) => void;
-  onSelect: (id: string) => void;
-}) {
-  const open = expanded.has(node.latin);
-  const entry = useRef<HTMLDivElement>(null);
-  useEffect(() => {
-    if (node.birdId !== selected) return;
-    const frame = requestAnimationFrame(() =>
-      entry.current?.scrollIntoView({ block: 'center' }),
-    );
-    return () => cancelAnimationFrame(frame);
-  }, [node.birdId, selected]);
-  return (
-    <div ref={entry}>
-      <TaxonomyCard
-        node={node}
-        selected={selected}
-        isOpen={open}
-        onToggle={() => onToggle(node.latin)}
-        onSelect={onSelect}
-      />
-      {open && node.children.length > 0 && (
-        <ul className="ml-3 flex flex-col gap-2 border-l border-border py-2 pl-3 sm:ml-5 sm:pl-5">
-          {node.children.map((child) => (
-            <li key={child.latin}>
-              <TaxonList
-                node={child}
-                selected={selected}
-                expanded={expanded}
-                onToggle={onToggle}
-                onSelect={onSelect}
-              />
-            </li>
-          ))}
-        </ul>
-      )}
-    </div>
-  );
-}
-
 function TaxonomyExplorer({
   selected,
   onSelect,
@@ -82,51 +24,14 @@ function TaxonomyExplorer({
   selected: string;
   onSelect: (id: string) => void;
 }) {
-  const [view, setView] = useState<View>('tree');
-  const [expanded, setExpanded] = useState(
-    () => new Set(taxonomyPath(selected)),
-  );
-  const onToggle = (latin: string) =>
-    setExpanded((previous) => {
-      const next = new Set(previous);
-      if (next.has(latin)) next.delete(latin);
-      else next.add(latin);
-      return next;
-    });
   return (
     <div className="flex min-h-0 min-w-0 flex-col gap-3">
-      <div className="flex flex-wrap items-center justify-between gap-3">
-        <SegmentedControl
-          label="Darstellung"
-          group="taxonomy"
-          value={view}
-          options={views}
-          onChange={setView}
-        />
-        <p className="text-(length:--type-caption) text-muted-foreground">
-          {taxonomyRoot.atlasCount} im Atlas · {taxonomyRoot.totalCount} Arten
-          insgesamt
-        </p>
-      </div>
-      <div className={view === 'tree' ? 'flex min-h-0 flex-1' : 'hidden'}>
+      <p className="text-(length:--type-caption) text-muted-foreground">
+        {taxonomyRoot.atlasCount} im Atlas · {taxonomyRoot.totalCount} Arten insgesamt
+      </p>
+      <div className="flex min-h-0 flex-1">
         <TaxonomyTree selected={selected} onSelect={onSelect} />
       </div>
-      {view === 'list' && (
-        <div
-          className="min-h-0 flex-1 overflow-auto overscroll-contain p-2"
-          aria-label="Systematikliste"
-        >
-          <div className="mx-auto w-full max-w-4xl">
-            <TaxonList
-              node={taxonomyRoot}
-              expanded={expanded}
-              selected={selected}
-              onToggle={onToggle}
-              onSelect={onSelect}
-            />
-          </div>
-        </div>
-      )}
       <p className="text-(length:--type-caption) text-muted-foreground">
         Systematik:{' '}
         <a

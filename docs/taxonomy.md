@@ -2,9 +2,7 @@
 
 Der wissenschaftliche Bühnenname öffnet den gemeinsamen Vollbilddialog.
 Der horizontale Baum verbindet Klasse → Ordnung → Familie → Gattung → Art.
-Der gemeinsame Darstellungsschalter bietet zusätzlich eine eingerückte Liste.
 Aufklappbare Knoten sind native Buttons mit `aria-expanded`;
-jede Ansicht behält ihren Aufklappzustand beim Darstellungswechsel.
 Der Baum zeigt pro Ebene einen geöffneten Pfad in unabhängigen Spalten.
 Geschwisterknoten behalten beim Öffnen von Nachkommen Position und Scrollstand.
 SVG-Verbindungen folgen den sichtbaren Knoten beim Scrollen und bei Größenänderungen.
@@ -25,7 +23,9 @@ Abgerufen am 23.09.2026 von
 https://explore.avilist.org/data/avilist-2025b.json.
 Änderungen: auf fünf Ordnungen und vier Ränge reduziert, deutsche Ordnungs-
 und Familiennamen ergänzt, für die verschachtelte Darstellung strukturiert.
-Die Reihenfolge innerhalb der Ordnungen folgt der Quelle. Der Baum zeigt
+Die Einträge jeder Ebene sind alphabetisch nach deutschem Namen sortiert;
+Gattungen ohne deutschen Namen nach wissenschaftlichem Namen. Die Quelldaten
+behalten ihre ursprüngliche Reihenfolge. Der Baum zeigt
 die taxonomische Klassifikation, keine zeitlich skalierte Stammesgeschichte.
 
 ## Deutsche Namen

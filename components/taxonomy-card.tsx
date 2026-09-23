@@ -40,13 +40,13 @@ export function TaxonomyCard({
         aria-expanded={isOpen}
         onClick={onToggle}
         data-taxon={node.latin}
-        className={`flex w-full items-center gap-2 rounded-control p-3 text-left hover:bg-accent border-(length:--border-selection) ${active ? 'border-primary bg-accent' : 'border-border bg-background'}`}
+        className={`flex w-full items-center gap-2 rounded-control p-2 text-left hover:bg-accent border-(length:--border-selection) ${active ? 'border-primary bg-accent' : 'border-border bg-background'}`}
       >
         <CaretRight
           className={`size-4 shrink-0 ${isOpen ? 'rotate-90' : ''}`}
         />
         <span className="min-w-0 flex-1">
-          <span className="block text-(length:--type-caption) text-muted-foreground">
+          <span className="block text-(length:--type-caption) uppercase tracking-(--tracking-caps) text-muted-foreground">
             {node.rank}
           </span>
           <span className="block wrap-anywhere font-(--weight-semibold)">
