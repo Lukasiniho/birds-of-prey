@@ -1,4 +1,10 @@
 /* transitions.dev snippets; tokens live in transitions-root.css. */
+/* The atlas loads still: motion starts once RaptorApp marks the page settled,
+   so only a bird or variant switch animates. */
+:root:not([data-settled]) .app-columns :is(*, ::before, ::after) {
+  transition: none !important;
+  animation: none !important;
+}
 /* transitions.dev — 21 Accordion expand (verbatim snippet). */
 .t-acc-panel {
   grid-template-rows: 0fr;

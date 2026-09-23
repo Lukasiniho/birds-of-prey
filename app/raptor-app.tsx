@@ -132,7 +132,11 @@ function MeasurementValue({
   withAudio: boolean;
 }) {
   // transitions.dev number pop-in: every character is a .t-digit, the last two
-  // ride in behind the rest. Keying the group by value replays it on change.
+  // ride in behind the rest. Keying the group by value replays it on change;
+  // the value the page loads with stays put.
+  const [firstValue] = useState(value);
+  const [changed, setChanged] = useState(false);
+  if (!changed && value !== firstValue) setChanged(true);
   const pieces = value
     .split('')
     .map((ch) => ({ ch: ch === ' ' ? '\u00A0' : ch }));
@@ -141,7 +145,10 @@ function MeasurementValue({
   return (
     <>
       <span
-        className="t-digit-group inline-flex items-baseline whitespace-pre is-animating"
+        className={cn(
+          't-digit-group inline-flex items-baseline whitespace-pre',
+          (changed || value !== firstValue) && 'is-animating',
+        )}
         key={value}
       >
         {pieces.map((p, i) => (
@@ -549,6 +556,22 @@ export default function RaptorApp({
   const fullscreen = isBirdFullscreenPath(path);
   const taxonomyOpen = isBirdTaxonomyPath(path);
   const bird = speciesById[selected];
+  useEffect(() => {
+    // Motion is for bird switches, not the first load (see motion.css). Wait
+    // until hydration and the header's theme sync have painted.
+    let frame = 0;
+    const timer = window.setTimeout(() => {
+      frame = requestAnimationFrame(() => {
+        frame = requestAnimationFrame(() => {
+          document.documentElement.dataset.settled = '';
+        });
+      });
+    }, 50);
+    return () => {
+      window.clearTimeout(timer);
+      cancelAnimationFrame(frame);
+    };
+  }, []);
   useEffect(() => {
     function syncFromUrl() {
       const legacyId = new URLSearchParams(window.location.search).get('art');
