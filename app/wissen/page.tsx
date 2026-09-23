@@ -14,7 +14,7 @@ export const metadata: Metadata = {
   title: 'Wissen',
   alternates: { canonical: '/wissen' },
   description:
-    'Greifvögel verstehen: Körperbau entdecken, Falknereitraditionen auf der Weltkarte erkunden und nachschlagen, welche Arten welche Beute jagen und wie sie dabei vorgehen.',
+    'Greifvögel verstehen: Fachbegriffe im Glossar nachschlagen, Körperbau entdecken, Falknereitraditionen auf der Weltkarte erkunden und nachschlagen, welche Arten welche Beute jagen und wie sie dabei vorgehen.',
 };
 
 // Reverse lookup: every prey with at least one hunter, busiest prey first.

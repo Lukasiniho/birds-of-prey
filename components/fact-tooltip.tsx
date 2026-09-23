@@ -1,6 +1,7 @@
 'use client';
 
 import { useState } from 'react';
+import { GlossaryText } from '@/components/glossary-text';
 import type { ReactNode } from 'react';
 import {
   Tooltip,
@@ -37,7 +38,7 @@ export function FactTooltip({
         {value}
       </TooltipTrigger>
       <TooltipContent side="top" align="end" variant={variant}>
-        {children}
+        <GlossaryText>{children}</GlossaryText>
       </TooltipContent>
     </Tooltip>
   );

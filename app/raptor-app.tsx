@@ -1,4 +1,5 @@
 'use client';
+import { GlossaryText } from '@/components/glossary-text';
 import { EcologyTag } from '@/components/ecology-tag';
 import { MeasurementStrip } from '@/components/measurement-strip';
 import { tabStyles } from '@/components/tab-styles';
@@ -424,7 +425,9 @@ function ColorRow({
             <TooltipContent>
               {name}
               {note && (
-                <span className="swatch-detail max-w-[220px]">{note}</span>
+                <span className="swatch-detail max-w-[220px]">
+                  <GlossaryText>{note}</GlossaryText>
+                </span>
               )}
             </TooltipContent>
           </Tooltip>
@@ -462,7 +465,7 @@ function PreyGallery({ items }: { items: PreyExample[] }) {
             <span>{prey.name}</span>
             {note && (
               <small className="block text-(length:--type-caption) text-muted-foreground leading-(--leading-normal)">
-                {note}
+                <GlossaryText>{note}</GlossaryText>
               </small>
             )}
           </div>
@@ -800,7 +803,7 @@ export default function RaptorApp({
           Erkennungsmerkmale
         </DetailHeading>
         <p className="mt-(--rail-caption-gap) leading-(--leading-relaxed)">
-          {speciesProfiles[bird.id].identification}
+          <GlossaryText>{speciesProfiles[bird.id].identification}</GlossaryText>
         </p>
       </AtlasSection>
       <AtlasSection className="color-section to-phone:col-span-full">
@@ -825,7 +828,9 @@ export default function RaptorApp({
             {morph && ` · ${morph.label}`}
           </h3>
           <p className="leading-(--leading-relaxed) mt-2 text-(length:--type-caption)">
-            {appearance?.note ?? plumageNoteFor(bird.id, plumage)}
+            <GlossaryText>
+              {appearance?.note ?? plumageNoteFor(bird.id, plumage)}
+            </GlossaryText>
           </p>
           {morphConfig && (
             <div
@@ -846,7 +851,7 @@ export default function RaptorApp({
               <div className="t-acc-panel grid">
                 <div className="t-acc-panel-inner overflow-hidden">
                   <p className="leading-(--leading-relaxed) mt-2 text-(length:--type-body)">
-                    {morphConfig.note}
+                    <GlossaryText>{morphConfig.note}</GlossaryText>
                   </p>
                 </div>
               </div>
@@ -859,7 +864,7 @@ export default function RaptorApp({
           Lebensweise
         </DetailHeading>
         <p className="mt-(--rail-caption-gap) leading-(--leading-relaxed)">
-          {speciesProfiles[bird.id].behaviour}
+          <GlossaryText>{speciesProfiles[bird.id].behaviour}</GlossaryText>
         </p>
       </AtlasSection>
       <AtlasSection className="profile-section first:mt-0 first:pt-0 first:border-t-0">
@@ -867,7 +872,7 @@ export default function RaptorApp({
           Brut & Aufzucht
         </DetailHeading>
         <p className="mt-(--rail-caption-gap) leading-(--leading-relaxed)">
-          {speciesProfiles[bird.id].breeding}
+          <GlossaryText>{speciesProfiles[bird.id].breeding}</GlossaryText>
         </p>
       </AtlasSection>
       <SpeciesTrivia speciesId={bird.id} />
@@ -881,7 +886,7 @@ export default function RaptorApp({
         </DetailHeading>
         <PreyGallery items={bird.ecology.diet.examples} />
         <p className="text-(length:--type-body) leading-(--leading-relaxed) text-foreground mt-(--rail-content-gap)">
-          {bird.ecology.diet.summary}
+          <GlossaryText>{bird.ecology.diet.summary}</GlossaryText>
         </p>
         {bird.ecology.diet.occasionalExamples.length > 0 && (
           <div className="occasional-prey mt-(--rail-section-gap)">
@@ -906,7 +911,7 @@ export default function RaptorApp({
           ))}
         </div>
         <p className="hunting-text mt-(--rail-caption-gap) text-(length:--type-body) leading-(--leading-relaxed)">
-          {bird.ecology.hunting.text}
+          <GlossaryText>{bird.ecology.hunting.text}</GlossaryText>
         </p>
       </AtlasSection>
     </>
@@ -919,7 +924,7 @@ export default function RaptorApp({
             Verbreitung
           </DetailHeading>
           <p className="text-foreground text-(length:--type-body) leading-(--leading-relaxed) mt-(--rail-content-gap)">
-            {bird.range}
+            <GlossaryText>{bird.range}</GlossaryText>
           </p>
           {bird.ecology.status.tags.some((id) => id !== 'ausserhalb') && (
             <div className="ecology-status my-[14px] mx-0">
@@ -928,7 +933,9 @@ export default function RaptorApp({
                 {bird.ecology.status.tags
                   .filter((id) => id !== 'ausserhalb')
                   .map((id) => (
-                    <EcologyTag key={id}>{statusLabels[id]}</EcologyTag>
+                    <EcologyTag key={id}>
+                      <GlossaryText>{statusLabels[id]}</GlossaryText>
+                    </EcologyTag>
                   ))}
               </div>
             </div>
@@ -939,7 +946,7 @@ export default function RaptorApp({
           Lebensraum
         </DetailHeading>
         <p className="text-foreground text-(length:--type-body) leading-(--leading-relaxed) mt-(--rail-content-gap)">
-          {bird.habitat}
+          <GlossaryText>{bird.habitat}</GlossaryText>
         </p>
         <div className="habitat-gallery grid grid-cols-2 gap-4 mt-(--rail-content-gap)">
           {bird.ecology.habitatTags.map((id) => (
@@ -953,7 +960,7 @@ export default function RaptorApp({
                 displayWidth={220}
               />
               <figcaption className="mt-(--rail-caption-gap) text-(length:--type-caption) leading-(--leading-normal) text-(--muted-foreground)">
-                {landscapes[id].label}
+                <GlossaryText>{landscapes[id].label}</GlossaryText>
               </figcaption>
             </figure>
           ))}

@@ -9,6 +9,7 @@ import AnatomyExplorer from './anatomy-explorer';
 import FalconryWorld from './falconry-world';
 import PreyExplorer from './prey-explorer';
 import TechniqueExplorer from './technique-explorer';
+import GlossaryExplorer from './glossary-explorer';
 import type {
   KnowledgeBird,
   PreyEntry,
@@ -20,6 +21,7 @@ const sections = [
   { id: 'jagdtiere', label: 'Jagdtiere' },
   { id: 'jagdtechniken', label: 'Jagdtechniken' },
   { id: 'koerperbau', label: 'Körperbau' },
+  { id: 'glossar', label: 'Glossar' },
 ];
 
 export default function KnowledgeExplorer({
@@ -34,7 +36,11 @@ export default function KnowledgeExplorer({
   const section = useSyncExternalStore(
     (notify) => {
       window.addEventListener('hashchange', notify);
-      return () => window.removeEventListener('hashchange', notify);
+      window.addEventListener('popstate', notify);
+      return () => {
+        window.removeEventListener('hashchange', notify);
+        window.removeEventListener('popstate', notify);
+      };
     },
     () => {
       const hash = window.location.hash.slice(1);
@@ -105,6 +111,9 @@ export default function KnowledgeExplorer({
                 birds.find((bird) => bird.id === 'maeusebussard')!.image,
               ]}
             />
+          </TabsContent>
+          <TabsContent value="glossar">
+            <GlossaryExplorer />
           </TabsContent>
         </Tabs>
       </main>

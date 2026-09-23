@@ -1,3 +1,4 @@
+import { GlossaryText } from '@/components/glossary-text';
 import { Lightbulb } from '@/components/icons';
 import { speciesTrivia } from '@/lib/species-trivia';
 
@@ -19,7 +20,7 @@ export function SpeciesTrivia({ speciesId }: { speciesId: string }) {
         Wusstest Du schon?
       </h2>
       <p className="mt-(--rail-caption-gap) text-(length:--type-body) leading-(--leading-relaxed)">
-        {trivia}
+        <GlossaryText>{trivia}</GlossaryText>
       </p>
     </aside>
   );
