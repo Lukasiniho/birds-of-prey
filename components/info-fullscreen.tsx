@@ -1,6 +1,6 @@
 'use client';
 
-import { useEffect, useState, type ReactNode } from 'react';
+import { useEffect, useRef, type ReactNode } from 'react';
 import {
   ArrowLeftDuotone,
   ArrowRightDuotone,
@@ -10,16 +10,75 @@ import {
 import { fullscreenSurface } from '@/components/fullscreen-styles';
 import { SpeciesName } from '@/components/species-name';
 import { ArtImage } from '@/components/art-image';
-import { Button } from '@/components/ui/button';
-import {
-  Dialog,
-  DialogTrigger,
-  DialogContent,
-  DialogTitle,
-  DialogClose,
-} from '@/components/ui/dialog';
+import { buttonVariants } from '@/components/ui/button';
+import { cn } from '@/lib/utils';
 
 export type InfoColumn = { value: string; label: string; content: ReactNode };
+
+function ViewLink({
+  href,
+  label,
+  onNavigate,
+  children,
+  className,
+  small = false,
+}: {
+  href: string;
+  label: string;
+  onNavigate: () => void;
+  children: ReactNode;
+  className?: string;
+  small?: boolean;
+}) {
+  return (
+    <a
+      href={href}
+      aria-label={label}
+      className={cn(
+        buttonVariants({ variant: 'ghost', size: small ? 'icon-sm' : 'icon' }),
+        className,
+      )}
+      onClick={(event) => {
+        if (
+          event.button !== 0 ||
+          event.metaKey ||
+          event.ctrlKey ||
+          event.shiftKey ||
+          event.altKey
+        )
+          return;
+        event.preventDefault();
+        onNavigate();
+      }}
+    >
+      {children}
+    </a>
+  );
+}
+
+export function InfoFullscreenTrigger({
+  name,
+  href,
+  onOpen,
+}: {
+  name: string;
+  href: string;
+  onOpen: () => void;
+}) {
+  return (
+    <div className="info-expand-slot ml-auto flex h-(--control-height) items-center pb-[9px]">
+      <ViewLink
+        href={href}
+        label={`Informationen zum ${name} im Vollbild öffnen`}
+        onNavigate={onOpen}
+        className="info-expand"
+        small
+      >
+        <Expand />
+      </ViewLink>
+    </div>
+  );
+}
 
 /* Die Info-Spalte zeigt immer nur einen der drei Reiter. Im Vollbild liegen
  * sie nebeneinander, damit sich Steckbrief, Nahrung und Vorkommen einer Art
@@ -33,6 +92,10 @@ export function InfoFullscreen({
   columns,
   onStep,
   picker,
+  atlasHref,
+  previousHref,
+  nextHref,
+  onClose,
 }: {
   name: string;
   latin: string;
@@ -43,19 +106,43 @@ export function InfoFullscreen({
   picker?: ReactNode;
   /** Blättert zur vorigen (-1) oder nächsten (+1) Art der Artenliste. */
   onStep: (delta: number) => void;
+  atlasHref: string;
+  previousHref: string;
+  nextHref: string;
+  onClose: () => void;
 }) {
-  const [open, setOpen] = useState(false);
+  const pageRef = useRef<HTMLElement>(null);
+  useEffect(() => {
+    pageRef.current?.focus();
+    // Direct visits do not mount SiteHeader, which normally restores the theme.
+    try {
+      const theme = localStorage.getItem('raptor:theme');
+      if (theme === 'dark' || theme === 'light')
+        document.documentElement.dataset.theme = theme;
+    } catch {}
+  }, []);
   // Am Dokument statt am Popup: der Fokus kann beim Blättern in einem der
   // Bedienelemente stehen, deren eigene Pfeiltasten das Ereignis sonst
   // abfangen, bevor es die Karte erreicht.
   useEffect(() => {
-    if (!open) return;
     function onKeyDown(event: KeyboardEvent) {
       if (event.defaultPrevented) return;
       if (event.metaKey || event.ctrlKey || event.altKey) return;
       const target = event.target as HTMLElement | null;
       if (target?.closest('input, textarea, select, [contenteditable="true"]'))
         return;
+      // Nested maps, menus and popovers keep their own keyboard controls.
+      if (
+        document.querySelector(
+          '[role="dialog"], [role="listbox"], [role="menu"], [data-slot="popover-content"]',
+        )
+      )
+        return;
+      if (event.key === 'Escape') {
+        event.preventDefault();
+        onClose();
+        return;
+      }
       const delta =
         event.key === 'ArrowLeft' ? -1 : event.key === 'ArrowRight' ? 1 : 0;
       if (!delta) return;
@@ -64,38 +151,15 @@ export function InfoFullscreen({
     }
     document.addEventListener('keydown', onKeyDown, true);
     return () => document.removeEventListener('keydown', onKeyDown, true);
-  }, [open, onStep]);
+  }, [onStep, onClose]);
   return (
-    <Dialog open={open} onOpenChange={setOpen}>
-      {/* Der Knopf sitzt in derselben Box wie ein Reiter — gleiche Höhe,
-          gleiche Fußzeile —, damit sein Zeichen mit der Beschriftung läuft,
-          egal wie hoch die Leiste gerade ist. Die vier Pixel weniger Fußzeile
-          holen ihn von der Mitte des Schriftfelds auf die Mitte der
-          Kleinbuchstaben: „Steckbrief · Nahrung · Vorkommen“ füllt weder die
-          Ober- noch die Unterlänge, die das Feld reserviert. */}
-      {/* Auf dem Telefon gibt es keine zweite Fläche, die das Vollbild
-          gewinnen könnte: der Knopf bliebe ohne Wirkung und bleibt weg. */}
-      <div className="info-expand-slot ml-auto flex h-(--control-height) items-center pb-[9px] to-phone:hidden">
-        <DialogTrigger
-          render={
-            <Button
-              variant="ghost"
-              size="icon-sm"
-              className="info-expand"
-              aria-label={`Informationen zum ${name} im Vollbild öffnen`}
-            />
-          }
-        >
-          <Expand />
-        </DialogTrigger>
-      </div>
-      <DialogContent
-        // Dieselbe Abstandsleiter wie die Info-Spalte, eine Stufe enger: hier
-        // steht die Fensterhöhe fest und jede Spalte scrollt für sich, also
-        // kosten die 24 px der schmalen Spalte sichtbare Zeilen statt Luft zu
-        // machen.
-        className={fullscreenSurface}
-        showCloseButton={false}
+    <div className="flow-root min-h-dvh bg-stage">
+      <main
+        ref={pageRef}
+        tabIndex={-1}
+        id="main-content"
+        aria-label={`Informationen zum ${name}`}
+        className={`${fullscreenSurface} relative grid m-(--atlas-gutter) rounded-(--radius-surface) border-(length:--border-structure)`}
       >
         {/* Kopfzeile wie im Atlas: Porträt, Namenspaar — und rechts daneben
             dieselbe Maßleiste, nur auf Kopfzeilenbreite geschrumpft. */}
@@ -104,12 +168,12 @@ export function InfoFullscreen({
               Porträt gibt die Zeilenhöhe vor, Pfeile, Name und Klappmenü
               hängen daran und stehen damit auf einer Linie mit der Maßleiste
               rechts, statt an der Mitte des Porträts zu kleben. */}
-          <div className="flex min-w-0 items-start gap-4">
+          <div className="flex min-w-0 items-start gap-4 to-phone:flex-wrap to-phone:gap-2">
             {/* Größer als die Listenporträts: hier ist das Bild der Titel der
                 Seite und nicht die Marke einer Zeile. */}
             {portrait && (
               <ArtImage
-                className="block size-[88px] shrink-0 object-contain"
+                className="block size-[88px] shrink-0 object-contain to-phone:size-(--species-row-portrait)"
                 src={portrait}
                 alt=""
                 width={88}
@@ -120,38 +184,32 @@ export function InfoFullscreen({
             {/* Beide Pfeile vor dem Namen: hinter ihm würde der rechte mit
                 jeder Artenlänge an eine andere Stelle springen. */}
             <div className="info-fullscreen-steps flex items-center gap-1">
-              <Button
-                variant="ghost"
-                size="icon"
-                aria-label="Vorige Art"
-                onClick={() => onStep(-1)}
+              <ViewLink
+                href={previousHref}
+                label="Vorige Art"
+                onNavigate={() => onStep(-1)}
               >
                 <ArrowLeftDuotone style={{ color: 'var(--main-color)' }} />
-              </Button>
-              <Button
-                variant="ghost"
-                size="icon"
-                aria-label="Nächste Art"
-                onClick={() => onStep(1)}
+              </ViewLink>
+              <ViewLink
+                href={nextHref}
+                label="Nächste Art"
+                onNavigate={() => onStep(1)}
               >
                 <ArrowRightDuotone style={{ color: 'var(--main-color)' }} />
-              </Button>
+              </ViewLink>
             </div>
             {/* Buchstäblich der Namenskasten der Artenliste: gleiche Klasse,
                 gleiche Variante, gleiche Rollen. */}
-            <div className="flex min-w-0 items-start gap-1">
-              <DialogTitle
-                render={
-                  <span className="species-row-name flex min-w-0 flex-col" />
-                }
-              >
+            <div className="flex min-w-0 items-start gap-1 to-phone:basis-full">
+              <div className="species-row-name flex min-w-0 flex-col">
                 <SpeciesName
                   name={name}
                   latin={latin}
-                  commonAs="strong"
+                  commonAs="h1"
                   variant="big"
                 />
-              </DialogTitle>
+              </div>
               {/* Der Haken hängt an der ersten Namenszeile, nicht am Kasten:
                   er bekommt deren Zeilenhöhe und zentriert sich darin, sonst
                   sitzt er an der Oberkante und damit zu hoch. */}
@@ -166,24 +224,20 @@ export function InfoFullscreen({
             </div>
           )}
         </div>
-        <DialogClose
-          render={
-            <Button
-              variant="ghost"
-              size="icon"
-              className="absolute right-(--panel-padding) top-(--panel-padding)"
-              aria-label="Vollbild schließen"
-            />
-          }
+        <ViewLink
+          href={atlasHref}
+          label="Vollbild schließen"
+          onNavigate={onClose}
+          className="absolute right-(--panel-padding) top-(--panel-padding)"
         >
           <X />
-        </DialogClose>
+        </ViewLink>
         {/* Die Spalten trennt eine Linie in der Mitte ihres Zwischenraums, nicht
             nur Luft — nebeneinander laufende Fließtexte verschwimmen sonst. */}
-        <div className="info-fullscreen-columns grid grid-cols-3 min-h-0 to-tablet:grid-cols-1 to-tablet:overflow-y-auto">
+        <div className="info-fullscreen-columns grid grid-cols-3 min-h-0 to-tablet:grid-cols-1 to-tablet:auto-rows-max to-tablet:overflow-y-auto">
           {columns.map(({ value, label, content }) => (
             <section
-              className="info-fullscreen-column flex flex-col min-w-0 min-h-0 gap-(--rail-content-gap) px-(--space-24) first:pl-0 last:pr-0 [&+section]:border-l-(length:--border-structure) to-tablet:px-0 to-tablet:[&+section]:border-l-0 to-tablet:[&+section]:mt-(--rail-section-gap)"
+              className="info-fullscreen-column flex flex-col min-w-0 min-h-0 gap-(--rail-content-gap) px-(--space-24) first:pl-0 last:pr-0 [&+section]:border-l-(length:--border-structure) to-tablet:shrink-0 to-tablet:px-0 to-tablet:[&+section]:border-l-0 to-tablet:[&+section]:mt-(--rail-section-gap)"
               key={value}
               aria-label={label}
             >
@@ -196,7 +250,7 @@ export function InfoFullscreen({
             </section>
           ))}
         </div>
-      </DialogContent>
-    </Dialog>
+      </main>
+    </div>
   );
 }

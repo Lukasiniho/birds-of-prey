@@ -20,9 +20,18 @@ import { SegmentedControl } from '@/components/segmented-control';
 import { ArtImage } from '@/components/art-image';
 import { BirdAudio, BirdAudioCredit } from '@/components/bird-audio';
 import { birdRecordings } from '@/lib/bird-recordings';
-import { birdHref, birdForPath } from '@/lib/bird-routes';
+import {
+  birdHref,
+  birdForPath,
+  birdFullscreenHref,
+  isBirdFullscreenPath,
+  birdInfoTabForSearch,
+  birdInfoSearch,
+  birdPageTitle,
+  type BirdInfoTab,
+} from '@/lib/bird-routes';
 import { techniqueHref } from '@/lib/knowledge-routes';
-import { SITE_NAME, SITE_URL } from '@/lib/site';
+import { SITE_DESCRIPTION, SITE_NAME, SITE_URL } from '@/lib/site';
 import {
   Feather,
   CaretDown,
@@ -84,7 +93,10 @@ import { PreyArt } from '@/components/prey-art';
 import { imageSource } from '@/lib/optimized-images.ts';
 import { loadImage } from '@/lib/image-loader';
 import { SpeciesFacts } from '@/components/species-facts';
-import { InfoFullscreen } from '@/components/info-fullscreen';
+import {
+  InfoFullscreen,
+  InfoFullscreenTrigger,
+} from '@/components/info-fullscreen';
 import { SpeciesTrivia } from '@/components/species-trivia';
 import { speciesProfiles } from '@/lib/species-profiles';
 import { RangeMap } from '@/components/range-map';
@@ -498,8 +510,10 @@ function PreyGallery({ items }: { items: PreyExample[] }) {
 }
 export default function RaptorApp({
   initialBirdId = 'rotschwanzbussard',
+  initialFullscreen = false,
 }: {
   initialBirdId?: string;
+  initialFullscreen?: boolean;
 }) {
   const [selected, setSelected] = useState(initialBirdId);
   const [chosenPlumage, setPlumage] = useState<Plumage>('male');
@@ -509,8 +523,11 @@ export default function RaptorApp({
   const [grouping, setGrouping] = useState<GroupMode>('genus');
   const [hintOpen, setHintOpen] = useState(false);
   const [pickerOpen, setPickerOpen] = useState(false);
-  const [infoTab, setInfoTab] = useState('profil');
-  const [path, setPath] = useState('');
+  const [infoTab, setInfoTab] = useState<BirdInfoTab>('profil');
+  const [path, setPath] = useState(
+    initialFullscreen ? birdFullscreenHref(speciesById[initialBirdId]) : '',
+  );
+  const fullscreen = isBirdFullscreenPath(path);
   const bird = speciesById[selected];
   useEffect(() => {
     function syncFromUrl() {
@@ -520,16 +537,24 @@ export default function RaptorApp({
         speciesById[legacyId ?? ''] ??
         speciesById[initialBirdId];
       setSelected(current.id);
+      if (!isBirdFullscreenPath(window.location.pathname))
+        setInfoTab(birdInfoTabForSearch(window.location.search));
       // The legacy ?art= links get rewritten to their species path. The home
       // page keeps its own URL: it is the site's canonical entry point, not a
       // duplicate of whichever species it happens to open on.
       if (legacyId) {
+        const params = new URLSearchParams(window.location.search);
+        params.delete('art');
+        const query = params.toString();
+        const href = isBirdFullscreenPath(window.location.pathname)
+          ? birdFullscreenHref(current)
+          : birdHref(current);
         window.history.replaceState(
           window.history.state,
           '',
-          birdHref(current),
+          href + (query ? `?${query}` : ''),
         );
-        setPath(birdHref(current));
+        setPath(href);
       } else setPath(window.location.pathname);
     }
     syncFromUrl();
@@ -538,12 +563,35 @@ export default function RaptorApp({
   }, [initialBirdId]);
   useEffect(() => {
     // Before the first sync the server-rendered title and canonical still fit.
-    if (!path || path === '/') return;
-    document.title = `${bird.name} · ${SITE_NAME}`;
+    if (!path) return;
+    const home = path === '/';
+    const title = home ? SITE_NAME : birdPageTitle(bird, fullscreen);
+    const href = home
+      ? '/'
+      : fullscreen
+        ? birdFullscreenHref(bird)
+        : birdHref(bird);
+    const description = home ? SITE_DESCRIPTION : bird.intro;
+    document.title = home ? title : `${title} · ${SITE_NAME}`;
     document
       .querySelector('link[rel="canonical"]')
-      ?.setAttribute('href', SITE_URL + birdHref(bird));
-  }, [bird, path]);
+      ?.setAttribute('href', SITE_URL + href);
+    for (const [selector, content] of [
+      ['meta[name="description"]', description],
+      ['meta[property="og:title"]', title],
+      ['meta[property="og:description"]', description],
+      ['meta[property="og:url"]', SITE_URL + href],
+      [
+        'meta[property="og:image"]',
+        SITE_URL +
+          (home
+            ? '/icons/og-image.png'
+            : imageSource(birdImage(bird.id, 'male'))),
+      ],
+      ['meta[property="og:image:alt"]', home ? SITE_NAME : bird.name],
+    ])
+      document.querySelector(selector)?.setAttribute('content', content);
+  }, [bird, path, fullscreen]);
   const withAudio = Boolean(birdRecordings[bird.id]);
   const availablePlumages = plumagesFor(bird.id);
   const plumage = availablePlumages.some((p) => p.value === chosenPlumage)
@@ -559,7 +607,7 @@ export default function RaptorApp({
       label: choice.label,
     })) ?? [];
   const { barRef: infoBarRef, pillRef: infoPillRef } = useSlidingPill(
-    'info',
+    fullscreen ? 'info-fullscreen' : 'info',
     infoTab,
   );
   // The weight below belongs to the bird on show: picking Männchen or
@@ -569,13 +617,30 @@ export default function RaptorApp({
     setPlumage(value);
     if (value === 'male' || value === 'female') setSex(value);
   }
-  function select(id: string) {
+  function select(id: string, showFullscreen = fullscreen) {
     setSelected(id);
     setPickerOpen(false);
-    const href = birdHref(speciesById[id]);
-    if (window.location.pathname !== href)
+    const pathname = showFullscreen
+      ? birdFullscreenHref(speciesById[id])
+      : birdHref(speciesById[id]);
+    const href = pathname + (showFullscreen ? '' : birdInfoSearch('', infoTab));
+    if (window.location.pathname + window.location.search !== href)
       window.history.pushState(window.history.state, '', href);
-    setPath(href);
+    setPath(pathname);
+  }
+  function selectInfoTab(tab: BirdInfoTab) {
+    setInfoTab(tab);
+    const href =
+      window.location.pathname +
+      birdInfoSearch(window.location.search, tab) +
+      window.location.hash;
+    if (
+      window.location.pathname +
+        window.location.search +
+        window.location.hash !==
+      href
+    )
+      window.history.pushState(window.history.state, '', href);
   }
   function warmBird(
     id: string,
@@ -643,6 +708,14 @@ export default function RaptorApp({
     const index = railOrder.indexOf(selected);
     if (index === -1 || railOrder.length < 2) return;
     select(railOrder[(index + delta + railOrder.length) % railOrder.length]);
+  }
+  function stepHref(delta: number) {
+    const index = railOrder.indexOf(selected);
+    const id =
+      index === -1 || railOrder.length < 2
+        ? selected
+        : railOrder[(index + delta + railOrder.length) % railOrder.length];
+    return birdFullscreenHref(speciesById[id]);
   }
   function renderLibraryRail(inPicker = false) {
     return (
@@ -719,7 +792,7 @@ export default function RaptorApp({
                       aria-current={selected === b.id ? 'page' : undefined}
                       render={
                         // oxlint-disable-next-line jsx-a11y/anchor-has-content, jsx-a11y/control-has-associated-label -- the sidebar button supplies the link text
-                        <a href={birdHref(b)} />
+                        <a href={birdHref(b) + birdInfoSearch('', infoTab)} />
                       }
                       onClick={(event) => {
                         if (
@@ -990,6 +1063,36 @@ export default function RaptorApp({
       </section>
     </>
   );
+  if (fullscreen) {
+    return (
+      <TooltipProvider delay={180}>
+        <InfoFullscreen
+          name={bird.name}
+          latin={bird.latin}
+          measurements={measurementStrip}
+          onStep={stepSpecies}
+          picker={speciesPicker}
+          atlasHref={birdHref(bird) + birdInfoSearch('', infoTab)}
+          previousHref={stepHref(-1)}
+          nextHref={stepHref(1)}
+          onClose={() => select(bird.id, false)}
+          portrait={
+            portraitImages[bird.id]
+              ? imageSource(portraitImages[bird.id])
+              : undefined
+          }
+          columns={[
+            { value: 'profil', label: 'Steckbrief', content: profilePanel },
+            { value: 'nahrung', label: 'Nahrung', content: dietPanel },
+            { value: 'lebensraum', label: 'Vorkommen', content: habitatPanel },
+          ]}
+        />
+        <output className="sr-only" aria-live="polite">
+          {bird.name}
+        </output>
+      </TooltipProvider>
+    );
+  }
   return (
     <TooltipProvider delay={180}>
       <div className="app-shell from-compact:h-dvh from-compact:min-h-0 from-compact:overflow-hidden">
@@ -1122,7 +1225,7 @@ export default function RaptorApp({
           >
             <Tabs
               value={infoTab}
-              onValueChange={(v) => setInfoTab(String(v))}
+              onValueChange={(v) => selectInfoTab(v as BirdInfoTab)}
               className="info-tabs min-w-0 max-w-full min-h-0 flex-1 gap-0 flex flex-col"
             >
               <TabsList
@@ -1157,32 +1260,10 @@ export default function RaptorApp({
                 >
                   Vorkommen
                 </TabsTrigger>
-                {/* Kein key auf der Art: das Vollbild soll beim Blättern
-                    offen bleiben, statt mit jeder Art neu zu starten. */}
-                <InfoFullscreen
+                <InfoFullscreenTrigger
                   name={bird.name}
-                  latin={bird.latin}
-                  measurements={measurementStrip}
-                  onStep={stepSpecies}
-                  picker={speciesPicker}
-                  portrait={
-                    portraitImages[bird.id]
-                      ? imageSource(portraitImages[bird.id])
-                      : undefined
-                  }
-                  columns={[
-                    {
-                      value: 'profil',
-                      label: 'Steckbrief',
-                      content: profilePanel,
-                    },
-                    { value: 'nahrung', label: 'Nahrung', content: dietPanel },
-                    {
-                      value: 'lebensraum',
-                      label: 'Vorkommen',
-                      content: habitatPanel,
-                    },
-                  ]}
+                  href={birdFullscreenHref(bird)}
+                  onOpen={() => select(bird.id, true)}
                 />
               </TabsList>
               <div className="info-scroll p-panel from-compact:[scrollbar-width:thin] from-compact:[scrollbar-color:var(--border)_transparent] from-compact:min-h-0 from-compact:flex-1 from-compact:overflow-y-auto from-compact:overscroll-contain from-compact:pb-(--rail-fade-height)">

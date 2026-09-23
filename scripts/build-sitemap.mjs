@@ -2,11 +2,17 @@
 // Run with --experimental-strip-types so the TypeScript data modules load.
 import { writeFile } from 'node:fs/promises';
 import { fileURLToPath } from 'node:url';
-import { birdHref, birdsBySlug } from '../lib/bird-routes.ts';
+import {
+  birdHref,
+  birdFullscreenHref,
+  birdsBySlug,
+} from '../lib/bird-routes.ts';
 import { SITE_URL } from '../lib/site.ts';
 
 const sections = ['/', '/quiz', '/wissen', '/falknerei'];
-const species = Object.values(birdsBySlug).map(birdHref).sort();
+const species = Object.values(birdsBySlug)
+  .flatMap((bird) => [birdHref(bird), birdFullscreenHref(bird)])
+  .sort();
 const entry = (path, priority, changefreq) =>
   `  <url>\n    <loc>${SITE_URL}${path === '/' ? '' : path}</loc>\n    <changefreq>${changefreq}</changefreq>\n    <priority>${priority}</priority>\n  </url>`;
 const xml = [
