@@ -68,7 +68,10 @@ export default function KnowledgeExplorer({
           value={section}
           onValueChange={(value) => {
             const next = String(value);
-            window.history.replaceState(null, '', `#${next}`);
+            const url = new URL(window.location.href);
+            url.hash = next;
+            if (next !== 'glossar') url.searchParams.delete('begriff');
+            window.history.replaceState(window.history.state, '', url);
             window.dispatchEvent(new HashChangeEvent('hashchange'));
           }}
           className="knowledge-explorer gap-6"

@@ -3,6 +3,7 @@
 Unter `/wissen#glossar` stehen die Fachbegriffe alphabetisch mit Suche und Themenfiltern. `lib/glossary.ts` ist die gemeinsame Datenquelle für Definitionen, Suchbegriffe und Verlinkungen.
 
 - Direkte Links verwenden `glossaryHref(id)`: `/wissen?begriff=<id>#glossar`. Der Eintrag wird hervorgehoben, in den sichtbaren Bereich gescrollt und für Tastaturnavigation fokussiert.
+- Beim Wechsel in einen anderen Wissen-Tab wird `begriff` aus der URL entfernt. Die Rückkehr zum Glossar zeigt dadurch keine alte Auswahl und scrollt nicht erneut zum zuvor gewählten Begriff.
 - `GlossaryText` verlinkt den ersten Treffer jedes Begriffs pro Textblock. Angegebene Wortformen bleiben im Wortlaut erhalten. Unicode-Wortgrenzen verhindern zufällige Treffer innerhalb deutscher Zusammensetzungen.
 - Vorhandene Links, Buttons und andere interaktive Komponenten bleiben unberührt. Die Komponente wird ausschließlich um Fließtexte verwendet, nicht um ganze interaktive Panels.
 - Die gemeinsamen Komponenten `DetailCopy`, `FactTooltip` und `SpeciesTrivia` sowie alle redaktionellen Textfelder im Artenatlas verwenden den Renderer. Neue Fachbegriffe werden dort automatisch aktiv; zusätzliche Wortformen gehören in `aliases`.
