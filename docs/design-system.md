@@ -270,7 +270,8 @@ horizontale Padding und `--type-tag` (12 px), behält aber die gemeinsame Suchh�
 
 Auswahlrahmen reservieren bereits im inaktiven Zustand 2 px; ein Wechsel ändert
 Farbe, nicht Größe. Der Fokusring ist in `app/base.css` einmal für alle
-Controls definiert. Komponenten definieren keinen eigenen; wo eine Fläche ihren
+Controls definiert. Komponenten definieren keinen eigenen (einzige Rolle mit
+eigener Ringform: Unterstrich-Tabs, siehe Tabs); wo eine Fläche ihren
 Überlauf beschneidet (Artenzeilen, Bildbühne, Zeitstrahl), verschieben sie nur
 den Offset nach innen. Reine Links und Navigation brauchen keinen zusätzlichen
 Auswahlrahmen. Suche, Navigationslinks, Theme-Schalter und Info-Menü teilen
@@ -376,7 +377,10 @@ gemessen; Listen ohne Pillenelement (reine Button-Gruppen mit `aria-pressed`)
 heben den gedrückten Tab selbst hervor. Alle Tab-Rollen verwenden `data-active`
 für die Darstellung: Base UI setzt es automatisch, native Schalter ergänzen es
 parallel zu ihrem jeweiligen ARIA-Zustand. Bei der Linienrolle ist die Pille der
-2-px-Unterstrich. Auf schmalen Bildschirmen scrollt die Linienleiste seitlich
+2-px-Unterstrich. Ihr Fokus ist derselbe Ring (`--focus-ring`), aber als
+abgerundeter Rahmen um die Beschriftung (`--radius-control`, `--space-12`
+seitlich, Text vertikal mittig, Unterstrich bleibt frei) statt als Kasten um
+Tab und Unterstrich. Auf schmalen Bildschirmen scrollt die Linienleiste seitlich
 statt umzubrechen. Der Geschlechtsschalter neben dem Gewicht ist die
 icongroße Miniaturform derselben Pille. Die drei Atlas-Informationstabs bleiben
 beim Scrollen mit deckendem Hintergrund sichtbar. Inaktive Tab-Texte verwenden

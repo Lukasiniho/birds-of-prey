@@ -97,6 +97,27 @@
   font-weight: var(--weight-medium);
   pointer-events: none;
 }
+/* Focus: the shared ring frames the label instead of boxing the whole 40 px
+   trigger and its underline. The label sits at 8.5–24.5 px (the column gap
+   pushes it below the padding box's centre), descenders reach ~26 px; the ring
+   spans 2–32 px, so text sits centred with room above and below and the
+   underline stays clear. */
+.t-tabs-line > .t-tab:focus-visible {
+  outline: none;
+}
+.t-tabs-line > .t-tab:focus-visible::after {
+  content: '';
+  display: block;
+  position: absolute;
+  inset: var(--space-2) calc(-1 * var(--space-12)) var(--space-8);
+  height: auto;
+  border-radius: var(--radius-control);
+  background: none;
+  opacity: 1;
+  outline: var(--focus-ring);
+  transition: none;
+  pointer-events: none;
+}
 .t-tabs-line > .t-tabs-pill {
   border-radius: 0;
   background: var(--foreground);
