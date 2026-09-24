@@ -80,6 +80,7 @@ const textRoles = [
   ['--type-card-title', 'Karten- und Listentitel', '20–24 px'],
   ['--type-detail-heading', 'Detailüberschrift', '20 px'],
   ['--type-species-big', 'Artname in Kopfzeilen', '24 px'],
+  ['--type-sheet-title', 'Sheet-Titel', '24 px'],
   ['--type-heading', 'Weitere Überschrift', '28 px'],
   ['--type-quiz-question', 'Quiz-Frage', '32 px'],
   ['--type-page-title', 'Seitentitel', '32–40 px'],
@@ -121,7 +122,7 @@ const radii = [
 
 const heights = [
   ['--control-height-compact', '30 px', 'Pillen-Tabs, Schalter'],
-  ['--control-height', '38 px', 'Kopfzeile, Suche, Selects, Leiste'],
+  ['--control-height', '40 px', 'Kopfzeile, Suche, Selects, Leiste'],
   ['--control-height-touch', '44 px', 'Große Aktionsflächen'],
 ] as const;
 
@@ -504,7 +505,7 @@ export default function StyleguideView() {
             ))}
             <SpecimenRow>
               <dt className="text-(length:--type-caption) text-(--muted-foreground) font-(family-name:--font-stack-body)">
-                --pill-height-large · 38 px
+                --pill-height-large · 40 px
               </dt>
               <dd className="m-0 min-w-0 flex flex-wrap items-center gap-2">
                 <EcologyTag>Standard-Tag</EcologyTag>
@@ -661,7 +662,7 @@ export default function StyleguideView() {
             className="sg-note text-(length:--type-caption) leading-(--leading-normal) text-muted-foreground"
             style={{ marginTop: 'var(--space-8)' }}
           >
-            .t-tabs.t-tabs-line · 38 px, 16 px, 2-px-Markierung
+            .t-tabs.t-tabs-line · 40 px, 16 px, 2-px-Markierung
           </p>
         </Section>
 

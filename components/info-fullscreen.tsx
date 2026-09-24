@@ -67,7 +67,7 @@ export function InfoFullscreenTrigger({
   onOpen: () => void;
 }) {
   return (
-    <div className="info-expand-slot ml-auto flex h-(--control-height) items-center pb-[9px]">
+    <div className="info-expand-slot ml-auto flex h-(--control-height) items-center pb-[9px] to-tablet:hidden">
       <ViewLink
         href={href}
         label={`Informationen zum ${name} im Vollbild öffnen`}

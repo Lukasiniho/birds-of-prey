@@ -173,7 +173,7 @@ export function SiteHeader({
           <Button
             variant="ghost"
             size="icon"
-            className="header-action size-(--header-control-height) p-0 min-w-[38px] theme-toggle"
+            className="header-action size-(--header-control-height) p-0 min-w-(--header-control-height) theme-toggle"
             onClick={toggleTheme}
             aria-label={
               dark ? 'Hellmodus aktivieren' : 'Dunkelmodus aktivieren'
@@ -205,7 +205,7 @@ export function SiteHeader({
                 <Button
                   variant="ghost"
                   size="icon"
-                  className="header-action size-(--header-control-height) p-0 min-w-[38px]"
+                  className="header-action size-(--header-control-height) p-0 min-w-(--header-control-height)"
                   aria-label="Über diese Seite"
                 />
               }

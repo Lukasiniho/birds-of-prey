@@ -31,6 +31,7 @@ relative rem-Werte; die Browser-Schriftgröße bleibt frei wählbar.
 | Karten- und Listentitel                 | `--type-card-title`        | 20–24 px |
 | Detailüberschrift rechts                | `--type-detail-heading`    | 20 px    |
 | Artname in Kopfzeilen                   | `--type-species-big`       | 24 px    |
+| Sheet-Titel (nur mobil)                 | `--type-sheet-title`       | 24 px    |
 | Deutscher Artname im Quiz               | `--type-species-quiz`      | 20–24 px |
 | Weitere Überschrift                     | `--type-heading`           | 28 px    |
 | Quiz-Fragentitel                        | `--type-quiz-question`     | 24–32 px |

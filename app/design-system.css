@@ -12,7 +12,7 @@
   --rail-fade-height: 44px;
   /* Control heights: compact pills, standard controls and rails, touch targets. */
   --control-height-compact: 30px;
-  --control-height: 38px;
+  --control-height: 40px;
   --control-height-touch: 44px;
   --pill-height-large: var(--control-height);
   --header-control-height: var(--control-height);

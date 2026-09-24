@@ -85,7 +85,6 @@ button.color-dot:not(:disabled) {
   background: var(--select-background);
   border: var(--border-structure) solid var(--border);
   border-radius: var(--radius-control);
-  font-size: var(--type-ui);
   color: var(--foreground);
   box-shadow: none;
 }

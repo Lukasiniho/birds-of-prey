@@ -108,7 +108,7 @@ function SheetTitle({ className, ...props }: SheetPrimitive.Title.Props) {
       data-slot="sheet-title"
       className={cn(
         surfaceStyles.title,
-        'text-(length:--type-label-title)',
+        'text-(length:--type-sheet-title)',
         className,
       )}
       {...props}

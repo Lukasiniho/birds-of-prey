@@ -8,7 +8,7 @@ import { cn } from '@/lib/utils';
 const control =
   'inline-flex shrink-0 items-center justify-center rounded-(--radius-control) p-0 text-foreground bg-background hover:bg-(--hover) disabled:opacity-50';
 const closeGeometry =
-  'size-(--control-height) to-tablet:size-(--control-height-touch) border-(length:--border-structure) border-border';
+  'size-(--control-height) border-(length:--border-structure) border-border';
 
 /** Base UI supplies event handlers/ref through render; geometry stays private. */
 export function CloseControl({

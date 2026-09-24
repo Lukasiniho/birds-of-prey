@@ -13,4 +13,7 @@
     /* The 16px role prevents iOS focus zoom on every search surface. */
     font-size: var(--type-button);
   }
+  .search-field input:focus-visible {
+    outline-offset: calc(-1 * var(--focus-offset));
+  }
 }

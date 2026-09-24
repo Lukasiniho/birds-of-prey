@@ -32,7 +32,7 @@ ergänzt 28 px als ausdrückliche Option. Bestehende Panels bleiben bei 20 px. K
 | Quiz-Antwortstatus X | Nicht interaktiv, zwischen 16 und 18 px | QuizIncorrectIcon; semantisch getrennt von Dismissal |
 | Styleguide-Beispiele | Neu | Echte große/kompakte Dialoge, Sheet und schließbare Karte |
 
-CloseControl und CloseLink: 38 × 38 px Desktop, 44 × 44 px bis 760 px;
+CloseControl und CloseLink: 40 × 40 px auf allen Breiten (`--control-height`);
 20-px-X, 12-px-Radius, Strukturrahmen und zentraler Fokus. Keine Aufrufstelle
 bekommt eigene Größen-, Radius- oder Positionsparameter. Fokus-Rückgabe bei
 Dialogen, Escape und native Link-Semantik bleiben erhalten.

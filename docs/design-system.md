@@ -79,7 +79,7 @@ Schätzaufgaben reservieren auf Desktop zwei Textzeilen. `QuizAnswerBar` besitzt
 das Raster der Antwortleiste, während die mobile Höhenanimation in Quiz-CSS bleibt.
 `SearchField` teilt Suche und Löschaktion zwischen Kopfzeile, mobiler
 Artenauswahl und Glossar. Die Kopfzeilensuche ist die visuelle Referenz:
-überall 38 px Höhe, derselbe Radius, Text, Duotone-Suchsymbol und Löschknopf.
+überall 40 px Höhe, derselbe Radius, Text, Duotone-Suchsymbol und Löschknopf.
 Bis 760 px verwenden alle Suchfelder die 16-px-Buttonrolle gegen iOS-Fokuszoom.
 Aufrufstellen setzen nur Suchwert, Beschriftung, Platzhalter und äußeres Layout;
 nach dem Leeren bleibt der Fokus im Feld. `npm run lint` verhindert eigene
@@ -242,9 +242,9 @@ identischem Innenabstand; die Audio-Spalte ist separat, auch mobil.
 | Rolle                      |   Wert | Einsatz                                           |
 | -------------------------- | -----: | ------------------------------------------------- |
 | `--control-height-compact` |  30 px | Pillen-Tabs, Schalter                             |
-| `--control-height`         |  38 px | Kopfzeile, Suche, Selects, Unterstrich-Leiste     |
+| `--control-height`         |  40 px | Kopfzeile, Suche, Selects, Unterstrich-Leiste     |
 | `--control-height-touch`   |  44 px | Große Aktionsflächen                              |
-| `--pill-height-large`      |  38 px | Große Filterpillen; Alias auf `--control-height` |
+| `--pill-height-large`      |  40 px | Große Filterpillen; Alias auf `--control-height` |
 | `--radius-small`           |   6 px | Kleine Kennzeichnungen, Bildausschnitte           |
 | `--radius-control`         |  12 px | Buttons, Eingaben, Auswahlsteuerung               |
 | `--radius-card`            |  12 px | Quizkarten, Karten-Vorschauen, Drag-Vorschau      |
@@ -260,7 +260,7 @@ identischem Innenabstand; die Audio-Spalte ist separat, auch mobil.
 `EcologyTag` bietet mit `size="large"` große Filterpillen: mindestens
 `--pill-height-large` hoch und mit `--space-16` horizontalem Innenabstand.
 Die Glossarfilter verwenden diese Variante und teilen an allen Breakpoints
-die Höhe von 38 px mit dem benachbarten Suchfeld. Der Text verwendet `--type-tag-large` (14 px,
+die Höhe von 40 px mit dem benachbarten Suchfeld. Der Text verwendet `--type-tag-large` (14 px,
 Alias auf `--text-sm`), die Stufe zwischen kompakten Tags und Suchfeldtext.
 Farben und Pillenradius bleiben gemeinsame Tag-Rollen; die Standardvariante
 behält ihre kompakten Maße. Bis 760 px nutzt die große Variante das kompakte
@@ -290,7 +290,7 @@ bestehenden Quiz-Einstieg (40 px, mobil Panel-Padding).
 | Explizite stärker gerundete Variante | 28 px | 24 / 16 px |
 | Messwertbox | 20 px | 8 px vertikal, Inhalt als Gruppe zentriert |
 | Karte, kompakte Infobox | 12 px | 16 / 16 px |
-| Schließen-Aktion | 12 px | Kontrollfläche 38 / 44 px, Icon 20 px |
+| Schließen-Aktion | 12 px | Kontrollfläche 40 px (`--control-height`), Icon 20 px |
 
 `SurfaceHeader` richtet Titel und Aktion oben aus, mit einer echten
 Aktionsspalte und 16 px Abstand. Titel und Beschreibung trennen 8 px,
@@ -359,7 +359,7 @@ Linienleiste bleibt dort, damit die Orientierungsregeln der Bibliothek sie nicht
 | Rolle                 | Einsatz                                            | Maße                                        |
 | --------------------- | -------------------------------------------------- | ------------------------------------------- |
 | `.t-tabs` (Pille)     | Gefieder/Alter, Farbmorphen, Bühnenwahl im Wissen  | 30 px Tab, 3 px Schiene, 4/13 px, 14 px/500 |
-| `.t-tabs.t-tabs-line` | Atlas-Infotabs, Wissensbereiche, Falknerei-Kapitel | 38 px Leiste, 24 px Abstand, 16 px, 400/500 |
+| `.t-tabs.t-tabs-line` | Atlas-Infotabs, Wissensbereiche, Falknerei-Kapitel | 40 px Leiste, 24 px Abstand, 16 px, 400/500 |
 
 `SegmentedControl` legt die Pillenschiene in `.t-tabs-scroll`. Nur diese
 rechteckige Hülle scrollt bei Platzmangel; 4 px Polster mit ausgleichendem

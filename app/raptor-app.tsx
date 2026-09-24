@@ -792,7 +792,7 @@ export default function RaptorApp({
           <div
             className={cn(
               'grouping-control to-phone:flex-[0_0_100%] to-phone:flex-row to-phone:items-center to-phone:justify-between to-phone:gap-2 flex flex-col gap-2',
-              inPicker ? 'pb-2' : 'pb-6 to-phone:pb-0',
+              inPicker ? 'pb-0' : 'pb-6 to-phone:pb-0',
             )}
           >
             <span className="text-(length:--type-caption) font-(family-name:--font-stack-body) leading-(--leading-normal) font-(--weight-medium) text-(--muted-foreground)">
@@ -835,7 +835,7 @@ export default function RaptorApp({
             className={cn(
               'grouped-navigation min-w-0 max-w-full to-phone:block to-phone:overflow-x-hidden',
               inPicker
-                ? 'pt-2'
+                ? 'pt-0'
                 : 'to-phone:max-h-[min(36dvh,320px)] to-phone:overscroll-y-contain to-phone:overflow-y-auto to-phone:pt-4 to-phone:pb-[5px]',
             )}
           >

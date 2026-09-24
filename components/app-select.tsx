@@ -13,7 +13,10 @@ export function AppSelectTrigger({
   return (
     <SelectTrigger
       {...props}
-      className={cn('app-select w-full h-[37px] to-phone:w-[150px]', className)}
+      className={cn(
+        'app-select w-full data-[size=default]:h-(--control-height) text-(length:--type-ui) to-phone:w-[180px] to-phone:text-(length:--type-button)',
+        className,
+      )}
     />
   );
 }
