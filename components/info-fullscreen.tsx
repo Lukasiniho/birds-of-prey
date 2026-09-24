@@ -205,11 +205,14 @@ export function InfoFullscreen({
           </>
         }
       >
-        <div className="info-fullscreen-head flex items-start gap-4 min-w-0">
+        {/* Die Maßleiste steht mittig auf der Seite, nicht im Rest neben dem
+            Namen: die Kopfzeile reicht dafür unter die Aktionsspalte, deren
+            Breite die leere rechte Spur mindestens freihält. */}
+        <div className="info-fullscreen-head grid grid-cols-[minmax(0,1fr)] items-start gap-4 min-w-0 [--info-actions:calc(3*var(--control-height)+2*var(--space-8)+var(--space-16))] from-tablet:grid-cols-[minmax(max-content,1fr)_minmax(0,560px)_minmax(var(--info-actions),1fr)] from-tablet:mr-[calc(-1*var(--info-actions))]">
           {/* Die Maßleiste beginnt oben, auf einer Linie mit den Aktionen.
               Das Porträt misst genau ihre Höhe (72 px), Porträt und Name
               zentrieren sich darin. */}
-          <div className="flex min-w-0 self-stretch items-center gap-4 to-phone:flex-wrap to-phone:gap-2">
+          <div className="flex min-w-0 self-stretch items-center gap-3 to-phone:flex-wrap to-phone:gap-2">
             {/* Größer als die Listenporträts: hier ist das Bild der Titel der
                 Seite und nicht die Marke einer Zeile. */}
             {portrait && (
@@ -228,7 +231,7 @@ export function InfoFullscreen({
               {/* Der Haken folgt dem deutschen Namen, nicht dem oft breiteren
                   lateinischen, und hängt an dessen erster Zeile: er bekommt
                   deren Zeilenhöhe und zentriert sich darin. */}
-              <div className="flex min-w-0 items-start gap-1">
+              <div className="flex min-w-0 items-start">
                 <SpeciesCommonName as="h1" variant="big" className="min-w-0">
                   {name}
                 </SpeciesCommonName>
@@ -242,7 +245,7 @@ export function InfoFullscreen({
             </div>
           </div>
           {measurements && (
-            <div className="info-fullscreen-measurements [container:atlas-stage/inline-size] ml-auto min-w-0 w-full max-w-[720px] to-tablet:hidden">
+            <div className="info-fullscreen-measurements [container:info-measurements/inline-size] min-w-0 w-full to-tablet:hidden">
               {measurements}
             </div>
           )}
