@@ -9,7 +9,10 @@ import {
 import { FullscreenPage } from '@/components/fullscreen-page';
 import { SurfaceHeader, SurfaceBody } from '@/components/surface';
 import { CloseLink } from '@/components/close-control';
-import { SpeciesName } from '@/components/species-name';
+import {
+  SpeciesCommonName,
+  SpeciesScientificName,
+} from '@/components/species-name';
 import { ArtImage } from '@/components/art-image';
 import { buttonVariants } from '@/components/ui/button';
 import { cn } from '@/lib/utils';
@@ -209,21 +212,21 @@ export function InfoFullscreen({
             </div>
             {/* Buchstäblich der Namenskasten der Artenliste: gleiche Klasse,
                 gleiche Variante, gleiche Rollen. */}
-            <div className="flex min-w-0 items-start gap-1 to-phone:basis-full">
-              <div className="species-row-name flex min-w-0 flex-col">
-                <SpeciesName
-                  name={name}
-                  latin={latin}
-                  commonAs="h1"
-                  variant="big"
-                />
+            <div className="species-row-name flex min-w-0 flex-col to-phone:basis-full">
+              {/* Der Haken folgt dem deutschen Namen, nicht dem oft breiteren
+                  lateinischen, und hängt an dessen erster Zeile: er bekommt
+                  deren Zeilenhöhe und zentriert sich darin. */}
+              <div className="flex min-w-0 items-start gap-1">
+                <SpeciesCommonName as="h1" variant="big" className="min-w-0">
+                  {name}
+                </SpeciesCommonName>
+                <span className="flex h-[calc(var(--type-heading)*var(--leading-heading))] shrink-0 items-center">
+                  {picker}
+                </span>
               </div>
-              {/* Der Haken hängt an der ersten Namenszeile, nicht am Kasten:
-                  er bekommt deren Zeilenhöhe und zentriert sich darin, sonst
-                  sitzt er an der Oberkante und damit zu hoch. */}
-              <span className="flex h-[calc(var(--type-species-big)*var(--leading-heading))] shrink-0 items-center">
-                {picker}
-              </span>
+              <SpeciesScientificName variant="big">
+                {latin}
+              </SpeciesScientificName>
             </div>
           </div>
           {measurements && (
