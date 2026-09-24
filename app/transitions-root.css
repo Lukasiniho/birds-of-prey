@@ -72,6 +72,15 @@
   --panel-translate-y: var(--distance-medium);
   --panel-blur: var(--blur-small);
   --panel-ease: var(--ease-smooth-out);
+  /* Page side-by-side (tab panels) */
+  --page-slide-dur: var(--duration-fast);
+  --page-slide-distance: var(--distance-base);
+  --page-blur: var(--blur-medium);
+  --page-slide-ease: var(--ease-smooth-out);
+  /* Modal open (fullscreen pages) */
+  --modal-open-dur: var(--duration-fast);
+  --modal-scale: var(--scale-large);
+  --modal-ease: var(--ease-smooth-out);
   /* Stacked cards (quiz drag preview) */
   --stack-peek: 12px;
   --stack-scale: 0.97;

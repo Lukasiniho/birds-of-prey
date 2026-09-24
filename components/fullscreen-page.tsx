@@ -13,7 +13,7 @@ export function FullscreenPage({
         as="main"
         className={cn(
           surfaceStyles.stack,
-          'info-fullscreen [--rail-section-gap:var(--space-16)] [--rail-content-gap:var(--space-12)] [--rail-caption-gap:var(--space-8)] relative m-(--atlas-gutter) w-[calc(100%-2*var(--atlas-gutter))] h-[calc(100dvh-2*var(--atlas-gutter))] overflow-hidden',
+          't-modal info-fullscreen [--rail-section-gap:var(--space-16)] [--rail-content-gap:var(--space-12)] [--rail-caption-gap:var(--space-8)] relative m-(--atlas-gutter) w-[calc(100%-2*var(--atlas-gutter))] h-[calc(100dvh-2*var(--atlas-gutter))] overflow-hidden',
           className,
         )}
       />

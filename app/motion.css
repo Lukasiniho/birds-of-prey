@@ -175,6 +175,36 @@
     opacity   var(--panel-open-dur) var(--panel-ease),
     filter    var(--panel-open-dur) var(--panel-ease);
 }
-@media (prefers-reduced-motion: reduce) {
-  .t-panel-slide { transition: none !important; }
+/* The global reduced-motion rule in base.css covers every snippet below. */
+/* transitions.dev — 08 Page side-by-side: a tab panel enters from its tab's side. */
+.t-page {
+  --t-page-from-x: var(--page-slide-distance);
+  transition:
+    opacity var(--page-slide-dur) var(--page-slide-ease),
+    transform var(--page-slide-dur) var(--page-slide-ease),
+    filter var(--page-slide-dur) var(--page-slide-ease);
+}
+.t-page[data-activation-direction='left'] {
+  --t-page-from-x: calc(var(--page-slide-distance) * -1);
+}
+/* transitions.dev — 06 Modal open: fullscreen pages opened from the atlas;
+   a direct visit loads still. */
+:root[data-settled] .t-modal {
+  transition:
+    transform var(--modal-open-dur) var(--modal-ease),
+    opacity var(--modal-open-dur) var(--modal-ease);
+}
+@starting-style {
+  .t-page:is(
+      [data-activation-direction='left'],
+      [data-activation-direction='right']
+    ) {
+    opacity: 0;
+    transform: translateX(var(--t-page-from-x));
+    filter: blur(var(--page-blur));
+  }
+  :root[data-settled] .t-modal {
+    opacity: 0;
+    transform: scale(var(--modal-scale));
+  }
 }

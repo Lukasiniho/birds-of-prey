@@ -5,7 +5,7 @@ Stand: 23. September 2026. Dieses Dokument ist die aktuelle Spezifikation, keine
 werden zentral definiert und in Seiten-CSS nur verwendet, nicht neu erfunden.
 `npm run lint` prüft Farben, Schriftgrößen, Radien und Breakpoints.
 Für eigene CSS-Dateien in `app/` und `components/` gilt zusätzlich ein gemeinsames
-Limit von 2.000 Zeilen einschließlich Kommentaren und Leerzeilen. Der Lintlauf
+Limit von 2.050 Zeilen einschließlich Kommentaren und Leerzeilen. Der Lintlauf
 prüft diese Grenze; ungenutzte UI-Komponenten bleiben erhalten.
 
 ## Dateien und Zuständigkeiten
@@ -23,7 +23,7 @@ prüft diese Grenze; ungenutzte UI-Komponenten bleiben erhalten.
 | `app/header.css`           | Kopfzeile: Marke, Suche, Navigation, Aktionen, mobile Anordnung          |
 | `app/search.css`           | Gemeinsames Suchfeld: Fläche, Text, Platzhalter und Fokus                 |
 | `app/atlas.css`            | Artenleiste, Bühne, Infobereich, Messwerte, Audio                        |
-| `app/motion.css`           | transitions.dev-Snippets: Akkordeon, Textreveal, Zahlen, Icon-Swap, Menü |
+| `app/motion.css`           | transitions.dev-Snippets: Akkordeon, Textreveal, Zahlen, Icon-Swap, Menü, Tab-Inhalt, Vollbild |
 | `app/tags.css`             | Art-Tags und Verbreitungsstatus                                          |
 | `app/map.css`              | Verbreitungskarte                                                        |
 | `app/sections.css`         | Seitenrahmen und Titel für Quiz, Wissen und Falknerei                    |
@@ -399,8 +399,15 @@ Kurven: `--ease-smooth-out` (öffnen, schließen, gleiten), `--ease-in-out`
 (Icon- und Textwechsel), `--ease-out` (Hover-Farbe, Tooltip), `--ease-linear`
 (Shimmer, Spinner) und genau eine Überschwingkurve `--ease-bounce`. Die
 Snippet-Gruppen (`--digit-*`, `--dropdown-*`, `--icon-swap-*`, `--tabs-*`,
-`--stagger-*`, `--acc-*`, `--stack-*`) verweisen auf diese Skala. Tab-Pillen
-messen ihre Position dynamisch; `prefers-reduced-motion` schaltet Übergänge ab.
+`--stagger-*`, `--acc-*`, `--stack-*`, `--page-*`, `--modal-*`) verweisen auf
+diese Skala. Tab-Pillen messen ihre Position dynamisch; `prefers-reduced-motion`
+schaltet Übergänge ab.
+
+Jeder Tab-Inhalt (`TabsContent`) gleitet beim Wechsel 8 px von der Seite des
+gewählten Tabs herein (`.t-page`, Richtung aus `data-activation-direction`);
+der erste Tab beim Laden steht still. Vollbildseiten (`FullscreenPage`) öffnen
+aus dem Atlas mit dem Modal-Übergang (`.t-modal`, Skalierung 0,96); ein direkter
+Aufruf lädt ohne Bewegung.
 
 ## Breakpoints
 

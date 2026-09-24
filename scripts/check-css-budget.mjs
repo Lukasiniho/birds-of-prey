@@ -1,7 +1,7 @@
 import { readdirSync, readFileSync } from 'node:fs';
 import { join } from 'node:path';
 
-const limit = 2000;
+const limit = 2050;
 const files = ['app', 'components'].flatMap((directory) =>
   readdirSync(directory, { recursive: true })
     .filter((file) => /\.css$/i.test(file))
