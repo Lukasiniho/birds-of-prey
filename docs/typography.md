@@ -17,12 +17,13 @@ relative rem-Werte; die Browser-Schriftgröße bleibt frei wählbar.
 | Quellen und Bildunterschriften          | `--type-caption`           | 12 px    |
 | Filter und sonstige UI-Texte            | `--type-ui`                | 14 px    |
 | Wissenschaftlicher Artname              | `--type-scientific`        | 14 px    |
-| Fließtext und Aufgabenbeschreibungen    | `--type-body`              | 14 px    |
+| Fließtext                               | `--type-body`              | 14 px    |
 | Tags                                    | `--type-tag`               | 12 px    |
 | Große Filterpillen                       | `--type-tag-large`         | 14 px    |
 | Buttons und Hauptnavigation             | `--type-button`            | 16 px    |
 | Unterstrich-Tabs                        | `--type-tab`               | 16 px    |
 | Quiz-Rückmeldung                        | `--type-feedback-title`    | 16 px    |
+| Quiz-Aufgabenbeschreibung               | `--type-quiz-description`  | 16 px    |
 | Kompakte Artnamen (Liste, Falknerei)    | `--type-label-heading`     | 18 px    |
 | Einleitung                              | `--type-lead`              | 18 px    |
 | Wissenschaftlicher Artname im Quiz      | `--type-scientific-quiz`   | 16–18 px |

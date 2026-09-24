@@ -86,8 +86,8 @@ body {
   /* Artnamen, die eine Kopfzeile tragen: eigene Rolle, seit die
    * Detailüberschrift eine Stufe tiefer steht. */
   --type-species-big: var(--text-2xl);
-  /* Sheets open only on mobile; their title reads above the label title. */
   --type-sheet-title: var(--text-2xl);
+  --type-quiz-description: var(--text-base);
   --type-feedback-title: var(--text-base);
   /* The question title is the widest line in the quiz stage: it steps down on
    * narrow screens so a two-word species question keeps its line count. */

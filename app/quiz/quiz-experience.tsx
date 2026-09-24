@@ -399,7 +399,7 @@ export default function QuizExperience({
           />
         ) : (
           <>
-            <div className="q-round-navigation to-tablet:grid-cols-[var(--control-height-compact)_minmax(0,1fr)_var(--control-height-compact)] to-tablet:grid to-tablet:gap-2 to-tablet:h-(--control-height-compact) to-tablet:py-0 flex items-center justify-between gap-4 py-4 mb-2">
+            <div className="q-round-navigation to-tablet:grid-cols-[var(--control-height-compact)_minmax(0,1fr)_var(--control-height-compact)] to-tablet:grid to-tablet:gap-2 to-tablet:h-(--control-height-compact) to-tablet:py-0 flex items-center justify-between gap-4 py-2 mb-2">
               <Button
                 className="q-mobile-exit hidden to-tablet:inline-flex to-tablet:size-(--control-height-compact) to-tablet:border-0 to-tablet:p-0"
                 variant="ghost"

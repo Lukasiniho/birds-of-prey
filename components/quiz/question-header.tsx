@@ -15,21 +15,24 @@ export function QuizQuestionHeader({
   reserveLines?: boolean;
 }) {
   return (
-    <header className="grid gap-3 min-w-0">
-      <span className="q-task-label text-(length:--type-ui) font-(--weight-medium) text-(--main-color) flex items-center gap-2">
-        {label}
-      </span>
-      <QuizQuestionTitle
-        className={cn(
-          'to-tablet:[&_br]:hidden',
-          reserveLines && 'from-tablet:min-h-[2lh]',
-        )}
-      >
-        {title}
-      </QuizQuestionTitle>
+    <header className="grid gap-2 min-w-0">
+      {/* Die Dachzeile gehört zum Titel: 4 px wie in jedem Flächenkopf. */}
+      <div className="grid gap-1 min-w-0">
+        <span className="q-task-label text-(length:--type-ui) font-(--weight-medium) text-(--main-color) flex items-center gap-2">
+          {label}
+        </span>
+        <QuizQuestionTitle
+          className={cn(
+            'to-tablet:[&_br]:hidden',
+            reserveLines && 'from-tablet:min-h-[2lh]',
+          )}
+        >
+          {title}
+        </QuizQuestionTitle>
+      </div>
       <p
         className={cn(
-          'text-muted-foreground text-(length:--type-body) leading-(--leading-relaxed)',
+          'text-muted-foreground text-(length:--type-quiz-description) leading-(--leading-relaxed)',
           reserveLines && 'from-tablet:min-h-[2lh]',
         )}
       >
