@@ -21,9 +21,10 @@
 [data-slot='popover-content'] {
   display: flex;
   flex-direction: column;
-  /* Knapp, weil die Zeilenhöhe oben und unten schon Vorlauf mitbringt. */
+  /* Knapp, weil die Zeilenhöhe oben und unten schon Vorlauf mitbringt —
+     deshalb auch vertikal weniger Polster als seitlich. */
   gap: var(--space-4);
-  padding: var(--space-16);
+  padding: var(--space-12) var(--space-16);
   border: var(--border-structure) solid var(--border);
   border-radius: var(--radius-control);
   background: var(--background);
@@ -48,11 +49,13 @@
   font-size: inherit;
 }
 /* Eine Überschrift hebt sich durch Gewicht ab — und öffnet einen Block: was
-   unter ihr steht, rückt eng an sie heran, sie selbst bekommt Luft nach oben. */
+   unter ihr steht, rückt eng an sie heran, sie selbst bekommt Luft nach oben.
+   Ein Diagramm darunter hat keinen Zeilenvorlauf und bekommt eigene Luft. */
 .app-tooltip-title {
   font-weight: var(--weight-tooltip-heading);
 }
-.app-tooltip-title:not(:first-child) {
+.app-tooltip-title:not(:first-child),
+.app-tooltip-title + :is(ol, svg) {
   margin-top: var(--space-8);
 }
 .app-tooltip[data-starting-style],
