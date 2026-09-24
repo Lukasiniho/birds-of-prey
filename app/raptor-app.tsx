@@ -570,6 +570,8 @@ export default function RaptorApp({
     return () => {
       window.clearTimeout(timer);
       cancelAnimationFrame(frame);
+      // A later visit to the atlas loads still again.
+      delete document.documentElement.dataset.settled;
     };
   }, []);
   useEffect(() => {

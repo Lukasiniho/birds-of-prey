@@ -237,8 +237,9 @@ button.color-dot:not(:disabled) {
   text-underline-offset: 3px;
 }
 
+/* Swatches added by a bird switch fade in; the ones the page loads with stand. */
 @starting-style {
-  .body-color-row .color-dot {
+  :root[data-settled] .body-color-row .color-dot {
     opacity: 0;
   }
 }
