@@ -19,6 +19,11 @@ import { cn } from '@/lib/utils';
 
 export type InfoColumn = { value: string; label: string; content: ReactNode };
 
+/* Die Blätterpfeile stehen neben Schließen und übernehmen dessen Maß:
+ * 40-px-Kontrollfläche, Strukturrahmen, 20-px-Icon. */
+const stepGeometry =
+  'size-(--control-height) border-(length:--border-structure) border-border bg-background hover:bg-(--hover)';
+
 function ViewLink({
   href,
   label,
@@ -167,49 +172,56 @@ export function InfoFullscreen({
             dieselbe Maßleiste, nur auf Kopfzeilenbreite geschrumpft. */}
       <SurfaceHeader
         actions={
-          <CloseLink
-            href={atlasHref}
-            label="Vollbild schließen"
-            onNavigate={onClose}
-          />
+          <>
+            {/* Blättern steuert die Seite, nicht den Namen: die Pfeile stehen
+                deshalb bei Schließen, im selben Abstand wie alle Aktionen. */}
+            <ViewLink
+              href={previousHref}
+              label="Vorige Art"
+              onNavigate={() => onStep(-1)}
+              className={stepGeometry}
+            >
+              <ArrowLeftDuotone
+                className="size-5"
+                style={{ color: 'var(--main-color)' }}
+              />
+            </ViewLink>
+            <ViewLink
+              href={nextHref}
+              label="Nächste Art"
+              onNavigate={() => onStep(1)}
+              className={stepGeometry}
+            >
+              <ArrowRightDuotone
+                className="size-5"
+                style={{ color: 'var(--main-color)' }}
+              />
+            </ViewLink>
+            <CloseLink
+              href={atlasHref}
+              label="Vollbild schließen"
+              onNavigate={onClose}
+            />
+          </>
         }
       >
         <div className="info-fullscreen-head flex items-start gap-4 min-w-0">
-          {/* Alles in der Kopfzeile beginnt an derselben Oberkante: das hohe
-              Porträt gibt die Zeilenhöhe vor, Pfeile, Name und Klappmenü
-              hängen daran und stehen damit auf einer Linie mit der Maßleiste
-              rechts, statt an der Mitte des Porträts zu kleben. */}
-          <div className="flex min-w-0 items-start gap-4 to-phone:flex-wrap to-phone:gap-2">
+          {/* Die Maßleiste beginnt oben, auf einer Linie mit den Aktionen.
+              Das Porträt misst genau ihre Höhe (72 px), Porträt und Name
+              zentrieren sich darin. */}
+          <div className="flex min-w-0 self-stretch items-center gap-4 to-phone:flex-wrap to-phone:gap-2">
             {/* Größer als die Listenporträts: hier ist das Bild der Titel der
                 Seite und nicht die Marke einer Zeile. */}
             {portrait && (
               <ArtImage
-                className="block size-[88px] shrink-0 object-contain to-phone:size-(--species-row-portrait)"
+                className="block size-18 shrink-0 object-contain to-phone:size-(--species-row-portrait)"
                 src={portrait}
                 alt=""
-                width={88}
-                height={88}
-                displayWidth={88}
+                width={72}
+                height={72}
+                displayWidth={72}
               />
             )}
-            {/* Beide Pfeile vor dem Namen: hinter ihm würde der rechte mit
-                jeder Artenlänge an eine andere Stelle springen. */}
-            <div className="info-fullscreen-steps flex items-center gap-1">
-              <ViewLink
-                href={previousHref}
-                label="Vorige Art"
-                onNavigate={() => onStep(-1)}
-              >
-                <ArrowLeftDuotone style={{ color: 'var(--main-color)' }} />
-              </ViewLink>
-              <ViewLink
-                href={nextHref}
-                label="Nächste Art"
-                onNavigate={() => onStep(1)}
-              >
-                <ArrowRightDuotone style={{ color: 'var(--main-color)' }} />
-              </ViewLink>
-            </div>
             {/* Buchstäblich der Namenskasten der Artenliste: gleiche Klasse,
                 gleiche Variante, gleiche Rollen. */}
             <div className="species-row-name flex min-w-0 flex-col to-phone:basis-full">
