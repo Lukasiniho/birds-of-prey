@@ -44,7 +44,6 @@ export default function GlossaryExplorer() {
     // Run after the parent tab has scrolled its active label into view.
     const frame = window.requestAnimationFrame(() => {
       activeEntry.current?.scrollIntoView({ block: 'center' });
-      activeEntry.current?.focus({ preventScroll: true });
     });
     return () => window.cancelAnimationFrame(frame);
   }, [selected, selectedVisible]);
@@ -91,12 +90,11 @@ export default function GlossaryExplorer() {
             <div
               key={entry.id}
               ref={entry.id === selected ? activeEntry : undefined}
-              tabIndex={entry.id === selected ? -1 : undefined}
               id={`glossar-${entry.id}`}
-              className="glossary-entry grid content-start gap-half py-panel rounded-(--radius-small) data-[selected=true]:bg-(--selected)"
+              className="glossary-entry group grid content-start gap-half py-panel"
               data-selected={entry.id === selected}
             >
-              <dt className="font-(family-name:--font-stack-display) text-(length:--type-detail-heading) font-(--weight-label-heading) leading-(--leading-heading)">
+              <dt className="font-(family-name:--font-stack-display) text-(length:--type-detail-heading) font-(--weight-label-heading) leading-(--leading-heading) group-data-[selected=true]:underline group-data-[selected=true]:decoration-(--main-color) group-data-[selected=true]:decoration-2 group-data-[selected=true]:underline-offset-4">
                 {entry.term}
               </dt>
               <dd className="grid gap-2 text-(length:--type-body) leading-(--leading-relaxed)">
