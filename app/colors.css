@@ -56,9 +56,6 @@
   /* Weicher Lichtkegel hinter der Illustration, damit der Freisteller nicht
      im Nichts schwebt. */
   --stage-glow: color-mix(in srgb, var(--main-color) var(--tint-1), transparent);
-  /* Flugbühne: Wolkenbänke und Vergleichsschatten. */
-  --sky-cloud: var(--surface);
-  --flight-ghost: color-mix(in srgb, var(--main-color) var(--tint-4), transparent);
   --swatch-border: var(--line-tint);
   --select-background: var(--surface);
   --atlas-info-surface: var(--background);
@@ -127,8 +124,6 @@
   --atlas-info-surface: var(--surface);
   --atlas-measurement-surface: var(--surface);
   --stage-glow: color-mix(in srgb, var(--main-color) var(--tint-2), transparent);
-  --sky-cloud: color-mix(in srgb, var(--main-color) var(--tint-2), transparent);
-  --flight-ghost: color-mix(in srgb, var(--main-color) var(--tint-5), transparent);
   --map-land: #233039;
   --map-border: #42545f;
   --shadow-color-subtle: rgb(0 0 0 / 18%);
