@@ -1,0 +1,64 @@
+/* Erklärungen auf der Atlas-Bühne: Spannweitenmaß mit Vergleichsschatten und
+   Rufringe. Geometrie steht an den Komponenten (components/stage-overlays.tsx);
+   Tokens --wingspan-* und --call-* in transitions-root.css. */
+/* Während des Messens tritt der Vogel zurück, damit Linie und Schatten tragen. */
+.bird-art img {
+  transition: opacity var(--duration-slow) var(--ease-out);
+}
+.bird-art:has(.wing-caliper[data-drawn='true']) img {
+  opacity: var(--wingspan-dim);
+}
+/* Die Linie zeichnet sich, Enden und Schatten springen auf, zuletzt erscheint
+   der Wert. */
+.wing-caliper-line {
+  stroke-dasharray: 1;
+  stroke-dashoffset: 1;
+  transition: stroke-dashoffset var(--wingspan-draw-dur) var(--ease-smooth-out);
+}
+.wing-caliper :is(.wing-caliper-tip, .wingspan-ghost) {
+  scale: 0;
+  transform-box: fill-box;
+}
+.wing-caliper
+  :is(.wing-caliper-extension, .wingspan-ghost, .wing-caliper-label) {
+  opacity: 0;
+  filter: blur(var(--blur-small));
+}
+.wing-caliper
+  :is(
+    .wing-caliper-tip,
+    .wing-caliper-extension,
+    .wingspan-ghost,
+    .wing-caliper-label
+  ) {
+  transition:
+    opacity var(--duration-slow) var(--ease-out),
+    filter var(--duration-slow) var(--ease-out),
+    scale var(--wingspan-draw-dur) var(--ease-bounce);
+}
+.wing-caliper[data-drawn='true'] .wing-caliper-line {
+  stroke-dashoffset: 0;
+}
+.wing-caliper[data-drawn='true'] :is(*) {
+  opacity: 1;
+  filter: blur(0);
+  scale: 1;
+}
+.wing-caliper[data-drawn='true'] .wing-caliper-label {
+  transition-delay: calc(var(--wingspan-draw-dur) / 2);
+}
+/* Solange der Ruf läuft, tragen Ringe ihn über die Bühne. */
+.specimen-panel:has(.bird-audio-play[aria-pressed='true']) .call-rings span {
+  animation: call-ring var(--call-ring-dur) var(--ease-out) infinite;
+  animation-delay: calc(var(--call-ring-dur) * var(--ring-phase));
+}
+@keyframes call-ring {
+  from {
+    transform: scale(0.3);
+    opacity: 1;
+  }
+  to {
+    transform: scale(1.5);
+    opacity: 0;
+  }
+}

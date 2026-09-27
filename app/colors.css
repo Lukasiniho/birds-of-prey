@@ -56,6 +56,8 @@
   /* Weicher Lichtkegel hinter der Illustration, damit der Freisteller nicht
      im Nichts schwebt. */
   --stage-glow: color-mix(in srgb, var(--main-color) var(--tint-1), transparent);
+  /* Maßstabsgetreuer Vergleichsschatten beim Spannweitenmaß. */
+  --wingspan-ghost: color-mix(in srgb, var(--main-color) var(--tint-6), transparent);
   --swatch-border: var(--line-tint);
   --select-background: var(--surface);
   --atlas-info-surface: var(--background);

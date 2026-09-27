@@ -81,6 +81,10 @@
   --modal-open-dur: var(--duration-fast);
   --modal-scale: var(--scale-large);
   --modal-ease: var(--ease-smooth-out);
+  /* Stage overlays (atlas): wingspan dimension line, call rings */
+  --wingspan-draw-dur: calc(var(--duration-very-slow) * 1.4);
+  --wingspan-dim: 0.35;
+  --call-ring-dur: 2.4s;
   /* Stacked cards (quiz drag preview) */
   --stack-peek: 12px;
   --stack-scale: 0.97;

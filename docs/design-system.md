@@ -24,6 +24,7 @@ prüft diese Grenze; ungenutzte UI-Komponenten bleiben erhalten.
 | `app/search.css`           | Gemeinsames Suchfeld: Fläche, Text, Platzhalter und Fokus                 |
 | `app/atlas.css`            | Artenleiste, Bühne, Infobereich, Messwerte, Audio                        |
 | `app/motion.css`           | transitions.dev-Snippets: Akkordeon, Textreveal, Zahlen, Icon-Swap, Menü, Tab-Inhalt, Vollbild |
+| `app/stage-overlays.css`   | Atlas-Bühne: Spannweitenmaß mit Vergleichsschatten, Rufringe             |
 | `app/tags.css`             | Art-Tags und Verbreitungsstatus                                          |
 | `app/map.css`              | Verbreitungskarte                                                        |
 | `app/sections.css`         | Seitenrahmen und Titel für Quiz, Wissen und Falknerei                    |
@@ -122,6 +123,7 @@ Rollen wie der Atlas.
 | `--surface`                   | Erhabene Fläche: Karten, Menüs, Dropdown-Trigger                           |
 | `--stage`                     | Vertiefte Fläche: Bild- und Quizbühnen, Kartenwasser                       |
 | `--stage-glow`                | Weicher Lichtkegel hinter der Atlas-Illustration                           |
+| `--wingspan-ghost`            | Maßstabsgetreuer Vergleichsschatten beim Spannweitenmaß                    |
 | `--muted`                     | Ruhige Nebenfläche                                                         |
 | `--hover`                     | Zeilen- und Listen-Hover                                                   |
 | `--foreground`                | Text, Anatomiemarker                                                       |
@@ -405,7 +407,8 @@ Kurven: `--ease-smooth-out` (öffnen, schließen, gleiten), `--ease-in-out`
 (Icon- und Textwechsel), `--ease-out` (Hover-Farbe, Tooltip), `--ease-linear`
 (Shimmer, Spinner) und genau eine Überschwingkurve `--ease-bounce`. Die
 Snippet-Gruppen (`--digit-*`, `--dropdown-*`, `--icon-swap-*`, `--tabs-*`,
-`--stagger-*`, `--acc-*`, `--stack-*`, `--page-*`, `--modal-*`) verweisen auf
+`--stagger-*`, `--acc-*`, `--stack-*`, `--page-*`, `--modal-*`, `--wingspan-*`,
+`--call-*`) verweisen auf
 diese Skala. Tab-Pillen messen ihre Position dynamisch; `prefers-reduced-motion`
 schaltet Übergänge ab.
 
@@ -414,6 +417,18 @@ gewählten Tabs herein (`.t-page`, Richtung aus `data-activation-direction`);
 der erste Tab beim Laden steht still. Vollbildseiten (`FullscreenPage`) öffnen
 aus dem Atlas mit dem Modal-Übergang (`.t-modal`, Skalierung 0,96); ein direkter
 Aufruf lädt ohne Bewegung.
+
+## Erklärungen auf der Atlas-Bühne
+
+`components/stage-overlays.tsx`, Zustände in `app/stage-overlays.css`:
+
+- Hover, Fokus oder Tippen auf „Spannweite“ zeichnet die Maßlinie von
+  Flügelspitze zu Flügelspitze mit dem Wert. Die Spitzen misst
+  `lib/wing-geometry.ts` aus dem Alphakanal (gemeinsame Pose, keine Daten pro
+  Bild). Dazu erscheint der Mäusebussard (beim Mäusebussard der Steinadler)
+  maßstabsgetreu als Schatten; der Vogel tritt dafür auf `--wingspan-dim` zurück.
+- Während der Ruf läuft, laufen Ringe über die Bühne (`CallRings`).
+- `prefers-reduced-motion` stellt die Bewegung still; die Maßlinie bleibt.
 
 ## Breakpoints
 
