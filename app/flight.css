@@ -1,0 +1,83 @@
+/* Flugbühne im Atlas: Zustände und Bewegung. Geometrie steht an den
+   Komponenten (components/flight-stage.tsx); Tokens in transitions-root.css. */
+.flight-cloud {
+  background: radial-gradient(closest-side, var(--sky-cloud), transparent);
+  animation: sky-drift var(--sky-drift-dur) var(--ease-linear) infinite;
+  animation-delay: calc(var(--sky-drift-dur) * var(--cloud-phase));
+}
+@keyframes sky-drift {
+  from {
+    transform: translateX(-100%);
+  }
+  to {
+    transform: translateX(100cqw);
+  }
+}
+/* Ein Artwechsel ist ein Durchflug: der alte Vogel zieht links am Betrachter
+   vorbei, der neue gleitet von rechts aus der Tiefe heran. Kleid und Morphe
+   wechseln weiter deckungsgleich per Icon-Swap. */
+.bird-art[data-motion='fly'] .t-icon[data-phase='shown'] {
+  transition-duration: var(--flight-enter-dur);
+  transition-timing-function: var(--flight-ease);
+}
+.bird-art[data-motion='fly'] .t-icon:not([data-phase='shown']) {
+  transform: translate(var(--flight-enter-x), var(--flight-rise))
+    scale(var(--flight-far));
+  filter: blur(var(--blur-large));
+  transition: none;
+}
+.bird-art[data-motion='fly'] .t-icon[data-phase='leaving'] {
+  transform: translate(var(--flight-exit-x), calc(var(--flight-rise) * -1))
+    scale(var(--flight-near));
+  transition-property: opacity, filter, transform;
+  transition-duration: var(--flight-exit-dur);
+  transition-timing-function: var(--flight-ease);
+}
+/* Solange der Ruf läuft, tragen Ringe ihn über die Bühne. */
+.specimen-panel:has(.bird-audio-play[aria-pressed='true']) .call-rings span {
+  animation: call-ring var(--call-ring-dur) var(--ease-out) infinite;
+  animation-delay: calc(var(--call-ring-dur) * var(--ring-phase));
+}
+@keyframes call-ring {
+  from {
+    transform: scale(0.3);
+    opacity: 1;
+  }
+  to {
+    transform: scale(1.5);
+    opacity: 0;
+  }
+}
+/* Spannweitenmaß: die Linie zeichnet sich, Enden und Schatten springen auf,
+   zuletzt erscheint der Wert. */
+.wing-caliper-line {
+  stroke-dasharray: 1;
+  stroke-dashoffset: 1;
+  transition: stroke-dashoffset var(--flight-draw-dur) var(--flight-ease);
+}
+.wing-caliper :is(.wing-caliper-tip, .flight-ghost) {
+  scale: 0;
+  transform-box: fill-box;
+  transition:
+    scale var(--flight-draw-dur) var(--ease-bounce),
+    opacity var(--duration-slow) var(--ease-out);
+}
+.wing-caliper :is(.wing-caliper-extension, .flight-ghost, .wing-caliper-label) {
+  opacity: 0;
+  filter: blur(var(--blur-small));
+  transition:
+    opacity var(--duration-slow) var(--ease-out),
+    filter var(--duration-slow) var(--ease-out),
+    scale var(--flight-draw-dur) var(--ease-bounce);
+}
+.wing-caliper[data-drawn='true'] .wing-caliper-line {
+  stroke-dashoffset: 0;
+}
+.wing-caliper[data-drawn='true'] :is(*) {
+  opacity: 1;
+  filter: blur(0);
+  scale: 1;
+}
+.wing-caliper[data-drawn='true'] .wing-caliper-label {
+  transition-delay: calc(var(--flight-draw-dur) / 2);
+}

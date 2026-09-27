@@ -81,6 +81,18 @@
   --modal-open-dur: var(--duration-fast);
   --modal-scale: var(--scale-large);
   --modal-ease: var(--ease-smooth-out);
+  /* Flight stage (atlas): species fly through, sky drifts, calls ring out */
+  --flight-enter-dur: calc(var(--duration-very-slow) * 1.6);
+  --flight-exit-dur: var(--duration-very-slow);
+  --flight-ease: var(--ease-smooth-out);
+  --flight-enter-x: 26%;
+  --flight-exit-x: -30%;
+  --flight-rise: 3%;
+  --flight-far: 0.82;
+  --flight-near: 1.1;
+  --flight-draw-dur: calc(var(--duration-very-slow) * 1.4);
+  --sky-drift-dur: 140s;
+  --call-ring-dur: 2.4s;
   /* Stacked cards (quiz drag preview) */
   --stack-peek: 12px;
   --stack-scale: 0.97;

@@ -1,5 +1,9 @@
 'use client';
-import { AtlasInfoPanel, AtlasPanelBody, SpecimenHeader } from '@/components/atlas-panel';
+import {
+  AtlasInfoPanel,
+  AtlasPanelBody,
+  SpecimenHeader,
+} from '@/components/atlas-panel';
 import { GlossaryText } from '@/components/glossary-text';
 import { EcologyTag } from '@/components/ecology-tag';
 import { MeasurementStrip } from '@/components/measurement-strip';
@@ -23,6 +27,13 @@ import { useEffect, useRef, useState } from 'react';
 import { useSlidingPill } from '@/lib/use-sliding-pill';
 import { SegmentedControl } from '@/components/segmented-control';
 import { ArtImage } from '@/components/art-image';
+import {
+  CallRings,
+  FlightRig,
+  FlightSky,
+  WingOverlay,
+  type WingReference,
+} from '@/components/flight-stage';
 import { BirdAudio, BirdAudioCredit } from '@/components/bird-audio';
 import { birdRecordings } from '@/lib/bird-recordings';
 import {
@@ -231,10 +242,15 @@ function Measurement({
   unit,
   sex,
   onSexChange,
+  onInspect,
+  inspecting = false,
   className = '',
   withAudio = false,
 }: {
   withAudio?: boolean;
+  /** Makes the cell explain itself on the stage: hover, focus or tap. */
+  onInspect?: (on: boolean) => void;
+  inspecting?: boolean;
   label: string;
   range: MeasurementRange;
   sexes?: { male?: MeasurementRange; female?: MeasurementRange };
@@ -244,9 +260,30 @@ function Measurement({
   className?: string;
 }) {
   const shown = (sexes?.male && sexes?.female && sexes[sex]) || range;
+  const lastPointer = useRef('mouse');
+  const inspect = onInspect && {
+    tabIndex: 0,
+    role: 'button',
+    'aria-pressed': inspecting,
+    'aria-label': `${label} ${formatMeasurement(shown)} ${unit}: auf der Bühne von Flügelspitze zu Flügelspitze einzeichnen`,
+    'data-inspecting': inspecting,
+    onPointerDown: (event: React.PointerEvent) => {
+      lastPointer.current = event.pointerType;
+    },
+    onPointerEnter: (event: React.PointerEvent) =>
+      event.pointerType === 'mouse' && onInspect(true),
+    onPointerLeave: (event: React.PointerEvent) =>
+      event.pointerType === 'mouse' && onInspect(false),
+    onFocus: () => onInspect(true),
+    onBlur: () => onInspect(false),
+    onClick: () => lastPointer.current !== 'mouse' && onInspect(!inspecting),
+  };
   return (
     <div
+      {...inspect}
       className={cn(
+        onInspect &&
+          'cursor-help rounded-(--radius-control) [&[data-inspecting=true]_.measurement-label]:text-(--main-color) [&_.measurement-label]:transition-colors [&_.measurement-label]:duration-(--duration-quick)',
         'measurement-cell min-w-0 m-0 text-center [container-type:inline-size]',
         withAudio
           ? 'grid grid-cols-[minmax(0,1fr)] grid-rows-[var(--space-24)_auto] content-center items-center justify-items-center gap-y-half px-3 to-tablet:px-[7px] to-phone:px-1'
@@ -349,20 +386,49 @@ function RevealHeading({
 }
 /* transitions.dev tabs sliding: JS writes the active tab's offset and width
    onto the pill, CSS tweens it. A new group (another species) snaps instead. */
-type ArtLayer = { src: string; alt: string };
-type ArtSlots = { a: ArtLayer; b: ArtLayer | null; active: 'a' | 'b' };
+type ArtLayer = { src: string; alt: string; birdId: string };
+type ArtSlots = {
+  a: ArtLayer;
+  b: ArtLayer | null;
+  active: 'a' | 'b';
+  /** The slot holding a decoded image that has not been shown yet. */
+  pending: 'a' | 'b' | null;
+  /** A new species flies through; a new plumage or morph swaps in place. */
+  motion: 'fly' | 'swap';
+};
+/* Familiar yardstick for the wingspan: the Mäusebussard, or the Steinadler
+   when the Mäusebussard itself is on show. */
+const wingReferences = new Map<string, WingReference | undefined>();
+function wingReference(birdId: string) {
+  const id = birdId === 'maeusebussard' ? 'steinadler' : 'maeusebussard';
+  if (!wingReferences.has(id)) {
+    const reference = speciesById[id];
+    wingReferences.set(
+      id,
+      reference && {
+        name: reference.name,
+        src: imageSource(birdImage(id, 'male')),
+        span: (reference.span[0] + reference.span[1]) / 2,
+      },
+    );
+  }
+  return wingReferences.get(id);
+}
 /* transitions.dev icon swap: both illustrations sit in one grid cell and
    data-state picks the visible one. A new image is decoded first, parked in
    the hidden slot, then the state flips on the next frame so it fades in
-   while the old one fades out with blur and a slight scale. */
+   while the old one fades out with blur and a slight scale. A new species
+   flies through instead (flight.css). */
 function BirdArt({
   bird,
   plumage,
   morphId,
+  measuring,
 }: {
   bird: BirdSpecies;
   plumage: Plumage;
   morphId?: string;
+  measuring: boolean;
 }) {
   const morphConfig = getBirdMorphConfig(bird.id, plumage);
   const morph = getBirdMorphChoice(bird.id, morphId, plumage);
@@ -372,9 +438,11 @@ function BirdArt({
   );
   const nextAlt = `${bird.name} – ${plumagesFor(bird.id).find((p) => p.value === plumage)!.label}${morph ? `, ${morphConfig!.label} ${morph.label}` : ''}`;
   const [slots, setSlots] = useState<ArtSlots>({
-    a: { src: nextSource, alt: nextAlt },
+    a: { src: nextSource, alt: nextAlt, birdId: bird.id },
     b: null,
     active: 'a',
+    pending: null,
+    motion: 'swap',
   });
   const [failedSource, setFailedSource] = useState<string | null>(null);
   const [retry, setRetry] = useState(0);
@@ -390,11 +458,14 @@ function BirdArt({
         const next = slots.active === 'a' ? 'b' : 'a';
         setSlots((s) => ({
           ...s,
-          [next]: { src: nextSource, alt: nextAlt },
+          [next]: { src: nextSource, alt: nextAlt, birdId: bird.id },
+          pending: next,
+          motion: s[s.active]!.birdId === bird.id ? 'swap' : 'fly',
         }));
         frame = requestAnimationFrame(() => {
           frame = requestAnimationFrame(() => {
-            if (!cancelled) setSlots((s) => ({ ...s, active: next }));
+            if (!cancelled)
+              setSlots((s) => ({ ...s, active: next, pending: null }));
           });
         });
       })
@@ -405,34 +476,50 @@ function BirdArt({
       cancelled = true;
       cancelAnimationFrame(frame);
     };
-  }, [nextSource, nextAlt, shown.src, slots.active, retry]);
+  }, [nextSource, nextAlt, bird.id, shown.src, slots.active, retry]);
   return (
     <div
       className="bird-art relative grid grid-cols-1 grid-rows-1 size-full max-h-full overflow-visible items-center justify-center t-icon-swap"
       data-state={slots.active}
+      data-motion={slots.motion}
       aria-busy={nextSource !== shown.src}
     >
       {(['a', 'b'] as const).map((slot) => {
         const layer = slots[slot];
+        if (!layer) return null;
+        const species = speciesById[layer.birdId];
         return (
-          layer && (
-            <span
-              className="t-icon col-start-1 row-start-1 place-self-center overflow-hidden block size-full max-h-full min-w-0 min-h-0"
-              data-icon={slot}
-              key={slot}
-            >
-              <ArtImage
-                className="p-5 to-phone:p-[15px] from-compact:p-0 block size-full max-w-full object-contain max-h-full pointer-events-none select-none"
-                key={layer.src}
-                src={layer.src}
-                alt={slots.active === slot ? layer.alt : ''}
-                width={1536}
-                height={1536}
-                sizes="(max-width: 980px) 100vw, 920px"
-                priority
-              />
-            </span>
-          )
+          <span
+            className="t-icon col-start-1 row-start-1 place-self-center overflow-hidden block size-full max-h-full min-w-0 min-h-0 relative"
+            data-icon={slot}
+            data-phase={
+              slot === slots.active
+                ? 'shown'
+                : slot === slots.pending
+                  ? 'parked'
+                  : 'leaving'
+            }
+            key={slot}
+          >
+            <ArtImage
+              className="p-5 to-phone:p-[15px] from-compact:p-0 block size-full max-w-full object-contain max-h-full pointer-events-none select-none"
+              key={layer.src}
+              src={layer.src}
+              alt={slots.active === slot ? layer.alt : ''}
+              width={1536}
+              height={1536}
+              sizes="(max-width: 980px) 100vw, 920px"
+              priority
+            />
+            <WingOverlay
+              className="p-5 to-phone:p-[15px] from-compact:p-0"
+              src={layer.src}
+              span={(species.span[0] + species.span[1]) / 2}
+              spanLabel={`${formatMeasurement(species.span)} cm`}
+              measuring={measuring && slot === slots.active}
+              reference={wingReference(layer.birdId)}
+            />
+          </span>
         );
       })}
       {failedSource === nextSource && (
@@ -543,6 +630,8 @@ export default function RaptorApp({
   const [hintOpen, setHintOpen] = useState(false);
   const [pickerOpen, setPickerOpen] = useState(false);
   const [infoTab, setInfoTab] = useState<BirdInfoTab>('profil');
+  const [measuring, setMeasuring] = useState(false);
+  const swipe = useRef<{ x: number; y: number } | null>(null);
   const [taxonomyBranch, setTaxonomyBranch] = useState(() =>
     taxonomyPathForSearch('', initialBirdId),
   );
@@ -938,6 +1027,8 @@ export default function RaptorApp({
         range={bird.span}
         unit="cm"
         sex={sex}
+        onInspect={setMeasuring}
+        inspecting={measuring}
       />
       {/* Drops out on a narrow stage, where three labels would
         collide; the CSS says at which width. */}
@@ -1205,8 +1296,9 @@ export default function RaptorApp({
           </Sidebar>
           <main
             id="main-content"
-            className="specimen-panel [container:atlas-stage/inline-size] bg-stage relative flex flex-col min-w-0 min-h-[860px] from-compact:h-full from-compact:min-h-0 to-compact:min-h-[830px] to-phone:min-h-[620px] overflow-hidden"
+            className="specimen-panel [container:atlas-stage/inline-size] bg-stage relative isolate flex flex-col min-w-0 min-h-[860px] from-compact:h-full from-compact:min-h-0 to-compact:min-h-[830px] to-phone:min-h-[620px] overflow-hidden"
           >
+            <FlightSky />
             <SpecimenHeader>
               <RevealHeading
                 name={bird.name}
@@ -1295,13 +1387,39 @@ export default function RaptorApp({
                 )}
               </div>
               <div className="plumage-panel outline-none from-compact:overflow-visible flex flex-1 min-h-0 items-center justify-center overflow-hidden">
-                <div className="image-stage size-full from-compact:overflow-visible to-phone:min-h-[350px] relative flex-1 overflow-hidden flex items-center justify-center min-h-0">
-                  <div className="hero-art to-phone:w-[112%] from-compact:h-full from-compact:max-h-full from-compact:aspect-auto grid grid-cols-1 grid-rows-1 place-items-center shrink-0 pointer-events-none w-full aspect-square max-w-[950px]">
-                    <BirdArt
-                      bird={bird}
-                      plumage={plumage}
-                      morphId={morph?.id}
-                    />
+                {/* A sideways swipe on a touch screen flies to the neighbouring
+                    species; vertical pans still scroll the page. */}
+                <div
+                  className="image-stage size-full from-compact:overflow-visible to-phone:min-h-[350px] relative flex-1 overflow-hidden flex items-center justify-center min-h-0 touch-pan-y"
+                  onPointerDown={(event) => {
+                    swipe.current =
+                      event.pointerType === 'mouse'
+                        ? null
+                        : { x: event.clientX, y: event.clientY };
+                  }}
+                  onPointerUp={(event) => {
+                    const start = swipe.current;
+                    swipe.current = null;
+                    if (!start) return;
+                    const dx = event.clientX - start.x;
+                    const dy = event.clientY - start.y;
+                    if (Math.abs(dx) > 56 && Math.abs(dx) > Math.abs(dy) * 1.5)
+                      stepSpecies(dx < 0 ? 1 : -1);
+                  }}
+                  onPointerCancel={() => {
+                    swipe.current = null;
+                  }}
+                >
+                  <CallRings />
+                  <div className="hero-art relative to-phone:w-[112%] from-compact:h-full from-compact:max-h-full from-compact:aspect-auto grid grid-cols-1 grid-rows-1 place-items-center shrink-0 pointer-events-none w-full aspect-square max-w-[950px]">
+                    <FlightRig>
+                      <BirdArt
+                        bird={bird}
+                        plumage={plumage}
+                        morphId={morph?.id}
+                        measuring={measuring}
+                      />
+                    </FlightRig>
                   </div>
                 </div>
               </div>
@@ -1316,9 +1434,7 @@ export default function RaptorApp({
               />
             </div>
           </main>
-          <AtlasInfoPanel
-            aria-label={`Informationen zum ${bird.name}`}
-          >
+          <AtlasInfoPanel aria-label={`Informationen zum ${bird.name}`}>
             <Tabs
               value={infoTab}
               onValueChange={(v) => selectInfoTab(v as BirdInfoTab)}
