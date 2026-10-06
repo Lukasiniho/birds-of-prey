@@ -47,7 +47,7 @@ import {
   type BirdInfoTab,
 } from '@/lib/bird-routes';
 import { techniqueHref } from '@/lib/knowledge-routes';
-import { SITE_DESCRIPTION, SITE_NAME, SITE_URL } from '@/lib/site';
+import { SITE_DESCRIPTION, SITE_NAME, SITE_TITLE, SITE_URL } from '@/lib/site';
 import {
   Feather,
   CaretDown,
@@ -680,7 +680,7 @@ export default function RaptorApp({
     if (!path) return;
     const home = path === '/';
     const title = home
-      ? SITE_NAME
+      ? SITE_TITLE
       : birdPageTitle(bird, fullscreen) + (taxonomyOpen ? ' – Systematik' : '');
     const href = home
       ? '/'

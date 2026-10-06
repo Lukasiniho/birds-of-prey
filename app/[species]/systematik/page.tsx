@@ -1,8 +1,11 @@
 import type { Metadata } from 'next';
 import { notFound } from 'next/navigation';
 import RaptorApp from '../../raptor-app';
+import type { BirdSpecies } from '@/lib/birds';
 import { birdsBySlug, birdTaxonomyHref } from '@/lib/bird-routes';
 import { birdMetadata } from '@/lib/bird-metadata';
+import { birdStructuredData } from '@/lib/bird-structured-data';
+import { JsonLd } from '@/components/json-ld';
 
 export const dynamicParams = false;
 export function generateStaticParams() {
@@ -16,7 +19,7 @@ export async function generateMetadata({
   const bird = birdsBySlug[(await params).species];
   if (!bird) return {};
   const metadata = birdMetadata(bird);
-  const title = `${bird.name} (${bird.latin}) – Systematik`;
+  const title = taxonomyTitle(bird);
   const href = birdTaxonomyHref(bird);
   return {
     ...metadata,
@@ -25,6 +28,9 @@ export async function generateMetadata({
     openGraph: { ...metadata.openGraph, title, url: href },
   };
 }
+function taxonomyTitle(bird: BirdSpecies) {
+  return `${bird.name} (${bird.latin}) – Systematik`;
+}
 export default async function Page({
   params,
 }: {
@@ -32,5 +38,12 @@ export default async function Page({
 }) {
   const bird = birdsBySlug[(await params).species];
   if (!bird) notFound();
-  return <RaptorApp initialBirdId={bird.id} initialTaxonomy />;
+  return (
+    <>
+      <JsonLd
+        data={birdStructuredData(bird, 'systematik', taxonomyTitle(bird))}
+      />
+      <RaptorApp initialBirdId={bird.id} initialTaxonomy />
+    </>
+  );
 }
