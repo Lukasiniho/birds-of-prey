@@ -2,6 +2,7 @@ import type { Metadata } from 'next';
 import { birdImage, type BirdSpecies } from './birds';
 import { birdFullscreenHref, birdHref, birdPageTitle } from './bird-routes';
 import { imageSource } from './optimized-images';
+import { BASE_OPEN_GRAPH } from './site';
 
 export function birdMetadata(bird: BirdSpecies, fullscreen = false): Metadata {
   const title = birdPageTitle(bird, fullscreen);
@@ -11,6 +12,7 @@ export function birdMetadata(bird: BirdSpecies, fullscreen = false): Metadata {
     description: bird.intro,
     alternates: { canonical: href },
     openGraph: {
+      ...BASE_OPEN_GRAPH,
       title,
       description: bird.intro,
       url: href,

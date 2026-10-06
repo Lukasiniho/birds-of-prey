@@ -1,8 +1,10 @@
 import type { Metadata } from 'next';
 import { notFound } from 'next/navigation';
 import RaptorApp from '../raptor-app';
-import { birdsBySlug } from '@/lib/bird-routes';
+import { birdPageTitle, birdsBySlug } from '@/lib/bird-routes';
 import { birdMetadata } from '@/lib/bird-metadata';
+import { birdStructuredData } from '@/lib/bird-structured-data';
+import { JsonLd } from '@/components/json-ld';
 export const dynamicParams = false;
 export function generateStaticParams() {
   return Object.keys(birdsBySlug).map((species) => ({ species }));
@@ -25,5 +27,12 @@ export default async function Page({
   const { species } = await params;
   const bird = birdsBySlug[species];
   if (!bird) notFound();
-  return <RaptorApp initialBirdId={bird.id} />;
+  return (
+    <>
+      <JsonLd
+        data={birdStructuredData(bird, 'overview', birdPageTitle(bird))}
+      />
+      <RaptorApp initialBirdId={bird.id} />
+    </>
+  );
 }

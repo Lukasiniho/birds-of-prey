@@ -2,7 +2,9 @@ import type { Metadata, Viewport } from 'next';
 import localFont from 'next/font/local';
 import './globals.css';
 import { TooltipProvider } from '@/components/ui/tooltip';
+import { JsonLd } from '@/components/json-ld';
 import {
+  BASE_OPEN_GRAPH,
   SITE_DESCRIPTION,
   SITE_NAME,
   SITE_URL,
@@ -56,14 +58,7 @@ export const metadata: Metadata = {
     ],
     apple: '/icons/apple-touch-icon.png',
   },
-  openGraph: {
-    type: 'website',
-    locale: 'de_DE',
-    siteName: SITE_NAME,
-    images: [
-      { url: '/icons/og-image.png', width: 1200, height: 630, alt: SITE_NAME },
-    ],
-  },
+  openGraph: BASE_OPEN_GRAPH,
   twitter: { card: 'summary_large_image' },
   robots: { index: true, follow: true },
 };
@@ -90,10 +85,7 @@ export default function RootLayout({
   return (
     <html lang="de">
       <body className={`${displayFont.variable} ${bodyFont.variable}`}>
-        <script
-          type="application/ld+json"
-          dangerouslySetInnerHTML={{ __html: JSON.stringify(websiteJsonLd) }}
-        />
+        <JsonLd data={websiteJsonLd} />
         <TooltipProvider delay={180}>{children}</TooltipProvider>
       </body>
     </html>
