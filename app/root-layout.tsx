@@ -3,12 +3,15 @@ import localFont from 'next/font/local';
 import './globals.css';
 import { TooltipProvider } from '@/components/ui/tooltip';
 import { I18nProvider } from '@/components/i18n';
-import { localeTags, type Locale } from '@/lib/i18n';
+import { JsonLd } from '@/components/json-ld';
+import { languageAlternates, type Locale } from '@/lib/i18n';
 import { serverTranslator } from '@/lib/i18n/en';
 import {
+  baseOpenGraph,
   SITE_DESCRIPTION,
   SITE_NAMES,
   SITE_URLS,
+  siteTitle,
   THEME_COLOR_DARK,
   THEME_COLOR_LIGHT,
 } from '@/lib/site';
@@ -62,22 +65,27 @@ export const rootMetadata = (locale: Locale): Metadata => ({
     ],
     apple: '/icons/apple-touch-icon.png',
   },
-  openGraph: {
-    type: 'website',
-    locale: localeTags[locale].replace('-', '_'),
-    siteName: SITE_NAMES[locale],
-    images: [
-      {
-        url: '/icons/og-image.png',
-        width: 1200,
-        height: 630,
-        alt: SITE_NAMES[locale],
-      },
-    ],
-  },
+  openGraph: baseOpenGraph(locale),
   twitter: { card: 'summary_large_image' },
   robots: { index: true, follow: true },
 });
+/** Metadata for the home page of either site: the full title and its own
+ * OpenGraph block (Next replaces `openGraph` per page instead of merging). */
+export const homeMetadata = (locale: Locale): Metadata => {
+  const t = serverTranslator(locale);
+  const title = siteTitle(locale, t);
+  const alternates = languageAlternates('/', locale);
+  return {
+    title: { absolute: title },
+    alternates,
+    openGraph: {
+      ...baseOpenGraph(locale),
+      title,
+      description: t(SITE_DESCRIPTION),
+      url: alternates.canonical,
+    },
+  };
+};
 export const viewport: Viewport = {
   themeColor: [
     { media: '(prefers-color-scheme: light)', color: THEME_COLOR_LIGHT },
@@ -103,10 +111,7 @@ export function RootShell({
   return (
     <html lang={locale}>
       <body className={`${displayFont.variable} ${bodyFont.variable}`}>
-        <script
-          type="application/ld+json"
-          dangerouslySetInnerHTML={{ __html: JSON.stringify(websiteJsonLd) }}
-        />
+        <JsonLd data={websiteJsonLd} />
         <I18nProvider locale={locale}>
           <TooltipProvider delay={180}>{children}</TooltipProvider>
         </I18nProvider>

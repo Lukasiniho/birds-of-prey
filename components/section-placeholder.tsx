@@ -10,7 +10,7 @@ export function SectionPlaceholder({
   title,
   description,
 }: {
-  section: Exclude<SiteSection, 'birds'>;
+  section: SiteSection;
   title: string;
   description: string;
 }) {

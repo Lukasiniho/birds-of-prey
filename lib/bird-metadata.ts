@@ -4,6 +4,7 @@ import { birdFullscreenHref, birdHref, birdPageTitle } from './bird-routes';
 import { imageSource } from './optimized-images';
 import { languageAlternates, type Locale } from './i18n';
 import { serverTranslator } from './i18n/en';
+import { baseOpenGraph } from './site';
 
 export function birdMetadata(
   bird: BirdSpecies,
@@ -21,6 +22,7 @@ export function birdMetadata(
     description: t(bird.intro),
     alternates,
     openGraph: {
+      ...baseOpenGraph(locale),
       title,
       description: t(bird.intro),
       url: alternates.canonical,

@@ -1,7 +1,6 @@
-import type { Metadata } from 'next';
 import RaptorApp from '../raptor-app';
-import { languageAlternates } from '@/lib/i18n';
-export const metadata: Metadata = { alternates: languageAlternates('/', 'en') };
+import { homeMetadata } from '../root-layout';
+export const metadata = homeMetadata('en');
 export default function Home() {
   return <RaptorApp />;
 }
