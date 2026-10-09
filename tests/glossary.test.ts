@@ -53,3 +53,37 @@ void test('search finds aliases, umlaut transliterations and filtered results', 
   assert.deepEqual(filterGlossary('keinbegriffxyz'), []);
   assert.equal(filterGlossary('   ').length, glossaryEntries.length);
 });
+
+void test('English pages match, search and sort the translated terms', () => {
+  const dict: Record<string, string> = {
+    Handschwingen: 'primaries',
+    Handschwinge: 'primary',
+    Stoßflug: 'stoop',
+  };
+  const t = (text: string) => dict[text] ?? text;
+  const parts = splitGlossaryText(
+    'Primaries spread, then a STOOP; Handschwingen stays German.',
+    undefined,
+    'en',
+    t,
+  );
+  assert.deepEqual(
+    parts.flatMap((part) => (part.id ? [[part.id, part.term]] : [])),
+    [
+      ['handschwingen', 'primaries'],
+      ['stossflug', 'stoop'],
+    ],
+  );
+  assert.ok(
+    filterGlossary('primary', 'Alle', t, 'en').some(
+      (entry) => entry.id === 'handschwingen',
+    ),
+  );
+  const sorted = filterGlossary('', 'Alle', t, 'en').map((entry) =>
+    t(entry.term),
+  );
+  assert.deepEqual(
+    sorted,
+    [...sorted].sort((a, b) => a.localeCompare(b, 'en')),
+  );
+});

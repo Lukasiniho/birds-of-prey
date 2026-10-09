@@ -3,6 +3,8 @@
 import { useEffect, useRef, type ReactNode } from 'react';
 import { birds } from '@/lib/birds';
 import { taxonomyRoot } from '@/lib/taxonomy';
+import { useI18n } from '@/components/i18n';
+import { localePath } from '@/lib/i18n';
 import { Info } from '@/components/icons';
 import { birdTaxonomyHref } from '@/lib/bird-routes';
 import { TaxonomyTree } from '@/components/taxonomy-tree';
@@ -23,11 +25,14 @@ function TaxonomyExplorer({
   path: string[];
   onPathChange: (path: string[]) => void;
 }) {
+  const { t } = useI18n();
   return (
     <div className="flex min-h-0 min-w-0 flex-col gap-3">
       <p className="text-(length:--type-caption) text-muted-foreground">
-        {taxonomyRoot.atlasCount} im Atlas · {taxonomyRoot.totalCount} Arten
-        insgesamt
+        {t('{atlas} im Atlas · {total} Arten insgesamt', {
+          atlas: taxonomyRoot.atlasCount,
+          total: taxonomyRoot.totalCount,
+        })}
       </p>
       <div className="flex min-h-0 flex-1">
         <TaxonomyMobileTree
@@ -44,7 +49,7 @@ function TaxonomyExplorer({
         />
       </div>
       <p className="text-(length:--type-caption) text-muted-foreground">
-        Systematik:{' '}
+        {t('Systematik:')}{' '}
         <a
           className="text-primary"
           href="https://doi.org/10.2173/avilist.v2025b"
@@ -53,7 +58,7 @@ function TaxonomyExplorer({
         >
           AviList v2025b
         </a>{' '}
-        (CC BY 4.0) · Deutsche Namen:{' '}
+        (CC BY 4.0) · {t('Deutsche Namen:')}{' '}
         <a
           className="text-primary"
           href="https://github.com/tphakala/openfauna"
@@ -77,14 +82,15 @@ export function TaxonomyTrigger({
   onOpen: () => void;
   children: ReactNode;
 }) {
+  const { locale, t } = useI18n();
   const bird = byId.get(selected)!;
   return (
     <a
       id="taxonomy-trigger"
-      href={birdTaxonomyHref(bird)}
+      href={localePath(birdTaxonomyHref(bird), locale)}
       className="relative z-1 inline-block max-w-full rounded-(--radius-control) hover:bg-hover"
-      aria-label={`Systematik von ${bird.name} öffnen`}
-      title="Systematik öffnen"
+      aria-label={t('Systematik von {name} öffnen', { name: t(bird.name) })}
+      title={t('Systematik öffnen')}
       onClick={(event) => {
         if (
           event.button !== 0 ||
@@ -123,6 +129,7 @@ export function TaxonomyFullscreen({
   atlasHref: string;
   onClose: () => void;
 }) {
+  const { t } = useI18n();
   const page = useRef<HTMLElement>(null);
   useEffect(() => {
     page.current?.focus();
@@ -147,14 +154,15 @@ export function TaxonomyFullscreen({
         actions={
           <CloseLink
             href={atlasHref}
-            label="Systematik schließen"
+            label={t('Systematik schließen')}
             onNavigate={onClose}
           />
         }
         description={
           <p className="text-(length:--type-body) text-muted-foreground">
-            Von der Ordnung bis zur Art. Äste aufklappen und Arten mit Porträt
-            im Atlas öffnen.
+            {t(
+              'Von der Ordnung bis zur Art. Äste aufklappen und Arten mit Porträt im Atlas öffnen.',
+            )}
           </p>
         }
       >
@@ -162,7 +170,7 @@ export function TaxonomyFullscreen({
           id="taxonomy-title"
           className="page-title font-(family-name:--font-stack-display) text-(length:--type-page-title) font-(--weight-semibold) leading-(--leading-display) tracking-(--tracking-tight)"
         >
-          Systematik der Vögel
+          {t('Systematik der Vögel')}
         </h1>
       </SurfaceHeader>
       <SurfaceBody className="flex min-h-0 flex-1 flex-col">

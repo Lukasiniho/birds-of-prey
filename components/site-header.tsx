@@ -23,22 +23,34 @@ import {
   DropdownMenuLabel,
   DropdownMenuSeparator,
 } from '@/components/ui/dropdown-menu';
-import { Button } from '@/components/ui/button';
+import { Button, buttonVariants } from '@/components/ui/button';
 import { SearchField } from '@/components/search-field';
+import { useI18n } from '@/components/i18n';
+import { currentUrl, localePath, msg } from '@/lib/i18n';
+import { SITE_NAMES } from '@/lib/site';
+import { cn } from '@/lib/utils';
 
 const sections = [
-  { id: 'birds', label: 'Vögel', href: '/' },
-  { id: 'wissen', label: 'Wissen', href: '/wissen' },
+  { id: 'birds', label: msg('Vögel'), href: '/' },
+  { id: 'wissen', label: msg('Wissen'), href: '/wissen' },
   { id: 'quiz', label: 'Quiz', href: '/quiz' },
 ] as const;
 
 export type SiteSection = (typeof sections)[number]['id'] | 'falknerei';
 
 const siteLinks = [
-  { label: 'Meine Webseite', href: 'https://lukasvonhohnhorst.com' },
-  { label: 'Mentale Modelle „Weltklugheit“', href: 'https://weltklugheit.com' },
-  { label: 'Lerntracking-App „Athenify“', href: 'https://athenify.io' },
-  { label: 'Fantasy-Projekt „Katamtka“', href: 'https://katamtka.de' },
+  { label: msg('Meine Webseite'), href: 'https://lukasvonhohnhorst.com' },
+  { label: msg('Lerntracking-App „Athenify“'), href: 'https://athenify.io' },
+  {
+    label: msg('Geschichtsatlas „World War Atlas“'),
+    href: 'https://worldwaratlas.com',
+  },
+  { label: msg('Kartenspiel „Hexarcana“'), href: 'https://hexarcana-game.com' },
+  {
+    label: msg('Mentale Modelle „Weltklugheit“'),
+    href: 'https://weltklugheit.com',
+  },
+  { label: msg('Fantasy-Projekt „Katamtka“'), href: 'https://katamtka.de' },
 ] as const;
 
 function SiteMenuItem(props: ComponentProps<typeof DropdownMenuItem>) {
@@ -60,6 +72,17 @@ export function SiteHeader({
   onQueryChange?: (query: string) => void;
 }) {
   const [dark, setDark] = useState(false);
+  const { locale, t } = useI18n();
+  const otherLocale = locale === 'de' ? 'en' : 'de';
+  // Same page in the other language; read on use because the atlas swaps
+  // its URL with pushState.
+  function pointLanguageLink(event: { currentTarget: HTMLAnchorElement }) {
+    const url = currentUrl();
+    event.currentTarget.href = localePath(
+      url.pathname + url.search + url.hash,
+      otherLocale,
+    );
+  }
 
   useEffect(() => {
     const timer = window.setTimeout(() => {
@@ -89,7 +112,7 @@ export function SiteHeader({
     >
       <div className="header-brand col-start-1 row-start-1 flex items-center gap-3 min-w-0 to-tablet:contents">
         <a
-          href="/"
+          href={localePath('/', locale)}
           className="site-title flex flex-none items-center gap-2 min-w-0 font-(family-name:--font-stack-body) text-(length:--type-brand) font-(--weight-medium) tracking-(--tracking-tight) leading-(--leading-display) whitespace-nowrap to-tablet:col-start-1 to-tablet:row-start-1"
         >
           <span
@@ -105,29 +128,29 @@ export function SiteHeader({
               displayWidth={48}
             />
           </span>
-          <span className="to-tablet:truncate">Greifvogelkompass</span>
+          <span className="to-tablet:truncate">{SITE_NAMES[locale]}</span>
         </a>
         {activeSection === 'birds' && onQueryChange && (
           <SearchField
             query={query}
             onQueryChange={onQueryChange}
-            label="Vogelart suchen"
+            label={t('Vogelart suchen')}
             className="topbar-search flex-[0_1_220px] min-w-[140px] w-full m-0 to-tablet:col-span-full to-tablet:row-start-2 to-phone:hidden"
           />
         )}
       </div>
       <nav
         className="site-navigation col-start-2 row-start-1 justify-self-end flex items-center gap-2 to-tablet:hidden"
-        aria-label="Hauptnavigation"
+        aria-label={t('Hauptnavigation')}
       >
         {sections.map((section) => (
           <a
             key={section.id}
             className="inline-flex items-center justify-center h-(--header-control-height) px-3 py-0 rounded-(--radius-control) text-(length:--type-button) leading-(--leading-normal) font-(--weight-medium) whitespace-nowrap"
-            href={section.href}
+            href={localePath(section.href, locale)}
             aria-current={activeSection === section.id ? 'page' : undefined}
           >
-            {section.label}
+            {t(section.label)}
           </a>
         ))}
       </nav>
@@ -138,7 +161,7 @@ export function SiteHeader({
               <Button
                 variant="ghost"
                 size="icon"
-                aria-label="Navigation öffnen"
+                aria-label={t('Navigation öffnen')}
                 className="to-tablet:size-(--header-control-height)"
               />
             }
@@ -155,29 +178,50 @@ export function SiteHeader({
                 render={
                   // oxlint-disable-next-line jsx-a11y/anchor-has-content, jsx-a11y/control-has-associated-label -- the menu item supplies the link text
                   <a
-                    href={section.href}
+                    href={localePath(section.href, locale)}
                     aria-current={
                       activeSection === section.id ? 'page' : undefined
                     }
                   />
                 }
               >
-                {section.label}
+                {t(section.label)}
               </SiteMenuItem>
             ))}
           </DropdownMenuContent>
         </DropdownMenu>
       </div>
       <div className="header-actions col-start-3 row-start-1 flex items-center gap-2 justify-self-end to-tablet:col-start-2">
-        <TooltipHint content={dark ? 'Hellmodus' : 'Dunkelmodus'}>
+        <TooltipHint content={otherLocale === 'en' ? 'English' : 'Deutsch'}>
+          <a
+            href={localePath('/', otherLocale)}
+            hrefLang={otherLocale}
+            lang={otherLocale}
+            className={cn(
+              buttonVariants({ variant: 'ghost', size: 'icon' }),
+              'header-action size-(--header-control-height) p-0 min-w-(--header-control-height) text-(length:--type-button)',
+            )}
+            aria-label={
+              otherLocale === 'en'
+                ? 'Switch to English'
+                : 'Auf Deutsch wechseln'
+            }
+            onPointerEnter={pointLanguageLink}
+            onFocus={pointLanguageLink}
+            onClick={pointLanguageLink}
+          >
+            {otherLocale.toUpperCase()}
+          </a>
+        </TooltipHint>
+        <TooltipHint content={t(dark ? 'Hellmodus' : 'Dunkelmodus')}>
           <Button
             variant="ghost"
             size="icon"
             className="header-action size-(--header-control-height) p-0 min-w-(--header-control-height) theme-toggle"
             onClick={toggleTheme}
-            aria-label={
-              dark ? 'Hellmodus aktivieren' : 'Dunkelmodus aktivieren'
-            }
+            aria-label={t(
+              dark ? 'Hellmodus aktivieren' : 'Dunkelmodus aktivieren',
+            )}
           >
             <span
               className="t-icon-swap relative inline-grid"
@@ -199,14 +243,14 @@ export function SiteHeader({
           </Button>
         </TooltipHint>
         <DropdownMenu modal={false}>
-          <TooltipHint content="Über diese Seite">
+          <TooltipHint content={t('Über diese Seite')}>
             <DropdownMenuTrigger
               render={
                 <Button
                   variant="ghost"
                   size="icon"
                   className="header-action size-(--header-control-height) p-0 min-w-(--header-control-height)"
-                  aria-label="Über diese Seite"
+                  aria-label={t('Über diese Seite')}
                 />
               }
             >
@@ -219,7 +263,7 @@ export function SiteHeader({
           >
             <DropdownMenuGroup>
               <DropdownMenuLabel className="pt-2 px-3 pb-1 text-(length:--type-ui) font-(--weight-medium) text-muted-foreground">
-                Andere Projekte
+                {t('Andere Projekte')}
               </DropdownMenuLabel>
               {siteLinks.map((link) => (
                 <SiteMenuItem
@@ -229,7 +273,7 @@ export function SiteHeader({
                     <a href={link.href} target="_blank" rel="noreferrer" />
                   }
                 >
-                  {link.label}
+                  {t(link.label)}
                   <ArrowUpRight
                     size={16}
                     className="ml-auto text-muted-foreground"
@@ -249,7 +293,7 @@ export function SiteHeader({
                 />
               }
             >
-              Impressum
+              {t('Impressum')}
               <ArrowUpRight
                 size={16}
                 className="ml-auto text-muted-foreground"

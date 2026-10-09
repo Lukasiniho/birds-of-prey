@@ -1,5 +1,6 @@
 import type { ReactNode } from 'react';
 import { cn } from '@/lib/utils';
+import { useI18n } from '@/components/i18n';
 
 /** Stage width controls the columns; fixed rows reserve the largest label and
  * value so switching species cannot move the centred call button. Each cell
@@ -11,9 +12,10 @@ export function MeasurementStrip({
   withAudio: boolean;
   children: ReactNode;
 }) {
+  const { t } = useI18n();
   return (
     <section
-      aria-label="Größe und Gewicht"
+      aria-label={t('Größe und Gewicht')}
       data-with-audio={withAudio}
       className={cn(
         'measurements specimen-measurements grid gap-0 shrink-0 self-center max-w-[760px] rounded-(--radius-surface) border-(length:--border-structure) border-(--line-tint) bg-(--atlas-measurement-surface) w-[calc(100%-56px)] mt-2 mx-[28px] py-2 to-phone:w-[calc(100%-40px)] to-phone:mx-5',

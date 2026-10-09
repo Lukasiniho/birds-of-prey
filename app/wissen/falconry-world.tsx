@@ -23,14 +23,16 @@ import { TooltipHint } from '@/components/ui/tooltip';
 import { SpeciesRowLink } from '@/components/species-row';
 import { rangeBasemapUrl } from '@/lib/range-maps';
 import { SegmentedControl } from '@/components/segmented-control';
+import { useI18n, useLocalized } from '@/components/i18n';
+import { msg } from '@/lib/i18n';
 import {
   createMapLoader,
   parseBasemap,
   type Basemap,
 } from '@/lib/range-map-data';
 import {
-  falconryEras,
-  falconryRegions,
+  falconryEras as germanEras,
+  falconryRegions as germanRegions,
   type FalconryChapter,
   type KnowledgeBird,
 } from './knowledge-data';
@@ -64,12 +66,15 @@ const pinLocations: typeof locations = {
 };
 
 const views = [
-  { value: 'karte', label: 'Karte' },
-  { value: 'zeitstrahl', label: 'Zeitstrahl' },
+  { value: 'karte', label: msg('Karte') },
+  { value: 'zeitstrahl', label: msg('Zeitstrahl') },
 ] as const;
 type View = (typeof views)[number]['value'];
 
 export default function FalconryWorld({ birds }: { birds: KnowledgeBird[] }) {
+  const { t } = useI18n();
+  const falconryRegions = useLocalized(germanRegions);
+  const falconryEras = useLocalized(germanEras);
   const [view, setView] = useState<View>('karte');
   const [selected, setSelected] = useState('zentralasien');
   const [era, setEra] = useState('ursprung');
@@ -99,19 +104,22 @@ export default function FalconryWorld({ birds }: { birds: KnowledgeBird[] }) {
         className="falconry-map-surface"
         aria-label={
           view === 'karte'
-            ? 'Falknerei auf der Weltkarte'
-            : 'Falknerei im Zeitstrahl'
+            ? t('Falknerei auf der Weltkarte')
+            : t('Falknerei im Zeitstrahl')
         }
       >
         <ExplorerHeader
-          eyebrow="Mensch & Greifvogel"
-          title="Eine Kunst, viele Traditionen"
+          eyebrow={t('Mensch & Greifvogel')}
+          title={t('Eine Kunst, viele Traditionen')}
           actions={
             <SegmentedControl
-              label="Karte oder Zeitstrahl"
+              label={t('Karte oder Zeitstrahl')}
               group="falknerei"
               value={view}
-              options={views}
+              options={views.map((option) => ({
+                ...option,
+                label: t(option.label),
+              }))}
               onChange={setView}
             />
           }
@@ -120,7 +128,7 @@ export default function FalconryWorld({ birds }: { birds: KnowledgeBird[] }) {
           <div className="falconry-timeline-surface relative">
             <ol
               className="falconry-timeline list-none m-0 p-0 grid"
-              aria-label="Stationen wählen"
+              aria-label={t('Stationen wählen')}
             >
               {falconryEras.map((item, index) => (
                 <li key={item.id}>
@@ -234,8 +242,9 @@ export default function FalconryWorld({ birds }: { birds: KnowledgeBird[] }) {
                 {failed ? (
                   <>
                     <p>
-                      Die Karte konnte nicht geladen werden. Die Regionen
-                      bleiben unten auswählbar.
+                      {t(
+                        'Die Karte konnte nicht geladen werden. Die Regionen bleiben unten auswählbar.',
+                      )}
                     </p>
                     <Button
                       variant="outline"
@@ -244,11 +253,11 @@ export default function FalconryWorld({ birds }: { birds: KnowledgeBird[] }) {
                         setAttempt((value) => value + 1);
                       }}
                     >
-                      Erneut laden
+                      {t('Erneut laden')}
                     </Button>
                   </>
                 ) : (
-                  'Weltkarte wird geladen …'
+                  t('Weltkarte wird geladen …')
                 )}
               </output>
             )}
@@ -257,7 +266,7 @@ export default function FalconryWorld({ birds }: { birds: KnowledgeBird[] }) {
         {view === 'karte' && (
           <fieldset
             className="ecology-tags flex flex-wrap gap-2 falconry-region-choices m-0 p-0"
-            aria-label="Falknereiregion wählen"
+            aria-label={t('Falknereiregion wählen')}
           >
             {falconryRegions.map((item) => (
               <EcologyTag
@@ -315,9 +324,10 @@ function FalconryMapInfo({
   chapter: FalconryChapter;
   basemap: boolean;
 }) {
+  const { t } = useI18n();
   const label = basemap
-    ? 'Quellen, Karte und Kulturerbe'
-    : 'Quellen und Kulturerbe';
+    ? t('Quellen, Karte und Kulturerbe')
+    : t('Quellen und Kulturerbe');
   return (
     <Popover>
       <TooltipHint content={label}>
@@ -343,9 +353,11 @@ function FalconryMapInfo({
           ))}
           {basemap ? (
             <>
-              <small>Ausgewählte Traditionen · keine Verbreitungskarte</small>
               <small>
-                Basiskarte:{' '}
+                {t('Ausgewählte Traditionen · keine Verbreitungskarte')}
+              </small>
+              <small>
+                {t('Basiskarte:')}{' '}
                 <a
                   href="https://www.naturalearthdata.com/about/terms-of-use/"
                   target="_blank"
@@ -356,16 +368,18 @@ function FalconryMapInfo({
               </small>
             </>
           ) : (
-            <small>Ausgewählte Wendepunkte · Zeitangaben gerundet</small>
+            <small>{t('Ausgewählte Wendepunkte · Zeitangaben gerundet')}</small>
           )}
           <small>
-            Falknerei ist von der UNESCO als immaterielles Kulturerbe anerkannt.{' '}
+            {t(
+              'Falknerei ist von der UNESCO als immaterielles Kulturerbe anerkannt.',
+            )}{' '}
             <a
               href="https://ich.unesco.org/en/RL/falconry-a-living-human-heritage-01708"
               target="_blank"
               rel="noreferrer"
             >
-              Zum Kulturerbe
+              {t('Zum Kulturerbe')}
             </a>
           </small>
         </div>

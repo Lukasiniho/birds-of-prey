@@ -1,4 +1,5 @@
 'use client';
+import { useI18n } from '@/components/i18n';
 import {
   QuizSplit,
   QuizSpecimen,
@@ -31,6 +32,7 @@ export function RangeQuestion({
   answered: boolean;
   onChange: (choice: string) => void;
 }) {
+  const { t } = useI18n();
   const entry = bird.range;
   const data = useRangeMap(entry);
   return (
@@ -47,7 +49,7 @@ export function RangeQuestion({
             />
           ) : (
             <SpeciesCommonName variant="quiz">
-              Verbreitungsgebiet
+              {t('Verbreitungsgebiet')}
             </SpeciesCommonName>
           )}
         </div>
@@ -60,13 +62,13 @@ export function RangeQuestion({
                 world
                 label={entry.label}
                 // The map is the puzzle: it stays anonymous until the answer is in.
-                name={answered ? bird.name : 'gesuchte Art'}
+                name={answered ? bird.name : t('gesuchte Art')}
               />
               <MapSourceInfo entry={entry} />
             </div>
           ) : (
             <p className="range-map-placeholder m-0 border-(length:--border-structure) rounded-(--radius-card) text-muted-foreground text-(length:--type-ui) min-h-[160px] flex flex-col items-center justify-center gap-[10px]">
-              Karte wird geladen …
+              {t('Karte wird geladen …')}
             </p>
           )}
         </div>
@@ -74,16 +76,18 @@ export function RangeQuestion({
       <QuizPrompt
         label={
           <>
-            <GlobeHemisphereWest size={17} /> Verbreitung erkennen
+            <GlobeHemisphereWest size={17} /> {t('Verbreitung erkennen')}
           </>
         }
         title={
           <>
-            Welcher Greifvogel <br />
-            lebt hier?
+            {t('Welcher Greifvogel')} <br />
+            {t('lebt hier?')}
           </>
         }
-        description="Die Karte zeigt das Verbreitungsgebiet einer Art. Wähle aus, zu wem es gehört."
+        description={t(
+          'Die Karte zeigt das Verbreitungsgebiet einer Art. Wähle aus, zu wem es gehört.',
+        )}
       >
         <QuizChoices
           options={question.options}

@@ -47,7 +47,7 @@ function SheetContent({
   side = 'right',
   showCloseButton = true,
   heading,
-  closeLabel = 'Schließen',
+  closeLabel,
   ...props
 }: SheetPrimitive.Popup.Props & {
   side?: 'top' | 'right' | 'bottom' | 'left';

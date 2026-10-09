@@ -5,6 +5,7 @@ import { MagnifyingGlass } from '@/components/icons';
 import { FieldClear } from '@/components/close-control';
 import { Input } from '@/components/ui/input';
 import { cn } from '@/lib/utils';
+import { useT } from '@/components/i18n';
 
 /** The navbar search, shared by every search surface in the app. */
 export function SearchField({
@@ -20,6 +21,7 @@ export function SearchField({
   placeholder?: string;
   className?: string;
 }) {
+  const t = useT();
   const inputRef = useRef<HTMLInputElement>(null);
 
   return (
@@ -42,7 +44,7 @@ export function SearchField({
       {query && (
         <span className="clear-search absolute right-1 inline-flex">
           <FieldClear
-            aria-label="Suche leeren"
+            aria-label={t('Suche leeren')}
             onClick={() => {
               onQueryChange('');
               inputRef.current?.focus();

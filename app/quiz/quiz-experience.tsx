@@ -27,6 +27,8 @@ import { SexQuestion } from '@/components/quiz/sex-question';
 import { Button } from '@/components/ui/button';
 import { Select, SelectValue, SelectItem } from '@/components/ui/select';
 import { quizFeedbackText } from '@/lib/quiz-feedback';
+import { useI18n } from '@/components/i18n';
+import { msg } from '@/lib/i18n';
 import { quizEnterAction } from '@/lib/quiz-keyboard';
 import {
   initialDraft,
@@ -46,10 +48,7 @@ import {
   type QuizQuestion,
 } from '@/lib/quiz-engine';
 
-const questionCounts = [5, 8, 12, 16].map((count) => ({
-  value: String(count),
-  label: `${count} Fragen`,
-}));
+const questionCountValues = [5, 8, 12, 16];
 
 function focusScreen(id: string) {
   window.scrollTo({ top: 0, behavior: 'instant' });
@@ -69,10 +68,11 @@ function QuestionFeedback({
   birds: BirdMap;
   huntingTypes: HuntingTypes;
 }) {
+  const { locale, t } = useI18n();
   return (
     <QuizFeedback
       points={answer.points}
-      text={quizFeedbackText(question, answer, birds, huntingTypes)}
+      text={quizFeedbackText(question, answer, birds, huntingTypes, t, locale)}
     />
   );
 }
@@ -86,6 +86,11 @@ export default function QuizExperience({
   huntingTypes: HuntingTypes;
   habitats: QuizHabitat[];
 }) {
+  const { t } = useI18n();
+  const questionCounts = questionCountValues.map((count) => ({
+    value: String(count),
+    label: t('{count} Fragen', { count }),
+  }));
   const [questions, setQuestions] = useState<QuizQuestion[]>([]);
   const ready = questions.length > 0;
   const [questionCount, setQuestionCount] = useState(8);
@@ -154,7 +159,7 @@ export default function QuizExperience({
         setQuestionCount(count);
       }}
     >
-      <SelectTrigger aria-label="Fragenzahl">
+      <SelectTrigger aria-label={t('Fragenzahl')}>
         <SelectValue />
       </SelectTrigger>
       <SelectContent>
@@ -172,7 +177,7 @@ export default function QuizExperience({
         className="text-(length:--type-body) font-(--weight-medium) text-(--muted-foreground)"
         aria-hidden="true"
       >
-        Fragenzahl
+        {t('Fragenzahl')}
       </span>
       {countSelect}
     </div>
@@ -343,23 +348,24 @@ export default function QuizExperience({
             </QuizSpecimen>
             <SurfaceBody padding="hero" className="q-start-content flex flex-col justify-center">
               <span className="q-task-label to-tablet:mb-3 text-(length:--type-ui) font-(--weight-medium) text-(--main-color) flex items-center gap-2 mb-4">
-                Wie gut kennst du sie?
+                {t('Wie gut kennst du sie?')}
               </span>
               <h1
                 id="q-start-title"
                 className="[-webkit-text-stroke:var(--display-emphasis-stroke)_currentColor] [paint-order:stroke_fill] page-title font-(family-name:--font-stack-display) text-(length:--type-page-title) font-(--weight-semibold) leading-(--leading-display) tracking-(--tracking-tight) font-(--weight-bold)"
                 tabIndex={-1}
               >
-                Das Greifvogel-Quiz
+                {t('Das Greifvogel-Quiz')}
               </h1>
               <p className="text-(length:--type-lead) to-tablet:text-(length:--type-body) mt-5 max-w-[45ch] text-(--muted-foreground) leading-(--leading-normal)">
-                Erkenne Greifvögel an Aussehen und Ruf, schätze ihre Spannweite
-                und entdecke, wie sie leben. Jede Runde mischt neue Aufgaben.
+                {t(
+                  'Erkenne Greifvögel an Aussehen und Ruf, schätze ihre Spannweite und entdecke, wie sie leben. Jede Runde mischt neue Aufgaben.',
+                )}
               </p>
               <div className="q-start-actions items-end border-t-(length:--border-structure) to-tablet:items-stretch to-tablet:grid to-tablet:grid-cols-[minmax(0,_1fr)] flex flex-wrap gap-5 mt-6 pt-6">
                 {roundSettings}
                 <QuizActionButton onClick={startRound}>
-                  Quiz starten <ArrowRight size={24} className="size-6" />
+                  {t('Quiz starten')} <ArrowRight size={24} className="size-6" />
                 </QuizActionButton>
               </div>
             </SurfaceBody>
@@ -404,7 +410,7 @@ export default function QuizExperience({
                 className="q-mobile-exit hidden to-tablet:inline-flex to-tablet:size-(--control-height-compact) to-tablet:border-0 to-tablet:p-0"
                 variant="ghost"
                 size="icon"
-                aria-label="Quiz beenden und zur Startseite zurückkehren"
+                aria-label={t('Quiz beenden und zur Startseite zurückkehren')}
                 onClick={exitRound}
               >
                 <ArrowLeft size={20} />
@@ -415,18 +421,30 @@ export default function QuizExperience({
                   aria-live="polite"
                   aria-atomic="true"
                 >
-                  <span className="sr-only">Frage </span>
+                  <span className="sr-only">{t('Frage')} </span>
                   {current + 1} / {questions.length}
                 </p>
                 <nav
                   className="q-step-dots to-tablet:flex-[0_1_auto] to-tablet:min-w-0 flex gap-0 shrink-0"
-                  aria-label="Quiz-Fragen"
+                  aria-label={t('Quiz-Fragen')}
                 >
                   {questions.map((item, index) => (
                     <button
                       key={item.id}
                       className="grid place-items-center size-[24px] border-0 bg-transparent text-(--muted-foreground-faint) to-tablet:flex-[0_1_24px]"
-                      aria-label={`Frage ${index + 1} von ${questions.length}: ${modes.find((mode) => mode.id === item.kind)?.label ?? 'Aufgabe'}${answers[item.id] ? ', beantwortet' : ''}`}
+                      aria-label={t(
+                        answers[item.id]
+                          ? 'Frage {index} von {total}: {mode}, beantwortet'
+                          : 'Frage {index} von {total}: {mode}',
+                        {
+                          index: index + 1,
+                          total: questions.length,
+                          mode: t(
+                            modes.find((mode) => mode.id === item.kind)
+                              ?.label ?? msg('Aufgabe'),
+                          ),
+                        },
+                      )}
                       aria-current={current === index ? 'step' : undefined}
                       data-done={Boolean(answers[item.id])}
                       onClick={() => navigate(index)}
@@ -444,10 +462,10 @@ export default function QuizExperience({
                 aria-live="polite"
                 aria-atomic="true"
               >
-                <span className="sr-only">Gesamtpunktzahl: </span>
+                <span className="sr-only">{t('Gesamtpunktzahl:')} </span>
                 {totalPoints}{' '}
                 <span className="text-(length:--type-ui) text-inherit font-(--weight-regular)">
-                  Punkte
+                  {t('Punkte')}
                 </span>
               </p>
             </div>
@@ -542,11 +560,11 @@ export default function QuizExperience({
                 appearance="exit"
                 className="[grid-area:exit]"
                 variant="outline"
-                aria-label="Quiz beenden und zur Startseite zurückkehren"
-                title="Quiz beenden"
+                aria-label={t('Quiz beenden und zur Startseite zurückkehren')}
+                title={t('Quiz beenden')}
                 onClick={exitRound}
               >
-                <ArrowLeft size={18} /> Zurück
+                <ArrowLeft size={18} /> {t('Zurück')}
               </QuizActionButton>
               {answer && (
                 <QuestionFeedback
@@ -565,18 +583,18 @@ export default function QuizExperience({
               >
                 {answer
                   ? completed === questions.length
-                    ? 'Ergebnis ansehen'
-                    : 'Nächste Aufgabe'
+                    ? t('Ergebnis ansehen')
+                    : t('Nächste Aufgabe')
                   : question.kind === 'span' ||
                       question.kind === 'weight-estimate'
-                    ? 'Schätzung prüfen'
+                    ? t('Schätzung prüfen')
                     : question.kind === 'weight'
-                      ? 'Reihenfolge prüfen'
+                      ? t('Reihenfolge prüfen')
                       : question.kind === 'habitat' || question.kind === 'sex'
-                        ? 'Zuordnung prüfen'
+                        ? t('Zuordnung prüfen')
                         : question.kind === 'prey'
-                          ? 'Auswahl prüfen'
-                          : 'Antwort prüfen'}
+                          ? t('Auswahl prüfen')
+                          : t('Antwort prüfen')}
               </QuizActionButton>
             </QuizAnswerBar>
           </>

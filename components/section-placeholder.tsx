@@ -1,6 +1,9 @@
+'use client';
 /* oxlint-disable next/no-html-link-for-pages -- Use document navigation for the static Netlify export. */
 
 import { SiteHeader, type SiteSection } from '@/components/site-header';
+import { useI18n } from '@/components/i18n';
+import { localePath } from '@/lib/i18n';
 
 export function SectionPlaceholder({
   section,
@@ -11,6 +14,7 @@ export function SectionPlaceholder({
   title: string;
   description: string;
 }) {
+  const { locale, t } = useI18n();
   return (
     <div className="app-shell section-shell">
       <SiteHeader activeSection={section} />
@@ -21,8 +25,11 @@ export function SectionPlaceholder({
         <p className="mt-5 max-w-[55ch] leading-(--leading-relaxed) text-muted-foreground">
           {description}
         </p>
-        <a className="section-back-link inline-block mt-8 py-2" href="/">
-          Vögel entdecken
+        <a
+          className="section-back-link inline-block mt-8 py-2"
+          href={localePath('/', locale)}
+        >
+          {t('Vögel entdecken')}
         </a>
       </main>
     </div>

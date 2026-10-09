@@ -85,3 +85,18 @@
   Stand ist eingecheckt; der Netlify-Build erzeugt ihn nicht neu.
 - Das Skript decodiert mit `afconvert` und läuft daher auf macOS. Nach jeder
   neuen oder ersetzten Aufnahme einmal ausführen und das Ergebnis mitcommitten.
+
+## Englische Fassung (Raptor Atlas)
+
+- Deutsch läuft auf greifvogelkompass.de, Englisch als „Raptor Atlas“ auf
+  raptoratlas.com: zwei Netlify-Sites aus diesem Repo, die englische mit
+  `NEXT_PUBLIC_SITE_LOCALE=en` (der Postbuild hebt `en/` an die Wurzel). Lokal
+  liegt Englisch unter `/en`. Die Pfadsegmente bleiben in beiden Sprachen deutsch.
+- Der deutsche Text ist der Übersetzungsschlüssel: `t('Vögel')` in Komponenten
+  (`useI18n()` aus `components/i18n.tsx`), `msg('…')` für Konstanten auf
+  Modulebene, Datentexte über `t(...)` oder `useLocalized`. Englisch steht in
+  `lib/i18n/en/*.json`; deutsche Texte ändern heißt, den Schlüssel dort mitzuziehen.
+- Interne Links immer über `localePath`, Zahlen und Sortierung über
+  `localeTags[locale]`. `lib/i18n/en` nie aus Client-Komponenten importieren.
+- Nach neuen oder geänderten Texten `npm run i18n` ausführen: Es nennt jeden
+  Text ohne englische Übersetzung.

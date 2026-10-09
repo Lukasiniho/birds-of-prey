@@ -17,6 +17,8 @@ import {
   TooltipProvider,
   TooltipTrigger,
 } from '@/components/ui/tooltip';
+import { useT } from '@/components/i18n';
+import { msg } from '@/lib/i18n';
 
 type Part = {
   id: string;
@@ -31,9 +33,11 @@ type Part = {
 const parts: Part[] = [
   {
     id: 'schnabel',
-    name: 'Schnabel',
+    name: msg('Schnabel'),
     function: 'Nahrung zerteilen',
-    text: 'Der hakenförmige Schnabel dient zum Zerteilen der Nahrung. An seiner Basis liegt die Wachshaut mit den Nasenöffnungen.',
+    text: msg(
+      'Der hakenförmige Schnabel dient zum Zerteilen der Nahrung. An seiner Basis liegt die Wachshaut mit den Nasenöffnungen.',
+    ),
     falcon:
       'Der Wanderfalke hat zusätzlich einen Falkenzahn: eine scharfe Ausbuchtung am Oberschnabel, die beim Töten der Beute hilft.',
     buzzard:
@@ -45,9 +49,11 @@ const parts: Part[] = [
   },
   {
     id: 'augen',
-    name: 'Augen',
+    name: msg('Augen'),
     function: 'Sehen und orientieren',
-    text: 'Die Augen helfen, Beute und Bewegungen zu erkennen und sich im Flug zu orientieren.',
+    text: msg(
+      'Die Augen helfen, Beute und Bewegungen zu erkennen und sich im Flug zu orientieren.',
+    ),
     falcon: '',
     buzzard: '',
     positions: [
@@ -57,9 +63,11 @@ const parts: Part[] = [
   },
   {
     id: 'deckfedern',
-    name: 'Deckfedern',
+    name: msg('Deckfedern'),
     function: 'Schützen und glätten',
-    text: 'Deckfedern überlappen sich wie Dachziegel. Sie bedecken unter anderem die Ansätze der großen Flugfedern und bilden eine geschlossene, strömungsgünstige Oberfläche.',
+    text: msg(
+      'Deckfedern überlappen sich wie Dachziegel. Sie bedecken unter anderem die Ansätze der großen Flugfedern und bilden eine geschlossene, strömungsgünstige Oberfläche.',
+    ),
     falcon:
       'Die Unterseite des erwachsenen Wanderfalken zeigt eine feine dunkle Querbänderung.',
     buzzard:
@@ -71,9 +79,11 @@ const parts: Part[] = [
   },
   {
     id: 'handschwingen',
-    name: 'Handschwingen',
+    name: msg('Handschwingen'),
     function: 'Vortrieb und Flugkontrolle',
-    text: 'Die langen Federn am äußeren Flügel sitzen an der Hand. Sie sind besonders wichtig für den Vortrieb beim Flügelschlag und helfen, den Flug zu steuern.',
+    text: msg(
+      'Die langen Federn am äußeren Flügel sitzen an der Hand. Sie sind besonders wichtig für den Vortrieb beim Flügelschlag und helfen, den Flug zu steuern.',
+    ),
     falcon:
       'Die langen, spitzen Flügel des Wanderfalken eignen sich für schnellen Flug und rasante Jagdmanöver.',
     buzzard:
@@ -85,9 +95,11 @@ const parts: Part[] = [
   },
   {
     id: 'armschwingen',
-    name: 'Armschwingen',
+    name: msg('Armschwingen'),
     function: 'Tragen im Flug',
-    text: 'Die Armschwingen sitzen am Unterarm. Zusammen mit den übrigen Flügelfedern bilden sie die Tragfläche und tragen wesentlich zum Auftrieb bei.',
+    text: msg(
+      'Die Armschwingen sitzen am Unterarm. Zusammen mit den übrigen Flügelfedern bilden sie die Tragfläche und tragen wesentlich zum Auftrieb bei.',
+    ),
     falcon:
       'Beim Wanderfalken gehen Arm- und Handflügel in eine schlanke, spitz zulaufende Flügelform über.',
     buzzard:
@@ -99,9 +111,11 @@ const parts: Part[] = [
   },
   {
     id: 'koerpergefieder',
-    name: 'Körpergefieder',
+    name: msg('Körpergefieder'),
     function: 'Wärmen und schützen',
-    text: 'Die äußeren Konturfedern geben dem Körper seine glatte Form und schützen die Haut. Darunter hält das lockere Daunengefieder eine isolierende Luftschicht fest.',
+    text: msg(
+      'Die äußeren Konturfedern geben dem Körper seine glatte Form und schützen die Haut. Darunter hält das lockere Daunengefieder eine isolierende Luftschicht fest.',
+    ),
     falcon:
       'Das dicht anliegende Gefieder unterstützt die stromlinienförmige Gestalt des Wanderfalken.',
     buzzard:
@@ -113,9 +127,11 @@ const parts: Part[] = [
   },
   {
     id: 'faenge',
-    name: 'Fänge & Krallen',
+    name: msg('Fänge & Krallen'),
     function: 'Greifen und festhalten',
-    text: 'Die Füße der Greifvögel heißen Fänge. Ihre Zehen tragen gebogene, spitze Krallen. Damit packen sie Beute und halten sich auf Ästen oder anderen Sitzplätzen fest.',
+    text: msg(
+      'Die Füße der Greifvögel heißen Fänge. Ihre Zehen tragen gebogene, spitze Krallen. Damit packen sie Beute und halten sich auf Ästen oder anderen Sitzplätzen fest.',
+    ),
     falcon:
       'Der Wanderfalke fängt vor allem Vögel. Seine langen Zehen helfen ihm, die Beute sicher zu greifen.',
     buzzard:
@@ -127,9 +143,11 @@ const parts: Part[] = [
   },
   {
     id: 'schwanz',
-    name: 'Schwanzfedern',
+    name: msg('Schwanzfedern'),
     function: 'Steuern und bremsen',
-    text: 'Die Schwanzfedern heißen auch Steuerfedern. Der Vogel verändert ihre Stellung und spreizt sie, um zu steuern, das Gleichgewicht zu halten und bei der Landung abzubremsen.',
+    text: msg(
+      'Die Schwanzfedern heißen auch Steuerfedern. Der Vogel verändert ihre Stellung und spreizt sie, um zu steuern, das Gleichgewicht zu halten und bei der Landung abzubremsen.',
+    ),
     falcon:
       'Im schnellen Flug hält der Wanderfalke den Schwanz eher schmal; bei Manövern kann er ihn auffächern.',
     buzzard:
@@ -142,8 +160,8 @@ const parts: Part[] = [
 ];
 
 const speciesOptions = [
-  { value: '0', label: 'Wanderfalke' },
-  { value: '1', label: 'Mäusebussard' },
+  { value: '0', label: msg('Wanderfalke') },
+  { value: '1', label: msg('Mäusebussard') },
 ];
 
 export default function AnatomyExplorer({
@@ -155,14 +173,19 @@ export default function AnatomyExplorer({
   const [selected, setSelected] = useState('schnabel');
   const [open, setOpen] = useState<string | null>(null);
   const [pinned, setPinned] = useState<string | null>(null);
-  const name = speciesOptions[species].label;
+  const t = useT();
+  const name = t(speciesOptions[species].label);
 
   return (
     <ExplorerPanel className={'anatomy-layout'}>
       {/* oxlint-disable-next-line jsx-a11y/no-noninteractive-element-interactions -- pointer-down only dismisses the pinned label; buttons stay the interactive controls */}
       <ExplorerStage
         className="anatomy-stage"
-        aria-label={`Körperbau des ${name === 'Wanderfalke' ? 'Wanderfalken' : 'Mäusebussards'}`}
+        aria-label={
+          species === 0
+            ? t('Körperbau des Wanderfalken')
+            : t('Körperbau des Mäusebussards')
+        }
         onPointerDown={(event) => {
           if (!(event.target as HTMLElement).closest('button')) {
             setPinned(null);
@@ -177,14 +200,17 @@ export default function AnatomyExplorer({
         }}
       >
         <ExplorerHeader
-          eyebrow="Form & Funktion"
-          title="Jedes Detail hat eine Aufgabe"
+          eyebrow={t('Form & Funktion')}
+          title={t('Jedes Detail hat eine Aufgabe')}
           actions={
             <SegmentedControl
-              label="Beispielvogel wählen"
+              label={t('Beispielvogel wählen')}
               group="anatomie"
               value={String(species)}
-              options={speciesOptions}
+              options={speciesOptions.map((option) => ({
+                ...option,
+                label: t(option.label),
+              }))}
               onChange={(value) => {
                 setSpecies(Number(value) as 0 | 1);
                 setOpen(null);
@@ -197,7 +223,12 @@ export default function AnatomyExplorer({
           <ArtImage
             className="anatomy-bird block size-full object-contain select-none"
             src={images[species]}
-            alt={`${name} im Flug, von schräg unten mit ausgebreiteten Flügeln`}
+            alt={t(
+              '{name} im Flug, von schräg unten mit ausgebreiteten Flügeln',
+              {
+                name,
+              },
+            )}
             width={1400}
             height={1400}
             sizes="(max-width: 780px) 100vw, 730px"
@@ -230,7 +261,7 @@ export default function AnatomyExplorer({
                     left: `${part.positions[species][0]}%`,
                     top: `${part.positions[species][1]}%`,
                   }}
-                  aria-label={part.name}
+                  aria-label={t(part.name)}
                   aria-pressed={selected === part.id}
                   onClick={() => {
                     setSelected(part.id);
@@ -241,8 +272,8 @@ export default function AnatomyExplorer({
                   <span className="anatomy-point-core to-tablet:size-[17px] relative grid place-items-center size-[19px]" />
                 </TooltipTrigger>
                 <TooltipContent variant="detail" sideOffset={8}>
-                  <strong className="app-tooltip-title">{part.name}</strong>
-                  <span>{part.text}</span>
+                  <strong className="app-tooltip-title">{t(part.name)}</strong>
+                  <span>{t(part.text)}</span>
                 </TooltipContent>
               </Tooltip>
             ))}
@@ -251,19 +282,19 @@ export default function AnatomyExplorer({
       </ExplorerStage>
       <ExplorerNotes
         className="anatomy-notes"
-        aria-label="Körperteile entdecken"
+        aria-label={t('Körperteile entdecken')}
       >
-        <ExplorerHeader title="Der Körperbau" />
+        <ExplorerHeader title={t('Der Körperbau')} />
         <DetailCopy
           leading="normal"
           className="anatomy-notes-intro text-(length:--type-body) text-muted-foreground mt-2"
         >
-          Wähle ein Körperteil und sieh, wofür es gebaut ist.
+          {t('Wähle ein Körperteil und sieh, wofür es gebaut ist.')}
         </DetailCopy>
         <div
           className="anatomy-part-list mt-6 grid grid-cols-1 gap-2"
           role="group"
-          aria-label="Körperteil wählen"
+          aria-label={t('Körperteil wählen')}
         >
           {parts.map((part) => (
             <button
@@ -278,7 +309,7 @@ export default function AnatomyExplorer({
               }}
             >
               <span className="anatomy-list-dot rounded-[50%] bg-muted-foreground size-[5px] shrink-0" />
-              {part.name}
+              {t(part.name)}
             </button>
           ))}
         </div>

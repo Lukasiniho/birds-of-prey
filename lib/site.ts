@@ -1,5 +1,15 @@
-export const SITE_URL = 'https://greifvogelkompass.de';
-export const SITE_NAME = 'Greifvogelkompass';
+// One Netlify site per language: German on greifvogelkompass.de, English on
+// raptoratlas.com. Both are built from this repo (see NEXT_PUBLIC_SITE_LOCALE).
+export const SITE_URLS = {
+  de: 'https://greifvogelkompass.de',
+  en: 'https://raptoratlas.com',
+} as const;
+export const SITE_NAMES = {
+  de: 'Greifvogelkompass',
+  en: 'Raptor Atlas',
+} as const;
+export const SITE_URL = SITE_URLS.de;
+export const SITE_NAME = SITE_NAMES.de;
 export const SITE_DESCRIPTION =
   'Greifvögel entdecken: Arten, Lebensräume, Gefiederfarben und Beutetiere.';
 

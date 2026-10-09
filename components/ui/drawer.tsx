@@ -108,7 +108,7 @@ function DrawerContent({
   children,
   heading,
   showCloseButton = true,
-  closeLabel = 'Schließen',
+  closeLabel,
   ...props
 }: DrawerPrimitive.Popup.Props & {
   heading?: React.ReactNode;

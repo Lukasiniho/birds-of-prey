@@ -2,7 +2,9 @@
   package = "/netlify/plugins/cache-optimized-images"
 
 [build]
-  command = "npm run build"
+  # Zwei Sites aus diesem Repo: greifvogelkompass.de (Standard) und
+  # raptoratlas.com (in Netlify SITE_LOCALE=en setzen).
+  command = "NEXT_PUBLIC_SITE_LOCALE=${SITE_LOCALE:-de} npm run build"
   publish = "dist/client"
 
 [build.environment]
@@ -16,5 +18,11 @@
 
 [[headers]]
   for = "/maps/*"
+  [headers.values]
+    Cache-Control = "public, max-age=31536000, immutable"
+
+# Englisches Wörterbuch; die Seiten hängen ?v=<inhaltshash> an.
+[[headers]]
+  for = "/i18n-en.js"
   [headers.values]
     Cache-Control = "public, max-age=31536000, immutable"

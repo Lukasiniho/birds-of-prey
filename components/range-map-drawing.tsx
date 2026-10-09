@@ -16,6 +16,7 @@ import {
   parseOverlay,
   type MapData,
 } from '@/lib/range-map-data';
+import { useI18n } from '@/components/i18n';
 
 const loadBasemap = createMapLoader(parseBasemap);
 const loadOverlay = createMapLoader(parseOverlay);
@@ -119,11 +120,12 @@ export function MapDrawing({
 }
 
 export function MapCredits({ entry }: { entry: RangeMapEntry }) {
+  const { t } = useI18n();
   return (
     <div className="range-map-credits text-muted-foreground text-(length:--type-caption) leading-(--leading-normal) flex flex-wrap gap-[5px] mt-[6px]">
       <div>
         <a href={entry.sourceUrl} target="_blank" rel="noreferrer">
-          {entry.sourceName}
+          {t(entry.sourceName)}
         </a>
         <span aria-hidden="true"> · </span>
         <a href={entry.licenseUrl} target="_blank" rel="noreferrer">
@@ -131,7 +133,7 @@ export function MapCredits({ entry }: { entry: RangeMapEntry }) {
         </a>
       </div>
       <small>
-        Basiskarte:{' '}
+        {t('Basiskarte:')}{' '}
         <a
           href="https://www.naturalearthdata.com/about/terms-of-use/"
           target="_blank"
@@ -140,17 +142,18 @@ export function MapCredits({ entry }: { entry: RangeMapEntry }) {
           Natural Earth
         </a>
       </small>
-      {entry.note && <small>{entry.note}</small>}
+      {entry.note && <small>{t(entry.note)}</small>}
     </div>
   );
 }
 
 export function MapSourceInfo({ entry }: { entry: RangeMapEntry }) {
+  const { t } = useI18n();
   return (
     <Popover>
       <PopoverTrigger
         className="range-map-source absolute left-[8px] bottom-[8px] grid place-items-center size-[26px]"
-        aria-label="Kartenquellen und Lizenz"
+        aria-label={t('Kartenquellen und Lizenz')}
       >
         <Info size={14} aria-hidden="true" />
       </PopoverTrigger>

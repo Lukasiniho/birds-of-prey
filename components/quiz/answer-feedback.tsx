@@ -1,4 +1,5 @@
 'use client';
+import { useI18n } from '@/components/i18n';
 import { cn } from '@/lib/utils';
 
 import { useLayoutEffect, useRef } from 'react';
@@ -11,6 +12,7 @@ type QuizFeedbackProps = {
 };
 
 export function QuizFeedback({ points, text }: QuizFeedbackProps) {
+  const { t } = useI18n();
   const panelRef = useRef<HTMLDivElement>(null);
   useLayoutEffect(() => {
     const panel = panelRef.current;
@@ -26,10 +28,10 @@ export function QuizFeedback({ points, text }: QuizFeedbackProps) {
   const perfect = points === 100;
   const Icon = perfect ? Check : X;
   const title = perfect
-    ? 'Volltreffer!'
+    ? t('Volltreffer!')
     : points >= 60
-      ? 'Fast richtig.'
-      : 'Noch nicht ganz.';
+      ? t('Fast richtig.')
+      : t('Noch nicht ganz.');
 
   return (
     <div
@@ -65,7 +67,7 @@ export function QuizFeedback({ points, text }: QuizFeedbackProps) {
       <span className="q-points-earned text-(length:--type-metric) tabular-nums text-success font-(--weight-semibold) leading-(--leading-display) whitespace-nowrap text-right">
         +{points}
         <small className="text-(length:--type-ui) text-inherit block mt-0 font-(--weight-regular) leading-(--leading-display)">
-          Punkte
+          {t('Punkte')}
         </small>
       </span>
     </div>

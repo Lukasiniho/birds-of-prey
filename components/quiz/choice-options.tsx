@@ -1,4 +1,5 @@
 'use client';
+import { useI18n } from '@/components/i18n';
 import { QuizIncorrectIcon } from '@/components/quiz/incorrect-icon';
 import { cn } from '@/lib/utils';
 
@@ -21,6 +22,7 @@ export function QuizChoices({
   answered: boolean;
   onChange: (choice: string) => void;
 }) {
+  const { t } = useI18n();
   return (
     <RadioGroup
       className="q-options grid gap-3 q-answer-controls mt-auto pt-6 mb-0"
@@ -58,14 +60,14 @@ export function QuizChoices({
               <Check
                 className="q-option-correct ml-auto text-success"
                 size={18}
-                aria-label="Richtige Antwort"
+                aria-label={t('Richtige Antwort')}
               />
             )}
             {isWrong && (
               <QuizIncorrectIcon
                 className="q-option-wrong ml-auto text-danger"
                 size={18}
-                aria-label="Falsche Antwort"
+                aria-label={t('Falsche Antwort')}
               />
             )}
             <RadioGroupItem

@@ -8,6 +8,7 @@ import {
   type WingGeometry,
 } from '@/lib/wing-geometry';
 import { cn } from '@/lib/utils';
+import { useI18n } from '@/components/i18n';
 
 /** Rings that carry a call outwards over the stage while it plays. */
 export function CallRings() {
@@ -57,6 +58,7 @@ export function WingOverlay({
   reference?: WingReference;
   className?: string;
 }) {
+  const { t } = useI18n();
   const box = useRef<HTMLDivElement>(null);
   const [size, setSize] = useState<[number, number] | null>(null);
   const [geometry, setGeometry] = useState<WingGeometry | null>(null);
@@ -185,7 +187,11 @@ export function WingOverlay({
           <strong className="font-(family-name:--font-stack-display) text-(length:--type-lead) font-(--weight-semibold) text-foreground">
             {spanLabel}
           </strong>
-          {reference && <small>Schatten: {reference.name}</small>}
+          {reference && (
+            <small>
+              {t('Schatten: {name}', { name: t(reference.name) })}
+            </small>
+          )}
         </span>
       </div>
     );

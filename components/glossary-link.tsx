@@ -7,6 +7,8 @@ import {
   TooltipTrigger,
 } from '@/components/ui/tooltip';
 import { getGlossaryEntry, glossaryHref } from '@/lib/glossary';
+import { useI18n } from '@/components/i18n';
+import { localePath } from '@/lib/i18n';
 
 /** One definition source for the hover explanation and the glossary page. */
 export function GlossaryLink({
@@ -16,6 +18,7 @@ export function GlossaryLink({
   id: string;
   children: ReactNode;
 }) {
+  const { locale, t } = useI18n();
   const entry = getGlossaryEntry(id);
   if (!entry) return <>{children}</>;
   return (
@@ -23,7 +26,7 @@ export function GlossaryLink({
       <TooltipTrigger
         render={
           <a
-            href={glossaryHref(entry.id)}
+            href={localePath(glossaryHref(entry.id), locale)}
             className="glossary-link text-(--glossary-link)! font-(--weight-semibold) no-underline transition-colors duration-(--duration-quick) ease-(--ease-out) hover:text-(--glossary-link-hover)! focus-visible:text-(--glossary-link-hover)!"
           >
             {children}
@@ -31,8 +34,8 @@ export function GlossaryLink({
         }
       />
       <TooltipContent variant="detail" side="top">
-        <p className="app-tooltip-title">{entry.term}</p>
-        <p>{entry.definition}</p>
+        <p className="app-tooltip-title">{t(entry.term)}</p>
+        <p>{t(entry.definition)}</p>
       </TooltipContent>
     </Tooltip>
   );

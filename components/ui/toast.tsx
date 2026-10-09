@@ -6,6 +6,7 @@ import { Toast as ToastPrimitive } from '@base-ui/react/toast';
 import { SurfaceHeader } from '@/components/surface';
 import { CloseControl } from '@/components/close-control';
 import { cn } from '@/lib/utils';
+import { useT } from '@/components/i18n';
 import { Button } from '@/components/ui/button';
 import {
   CheckCircle as CircleCheckIcon,
@@ -122,11 +123,12 @@ function ToastClose(
     'className' | 'style' | 'render' | 'children'
   >,
 ) {
+  const t = useT();
   return (
     <ToastPrimitive.Close
       {...props}
       data-slot="toast-close"
-      render={<CloseControl aria-label="Mitteilung schließen" />}
+      render={<CloseControl aria-label={t('Mitteilung schließen')} />}
     />
   );
 }

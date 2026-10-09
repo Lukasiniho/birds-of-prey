@@ -2,10 +2,13 @@ import type { Metadata, Viewport } from 'next';
 import localFont from 'next/font/local';
 import './globals.css';
 import { TooltipProvider } from '@/components/ui/tooltip';
+import { I18nProvider } from '@/components/i18n';
+import { localeTags, type Locale } from '@/lib/i18n';
+import { serverTranslator } from '@/lib/i18n/en';
 import {
   SITE_DESCRIPTION,
-  SITE_NAME,
-  SITE_URL,
+  SITE_NAMES,
+  SITE_URLS,
   THEME_COLOR_DARK,
   THEME_COLOR_LIGHT,
 } from '@/lib/site';
@@ -41,11 +44,14 @@ const bodyFont = localFont({
     { path: './fonts/inter-latin.woff2', weight: '400 700', style: 'normal' },
   ],
 });
-export const metadata: Metadata = {
-  metadataBase: new URL(SITE_URL),
-  title: { default: SITE_NAME, template: `%s · ${SITE_NAME}` },
-  description: SITE_DESCRIPTION,
-  applicationName: SITE_NAME,
+export const rootMetadata = (locale: Locale): Metadata => ({
+  metadataBase: new URL(SITE_URLS[locale]),
+  title: {
+    default: SITE_NAMES[locale],
+    template: `%s · ${SITE_NAMES[locale]}`,
+  },
+  description: serverTranslator(locale)(SITE_DESCRIPTION),
+  applicationName: SITE_NAMES[locale],
   manifest: '/site.webmanifest',
   icons: {
     icon: [
@@ -58,15 +64,20 @@ export const metadata: Metadata = {
   },
   openGraph: {
     type: 'website',
-    locale: 'de_DE',
-    siteName: SITE_NAME,
+    locale: localeTags[locale].replace('-', '_'),
+    siteName: SITE_NAMES[locale],
     images: [
-      { url: '/icons/og-image.png', width: 1200, height: 630, alt: SITE_NAME },
+      {
+        url: '/icons/og-image.png',
+        width: 1200,
+        height: 630,
+        alt: SITE_NAMES[locale],
+      },
     ],
   },
   twitter: { card: 'summary_large_image' },
   robots: { index: true, follow: true },
-};
+});
 export const viewport: Viewport = {
   themeColor: [
     { media: '(prefers-color-scheme: light)', color: THEME_COLOR_LIGHT },
@@ -74,27 +85,31 @@ export const viewport: Viewport = {
   ],
 };
 // Names the site for search results; species pages add their own entity below.
-const websiteJsonLd = {
-  '@context': 'https://schema.org',
-  '@type': 'WebSite',
-  name: SITE_NAME,
-  url: SITE_URL,
-  description: SITE_DESCRIPTION,
-  inLanguage: 'de',
-};
-export default function RootLayout({
+export function RootShell({
+  locale,
   children,
 }: {
+  locale: Locale;
   children: React.ReactNode;
 }) {
+  const websiteJsonLd = {
+    '@context': 'https://schema.org',
+    '@type': 'WebSite',
+    name: SITE_NAMES[locale],
+    url: SITE_URLS[locale],
+    description: serverTranslator(locale)(SITE_DESCRIPTION),
+    inLanguage: locale,
+  };
   return (
-    <html lang="de">
+    <html lang={locale}>
       <body className={`${displayFont.variable} ${bodyFont.variable}`}>
         <script
           type="application/ld+json"
           dangerouslySetInnerHTML={{ __html: JSON.stringify(websiteJsonLd) }}
         />
-        <TooltipProvider delay={180}>{children}</TooltipProvider>
+        <I18nProvider locale={locale}>
+          <TooltipProvider delay={180}>{children}</TooltipProvider>
+        </I18nProvider>
       </body>
     </html>
   );

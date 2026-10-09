@@ -1,4 +1,5 @@
 'use client';
+import { useI18n } from '@/components/i18n';
 import { QuizIncorrectIcon } from '@/components/quiz/incorrect-icon';
 
 import { RemovableChip } from '@/components/close-control';
@@ -30,6 +31,7 @@ export function PreyQuestion({
   answered: boolean;
   onChange: (selected: string[]) => void;
 }) {
+  const { t } = useI18n();
   const root = useRef<HTMLFieldSetElement>(null);
   const target = useRef<HTMLDivElement>(null);
   const active = useRef<{
@@ -54,7 +56,9 @@ export function PreyQuestion({
         : [...new Set([...selected, id])],
     );
     setAnnouncement(
-      `${preyCatalog[id].name} ${remove ? 'entfernt' : 'zugeordnet'}.`,
+      t(remove ? '{name} entfernt.' : '{name} zugeordnet.', {
+        name: t(preyCatalog[id].name),
+      }),
     );
   }
   function isOver(x: number, y: number) {
@@ -72,7 +76,7 @@ export function PreyQuestion({
   return (
     <fieldset
       ref={root}
-      aria-label="Typische Nahrung zusammenstellen"
+      aria-label={t('Typische Nahrung zusammenstellen')}
       className="q-prey-task p-panel min-w-0 m-0 border-0 bg-stage"
       onPointerMove={(event) => {
         const current = active.current;
@@ -103,22 +107,23 @@ export function PreyQuestion({
       <QuizChoiceHeading
         label={
           <>
-            <Utensils size={17} /> Speiseplan zusammenstellen
+            <Utensils size={17} /> {t('Speiseplan zusammenstellen')}
           </>
         }
         description={
           <>
-            Ziehe die typische Nahrung zum Vogel oder tippe sie an. Mehrere
-            Antworten sind möglich.
+            {t(
+              'Ziehe die typische Nahrung zum Vogel oder tippe sie an. Mehrere Antworten sind möglich.',
+            )}
           </>
         }
       >
-        Was frisst dieser Vogel?
+        {t('Was frisst dieser Vogel?')}
       </QuizChoiceHeading>
       <div className="q-prey-layout grid grid-cols-[1.15fr_1fr] to-compact:grid-cols-[1fr] gap-6 items-stretch">
         <div
           className="q-prey-options grid grid-cols-2 gap-3"
-          aria-label="Nahrung zur Auswahl"
+          aria-label={t('Nahrung zur Auswahl')}
           data-quiz-confirm
         >
           {question.options.map((id) => {
@@ -129,7 +134,7 @@ export function PreyQuestion({
                 key={id}
                 type="button"
                 className="q-card q-prey-option data-[dragging=true]:opacity-[0.45] pt-6 px-3 pb-4 bg-surface text-foreground relative flex flex-col items-center justify-center gap-3 min-w-0 select-none"
-                aria-label={preyCatalog[id].name}
+                aria-label={t(preyCatalog[id].name)}
                 aria-pressed={picked}
                 disabled={answered}
                 data-selected={picked}
@@ -187,7 +192,7 @@ export function PreyQuestion({
                   <PreyArt preyKey={id} variant="choice" />
                 </span>
                 <strong className="text-(length:--type-ui) font-(--weight-medium) leading-(--leading-compact)">
-                  {preyCatalog[id].name}
+                  {t(preyCatalog[id].name)}
                 </strong>
               </button>
             );
@@ -198,7 +203,7 @@ export function PreyQuestion({
           className="q-card q-prey-target to-compact:grid to-compact:grid-cols-[1fr_120px] to-compact:gap-[10px] to-compact:p-panel to-phone:p-panel to-phone:grid-cols-[1fr_76px] rounded-(--radius-card) bg-surface min-w-0 flex flex-col items-center p-panel"
           data-over={over}
           data-answered={answered}
-          aria-label={`Nahrung für ${bird.name}`}
+          aria-label={t('Nahrung für {name}', { name: bird.name })}
         >
           <div className="q-specimen-label self-stretch p-0 flex flex-col items-start gap-0 relative z-1">
             <SpeciesName
@@ -224,16 +229,18 @@ export function PreyQuestion({
                 <RemovableChip
                   key={id}
                   disabled={answered}
-                  aria-label={`${preyCatalog[id].name} entfernen`}
+                  aria-label={t('{name} entfernen', {
+                    name: t(preyCatalog[id].name),
+                  })}
                   onClick={() => select(id, true)}
                 >
                   <PreyArt preyKey={id} variant="placed" />
-                  <span>{preyCatalog[id].name}</span>
+                  <span>{t(preyCatalog[id].name)}</span>
                 </RemovableChip>
               ))
             ) : (
               <span className="q-prey-empty text-(length:--type-ui) text-muted-foreground">
-                Nahrung hier ablegen
+                {t('Nahrung hier ablegen')}
               </span>
             )}
           </div>
@@ -251,7 +258,7 @@ export function PreyQuestion({
           >
             <PreyArt preyKey={drag.id} variant="drag" />
             <strong className="block mt-2 text-(length:--type-ui)">
-              {preyCatalog[drag.id].name}
+              {t(preyCatalog[drag.id].name)}
             </strong>
           </div>,
           document.body,

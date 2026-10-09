@@ -17,6 +17,8 @@ import {
   glossaryEntries,
   type GlossaryCategory,
 } from '@/lib/glossary';
+import { useI18n } from '@/components/i18n';
+import { currentUrl, msg } from '@/lib/i18n';
 
 function subscribe(notify: () => void) {
   window.addEventListener('popstate', notify);
@@ -30,13 +32,14 @@ function subscribe(notify: () => void) {
 export default function GlossaryExplorer() {
   const selected = useSyncExternalStore(
     subscribe,
-    () => new URLSearchParams(window.location.search).get('begriff') ?? '',
+    () => currentUrl().searchParams.get('begriff') ?? '',
     () => '',
   );
+  const { locale, t } = useI18n();
   const [query, setQuery] = useState('');
   const [category, setCategory] = useState<GlossaryCategory | 'Alle'>('Alle');
   const activeEntry = useRef<HTMLDivElement>(null);
-  const entries = filterGlossary(query, category);
+  const entries = filterGlossary(query, category, t, locale);
   const selectedVisible = entries.some((entry) => entry.id === selected);
 
   useEffect(() => {
@@ -49,14 +52,14 @@ export default function GlossaryExplorer() {
   }, [selected, selectedVisible]);
 
   return (
-    <section className="grid gap-6" aria-label="Glossar">
+    <section className="grid gap-6" aria-label={t('Glossar')}>
       <div className="flex items-center justify-between gap-4 to-desktop:flex-col to-desktop:items-stretch">
         <div
           className="flex shrink-0 flex-wrap gap-2"
           role="group"
-          aria-label="Glossar nach Thema filtern"
+          aria-label={t('Glossar nach Thema filtern')}
         >
-          {(['Alle', ...glossaryCategories] as const).map((item) => (
+          {([msg('Alle'), ...glossaryCategories] as const).map((item) => (
             <EcologyTag
               as="button"
               size="large"
@@ -66,15 +69,15 @@ export default function GlossaryExplorer() {
               onClick={() => setCategory(item)}
               className="aria-pressed:bg-(--selected-strong) aria-pressed:text-(--main-color)"
             >
-              {item}
+              {t(item)}
             </EcologyTag>
           ))}
         </div>
         <SearchField
           query={query}
           onQueryChange={setQuery}
-          label="Glossar durchsuchen"
-          placeholder="Begriff suchen …"
+          label={t('Glossar durchsuchen')}
+          placeholder={t('Begriff suchen …')}
           className="min-w-0 w-full max-w-xs to-desktop:max-w-none"
         />
       </div>
@@ -82,7 +85,10 @@ export default function GlossaryExplorer() {
         role="status"
         className="text-(length:--type-caption) text-muted-foreground"
       >
-        {entries.length} von {glossaryEntries.length} Begriffen
+        {t('{count} von {total} Begriffen', {
+          count: entries.length,
+          total: glossaryEntries.length,
+        })}
       </p>
       {entries.length ? (
         <dl className="grid grid-cols-2 to-phone:grid-cols-1 gap-x-8">
@@ -95,22 +101,24 @@ export default function GlossaryExplorer() {
               data-selected={entry.id === selected}
             >
               <dt className="font-(family-name:--font-stack-display) text-(length:--type-detail-heading) font-(--weight-label-heading) leading-(--leading-heading) group-data-[selected=true]:underline group-data-[selected=true]:decoration-(--main-color) group-data-[selected=true]:decoration-2 group-data-[selected=true]:underline-offset-4">
-                {entry.term}
+                {t(entry.term)}
               </dt>
               <dd className="grid gap-2 text-(length:--type-body) leading-(--leading-relaxed)">
                 <span className="text-(length:--type-caption) text-muted-foreground">
-                  {entry.category}
+                  {t(entry.category)}
                 </span>
-                <p>{entry.definition}</p>
+                <p>{t(entry.definition)}</p>
               </dd>
             </div>
           ))}
         </dl>
       ) : (
         <Surface kind="card" className="grid gap-4 bg-stage">
-          <SurfaceHeader><DetailHeading>Kein Begriff gefunden</DetailHeading></SurfaceHeader>
+          <SurfaceHeader>
+            <DetailHeading>{t('Kein Begriff gefunden')}</DetailHeading>
+          </SurfaceHeader>
           <p className="text-(length:--type-body) text-muted-foreground">
-            Versuche einen anderen Suchbegriff oder zeige alle Themen an.
+            {t('Versuche einen anderen Suchbegriff oder zeige alle Themen an.')}
           </p>
           <button
             type="button"
@@ -120,7 +128,7 @@ export default function GlossaryExplorer() {
               setCategory('Alle');
             }}
           >
-            Filter zurücksetzen
+            {t('Filter zurücksetzen')}
           </button>
         </Surface>
       )}
@@ -130,31 +138,31 @@ export default function GlossaryExplorer() {
           className="justify-self-start inline-flex items-center gap-1 min-h-(--control-height-compact) border-0 bg-transparent p-0 text-(length:--type-caption) text-muted-foreground hover:text-foreground"
         >
           <Info size={14} aria-hidden="true" />
-          Quellen
+          {t('Quellen')}
         </PopoverTrigger>
         <PopoverContent
           side="top"
           align="start"
-          aria-label="Quellen zum Glossar"
+          aria-label={t('Quellen zum Glossar')}
         >
-          <p className="app-tooltip-title">Zum Weiterlesen</p>
+          <p className="app-tooltip-title">{t('Zum Weiterlesen')}</p>
           <a
             className="underline underline-offset-4"
             href="https://academy.allaboutbirds.org/feathers-article/"
           >
-            Cornell Lab: Federn und Flügel
+            {t('Cornell Lab: Federn und Flügel')}
           </a>
           <a
             className="underline underline-offset-4"
             href="https://www.nabu.de/imperia/md/content/nabude/vogelschutz/27.pdf"
           >
-            NABU: Faszination Greifvögel
+            {t('NABU: Faszination Greifvögel')}
           </a>
           <a
             className="underline underline-offset-4"
             href="https://d-f-o.de/falknerei/falknerei-begrifflichkeiten/"
           >
-            Deutscher Falkenorden: Falknersprache
+            {t('Deutscher Falkenorden: Falknersprache')}
           </a>
         </PopoverContent>
       </Popover>

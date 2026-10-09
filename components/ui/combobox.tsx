@@ -5,6 +5,7 @@ import { Combobox as ComboboxPrimitive } from '@base-ui/react';
 
 import { FieldClear } from '@/components/close-control';
 import { cn } from '@/lib/utils';
+import { useT } from '@/components/i18n';
 import {
   InputGroup,
   InputGroupAddon,
@@ -224,6 +225,7 @@ function ComboboxChip({
 }: ComboboxPrimitive.Chip.Props & {
   showRemove?: boolean;
 }) {
+  const t = useT();
   return (
     <ComboboxPrimitive.Chip
       data-slot="combobox-chip"
@@ -236,7 +238,7 @@ function ComboboxChip({
       {children}
       {showRemove && (
         <ComboboxPrimitive.ChipRemove
-          render={<FieldClear aria-label="Eintrag entfernen" />}
+          render={<FieldClear aria-label={t('Eintrag entfernen')} />}
           data-slot="combobox-chip-remove"
         />
       )}

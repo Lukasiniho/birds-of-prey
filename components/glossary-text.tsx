@@ -7,6 +7,7 @@ import {
 } from 'react';
 import { GlossaryLink } from '@/components/glossary-link';
 import { splitGlossaryText } from '@/lib/glossary-matching';
+import { useI18n } from '@/components/i18n';
 
 // Only descend into prose elements. Existing links, controls, SVGs and custom
 // components are left intact; a glossary link must never contain another link.
@@ -25,11 +26,12 @@ const proseElements = new Set([
   'dd',
 ]);
 export function GlossaryText({ children }: { children: ReactNode }) {
+  const { locale, t } = useI18n();
   const seen = new Set<string>();
   function enrich(nodes: ReactNode): ReactNode {
     return Children.map(nodes, (node) => {
       if (typeof node === 'string') {
-        return splitGlossaryText(node, seen).map((part, index) =>
+        return splitGlossaryText(node, seen, locale, t).map((part, index) =>
           part.id ? (
             <GlossaryLink key={`${part.id}-${index}`} id={part.id}>
               {part.text}

@@ -5,6 +5,7 @@ import { ActivityTooltip } from '@/components/activity-tooltip';
 import { conservationLabels, speciesFacts } from '@/lib/species-facts';
 import { falconryBirds } from '@/lib/falconry';
 import { FalconryTooltip } from '@/components/falconry-tooltip';
+import { useI18n } from '@/components/i18n';
 
 import {
   HandFist,
@@ -24,37 +25,42 @@ const factIcons = {
 } as const;
 
 export function SpeciesFacts({ speciesId }: { speciesId: string }) {
+  const { t } = useI18n();
   const facts = speciesFacts[speciesId];
   const falconry = falconryBirds[speciesId];
   if (!facts) return null;
   const rows = [
     {
-      label: 'Lebenserwartung',
+      label: t('Lebenserwartung'),
       icon: 'hourglass-medium' as const,
-      value: facts.lifespan.value,
-      context: facts.lifespan.context,
+      value: t(facts.lifespan.value),
+      context: facts.lifespan.context && t(facts.lifespan.context),
     },
-    { label: 'Gelegegröße', icon: 'egg' as const, value: facts.clutch.value },
     {
-      label: 'Gefährdung weltweit',
+      label: t('Gelegegröße'),
+      icon: 'egg' as const,
+      value: t(facts.clutch.value),
+    },
+    {
+      label: t('Gefährdung weltweit'),
       icon: 'warning-circle' as const,
-      value: conservationLabels[facts.conservation.code],
+      value: t(conservationLabels[facts.conservation.code]),
     },
     {
-      label: 'Aktivitätszeit',
+      label: t('Aktivitätszeit'),
       icon: 'sun-horizon' as const,
-      value: facts.activity.value,
+      value: t(facts.activity.value),
     },
     {
-      label: 'Zugverhalten',
+      label: t('Zugverhalten'),
       icon: 'compass' as const,
-      value: facts.movement.value,
+      value: t(facts.movement.value),
     },
   ];
   return (
     <dl
       className="species-facts font-(family-name:--font-stack-body) text-(length:--type-body) leading-(--leading-compact) grid gap-(--rail-caption-gap) m-0"
-      aria-label="Wesentliche Artinformationen"
+      aria-label={t('Wesentliche Artinformationen')}
     >
       {rows.map(({ label, icon, value, context }) => {
         const Icon = factIcons[icon];
@@ -84,7 +90,7 @@ export function SpeciesFacts({ speciesId }: { speciesId: string }) {
                 <FactTooltip
                   key={speciesId}
                   value={value}
-                  describe={`${value}: ${label} erklären`}
+                  describe={t('{value}: {label} erklären', { value, label })}
                   variant="compact"
                 >
                   {context}
@@ -103,7 +109,7 @@ export function SpeciesFacts({ speciesId }: { speciesId: string }) {
               className="size-4 flex-none self-start mt-half"
               style={{ color: 'var(--main-color)' }}
             />
-            <span>Falknerei</span>
+            <span>{t('Falknerei')}</span>
           </dt>
           <dd className="min-w-0 m-0 text-right font-(--weight-semibold) wrap-anywhere">
             <FalconryTooltip key={speciesId} bird={falconry} />

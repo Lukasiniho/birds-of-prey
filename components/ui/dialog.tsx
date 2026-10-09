@@ -6,6 +6,7 @@ import { Dialog as DialogPrimitive } from '@base-ui/react/dialog';
 import { cn } from '@/lib/utils';
 import { Button } from '@/components/ui/button';
 import { CloseControl } from '@/components/close-control';
+import { useT } from '@/components/i18n';
 import {
   SurfaceHeader,
   SurfaceBody,
@@ -50,7 +51,7 @@ function DialogContent({
   children,
   showCloseButton = true,
   heading,
-  closeLabel = 'Schließen',
+  closeLabel,
   size = 'compact',
   ...props
 }: DialogPrimitive.Popup.Props & {
@@ -108,12 +109,13 @@ function DialogFooter({
 }: React.ComponentProps<'div'> & {
   showCloseButton?: boolean;
 }) {
+  const t = useT();
   return (
     <SurfaceFooter data-slot="dialog-footer" className={className} {...props}>
       {children}
       {showCloseButton && (
         <DialogPrimitive.Close render={<Button variant="outline" />}>
-          Schließen
+          {t('Schließen')}
         </DialogPrimitive.Close>
       )}
     </SurfaceFooter>

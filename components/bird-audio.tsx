@@ -9,6 +9,7 @@ import {
   PopoverContent,
 } from '@/components/ui/popover';
 import { birdRecordings } from '@/lib/bird-recordings';
+import { useI18n } from '@/components/i18n';
 
 // Gemessen werden 48 Stufen, gezeichnet werden 16. Die Ruf-Zelle lässt der
 // Welle rund 100 px: mit mehr Strichen bleibt jeder unter einem Pixel und die
@@ -32,6 +33,7 @@ export function BirdAudio({
   name: string;
   className?: string;
 }) {
+  const { t } = useI18n();
   const recording = birdRecordings[birdId];
   const audio = useRef<HTMLAudioElement | null>(null);
   const [state, setState] = useState<'idle' | 'loading' | 'playing' | 'error'>(
@@ -84,7 +86,7 @@ export function BirdAudio({
         variant="ghost"
         className="bird-audio-play inline-flex gap-[7px] p-0 size-[38px] min-w-[38px] row-[1/-1] self-center justify-center bg-primary text-primary-foreground"
         onClick={toggle}
-        aria-label={`${name}: ${state === 'playing' ? 'Ruf pausieren' : 'Ruf abspielen'}`}
+        aria-label={`${t(name)}: ${state === 'playing' ? t('Ruf pausieren') : t('Ruf abspielen')}`}
         aria-pressed={state === 'playing'}
         aria-busy={state === 'loading'}
       >
@@ -146,9 +148,9 @@ export function BirdAudio({
           className="text-(length:--type-caption) max-w-[150px] font-(family-name:--font-stack-body) font-(--weight-regular) tracking-(--tracking-normal) leading-(--leading-normal) ml-[6px] to-phone:ml-1 text-muted-foreground"
           role="status"
         >
-          Ton nicht verfügbar.{' '}
+          {t('Ton nicht verfügbar.')}{' '}
           <a href={recording.sourceUrl} target="_blank" rel="noreferrer">
-            Quelle öffnen
+            {t('Quelle öffnen')}
           </a>
         </small>
       )}
@@ -163,21 +165,22 @@ export function BirdAudioCredit({
   birdId: string;
   name: string;
 }) {
+  const { t } = useI18n();
   const recording = birdRecordings[birdId];
   if (!recording) return null;
   return (
     <Popover>
       <PopoverTrigger className="bird-audio-credit">
-        Quelle & Lizenz
+        {t('Quelle & Lizenz')}
       </PopoverTrigger>
       <PopoverContent side="top" className="bird-audio-attribution">
         <strong className="app-tooltip-title">
-          {name} · {recording.label}
+          {t(name)} · {t(recording.label)}
         </strong>
-        <p>Aufnahme: {recording.author}</p>
+        <p>{t('Aufnahme: {author}', { author: recording.author })}</p>
         <p>
           <a href={recording.sourceUrl} target="_blank" rel="noreferrer">
-            Originalaufnahme
+            {t('Originalaufnahme')}
           </a>{' '}
           ·{' '}
           <a href={recording.licenseUrl} target="_blank" rel="noreferrer">
@@ -185,7 +188,7 @@ export function BirdAudioCredit({
           </a>
         </p>
         <small className="text-(--muted-foreground)">
-          {recording.note ?? 'Unveränderte Aufnahme.'}
+          {recording.note ? t(recording.note) : t('Unveränderte Aufnahme.')}
         </small>
       </PopoverContent>
     </Popover>

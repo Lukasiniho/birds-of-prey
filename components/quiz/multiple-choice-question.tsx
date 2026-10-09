@@ -1,4 +1,5 @@
 'use client';
+import { useI18n } from '@/components/i18n';
 import {
   QuizSplit,
   QuizOrbit,
@@ -36,6 +37,7 @@ export function MultipleChoiceQuestion({
   huntingTypes: HuntingTypes;
   birds: BirdMap;
 }) {
+  const { t } = useI18n();
   const isIdentify = question.kind === 'identify';
   const isCall = question.kind === 'call';
   const showName = question.kind === 'hunt' || answered;
@@ -54,7 +56,7 @@ export function MultipleChoiceQuestion({
             />
           ) : (
             <SpeciesCommonName variant="quiz">
-              {isCall ? 'Vogelruf' : 'Flugbild'}
+              {isCall ? t('Vogelruf') : t('Flugbild')}
             </SpeciesCommonName>
           )}
         </div>
@@ -66,7 +68,9 @@ export function MultipleChoiceQuestion({
                 bird={bird}
                 className={QUIZ_FLIGHT_FRAME}
                 alt={
-                  showName ? bird.name : 'Greifvogel im Flug – bestimme die Art'
+                  showName
+                    ? bird.name
+                    : t('Greifvogel im Flug – bestimme die Art')
                 }
               />
             </>
@@ -84,36 +88,38 @@ export function MultipleChoiceQuestion({
           <>
             <Icon size={17} />{' '}
             {isCall
-              ? 'Ruf erkennen'
+              ? t('Ruf erkennen')
               : isIdentify
-                ? 'Art erkennen'
-                : 'Jagdweisen erkennen'}
+                ? t('Art erkennen')
+                : t('Jagdweisen erkennen')}
           </>
         }
         title={
           isCall ? (
             <>
-              Welcher Greifvogel <br />
-              ruft hier?
+              {t('Welcher Greifvogel')} <br />
+              {t('ruft hier?')}
             </>
           ) : isIdentify ? (
             <>
-              Welcher Greifvogel <br />
-              ist das?
+              {t('Welcher Greifvogel')} <br />
+              {t('ist das?')}
             </>
           ) : (
             <>
-              Wie kommt dieser <br />
-              Vogel an seine Beute?
+              {t('Wie kommt dieser')} <br />
+              {t('Vogel an seine Beute?')}
             </>
           )
         }
         description={
           isCall
-            ? 'Höre dir die Aufnahme an und wähle die passende Art aus.'
+            ? t('Höre dir die Aufnahme an und wähle die passende Art aus.')
             : isIdentify
-              ? 'Wähle die passende Art aus.'
-              : `Wähle die typische Jagdweise der Art ${bird.name}.`
+              ? t('Wähle die passende Art aus.')
+              : t('Wähle die typische Jagdweise der Art {name}.', {
+                  name: bird.name,
+                })
         }
       >
         <QuizChoices

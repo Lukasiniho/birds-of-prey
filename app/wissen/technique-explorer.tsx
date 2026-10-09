@@ -10,25 +10,26 @@ import { KnowledgeBirdGroup as HunterGroup } from '@/components/knowledge-bird-g
 import { DetailCopy } from '@/components/detail-text';
 
 import { useEffect, useState } from 'react';
+import { useI18n } from '@/components/i18n';
+import { currentUrl, localePath } from '@/lib/i18n';
 import { ArtImage } from '@/components/art-image';
 import { Crosshair } from '@/components/icons';
 import type { TechniqueEntry, TechniqueHunter } from './knowledge-data';
-
-function countLabel(count: number) {
-  return count === 1 ? '1 Art' : `${count} Arten`;
-}
 
 export default function TechniqueExplorer({
   techniques,
 }: {
   techniques: TechniqueEntry[];
 }) {
+  const { locale, t } = useI18n();
+  const countLabel = (count: number) =>
+    count === 1 ? t('1 Art') : t('{count} Arten', { count });
   const [selected, setSelected] = useState(techniques[0]?.id ?? '');
   const [hovered, setHovered] = useState<TechniqueHunter | null>(null);
   // A hunting tag in the atlas links straight to its chapter: ?technik=<id>.
   useEffect(() => {
     function syncFromUrl() {
-      const id = new URLSearchParams(window.location.search).get('technik');
+      const id = currentUrl().searchParams.get('technik');
       if (id && techniques.some((item) => item.id === id)) setSelected(id);
     }
     syncFromUrl();
@@ -37,9 +38,13 @@ export default function TechniqueExplorer({
   }, [techniques]);
   function choose(id: string) {
     setSelected(id);
-    const url = new URL(window.location.href);
+    const url = currentUrl();
     url.searchParams.set('technik', id);
-    window.history.replaceState(window.history.state, '', url);
+    window.history.replaceState(
+      window.history.state,
+      '',
+      localePath(url.pathname + url.search + url.hash, locale),
+    );
   }
   const entry =
     techniques.find((item) => item.id === selected) ?? techniques[0];
@@ -48,15 +53,18 @@ export default function TechniqueExplorer({
 
   return (
     <ExplorerPanel className={'knowledge-split technique-explorer'}>
-      <ExplorerStage className="knowledge-surface" aria-label="Jagdtechniken">
+      <ExplorerStage
+        className="knowledge-surface"
+        aria-label={t('Jagdtechniken')}
+      >
         <ExplorerHeader
-          eyebrow="Strategie & Beute"
-          title="Wie Greifvögel jagen"
+          eyebrow={t('Strategie & Beute')}
+          title={t('Wie Greifvögel jagen')}
           actions={<Crosshair size={24} aria-hidden="true" />}
         />
         <fieldset
           className="knowledge-grid grid grid-cols-5 to-tablet:grid-cols-3 gap-2"
-          aria-label="Jagdtechnik wählen"
+          aria-label={t('Jagdtechnik wählen')}
         >
           {techniques.map((item) => (
             <button
@@ -96,27 +104,33 @@ export default function TechniqueExplorer({
         scrollKey={entry.id}
       >
         <ExplorerHeader
-          eyebrow={<> Jagdtechnik · {countLabel(entry.hunters.length)} </>}
+          eyebrow={
+            <>
+              {' '}
+              {t('Jagdtechnik')} · {countLabel(entry.hunters.length)}{' '}
+            </>
+          }
           title={entry.label}
         />
         <DetailCopy className="mt-3">{entry.text}</DetailCopy>
         {typical.length > 0 && (
           <HunterGroup
-            title="Typische Technik"
+            title={t('Typische Technik')}
             hunters={typical}
             onHover={setHovered}
           />
         )}
         {additional.length > 0 && (
           <HunterGroup
-            title="Ergänzend"
+            title={t('Ergänzend')}
             hunters={additional}
             onHover={setHovered}
           />
         )}
         <DetailCopy className="mt-3">
-          Beim Überfahren einer Art leuchten links alle Techniken auf, die sie
-          ebenfalls nutzt.
+          {t(
+            'Beim Überfahren einer Art leuchten links alle Techniken auf, die sie ebenfalls nutzt.',
+          )}
         </DetailCopy>
       </ExplorerNotes>
     </ExplorerPanel>

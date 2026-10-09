@@ -1,4 +1,6 @@
 'use client';
+import { useI18n } from '@/components/i18n';
+import { localeTags } from '@/lib/i18n';
 import {
   QuizSplit,
   QuizOrbit,
@@ -17,8 +19,6 @@ import type { QuizDraft as Draft } from '@/lib/quiz-answer';
 import { BirdArt, QUIZ_FLIGHT_FRAME } from './bird-art';
 import { formatSpan, formatWeight } from './format-measurement';
 
-const number = new Intl.NumberFormat('de-DE', { maximumFractionDigits: 1 });
-
 export function EstimateQuestion({
   kind,
   bird,
@@ -32,6 +32,10 @@ export function EstimateQuestion({
   answered: boolean;
   onChange: (draft: Draft) => void;
 }) {
+  const { locale, t } = useI18n();
+  const number = new Intl.NumberFormat(localeTags[locale], {
+    maximumFractionDigits: 1,
+  });
   const isWeight = kind === 'weight-estimate';
   const scale = isWeight
     ? weightEstimateScale(bird)
@@ -45,7 +49,6 @@ export function EstimateQuestion({
       };
   const value = isWeight ? draft.weight : draft.span;
   const unit = isWeight ? (scale.divisor === 1 ? 'g' : 'kg') : 'cm';
-  const label = isWeight ? 'Gewicht' : 'Spannweite';
   const midpoint = isWeight ? scale.max / 2 : 200;
   const Icon = isWeight ? Scale : Ruler;
   const formatValue = (amount: number) =>
@@ -78,32 +81,34 @@ export function EstimateQuestion({
           {!isWeight && <QuizSpanGuide span={draft.span} />}
         </div>
         <p className="q-art-note mt-[14px] text-(length:--type-caption) text-muted-foreground text-center">
-          Illustration · nicht maßstabsgetreu
+          {t('Illustration · nicht maßstabsgetreu')}
         </p>
       </QuizSpecimen>
       <QuizPrompt
         label={
           <>
-            <Icon size={17} /> Dein Augenmaß ist gefragt
+            <Icon size={17} /> {t('Dein Augenmaß ist gefragt')}
           </>
         }
         title={
           isWeight ? (
             <>
-              Wie schwer ist <br />
-              dieser Vogel?
+              {t('Wie schwer ist')} <br />
+              {t('dieser Vogel?')}
             </>
           ) : (
             <>
-              Wie weit reichen <br />
-              diese Flügel?
+              {t('Wie weit reichen')} <br />
+              {t('diese Flügel?')}
             </>
           )
         }
         description={
           isWeight
-            ? 'Schätze das Körpergewicht des Vogels.'
-            : 'Schätze die Spannweite. Gemessen wird von einer Flügelspitze zur anderen.'
+            ? t('Schätze das Körpergewicht des Vogels.')
+            : t(
+                'Schätze die Spannweite. Gemessen wird von einer Flügelspitze zur anderen.',
+              )
         }
         reserveLines
       >
@@ -112,7 +117,12 @@ export function EstimateQuestion({
             <Button
               variant="ghost"
               size="icon"
-              aria-label={`${label} um ${formatValue(scale.step)} verringern`}
+              aria-label={t(
+                isWeight
+                  ? 'Gewicht um {step} verringern'
+                  : 'Spannweite um {step} verringern',
+                { step: formatValue(scale.step) },
+              )}
               disabled={answered || value <= scale.min}
               onClick={() => update(value - scale.step)}
             >
@@ -122,8 +132,8 @@ export function EstimateQuestion({
               className="flex items-baseline min-w-[170px] to-small:min-w-0 to-small:flex-1 justify-center gap-3"
               aria-label={
                 isWeight
-                  ? 'Dein geschätztes Gewicht'
-                  : 'Deine geschätzte Spannweite'
+                  ? t('Dein geschätztes Gewicht')
+                  : t('Deine geschätzte Spannweite')
               }
             >
               <strong className="text-(length:--text-5xl) font-(--weight-bold) tabular-nums tracking-(--tracking-tight) leading-(--leading-none)">
@@ -136,7 +146,12 @@ export function EstimateQuestion({
             <Button
               variant="ghost"
               size="icon"
-              aria-label={`${label} um ${formatValue(scale.step)} erhöhen`}
+              aria-label={t(
+                isWeight
+                  ? 'Gewicht um {step} erhöhen'
+                  : 'Spannweite um {step} erhöhen',
+                { step: formatValue(scale.step) },
+              )}
               disabled={answered || value >= scale.max}
               onClick={() => update(value + scale.step)}
             >
@@ -145,13 +160,11 @@ export function EstimateQuestion({
           </div>
           <div className="q-slider-wrap py-0 px-[10px]">
             <span id="q-estimate-label" className="sr-only">
-              {label} in{' '}
               {isWeight
                 ? scale.divisor === 1
-                  ? 'Gramm'
-                  : 'Kilogramm'
-                : 'Zentimetern'}{' '}
-              schätzen
+                  ? t('Gewicht in Gramm schätzen')
+                  : t('Gewicht in Kilogramm schätzen')
+                : t('Spannweite in Zentimetern schätzen')}
             </span>
             <Slider
               className="q-slider py-3"
@@ -161,7 +174,7 @@ export function EstimateQuestion({
               step={scale.step / scale.divisor}
               disabled={answered}
               aria-labelledby="q-estimate-label"
-              locale="de-DE"
+              locale={localeTags[locale]}
               format={{
                 style: 'unit',
                 unit: scale.unit,
@@ -201,10 +214,10 @@ export function EstimateQuestion({
             >
               <span className="flex items-center gap-[6px] leading-(--leading-compact)">
                 <Check size={16} aria-hidden="true" />
-                Natürlicher Bereich
+                {t('Natürlicher Bereich')}
               </span>
               <strong className="text-(length:--text-2xl) font-(--weight-bold) leading-(--leading-heading)">
-                {isWeight ? formatWeight(bird) : formatSpan(bird)}
+                {isWeight ? formatWeight(bird, locale) : formatSpan(bird)}
               </strong>
             </div>
           </div>

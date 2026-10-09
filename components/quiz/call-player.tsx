@@ -1,5 +1,6 @@
 'use client';
 
+import { useI18n } from '@/components/i18n';
 import { cn } from '@/lib/utils';
 import { useEffect, useRef, useState } from 'react';
 import {
@@ -24,6 +25,7 @@ export function QuizCallPlayer({
   recording: BirdRecording;
   revealed: boolean;
 }) {
+  const { t } = useI18n();
   const audio = useRef<HTMLAudioElement>(null);
   const attempt = useRef(0);
   const [state, setState] = useState<'idle' | 'loading' | 'playing' | 'error'>(
@@ -77,12 +79,12 @@ export function QuizCallPlayer({
 
   const label =
     state === 'loading'
-      ? 'Laden abbrechen'
+      ? t('Laden abbrechen')
       : state === 'playing'
-        ? 'Ruf pausieren'
+        ? t('Ruf pausieren')
         : state === 'error'
-          ? 'Erneut versuchen'
-          : 'Ruf anhören';
+          ? t('Erneut versuchen')
+          : t('Ruf anhören');
   const Icon =
     state === 'error'
       ? RotateCcw
@@ -125,9 +127,9 @@ export function QuizCallPlayer({
         role="status"
       >
         {state === 'error'
-          ? 'Die Aufnahme konnte nicht geladen werden. Versuche es erneut.'
+          ? t('Die Aufnahme konnte nicht geladen werden. Versuche es erneut.')
           : state === 'loading'
-            ? 'Aufnahme wird geladen …'
+            ? t('Aufnahme wird geladen …')
             : ''}
       </p>
       {/* oxlint-disable-next-line jsx-a11y/media-has-caption -- bird calls carry no speech to caption */}
@@ -150,12 +152,13 @@ export function QuizCallPlayer({
 }
 
 export function QuizCallInfo({ recording }: { recording: BirdRecording }) {
+  const { t } = useI18n();
   return (
     <Popover>
-      <TooltipHint content="Aufnahme, Quelle und Lizenz">
+      <TooltipHint content={t('Aufnahme, Quelle und Lizenz')}>
         <PopoverTrigger
           className="range-map-source absolute left-[8px] bottom-[8px] grid place-items-center size-[26px] q-call-credit z-2"
-          aria-label="Aufnahme, Quelle und Lizenz"
+          aria-label={t('Aufnahme, Quelle und Lizenz')}
         >
           <Info size={14} aria-hidden="true" />
         </PopoverTrigger>
@@ -176,9 +179,11 @@ export function QuizCallInfo({ recording }: { recording: BirdRecording }) {
               {recording.license}
             </a>
             {' · '}
-            {Math.round(recording.durationSeconds)} Sekunden
+            {t('{count} Sekunden', {
+              count: Math.round(recording.durationSeconds),
+            })}
           </small>
-          <small>Gekürzte, bearbeitete Aufnahme.</small>
+          <small>{t('Gekürzte, bearbeitete Aufnahme.')}</small>
         </div>
       </PopoverContent>
     </Popover>

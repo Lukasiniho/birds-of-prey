@@ -1,6 +1,6 @@
 import type { Metadata } from 'next';
-import StyleguideView from './styleguide-view';
-import './styleguide.css';
+import StyleguideView from '@/app/styleguide/styleguide-view';
+import '@/app/styleguide/styleguide.css';
 
 export const metadata: Metadata = {
   title: 'Design-System',

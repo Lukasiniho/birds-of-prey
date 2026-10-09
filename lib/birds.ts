@@ -3,6 +3,7 @@ import { landscapes, speciesLandscapes } from './habitats.ts';
 import { birdImages } from './bird-images.ts';
 import { huntingImages } from './hunting-images.ts';
 import { additionalBirds } from './additional-birds.ts';
+import { msg, type Translate } from './i18n.ts';
 /** A natural range as [min, max]. */
 export type MeasurementRange = [number, number];
 /** Per-sex measurements: body mass in grams. Wingspan is one species range for both sexes. */
@@ -254,10 +255,11 @@ export const birds: BirdSpecies[] = [
   },
   ...additionalBirds,
 ];
-export function filterBirds(query: string) {
+/** With `t`, English names and groups match too, besides German and Latin. */
+export function filterBirds(query: string, t?: Translate) {
   const term = query.trim().toLocaleLowerCase('de');
   return birds.filter((b) =>
-    `${b.name} ${b.latin} ${b.group} ${b.id} ${(b.aliases || []).join(' ')}`
+    `${b.name} ${b.latin} ${b.group} ${b.id} ${(b.aliases || []).join(' ')}${t ? ` ${t(b.name)} ${t(b.group)}` : ''}`
       .toLocaleLowerCase('de')
       .includes(term),
   );
@@ -269,7 +271,7 @@ export const groupingOptions = [
   { value: 'habitat', label: 'Lebensraum' },
   { value: 'size', label: 'Größe' },
 ];
-const genera: Record<string, string> = {
+export const genera: Record<string, string> = {
   Buteo: 'Bussarde',
   Astur: 'Habichte',
   Falco: 'Falken',
@@ -289,7 +291,7 @@ export function groupBirds(list: BirdSpecies[], mode: GroupMode) {
     }
     return [
       ...sizeBuckets,
-      { id: 'size-unknown', title: 'Größe nicht bekannt' },
+      { id: 'size-unknown', title: msg('Größe nicht bekannt') },
     ]
       .filter((bucket) => bySize.has(bucket.id))
       .map((bucket) => ({
@@ -338,11 +340,11 @@ export function plumagesFor(id: string): { value: Plumage; label: string }[] {
   ].includes(id)
     ? [...plumages]
     : [
-        { value: 'male', label: 'Altvogel' },
+        { value: 'male', label: msg('Altvogel') },
         { value: 'juvenile', label: 'Jungvogel' },
       ];
 }
-const adultNotes: Record<string, string> = {
+export const adultNotes: Record<string, string> = {
   rotschwanzbussard:
     'Rostroter Schwanz und dunkles Bauchband kennzeichnen das Alterskleid. Die Geschlechter sind ähnlich gefärbt; Weibchen sind im Mittel größer.',
   habicht:
@@ -577,7 +579,7 @@ export type BodyColors = {
 };
 const yellow: ColorSwatch[] = [['Gelb', '#D6B44B']];
 const darkEyes: ColorSwatch[] = [['Dunkelbraun', '#382B24']];
-const adultBodyColors: Record<string, BodyColors> = {
+export const adultBodyColors: Record<string, BodyColors> = {
   rotschwanzbussard: {
     eyes: [['Braun bis Rotbraun', '#795034']],
     legs: yellow,
@@ -600,7 +602,7 @@ const adultBodyColors: Record<string, BodyColors> = {
   seeadler: { eyes: [['Hellgelb', '#DCD28B']], legs: yellow },
   fischadler: { eyes: [['Gelb', '#DABD4D']], legs: [['Blaugrau', '#AFBDC3']] },
 };
-const youngBodyColors: Record<string, BodyColors> = {
+export const youngBodyColors: Record<string, BodyColors> = {
   rotschwanzbussard: { eyes: [['Blassgelb', '#D7CC91']], legs: yellow },
   habicht: { eyes: [['Hellgelb', '#DECE7E']], legs: yellow },
   maeusebussard: { eyes: [['Graubraun', '#A2987A']], legs: yellow },

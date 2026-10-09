@@ -2,21 +2,30 @@
 
 import { FactTooltip } from '@/components/fact-tooltip';
 import type { SpeciesFact } from '@/lib/species-facts';
+import { useI18n } from '@/components/i18n';
+import { msg } from '@/lib/i18n';
 
 // Ordered from sedentary to long-distance migration.
 const scale = [
-  ['stand', 'Standvogel'],
-  ['teil', 'Teilzieher'],
-  ['zug', 'Zugvogel'],
-  ['lang', 'Langstreckenzieher'],
+  ['stand', msg('Standvogel')],
+  ['teil', msg('Teilzieher')],
+  ['zug', msg('Zugvogel')],
+  ['lang', msg('Langstreckenzieher')],
 ] as const;
 type MovementType = (typeof scale)[number][0];
 const explanations: Record<MovementType, string> = {
-  stand:
+  stand: msg(
     'Bleibt das ganze Jahr im Brutgebiet. Nur Jungvögel streifen auf der Suche nach einem eigenen Revier umher; manche Arten weichen bei Kälte oder Nahrungsmangel vorübergehend in nahe Gebiete aus.',
-  teil: 'Ein Teil der Population zieht, der andere bleibt. Oft entscheidet die Region: nördliche Brutvögel ziehen, südliche bleiben. Auch Alter und Geschlecht spielen eine Rolle.',
-  zug: 'Verlässt das Brutgebiet regelmäßig für den Winter und kehrt im Frühjahr zurück, meist innerhalb des Kontinents oder bis in den Mittelmeerraum.',
-  lang: 'Zieht jedes Jahr über große Entfernungen; europäische Brutvögel überwintern meist südlich der Sahara.',
+  ),
+  teil: msg(
+    'Ein Teil der Population zieht, der andere bleibt. Oft entscheidet die Region: nördliche Brutvögel ziehen, südliche bleiben. Auch Alter und Geschlecht spielen eine Rolle.',
+  ),
+  zug: msg(
+    'Verlässt das Brutgebiet regelmäßig für den Winter und kehrt im Frühjahr zurück, meist innerhalb des Kontinents oder bis in den Mittelmeerraum.',
+  ),
+  lang: msg(
+    'Zieht jedes Jahr über große Entfernungen; europäische Brutvögel überwintern meist südlich der Sahara.',
+  ),
 };
 
 function movementType(value: string): MovementType {
@@ -27,22 +36,28 @@ function movementType(value: string): MovementType {
 }
 
 export function MovementTooltip({ fact }: { fact: SpeciesFact }) {
+  const { t } = useI18n();
   const type = movementType(fact.value);
+  const value = t(fact.value);
   return (
     <FactTooltip
-      value={fact.value}
-      describe={`${fact.value}: Zugverhalten erklären`}
+      value={value}
+      describe={t('{value}: Zugverhalten erklären', { value })}
     >
-      <p className="app-tooltip-title">Zugverhalten</p>
+      <p className="app-tooltip-title">{t('Zugverhalten')}</p>
       <ol
         className="grid list-none grid-cols-4 gap-2 p-0"
-        aria-label="Skala von Standvogel bis Langstreckenzieher"
+        aria-label={t('Skala von Standvogel bis Langstreckenzieher')}
       >
         {scale.map(([level, label]) => (
           <li
             key={level}
             aria-current={level === type ? 'step' : undefined}
-            aria-label={`${label}${level === type ? ' – aktuelle Einstufung' : ''}`}
+            aria-label={
+              level === type
+                ? t('{label} – aktuelle Einstufung', { label: t(label) })
+                : t(label)
+            }
             className="h-2.5 rounded-full"
             style={
               level === type
@@ -60,12 +75,12 @@ export function MovementTooltip({ fact }: { fact: SpeciesFact }) {
         className="flex justify-between gap-4 text-muted-foreground"
         aria-hidden="true"
       >
-        <span>Standvogel</span>
-        <span>Langstreckenzieher</span>
+        <span>{t('Standvogel')}</span>
+        <span>{t('Langstreckenzieher')}</span>
       </div>
-      <p className="app-tooltip-title">{fact.value}</p>
-      <p>{explanations[type]}</p>
-      {fact.note && <p className="text-muted-foreground">{fact.note}</p>}
+      <p className="app-tooltip-title">{value}</p>
+      <p>{t(explanations[type])}</p>
+      {fact.note && <p className="text-muted-foreground">{t(fact.note)}</p>}
     </FactTooltip>
   );
 }

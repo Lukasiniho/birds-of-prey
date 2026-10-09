@@ -3,7 +3,8 @@
 import { useId, useLayoutEffect, useRef } from 'react';
 import { CaretDown, CaretRight } from '@/components/icons';
 import { TaxonomyCard } from '@/components/taxonomy-card';
-import { taxonomyRoot, type TaxonomyNode } from '@/lib/taxonomy';
+import { taxonomyTree, type TaxonomyNode } from '@/lib/taxonomy';
+import { useI18n } from '@/components/i18n';
 
 type TreeProps = {
   selected: string;
@@ -17,6 +18,7 @@ function TaxonomyBranch({
   depth,
   ...tree
 }: TreeProps & { node: TaxonomyNode; depth: number }) {
+  const { t } = useI18n();
   const childrenId = useId();
   const isOpen = tree.path[depth] === node.latin;
   const toggle = () =>
@@ -56,10 +58,13 @@ function TaxonomyBranch({
                       : ''
                   }
                 >
-                  {node.atlasCount} im Atlas
+                  {t('{count} im Atlas', { count: node.atlasCount })}
                 </span>
                 <span>
-                  · {node.totalCount} {node.totalCount === 1 ? 'Art' : 'Arten'}
+                  ·{' '}
+                  {node.totalCount === 1
+                    ? t('{count} Art', { count: node.totalCount })
+                    : t('{count} Arten', { count: node.totalCount })}
                 </span>
               </span>
             </span>
@@ -95,6 +100,7 @@ function TaxonomyBranch({
 
 /** A nested disclosure list keeps every rank within a phone's width. */
 export function TaxonomyMobileTree(props: TreeProps) {
+  const { locale, t } = useI18n();
   const scroller = useRef<HTMLDivElement>(null);
   useLayoutEffect(() => {
     const element = scroller.current;
@@ -124,11 +130,11 @@ export function TaxonomyMobileTree(props: TreeProps) {
   return (
     <div
       ref={scroller}
-      aria-label="Vertikaler Systematikbaum"
+      aria-label={t('Vertikaler Systematikbaum')}
       className="hidden min-h-0 min-w-0 flex-1 overflow-x-hidden overflow-y-auto overscroll-contain -mx-1 p-1 to-tablet:block"
     >
       <ul>
-        <TaxonomyBranch {...props} node={taxonomyRoot} depth={0} />
+        <TaxonomyBranch {...props} node={taxonomyTree(locale, t)} depth={0} />
       </ul>
     </div>
   );

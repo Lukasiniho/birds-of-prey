@@ -1,4 +1,5 @@
 'use client';
+import { useI18n } from '@/components/i18n';
 import { QuizActionButton } from '@/components/quiz/action-button';
 
 import type { CSSProperties, ReactNode } from 'react';
@@ -27,6 +28,7 @@ export function QuizResults({
   onRestart: () => void;
   onReview: (index: number) => void;
 }) {
+  const { t } = useI18n();
   const total = Object.values(answers).reduce(
     (sum, answer) => sum + answer.points,
     0,
@@ -51,13 +53,13 @@ export function QuizResults({
                 {total}
               </strong>
               <span className="text-muted-foreground text-(length:--type-caption)">
-                von {questions.length * 100} Punkten
+                {t('von {total} Punkten', { total: questions.length * 100 })}
               </span>
             </div>
           </div>
           <div className="q-result-copy max-w-[590px]">
             <span className="q-task-label to-tablet:justify-start to-tablet:mb-3 text-(length:--type-ui) font-(--weight-medium) text-(--main-color) flex items-center gap-2 mb-4">
-              Deine Runde ist komplett
+              {t('Deine Runde ist komplett')}
             </span>
             <h1
               className="text-(length:--type-heading) font-(family-name:--font-stack-display) leading-(--leading-display) font-(--weight-semibold) tracking-(--tracking-tight)"
@@ -65,18 +67,21 @@ export function QuizResults({
               tabIndex={-1}
             >
               {total >= questions.length * 80
-                ? 'Was für ein Adlerauge.'
+                ? t('Was für ein Adlerauge.')
                 : total >= questions.length * 50
-                  ? 'Ein guter Blick fürs Detail.'
-                  : 'Jede Runde schärft deinen Blick.'}
+                  ? t('Ein guter Blick fürs Detail.')
+                  : t('Jede Runde schärft deinen Blick.')}
             </h1>
             <p className="text-(length:--type-body) mt-2 mb-3 leading-(--leading-relaxed) text-muted-foreground">
-              {perfect} von {questions.length} Aufgaben mit voller Punktzahl.
+              {t('{count} von {total} Aufgaben mit voller Punktzahl.', {
+                count: perfect,
+                total: questions.length,
+              })}
             </p>
             <div className="q-round-settings flex flex-wrap items-center gap-3">
               {countSelect}
               <QuizActionButton onClick={onRestart}>
-                <RotateCcw size={17} /> Noch eine Runde
+                <RotateCcw size={17} /> {t('Noch eine Runde')}
               </QuizActionButton>
             </div>
           </div>
@@ -95,7 +100,7 @@ export function QuizResults({
                 key={id}
               >
                 <Icon size={21} className="text-(--main-color)" />
-                <span>{label}</span>
+                <span>{t(label)}</span>
                 <strong className="to-tablet:text-(length:--type-ui)">
                   {score}
                   <small className="font-(--weight-regular) text-muted-foreground text-(length:--type-caption)">
@@ -117,7 +122,9 @@ export function QuizResults({
         </div>
       </div>
       <div className="q-review-heading to-tablet:items-start to-tablet:flex-col to-tablet:gap-5 flex justify-between items-center gap-5 mt-10 mb-5">
-        <h2 className="text-(length:--type-heading)">Deine Entdeckungen</h2>
+        <h2 className="text-(length:--type-heading)">
+          {t('Deine Entdeckungen')}
+        </h2>
       </div>
       <div className="q-review-list grid grid-cols-[1fr_1fr] gap-3 to-tablet:grid-cols-1">
         {questions.map((question, index) => {
@@ -150,16 +157,16 @@ export function QuizResults({
                 ) : (
                   <strong className="q-review-title font-(family-name:--font-stack-display) text-(length:--type-species-quiz) wrap-anywhere font-(--weight-bold) leading-(--leading-heading) block">
                     {question.kind === 'weight'
-                      ? 'Von federleicht zu schwer.'
+                      ? t('Von federleicht zu schwer.')
                       : question.kind === 'habitat'
-                        ? 'Wer lebt denn hier?'
+                        ? t('Wer lebt denn hier?')
                         : question.kind === 'compare'
-                          ? 'Welcher dieser vier Vögel hat die größte Spannweite?'
+                          ? t('Welcher dieser vier Vögel hat die größte Spannweite?')
                           : bird.name}
                   </strong>
                 )}
                 <small className="q-review-subtitle font-(family-name:--font-stack-body) text-(length:--text-sm) font-(--weight-regular) leading-(--leading-heading) text-muted-foreground block mt-half">
-                  {mode.label}
+                  {t(mode.label)}
                 </small>
               </span>
               <b className="q-review-score tabular-nums font-(family-name:--font-stack-body) text-(length:--text-sm) font-(--weight-semibold) leading-(--leading-compact) shrink-0 whitespace-nowrap">

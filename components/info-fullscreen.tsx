@@ -16,6 +16,7 @@ import {
 import { ArtImage } from '@/components/art-image';
 import { buttonVariants } from '@/components/ui/button';
 import { cn } from '@/lib/utils';
+import { useI18n } from '@/components/i18n';
 
 export type InfoColumn = { value: string; label: string; content: ReactNode };
 
@@ -74,11 +75,14 @@ export function InfoFullscreenTrigger({
   href: string;
   onOpen: () => void;
 }) {
+  const { t } = useI18n();
   return (
     <div className="info-expand-slot ml-auto flex h-(--control-height) items-center pb-[9px] to-tablet:hidden">
       <ViewLink
         href={href}
-        label={`Informationen zum ${name} im Vollbild öffnen`}
+        label={t('Informationen zum {name} im Vollbild öffnen', {
+          name: t(name),
+        })}
         onNavigate={onOpen}
         className="info-expand"
         small
@@ -120,6 +124,7 @@ export function InfoFullscreen({
   nextHref: string;
   onClose: () => void;
 }) {
+  const { t } = useI18n();
   const pageRef = useRef<HTMLElement>(null);
   useEffect(() => {
     pageRef.current?.focus();
@@ -166,7 +171,7 @@ export function InfoFullscreen({
       ref={pageRef}
       tabIndex={-1}
       id="main-content"
-      aria-label={`Informationen zum ${name}`}
+      aria-label={t('Informationen zum {name}', { name: t(name) })}
     >
       {/* Kopfzeile wie im Atlas: Porträt, Namenspaar — und rechts daneben
             dieselbe Maßleiste, nur auf Kopfzeilenbreite geschrumpft. */}
@@ -177,7 +182,7 @@ export function InfoFullscreen({
                 deshalb bei Schließen, im selben Abstand wie alle Aktionen. */}
             <ViewLink
               href={previousHref}
-              label="Vorige Art"
+              label={t('Vorige Art')}
               onNavigate={() => onStep(-1)}
               className={stepGeometry}
             >
@@ -188,7 +193,7 @@ export function InfoFullscreen({
             </ViewLink>
             <ViewLink
               href={nextHref}
-              label="Nächste Art"
+              label={t('Nächste Art')}
               onNavigate={() => onStep(1)}
               className={stepGeometry}
             >
@@ -199,7 +204,7 @@ export function InfoFullscreen({
             </ViewLink>
             <CloseLink
               href={atlasHref}
-              label="Vollbild schließen"
+              label={t('Vollbild schließen')}
               onNavigate={onClose}
             />
           </>
@@ -233,7 +238,7 @@ export function InfoFullscreen({
                   deren Zeilenhöhe und zentriert sich darin. */}
               <div className="flex min-w-0 items-start">
                 <SpeciesCommonName as="h1" variant="big" className="min-w-0">
-                  {name}
+                  {t(name)}
                 </SpeciesCommonName>
                 <span className="flex h-[calc(var(--type-heading)*var(--leading-heading))] shrink-0 items-center">
                   {picker}
@@ -258,10 +263,10 @@ export function InfoFullscreen({
           <section
             className="info-fullscreen-column flex flex-col min-w-0 min-h-0 gap-(--rail-content-gap) px-(--space-24) first:pl-0 last:pr-0 [&+section]:border-l-(length:--border-structure) to-tablet:shrink-0 to-tablet:px-0 to-tablet:[&+section]:border-l-0 to-tablet:[&+section]:mt-(--rail-section-gap)"
             key={value}
-            aria-label={label}
+            aria-label={t(label)}
           >
             <h2 className="info-fullscreen-heading shrink-0 font-(family-name:--font-stack-body) text-(length:--type-caption) font-(--weight-semibold) leading-(--leading-none) tracking-(--tracking-caps) uppercase text-(--main-color) pb-3 border-b-(length:--border-structure)">
-              {label}
+              {t(label)}
             </h2>
             <div className="info-fullscreen-scroll min-w-0 text-(length:--type-body) leading-(--leading-relaxed) from-tablet:min-h-0 from-tablet:flex-1 from-tablet:overflow-y-auto from-tablet:overscroll-contain from-tablet:[scrollbar-width:thin] from-tablet:[scrollbar-color:var(--border)_transparent]">
               {content}

@@ -1,13 +1,21 @@
 'use client';
 
 import { useLayoutEffect, useRef, useState } from 'react';
-import { taxonomyRoot, type TaxonomyNode } from '@/lib/taxonomy';
+import { taxonomyTree, type TaxonomyNode } from '@/lib/taxonomy';
+import { msg } from '@/lib/i18n';
+import { useI18n } from '@/components/i18n';
 import {
   TaxonomyColumn,
   motionMilliseconds,
 } from '@/components/taxonomy-column';
 
-const ranks = ['Klasse', 'Ordnung', 'Familie', 'Gattung', 'Art'];
+const ranks = [
+  msg('Klasse'),
+  msg('Ordnung'),
+  msg('Familie'),
+  msg('Gattung'),
+  msg('Art'),
+];
 
 // Each rank owns its height and scroll position. Descendants never participate
 // in their ancestors' row layout, so opening a branch cannot displace siblings.
@@ -22,9 +30,10 @@ export function TaxonomyTree({
   path: string[];
   onPathChange: (path: string[]) => void;
 }) {
+  const { locale, t } = useI18n();
   const stage = useRef<HTMLDivElement>(null);
   const connectors = useRef<SVGSVGElement>(null);
-  const columns: TaxonomyNode[][] = [[taxonomyRoot]];
+  const columns: TaxonomyNode[][] = [[taxonomyTree(locale, t)]];
   for (let depth = 0; depth < 4; depth++) {
     const active = columns[depth]?.find((node) => node.latin === path[depth]);
     columns.push(active?.children ?? []);
@@ -158,7 +167,7 @@ export function TaxonomyTree({
   return (
     <div
       className="min-h-0 min-w-0 flex-1 overflow-x-auto overflow-y-hidden overscroll-contain [scrollbar-width:none] [&::-webkit-scrollbar]:hidden to-tablet:hidden"
-      aria-label="Horizontaler Systematikbaum"
+      aria-label={t('Horizontaler Systematikbaum')}
     >
       <div
         ref={stage}
@@ -189,10 +198,10 @@ export function TaxonomyTree({
           <section
             key={depth}
             className={`relative flex h-full shrink-0 flex-col gap-3 ${depth === 4 ? 'w-64' : 'w-52'}`}
-            aria-label={ranks[depth]}
+            aria-label={t(ranks[depth])}
           >
             <h3 className="text-(length:--type-label-heading) font-(--weight-semibold) text-muted-foreground">
-              {ranks[depth]}
+              {t(ranks[depth])}
             </h3>
             <TaxonomyColumn
               branch={depth ? (path[depth - 1] ?? '') : 'root'}

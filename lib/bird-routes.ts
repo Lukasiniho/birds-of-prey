@@ -1,4 +1,5 @@
 import { birds, type BirdSpecies } from './birds.ts';
+import { splitLocalePath, translator, type Translate } from './i18n.ts';
 export function birdSlug(bird: Pick<BirdSpecies, 'latin'>) {
   return bird.latin.toLowerCase().trim().replace(/\s+/g, '-');
 }
@@ -36,7 +37,8 @@ export function birdInfoSearch(search: string, tab: BirdInfoTab) {
 export const birdsBySlug = Object.fromEntries(
   birds.map((bird) => [birdSlug(bird), bird]),
 );
-export function birdForPath(path: string) {
+export function birdForPath(localizedPath: string) {
+  const { path } = splitLocalePath(localizedPath);
   const parts = path.replace(/^\/|\/$/g, '').split('/');
   if (
     parts.length > 2 ||
@@ -46,14 +48,21 @@ export function birdForPath(path: string) {
   return birdsBySlug[parts[0]];
 }
 export function isBirdFullscreenPath(path: string) {
-  return /\/steckbrief\/?$/.test(path) && Boolean(birdForPath(path));
+  return (
+    /\/steckbrief\/?$/.test(splitLocalePath(path).path) &&
+    Boolean(birdForPath(path))
+  );
 }
 export function isBirdTaxonomyPath(path: string) {
-  return /\/systematik\/?$/.test(path) && Boolean(birdForPath(path));
+  return (
+    /\/systematik\/?$/.test(splitLocalePath(path).path) &&
+    Boolean(birdForPath(path))
+  );
 }
 export function birdPageTitle(
   bird: Pick<BirdSpecies, 'name' | 'latin'>,
   fullscreen = false,
+  t: Translate = translator(null),
 ) {
-  return `${bird.name} (${bird.latin})${fullscreen ? ' – Steckbrief, Nahrung & Vorkommen' : ''}`;
+  return `${t(bird.name)} (${bird.latin})${fullscreen ? t(' – Steckbrief, Nahrung & Vorkommen') : ''}`;
 }

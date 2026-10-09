@@ -1,4 +1,5 @@
 'use client';
+import { useI18n } from '@/components/i18n';
 import { QuizIncorrectIcon } from '@/components/quiz/incorrect-icon';
 
 import { useLayoutEffect, useRef, useState, type PointerEvent } from 'react';
@@ -30,6 +31,7 @@ export function WeightQuestion({
   answered: boolean;
   onChange: (draft: Draft) => void;
 }) {
+  const { locale, t } = useI18n();
   const [drag, setDrag] = useState<{ id: string; x: number; y: number } | null>(
     null,
   );
@@ -101,7 +103,12 @@ export function WeightQuestion({
     const nextOrder = moveBird(order, id, index);
     if (activeDrag.current) activeDrag.current.order = nextOrder;
     onChange({ ...draft, order: nextOrder });
-    setAnnouncement(`${birds[id].name} auf Platz ${index + 1} von 4.`);
+    setAnnouncement(
+      t('{name} auf Platz {place} von 4.', {
+        name: birds[id].name,
+        place: index + 1,
+      }),
+    );
   }
   function startDrag(event: PointerEvent<HTMLOListElement>, id: string) {
     const board = boardRef.current;
@@ -170,18 +177,20 @@ export function WeightQuestion({
         className="q-weight-heading"
         label={
           <>
-            <Scale size={17} /> Vier Vögel, eine Reihenfolge
+            <Scale size={17} /> {t('Vier Vögel, eine Reihenfolge')}
           </>
         }
-        description="Ordne die vier Arten nach ihrem typischen Gewicht – von leicht nach schwer."
+        description={t(
+          'Ordne die vier Arten nach ihrem typischen Gewicht – von leicht nach schwer.',
+        )}
       >
-        Von federleicht zu schwer.
+        {t('Von federleicht zu schwer.')}
       </QuizTaskHeading>
       <ol
         ref={boardRef}
         className="q-weight-board grid grid-cols-4 to-tablet:grid-cols-2 gap-4 list-none p-0 m-0"
         data-quiz-confirm
-        aria-label="Vögel vom leichtesten zum schwersten"
+        aria-label={t('Vögel vom leichtesten zum schwersten')}
         onPointerDown={(event) => {
           const target = event.target as HTMLElement;
           // Arrow buttons keep their click action; the grip belongs to the card.
@@ -215,7 +224,10 @@ export function WeightQuestion({
               <button
                 className="q-drag-handle border-0 -my-[5px] -mr-1 ml-0 bg-transparent disabled:opacity-25 text-muted-foreground grid place-items-center size-[35px]"
                 disabled={answered}
-                aria-label={`${birds[id].name} verschieben. Pfeiltasten ändern den Platz.`}
+                aria-label={t(
+                  '{name} verschieben. Pfeiltasten ändern den Platz.',
+                  { name: birds[id].name },
+                )}
                 onKeyDown={(event) => {
                   const direction = ['ArrowLeft', 'ArrowUp'].includes(event.key)
                     ? -1
@@ -247,11 +259,11 @@ export function WeightQuestion({
             </div>
             {answered ? (
               <QuizCardFooter className="q-card-weight font-(--weight-medium) gap-2">
-                {formatWeight(birds[id])}
+                {formatWeight(birds[id], locale)}
                 {correct[index] === id ? (
-                  <Check size={16} aria-label="Richtiger Platz" />
+                  <Check size={16} aria-label={t('Richtiger Platz')} />
                 ) : (
-                  <QuizIncorrectIcon size={16} aria-label="Falscher Platz" />
+                  <QuizIncorrectIcon size={16} aria-label={t('Falscher Platz')} />
                 )}
               </QuizCardFooter>
             ) : (
@@ -261,18 +273,22 @@ export function WeightQuestion({
                   size="icon"
                   className="size-[30px]"
                   disabled={index === 0}
-                  aria-label={`${birds[id].name} einen Platz nach vorne`}
+                  aria-label={t('{name} einen Platz nach vorne', {
+                    name: birds[id].name,
+                  })}
                   onClick={() => move(id, index - 1)}
                 >
                   <ArrowLeft size={16} />
                 </Button>
-                <span>Platz {index + 1}</span>
+                <span>{t('Platz {place}', { place: index + 1 })}</span>
                 <Button
                   variant="ghost"
                   size="icon"
                   className="size-[30px]"
                   disabled={index === 3}
-                  aria-label={`${birds[id].name} einen Platz nach hinten`}
+                  aria-label={t('{name} einen Platz nach hinten', {
+                    name: birds[id].name,
+                  })}
                   onClick={() => move(id, index + 1)}
                 >
                   <ArrowRight size={16} />

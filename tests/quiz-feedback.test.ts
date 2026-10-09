@@ -13,6 +13,8 @@ import {
   quizFeedbackText,
   quizHabitatCorrections,
 } from '../lib/quiz-feedback.ts';
+import { localize, translator } from '../lib/i18n.ts';
+import { en } from '../lib/i18n/en.ts';
 
 const birds = buildQuizBirds();
 const answer = { points: 100, food: [] as string[], placements: {} };
@@ -173,6 +175,60 @@ void test('all question types keep feedback within 80 characters, including wron
     }
   }
   assert.deepEqual([...seen].sort(), [...quizKinds].sort());
+});
+
+void test('English feedback obeys the same one-line, 80-character limit', () => {
+  const t = translator(en);
+  const enBirds = buildQuizBirds(t);
+  const enHunting = localize(huntingTypes, t);
+  for (let seed = 0; seed < 128; seed++) {
+    const questions = createQuizRound(
+      enBirds,
+      Object.keys(enHunting),
+      Object.keys(habitatImages),
+      { seed, count: 16 },
+    );
+    for (const question of questions) {
+      for (const points of [0, 50, 100]) {
+        const food = question.kind === 'prey' ? question.options : [];
+        const placements =
+          question.kind === 'habitat'
+            ? Object.fromEntries(
+                question.birdIds.map((id, index) => [
+                  id,
+                  question.habitatIds.find(
+                    (habitat) =>
+                      enBirds[id].habitats.includes(habitat) ===
+                      index < points / 25,
+                  ) ?? '',
+                ]),
+              )
+            : {};
+        const text = quizFeedbackText(
+          question,
+          { points, food, placements },
+          enBirds,
+          enHunting,
+          t,
+          'en',
+        );
+        assert(
+          text.length > 0 && text.length <= 80,
+          `${question.kind}: ${text}`,
+        );
+        assert(!/[\r\n]/.test(text), `${question.kind}: ${text}`);
+      }
+    }
+  }
+  const weight = quizFeedbackText(
+    { id: 'en-weight', kind: 'weight-estimate', birdId: 'steinadler' },
+    answer,
+    enBirds,
+    enHunting,
+    t,
+    'en',
+  );
+  assert.match(weight, /^Weight: [\d,]+–[\d,]+ g\.$/);
 });
 
 void test('shared feedback style enforces a single line even when the viewport is narrow', () => {

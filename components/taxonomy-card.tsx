@@ -5,6 +5,8 @@ import { birdHref } from '@/lib/bird-routes';
 import { portraitImages } from '@/lib/portrait-images';
 import { SpeciesRowLink } from '@/components/species-row';
 import { SpeciesName } from '@/components/species-name';
+import { useI18n } from '@/components/i18n';
+import { localePath } from '@/lib/i18n';
 const byId = new Map(birds.map((bird) => [bird.id, bird]));
 
 type NodeProps = {
@@ -21,6 +23,7 @@ export function TaxonomyCard({
   onToggle,
   onSelect,
 }: NodeProps) {
+  const { locale, t } = useI18n();
   const bird = node.birdId ? byId.get(node.birdId) : undefined;
   const active = node.children.length ? isOpen : node.birdId === selected;
   const selectionStyle = {
@@ -58,9 +61,12 @@ export function TaxonomyCard({
                 node.atlasCount ? 'text-primary font-(--weight-semibold)' : ''
               }
             >
-              {node.atlasCount} im Atlas
+              {t('{count} im Atlas', { count: node.atlasCount })}
             </span>{' '}
-            · {node.totalCount} {node.totalCount === 1 ? 'Art' : 'Arten'}
+            ·{' '}
+            {node.totalCount === 1
+              ? t('{count} Art', { count: node.totalCount })
+              : t('{count} Arten', { count: node.totalCount })}
           </span>
         </span>
       </button>
@@ -70,9 +76,9 @@ export function TaxonomyCard({
       <SpeciesRowLink
         data-taxon={node.latin}
         portrait={portraitImages[bird.id]}
-        name={bird.name}
+        name={node.name ?? bird.name}
         latin={bird.latin}
-        href={birdHref(bird)}
+        href={localePath(birdHref(bird), locale)}
         size="inline"
         aria-current={active ? 'page' : undefined}
         className="hover:bg-transparent!"
@@ -88,7 +94,10 @@ export function TaxonomyCard({
     <div
       data-taxon={node.latin}
       className="px-2 py-1"
-      aria-label={`${node.name}, ${node.latin}, ohne Porträt`}
+      aria-label={t('{name}, {latin}, ohne Porträt', {
+        name: node.name ?? '',
+        latin: node.latin,
+      })}
     >
       <SpeciesName name={node.name} latin={node.latin} variant="compact" />
     </div>

@@ -1,0 +1,3 @@
+# Englisch wohnt auf raptoratlas.com (eigene Netlify-Site aus demselben Repo).
+/en       https://raptoratlas.com/        301!
+/en/*     https://raptoratlas.com/:splat  301!

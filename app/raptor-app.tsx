@@ -47,7 +47,7 @@ import {
   type BirdInfoTab,
 } from '@/lib/bird-routes';
 import { techniqueHref } from '@/lib/knowledge-routes';
-import { SITE_DESCRIPTION, SITE_NAME, SITE_URL } from '@/lib/site';
+import { SITE_DESCRIPTION, SITE_NAMES, SITE_URLS } from '@/lib/site';
 import {
   Feather,
   CaretDown,
@@ -121,11 +121,24 @@ import {
   getBirdMorphChoice,
   getBirdMorphAppearance,
 } from '@/lib/morphs';
-const wholeNumber = new Intl.NumberFormat('de-DE', {
-  maximumFractionDigits: 0,
-});
+import { useI18n } from '@/components/i18n';
+import {
+  localePath,
+  currentUrl,
+  localeTags,
+  siteUrl,
+  splitLocalePath,
+  type Locale,
+  type Translate,
+} from '@/lib/i18n';
 /** Renders a stored [min, max] as display text; weights are always shown in grams. */
-export function formatMeasurement([min, max]: MeasurementRange) {
+export function formatMeasurement(
+  [min, max]: MeasurementRange,
+  locale: Locale = 'de',
+) {
+  const wholeNumber = new Intl.NumberFormat(localeTags[locale], {
+    maximumFractionDigits: 0,
+  });
   return min === max
     ? wholeNumber.format(min)
     : `${wholeNumber.format(min)}–${wholeNumber.format(max)}`;
@@ -201,6 +214,7 @@ function SexSwitch({
   onChange: (sex: Sex) => void;
 }) {
   // One control: clicking anywhere on the pill flips the sex.
+  const { t } = useI18n();
   const male = value === 'male';
   return (
     <button
@@ -208,8 +222,8 @@ function SexSwitch({
       className="sex-switch inline-flex items-center gap-[2px] p-[2px]"
       role="switch"
       aria-checked={male}
-      aria-label={male ? 'Männchen angezeigt' : 'Weibchen angezeigt'}
-      title={male ? 'Zu Weibchen wechseln' : 'Zu Männchen wechseln'}
+      aria-label={male ? t('Männchen angezeigt') : t('Weibchen angezeigt')}
+      title={male ? t('Zu Weibchen wechseln') : t('Zu Männchen wechseln')}
       onClick={() => onChange(male ? 'female' : 'male')}
     >
       <span
@@ -257,13 +271,17 @@ function Measurement({
   onSexChange?: (sex: Sex) => void;
   className?: string;
 }) {
+  const { locale, t } = useI18n();
   const shown = (sexes?.male && sexes?.female && sexes[sex]) || range;
   const lastPointer = useRef('mouse');
   const inspect = onInspect && {
     tabIndex: 0,
     role: 'button',
     'aria-pressed': inspecting,
-    'aria-label': `${label} ${formatMeasurement(shown)} ${unit}: auf der Bühne von Flügelspitze zu Flügelspitze einzeichnen`,
+    'aria-label': t(
+      '{label} {value} {unit}: auf der Bühne von Flügelspitze zu Flügelspitze einzeichnen',
+      { label, value: formatMeasurement(shown, locale), unit },
+    ),
     'data-inspecting': inspecting,
     onPointerDown: (event: React.PointerEvent) => {
       lastPointer.current = event.pointerType;
@@ -310,7 +328,7 @@ function Measurement({
         )}
       >
         <MeasurementValue
-          value={formatMeasurement(shown)}
+          value={formatMeasurement(shown, locale)}
           unit={unit}
           withAudio={withAudio}
         />
@@ -389,20 +407,21 @@ type ArtSlots = { a: ArtLayer; b: ArtLayer | null; active: 'a' | 'b' };
 /* Familiar yardstick for the wingspan: the Mäusebussard, or the Steinadler
    when the Mäusebussard itself is on show. */
 const wingReferences = new Map<string, WingReference | undefined>();
-function wingReference(birdId: string) {
+function wingReference(birdId: string, locale: Locale, t: Translate) {
   const id = birdId === 'maeusebussard' ? 'steinadler' : 'maeusebussard';
-  if (!wingReferences.has(id)) {
+  const key = `${id}:${locale}`;
+  if (!wingReferences.has(key)) {
     const reference = speciesById[id];
     wingReferences.set(
-      id,
+      key,
       reference && {
-        name: reference.name,
+        name: t(reference.name),
         src: imageSource(birdImage(id, 'male')),
         span: (reference.span[0] + reference.span[1]) / 2,
       },
     );
   }
-  return wingReferences.get(id);
+  return wingReferences.get(key);
 }
 /* transitions.dev icon swap: both illustrations sit in one grid cell and
    data-state picks the visible one. A new image is decoded first, parked in
@@ -419,13 +438,14 @@ function BirdArt({
   morphId?: string;
   measuring: boolean;
 }) {
+  const { locale, t } = useI18n();
   const morphConfig = getBirdMorphConfig(bird.id, plumage);
   const morph = getBirdMorphChoice(bird.id, morphId, plumage);
   const appearance = getBirdMorphAppearance(bird.id, morphId, plumage);
   const nextSource = imageSource(
     appearance?.image ?? birdImage(bird.id, plumage),
   );
-  const nextAlt = `${bird.name} – ${plumagesFor(bird.id).find((p) => p.value === plumage)!.label}${morph ? `, ${morphConfig!.label} ${morph.label}` : ''}`;
+  const nextAlt = `${t(bird.name)} – ${t(plumagesFor(bird.id).find((p) => p.value === plumage)!.label)}${morph ? `, ${t(morphConfig!.label)} ${t(morph.label)}` : ''}`;
   const [slots, setSlots] = useState<ArtSlots>({
     a: { src: nextSource, alt: nextAlt, birdId: bird.id },
     b: null,
@@ -491,9 +511,9 @@ function BirdArt({
               className="p-5 to-phone:p-[15px] from-compact:p-0"
               src={layer.src}
               span={(species.span[0] + species.span[1]) / 2}
-              spanLabel={`${formatMeasurement(species.span)} cm`}
+              spanLabel={`${formatMeasurement(species.span, locale)} cm`}
               measuring={measuring && slot === slots.active}
-              reference={wingReference(layer.birdId)}
+              reference={wingReference(layer.birdId, locale, t)}
             />
           </span>
         );
@@ -506,7 +526,7 @@ function BirdArt({
             setRetry((n) => n + 1);
           }}
         >
-          Bild erneut laden
+          {t('Bild erneut laden')}
         </button>
       )}
     </div>
@@ -522,6 +542,7 @@ function ColorRow({
   colors: ColorSwatch[];
   note?: string;
 }) {
+  const { t } = useI18n();
   return (
     <div className="body-color-row contents">
       <span className="text-(length:--type-ui) text-muted-foreground font-(--weight-regular)">
@@ -533,14 +554,14 @@ function ColorRow({
           <Tooltip key={index}>
             <TooltipTrigger
               className="color-dot size-[28px]"
-              aria-label={`${label}: ${name}${note ? '. ' + note : ''}`}
+              aria-label={`${label}: ${t(name)}${note ? '. ' + t(note) : ''}`}
               style={{ background: color }}
             />
             <TooltipContent>
-              {name}
+              {t(name)}
               {note && (
                 <span className="swatch-detail max-w-[220px]">
-                  <GlossaryText>{note}</GlossaryText>
+                  <GlossaryText>{t(note)}</GlossaryText>
                 </span>
               )}
             </TooltipContent>
@@ -551,6 +572,7 @@ function ColorRow({
   );
 }
 function HuntingArt({ bird }: { bird: BirdSpecies }) {
+  const { t } = useI18n();
   const hunt = speciesById[bird.id].ecology.hunting;
   const source = huntingImages[bird.id] ?? hunt.image;
   if (!source) return null;
@@ -560,12 +582,13 @@ function HuntingArt({ bird }: { bird: BirdSpecies }) {
       src={imageSource(source)}
       width={1536}
       height={1536}
-      alt={`${bird.name}: ${hunt.title}`}
+      alt={`${t(bird.name)}: ${t(hunt.title)}`}
       displayWidth={440}
     />
   );
 }
 function PreyGallery({ items }: { items: PreyExample[] }) {
+  const { t } = useI18n();
   return (
     <div className="prey-list grid grid-cols-3 gap-x-3 gap-y-(--rail-caption-gap) mt-(--rail-content-gap) mb-(--rail-section-gap)">
       {items.map(({ key, note }) => {
@@ -576,10 +599,10 @@ function PreyGallery({ items }: { items: PreyExample[] }) {
             key={key}
           >
             <PreyArt preyKey={key} />
-            <span>{prey.name}</span>
+            <span>{t(prey.name)}</span>
             {note && (
               <small className="block text-(length:--type-caption) text-muted-foreground leading-(--leading-normal)">
-                <GlossaryText>{note}</GlossaryText>
+                <GlossaryText>{t(note)}</GlossaryText>
               </small>
             )}
           </div>
@@ -597,6 +620,7 @@ export default function RaptorApp({
   initialFullscreen?: boolean;
   initialTaxonomy?: boolean;
 }) {
+  const { locale, t } = useI18n();
   const [selected, setSelected] = useState(initialBirdId);
   const [chosenPlumage, setPlumage] = useState<Plumage>('male');
   const [sex, setSex] = useState<Sex>('male');
@@ -612,9 +636,9 @@ export default function RaptorApp({
   );
   const [path, setPath] = useState(
     initialTaxonomy
-      ? birdTaxonomyHref(speciesById[initialBirdId])
+      ? localePath(birdTaxonomyHref(speciesById[initialBirdId]), locale)
       : initialFullscreen
-        ? birdFullscreenHref(speciesById[initialBirdId])
+        ? localePath(birdFullscreenHref(speciesById[initialBirdId]), locale)
         : '',
   );
   const fullscreen = isBirdFullscreenPath(path);
@@ -640,48 +664,50 @@ export default function RaptorApp({
   }, []);
   useEffect(() => {
     function syncFromUrl() {
-      const legacyId = new URLSearchParams(window.location.search).get('art');
+      // German form of the address: English pages translate their URL words.
+      const url = currentUrl();
+      const legacyId = url.searchParams.get('art');
       const current =
-        birdForPath(window.location.pathname) ??
+        birdForPath(url.pathname) ??
         speciesById[legacyId ?? ''] ??
         speciesById[initialBirdId];
       setSelected(current.id);
-      setTaxonomyBranch(
-        taxonomyPathForSearch(window.location.search, current.id),
-      );
-      if (!isBirdFullscreenPath(window.location.pathname))
-        setInfoTab(birdInfoTabForSearch(window.location.search));
+      setTaxonomyBranch(taxonomyPathForSearch(url.search, current.id));
+      if (!isBirdFullscreenPath(url.pathname))
+        setInfoTab(birdInfoTabForSearch(url.search));
       // The legacy ?art= links get rewritten to their species path. The home
       // page keeps its own URL: it is the site's canonical entry point, not a
       // duplicate of whichever species it happens to open on.
       if (legacyId) {
-        const params = new URLSearchParams(window.location.search);
+        const params = new URLSearchParams(url.search);
         params.delete('art');
         const query = params.toString();
-        const href = isBirdTaxonomyPath(window.location.pathname)
+        const pathname = isBirdTaxonomyPath(url.pathname)
           ? birdTaxonomyHref(current)
-          : isBirdFullscreenPath(window.location.pathname)
+          : isBirdFullscreenPath(url.pathname)
             ? birdFullscreenHref(current)
             : birdHref(current);
         window.history.replaceState(
           window.history.state,
           '',
-          href + (query ? `?${query}` : ''),
+          localePath(pathname + (query ? `?${query}` : ''), locale),
         );
-        setPath(href);
+        setPath(localePath(pathname, locale));
       } else setPath(window.location.pathname);
     }
     syncFromUrl();
     window.addEventListener('popstate', syncFromUrl);
     return () => window.removeEventListener('popstate', syncFromUrl);
-  }, [initialBirdId]);
+  }, [initialBirdId, locale]);
   useEffect(() => {
     // Before the first sync the server-rendered title and canonical still fit.
     if (!path) return;
-    const home = path === '/';
+    const home = splitLocalePath(path).path === '/';
+    const siteName = SITE_NAMES[locale];
     const title = home
-      ? SITE_NAME
-      : birdPageTitle(bird, fullscreen) + (taxonomyOpen ? ' – Systematik' : '');
+      ? siteName
+      : birdPageTitle(bird, fullscreen, t) +
+        (taxonomyOpen ? t(' – Systematik') : '');
     const href = home
       ? '/'
       : taxonomyOpen
@@ -689,29 +715,32 @@ export default function RaptorApp({
         : fullscreen
           ? birdFullscreenHref(bird)
           : birdHref(bird);
-    const description = home ? SITE_DESCRIPTION : bird.intro;
-    document.title = home ? title : `${title} · ${SITE_NAME}`;
+    const description = t(home ? SITE_DESCRIPTION : bird.intro);
+    document.title = home ? title : `${title} · ${siteName}`;
     document
       .querySelector('link[rel="canonical"]')
-      ?.setAttribute('href', SITE_URL + href);
+      ?.setAttribute('href', siteUrl(href, locale));
     for (const [selector, content] of [
       ['meta[name="description"]', description],
       ['meta[property="og:title"]', title],
       ['meta[property="og:description"]', description],
-      ['meta[property="og:url"]', SITE_URL + href],
+      ['meta[property="og:url"]', siteUrl(href, locale)],
       [
         'meta[property="og:image"]',
-        SITE_URL +
+        SITE_URLS[locale] +
           (home
             ? '/icons/og-image.png'
             : imageSource(birdImage(bird.id, 'male'))),
       ],
-      ['meta[property="og:image:alt"]', home ? SITE_NAME : bird.name],
+      ['meta[property="og:image:alt"]', home ? siteName : t(bird.name)],
     ])
       document.querySelector(selector)?.setAttribute('content', content);
-  }, [bird, path, fullscreen, taxonomyOpen]);
+  }, [bird, path, fullscreen, taxonomyOpen, locale, t]);
   const withAudio = Boolean(birdRecordings[bird.id]);
-  const availablePlumages = plumagesFor(bird.id);
+  const availablePlumages = plumagesFor(bird.id).map((p) => ({
+    ...p,
+    label: t(p.label),
+  }));
   const plumage = availablePlumages.some((p) => p.value === chosenPlumage)
     ? chosenPlumage
     : 'male';
@@ -722,7 +751,7 @@ export default function RaptorApp({
   const morphOptions =
     morphConfig?.choices.map((choice) => ({
       value: choice.id,
-      label: choice.label,
+      label: t(choice.label),
     })) ?? [];
   const { barRef: infoBarRef, pillRef: infoPillRef } = useSlidingPill(
     fullscreen ? 'info-fullscreen' : 'info',
@@ -738,20 +767,25 @@ export default function RaptorApp({
   function select(id: string, showFullscreen = fullscreen) {
     setSelected(id);
     setPickerOpen(false);
-    const pathname = showFullscreen
+    const germanPath = showFullscreen
       ? birdFullscreenHref(speciesById[id])
       : birdHref(speciesById[id]);
-    const href = pathname + (showFullscreen ? '' : birdInfoSearch('', infoTab));
+    const pathname = localePath(germanPath, locale);
+    const href = localePath(
+      germanPath + (showFullscreen ? '' : birdInfoSearch('', infoTab)),
+      locale,
+    );
     if (window.location.pathname + window.location.search !== href)
       window.history.pushState(window.history.state, '', href);
     setPath(pathname);
   }
   function selectInfoTab(tab: BirdInfoTab) {
     setInfoTab(tab);
-    const href =
-      window.location.pathname +
-      birdInfoSearch(window.location.search, tab) +
-      window.location.hash;
+    const url = currentUrl();
+    const href = localePath(
+      url.pathname + birdInfoSearch(url.search, tab) + url.hash,
+      locale,
+    );
     if (
       window.location.pathname +
         window.location.search +
@@ -761,16 +795,18 @@ export default function RaptorApp({
       window.history.pushState(window.history.state, '', href);
   }
   function openTaxonomy() {
-    const href = birdTaxonomyHref(bird);
+    const href = localePath(birdTaxonomyHref(bird), locale);
     setTaxonomyBranch(taxonomyPathForSearch('', bird.id));
     window.history.pushState(window.history.state, '', href);
     setPath(href);
   }
   function selectTaxonomyBranch(branch: string[]) {
     setTaxonomyBranch(branch);
-    const href =
+    const href = localePath(
       birdTaxonomyHref(bird) +
-      taxonomySearch(window.location.search, branch, bird.id);
+        taxonomySearch(currentUrl().search, branch, bird.id),
+      locale,
+    );
     if (window.location.pathname + window.location.search !== href)
       window.history.pushState(window.history.state, '', href);
   }
@@ -787,7 +823,7 @@ export default function RaptorApp({
       imageSource(variant?.image ?? birdImage(id, ageForBird)),
     ).catch(() => {});
   }
-  const filtered = filterBirds(query);
+  const filtered = filterBirds(query, locale === 'de' ? undefined : t);
   const groups = groupBirds(filtered, grouping);
   // Die Pfeiltasten im Vollbild folgen der Reihenfolge der sichtbaren
   // Artenliste; eine Art, die in zwei Gruppen steht, zählt nur einmal.
@@ -796,7 +832,11 @@ export default function RaptorApp({
   ];
   const speciesOptions = railOrder.map((id) => ({
     value: id,
-    label: speciesById[id].name,
+    label: t(speciesById[id].name),
+  }));
+  const groupingItems = groupingOptions.map((o) => ({
+    ...o,
+    label: t(o.label),
   }));
   // Im Vollbild gibt es keine Artenliste daneben; das Klappmenü am Namen ist
   // dort der Weg zu jeder anderen Art und benutzt dieselben Auswahlfelder wie
@@ -820,7 +860,7 @@ export default function RaptorApp({
           boxShadow: 'none',
           borderRadius: 'var(--radius-small)',
         }}
-        aria-label="Art wählen"
+        aria-label={t('Art wählen')}
       />
       {/* Die Liste richtet sich sonst nach dem 36px-Knopf und schneidet die
           langen Namen ab; hier bestimmt der längste Name die Breite. */}
@@ -847,7 +887,7 @@ export default function RaptorApp({
       index === -1 || railOrder.length < 2
         ? selected
         : railOrder[(index + delta + railOrder.length) % railOrder.length];
-    return birdFullscreenHref(speciesById[id]);
+    return localePath(birdFullscreenHref(speciesById[id]), locale);
   }
   function renderLibraryRail(inPicker = false) {
     return (
@@ -860,16 +900,16 @@ export default function RaptorApp({
             )}
           >
             <span className="text-(length:--type-caption) font-(family-name:--font-stack-body) leading-(--leading-normal) font-(--weight-medium) text-(--muted-foreground)">
-              Gruppieren nach
+              {t('Gruppieren nach')}
             </span>
             <Select
               value={grouping}
               onValueChange={(v) => {
                 if (v) setGrouping(v as GroupMode);
               }}
-              items={groupingOptions}
+              items={groupingItems}
             >
-              <SelectTrigger aria-label="Vogelarten gruppieren nach">
+              <SelectTrigger aria-label={t('Vogelarten gruppieren nach')}>
                 <SelectValue />
               </SelectTrigger>
               <SelectContent
@@ -878,7 +918,7 @@ export default function RaptorApp({
                 alignItemWithTrigger={false}
                 data-origin="top-left"
               >
-                {groupingOptions.map((o) => (
+                {groupingItems.map((o) => (
                   <SelectItem value={o.value} key={o.value}>
                     {o.label}
                   </SelectItem>
@@ -895,7 +935,7 @@ export default function RaptorApp({
           }
         >
           <nav
-            aria-label="Vogelarten"
+            aria-label={t('Vogelarten')}
             className={cn(
               'grouped-navigation min-w-0 max-w-full to-phone:block to-phone:overflow-x-hidden',
               inPicker
@@ -912,7 +952,7 @@ export default function RaptorApp({
                   Schrift (die der Oberfläche), der deutsche Name im Textton,
                   die Gattung aufrecht als Beiwerk in der zweiten Farbe. */}
                 <h3 className="species-group-title items-baseline mb-2 to-phone:flex-wrap to-phone:gap-2 font-(family-name:--font-stack-body) text-(length:--type-ui) leading-(--leading-normal) font-(--weight-medium) text-foreground flex flex-wrap p-0 gap-2">
-                  <span>{group.title}</span>
+                  <span>{t(group.title)}</span>
                   {group.subtitle && (
                     <small className="font-(family-name:--font-stack-body) text-(length:--type-ui) font-(--weight-regular) not-italic text-muted-foreground">
                       {group.subtitle}
@@ -931,7 +971,12 @@ export default function RaptorApp({
                         aria-current={selected === b.id ? 'page' : undefined}
                         render={
                           // oxlint-disable-next-line jsx-a11y/anchor-has-content, jsx-a11y/control-has-associated-label -- the sidebar button supplies the link text
-                          <a href={birdHref(b) + birdInfoSearch('', infoTab)} />
+                          <a
+                            href={
+                              localePath(birdHref(b), locale) +
+                              birdInfoSearch('', infoTab)
+                            }
+                          />
                         }
                         onClick={(event) => {
                           if (
@@ -962,7 +1007,7 @@ export default function RaptorApp({
                               aria-hidden="true"
                             />
                           }
-                          name={b.name}
+                          name={t(b.name)}
                           latin={b.latin}
                         />
                       </SidebarMenuButton>
@@ -983,10 +1028,10 @@ export default function RaptorApp({
                 )}
               >
                 <Feather size={inPicker ? 24 : 17} aria-hidden="true" />
-                Keine Art gefunden.
+                {t('Keine Art gefunden.')}
               </p>
               <span className="text-(length:--type-ui) text-muted-foreground leading-(--leading-relaxed)">
-                Versuche einen anderen Suchbegriff.
+                {t('Versuche einen anderen Suchbegriff.')}
               </span>
             </div>
           )}
@@ -998,7 +1043,7 @@ export default function RaptorApp({
     <MeasurementStrip withAudio={withAudio}>
       <Measurement
         withAudio={withAudio}
-        label="Spannweite"
+        label={t('Spannweite')}
         range={bird.span}
         unit="cm"
         sex={sex}
@@ -1010,14 +1055,14 @@ export default function RaptorApp({
       <Measurement
         withAudio={withAudio}
         className="measurement-optional stage-small:hidden"
-        label="Körperlänge"
+        label={t('Körperlänge')}
         range={bird.length}
         unit="cm"
         sex={sex}
       />
       <Measurement
         withAudio={withAudio}
-        label="Gewicht"
+        label={t('Gewicht')}
         range={bird.weight}
         sexes={
           bird.sexes
@@ -1035,7 +1080,7 @@ export default function RaptorApp({
         className="px-3 to-tablet:px-[7px] to-phone:px-1"
         key={bird.id}
         birdId={bird.id}
-        name={bird.name}
+        name={t(bird.name)}
       />
     </MeasurementStrip>
   );
@@ -1044,36 +1089,38 @@ export default function RaptorApp({
       <SpeciesFacts speciesId={bird.id} />
       <AtlasSection className="profile-section first:mt-0 first:pt-0 first:border-t-0">
         <DetailHeading className="tracking-(--tracking-tight)">
-          Erkennungsmerkmale
+          {t('Erkennungsmerkmale')}
         </DetailHeading>
         <p className="mt-(--rail-caption-gap) leading-(--leading-relaxed)">
-          <GlossaryText>{speciesProfiles[bird.id].identification}</GlossaryText>
+          <GlossaryText>
+            {t(speciesProfiles[bird.id].identification)}
+          </GlossaryText>
         </p>
       </AtlasSection>
       <AtlasSection className="color-section to-phone:col-span-full">
         <DetailHeading className="tracking-(--tracking-tight)">
-          Farben
+          {t('Farben')}
         </DetailHeading>
         <div className="body-colors grid grid-cols-[max-content_minmax(0,1fr)] items-center gap-x-5 gap-y-[14px] mt-[18px]">
           <ColorRow
-            label="Gefieder"
+            label={t('Gefieder')}
             colors={appearance?.colors ?? colorsFor(bird, plumage)}
           />
-          <ColorRow label="Augen" colors={bodyColors.eyes} />
+          <ColorRow label={t('Augen')} colors={bodyColors.eyes} />
           <ColorRow
-            label="Beine & Füße"
+            label={t('Beine & Füße')}
             colors={bodyColors.legs}
             note={bodyColors.note}
           />
         </div>
         <div className="plumage-note mt-(--rail-section-gap) pt-0">
           <h3 className="font-(family-name:--font-stack-display) text-(length:--type-label-heading) font-(--weight-label-heading) leading-(--leading-heading) tracking-(--tracking-tight) text-foreground">
-            {plumagesFor(bird.id).find((p) => p.value === plumage)!.label}
-            {morph && ` · ${morph.label}`}
+            {availablePlumages.find((p) => p.value === plumage)!.label}
+            {morph && ` · ${t(morph.label)}`}
           </h3>
           <p className="leading-(--leading-relaxed) mt-2 text-(length:--type-caption)">
             <GlossaryText>
-              {appearance?.note ?? plumageNoteFor(bird.id, plumage)}
+              {t(appearance?.note ?? plumageNoteFor(bird.id, plumage))}
             </GlossaryText>
           </p>
           {morphConfig && (
@@ -1090,12 +1137,14 @@ export default function RaptorApp({
                 <span className="t-acc-chevron inline-flex" aria-hidden="true">
                   <CaretDown size={13} />
                 </span>
-                {morphConfig.hintLabel ?? 'Hinweis zu den Morphen'}
+                {morphConfig.hintLabel
+                  ? t(morphConfig.hintLabel)
+                  : t('Hinweis zu den Morphen')}
               </button>
               <div className="t-acc-panel grid">
                 <div className="t-acc-panel-inner overflow-hidden">
                   <p className="leading-(--leading-relaxed) mt-2 text-(length:--type-body)">
-                    <GlossaryText>{morphConfig.note}</GlossaryText>
+                    <GlossaryText>{t(morphConfig.note)}</GlossaryText>
                   </p>
                 </div>
               </div>
@@ -1105,18 +1154,18 @@ export default function RaptorApp({
       </AtlasSection>
       <AtlasSection className="profile-section first:mt-0 first:pt-0 first:border-t-0">
         <DetailHeading className="tracking-(--tracking-tight)">
-          Lebensweise
+          {t('Lebensweise')}
         </DetailHeading>
         <p className="mt-(--rail-caption-gap) leading-(--leading-relaxed)">
-          <GlossaryText>{speciesProfiles[bird.id].behaviour}</GlossaryText>
+          <GlossaryText>{t(speciesProfiles[bird.id].behaviour)}</GlossaryText>
         </p>
       </AtlasSection>
       <AtlasSection className="profile-section first:mt-0 first:pt-0 first:border-t-0">
         <DetailHeading className="tracking-(--tracking-tight)">
-          Brut & Aufzucht
+          {t('Brut & Aufzucht')}
         </DetailHeading>
         <p className="mt-(--rail-caption-gap) leading-(--leading-relaxed)">
-          <GlossaryText>{speciesProfiles[bird.id].breeding}</GlossaryText>
+          <GlossaryText>{t(speciesProfiles[bird.id].breeding)}</GlossaryText>
         </p>
       </AtlasSection>
       <SpeciesTrivia speciesId={bird.id} />
@@ -1126,16 +1175,16 @@ export default function RaptorApp({
     <>
       <section className="diet-section m-0 p-0 border-0 to-compact:col-span-2 to-phone:col-span-full">
         <DetailHeading className="tracking-(--tracking-tight)">
-          Nahrungsbeispiele
+          {t('Nahrungsbeispiele')}
         </DetailHeading>
         <PreyGallery items={bird.ecology.diet.examples} />
         <p className="text-(length:--type-body) leading-(--leading-relaxed) text-foreground mt-(--rail-content-gap)">
-          <GlossaryText>{bird.ecology.diet.summary}</GlossaryText>
+          <GlossaryText>{t(bird.ecology.diet.summary)}</GlossaryText>
         </p>
         {bird.ecology.diet.occasionalExamples.length > 0 && (
           <div className="occasional-prey mt-(--rail-section-gap)">
             <h3 className="font-(family-name:--font-stack-body) text-(length:--type-caption) font-(--weight-medium) text-(--muted-foreground)">
-              Gelegentlich
+              {t('Gelegentlich')}
             </h3>
             <PreyGallery items={bird.ecology.diet.occasionalExamples} />
           </div>
@@ -1143,19 +1192,23 @@ export default function RaptorApp({
       </section>
       <AtlasSection className="hunting-section">
         <DetailHeading className="tracking-(--tracking-tight)">
-          Jagdweise
+          {t('Jagdweise')}
         </DetailHeading>
         <HuntingArt bird={bird} />
         {/* Each technique has its own chapter under Wissen. */}
         <div className="ecology-tags flex flex-wrap gap-2 mt-[10px] mx-0 mb-(--rail-content-gap)">
           {bird.ecology.huntingTags.map((id) => (
-            <EcologyTag as="a" key={id} href={techniqueHref(id)}>
-              {huntingTypes[id].label}
+            <EcologyTag
+              as="a"
+              key={id}
+              href={localePath(techniqueHref(id), locale)}
+            >
+              {t(huntingTypes[id].label)}
             </EcologyTag>
           ))}
         </div>
         <p className="hunting-text mt-(--rail-caption-gap) text-(length:--type-body) leading-(--leading-relaxed)">
-          <GlossaryText>{bird.ecology.hunting.text}</GlossaryText>
+          <GlossaryText>{t(bird.ecology.hunting.text)}</GlossaryText>
         </p>
       </AtlasSection>
     </>
@@ -1165,32 +1218,34 @@ export default function RaptorApp({
       <section className="habitat m-0 p-0 border-0 [container-type:inline-size] to-compact:col-start-3 to-compact:row-start-2 to-phone:col-span-full to-phone:row-auto">
         <div className="range-block m-0 p-0 mb-(--rail-section-gap) pb-(--rail-section-gap) border-b-(length:--border-structure)">
           <DetailHeading className="tracking-(--tracking-tight)">
-            Verbreitung
+            {t('Verbreitung')}
           </DetailHeading>
           <p className="text-foreground text-(length:--type-body) leading-(--leading-relaxed) mt-(--rail-content-gap)">
-            <GlossaryText>{bird.range}</GlossaryText>
+            <GlossaryText>{t(bird.range)}</GlossaryText>
           </p>
           {bird.ecology.status.tags.some((id) => id !== 'ausserhalb') && (
             <div className="ecology-status my-[14px] mx-0">
-              <h3 className="text-(length:--type-ui)">Status in Deutschland</h3>
+              <h3 className="text-(length:--type-ui)">
+                {t('Status in Deutschland')}
+              </h3>
               <div className="ecology-tags flex flex-wrap gap-2 mt-[10px] mx-0 mb-[7px]">
                 {bird.ecology.status.tags
                   .filter((id) => id !== 'ausserhalb')
                   .map((id) => (
                     <EcologyTag key={id}>
-                      <GlossaryText>{statusLabels[id]}</GlossaryText>
+                      <GlossaryText>{t(statusLabels[id])}</GlossaryText>
                     </EcologyTag>
                   ))}
               </div>
             </div>
           )}
-          <RangeMap birdId={bird.id} name={bird.name} />
+          <RangeMap birdId={bird.id} name={t(bird.name)} />
         </div>
         <DetailHeading className="tracking-(--tracking-tight)">
-          Lebensraum
+          {t('Lebensraum')}
         </DetailHeading>
         <p className="text-foreground text-(length:--type-body) leading-(--leading-relaxed) mt-(--rail-content-gap)">
-          <GlossaryText>{bird.habitat}</GlossaryText>
+          <GlossaryText>{t(bird.habitat)}</GlossaryText>
         </p>
         <div className="habitat-gallery grid grid-cols-2 gap-4 mt-(--rail-content-gap)">
           {bird.ecology.habitatTags.map((id) => (
@@ -1198,13 +1253,13 @@ export default function RaptorApp({
               <ArtImage
                 className="block w-full h-auto aspect-[3/2] rounded-(--radius-small) object-cover"
                 src={imageSource(habitatImages[id])}
-                alt={landscapes[id].description}
+                alt={t(landscapes[id].description)}
                 width={1536}
                 height={1024}
                 displayWidth={220}
               />
               <figcaption className="mt-(--rail-caption-gap) text-(length:--type-caption) leading-(--leading-normal) text-(--muted-foreground)">
-                <GlossaryText>{landscapes[id].label}</GlossaryText>
+                <GlossaryText>{t(landscapes[id].label)}</GlossaryText>
               </figcaption>
             </figure>
           ))}
@@ -1219,7 +1274,9 @@ export default function RaptorApp({
         path={taxonomyBranch}
         onPathChange={selectTaxonomyBranch}
         onSelect={(id) => select(id, false)}
-        atlasHref={birdHref(bird) + birdInfoSearch('', infoTab)}
+        atlasHref={
+          localePath(birdHref(bird), locale) + birdInfoSearch('', infoTab)
+        }
         onClose={() => select(bird.id, false)}
       />
     );
@@ -1228,12 +1285,14 @@ export default function RaptorApp({
     return (
       <TooltipProvider delay={180}>
         <InfoFullscreen
-          name={bird.name}
+          name={t(bird.name)}
           latin={bird.latin}
           measurements={measurementStrip}
           onStep={stepSpecies}
           picker={speciesPicker}
-          atlasHref={birdHref(bird) + birdInfoSearch('', infoTab)}
+          atlasHref={
+            localePath(birdHref(bird), locale) + birdInfoSearch('', infoTab)
+          }
           previousHref={stepHref(-1)}
           nextHref={stepHref(1)}
           onClose={() => select(bird.id, false)}
@@ -1243,13 +1302,17 @@ export default function RaptorApp({
               : undefined
           }
           columns={[
-            { value: 'profil', label: 'Steckbrief', content: profilePanel },
-            { value: 'nahrung', label: 'Nahrung', content: dietPanel },
-            { value: 'lebensraum', label: 'Vorkommen', content: habitatPanel },
+            { value: 'profil', label: t('Steckbrief'), content: profilePanel },
+            { value: 'nahrung', label: t('Nahrung'), content: dietPanel },
+            {
+              value: 'lebensraum',
+              label: t('Vorkommen'),
+              content: habitatPanel,
+            },
           ]}
         />
         <output className="sr-only" aria-live="polite">
-          {bird.name}
+          {t(bird.name)}
         </output>
       </TooltipProvider>
     );
@@ -1275,7 +1338,7 @@ export default function RaptorApp({
           >
             <SpecimenHeader>
               <RevealHeading
-                name={bird.name}
+                name={t(bird.name)}
                 latin={bird.latin}
                 selected={selected}
                 onOpenTaxonomy={openTaxonomy}
@@ -1290,8 +1353,10 @@ export default function RaptorApp({
                       className="species-picker to-phone:inline-grid to-phone:col-start-2 to-phone:row-start-1 to-phone:self-center to-phone:after:content-[''] to-phone:after:absolute to-phone:after:inset-0 to-phone:place-items-center to-phone:size-(--species-picker-size) to-phone:p-0 to-phone:text-foreground hidden"
                       aria-label={
                         query
-                          ? `Art wechseln, ${filtered.length} Treffer`
-                          : 'Art wechseln'
+                          ? t('Art wechseln, {count} Treffer', {
+                              count: filtered.length,
+                            })
+                          : t('Art wechseln')
                       }
                     />
                   }
@@ -1303,15 +1368,15 @@ export default function RaptorApp({
                 <SheetContent
                   side="bottom"
                   className="species-picker-sheet data-[side=bottom]:top-[max(var(--space-20),env(safe-area-inset-top))]"
-                  heading={<SheetTitle>Art wählen</SheetTitle>}
-                  closeLabel="Artenauswahl schließen"
+                  heading={<SheetTitle>{t('Art wählen')}</SheetTitle>}
+                  closeLabel={t('Artenauswahl schließen')}
                 >
                   {/* The search belongs where the list is: on a phone the
                       header keeps its single row. */}
                   <SearchField
                     query={query}
                     onQueryChange={setQuery}
-                    label="Vogelart suchen"
+                    label={t('Vogelart suchen')}
                     className="shrink-0 min-w-0 picker-search"
                   />
                   {renderLibraryRail(true)}
@@ -1325,10 +1390,10 @@ export default function RaptorApp({
                     className="control-label font-(family-name:--font-stack-body) font-(--weight-medium) text-(length:--type-caption) leading-(--leading-none) tracking-(--tracking-caps) text-(--muted-foreground-stage) uppercase"
                     aria-hidden="true"
                   >
-                    {availablePlumages.length > 2 ? 'Kleid' : 'Alter'}
+                    {availablePlumages.length > 2 ? t('Kleid') : t('Alter')}
                   </span>
                   <SegmentedControl
-                    label="Geschlecht und Alter"
+                    label={t('Geschlecht und Alter')}
                     group={bird.id}
                     value={plumage}
                     options={availablePlumages}
@@ -1342,10 +1407,10 @@ export default function RaptorApp({
                       className="control-label font-(family-name:--font-stack-body) font-(--weight-medium) text-(length:--type-caption) leading-(--leading-none) tracking-(--tracking-caps) text-(--muted-foreground-stage) uppercase text-(--muted-foreground-stage)"
                       aria-hidden="true"
                     >
-                      {morphConfig.label}
+                      {t(morphConfig.label)}
                     </span>
                     <SegmentedControl
-                      label={morphConfig.label}
+                      label={t(morphConfig.label)}
                       group={bird.id}
                       value={morph.id}
                       options={morphOptions}
@@ -1376,15 +1441,17 @@ export default function RaptorApp({
             </div>
             {measurementStrip}
             <div className="image-credit text-(length:--type-credit) text-(--muted-foreground-stage) leading-(--leading-normal) text-center shrink-0 self-stretch py-[calc(var(--space-8)-var(--space-2))] px-3 flex flex-wrap items-baseline justify-center gap-x-3 gap-y-1">
-              <span>KI-generierte Illustration</span>
+              <span>{t('KI-generierte Illustration')}</span>
               <BirdAudioCredit
                 key={bird.id}
                 birdId={bird.id}
-                name={bird.name}
+                name={t(bird.name)}
               />
             </div>
           </main>
-          <AtlasInfoPanel aria-label={`Informationen zum ${bird.name}`}>
+          <AtlasInfoPanel
+            aria-label={t('Informationen zum {name}', { name: t(bird.name) })}
+          >
             <Tabs
               value={infoTab}
               onValueChange={(v) => selectInfoTab(v as BirdInfoTab)}
@@ -1393,7 +1460,7 @@ export default function RaptorApp({
               <TabsList
                 variant="line"
                 className={`${tabStyles.lineRail} info-tab-list z-3 mt-panel mx-panel mb-0 w-[calc(100%-2*var(--panel-padding))]`}
-                aria-label="Informationen"
+                aria-label={t('Informationen')}
                 ref={infoBarRef}
               >
                 <span
@@ -1404,27 +1471,27 @@ export default function RaptorApp({
                 <TabsTrigger
                   className={tabStyles.lineTrigger}
                   value="profil"
-                  data-label="Steckbrief"
+                  data-label={t('Steckbrief')}
                 >
-                  Steckbrief
+                  {t('Steckbrief')}
                 </TabsTrigger>
                 <TabsTrigger
                   className={tabStyles.lineTrigger}
                   value="nahrung"
-                  data-label="Nahrung"
+                  data-label={t('Nahrung')}
                 >
-                  Nahrung
+                  {t('Nahrung')}
                 </TabsTrigger>
                 <TabsTrigger
                   className={tabStyles.lineTrigger}
                   value="lebensraum"
-                  data-label="Vorkommen"
+                  data-label={t('Vorkommen')}
                 >
-                  Vorkommen
+                  {t('Vorkommen')}
                 </TabsTrigger>
                 <InfoFullscreenTrigger
-                  name={bird.name}
-                  href={birdFullscreenHref(bird)}
+                  name={t(bird.name)}
+                  href={localePath(birdFullscreenHref(bird), locale)}
                   onOpen={() => select(bird.id, true)}
                 />
               </TabsList>
@@ -1452,7 +1519,7 @@ export default function RaptorApp({
           </AtlasInfoPanel>
         </SidebarProvider>
         <output className="sr-only" aria-live="polite">
-          {bird.name}
+          {t(bird.name)}
         </output>
       </div>
     </TooltipProvider>

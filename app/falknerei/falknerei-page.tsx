@@ -5,16 +5,27 @@ import { portraitImages } from '@/lib/portrait-images';
 import { imageSource } from '@/lib/optimized-images';
 import { falconryBirds } from '@/lib/falconry';
 import FalconryExplorer from './falconry-explorer';
+import {
+  languageAlternates,
+  localePath,
+  localize,
+  type Locale,
+} from '@/lib/i18n';
+import { serverTranslator } from '@/lib/i18n/en';
 import './falknerei.css';
 
-export const metadata: Metadata = {
-  title: 'Falknerei',
-  alternates: { canonical: '/falknerei' },
-  description:
-    'Falknerei kennenlernen: Beizjagd, Ausrüstung, Beizvögel und der verantwortungsvolle Umgang mit Greifvögeln.',
-};
+export function pageMetadata(locale: Locale): Metadata {
+  const t = serverTranslator(locale);
+  return {
+    title: t('Falknerei'),
+    alternates: languageAlternates('/falknerei', locale),
+    description: t(
+      'Falknerei kennenlernen: Beizjagd, Ausrüstung, Beizvögel und der verantwortungsvolle Umgang mit Greifvögeln.',
+    ),
+  };
+}
 
-export default function FalknereiPage() {
+export default function FalknereiPage({ locale }: { locale: Locale }) {
   /* Die Seite zeigt eine Auswahl; den vollen Satz Beizvögel tragen die
    * Steckbriefe der Arten. */
   const species = Object.entries(falconryBirds).flatMap(([id, falconry]) => {
@@ -26,7 +37,7 @@ export default function FalknereiPage() {
             id,
             name: bird.name,
             latin: bird.latin,
-            href: birdHref(bird),
+            href: localePath(birdHref(bird), locale),
             image: imageSource(birdImage(id, 'male')),
             portrait: imageSource(portraitImages[id]),
             subtitle: falconry.subtitle,
@@ -35,5 +46,7 @@ export default function FalknereiPage() {
         ]
       : [];
   });
-  return <FalconryExplorer species={species} />;
+  return (
+    <FalconryExplorer species={localize(species, serverTranslator(locale))} />
+  );
 }

@@ -16,9 +16,12 @@ import { quizIdentification } from './quiz-identification.ts';
 import { birdRecordings } from './bird-recordings.ts';
 import { displayRangeMaps } from './range-map-catalog.ts';
 import type { QuizBird } from './quiz-engine.ts';
+import { localize, translator, type Translate } from './i18n.ts';
 
 /** Include species with actual ranges; measurements are stored as [min, max] in cm and grams. */
-export function buildQuizBirds(): Record<string, QuizBird> {
+export function buildQuizBirds(
+  t: Translate = translator(null),
+): Record<string, QuizBird> {
   return Object.fromEntries(
     birds.flatMap((bird) => {
       const { span, weight } = bird;
@@ -37,13 +40,19 @@ export function buildQuizBirds(): Record<string, QuizBird> {
               ? [
                   {
                     image: src,
-                    note: morph.adultNote,
-                    label: `${morphs.label}: ${morph.label}`,
+                    note: t(morph.adultNote),
+                    label: `${t(morphs.label)}: ${t(morph.label)}`,
                   },
                 ]
               : [];
           })
-        : [{ image, note: quizIdentification[bird.id] ?? '', label: '' }];
+        : [
+            {
+              image,
+              note: t(quizIdentification[bird.id] ?? ''),
+              label: '',
+            },
+          ];
       const femaleImage = birdImages[`female-${bird.id}`];
       const sexImages =
         femaleImage &&
@@ -52,8 +61,8 @@ export function buildQuizBirds(): Record<string, QuizBird> {
           ? {
               male: image,
               female: femaleImage,
-              maleNote: plumageNoteFor(bird.id, 'male'),
-              femaleNote: plumageNoteFor(bird.id, 'female'),
+              maleNote: t(plumageNoteFor(bird.id, 'male')),
+              femaleNote: t(plumageNoteFor(bird.id, 'female')),
             }
           : undefined;
       const ecology = speciesById[bird.id]?.ecology;
@@ -65,20 +74,20 @@ export function buildQuizBirds(): Record<string, QuizBird> {
           bird.id,
           {
             id: bird.id,
-            name: bird.name,
+            name: t(bird.name),
             latin: bird.latin,
             group: bird.group,
-            identification: quizIdentification[bird.id] ?? '',
+            identification: t(quizIdentification[bird.id] ?? ''),
             identificationImages,
             sexImages,
             recording: birdRecordings[bird.id],
-            range: displayRangeMaps[bird.id],
+            range: displayRangeMaps[bird.id] && localize(displayRangeMaps[bird.id], t),
             image,
             portrait,
             span,
             weight,
             href: '',
-            hunting: hunts[bird.id]?.text ?? '',
+            hunting: t(hunts[bird.id]?.text ?? ''),
             huntingTags: [...(speciesById[bird.id]?.ecology.huntingTags ?? [])],
             habitats: speciesLandscapes[bird.id] ?? [],
             typicalPrey: (ecology?.prey ?? [])

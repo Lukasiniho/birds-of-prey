@@ -1,4 +1,5 @@
 'use client';
+import { useI18n } from '@/components/i18n';
 import {
   QuizSplit,
   QuizSpecimen,
@@ -26,6 +27,7 @@ export function SexQuestion({
   answered: boolean;
   onChange: (choice: string) => void;
 }) {
+  const { t } = useI18n();
   return (
     <QuizSplit className="q-hunt-split">
       <QuizSpecimen className="q-hunt-specimen">
@@ -50,15 +52,18 @@ export function SexQuestion({
                 <ArtImage
                   className={`${QUIZ_FLIGHT_FRAME} block mx-auto`}
                   src={image}
-                  alt={`Bild ${index + 1}: ${bird.name} im Flug`}
+                  alt={t('Bild {index}: {name} im Flug', {
+                    index: index + 1,
+                    name: bird.name,
+                  })}
                   width={1000}
                   height={1000}
                   displayWidth={260}
                   draggable={false}
                 />
                 <figcaption className="q-art-note mt-2 text-(length:--type-ui) text-muted-foreground text-center">
-                  Bild {index + 1}
-                  {answered && ` · ${female ? 'Weibchen' : 'Männchen'}`}
+                  {t('Bild {index}', { index: index + 1 })}
+                  {answered && ` · ${female ? t('Weibchen') : t('Männchen')}`}
                 </figcaption>
               </figure>
             );
@@ -68,18 +73,20 @@ export function SexQuestion({
       <QuizPrompt
         label={
           <>
-            <ArrowsLeftRight size={17} /> Geschlechter zuordnen
+            <ArrowsLeftRight size={17} /> {t('Geschlechter zuordnen')}
           </>
         }
-        title="Weibchen oder Männchen?"
-        description="Vergleiche die beiden Altvögel und ordne die Geschlechter zu."
+        title={t('Weibchen oder Männchen?')}
+        description={t(
+          'Vergleiche die beiden Altvögel und ordne die Geschlechter zu.',
+        )}
       >
         <QuizChoices
           options={question.options}
           label={(option) =>
             option === 'female-first'
-              ? 'Bild 1: Weibchen · Bild 2: Männchen'
-              : 'Bild 1: Männchen · Bild 2: Weibchen'
+              ? t('Bild 1: Weibchen · Bild 2: Männchen')
+              : t('Bild 1: Männchen · Bild 2: Weibchen')
           }
           choice={choice}
           correct={question.correct}

@@ -11,6 +11,8 @@ import FalconryWorld from './falconry-world';
 import PreyExplorer from './prey-explorer';
 import TechniqueExplorer from './technique-explorer';
 import GlossaryExplorer from './glossary-explorer';
+import { useI18n } from '@/components/i18n';
+import { currentUrl, localePath, msg } from '@/lib/i18n';
 import type {
   KnowledgeBird,
   PreyEntry,
@@ -18,11 +20,11 @@ import type {
 } from './knowledge-data';
 
 const sections = [
-  { id: 'falknerei', label: 'Falknerei' },
-  { id: 'jagdtiere', label: 'Jagdtiere' },
-  { id: 'jagdtechniken', label: 'Jagdtechniken' },
-  { id: 'koerperbau', label: 'Körperbau' },
-  { id: 'glossar', label: 'Glossar' },
+  { id: 'falknerei', label: msg('Falknerei') },
+  { id: 'jagdtiere', label: msg('Jagdtiere') },
+  { id: 'jagdtechniken', label: msg('Jagdtechniken') },
+  { id: 'koerperbau', label: msg('Körperbau') },
+  { id: 'glossar', label: msg('Glossar') },
 ];
 
 export default function KnowledgeExplorer({
@@ -34,6 +36,7 @@ export default function KnowledgeExplorer({
   prey: PreyEntry[];
   techniques: TechniqueEntry[];
 }) {
+  const { locale, t } = useI18n();
   const section = useSyncExternalStore(
     (notify) => {
       window.addEventListener('hashchange', notify);
@@ -44,7 +47,7 @@ export default function KnowledgeExplorer({
       };
     },
     () => {
-      const hash = window.location.hash.slice(1);
+      const hash = currentUrl().hash.slice(1);
       return sections.some((item) => item.id === hash) ? hash : 'falknerei';
     },
     () => 'falknerei',
@@ -60,15 +63,19 @@ export default function KnowledgeExplorer({
     <div className="app-shell section-shell knowledge-shell">
       <SiteHeader activeSection="wissen" />
       <main className="knowledge-main w-full page-content">
-        <PageHeader title="Greifvögel verstehen" />
+        <PageHeader title={t('Greifvögel verstehen')} />
         <Tabs
           value={section}
           onValueChange={(value) => {
             const next = String(value);
-            const url = new URL(window.location.href);
+            const url = currentUrl();
             url.hash = next;
             if (next !== 'glossar') url.searchParams.delete('begriff');
-            window.history.replaceState(window.history.state, '', url);
+            window.history.replaceState(
+              window.history.state,
+              '',
+              localePath(url.pathname + url.search + url.hash, locale),
+            );
             window.dispatchEvent(new HashChangeEvent('hashchange'));
           }}
           className="knowledge-explorer gap-6"
@@ -76,7 +83,7 @@ export default function KnowledgeExplorer({
           <TabsList
             variant="line"
             className={`${tabStyles.lineRail} knowledge-tabs`}
-            aria-label="Wissensbereiche"
+            aria-label={t('Wissensbereiche')}
             ref={barRef}
           >
             <span
@@ -89,9 +96,9 @@ export default function KnowledgeExplorer({
                 key={id}
                 value={id}
                 className={tabStyles.lineTrigger}
-                data-label={label}
+                data-label={t(label)}
               >
-                {label}
+                {t(label)}
               </TabsTrigger>
             ))}
           </TabsList>

@@ -2,6 +2,8 @@
 
 import { FactTooltip } from '@/components/fact-tooltip';
 import type { SpeciesFact } from '@/lib/species-facts';
+import { useI18n } from '@/components/i18n';
+import { msg } from '@/lib/i18n';
 
 /* Der Tagesbogen: ein 24-Stunden-Zifferblatt, Mitternacht unten, Mittag oben.
  * Die Linie in der Mitte ist der Horizont — darüber liegt der Tag, darunter die
@@ -19,11 +21,11 @@ const windows = {
 } as const;
 type ActivityType = keyof typeof windows;
 const explanations: Record<ActivityType, string> = {
-  tag: 'Die Art jagt und fliegt bei Tageslicht. Viele Greifvögel warten dabei den Vormittag ab, bis die Sonne die Luft erwärmt und die Thermik das Kreisen trägt.',
+  tag: msg('Die Art jagt und fliegt bei Tageslicht. Viele Greifvögel warten dabei den Vormittag ab, bis die Sonne die Luft erwärmt und die Thermik das Kreisen trägt.'),
   'tag-daemmerung':
-    'Der Schwerpunkt liegt am Tag, doch die Art nutzt auch die Stunden um Sonnenauf- und Sonnenuntergang, wenn viele Beutetiere in Bewegung sind.',
+    msg('Der Schwerpunkt liegt am Tag, doch die Art nutzt auch die Stunden um Sonnenauf- und Sonnenuntergang, wenn viele Beutetiere in Bewegung sind.'),
   'daemmerung-nacht':
-    'Die Art jagt in der Dämmerung und bei Dunkelheit. Tagsüber ruht sie meist gut getarnt an einem festen Ansitz.',
+    msg('Die Art jagt in der Dämmerung und bei Dunkelheit. Tagsüber ruht sie meist gut getarnt an einem festen Ansitz.'),
 };
 
 function activityType(value: string): ActivityType {
@@ -49,14 +51,16 @@ function arc(from: number, to: number) {
 }
 
 export function ActivityTooltip({ fact }: { fact: SpeciesFact }) {
+  const { t } = useI18n();
   const type = activityType(fact.value);
   const [from, to] = windows[type];
+  const value = t(fact.value);
   return (
     <FactTooltip
-      value={fact.value}
-      describe={`${fact.value}: Aktivitätszeit erklären`}
+      value={value}
+      describe={t('{value}: Aktivitätszeit erklären', { value })}
     >
-      <p className="app-tooltip-title">Aktivitätszeit</p>
+      <p className="app-tooltip-title">{t('Aktivitätszeit')}</p>
       <svg
         /* Zugeschnitten auf Horizontlinie und Ring — der Bogen ist 5 breit
            und hat runde Enden, der Rahmen lässt ihm die halbe Strichbreite
@@ -64,7 +68,10 @@ export function ActivityTooltip({ fact }: { fact: SpeciesFact }) {
         viewBox="44 12 112 86"
         className="mx-auto block w-[150px] max-w-full"
         role="img"
-        aria-label={`Tagesbogen: aktiv von etwa ${from} bis ${to} Uhr`}
+        aria-label={t('Tagesbogen: aktiv von etwa {from} bis {to} Uhr', {
+          from,
+          to,
+        })}
       >
         {/* Tageshälfte über dem Horizont, als ruhige Fläche hinter dem Bogen. */}
         <path d={`${arc(6, 18)} Z`} fill="var(--line-soft)" stroke="none" />
@@ -113,12 +120,12 @@ export function ActivityTooltip({ fact }: { fact: SpeciesFact }) {
         className="flex justify-between gap-4 text-muted-foreground"
         aria-hidden="true"
       >
-        <span>Sonnenaufgang</span>
-        <span>Sonnenuntergang</span>
+        <span>{t('Sonnenaufgang')}</span>
+        <span>{t('Sonnenuntergang')}</span>
       </div>
-      <p className="app-tooltip-title">{fact.value}</p>
-      <p>{explanations[type]}</p>
-      {fact.note && <p className="text-muted-foreground">{fact.note}</p>}
+      <p className="app-tooltip-title">{value}</p>
+      <p>{t(explanations[type])}</p>
+      {fact.note && <p className="text-muted-foreground">{t(fact.note)}</p>}
     </FactTooltip>
   );
 }

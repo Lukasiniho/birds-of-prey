@@ -4,6 +4,7 @@ import { Button as ButtonPrimitive } from '@base-ui/react/button';
 import type { ComponentProps, ReactNode } from 'react';
 import { X } from '@/components/icons';
 import { cn } from '@/lib/utils';
+import { useT } from '@/components/i18n';
 
 const control =
   'inline-flex shrink-0 items-center justify-center rounded-(--radius-control) p-0 text-foreground bg-background hover:bg-(--hover) disabled:opacity-50';
@@ -12,13 +13,14 @@ const closeGeometry =
 
 /** Base UI supplies event handlers/ref through render; geometry stays private. */
 export function CloseControl({
-  'aria-label': label = 'Schließen',
+  'aria-label': label,
   ...props
 }: Omit<ButtonPrimitive.Props, 'className' | 'style' | 'children'>) {
+  const t = useT();
   return (
     <ButtonPrimitive
       {...props}
-      aria-label={label}
+      aria-label={label ?? t('Schließen')}
       data-close-control="surface"
       className={cn(control, closeGeometry)}
     >
@@ -61,13 +63,14 @@ export function CloseLink({
 }
 
 export function FieldClear({
-  'aria-label': label = 'Auswahl leeren',
+  'aria-label': label,
   ...props
 }: Omit<ButtonPrimitive.Props, 'className' | 'style' | 'children'>) {
+  const t = useT();
   return (
     <ButtonPrimitive
       {...props}
-      aria-label={label}
+      aria-label={label ?? t('Auswahl leeren')}
       data-close-control="field"
       className={cn(
         control,

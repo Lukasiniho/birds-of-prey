@@ -1,3 +1,5 @@
+import { translator, type Locale, type Translate } from './i18n.ts';
+
 export type GlossaryCategory =
   | 'Körper & Gefieder'
   | 'Flug & Jagd'
@@ -564,21 +566,29 @@ export function normalizeGlossarySearch(value: string) {
     .replace(/[\u0300-\u036f]/g, '');
 }
 
+/** Searches and sorts in the page language; `t` defaults to German. */
 export function filterGlossary(
   query: string,
   category: GlossaryCategory | 'Alle' = 'Alle',
+  t: Translate = translator(null),
+  locale: Locale = 'de',
 ) {
   const words = normalizeGlossarySearch(query)
     .trim()
     .split(/\s+/)
     .filter(Boolean);
-  return glossaryEntries.filter((entry) => {
+  const entries = glossaryEntries.filter((entry) => {
     const text = normalizeGlossarySearch(
-      [entry.term, ...(entry.aliases ?? []), entry.definition].join(' '),
+      [entry.term, ...(entry.aliases ?? []), entry.definition]
+        .map((item) => t(item))
+        .join(' '),
     );
     return (
       (category === 'Alle' || entry.category === category) &&
       words.every((word) => text.includes(word))
     );
   });
+  return locale === 'de'
+    ? entries
+    : entries.sort((a, b) => t(a.term).localeCompare(t(b.term), locale));
 }

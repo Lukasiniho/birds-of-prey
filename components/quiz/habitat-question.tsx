@@ -1,4 +1,5 @@
 'use client';
+import { useI18n } from '@/components/i18n';
 import { QuizIncorrectIcon } from '@/components/quiz/incorrect-icon';
 
 import { useRef, useState, type PointerEvent } from 'react';
@@ -27,6 +28,7 @@ export function HabitatQuestion({
   answered: boolean;
   onChange: (draft: Draft) => void;
 }) {
+  const { t } = useI18n();
   const [selected, setSelected] = useState(question.birdIds[0]);
   const [drag, setDrag] = useState<{
     id: string;
@@ -40,7 +42,7 @@ export function HabitatQuestion({
   const dragged = useRef(false);
   const boardRef = useRef<HTMLDivElement>(null);
   const corrections = answered
-    ? quizHabitatCorrections(question, draft.placements, birds)
+    ? quizHabitatCorrections(question, draft.placements, birds, t)
     : [];
 
   function place(id: string, habitatId: string) {
@@ -55,7 +57,10 @@ export function HabitatQuestion({
       ) ?? id,
     );
     setAnnouncement(
-      `${birds[id].name} zu ${habitats.find((habitat) => habitat.id === habitatId)!.label} zugeordnet.`,
+      t('{name} zu {habitat} zugeordnet.', {
+        name: birds[id].name,
+        habitat: habitats.find((habitat) => habitat.id === habitatId)!.label,
+      }),
     );
   }
   function targetAt(x: number, y: number) {
@@ -96,16 +101,18 @@ export function HabitatQuestion({
         className="q-habitat-heading"
         label={
           <>
-            <MapPin size={17} /> Finde ein passendes Zuhause
+            <MapPin size={17} /> {t('Finde ein passendes Zuhause')}
           </>
         }
-        description="Ordne die Vögel durch Ziehen oder Antippen zu. Mehrere Vögel dürfen dieselbe Landschaft teilen."
+        description={t(
+          'Ordne die Vögel durch Ziehen oder Antippen zu. Mehrere Vögel dürfen dieselbe Landschaft teilen.',
+        )}
       >
-        Wer lebt denn hier?
+        {t('Wer lebt denn hier?')}
       </QuizTaskHeading>
       <div
         className="q-habitat-birds grid grid-cols-4 gap-3 to-desktop:grid-cols-2 to-tablet:gap-2 to-phone:grid-cols-1"
-        aria-label="Vögel zum Zuordnen"
+        aria-label={t('Vögel zum Zuordnen')}
         data-quiz-confirm
       >
         {question.birdIds.map((id) => {
@@ -116,8 +123,10 @@ export function HabitatQuestion({
             answered && birds[id].habitats.includes(draft.placements[id]);
           const correction = corrections.find((item) => item.birdId === id);
           const habitatLabel = correction
-            ? `Richtig: ${correction.habitats.join(' / ')}`
-            : (placement?.label ?? 'Noch auf der Suche');
+            ? t('Richtig: {habitats}', {
+                habitats: correction.habitats.join(' / '),
+              })
+            : (placement?.label ?? t('Noch auf der Suche'));
           return (
             <button
               key={id}
@@ -128,7 +137,7 @@ export function HabitatQuestion({
               data-correct={correct}
               data-wrong={answered && !correct}
               data-dragging={drag?.moved && drag.id === id}
-              aria-label={`${birds[id].name}${placement ? `, zugeordnet zu ${placement.label}` : ', noch nicht zugeordnet'}${correction ? `. ${habitatLabel}` : ''}`}
+              aria-label={`${birds[id].name}${placement ? t(', zugeordnet zu {habitat}', { habitat: placement.label }) : t(', noch nicht zugeordnet')}${correction ? `. ${habitatLabel}` : ''}`}
               onClick={() => {
                 if (dragged.current) {
                   dragged.current = false;
@@ -182,13 +191,13 @@ export function HabitatQuestion({
                 <Check
                   className="shrink-0 w-[14px] to-desktop:hidden"
                   size={16}
-                  aria-label="Richtig zugeordnet"
+                  aria-label={t('Richtig zugeordnet')}
                 />
               ) : answered ? (
                 <QuizIncorrectIcon
                   className="shrink-0 w-[14px] to-desktop:hidden"
                   size={16}
-                  aria-label="Falsch zugeordnet"
+                  aria-label={t('Falsch zugeordnet')}
                 />
               ) : (
                 <Grip
@@ -203,7 +212,7 @@ export function HabitatQuestion({
       <div
         ref={boardRef}
         className="q-habitat-board [&:is(.q-habitat-birds+*)]:mt-5 grid grid-cols-4 gap-4 to-tablet:grid-cols-[1fr_1fr] to-tablet:gap-3"
-        aria-label="Landschaften"
+        aria-label={t('Landschaften')}
         data-quiz-confirm
       >
         {habitats.map((habitat) => {
@@ -217,7 +226,7 @@ export function HabitatQuestion({
               data-habitat-zone={habitat.id}
               data-hover={hover === habitat.id}
               disabled={answered}
-              aria-label={`${birds[selected].name} zu ${habitat.label} zuordnen${residents.length ? `. Hier: ${residents.map((id) => birds[id].name).join(', ')}` : ''}`}
+              aria-label={`${t('{name} zu {habitat} zuordnen', { name: birds[selected].name, habitat: habitat.label })}${residents.length ? t('. Hier: {names}', { names: residents.map((id) => birds[id].name).join(', ') }) : ''}`}
               onClick={() => place(selected, habitat.id)}
             >
               <div className="q-landscape relative w-full shrink-0 overflow-hidden">
@@ -270,20 +279,20 @@ export function HabitatQuestion({
                           <Check
                             className="shrink-0 ml-auto"
                             size={18}
-                            aria-label="Richtig zugeordnet"
+                            aria-label={t('Richtig zugeordnet')}
                           />
                         ) : (
                           <QuizIncorrectIcon
                             className="shrink-0 ml-auto"
                             size={18}
-                            aria-label="Falsch zugeordnet"
+                            aria-label={t('Falsch zugeordnet')}
                           />
                         ))}
                     </span>
                   ))
                 ) : (
                   <span className="q-drop-label justify-center h-[34px] mt-auto flex items-center gap-(--space-8) min-h-[56px] py-(--space-8) px-(--space-12) font-(--weight-medium) leading-(--leading-compact) text-left">
-                    <Plus className="shrink-0" size={16} /> Hier zuordnen
+                    <Plus className="shrink-0" size={16} /> {t('Hier zuordnen')}
                   </span>
                 )}
               </div>

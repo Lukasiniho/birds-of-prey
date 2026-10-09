@@ -1,4 +1,5 @@
 'use client';
+import { useI18n } from '@/components/i18n';
 import { QuizIncorrectIcon } from '@/components/quiz/incorrect-icon';
 
 import { QuizChoiceHeading } from '@/components/quiz/task-heading';
@@ -24,6 +25,7 @@ export function WingComparison({
   answered: boolean;
   onChange: (id: string) => void;
 }) {
+  const { t } = useI18n();
   return (
     <div
       className="q-comparison-task p-panel min-w-0 m-0 border-0 bg-stage"
@@ -32,17 +34,17 @@ export function WingComparison({
       <QuizChoiceHeading
         label={
           <>
-            <ArrowLeftRight size={17} /> Flügel im Vergleich
+            <ArrowLeftRight size={17} /> {t('Flügel im Vergleich')}
           </>
         }
-        description={<>Wähle den Vogel mit der größten Spannweite.</>}
+        description={<>{t('Wähle den Vogel mit der größten Spannweite.')}</>}
       >
-        Welcher dieser vier Vögel hat die größte Spannweite?
+        {t('Welcher dieser vier Vögel hat die größte Spannweite?')}
       </QuizChoiceHeading>
       <fieldset
         className="q-comparison-options border-0 grid-cols-4 to-compact:grid-cols-2 to-phone:grid-cols-[1fr] to-phone:gap-3 min-w-0 m-0 p-0 grid gap-4"
         data-quiz-confirm
-        aria-label="Vogel mit der größten Spannweite wählen"
+        aria-label={t('Vogel mit der größten Spannweite wählen')}
       >
         {question.birdIds.map((id) => {
           const bird = birds[id];
