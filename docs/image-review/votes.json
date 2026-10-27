@@ -1,0 +1,502 @@
+{
+  "portraits": {
+    "rotschwanzbussard": {
+      "src": "/birds/portrait-rotschwanzbussard-20260912-v3.png?v=02b101836cc6",
+      "verdict": "good",
+      "tags": [],
+      "note": ""
+    },
+    "habicht": {
+      "src": "/birds/portrait-habicht-20260912.png?v=537c94c4750d",
+      "verdict": "good",
+      "tags": [],
+      "note": "",
+      "proposal": "accept",
+      "proposalNote": ""
+    },
+    "maeusebussard": {
+      "src": "/birds/portrait-maeusebussard-20260912-v3.png?v=330859272793",
+      "verdict": "good",
+      "tags": [],
+      "note": ""
+    },
+    "wanderfalke": {
+      "src": "/birds/portrait-wanderfalke-20260912-v3.png?v=a0507ca91d27",
+      "verdict": "good",
+      "tags": [],
+      "note": ""
+    },
+    "fischadler": {
+      "src": "/birds/portrait-fischadler-20260913-v4.png?v=5114095dc3e1",
+      "verdict": "issue",
+      "tags": [
+        "cutout/halo"
+      ],
+      "note": "cutout wrong... see the top right",
+      "proposal": "accept",
+      "proposalNote": ""
+    },
+    "seeadler": {
+      "src": "/birds/portrait-seeadler.png?v=a5aee8028f73",
+      "verdict": "good",
+      "tags": [],
+      "note": ""
+    },
+    "steinadler": {
+      "src": "/birds/portrait-steinadler-20260913.png?v=9e89d0011bfe",
+      "verdict": "good",
+      "tags": [],
+      "note": ""
+    },
+    "turmfalke": {
+      "src": "/birds/portrait-turmfalke-20260913-feather-ends.png?v=c19d6c0e1eff",
+      "verdict": "good",
+      "tags": [],
+      "note": ""
+    },
+    "schreiseeadler": {
+      "src": "/birds/portrait-schreiseeadler-20260913.png",
+      "verdict": "good",
+      "tags": [],
+      "note": ""
+    },
+    "wuestenbussard": {
+      "src": "/birds/portrait-wuestenbussard-20260912.png?v=6f4f19d1ad76",
+      "verdict": "good",
+      "tags": [],
+      "note": ""
+    },
+    "gaensegeier": {
+      "src": "/birds/portrait-gaensegeier-20260913.png",
+      "verdict": "good",
+      "tags": [],
+      "note": ""
+    },
+    "schleiereule": {
+      "src": "/birds/portrait-schleiereule-20260913.png",
+      "verdict": "issue",
+      "tags": [
+        "pose/perspective"
+      ],
+      "note": "",
+      "proposal": "accept",
+      "proposalNote": ""
+    },
+    "kaiseradler": {
+      "src": "/birds/portrait-kaiseradler-20260913-v2.png?v=f0a6c9d84ded",
+      "verdict": "good",
+      "tags": [],
+      "note": ""
+    },
+    "steppenadler": {
+      "src": "/birds/portrait-steppenadler-20260913-v2.png?v=3ee8c3a2e036",
+      "verdict": "issue",
+      "tags": [
+        "cutout/halo"
+      ],
+      "note": "cutoff wonky",
+      "proposal": "accept",
+      "proposalNote": ""
+    },
+    "sekretaer": {
+      "src": "/birds/portrait-sekretaer-20260913.png?v=a7d0a92b8af1",
+      "verdict": "issue",
+      "tags": [],
+      "note": "looks like on weed",
+      "proposal": "accept",
+      "proposalNote": "face good, but waaay to much Hals.... fucking hell"
+    },
+    "andenkondor": {
+      "src": "/birds/portrait-andenkondor-20260913-v2.png?v=74ec4974bb84",
+      "verdict": "good",
+      "tags": [
+        "too painted"
+      ],
+      "note": ""
+    },
+    "wespenbussard": {
+      "src": "/birds/portrait-wespenbussard-20260913-middle.png?v=a8ea539d02e6",
+      "verdict": "good",
+      "tags": [],
+      "note": ""
+    },
+    "bartgeier": {
+      "src": "/birds/portrait-bartgeier-20260913.png?v=3d8bd118c97c",
+      "verdict": "issue",
+      "tags": [
+        "cutout/halo"
+      ],
+      "note": "cutout off,",
+      "proposal": "accept",
+      "proposalNote": ""
+    },
+    "kronenadler": {
+      "src": "/birds/portrait-kronenadler-20260913-v5.png?v=c0d79b9b3289",
+      "verdict": "good",
+      "tags": [],
+      "note": ""
+    },
+    "habichtsadler": {
+      "src": "/birds/portrait-habichtsadler-20260913-v2.png?v=772772fecfcc",
+      "verdict": "good",
+      "tags": [],
+      "note": ""
+    },
+    "iberienadler": {
+      "src": "/birds/portrait-iberienadler-20260913-v2.png?v=702a7b3ae090",
+      "verdict": "good",
+      "tags": [],
+      "note": ""
+    },
+    "klippenadler": {
+      "src": "/birds/portrait-klippenadler-20260913.png?v=6798d6c08031",
+      "verdict": "good",
+      "tags": [],
+      "note": ""
+    },
+    "zwergadler": {
+      "src": "/birds/portrait-zwergadler-20260913-v2.png?v=12d9c43cc093",
+      "verdict": "issue",
+      "tags": [
+        "cutout/halo"
+      ],
+      "note": "perspective off, beak cut off",
+      "proposal": "accept",
+      "proposalNote": ""
+    },
+    "weisskopfseeadler": {
+      "src": "/birds/portrait-weisskopfseeadler-20260913-v2.png?v=dab61d6475c2",
+      "verdict": "issue",
+      "tags": [
+        "cutout/halo"
+      ],
+      "note": "cutout bad, not clean",
+      "proposal": "accept",
+      "proposalNote": ""
+    },
+    "uhu": {
+      "src": "/birds/portrait-uhu.png?v=841e50dbeb3f",
+      "verdict": "issue",
+      "tags": [
+        "pose/perspective"
+      ],
+      "note": "perspective off",
+      "proposal": "accept",
+      "proposalNote": ""
+    },
+    "riesenseeadler": {
+      "src": "/birds/portrait-riesenseeadler-20260913.png?v=3549427b35c4",
+      "verdict": "good",
+      "tags": [],
+      "note": ""
+    },
+    "gaukler": {
+      "src": "/birds/portrait-gaukler-20260913-v3.png?v=eec0cf730ad3",
+      "verdict": "good",
+      "tags": [],
+      "note": ""
+    },
+    "aguja": {
+      "src": "/birds/portrait-aguja-20260913-v4.png?v=fc1de3101d59",
+      "verdict": "issue",
+      "tags": [],
+      "note": "looks ai genereated.. weird feathers",
+      "proposal": "accept",
+      "proposalNote": ""
+    },
+    "sperber": {
+      "src": "/birds/portrait-sperber-20260913.png?v=70e20f757c72",
+      "verdict": "good",
+      "tags": [],
+      "note": ""
+    },
+    "weissstorch": {
+      "src": "/birds/portrait-weissstorch-20260913.png?v=ae94be04eedc",
+      "verdict": "good",
+      "tags": [],
+      "note": ""
+    },
+    "kampfadler": {
+      "src": "/birds/portrait-kampfadler-20260913.png?v=464c04692cc5",
+      "verdict": "good",
+      "tags": [
+        "cutout/halo"
+      ],
+      "note": ""
+    },
+    "virginiauhu": {
+      "src": "/birds/portrait-virginiauhu.png?v=d1df1d82ce1a",
+      "verdict": "issue",
+      "tags": [
+        "pose/perspective"
+      ],
+      "note": "",
+      "proposal": "accept",
+      "proposalNote": ""
+    },
+    "harpyie": {
+      "src": "/birds/portrait-harpyie-20260913-v2.png?v=92facf03698b",
+      "verdict": "good",
+      "tags": [],
+      "note": ""
+    },
+    "koenigsbussard": {
+      "src": "/birds/portrait-koenigsbussard-20260912-v3.png?v=70d5978a2d83",
+      "verdict": "issue",
+      "tags": [
+        "cutout/halo"
+      ],
+      "note": "",
+      "proposal": "accept",
+      "proposalNote": ""
+    },
+    "baumfalke": {
+      "src": "/birds/portrait-baumfalke-20260913-v3.png?v=9b8fbb694139",
+      "verdict": "issue",
+      "tags": [
+        "cutout/halo"
+      ],
+      "note": "rightside",
+      "proposal": "accept",
+      "proposalNote": "broo, terrible again, look at the weird gradient on the right...."
+    },
+    "falklandkarakara": {
+      "src": "/birds/portrait-falklandkarakara-20260913-v2.png?v=d581db093e79",
+      "verdict": "good",
+      "tags": [],
+      "note": ""
+    },
+    "schopfkarakara": {
+      "src": "/birds/portrait-schopfkarakara-20260913.png?v=366e156cb1a4",
+      "verdict": "good",
+      "tags": [],
+      "note": ""
+    },
+    "lannerfalke": {
+      "src": "/birds/portrait-lannerfalke-20260913-feather-ends.png?v=0787bf2419c7",
+      "verdict": "issue",
+      "tags": [
+        "cutout/halo"
+      ],
+      "note": "needs A BIT less Hals compare with baumfalke or gerfalke",
+      "proposal": "accept",
+      "proposalNote": ""
+    },
+    "rotmilan": {
+      "src": "/birds/portrait-rotmilan-20260913.png?v=6cbcae067b73",
+      "verdict": "good",
+      "tags": [],
+      "note": ""
+    },
+    "schwarzmilan": {
+      "src": "/birds/portrait-schwarzmilan-20260913-v2.png?v=b5ea9599584c",
+      "verdict": "good",
+      "tags": [],
+      "note": ""
+    },
+    "sakerfalke": {
+      "src": "/birds/portrait-sakerfalke-20260913-feather-ends.png?v=2f2e59d1b2e9",
+      "verdict": "good",
+      "tags": [],
+      "note": ""
+    },
+    "gerfalke": {
+      "src": "/birds/portrait-gerfalke-20260913-v2.png?v=90d06afcb520",
+      "verdict": "good",
+      "tags": [],
+      "note": ""
+    }
+  },
+  "flight": {
+    "zwergadler/male": {
+      "src": "/birds/zwergadler-20260913-v2.png",
+      "verdict": "issue",
+      "tags": [
+        "too painted"
+      ],
+      "note": "",
+      "proposal": "accept",
+      "proposalNote": ""
+    },
+    "zwergadler/juvenile": {
+      "src": "/birds/juvenile-zwergadler-20260913-v2.png",
+      "verdict": "issue",
+      "tags": [
+        "too painted"
+      ],
+      "note": "",
+      "proposal": "accept",
+      "proposalNote": ""
+    },
+    "zwergadler/dunkel-male": {
+      "src": "/birds/morph-zwergadler-dark-adult-20260913-v2.png",
+      "verdict": "good",
+      "tags": [
+        "too painted"
+      ],
+      "note": "we stay with the original",
+      "proposalRound1": {
+        "proposal": "reject",
+        "note": "pls a bit closer to the original"
+      }
+    },
+    "zwergadler/dunkel-juvenile": {
+      "src": "/birds/morph-zwergadler-dark-juvenile-20260913-v2.png",
+      "verdict": "good",
+      "tags": [
+        "too painted"
+      ],
+      "note": "we stay with the original",
+      "proposalRound1": {
+        "proposal": "reject",
+        "note": "pls a bit closer to the original"
+      }
+    },
+    "klippenadler/male": {
+      "src": "/birds/klippenadler-20260913-v3.png",
+      "verdict": "issue",
+      "tags": [
+        "too painted"
+      ],
+      "note": "",
+      "proposal": "accept",
+      "proposalNote": ""
+    },
+    "iberienadler/juvenile": {
+      "src": "/birds/juvenile-iberienadler-20260913-v2.png",
+      "verdict": "issue",
+      "tags": [
+        "too painted"
+      ],
+      "note": "",
+      "proposal": "accept",
+      "proposalNote": ""
+    },
+    "iberienadler/male": {
+      "src": "/birds/iberienadler-20260913-v2.png",
+      "verdict": "issue",
+      "tags": [
+        "too painted"
+      ],
+      "note": "",
+      "proposal": "accept",
+      "proposalNote": ""
+    },
+    "klippenadler/juvenile": {
+      "src": "/birds/juvenile-klippenadler-20260913-v3.png",
+      "verdict": "issue",
+      "tags": [
+        "too painted"
+      ],
+      "note": "",
+      "proposal": "accept",
+      "proposalNote": ""
+    },
+    "habichtsadler/juvenile": {
+      "src": "/birds/juvenile-habichtsadler-20260913-v2-centered.png",
+      "verdict": "issue",
+      "tags": [
+        "too painted"
+      ],
+      "note": "",
+      "proposal": "accept",
+      "proposalNote": ""
+    },
+    "habichtsadler/male": {
+      "src": "/birds/habichtsadler-20260913-v2-centered.png",
+      "verdict": "issue",
+      "tags": [
+        "too painted"
+      ],
+      "note": "",
+      "proposal": "accept",
+      "proposalNote": ""
+    },
+    "kronenadler/juvenile": {
+      "src": "/birds/juvenile-kronenadler-20260913-v3.png",
+      "verdict": "good",
+      "tags": [
+        "too painted"
+      ],
+      "note": "keep the old one",
+      "proposal": null,
+      "proposalNote": ""
+    },
+    "kronenadler/male": {
+      "src": "/birds/kronenadler-20260913-v3.png",
+      "verdict": "good",
+      "tags": [
+        "too painted"
+      ],
+      "note": "keep the old one",
+      "proposal": null,
+      "proposalNote": ""
+    },
+    "steppenadler/juvenile": {
+      "src": "/birds/juvenile-steppenadler-20260913-v4.png",
+      "verdict": "issue",
+      "tags": [
+        "too painted"
+      ],
+      "note": "",
+      "proposal": "accept",
+      "proposalNote": ""
+    },
+    "steppenadler/male": {
+      "src": "/birds/steppenadler-20260913-v4.png",
+      "verdict": "issue",
+      "tags": [
+        "too painted"
+      ],
+      "note": "",
+      "proposal": "accept",
+      "proposalNote": ""
+    }
+  },
+  "hunting": {
+    "habichtsadler": {
+      "src": "/birds/hunting-habichtsadler.png",
+      "verdict": "issue",
+      "tags": [
+        "too painted"
+      ],
+      "note": "",
+      "proposal": "accept",
+      "proposalSrc": "/proposals/hunting/habichtsadler.png?t=1793130280679.6646",
+      "proposalNote": ""
+    },
+    "iberienadler": {
+      "src": "/birds/hunting-iberienadler.png",
+      "verdict": "issue",
+      "tags": [
+        "too painted"
+      ],
+      "note": "",
+      "proposal": "accept",
+      "proposalNote": ""
+    },
+    "zwergadler": {
+      "src": "/birds/hunting-zwergadler.png",
+      "verdict": "issue",
+      "tags": [
+        "too painted"
+      ],
+      "note": "",
+      "proposal": "accept",
+      "proposalNote": ""
+    },
+    "klippenadler": {
+      "src": "/birds/hunting-klippenadler.png",
+      "verdict": "issue",
+      "tags": [
+        "too painted"
+      ],
+      "note": "",
+      "proposal": "accept",
+      "proposalNote": ""
+    }
+  },
+  "decisions": {
+    "zwergadler-dark-morph": "revert-all"
+  }
+}
