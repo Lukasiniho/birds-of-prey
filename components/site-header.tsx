@@ -42,8 +42,8 @@ const siteLinks = [
   { label: msg('Meine Webseite'), href: 'https://lukasvonhohnhorst.com' },
   { label: msg('Lerntracking-App „Athenify“'), href: 'https://athenify.io' },
   {
-    label: msg('Geschichtsatlas „World War Atlas“'),
-    href: 'https://worldwaratlas.com',
+    label: msg('Geschichtsatlas „Great War Atlas“'),
+    href: 'https://greatwaratlas.com',
   },
   { label: msg('Kartenspiel „Hexarcana“'), href: 'https://hexarcana-game.com' },
   {
